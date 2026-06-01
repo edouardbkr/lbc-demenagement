@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aperçu mobile · LBC*</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:ital,wght@0,600;1,600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#EFE5CD; --paper-2:#F6EEDA; --ink:#1F3A4B; --ink-2:#2C4A5C;
+    --ink-deep:#15293A; --muted:#6B7D88; --accent:#D75B3D; --cream:#F2E8CF;
+    --rule:rgba(242,232,207,0.16);
+    --sans:'DM Sans',-apple-system,system-ui,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:var(--sans); color:var(--cream);
+    background:
+      radial-gradient(120% 90% at 50% -10%, #1d3445 0%, var(--ink-deep) 60%, #0f2230 100%);
+    display:flex; flex-direction:column; overflow:hidden;
+  }
+
+  /* ---------- Top bar ---------- */
+  .bar{
+    flex:0 0 auto; display:flex; align-items:center; gap:18px;
+    padding:14px clamp(16px,3vw,30px);
+    border-bottom:1px solid var(--rule);
+    background:rgba(15,34,48,0.6); backdrop-filter:blur(8px);
+    z-index:5;
+  }
+  .brand{display:flex; align-items:baseline; gap:10px; white-space:nowrap;}
+  .brand .mark{font-family:var(--serif); font-weight:600; font-size:22px; letter-spacing:-0.01em;}
+  .brand .mark sup{color:var(--accent); font-size:0.7em;}
+  .brand .sub{font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(242,232,207,0.55);}
+
+  .bar .spacer{flex:1;}
+
+  .picker{position:relative;}
+  select{
+    appearance:none; font-family:var(--sans); font-size:14px; font-weight:600;
+    color:var(--cream); background:rgba(242,232,207,0.07);
+    border:1px solid var(--rule); border-radius:10px;
+    padding:10px 38px 10px 14px; cursor:pointer; min-width:240px;
+    outline:none; transition:border-color .15s, background .15s;
+  }
+  select:hover{border-color:rgba(242,232,207,0.4);}
+  select:focus{border-color:var(--accent);}
+  .picker::after{
+    content:""; position:absolute; right:14px; top:50%; width:8px; height:8px;
+    border-right:2px solid var(--cream); border-bottom:2px solid var(--cream);
+    transform:translateY(-65%) rotate(45deg); pointer-events:none; opacity:.7;
+  }
+  option, optgroup{background:#15293A; color:#F2E8CF;}
+
+  .nav-btn{
+    width:38px; height:38px; flex:0 0 auto; border-radius:10px;
+    border:1px solid var(--rule); background:rgba(242,232,207,0.07);
+    color:var(--cream); display:flex; align-items:center; justify-content:center;
+    font-size:17px; transition:background .15s, border-color .15s;
+  }
+  .nav-btn:hover{background:rgba(242,232,207,0.16); border-color:rgba(242,232,207,0.4);}
+
+  .segment{display:flex; border:1px solid var(--rule); border-radius:10px; overflow:hidden;}
+  .segment button{
+    padding:9px 14px; font-size:12.5px; font-weight:600; letter-spacing:0.02em;
+    color:rgba(242,232,207,0.7); background:transparent; white-space:nowrap;
+    border-right:1px solid var(--rule); transition:all .15s;
+  }
+  .segment button:last-child{border-right:0;}
+  .segment button.active{background:var(--accent); color:#fff;}
+  .segment button:not(.active):hover{background:rgba(242,232,207,0.08); color:var(--cream);}
+
+  .hint{font-size:12.5px; color:rgba(242,232,207,0.5); white-space:nowrap;}
+
+  /* ---------- Stage ---------- */
+  .stage{flex:1; position:relative; display:flex; align-items:center; justify-content:center; min-height:0; padding:18px;}
+  .phone-scaler{position:relative;}
+
+  .phone{
+    position:relative; background:#0b0b0d; border-radius:54px;
+    padding:14px; box-shadow:0 40px 90px -30px rgba(0,0,0,0.8), 0 0 0 2px rgba(255,255,255,0.04);
+  }
+  .phone.tablet{border-radius:34px; padding:16px;}
+  .screen{
+    position:relative; background:#EFE5CD; border-radius:42px; overflow:hidden;
+  }
+  .phone.tablet .screen{border-radius:20px;}
+  .screen iframe{display:block; border:0; background:#EFE5CD;}
+
+  /* notch / dynamic island */
+  .island{
+    position:absolute; top:12px; left:50%; transform:translateX(-50%);
+    width:108px; height:30px; background:#0b0b0d; border-radius:18px; z-index:20;
+  }
+  .phone.tablet .island{display:none;}
+
+  .loading{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    color:var(--muted); font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+    background:#EFE5CD; z-index:2; transition:opacity .3s; font-weight:600;
+  }
+  .loading.hidden{opacity:0; pointer-events:none;}
+
+  .dims{
+    position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
+    font-size:11.5px; color:rgba(242,232,207,0.4); letter-spacing:0.1em; font-weight:600;
+  }
+  @media (max-width:760px){
+    .brand .sub,.hint{display:none;}
+    select{min-width:150px;}
+    .bar{gap:10px; flex-wrap:wrap;}
+  }
+</style>
+</head>
+<body>
+  <div class="bar">
+    <div class="brand">
+      <span class="mark">LBC<sup>*</sup></span>
+      <span class="sub">Aperçu mobile</span>
+    </div>
+    <div class="spacer"></div>
+    <button class="nav-btn" id="prev" title="Page précédente">‹</button>
+    <div class="picker">
+      <select id="page"></select>
+    </div>
+    <button class="nav-btn" id="next" title="Page suivante">›</button>
+    <div class="segment" id="sizes">
+      <button data-w="360" data-h="780">Petit · 360</button>
+      <button data-w="390" data-h="844" class="active">iPhone · 390</button>
+      <button data-w="768" data-h="1024" data-tablet="1">Tablette · 768</button>
+    </div>
+    <span class="hint" id="hint"></span>
+  </div>
+
+  <div class="stage">
+    <div class="phone-scaler" id="scaler">
+      <div class="phone" id="phone">
+        <div class="island"></div>
+        <div class="screen" id="screen">
+          <div class="loading" id="loading">Chargement…</div>
+          <iframe id="frame" title="Aperçu"></iframe>
+        </div>
+      </div>
+      <div class="dims" id="dims"></div>
+    </div>
+  </div>
+
+<script>
+  var PAGES = [
+    {g:"Principales", items:[
+      ["Les Bras Cassés.html","Accueil"],
+      ["Formules.html","Formules & tarifs"],
+      ["Devis.html","Devis en ligne"],
+      ["Apropos.html","À propos"],
+      ["Contact.html","Contact"],
+      ["FAQ.html","FAQ"],
+      ["Blog.html","Blog"],
+      ["Article.html","Article de blog"],
+      ["Checklist.html","Checklist déménagement"],
+    ]},
+    {g:"Services", items:[
+      ["Stockage.html","Stockage"],
+      ["Archivage.html","Archivage"],
+      ["Entreprise.html","Déménagement entreprise"],
+      ["Diplomatique.html","Diplomatique"],
+      ["Militaire.html","Militaire"],
+      ["Mutations.html","Mutations"],
+      ["Zones.html","Zones desservies"],
+      ["Quartiers.html","Quartiers de Nice"],
+    ]},
+    {g:"Villes", items:[
+      ["Demenagement-Nice.html","Nice"],
+      ["Demenagement-Cannes.html","Cannes"],
+      ["Demenagement-Antibes.html","Antibes"],
+      ["Demenagement-Monaco.html","Monaco"],
+      ["Demenagement-Menton.html","Menton"],
+      ["Demenagement-Grasse.html","Grasse"],
+      ["Demenagement-Cagnes-sur-Mer.html","Cagnes-sur-Mer"],
+      ["Demenagement-Saint-Laurent-du-Var.html","Saint-Laurent-du-Var"],
+      ["Demenagement-Le-Cannet.html","Le Cannet"],
+      ["Demenagement-Mandelieu.html","Mandelieu"],
+    ]},
+    {g:"Trajets longue distance", items:[
+      ["Demenagement-Nice-Paris.html","Nice → Paris"],
+      ["Demenagement-Nice-Lyon.html","Nice → Lyon"],
+      ["Demenagement-Nice-Marseille.html","Nice → Marseille"],
+      ["Demenagement-Nice-Milan.html","Nice → Milan"],
+      ["Demenagement-Nice-Turin.html","Nice → Turin"],
+      ["Demenagement-Nice-Geneve.html","Nice → Genève"],
+      ["Demenagement-Nice-Barcelone.html","Nice → Barcelone"],
+      ["Demenagement-Nice-Bruxelles.html","Nice → Bruxelles"],
+    ]},
+    {g:"Autres", items:[
+      ["404.html","Page 404"],
+    ]},
+  ];
+
+  var sel = document.getElementById('page');
+  PAGES.forEach(function(grp){
+    var og = document.createElement('optgroup');
+    og.label = grp.g;
+    grp.items.forEach(function(it){
+      var o = document.createElement('option');
+      o.value = it[0]; o.textContent = it[1];
+      og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+
+  var frame = document.getElementById('frame');
+  var screen = document.getElementById('screen');
+  var phone = document.getElementById('phone');
+  var scaler = document.getElementById('scaler');
+  var loading = document.getElementById('loading');
+  var dims = document.getElementById('dims');
+  var hint = document.getElementById('hint');
+
+  var state = { w:390, h:844, tablet:false };
+  var flat = [];
+  PAGES.forEach(function(g){ g.items.forEach(function(i){ flat.push(i[0]); }); });
+
+  function applySize(){
+    frame.style.width = state.w + 'px';
+    frame.style.height = state.h + 'px';
+    screen.style.width = state.w + 'px';
+    screen.style.height = state.h + 'px';
+    phone.classList.toggle('tablet', state.tablet);
+    dims.textContent = state.w + ' × ' + state.h + ' px';
+    scaleToFit();
+  }
+
+  function scaleToFit(){
+    scaler.style.transform = 'scale(1)';
+    var stage = document.querySelector('.stage');
+    var avail = stage.clientHeight - 36;
+    var availW = stage.clientWidth - 36;
+    var ph = phone.offsetHeight + 30; // include dims label
+    var pw = phone.offsetWidth;
+    var s = Math.min(1, avail / ph, availW / pw);
+    scaler.style.transform = 'scale(' + s + ')';
+  }
+
+  function load(page){
+    loading.classList.remove('hidden');
+    loading.textContent = 'Chargement…';
+    frame.src = page;
+    var current = page;
+    for (var i=0;i<flat.length;i++){ if(flat[i]===page){ sel.value=page; break; } }
+    try{ localStorage.setItem('lbc_mobile_page', page); }catch(e){}
+  }
+
+  frame.addEventListener('load', function(){
+    loading.classList.add('hidden');
+    scaleToFit();
+  });
+
+  sel.addEventListener('change', function(){ load(sel.value); });
+  document.getElementById('prev').addEventListener('click', function(){
+    var i = flat.indexOf(sel.value); i = (i - 1 + flat.length) % flat.length; load(flat[i]);
+  });
+  document.getElementById('next').addEventListener('click', function(){
+    var i = flat.indexOf(sel.value); i = (i + 1) % flat.length; load(flat[i]);
+  });
+
+  var seg = document.getElementById('sizes');
+  seg.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    [].forEach.call(seg.children, function(c){ c.classList.remove('active'); });
+    b.classList.add('active');
+    state.w = +b.dataset.w; state.h = +b.dataset.h; state.tablet = !!b.dataset.tablet;
+    applySize();
+  });
+
+  window.addEventListener('resize', scaleToFit);
+
+  // init
+  var start = 'Les Bras Cassés.html';
+  try{ var saved = localStorage.getItem('lbc_mobile_page'); if(saved && flat.indexOf(saved)>=0) start = saved; }catch(e){}
+  hint.textContent = 'Rendu réel des pages à la largeur d\u2019un téléphone';
+  applySize();
+  load(start);
+</script>
+</body>
+</html>
