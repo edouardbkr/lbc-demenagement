@@ -87,6 +87,56 @@ function Values() {
 }
 
 function Testimonials() {
+  const pinRef = React.useRef(null);
+  const scrollerRef = React.useRef(null);
+  const trackRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const pin = pinRef.current;
+    const scroller = scrollerRef.current;
+    const track = trackRef.current;
+    if (!pin || !scroller || !track) return;
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    let current = 0, target = 0, raf = null, travel = 0;
+
+    // La hauteur du conteneur "pin" = un écran + la distance horizontale à parcourir.
+    // Pendant cette hauteur, la section reste figée (sticky) et les avis défilent
+    // horizontalement. Une fois au bout, la page reprend son défilement vertical.
+    const layout = () => {
+      travel = Math.max(0, track.scrollWidth - scroller.clientWidth);
+      pin.style.height = (window.innerHeight + travel) + "px";
+    };
+    const computeTarget = () => {
+      const top = pin.getBoundingClientRect().top; // 0 au début du pin, négatif ensuite
+      const scrolled = Math.min(Math.max(-top, 0), travel);
+      target = -scrolled; // 1px de scroll vertical = 1px de défilement horizontal
+    };
+    const tick = () => {
+      current += (target - current) * 0.12; // interpolation douce
+      if (Math.abs(target - current) < 0.4) current = target;
+      track.style.transform = "translate3d(" + current.toFixed(2) + "px,0,0)";
+      raf = (current === target) ? null : requestAnimationFrame(tick);
+    };
+    const onScroll = () => { computeTarget(); if (raf == null) raf = requestAnimationFrame(tick); };
+    const onResize = () => { layout(); onScroll(); };
+
+    layout(); computeTarget(); current = target;
+    track.style.transform = "translate3d(" + current.toFixed(2) + "px,0,0)";
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    window.addEventListener("load", onResize);
+    const t = setTimeout(onResize, 600);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", onResize);
+      clearTimeout(t);
+      if (raf != null) cancelAnimationFrame(raf);
+    };
+  }, []);
+
   const quotes = [
     {
       text: "On craignait le jour J, on en est sorti détendus. L'équipe a emballé la vaisselle de ma grand-mère mieux que je ne l'aurais fait, pas une assiette ébréchée.",
@@ -127,40 +177,49 @@ function Testimonials() {
   ];
 
   return (
-    <section className="sec testimonials" id="avis">
-      <div className="wrap">
-        <div className="sec-head reveal">
-          <div>
-            <div className="sec-num"><span className="asterisk">*</span> 04 / Avis clients</div>
-          </div>
-          <h2 className="dim-em">
-            Ce que disent celles et ceux<br/>
-            <em>qui nous ont déjà laissé les clés.</em>
-          </h2>
-        </div>
-
-        <div className="testimonials-grid reveal-stagger">
-          {quotes.map((q, i) => (
-            <div className="quote" key={i}>
-              <div className="quote-mark">"</div>
-              <div className="quote-text">{q.text}</div>
-              <div className="quote-author">
-                <image-slot
-                  id={"testi-" + q.id}
-                  class="quote-avatar"
-                  shape="circle"
-                  src={"assets/avatars/" + q.id + ".png"}
-                  placeholder="Photo"
-                  style={{ width: "54px", height: "54px" }}
-                ></image-slot>
-                <div className="quote-author-meta">
-                  <div className="quote-name">{q.name}</div>
-                  <div className="quote-city">{q.city}</div>
-                </div>
-                <div className="quote-stars">★★★★★</div>
+    <section className="testimonials" id="avis">
+      <div className="testi-pin" ref={pinRef}>
+        <div className="testi-sticky">
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <div>
+                <div className="sec-num"><span className="asterisk">*</span> 04 / Avis clients</div>
               </div>
+              <h2 className="dim-em">
+                Ce que disent celles et ceux<br/>
+                <em>qui nous ont déjà laissé les clés.</em>
+              </h2>
             </div>
-          ))}
+          </div>
+
+          <div className="testimonials-scroll" aria-label="Avis clients" ref={scrollerRef}>
+            <div className="testimonials-track" ref={trackRef}>
+              {quotes.map((q, i) => (
+              <div className="testi-col" key={i}>
+                <div className="testi-chip">
+                  <image-slot
+                    id={"testi-" + q.id}
+                    class="testi-chip-avatar"
+                    shape="circle"
+                    src={"assets/avatars/" + q.id + ".png"}
+                    placeholder="Photo"
+                    style={{ width: "44px", height: "44px" }}
+                  ></image-slot>
+                  <div className="testi-chip-meta">
+                    <div className="testi-chip-name">{q.name}</div>
+                    <div className="testi-chip-co">{q.city}</div>
+                  </div>
+                </div>
+                <div className="testi-card">
+                  <svg className="testi-qmark" width="28" height="22" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true">
+                    <path d="M0 24V14C0 9.8 0.9 6.3 2.7 3.8C4.6 1.3 7.4 0 11.3 0V4.6C9.3 4.6 7.9 5.1 7 6.1C6.1 7 5.6 8.2 5.6 9.6H11.3V24H0ZM18 24V14C18 9.8 18.9 6.3 20.7 3.8C22.6 1.3 25.4 0 29.3 0V4.6C27.3 4.6 25.9 5.1 25 6.1C24.1 7 23.6 8.2 23.6 9.6H29.3V24H18Z"/>
+                  </svg>
+                  <p className="testi-quote-text">{q.text}</p>
+                </div>
+              </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

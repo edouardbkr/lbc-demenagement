@@ -20,7 +20,6 @@ function Hero({ headlineVariant }) {
         <div className="hero-meta reveal">
           <span className="pill"><span className="dot"></span>Déménageurs à Nice</span>
           <span className="pill">PACA · Toute la France</span>
-          <span className="pill">Déclarés &amp; assurés</span>
         </div>
 
         <div className="hero-grid">
