@@ -311,7 +311,7 @@ function DevisForm() {
                   <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
                 </div>
                 <h3>Demande envoyée, merci&nbsp;!</h3>
-                <p>On a bien reçu votre demande. <strong>Edouard ou Anthony vous rappelle sous 24h</strong> avec un devis clair et définitif{data.nom ? ", " + data.nom.trim().split(" ")[0] : ""}.</p>
+                <p>On a bien reçu votre demande. <strong>Notre équipe vous rappelle sous 24h</strong> avec un devis clair et définitif{data.nom ? ", " + data.nom.trim().split(" ")[0] : ""}.</p>
                 <p className="ds-sub">Une question d'ici là&nbsp;? Appelez-nous au <a href="tel:+33781961445">07 81 96 14 45</a>.</p>
                 <div className="ds-actions">
                   <a className="btn btn-primary" href="Les Bras Cassés.html">Retour à l'accueil<span className="arrow">→</span></a>

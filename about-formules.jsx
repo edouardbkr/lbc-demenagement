@@ -17,28 +17,32 @@ function About() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <p className="lead">
-              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. Cartons écrasés, canapé rayé, déménageurs introuvables à 8h le jour J. <em>Edouard et Anthony, deux amis niçois, une promesse : plus jamais ça — ni pour nous, ni pour personne.</em>
+              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. Cartons écrasés, canapé rayé, personne à 8h le jour J. De cette galère est née une promesse&nbsp;: <em>plus jamais ça — ni pour nous, ni pour vous.</em>
             </p>
             <p>
-              On a monté <strong style={{ color: 'var(--ink)' }}>LBC*</strong> avec une idée simple et un brin têtue : traiter les affaires des gens comme les nôtres. Pas d'inconnu recruté la veille, pas de devis « au doigt mouillé », pas de mauvaise surprise sur la facture. C'est nous qui portons vos cartons — déclarés, assurés — et qui savons qu'un carton « fragile » veut dire quelque chose.
+              Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* applique une règle simple&nbsp;: traiter vos affaires comme les nôtres. Un devis ferme sans mauvaise surprise, du matériel professionnel, et des gens qui savent qu'un carton «&nbsp;fragile&nbsp;» veut dire quelque chose.
             </p>
             <p>
-              Aujourd'hui, de Nice à Monaco, de la Côte d'Azur jusqu'à Paris, on porte, on cale, on remonte — et surtout, on rend les clés d'un déménagement enfin tranquille. Un studio ou une grande maison, on adapte la formule à votre vie, pas l'inverse.
+              De Nice à Monaco, de la Côte d'Azur jusqu'à Paris — studio ou grande maison, on adapte la formule à votre vie, pas l'inverse.
             </p>
             <p style={{ color: 'var(--ink)' }}>
               Le nom est la blague. <strong>Le travail est sérieux.</strong> <a href="Apropos.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
             </p>
 
-            <div className="about-stats reveal-stagger">
-              <div className="stat">
-                <div className="stat-num">2</div>
-                <div className="stat-lbl">Edouard & Anthony, en personne</div>
-              </div>
-              <div className="stat">
-                <div className="stat-num">24<sup>h</sup></div>
-                <div className="stat-lbl">Pour un devis détaillé</div>
-              </div>
-            </div>
+            <ul className="about-trust reveal-stagger">
+              <li>
+                <span className="at-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg></span>
+                <span><strong>Prix ferme</strong> — le devis est le prix payé, zéro surprise.</span>
+              </li>
+              <li>
+                <span className="at-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg></span>
+                <span><strong>Assurance incluse</strong> dans chaque formule.</span>
+              </li>
+              <li>
+                <span className="at-ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg></span>
+                <span><strong>Devis sous 24h</strong>, gratuit et sans engagement.</span>
+              </li>
+            </ul>
           </div>
 
           <div className="about-photo-stack reveal">

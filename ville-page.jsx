@@ -31,7 +31,7 @@ function VilleIntro({ c }) {
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur à {c.name}</div>
             <p className="lead">{c.intro}</p>
             <p>
-              Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs déclarés et assurés, d'une assurance complète et d'un devis clair, sans surprise. À {c.name} comme partout sur la Côte d'Azur, le nom est la blague : le travail, lui, est sérieux.
+              Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair, sans surprise. À {c.name} comme partout sur la Côte d'Azur, le nom est la blague : le travail, lui, est sérieux.
             </p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis.html" className="btn btn-primary">Devis gratuit à {c.name}<span className="arrow">→</span></a>

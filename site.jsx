@@ -233,22 +233,26 @@ function RoadDivider() {
       <div className="road-line"></div>
       <div className="road-truck">
         <img className="road-logo" src="assets/lbc-wordmark-sm.png" alt="LBC* Déménagement" />
-        <div className="road-driver"></div>
         <svg viewBox="0 0 380 150" width="300" fill="none" stroke="var(--ink)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">
           <g className="road-speed" stroke="var(--accent)" strokeWidth="3.5">
             <path d="M52 56 H12" />
             <path d="M46 74 H6" />
             <path d="M52 92 H22" />
           </g>
-          <rect x="14" y="20" width="210" height="86" rx="6" fill="var(--paper)" />
-          <path d="M224 106 V54 Q224 48 230 48 H300 L336 80 H356 Q364 80 364 90 V106 Z" fill="var(--paper)" />
-          <rect x="232" y="54" width="60" height="42" rx="6" fill="#cdd9df" />
-          <path d="M306 56 L332 80 H313 Q307 80 307 73 Z" fill="#cdd9df" stroke="none" />
-          <circle cx="84" cy="122" r="18" fill="var(--ink)" />
-          <circle cx="84" cy="122" r="6" fill="var(--accent)" stroke="none" />
-          <circle cx="312" cy="122" r="18" fill="var(--ink)" />
-          <circle cx="312" cy="122" r="6" fill="var(--accent)" stroke="none" />
-          <circle cx="362" cy="94" r="3" fill="var(--accent)" stroke="none" />
+
+          {/* Caisse de chargement (crème) */}
+          <rect x="14" y="18" width="200" height="88" rx="6" fill="var(--paper)" />
+
+          {/* Cabine (rouge) */}
+          <path d="M214 106 V70 Q214 64 220 64 H268 L298 92 H304 Q310 92 310 98 V106 Z" fill="var(--accent)" />
+          {/* Pare-brise / vitre cabine */}
+          <path d="M242 72 H266 L288 92 H242 Z" fill="#cdd9df" />
+
+          {/* Roues */}
+          <circle cx="80" cy="113" r="18" fill="#fff" />
+          <circle cx="80" cy="113" r="6" fill="var(--accent)" stroke="none" />
+          <circle cx="276" cy="113" r="18" fill="#fff" />
+          <circle cx="276" cy="113" r="6" fill="var(--accent)" stroke="none" />
         </svg>
       </div>
     </div>);
@@ -512,8 +516,8 @@ function FloatWhatsApp() {
   const msg = encodeURIComponent("Bonjour LBC ! Je souhaite un devis pour mon déménagement.");
   return (
     <a className="wa-float" href={"https://wa.me/" + phone + "?text=" + msg} target="_blank" rel="noopener" aria-label="Devis rapide par WhatsApp">
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.358.101 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.652a11.882 11.882 0 005.71 1.448h.005c6.582 0 11.946-5.358 11.949-11.893a11.821 11.821 0 00-3.48-8.413z" />
       </svg>
       <span className="wa-float-label">Devis WhatsApp</span>
     </a>);
@@ -616,54 +620,56 @@ function Footer() {
       <footer className="footer">
         <div className="wrap">
           <div className="footer-top">
-            <div className="footer-col footer-brand">
+            <div className="footer-brand">
               <img src="assets/lbc-wordmark-sm.png" alt="LBC* — Les Bras Cassés" loading="lazy" decoding="async" width="432" height="240" />
               <p className="footer-tagline">
-                <span className="brand-note"><span className="ast"></span>&nbsp;<strong></strong></span><br />
-                Société de déménagement basée à Nice. Particuliers et entreprises, PACA et toute la France. Le nom est la blague, le travail est sérieux.
+                Déménageurs professionnels basés à Nice. Particuliers et entreprises, PACA et toute la France.
               </p>
             </div>
-            <div className="footer-col">
-              <h4>Nos services</h4>
-              <ul>
-                <li><a href="Formules.html">Nos formules</a></li>
-                <li><a href="Entreprise.html">Déménagement d'entreprise</a></li>
-                <li><a href="Mutations.html">Mutation professionnelle</a></li>
-                <li><a href="Militaire.html">Déménagement militaire</a></li>
-                <li><a href="Diplomatique.html">Déménagement diplomatique</a></li>
-                <li><a href="Stockage.html">Stockage &amp; garde-meuble</a></li>
-                <li><a href="Archivage.html">Archivage &amp; destruction</a></li>
-                <li><a href="Devis.html">Devis gratuit</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Le site</h4>
-              <ul>
-                <li><a href="Les Bras Cassés.html">Accueil</a></li>
-                <li><a href="Blog.html">Blog &amp; conseils</a></li>
-                <li><a href="FAQ.html">Questions fréquentes</a></li>
-                <li><a href="Checklist.html">Checklist déménagement</a></li>
-                <li><a href="Contact.html">Contact</a></li>
-                <li><a href="Les Bras Cassés.html#avis">Avis clients</a></li>
-              </ul>
-            </div>
-            <div className="footer-col">
-              <h4>Contact</h4>
-              <ul>
-                <li><a href="tel:+33493000000">+33 4 93 00 00 00</a></li>
-                <li><a href="mailto:bonjour@lbc-demenagement.fr">contact@lbcdemenagement.com</a></li>
-                <li>12 rue d'Italie<br />06000 Nice</li>
-                <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 8h–19h</li>
-              </ul>
+            <div className="footer-cols">
+              <div className="footer-col">
+                <h4>Nos services</h4>
+                <ul>
+                  <li><a href="Formules.html">Nos formules</a></li>
+                  <li><a href="Mutations.html">Mutation professionnelle</a></li>
+                  <li><a href="Militaire.html">Déménagement militaire</a></li>
+                  <li><a href="Diplomatique.html">Déménagement diplomatique</a></li>
+                  <li><a href="Stockage.html">Stockage &amp; garde-meuble</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <h4>Le site</h4>
+                <ul>
+                  <li><a href="Les Bras Cassés.html">Accueil</a></li>
+                  <li><a href="Blog.html">Blog &amp; conseils</a></li>
+                  <li><a href="FAQ.html">Questions fréquentes</a></li>
+                  <li><a href="Checklist.html">Checklist déménagement</a></li>
+                  <li><a href="Devis.html">Devis gratuit</a></li>
+                  <li><a href="Les Bras Cassés.html#avis">Avis clients</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                  <li><a href="tel:+33493000000">+33 4 93 00 00 00</a></li>
+                  <li><a className="footer-email" href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
+                  <li>12 rue d'Italie<br />06000 Nice</li>
+                  <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 8h–19h</li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <h4>Légal</h4>
+                <ul>
+                  <li><a href="Mentions-legales.html">Mentions légales</a></li>
+                  <li><a href="Confidentialite.html">Confidentialité</a></li>
+                  <li><a href="CGV.html">CGV</a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div className="footer-bottom">
-            <div>© 2026 LBC* DÉMÉNAGEMENT — SAS AU CAPITAL DE 3 000€ · 12 RUE D'ITALIE, 06000, NICE</div>
-            <div className="links">
-              <a href="Mentions-legales.html">Mentions légales</a>
-              <a href="Confidentialite.html">Confidentialité</a>
-              <a href="CGV.html">CGV</a>
-            </div>
+            <div>© 2026 LBC* Déménagement — SAS au capital de 3 000€ · 12 rue d'Italie, 06000 Nice</div>
+            <div className="footer-made">Les Bras Cassés. Le nom est la blague, le travail est sérieux.</div>
           </div>
         </div>
       </footer>

@@ -46,7 +46,7 @@ const CITIES = {
   },
   "antibes": {
     name: "Antibes", file: "Demenagement-Antibes.html", cp: "06600", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Antibes et Juan-les-Pins : du Vieil Antibes au Cap. Équipe assurée, devis sous 24h.",
+    lede: "Déménagement à Antibes et Juan-les-Pins : du Vieil Antibes au Cap. Devis gratuit sous 24h.",
     intro: "Entre les remparts du Vieil Antibes, les villas du Cap d'Antibes, la pinède de Juan-les-Pins et les résidences de la Fontonne, on adapte le camion et le portage à chaque adresse. On gère aussi les accès marina (Port Vauban) et les résidences fermées.",
     quartiers: ["Vieil Antibes", "Cap d'Antibes", "Juan-les-Pins", "La Fontonne", "Les Semboules", "La Salis", "Port Vauban", "Les Combes", "La Croix-Rouge"],
     specifics: [
@@ -151,7 +151,7 @@ const CITIES = {
   },
   "le-cannet": {
     name: "Le Cannet", file: "Demenagement-Le-Cannet.html", cp: "06110", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement au Cannet : Rocheville, vieux village, hauteurs de Cannes. Devis gratuit, équipe assurée.",
+    lede: "Déménagement au Cannet : Rocheville, vieux village, hauteurs de Cannes. Devis gratuit sous 24h.",
     intro: "Le Cannet, sur les hauteurs de Cannes, mêle vieux village pittoresque (cher à Bonnard), quartier vivant de Rocheville et résidences modernes à flanc de colline. On gère les rues pentues et les accès résidentiels avec le bon matériel.",
     quartiers: ["Rocheville", "Le Vieux Cannet", "Les Tourrades", "La Croix des Gardes", "L'Aubarède", "Le Cannet Centre", "Garibondy"],
     specifics: [
@@ -193,7 +193,7 @@ const CITIES = {
   },
   "mandelieu": {
     name: "Mandelieu-la-Napoule", file: "Demenagement-Mandelieu.html", cp: "06210", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Mandelieu-la-Napoule : La Napoule, port, Capitou. Devis gratuit, équipe assurée.",
+    lede: "Déménagement à Mandelieu-la-Napoule : La Napoule, port, Capitou. Devis gratuit sous 24h.",
     intro: "Entre le port de plaisance, le château de La Napoule, les golfs et les hauteurs boisées du Capitou, Mandelieu marie bord de mer et collines. On y déménage particuliers, résidences principales et secondaires toute l'année.",
     quartiers: ["La Napoule", "Capitou", "Cottage", "Les Termes", "Minelle", "Le Centre", "La Siagne", "Les Marines"],
     specifics: [

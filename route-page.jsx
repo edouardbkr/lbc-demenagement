@@ -40,7 +40,7 @@ function RIntro({ r }) {
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Le trajet {r.from} → {r.to}</div>
             <p className="lead">{r.intro}</p>
             <p>
-              Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — des déménageurs déclarés et assurés, une assurance complète et un devis clair et définitif. {r.intl ? "À l'international comme en France, " : ""}le nom est la blague : le travail, lui, est sérieux.
+              Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — des déménageurs expérimentés et soigneux, une assurance complète et un devis clair et définitif. {r.intl ? "À l'international comme en France, " : ""}le nom est la blague : le travail, lui, est sérieux.
             </p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis.html" className="btn btn-primary">Devis {r.from} → {r.to}<span className="arrow">→</span></a>

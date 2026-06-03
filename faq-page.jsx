@@ -43,7 +43,7 @@ const FAQS = [
 // ── Assurance & sécurité ──
 { cat: "Assurance & sécurité", q: "Mes affaires sont-elles assurées ?", a: "Oui, une assurance multirisque est incluse dans chaque formule. Pour les objets de valeur (œuvres d'art, instruments, vaisselle précieuse), une couverture renforcée en valeur déclarée est disponible." },
 { cat: "Assurance & sécurité", q: "Et en cas de casse ?", a: "On le constate ensemble, on le déclare, et l'assurance prend le relais selon les plafonds prévus. Tout est écrit noir sur blanc dans le contrat — rien n'est laissé au hasard, et on ne casse jamais notre parole." },
-{ cat: "Assurance & sécurité", q: "Qui réalise le déménagement ?", a: "Edouard et Anthony, les deux fondateurs, en personne. Déclarés et assurés, présents du premier carton au dernier — pas d'inconnu recruté la veille pour porter vos affaires." },
+{ cat: "Assurance & sécurité", q: "Qui réalise le déménagement ?", a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier carton au dernier — jamais d'inconnu recruté la veille pour porter vos affaires." },
 { cat: "Assurance & sécurité", q: "Et si un meuble ne passe pas (escalier étroit, porte basse) ?", a: "On anticipe au devis grâce aux infos d'accès (étage, ascenseur, portage). Si besoin, on loue un monte-meuble pour passer par la fenêtre ou le balcon — chiffré à l'avance, jamais imposé en surprise." },
 
 // ── Zones & villes ──

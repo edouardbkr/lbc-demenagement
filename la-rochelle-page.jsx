@@ -43,7 +43,7 @@ function LRHero() {
         </div>
         <h1>Déménagement à <em>La Rochelle</em></h1>
         <p className="lede" style={{ padding: "10px 0" }}>
-          Du Vieux-Port aux Minimes, du centre à arcades jusqu'aux îles de Ré et d'Oléron : on déménage La Rochelle et sa région avec le soin de déménageurs déclarés et assurés. <span className="ast">*</span>Devis gratuit sous 24h.
+          Du Vieux-Port aux Minimes, du centre à arcades jusqu'aux îles de Ré et d'Oléron : on déménage La Rochelle et sa région avec le soin de déménageurs expérimentés et soigneux. <span className="ast">*</span>Devis gratuit sous 24h.
         </p>
         <div className="devis-hero-form">
           <QuickQuote variant="dark" />
@@ -61,7 +61,7 @@ function LRIntro() {
           <div className="about-copy reveal">
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur à La Rochelle</div>
             <p className="lead">La Rochelle, ses tours, son port et ses arcades, est une ville maritime au charme unique — et aux accès parfois exigeants. On y déménage particuliers, étudiants et entreprises, du centre historique piéton aux résidences du bord d'océan.</p>
-            <p>Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — vous bénéficiez de déménageurs déclarés et assurés, d'une assurance complète et d'un devis clair et définitif. Le nom est la blague : le travail, lui, est sérieux.</p>
+            <p>Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair et définitif. Le nom est la blague : le travail, lui, est sérieux.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis.html" className="btn btn-primary">Devis gratuit à La Rochelle<span className="arrow">→</span></a>
               <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>

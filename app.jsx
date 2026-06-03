@@ -53,6 +53,7 @@ function App() {
         <Gallery />
         <Values />
         <Testimonials />
+        <HomeFaq />
         <CTA />
       </main>
       <Footer />

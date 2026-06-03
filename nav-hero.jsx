@@ -18,8 +18,8 @@ function Hero({ headlineVariant }) {
     <section className="hero" id="top" style={{ paddingTop: "16px" }}>
       <div className="wrap" style={{ paddingTop: "20px" }}>
         <div className="hero-meta reveal">
-          <span className="pill"><span className="dot"></span>Déménageurs à Nice</span>
-          <span className="pill">PACA · Toute la France</span>
+          <span className="pill pill-live"><span className="dot"></span>Déménageurs à Nice</span>
+          <span className="pill"><svg className="pill-ic" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>PACA · Toute la France</span>
         </div>
 
         <div className="hero-grid">
@@ -30,7 +30,7 @@ function Hero({ headlineVariant }) {
             </h1>
 
             <p className="hero-sub">
-              <strong style={{ fontWeight: 600, color: 'var(--ink)' }}></strong>On emballe, on porte, on cale, on remonte. Vous, vous regardez, ou vous filez prendre un café à Cimiez. Du studio niçois à la villa des hauteurs, votre déménagement arrête d'être votre problème. <em></em>
+              <strong style={{ fontWeight: 600, color: 'var(--ink)' }}></strong>On emballe, on protège, on transporte, on réinstalle. Vous gardez la main sur l'essentiel, on s'occupe du reste. Du studio niçois à la villa des hauteurs, votre déménagement cesse d'être votre problème. <em></em>
             </p>
 
             <div className="hero-ctas">

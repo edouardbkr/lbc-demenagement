@@ -5,18 +5,18 @@ const I = (props) =>
 const AP_VALUES = [
 { t: "L'honnêteté d'abord", d: "Le prix du devis est le prix payé. Pas d'astérisque en bas de page, pas de « surprise » le jour J.", icon:
   <I><path d="M12 21c-5-2.5-8-6-8-11V5l8-3 8 3v5c0 5-3 8.5-8 11z" /><path d="M9 11.5l2 2 4-4.5" /></I> },
-{ t: "Le geste juste", d: "Edouard et Anthony portent vos meubles eux-mêmes : deux déménageurs déclarés et assurés, qui savent porter un piano comme une boîte à souvenirs.", icon:
+{ t: "Le geste juste", d: "Des déménageurs expérimentés, encadrés par les fondateurs eux-mêmes, qui savent porter un piano comme une boîte à souvenirs.", icon:
   <I><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3L2.5 16a2 2 0 0 1 2.8-2.8L7 15" /><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V7a2 2 0 0 0-4 0v8" /></I> },
-{ t: "Vos affaires, comme les nôtres", d: "On protège, on cale, on remonte chaque meuble comme s'il dormait chez nous le soir.", icon:
+{ t: "Vos affaires, comme les nôtres", d: "On protège et on réinstalle chaque meuble comme s'il dormait chez nous le soir.", icon:
   <I><path d="M11.5 8.2c-1-1.9-4-1.5-4 .9 0 1.7 2.2 3.2 4 4.2 1.8-1 4-2.5 4-4.2 0-2.4-3-2.8-4-.9z" /><path d="M3.5 13.8a8.5 8.5 0 0 0 16 0" /><path d="M3.5 13.8v-1.4M19.5 13.8v-1.4" /></I> },
 { t: "À l'heure, toujours", d: "Une fenêtre d'arrivée de 15 minutes. Votre journée démarre quand on l'a dit, pas deux heures plus tard.", icon:
   <I><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></I> }];
 
 const AP_TIMELINE = [
 { y: "01", t: "Le déclic", d: "Après un déménagement catastrophique — cartons écrasés, équipe fantôme à 8h — deux amis niçois en ont assez. Un constat simple : on peut tellement mieux faire." },
-{ y: "02", t: "La promesse", d: "On fonde LBC* avec une règle non négociable : traiter les affaires des gens comme les nôtres. C'est nous qui portons vos cartons — déclarés, assurés, jamais d'inconnu recruté la veille — et un prix annoncé qu'on respecte." },
+{ y: "02", t: "La promesse", d: "On fonde LBC* avec une règle non négociable : traiter les affaires des gens comme les nôtres. Un prix annoncé qu'on respecte, du matériel adapté, et jamais d'inconnu recruté la veille pour porter vos meubles." },
 { y: "03", t: "Plus loin que Nice", d: "Déménagements locaux, longues distances, entreprises et garde-meuble sécurisé : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse." },
-{ y: "04", t: "Aujourd'hui", d: "Des dizaines de déménagements menés avec soin, notre camion et nos deux paires de bras, et des clients qui nous recommandent. Le nom fait sourire. Le travail, lui, reste sérieux." }];
+{ y: "04", t: "Aujourd'hui", d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Le nom fait sourire. Le travail, lui, reste sérieux." }];
 
 
 function AproposHero() {
@@ -48,10 +48,10 @@ function AproposStory() {
               Un samedi, <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong> déménagent un appartement niçois avec une société trouvée en ligne. Résultat : <strong style={{ color: 'var(--ink)' }}>deux heures de retard, un buffet de famille rayé, et zéro excuse.</strong>
             </p>
             <p>
-              Ce jour-là, ils se regardent et se disent la même chose : <em>« On peut faire tellement mieux. »</em> Pas avec des promesses marketing, mais avec du bon sens — deux gars déclarés et assurés, du matériel entretenu, un prix annoncé qu'on respecte, et le soin qu'on mettrait à transporter nos propres souvenirs.
+              Ce jour-là, ils se regardent et se disent la même chose : <em>« On peut faire tellement mieux. »</em> Pas avec des promesses marketing, mais avec du bon sens — des équipes expérimentées, du matériel entretenu, un prix annoncé qu'on respecte, et le soin qu'on mettrait à transporter nos propres souvenirs.
             </p>
             <p>
-              Aujourd'hui, c'est toujours <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong> qui viennent porter vos cartons — pas des inconnus envoyés à leur place. À deux, un camion, et une obsession qui n'a pas bougé : <strong style={{ color: 'var(--ink)' }}>que votre déménagement arrête d'être votre problème.</strong>
+              Aujourd'hui, LBC* a grandi — mais l'exigence n'a pas bougé. <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony forment et encadrent chaque équipe</strong>, pour qu'on vous traite toujours comme leur tout premier client : <strong style={{ color: 'var(--ink)' }}>que votre déménagement arrête d'être votre problème.</strong>
             </p>
             <p className="ap-quote">
               « On voulait bâtir l'entreprise qu'on aurait rêvé d'appeler le jour de notre propre galère. »
@@ -118,7 +118,7 @@ function AproposTimeline() {
 
 function AproposStats() {
   const stats = [
-  { n: "2", s: "", l: "Edouard & Anthony, en personne" },
+  { n: "15", s: "min", l: "Fenêtre d'arrivée annoncée" },
   { n: "24", s: "h", l: "Pour un devis détaillé" },
   { n: "0", s: "", l: "Frais caché, jamais" },
   { n: "Nice", s: "", l: "Niçois, et fiers de l'être" }];

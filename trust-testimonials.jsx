@@ -51,7 +51,7 @@ const ValueIcon = ({ which }) => {
 
 function Values() {
   const values = [
-    { num: "①", icon: "team", title: "Deux pros, en personne", body: "Edouard et Anthony portent vos affaires eux-mêmes : déclarés, assurés, et impliqués du premier au dernier carton. Vos affaires sont entre de bonnes mains." },
+    { num: "①", icon: "team", title: "Des pros qui prennent soin de tout", body: "Une équipe expérimentée, encadrée par les fondateurs Edouard et Anthony : impliquée du premier au dernier carton. Vos affaires sont entre de bonnes mains." },
     { num: "②", icon: "map", title: "De Nice à toute la France", body: "Au quotidien sur la Côte d'Azur, Nice, Cannes, Antibes, Monaco… et sur les longues distances partout en France, jusqu'à l'international." },
     { num: "③", icon: "clock", title: "Un devis clair sous 24h", body: "Estimation en ligne ou visite gratuite, puis un prix détaillé ligne par ligne dans la journée ouvrée. Sans engagement, sans relance commerciale." },
     { num: "④", icon: "tag", title: "Le prix annoncé est le prix payé", body: "Aucun supplément le jour J, aucun frais caché. On chiffre juste dès le départ. C'est écrit noir sur blanc, et on ne casse jamais notre parole." },
@@ -87,56 +87,6 @@ function Values() {
 }
 
 function Testimonials() {
-  const pinRef = React.useRef(null);
-  const scrollerRef = React.useRef(null);
-  const trackRef = React.useRef(null);
-
-  React.useEffect(() => {
-    const pin = pinRef.current;
-    const scroller = scrollerRef.current;
-    const track = trackRef.current;
-    if (!pin || !scroller || !track) return;
-    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-
-    let current = 0, target = 0, raf = null, travel = 0;
-
-    // La hauteur du conteneur "pin" = un écran + la distance horizontale à parcourir.
-    // Pendant cette hauteur, la section reste figée (sticky) et les avis défilent
-    // horizontalement. Une fois au bout, la page reprend son défilement vertical.
-    const layout = () => {
-      travel = Math.max(0, track.scrollWidth - scroller.clientWidth);
-      pin.style.height = (window.innerHeight + travel) + "px";
-    };
-    const computeTarget = () => {
-      const top = pin.getBoundingClientRect().top; // 0 au début du pin, négatif ensuite
-      const scrolled = Math.min(Math.max(-top, 0), travel);
-      target = -scrolled; // 1px de scroll vertical = 1px de défilement horizontal
-    };
-    const tick = () => {
-      current += (target - current) * 0.12; // interpolation douce
-      if (Math.abs(target - current) < 0.4) current = target;
-      track.style.transform = "translate3d(" + current.toFixed(2) + "px,0,0)";
-      raf = (current === target) ? null : requestAnimationFrame(tick);
-    };
-    const onScroll = () => { computeTarget(); if (raf == null) raf = requestAnimationFrame(tick); };
-    const onResize = () => { layout(); onScroll(); };
-
-    layout(); computeTarget(); current = target;
-    track.style.transform = "translate3d(" + current.toFixed(2) + "px,0,0)";
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    window.addEventListener("load", onResize);
-    const t = setTimeout(onResize, 600);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("load", onResize);
-      clearTimeout(t);
-      if (raf != null) cancelAnimationFrame(raf);
-    };
-  }, []);
-
   const quotes = [
     {
       text: "On craignait le jour J, on en est sorti détendus. L'équipe a emballé la vaisselle de ma grand-mère mieux que je ne l'aurais fait, pas une assiette ébréchée.",
@@ -176,48 +126,90 @@ function Testimonials() {
     }
   ];
 
-  return (
-    <section className="testimonials" id="avis">
-      <div className="testi-pin" ref={pinRef}>
-        <div className="testi-sticky">
-          <div className="wrap">
-            <div className="sec-head reveal">
-              <div>
-                <div className="sec-num"><span className="asterisk">*</span> 04 / Avis clients</div>
-              </div>
-              <h2 className="dim-em">
-                Ce que disent celles et ceux<br/>
-                <em>qui nous ont déjà laissé les clés.</em>
-              </h2>
-            </div>
-          </div>
+  const pinRef = React.useRef(null);
+  const stickyRef = React.useRef(null);
+  const trackRef = React.useRef(null);
 
-          <div className="testimonials-scroll" aria-label="Avis clients" ref={scrollerRef}>
-            <div className="testimonials-track" ref={trackRef}>
-              {quotes.map((q, i) => (
-              <div className="testi-col" key={i}>
-                <div className="testi-chip">
+  React.useEffect(() => {
+    const pin = pinRef.current, track = trackRef.current;
+    if (!pin || !track) return;
+
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let maxX = 0, raf = null;
+
+    const measure = () => {
+      // horizontal overflow distance of the track inside its viewport
+      maxX = Math.max(0, track.scrollWidth - track.parentElement.clientWidth);
+      // make the pinned section tall enough to "spend" that horizontal
+      // distance with vertical scroll, plus one viewport to enter/exit
+      pin.style.height = (maxX + window.innerHeight) + "px";
+    };
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = null;
+        const rect = pin.getBoundingClientRect();
+        const total = pin.offsetHeight - window.innerHeight;
+        let p = total > 0 ? (-rect.top) / total : 0;
+        p = p < 0 ? 0 : p > 1 ? 1 : p;
+        track.style.transform = "translateX(" + (-p * maxX).toFixed(1) + "px)";
+      });
+    };
+
+    if (reduce) {
+      pin.classList.add("no-pin");
+      return;
+    }
+
+    measure();
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", measure);
+    const t1 = setTimeout(() => { measure(); onScroll(); }, 400);
+    const t2 = setTimeout(() => { measure(); onScroll(); }, 1400);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
+      clearTimeout(t1); clearTimeout(t2);
+    };
+  }, []);
+
+  return (
+    <section className="testi-pin" id="avis" ref={pinRef}>
+      <div className="testi-sticky" ref={stickyRef}>
+        <div className="wrap testi-head">
+          <span className="testi-badge"><span className="asterisk">*</span> Avis clients</span>
+          <h2>Ce qu'en disent celles et ceux<br/><em>qui nous ont laissé les clés.</em></h2>
+        </div>
+        <div className="testi-viewport">
+          <div className="testi-track" ref={trackRef}>
+            {quotes.map((q, i) => (
+              <article className="testi-card" key={i}>
+                <header className="tc-head">
                   <image-slot
                     id={"testi-" + q.id}
-                    class="testi-chip-avatar"
+                    class="tc-avatar"
                     shape="circle"
                     src={"assets/avatars/" + q.id + ".png"}
                     placeholder="Photo"
-                    style={{ width: "44px", height: "44px" }}
+                    style={{ width: "46px", height: "46px" }}
                   ></image-slot>
-                  <div className="testi-chip-meta">
-                    <div className="testi-chip-name">{q.name}</div>
-                    <div className="testi-chip-co">{q.city}</div>
+                  <div className="tc-id">
+                    <div className="tc-name">{q.name}</div>
+                    <div className="tc-city">{q.city}</div>
                   </div>
-                </div>
-                <div className="testi-card">
-                  <svg className="testi-qmark" width="28" height="22" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true">
-                    <path d="M0 24V14C0 9.8 0.9 6.3 2.7 3.8C4.6 1.3 7.4 0 11.3 0V4.6C9.3 4.6 7.9 5.1 7 6.1C6.1 7 5.6 8.2 5.6 9.6H11.3V24H0ZM18 24V14C18 9.8 18.9 6.3 20.7 3.8C22.6 1.3 25.4 0 29.3 0V4.6C27.3 4.6 25.9 5.1 25 6.1C24.1 7 23.6 8.2 23.6 9.6H29.3V24H18Z"/>
-                  </svg>
-                  <p className="testi-quote-text">{q.text}</p>
-                </div>
+                  <div className="tc-stars" aria-hidden="true">★★★★★</div>
+                </header>
+                <p className="tc-text">{q.text}</p>
+              </article>
+            ))}
+            <div className="testi-end">
+              <div className="te-inner">
+                <div className="te-stars">★★★★★</div>
+                <p>Et le prochain avis,<br/><em>c'est peut-être le vôtre.</em></p>
+                <a href="Devis.html" className="btn btn-primary">Demander un devis<span className="arrow">→</span></a>
               </div>
-              ))}
             </div>
           </div>
         </div>
@@ -226,4 +218,78 @@ function Testimonials() {
   );
 }
 
-Object.assign(window, { Values, Testimonials });
+function HomeFaq() {
+  const cats = [
+    {
+      cat: "Tarifs",
+      items: [
+        { q: "Le prix annoncé peut-il changer le jour J ?", a: "Non. Le prix du devis est le prix payé. On chiffre précisément à partir du volume et des accès — pas de supplément surprise sur la facture." },
+        { q: "Combien coûte un déménagement ?", a: "Comptez en moyenne 670–870 € pour un studio en local et 990–1 290 € pour un 2 pièces ; le double en longue distance. Ce ne sont que des repères : votre devis personnalisé, lui, est ferme et gratuit." },
+        { q: "Faut-il verser un acompte ?", a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis." }
+      ]
+    },
+    {
+      cat: "Assurance & sécurité",
+      items: [
+        { q: "Et si un meuble est abîmé ou cassé ?", a: "Une assurance multirisque est incluse dans chaque formule. En cas de dommage, on le constate ensemble, on le déclare, et la couverture s'applique selon les plafonds indiqués au devis." },
+        { q: "Mes objets de valeur sont-ils couverts ?", a: "Oui. Pour les œuvres d'art, instruments ou objets précieux, on prévoit un emballage renforcé sur mesure et une assurance en valeur déclarée, convenue à l'avance." }
+      ]
+    },
+    {
+      cat: "L'équipe",
+      items: [
+        { q: "Qui vient réellement faire le déménagement ?", a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille." },
+        { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une société immatriculée, avec SIRET, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
+      ]
+    },
+    {
+      cat: "Pratique",
+      items: [
+        { q: "Sous combien de temps puis-je réserver ?", a: "Vous recevez un devis détaillé sous 24h. Idéalement, réservez 2 à 3 semaines à l'avance (plus en haute saison) — mais on gère aussi les demandes serrées, alors appelez-nous." },
+        { q: "Travaillez-vous le week-end ?", a: "Oui, sur réservation. Les samedis et fins de mois partent vite, pensez à réserver tôt. Dimanches et jours fériés possibles selon les villes." }
+      ]
+    }
+  ];
+
+  const [catIdx, setCatIdx] = React.useState(0);
+  const [open, setOpen] = React.useState(0);
+  const list = cats[catIdx].items;
+
+  return (
+    <section className="sec home-faq" id="faq">
+      <div className="wrap">
+        <div className="home-faq-top reveal">
+          <span className="testi-badge"><span className="asterisk">*</span> Vos questions</span>
+          <h2>Questions fréquentes,<br/><em>réponses droit au but.</em></h2>
+          <div className="home-faq-cats">
+            {cats.map((c, i) => (
+              <button key={i} className={"hfc-pill" + (i === catIdx ? " active" : "")} onClick={() => { setCatIdx(i); setOpen(0); }}>
+                {c.cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="home-faq-list reveal">
+          {list.map((it, i) => (
+            <div className={"faq-item" + (open === i ? " open" : "")} key={catIdx + "-" + i}>
+              <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+                <span>{it.q}</span>
+                <span className="ico">+</span>
+              </button>
+              <div className="faq-a"><p>{it.a}</p></div>
+            </div>
+          ))}
+        </div>
+
+        <div className="home-faq-foot reveal">
+          <span>Une question qui n'est pas là&nbsp;?</span>
+          <a href="tel:+33781961445" className="btn btn-ghost">07 81 96 14 45</a>
+          <a href="FAQ.html" className="btn btn-primary">Toutes les questions<span className="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { Values, Testimonials, HomeFaq });
