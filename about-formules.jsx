@@ -129,6 +129,7 @@ function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon, i
 }
 
 function Formules({ recommendedTier }) {
+  const gridRef = React.useRef(null);
   const tiers = [
   {
     key: "standard",
@@ -178,6 +179,24 @@ function Formules({ recommendedTier }) {
 
   }];
 
+  // Sur mobile, le carrousel démarre centré sur la formule recommandée (carte du milieu)
+  React.useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid || window.innerWidth > 640) return;
+    let idx = tiers.findIndex((t) => t.key === recommendedTier);
+    if (idx < 0) idx = Math.floor(grid.children.length / 2);
+    const target = grid.children[idx];
+    if (!target) return;
+    const center = () => {
+      const g = grid.getBoundingClientRect();
+      const t = target.getBoundingClientRect();
+      grid.scrollLeft = Math.max(0, grid.scrollLeft + (t.left - g.left) - (grid.clientWidth - t.width) / 2);
+    };
+    center();
+    // Re-centre après stabilisation du layout (polices, animations reveal)
+    const id = setTimeout(center, 300);
+    return () => clearTimeout(id);
+  }, [recommendedTier]);
 
   return (
     <section className="sec formules-section" id="formules">
@@ -192,7 +211,7 @@ function Formules({ recommendedTier }) {
           </h2>
         </div>
 
-        <div className="formules-grid reveal-stagger">
+        <div className="formules-grid reveal-stagger" ref={gridRef}>
           {tiers.map((t) =>
           <Formule key={t.key} {...t} recommended={recommendedTier === t.key} />
           )}
