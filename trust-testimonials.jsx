@@ -134,7 +134,7 @@ function Testimonials() {
     const pin = pinRef.current, track = trackRef.current;
     if (!pin || !track) return;
 
-    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) || window.innerWidth >= 981;
     let maxX = 0, raf = null;
 
     const measure = () => {

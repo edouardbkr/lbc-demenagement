@@ -219,7 +219,7 @@ function MarqueeBar() {
     </>;
 
   return (
-    <div className="marquee-bar" aria-label="Zones d'intervention" style={{ margin: "60px 0px 0px" }}>
+    <div className="marquee-bar" aria-label="Zones d'intervention" style={{ margin: "clamp(44px, 6vw, 60px) 0px 0px" }}>
       <div className="marquee-track">
         <Row /><Row />
       </div>
@@ -582,40 +582,11 @@ function useLiveliness() {
   }, []);
 }
 
-function MobileActionBar() {
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    // Reveal the bar only after the user scrolls past the header (whose own
-    // Appeler/Devis buttons sit in the top ~88px) — so it never duplicates them.
-    const onScroll = () => setShown(window.scrollY > 120);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-  return (
-    <div className={"m-actionbar" + (shown ? " is-visible" : "")} role="navigation" aria-label="Actions rapides">
-      <a className="m-ab-btn m-ab-call" href="tel:+33781961445">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
-        <span>Appeler</span>
-      </a>
-      <a className="m-ab-btn m-ab-devis" href="Devis.html">
-        <span>Devis gratuit</span>
-        <span className="m-ab-arrow" aria-hidden="true">→</span>
-      </a>
-    </div>);
-
-}
-
 function Footer() {
   useLiveliness();
   return (
     <React.Fragment>
       <FloatWhatsApp />
-      <MobileActionBar />
       <FooterSEO />
       <footer className="footer">
         <div className="wrap">

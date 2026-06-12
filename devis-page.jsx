@@ -385,7 +385,7 @@ function DevisForm() {
                     <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
                   </div>
                 </div>
-                <div style={{ marginTop: 32, display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap' }}>
+                <div className="form-nav" style={{ marginTop: 32 }}>
                   <button type="submit" className="form-submit">Continuer<span>→</span></button>
                   {tried0 && !step0Complete && <span className="form-incomplete">Il manque quelques infos — voir les champs en rouge.</span>}
                 </div>
@@ -418,7 +418,7 @@ function DevisForm() {
                     <textarea name="details" defaultValue={data.details} placeholder="Stationnement à réserver, animaux, garde-meuble, contrainte d'horaire… toute info qui évite une surprise le jour J."></textarea>
                   </div>
                 </div>
-                <div style={{ marginTop: 32, display: 'flex', gap: 14, alignItems: 'center', flexWrap: 'wrap' }}>
+                <div className="form-nav" style={{ marginTop: 32 }}>
                   <button type="button" className="btn btn-ghost" onClick={back}>← Retour</button>
                   <button type="submit" className="form-submit">Continuer<span>→</span></button>
                   {tried1 && !step1Complete && <span className="form-incomplete">Il manque quelques infos — voir les champs en rouge.</span>}

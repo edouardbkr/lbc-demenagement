@@ -143,33 +143,48 @@ function FormulaFinder() {
   const tier = sel.length ? Math.max(...sel.map((i) => FINDER_NEEDS[i].tier)) : -1;
   const res = tier >= 0 ? FINDER_RESULT[tier] : null;
   return (
-    <section className="sec" style={{ background: 'var(--paper)' }}>
+    <section className="sec finder-section" style={{ background: 'var(--paper)' }}>
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Trouvez votre formule</div></div>
-          <h2 className="dim-em">Cochez vos besoins,<br /><em>on éclaire la bonne formule.</em></h2>
+          <h2 className="dim-em">Cochez vos besoins,<br /><em>on vous conseille la formule.</em></h2>
         </div>
         <div className="finder reveal">
           <div className="finder-needs">
-            <div className="finder-label">De quoi avez-vous besoin&nbsp;?</div>
-            <div className="inv-chips">
+            <div className="finder-step"><span className="finder-step-n">1</span>De quoi avez-vous besoin&nbsp;?</div>
+            <div className="finder-list">
               {FINDER_NEEDS.map((n, i) =>
-              <button type="button" key={i} className={"inv-chip" + (sel.includes(i) ? " on" : "")} onClick={() => toggle(i)}>{n.label}</button>
+              <button type="button" key={i} className={"finder-need" + (sel.includes(i) ? " on" : "")} onClick={() => toggle(i)} aria-pressed={sel.includes(i)}>
+                <span className="fn-check" aria-hidden="true"></span>
+                <span className="fn-label">{n.label}</span>
+              </button>
               )}
             </div>
           </div>
-          <div className={"finder-result" + (res ? " has-res" : "")}>
-            {res ?
-            <React.Fragment>
-                <div className="finder-res-eyebrow">Formule conseillée</div>
-                <div className="finder-res-name">{res.name}</div>
-                <div className="finder-res-tag">{res.tag}</div>
-                <p className="finder-res-desc">{res.desc}</p>
-                <a href="Devis.html" className="btn btn-primary">Demander cette formule<span className="arrow">→</span></a>
-              </React.Fragment> :
+          <div className="finder-result-col">
+            <div className="finder-step"><span className="finder-step-n">2</span>Votre formule conseillée</div>
+            <div className={"finder-result" + (res ? " has-res" : "")}>
+              {res ?
+              <React.Fragment>
+                  <div className="finder-res-dots" aria-hidden="true">
+                    <i className={tier >= 0 ? "on" : ""}></i>
+                    <i className={tier >= 1 ? "on" : ""}></i>
+                    <i className={tier >= 2 ? "on" : ""}></i>
+                  </div>
+                  <div className="finder-res-name">{res.name}</div>
+                  <div className="finder-res-tag">« {res.tag} »</div>
+                  <p className="finder-res-desc">{res.desc}</p>
+                  <a href="Devis.html" className="btn btn-primary">Demander cette formule<span className="arrow">→</span></a>
+                </React.Fragment> :
 
-            <div className="finder-empty">Sélectionnez ce qui compte pour vous — votre formule idéale s'affiche ici. 🦴</div>
-            }
+              <div className="finder-empty">
+                  <div className="finder-empty-ic" aria-hidden="true">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+                  </div>
+                  Cochez ce qui compte pour vous —<br />votre formule idéale apparaît ici.
+                </div>
+              }
+            </div>
           </div>
         </div>
       </div>

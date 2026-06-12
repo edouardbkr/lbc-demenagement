@@ -48,7 +48,6 @@ function App() {
         <MascotStamp />
         <About />
         <Formules recommendedTier={t.recommended} />
-        <Estimator />
         <RoadDivider />
         <Gallery />
         <Values />

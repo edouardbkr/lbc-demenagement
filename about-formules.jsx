@@ -17,13 +17,10 @@ function About() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <p className="lead">
-              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. Cartons écrasés, canapé rayé, personne à 8h le jour J. De cette galère est née une promesse&nbsp;: <em>plus jamais ça — ni pour nous, ni pour vous.</em>
+              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. De cette galère est née une promesse&nbsp;: <em>plus jamais ça.</em>
             </p>
             <p>
-              Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* applique une règle simple&nbsp;: traiter vos affaires comme les nôtres. Un devis ferme sans mauvaise surprise, du matériel professionnel, et des gens qui savent qu'un carton «&nbsp;fragile&nbsp;» veut dire quelque chose.
-            </p>
-            <p>
-              De Nice à Monaco, de la Côte d'Azur jusqu'à Paris — studio ou grande maison, on adapte la formule à votre vie, pas l'inverse.
+              Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* traite vos affaires comme les siennes. Un devis ferme, du matériel pro, et des gens qui savent ce que «&nbsp;fragile&nbsp;» veut dire.
             </p>
             <p style={{ color: 'var(--ink)' }}>
               Le nom est la blague. <strong>Le travail est sérieux.</strong> <a href="Apropos.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
@@ -92,7 +89,7 @@ const IconDiamond = () =>
   </svg>;
 
 
-function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon }) {
+function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon, ideal }) {
   return (
     <div className={"formula" + (recommended ? " is-recommended" : "")}>
       <div className="formula-head">
@@ -101,15 +98,21 @@ function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon })
         <div className="formula-badge"><span className="formula-badge-star">★</span>LA PLUS CHOISIE</div>
         }
       </div>
-      <div className="formula-level">{["Standard", "Premium", "Luxe"][tier - 1]}</div>
+      <div className="formula-dots" aria-hidden="true">
+        <i className={tier >= 1 ? "on" : ""}></i>
+        <i className={tier >= 2 ? "on" : ""}></i>
+        <i className={tier >= 3 ? "on" : ""}></i>
+      </div>
+      <div className="formula-level">{["Niveau 1 · Économique", "Niveau 2 · Confort", "Niveau 3 · Clé en main"][tier - 1]}</div>
       <div className="formula-name">{name}</div>
       <div className="formula-tag">« {tag} »</div>
       {pitch && <p className="formula-pitch">{pitch}</p>}
+      {ideal && <div className="formula-ideal"><span className="fi-label">Idéal pour</span>{ideal}</div>}
 
       <ul>
         {inherits &&
         <li className="formula-inherits" style={{ paddingLeft: 0 }}>
-            <span style={{ flex: 1 }}>Tout ce qui est inclus dans {inherits}</span>
+            <span style={{ flex: 1 }}>Tout <strong>{inherits}</strong>, et en plus :</span>
           </li>
         }
         {items.map((it, i) => <li key={i}>{it}</li>)}
@@ -133,6 +136,7 @@ function Formules({ recommendedTier }) {
     name: "Coup de main",
     tag: "L'essentiel, bien fait.",
     pitch: "Vous gérez vos cartons, on gère le muscle, la route et la casse. Le déménagement sans superflu, fait dans les règles.",
+    ideal: "les petits budgets et celles et ceux qui aiment mettre la main à la pâte.",
     icon: <IconBox />,
     items: [
     "Transport de vos affaires avec véhicule adapté",
@@ -147,6 +151,7 @@ function Formules({ recommendedTier }) {
     name: "Mains libres",
     tag: "Le confort, sans le stress.",
     pitch: "Notre formule la plus demandée. On protège, on démonte, on remonte — vous n'avez plus qu'à ouvrir la porte.",
+    ideal: "un déménagement serein, sans vous fatiguer ni rien casser.",
     icon: <IconShield />,
     inherits: "Coup de main",
     items: [
@@ -162,6 +167,7 @@ function Formules({ recommendedTier }) {
     name: "Mains dans les poches",
     tag: "Vous ne touchez à rien. On s'occupe de tout.",
     pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous arrivez les mains dans les poches.",
+    ideal: "les agendas chargés et les biens précieux ou volumineux.",
     icon: <IconDiamond />,
     inherits: "Mains libres",
     items: [
@@ -191,6 +197,7 @@ function Formules({ recommendedTier }) {
           <Formule key={t.key} {...t} recommended={recommendedTier === t.key} />
           )}
         </div>
+        <div className="formules-hint" aria-hidden="true">← Glissez pour comparer les formules →</div>
       </div>
     </section>);
 

@@ -29,23 +29,8 @@ function Hero({ headlineVariant }) {
               <span className="l2" style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{h.l2}<span className="scribble">{h.scribble}</span></span>
             </h1>
 
-            <p className="hero-sub">
-              <strong style={{ fontWeight: 600, color: 'var(--ink)' }}></strong>On emballe, on protège, on transporte, on réinstalle. Vous gardez la main sur l'essentiel, on s'occupe du reste. Du studio niçois à la villa des hauteurs, votre déménagement cesse d'être votre problème. <em></em>
-            </p>
-
             <div className="hero-ctas">
-              <a href="Devis.html" className="btn btn-primary">
-                Obtenir un devis gratuit
-                <span className="arrow">→</span>
-              </a>
-              <a href="Formules.html" className="btn btn-ghost">Voir nos formules</a>
-            </div>
-
-            <div className="hero-trust">
-              <span className="stars">★★★★★</span>
-              <span><strong>4,9 / 5</strong> · Avis Google</span>
-              <span style={{ color: 'var(--muted)' }}>·</span>
-              <span><strong>Devis</strong> en 24h</span>
+              <a href="Formules.html" className="btn btn-primary hero-cta-link">Trouver ma formule idéale<span className="arrow">→</span></a>
             </div>
           </div>
 
@@ -60,11 +45,9 @@ function Hero({ headlineVariant }) {
           </div>
         </div>
 
-        <div className="reveal" style={{ marginTop: 'clamp(32px, 4vw, 52px)' }}>
-          <QuickQuote variant="light" />
-        </div>
-
         <MarqueeBar />
+
+        <Estimator />
       </div>
     </section>);
 
