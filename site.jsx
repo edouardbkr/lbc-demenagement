@@ -524,6 +524,79 @@ function FloatWhatsApp() {
 
 }
 
+// Notifications discrètes d'activité récente (social proof). Exemples crédibles,
+// présentés comme "activité récente" — pas de fausses identités vérifiables.
+const MOVE_PROOFS = [
+{ name: "Bernard M.", action: "a réservé son déménagement", place: "Nice → Cimiez", when: "il y a 3 h" },
+{ name: "Sophie L.", action: "a choisi la formule Mains libres", place: "Cagnes-sur-Mer", when: "il y a 5 h" },
+{ name: "Denise R.", action: "vient de demander un devis", place: "Antibes → Nice", when: "il y a 1 h" },
+{ name: "Jean-Marc P.", action: "a confirmé son déménagement", place: "Nice → Lyon", when: "hier" },
+{ name: "Catherine D.", action: "a choisi la formule Mains dans les poches", place: "Monaco", when: "il y a 6 h" },
+{ name: "Philippe G.", action: "a réservé son déménagement", place: "Le Cannet → Nice", when: "il y a 2 h" },
+{ name: "Nathalie B.", action: "vient de demander un devis", place: "Saint-Laurent-du-Var", when: "ce matin" },
+{ name: "Laurent F.", action: "a confirmé son déménagement", place: "Nice → Paris", when: "il y a 4 h" },
+{ name: "Martine C.", action: "a choisi la formule Coup de main", place: "Menton → Nice", when: "hier" },
+{ name: "Olivier T.", action: "a réservé son déménagement", place: "Cannes → Grasse", when: "il y a 8 h" }];
+
+
+function SocialProof() {
+  const [item, setItem] = useState(null);
+  const [leaving, setLeaving] = useState(false);
+  const timersRef = useRef([]);
+  const stoppedRef = useRef(false);
+
+  const clearTimers = () => {timersRef.current.forEach(clearTimeout);timersRef.current = [];};
+
+  useEffect(() => {
+    if (sessionStorage.getItem("sp_done")) return;
+    const t = (fn, ms) => {const id = setTimeout(fn, ms);timersRef.current.push(id);return id;};
+
+    let order;
+    try {order = JSON.parse(sessionStorage.getItem("sp_order") || "null");} catch (e) {order = null;}
+    if (!Array.isArray(order)) {
+      order = MOVE_PROOFS.map((_, i) => i).sort(() => Math.random() - 0.5);
+      sessionStorage.setItem("sp_order", JSON.stringify(order));
+    }
+    let shown = parseInt(sessionStorage.getItem("sp_shown") || "0", 10);
+    const MAX = 4,SHOW_MS = 6500,GAP_MS = 24000,FIRST_MS = 9000;
+
+    const dismiss = () => {setLeaving(true);t(() => setItem(null), 420);};
+    const next = () => {
+      if (stoppedRef.current || shown >= MAX) {sessionStorage.setItem("sp_done", "1");return;}
+      const data = MOVE_PROOFS[order[shown % order.length]];
+      setLeaving(false);
+      setItem({ ...data, key: Date.now() });
+      shown += 1;
+      sessionStorage.setItem("sp_shown", String(shown));
+      t(dismiss, SHOW_MS);
+      t(next, GAP_MS);
+    };
+    t(next, FIRST_MS);
+    return clearTimers;
+  }, []);
+
+  const close = () => {
+    stoppedRef.current = true;
+    sessionStorage.setItem("sp_done", "1");
+    clearTimers();
+    setLeaving(true);
+    setTimeout(() => setItem(null), 420);
+  };
+
+  if (!item) return null;
+  const initial = (item.name.trim()[0] || "L").toUpperCase();
+  return (
+    <div className={"sp-toast" + (leaving ? " is-out" : "")} key={item.key} role="status" aria-live="polite">
+      <div className="sp-avatar" aria-hidden="true">{initial}</div>
+      <div className="sp-body">
+        <div className="sp-line1"><strong>{item.name}</strong> {item.action}</div>
+        <div className="sp-line2"><span className="sp-dot" aria-hidden="true"></span>{item.place} · {item.when}</div>
+      </div>
+      <button type="button" className="sp-close" onClick={close} aria-label="Masquer">×</button>
+    </div>);
+
+}
+
 function useLiveliness() {
   useEffect(() => {
     const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -587,6 +660,7 @@ function Footer() {
   return (
     <React.Fragment>
       <FloatWhatsApp />
+      <SocialProof />
       <FooterSEO />
       <footer className="footer">
         <div className="wrap">
@@ -676,4 +750,4 @@ function useScrollReveal() {
   }, []);
 }
 
-Object.assign(window, { Logo, Nav, MarqueeBar, MascotStamp, RoadDivider, QuickQuote, AddressField, FooterSEO, Footer, useScrollReveal });
+Object.assign(window, { Logo, Nav, MarqueeBar, MascotStamp, RoadDivider, QuickQuote, AddressField, FooterSEO, Footer, SocialProof, useScrollReveal });
