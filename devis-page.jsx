@@ -54,6 +54,7 @@ function sendToCockpit(all) {
   const payload = {
     source: "site_web",
     client: { prenom, nom, tel: all.tel || "", email: all.email || "", contactPref: all.contact || "" },
+    codeParrain: (all.codeParrain || "").trim().toUpperCase(),
     formule: FORMULE_TO_APP[all.formule] || "standard",
     formulaireType: inventaire.length ? "detaille" : "basique",
     volumeEstime: SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null,
@@ -423,6 +424,10 @@ function DevisForm() {
                       <Choice name="ct" value="mail" label="Email" selected={data.contact === 'mail'} onSelect={(v) => set('contact', v)} />
                       <Choice name="ct" value="sms" label="SMS" selected={data.contact === 'sms'} onSelect={(v) => set('contact', v)} />
                     </div>
+                  </div>
+                  <div className="lf full">
+                    <label>Code de parrainage <span style={{ color: '#9aa4ab', fontWeight: 400 }}>(optionnel — 50 € de réduction)</span></label>
+                    <input type="text" name="codeParrain" value={data.codeParrain || ''} onChange={(e) => set('codeParrain', e.target.value.toUpperCase())} placeholder="Ex : DUPONT123" autoComplete="off" />
                   </div>
 
                   <div className="lf full"><div className="form-section-head">Votre logement</div></div>
