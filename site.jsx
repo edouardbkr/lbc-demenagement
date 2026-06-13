@@ -450,9 +450,8 @@ const COTE_AZUR = [
 const FRANCE = [];
 
 const CONSEILS = [
-{ label: "Combien coûte un déménagement en 2026 ?", href: "Article.html?a=cout-demenagement-2026" },
 { label: "Estimer le volume de votre déménagement", href: "Article.html?a=estimer-volume" },
-{ label: "Déménagement Nice → Paris : prix & délais", href: "Article.html?a=demenagement-nice-paris-prix-delais" },
+{ label: "Déménagement Nice → Paris : délais & organisation", href: "Article.html?a=demenagement-nice-paris-prix-delais" },
 { label: "Réussir son déménagement Nice-Paris", href: "Article.html?a=demenagement-nice-paris-reussir" },
 { label: "Déménagement international depuis Nice", href: "Article.html?a=demenagement-international-depuis-nice" },
 { label: "Déménager à La Rochelle", href: "Article.html?a=demenagement-la-rochelle-guide" },

@@ -18,7 +18,6 @@ const CITIES = {
     ],
     faq: [
       { q: "Intervenez-vous dans le Vieux-Nice piéton ?", a: "Oui. On réserve l'emplacement au plus près, et on gère le portage dans les ruelles ; un monte-meuble est prévu quand l'escalier ne passe pas." },
-      { q: "Combien coûte un déménagement à Nice ?", a: "Comptez en moyenne 390–690 € pour un studio et 890–1 500 € pour un 3 pièces en local. Votre devis personnalisé reste précis et ferme." },
       { q: "Gérez-vous le stationnement en centre-ville ?", a: "Oui, on s'occupe de la demande d'autorisation de stationnement auprès de la Ville de Nice, créneaux de zones piétonnes compris." }
     ],
     nearby: ["cagnes-sur-mer", "saint-laurent-du-var", "cannes", "monaco"]

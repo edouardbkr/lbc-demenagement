@@ -2,33 +2,6 @@
 
 const ARTICLES = [
   {
-    slug: "cout-demenagement-2026",
-    cat: "Tarifs",
-    title: "Combien coûte un déménagement en 2026\u00A0?",
-    date: "12 mai 2026",
-    read: "6 min",
-    excerpt: "Prix par volume, ce qui fait monter la facture, et les leviers concrets pour payer le juste prix — sans rogner sur la sécurité de vos affaires.",
-    thumb: "Cartons empilés · lumière d'atelier",
-    body: () => (
-      <React.Fragment>
-        <p className="lead-p">Un déménagement, ça se chiffre rarement « au doigt mouillé ». Trois variables font tout le prix : le volume, la distance, et le niveau de service. Le reste, ce sont des options.</p>
-        <p>En 2026, sur la Côte d'Azur, comptez en moyenne entre <strong>990 et 1 970 €</strong> pour un appartement local de taille moyenne en formule confort, et le double dès qu'on part en longue distance. Ces fourchettes bougent selon la saison : un samedi de fin juin coûte plus cher qu'un mardi de novembre.</p>
-        <h2>Ce qui fait vraiment varier la facture</h2>
-        <ul>
-          <li><strong>Le volume en m³</strong> — c'est la base de tout devis sérieux. Un studio tourne autour de 15 m³, un T3 autour de 35 m³.</li>
-          <li><strong>Les accès</strong> — étage sans ascenseur, rue piétonne niçoise, distance de portage : autant de minutes facturées.</li>
-          <li><strong>La distance</strong> — le carburant et le temps de route, évidemment, mais aussi le retour à vide du camion.</li>
-          <li><strong>Le niveau de service</strong> — vous emballez, ou on emballe ? Vous remontez les meubles, ou on s'en charge ?</li>
-        </ul>
-        <blockquote>Le meilleur moyen de payer trop cher, c'est de comparer des devis qui ne décrivent pas le même service.</blockquote>
-        <h2>Cinq leviers pour payer le juste prix</h2>
-        <p>Décalez la date si vous le pouvez, triez avant (chaque carton en moins compte), réservez tôt, regroupez si votre trajet est commun à d'autres, et surtout : exigez un devis détaillé ligne par ligne. Un prix rond et vague cache presque toujours une mauvaise surprise.</p>
-        <h3>Et l'assurance dans tout ça ?</h3>
-        <p>La couverture de base est incluse partout, mais elle est souvent plafonnée. Pour des objets de valeur, demandez une assurance complémentaire : quelques dizaines d'euros qui changent tout le jour où ça compte.</p>
-      </React.Fragment>
-    )
-  },
-  {
     slug: "estimer-volume",
     cat: "Méthode",
     title: "Estimer le volume de votre déménagement, sans se tromper",
@@ -106,28 +79,20 @@ const ARTICLES = [
   {
     slug: "demenagement-nice-paris-prix-delais",
     cat: "Longue distance",
-    title: "Déménagement Nice → Paris : prix, délais et organisation en 2026",
+    title: "Déménagement Nice → Paris : délais et organisation en 2026",
     date: "26 mai 2026",
     read: "8 min",
-    excerpt: "Combien coûte un déménagement Nice-Paris, en combien de temps, et comment éviter les pièges des 930 km qui séparent la Côte d'Azur de la capitale.",
+    excerpt: "En combien de temps se fait un Nice-Paris, et comment éviter les pièges des 930 km qui séparent la Côte d'Azur de la capitale.",
     thumb: "Carte Nice–Paris · ruban d'autoroute",
     body: () => (
       <React.Fragment>
-        <p className="lead-p">Le <strong>déménagement Nice → Paris</strong> est l'un des trajets longue distance les plus demandés de France. 930 kilomètres, environ 9 heures de route, et une logistique qui ne s'improvise pas. Voici tout ce qu'il faut savoir pour le réussir — et le payer au juste prix.</p>
-        <h2>Combien coûte un déménagement Nice-Paris ?</h2>
-        <p>Le prix dépend de trois facteurs : le volume, le niveau de service et la période. En 2026, comptez en moyenne :</p>
-        <ul>
-          <li><strong>Studio (≈ 15 m³)</strong> — entre 1 300 et 2 200 €.</li>
-          <li><strong>2 pièces (≈ 25 m³)</strong> — entre 2 000 et 3 200 €.</li>
-          <li><strong>3 pièces (≈ 35 m³)</strong> — entre 2 800 et 4 500 €.</li>
-        </ul>
-        <p>Ces fourchettes varient selon les accès (étage, ascenseur, stationnement parisien) et la saison : l'été et les fins de mois sont plus chers. Pour un chiffrage ferme, demandez un <a href="Devis.html">devis gratuit</a> détaillé ligne par ligne.</p>
+        <p className="lead-p">Le <strong>déménagement Nice → Paris</strong> est l'un des trajets longue distance les plus demandés de France. 930 kilomètres, environ 9 heures de route, et une logistique qui ne s'improvise pas. Voici tout ce qu'il faut savoir pour le réussir, sans mauvaise surprise.</p>
         <blockquote>Le bon réflexe : un seul camion, une seule équipe du chargement niçois au déchargement parisien. Pas de groupage hasardeux, pas de transbordement qui abîme.</blockquote>
         <h2>Combien de temps pour un Nice-Paris ?</h2>
         <p>Le trajet routier dure une journée. Selon la formule, le déménagement complet (emballage, route, livraison) s'étale sur 1 à 3 jours. En <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris</a> dédié, on charge un jour et on livre le lendemain matin.</p>
         <h3>Les pièges parisiens à anticiper</h3>
         <p>À l'arrivée, Paris impose ses règles : autorisation de stationnement à demander en mairie d'arrondissement, immeubles haussmanniens sans ascenseur ou avec cage trop étroite (le monte-meuble par la façade devient indispensable), et créneaux de livraison serrés. Un déménageur qui connaît les deux villes vous évite l'amende et les heures perdues.</p>
-        <h2>Comment payer moins cher</h2>
+        <h2>Bien préparer son Nice-Paris</h2>
         <p>Réservez 3 à 4 semaines à l'avance, évitez juin-septembre si possible, triez avant de partir, et comparez des devis qui décrivent <em>le même</em> service. Le garde-meuble relais peut aussi vous dépanner si vos dates de départ et d'arrivée ne coïncident pas.</p>
       </React.Fragment>
     )

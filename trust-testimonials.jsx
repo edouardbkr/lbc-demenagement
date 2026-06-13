@@ -224,7 +224,6 @@ function HomeFaq() {
       cat: "Tarifs",
       items: [
         { q: "Le prix annoncé peut-il changer le jour J ?", a: "Non. Le prix du devis est le prix payé. On chiffre précisément à partir du volume et des accès — pas de supplément surprise sur la facture." },
-        { q: "Combien coûte un déménagement ?", a: "Comptez en moyenne 670–870 € pour un studio en local et 990–1 290 € pour un 2 pièces ; le double en longue distance. Ce ne sont que des repères : votre devis personnalisé, lui, est ferme et gratuit." },
         { q: "Faut-il verser un acompte ?", a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis." }
       ]
     },

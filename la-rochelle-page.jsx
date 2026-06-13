@@ -28,7 +28,6 @@ const LR_FAQ = [
 { q: "Intervenez-vous dans le centre historique piéton ?", a: "Oui. On réserve l'autorisation de stationnement au plus près, et on gère le portage sous les arcades ; un monte-meuble est prévu quand l'escalier ancien ne passe pas." },
 { q: "Déménagez-vous sur l'Île de Ré et l'Île d'Oléron ?", a: "Oui, régulièrement. On intègre le passage du pont (et la navette pour l'Île d'Aix), ainsi que la circulation estivale, dans le planning et le devis." },
 { q: "Faites-vous La Rochelle – Nice ?", a: "Absolument : c'est une de nos liaisons longue distance. Camion dédié, une seule équipe du chargement à la livraison, prix clair et ferme." },
-{ q: "Combien coûte un déménagement à La Rochelle ?", a: "En local, comptez environ 400–700 € pour un studio et 900–1 600 € pour un 3 pièces. Votre devis personnalisé reste précis et sans surprise." },
 { q: "Gérez-vous les résidences des Minimes ?", a: "Oui : copropriétés, résidences étudiantes et accès marina sont coordonnés en amont avec gardiens et syndics." }];
 
 
