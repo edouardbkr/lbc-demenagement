@@ -582,7 +582,7 @@ p { margin: 0; }
   border-top: 0; border-bottom: 0;
 }
 .road-line {
-  position: absolute; left: 0; right: 0; bottom: 92px; height: 3px;
+  position: absolute; left: 0; right: 0; bottom: 74px; height: 3px;
   background: repeating-linear-gradient(90deg, var(--rule-strong) 0 22px, transparent 22px 44px);
   opacity: 0.7;
 }
@@ -2923,7 +2923,7 @@ body.density-compact .gallery { padding: clamp(40px, 6vw, 80px) 0; }
 /* ---- Road-divider truck: scale down on phones (was 300px ≈ 77% of screen) ---- */
 @media (max-width: 560px) {
   .road-divider { height: 176px; }
-  .road-line { bottom: 66px; }
+  .road-line { bottom: 53px; }
   .road-truck { width: 200px; bottom: 46px; }
   .road-truck svg { width: 200px; }
   .road-logo { top: 17px; left: 33px; width: 60px; }
