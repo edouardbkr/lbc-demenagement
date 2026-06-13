@@ -5,6 +5,82 @@ const { useState, useEffect, useRef } = React;
 const LEAD_EMAIL = "contact@lbcdemenagement.com";
 const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 
+// Cockpit LBC (base unique Supabase) — la clé anon est publique, l'insert est restreint
+// à la seule table « leads » (le site dépose, ne lit rien). Réception temps réel côté cockpit.
+const SUPA_URL = "https://bxkzhyxdmtfutsaogxxk.supabase.co";
+const SUPA_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4a3poeXhkbXRmdXRzYW9neHhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNTQ5MTYsImV4cCI6MjA5NjgzMDkxNn0.IWdomNH2VYgkK7pxjf1C6vaiLAgmdZiiio6Q7-ElZuE";
+let _sbClient = null;
+function sbClient() {
+  if (_sbClient) return _sbClient;
+  if (!window.supabase || !window.supabase.createClient) return null;
+  _sbClient = window.supabase.createClient(SUPA_URL, SUPA_ANON);
+  return _sbClient;
+}
+// Formules site → clés app (libellés identiques côté app : Coup de main / Mains libres / Mains dans les poches)
+const FORMULE_TO_APP = { standard: "eco", premium: "standard", luxe: "premium" };
+const SURFACE_VOL = { studio: 14, t2: 25, t3: 40, t4: 60 };
+// Capacité cabine ascenseur (site) → taille (app)
+const ASC_CAP_TO_TAILLE = { "1 pers": "1 personne", "2 pers": "2 personnes", "3 pers": "3-4 personnes", "4 pers": "3-4 personnes", "5+ pers": "6+ personnes" };
+// Distance de portage (site, fourchette) → mètres représentatifs (champ numérique app)
+const PORTAGE_TO_M = { "Moins de 10 m": 5, "10 – 30 m": 20, "30 – 50 m": 40, "Plus de 50 m": 60 };
+const CONTACT_LABEL = { tel: "Téléphone", mail: "Email", sms: "SMS" };
+const etageNum = (v) => !v ? 0 : v === "RDC" ? 0 : parseInt(v) || 0;
+const villeFrom = (addr) => {
+  if (!addr) return "";
+  const parts = String(addr).split(",").map((s) => s.trim()).filter(Boolean);
+  return parts.length ? parts[parts.length - 1] : addr;
+};
+const sideOf = (all, s) => ({
+  adresse: all[s] || "",
+  ville: villeFrom(all[s]),
+  etage: etageNum(all[s + "_etage"]),
+  ascenseur: all[s + "_asc"] === "Oui",
+  ascTaille: all[s + "_asc"] === "Oui" ? ASC_CAP_TO_TAILLE[all[s + "_asc_cap"]] || "" : "Aucun",
+  portage: PORTAGE_TO_M[all[s + "_portage"]] != null ? PORTAGE_TO_M[all[s + "_portage"]] : "",
+  acces: all[s + "_acces"] || "" });
+
+// Envoie la demande complète dans la table leads du cockpit (en plus de l'email).
+// Étage/ascenseur/taille/portage/accès partent en champs structurés ; le reste (fragiles,
+// à démonter, flexibilité, contact, détails) part en notes — pas de doublon.
+function sendToCockpit(all) {
+  const c = sbClient();
+  if (!c) { console.warn("[LBC] Supabase non chargé — lead NON envoyé au cockpit (recharge la page en Cmd+Shift+R)"); return; }
+  const np = (all.nom || "").trim().split(/\s+/);
+  const prenom = np.shift() || "";
+  const nom = np.join(" ");
+  const inventaire = window.buildInventoryArray ? window.buildInventoryArray(all) : [];
+  const mapToList = (m) => Object.entries(m || {}).filter((x) => x[1] > 0).map((x) => ({ label: x[0], qty: x[1] }));
+  const notes = all.details ? "Détails client : " + all.details : "";
+  const payload = {
+    source: "site_web",
+    client: { prenom, nom, tel: all.tel || "", email: all.email || "", contactPref: all.contact || "" },
+    formule: FORMULE_TO_APP[all.formule] || "standard",
+    formulaireType: inventaire.length ? "detaille" : "basique",
+    volumeEstime: SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null,
+    cartons: all.cartons || 0,
+    dateSouhaitee: all.date || "",
+    flexibilite: all.flex || "",
+    contactPref: CONTACT_LABEL[all.contact] || all.contact || "",
+    fragiles: mapToList(all.fragile),
+    demonter: mapToList(all.demontage),
+    inventaire,
+    options: {
+      demontage: !!(all.demontage && Object.keys(all.demontage).length),
+      emballage: all.formule === "premium" || all.formule === "luxe",
+      gardeMeuble: false },
+
+    depart: sideOf(all, "depart"),
+    arrivee: sideOf(all, "arrivee"),
+    message: notes };
+
+  try {
+    console.log("[LBC] Envoi du lead au cockpit…", payload);
+    c.from("leads").insert({ payload }).then(
+      (res) => { if (res && res.error) console.error("[LBC] Erreur insert lead :", res.error); else console.log("[LBC] ✓ Lead envoyé au cockpit"); },
+      (err) => { console.error("[LBC] Insert rejeté :", err); });
+  } catch (e) { console.error("[LBC] Exception sendToCockpit :", e); }
+}
+
 function DevisHero() {
   return (
     <section className="page-hero">
@@ -291,6 +367,7 @@ function DevisForm() {
         })
       }).catch(() => {});
     } catch (err) {}
+    sendToCockpit(all);
     setSent(true);
     scrollToForm();
   };

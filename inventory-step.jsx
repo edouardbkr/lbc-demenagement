@@ -372,4 +372,18 @@ function formatTags(map) {
   return e.map((x) => x[1] > 1 ? x[0] + " ×" + x[1] : x[0]).join(", ");
 }
 
-Object.assign(window, { InventoryStep, formatInventory, formatTags });
+// Build the structured inventory the cockpit expects: [{ piece, meuble, quantite }]
+function buildInventoryArray(data) {
+  const inv = data.inv || {};
+  const out = [];
+  getAllRooms(data).forEach((r) => {
+    const items = r.items.concat((data.roomItems || {})[r.key] || []);
+    items.forEach((it) => {
+      const q = inv[r.key + "::" + it.key] || 0;
+      if (q > 0) out.push({ piece: r.name, meuble: it.label, quantite: q });
+    });
+  });
+  return out;
+}
+
+Object.assign(window, { InventoryStep, formatInventory, formatTags, buildInventoryArray });
