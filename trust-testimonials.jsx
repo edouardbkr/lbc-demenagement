@@ -55,7 +55,7 @@ function Values() {
     { num: "②", icon: "map", title: "De Nice à toute la France", body: "Au quotidien sur la Côte d'Azur, Nice, Cannes, Antibes, Monaco… et sur les longues distances partout en France, jusqu'à l'international." },
     { num: "③", icon: "clock", title: "Un devis clair sous 24h", body: "Estimation en ligne ou visite gratuite, puis un prix détaillé ligne par ligne dans la journée ouvrée. Sans engagement, sans relance commerciale." },
     { num: "④", icon: "tag", title: "Le prix annoncé est le prix payé", body: "Aucun supplément le jour J, aucun frais caché. On chiffre juste dès le départ. C'est écrit noir sur blanc, et on ne casse jamais notre parole." },
-    { num: "⑤", icon: "calendar", title: "À l'heure, montre en main", body: "Une fenêtre d'arrivée de 15 minutes annoncée à l'avance. Votre journée démarre quand on l'a dit, pas deux heures plus tard." }
+    { num: "⑤", icon: "calendar", title: "À l'heure, pas à la demi-journée", body: "Un créneau d'arrivée précis, annoncé à l'avance, et on vous prévient si la route bouge. Votre journée démarre quand on l'a dit, pas deux heures plus tard." }
   ];
 
   return (
@@ -89,37 +89,37 @@ function Values() {
 function Testimonials() {
   const quotes = [
     {
-      text: "On craignait le jour J, on en est sorti détendus. L'équipe a emballé la vaisselle de ma grand-mère mieux que je ne l'aurais fait, pas une assiette ébréchée.",
+      text: "On appréhendait un peu le jour J, au final tout s'est fait dans le calme. La vaisselle de ma grand-mère a été emballée pièce par pièce, rien de cassé à l'arrivée.",
       name: "Camille R.",
       city: "Nice",
       id: "camille"
     },
     {
-      text: "Déménagement de nos bureaux un dimanche : lundi matin, tout le monde retrouvait son poste. Devis tenu au centime près, zéro mauvaise surprise. On les rappellera.",
+      text: "Déménagement de nos bureaux un dimanche, tout le monde a retrouvé son poste le lundi matin. Le devis a été tenu, pas de supplément sur la facture.",
       name: "Marc D.",
       city: "Antibes",
       id: "marc"
     },
     {
-      text: "Trois étages sans ascenseur et une armoire normande de famille. Ils ont démonté, transporté et remonté sans une rayure. « Bras cassés » mon œil.",
+      text: "Trois étages sans ascenseur et une vieille armoire normande. Démontée, transportée et remontée sans une rayure. Du travail propre.",
       name: "Sophie L.",
       city: "Cannes",
       id: "sophie"
     },
     {
-      text: "Réservé le mardi, déménagé le samedi. Studio étudiant bouclé en une matinée, et un prix honnête pour un petit volume. Edouard et Anthony sont adorables.",
+      text: "Réservé le mardi, déménagé le samedi. Studio bouclé en une matinée et un prix correct pour un petit volume. Équipe à l'heure et efficace.",
       name: "Thomas B.",
       city: "Saint-Laurent-du-Var",
       id: "thomas"
     },
     {
-      text: "Nice → Lyon avec deux enfants en bas âge. Tout est arrivé le lendemain, intact, et ils ont remonté les lits en premier pour qu'on puisse dormir. Mille mercis.",
+      text: "Nice → Lyon avec deux enfants en bas âge. Tout est arrivé le lendemain intact, et ils ont remonté les lits en premier pour qu'on puisse coucher les petits le soir.",
       name: "Naïma K.",
       city: "Menton",
       id: "naima"
     },
     {
-      text: "J'ai organisé le déménagement de ma mère à distance. Ponctuels, patients avec elle, et un compte-rendu photo à la fin. Exactement ce que j'espérais trouver.",
+      text: "J'ai organisé le déménagement de ma mère à distance. Équipe ponctuelle, patiente avec elle, avec un point par téléphone à chaque étape. Rien à redire.",
       name: "Élise V.",
       city: "Nice · Cimiez",
       id: "elise"

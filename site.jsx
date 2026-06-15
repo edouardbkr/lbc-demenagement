@@ -695,7 +695,7 @@ function Footer() {
               <div className="footer-col">
                 <h4>Contact</h4>
                 <ul>
-                  <li><a href="tel:+33493000000">+33 4 93 00 00 00</a></li>
+                  <li><a href="tel:+33781961445">07 81 96 14 45</a></li>
                   <li><a className="footer-email" href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
                   <li>12 rue d'Italie<br />06000 Nice</li>
                   <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 8h–19h</li>

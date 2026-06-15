@@ -8,7 +8,7 @@ const EST_SURFACE = [
 { key: "maison", label: "Maison", sub: "> 90 m²", base: 2500 }];
 
 const EST_DIST = [
-{ key: "local", label: "Local", sub: "Côte d'Azur", mult: 1 },
+{ key: "local", label: "Local", sub: "Alpes-Maritimes", mult: 1 },
 { key: "regional", label: "Régional", sub: "PACA", mult: 1.45 },
 { key: "national", label: "National", sub: "Toute la France", mult: 2.35 }];
 

@@ -4,7 +4,7 @@ function Hero({ headlineVariant }) {
   const headlines = {
     a: {
       l1: <><span className="asterisk" style={{ fontFamily: "\"DM Sans\"" }}>*</span>Les Bras <span className="break-word"><span className="sr-only">Cassés?</span><span className="bw bw-top" aria-hidden="true">Cassés?</span><span className="bw bw-bot" aria-hidden="true">Cassés?</span><span className="bw-crack" aria-hidden="true"></span></span></>,
-      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(38px, 11vw, 90px)" }}>Surement pas vos affaires.</em></>,
+      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(38px, 11vw, 90px)" }}>Sûrement pas vos affaires.</em></>,
       scribble: "promis."
     },
     b: {
