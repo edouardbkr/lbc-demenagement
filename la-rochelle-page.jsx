@@ -6,15 +6,16 @@ const LRI = (props) =>
 const LR_QUARTIERS = ["Vieux-Port", "Le Gabut", "Saint-Nicolas", "Les Minimes", "La Pallice", "Tasdon", "Mireuil", "Laleu", "Villeneuve-les-Salines", "Le Centre Historique", "Port-Neuf", "La Genette"];
 
 const LR_SPECIFICS = [
-{ t: "Centre historique à arcades", d: "Rues piétonnes, arcades médiévales et pavés : stationnement réservé et portage maîtrisé au cœur de la vieille ville." },
-{ t: "Quartier des Minimes", d: "Plus grand port de plaisance d'Europe : résidences étudiantes, copropriétés et accès marina coordonnés." },
-{ t: "Vers les îles", d: "Ré, Oléron, Aix : on déménage sur les îles, pont et marées pris en compte dans le planning." }];
+{ t: "Centre historique à arcades", d: "Rues piétonnes, arcades médiévales et pavés, immeubles anciens sans ascenseur : stationnement réservé en mairie, portage maîtrisé et monte-meuble au cœur de la vieille ville." },
+{ t: "Quartier des Minimes", d: "Plus grand port de plaisance d'Europe : résidences étudiantes, copropriétés et accès marina coordonnés en amont avec gardiens et syndics." },
+{ t: "Vers les îles", d: "Ré, Oléron, Aix : on déménage sur les îles, en intégrant pont, péage saisonnier, marées et navette bateau au planning et au devis." }];
 
 
 const LR_DEEP = [
-{ t: "Une ville maritime, des accès maritimes", p: "La Rochelle se vit autour de l'eau : le Vieux-Port et ses tours, le Gabut coloré, l'immense port des Minimes. Beaucoup d'immeubles anciens du centre n'ont pas d'ascenseur et donnent sur des ruelles piétonnes — on prévoit portage et monte-meuble, et on réserve l'emplacement camion auprès de la mairie." },
-{ t: "Étudiants, plaisanciers, familles", p: "Ville universitaire et capitale de la voile, La Rochelle brasse étudiants des Minimes, plaisanciers, familles de la Genette et de Port-Neuf. Studio meublé, maison rochelaise en pierre de taille ou résidence secondaire face à l'océan : on adapte la formule et le volume à chaque projet." },
-{ t: "Le pont vers les îles", p: "Île de Ré, Oléron, Aix : on traverse régulièrement. On intègre le passage du pont, les contraintes de circulation estivale et, sur l'Île d'Aix, la logistique du bateau — pour livrer sans mauvaise surprise." }];
+{ t: "Une ville tournée vers l'eau", p: "La Rochelle se vit autour de son port : le Vieux-Port et ses tours médiévales (Saint-Nicolas, la Chaîne, la Lanterne), le Gabut coloré, l'immense marina des Minimes. Le centre historique est piéton, pavé, bordé d'arcades, et ses immeubles anciens en pierre de taille n'ont presque jamais d'ascenseur. On y déménage au portage soigné sous les arcades, on réserve l'emplacement camion auprès de la mairie et on installe un monte-meuble quand l'escalier ancien ne laisse pas passer le mobilier." },
+{ t: "Étudiants, plaisanciers et familles", p: "Ville universitaire et capitale française de la voile, La Rochelle brasse des profils très variés : étudiants des résidences des Minimes, plaisanciers, jeunes actifs, familles installées à la Genette, à Port-Neuf ou à Tasdon, retraités venus pour la douceur de l'Atlantique. Studio meublé, maison rochelaise en pierre, appartement de copropriété ou résidence secondaire face à l'océan : on adapte la formule, l'équipe et le volume à chaque projet, du plus petit au plus exigeant." },
+{ t: "Le pont vers les îles", p: "Île de Ré, Oléron, Aix : ces déménagements insulaires sont une spécialité locale qui ne s'improvise pas. On intègre le passage du pont de Ré et son péage, la circulation estivale qui sature l'accès aux îles, les marées, et pour l'Île d'Aix la logistique du bac, accessible uniquement par bateau. Le tout est anticipé dans le planning et chiffré au devis, pour livrer sans mauvaise surprise même au bout d'une route de sel." },
+{ t: "La Rochelle ↔ Nice, et toute la France", p: "Si on connaît si bien La Rochelle, c'est qu'on y assure régulièrement la liaison longue distance depuis la Côte d'Azur, et inversement. La Rochelle–Nice, comme tout grand trajet, se fait en camion dédié et plombé, avec une seule équipe du chargement à la livraison, sans groupage ni transbordement. Mutations, rapprochements familiaux, changements de vie entre Atlantique et Méditerranée : on remet un devis ferme et, si vos dates décalent, un garde-meuble relais fait le pont." }];
 
 
 const LR_SERVICES = [
@@ -25,10 +26,12 @@ const LR_SERVICES = [
 
 
 const LR_FAQ = [
-{ q: "Intervenez-vous dans le centre historique piéton ?", a: "Oui. On réserve l'autorisation de stationnement au plus près, et on gère le portage sous les arcades ; un monte-meuble est prévu quand l'escalier ancien ne passe pas." },
-{ q: "Déménagez-vous sur l'Île de Ré et l'Île d'Oléron ?", a: "Oui, régulièrement. On intègre le passage du pont (et la navette pour l'Île d'Aix), ainsi que la circulation estivale, dans le planning et le devis." },
-{ q: "Faites-vous La Rochelle – Nice ?", a: "Absolument : c'est une de nos liaisons longue distance. Camion dédié, une seule équipe du chargement à la livraison, prix clair et ferme." },
-{ q: "Gérez-vous les résidences des Minimes ?", a: "Oui : copropriétés, résidences étudiantes et accès marina sont coordonnés en amont avec gardiens et syndics." }];
+{ q: "Intervenez-vous dans le centre historique piéton ?", a: "Oui. On réserve l'autorisation de stationnement au plus près, et on gère le portage sous les arcades ; un monte-meuble est prévu quand l'escalier ancien des immeubles en pierre ne passe pas." },
+{ q: "Déménagez-vous sur l'Île de Ré et l'Île d'Oléron ?", a: "Oui, régulièrement. On intègre le passage du pont et son péage, la navette bateau pour l'Île d'Aix, les marées et la circulation estivale dans le planning et le devis." },
+{ q: "Faites-vous La Rochelle – Nice et la longue distance ?", a: "Absolument : c'est l'une de nos liaisons longue distance. Camion dédié, une seule équipe du chargement à la livraison, sans groupage, et prix clair et ferme." },
+{ q: "Gérez-vous les résidences des Minimes ?", a: "Oui : copropriétés, résidences étudiantes et accès marina sont coordonnés en amont avec gardiens et syndics, avec réservation d'ascenseur si besoin." },
+{ q: "Déménagez-vous les étudiants à La Rochelle ?", a: "Bien sûr, c'est fréquent vu l'université et les résidences des Minimes : on gère les petits volumes et les studios meublés à un tarif honnête, surtout à la rentrée." },
+{ q: "Proposez-vous un garde-meuble à La Rochelle ?", a: "Oui, en box sécurisé : idéal pour une transition entre deux logements, une résidence secondaire ou un décalage de dates sur un trajet longue distance." }];
 
 
 function LRHero() {
@@ -59,7 +62,7 @@ function LRIntro() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur à La Rochelle</div>
-            <p className="lead">La Rochelle, ses tours, son port et ses arcades, est une ville maritime au charme unique — et aux accès parfois exigeants. On y déménage particuliers, étudiants et entreprises, du centre historique piéton aux résidences du bord d'océan.</p>
+            <p className="lead">La Rochelle, ses trois tours, son Vieux-Port et ses arcades médiévales, est une ville maritime au charme unique et aux accès parfois exigeants. Centre historique piéton et pavé, immeubles anciens sans ascenseur, plus grand port de plaisance d'Europe aux Minimes, et un pont vers les îles de Ré et d'Oléron : chaque secteur a ses contraintes, qu'on connaît et qu'on anticipe. On y déménage particuliers, étudiants, plaisanciers et entreprises, du studio au bord de l'eau à la maison rochelaise en pierre de taille.</p>
             <p>Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair et définitif. Le nom est la blague : le travail, lui, est sérieux.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis.html" className="btn btn-primary">Devis gratuit à La Rochelle<span className="arrow">→</span></a>
@@ -122,7 +125,7 @@ function LRDeep() {
           <div><div className="sec-num"><span className="asterisk">*</span> La Rochelle en profondeur</div></div>
           <h2 className="dim-em">Une ville tournée vers l'eau,<br /><em>un déménagement qui suit le rythme.</em></h2>
         </div>
-        <div className="ap-values reveal-stagger" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+        <div className="ap-values reveal-stagger" style={{ gridTemplateColumns: 'repeat(2,1fr)' }}>
           {LR_DEEP.map((d, i) =>
           <div className="ap-value" key={i}>
               <div className="ap-value-t">{d.t}</div>

@@ -70,6 +70,28 @@ function RIntro({ r }) {
 
 }
 
+function RDeep({ r }) {
+  if (!r.deep || !r.deep.length) return null;
+  return (
+    <section className="sec" style={{ background: 'var(--paper)' }}>
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num"><span className="asterisk">*</span> {r.to} en profondeur</div></div>
+          <h2 className="dim-em">Arriver à {r.to},<br /><em>on sait à quoi s'attendre.</em></h2>
+        </div>
+        <div className="ap-values reveal-stagger" style={{ gridTemplateColumns: 'repeat(' + Math.min(r.deep.length, 2) + ',1fr)' }}>
+          {r.deep.map((d, i) =>
+          <div className="ap-value" key={i}>
+              <div className="ap-value-t">{d.t}</div>
+              <div className="ap-value-d" style={{ fontSize: 15.5, lineHeight: 1.6 }}>{d.p}</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
 function RPoints({ r }) {
   return (
     <section className="sec testimonials">
@@ -274,6 +296,7 @@ function App() {
         <RHero r={r} />
         <RouteMap r={r} />
         <RIntro r={r} />
+        <RDeep r={r} />
         <RPoints r={r} />
         <RProcess />
         <RFaq r={r} />
