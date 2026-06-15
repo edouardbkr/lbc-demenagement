@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lbc-demenagement.fr/sitemap.xml
+Sitemap: https://lbcdemenagement.com/sitemap.xml
