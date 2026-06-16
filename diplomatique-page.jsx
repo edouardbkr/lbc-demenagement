@@ -36,8 +36,43 @@ function DipHero() {
         </div>
         <h1>Déménagement diplomatique, <em>au millimètre du protocole.</em></h1>
         <p className="lede">
-          Ambassades, consulats, diplomates en poste, organisations internationales : franchise douanière, confidentialité d'État et emballage musée. On déménage la diplomatie comme elle l'exige. <span className="ast">*</span>Discrétion absolue, partout dans le monde.
+          Des consulats de Nice aux missions de Monaco, jusqu'aux ambassades du monde entier : franchise douanière, confidentialité d'État et emballage musée. On déménage la diplomatie comme elle l'exige. <span className="ast">*</span>De la Côte d'Azur vers le monde, en toute discrétion.
         </p>
+      </div>
+    </section>);
+
+}
+
+function DipIntro() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="about-grid">
+          <div className="about-copy reveal">
+            <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Déménagement diplomatique à Nice & Monaco</div>
+            <p className="lead">La Côte d'Azur est une terre diplomatique à part. <strong style={{ color: 'var(--ink)' }}>Nice</strong> abrite l'un des plus importants corps consulaires de France, avec des consulats de dizaines de pays, et la Principauté de <strong style={{ color: 'var(--ink)' }}>Monaco</strong> concentre missions, consulats et organisations internationales. On connaît ce terrain, ses exigences protocolaires et sa discrétion, et on déménage pour lui comme pour n'importe quelle capitale du monde.</p>
+            <p>Prise de poste d'un consul à Nice, fin de mission d'un diplomate à Monaco, transfert de résidence d'un fonctionnaire international, mutation vers une ambassade à l'étranger : franchise douanière, inventaire valorisé multilingue, emballage musée et confidentialité d'État. Un chef de projet unique coordonne tout, du protocole au dernier carton.</p>
+            <div className="hero-ctas" style={{ marginTop: 32 }}>
+              <a href="Devis.html" className="btn btn-primary">Devis confidentiel sous 24h<span className="arrow">→</span></a>
+              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+            </div>
+          </div>
+          <div className="reveal">
+            <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
+              <h4 style={{ color: 'var(--ink)' }}>Notre terrain diplomatique</h4>
+              <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'var(--ink-2)' }}>
+                <div><strong style={{ color: 'var(--ink)' }}>Nice</strong> · l'un des plus grands corps consulaires de France</div>
+                <div><strong style={{ color: 'var(--ink)' }}>Monaco</strong> · missions, consulats et organisations</div>
+                <div><strong style={{ color: 'var(--ink)' }}>Douane</strong> · franchise diplomatique, carnets ATA</div>
+                <div><strong style={{ color: 'var(--ink)' }}>Confidentialité</strong> · personnel discret, chaîne sécurisée</div>
+                <div><strong style={{ color: 'var(--ink)' }}>Portée</strong> · de la Côte d'Azur vers le monde</div>
+              </div>
+              <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
+                Voir aussi le <a href="Militaire.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>déménagement militaire</a> et la <a href="Mutations.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>mutation professionnelle</a>.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>);
 
@@ -133,6 +168,7 @@ function App() {
       <Nav />
       <main>
         <DipHero />
+        <DipIntro />
         <DipWho />
         <DipSteps />
         <DipFeats />

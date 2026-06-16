@@ -33,6 +33,7 @@ const STOCK_DEEP = [
 
 
 const STOCK_FAQ = [
+{ q: "Où se trouve l'entrepôt et quelles villes desservez-vous ?", a: "Notre entrepôt sécurisé est à Nice. On vient collecter et on relivre partout sur la Côte d'Azur et dans les Alpes-Maritimes : Nice, Cannes, Antibes, Monaco, Grasse, Menton, Cagnes-sur-Mer, Saint-Laurent-du-Var, Le Cannet, Mandelieu et les environs." },
 { q: "Y a-t-il une durée minimum de stockage ?", a: "Non, c'est sans engagement de durée. Quelques jours entre deux logements ou plusieurs mois : vous arrêtez quand vous voulez, on relivre à la date de votre choix." },
 { q: "Comment savoir quelle taille de box choisir ?", a: "On vous conseille au moment du devis, à partir de votre volume. En repère : S pour quelques cartons ou un studio, M pour un 2 pièces, L pour un 3 pièces complet, XL pour une maison ou des locaux pro. Pas de mauvaise surprise, on dimensionne juste." },
 { q: "Puis-je récupérer quelques affaires pendant le stockage ?", a: "Nos box sont scellés et pensés pour un stockage tranquille puis une restitution groupée. Un accès ponctuel reste possible sur demande, mais si vous avez besoin d'allers-retours fréquents, un self-stockage sera plus adapté. Dites-nous votre besoin, on vous oriente honnêtement." },
@@ -66,8 +67,8 @@ function StockIntro() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre garde-meuble à Nice</div>
-            <p className="lead">Besoin de mettre vos affaires à l'abri un moment ? Notre <strong style={{ color: 'var(--ink)' }}>garde-meuble à Nice</strong> n'est pas un simple box vide à louer : c'est un service complet. On vient chez vous, on emballe, on inventorie, on stocke en box sécurisé, et on relivre quand vous êtes prêt. Vous ne portez rien, vous ne louez aucun camion, vous ne mobilisez personne.</p>
-            <p>Entre deux logements, pendant des travaux, pour une vente, une expatriation ou un manque de place : du carton isolé à la maison entière, on dimensionne le box à votre besoin, sans engagement de durée et avec l'assurance incluse. Un stockage tranquille, et tout qui ressort intact le jour voulu.</p>
+            <p className="lead">Besoin de mettre vos affaires à l'abri un moment ? Notre <strong style={{ color: 'var(--ink)' }}>garde-meuble à Nice</strong> n'est pas un simple box vide à louer : c'est un service complet. Notre entrepôt est à Nice, et on vient chercher vos affaires chez vous partout sur la <strong style={{ color: 'var(--ink)' }}>Côte d'Azur</strong> — Nice, Cannes, Antibes, Monaco, Grasse, Menton, Cagnes-sur-Mer, Saint-Laurent-du-Var. On emballe, on inventorie, on stocke, et on relivre quand vous êtes prêt. Vous ne portez rien, vous ne louez aucun camion, vous ne mobilisez personne.</p>
+            <p>Un trou entre deux logements sur le 06, des travaux, une vente immobilière à désencombrer pour les visites, une résidence secondaire à libérer en fin de saison, une expatriation depuis Nice ou Monaco, un manque de place : du carton isolé à la maison entière, on dimensionne le box à votre besoin, sans engagement de durée et avec l'assurance incluse. Un stockage tranquille au cœur des Alpes-Maritimes, et tout qui ressort intact le jour voulu.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis.html" className="btn btn-primary">Devis stockage sous 24h<span className="arrow">→</span></a>
               <a href="Reservation.html" className="btn btn-ghost">Réserver un box</a>
@@ -77,10 +78,10 @@ function StockIntro() {
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
               <h4 style={{ color: 'var(--ink)' }}>L'essentiel du stockage</h4>
               <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'var(--ink-2)' }}>
-                <div><strong style={{ color: 'var(--ink)' }}>Box sécurisé</strong> · entrepôt à Nice, alarme 24/7</div>
+                <div><strong style={{ color: 'var(--ink)' }}>Entrepôt à Nice</strong> · alarme et vidéo 24/7</div>
+                <div><strong style={{ color: 'var(--ink)' }}>Collecte</strong> · Nice et toute la Côte d'Azur (06)</div>
                 <div><strong style={{ color: 'var(--ink)' }}>Service complet</strong> · on collecte et on relivre</div>
                 <div><strong style={{ color: 'var(--ink)' }}>Sans engagement</strong> · vous arrêtez quand vous voulez</div>
-                <div><strong style={{ color: 'var(--ink)' }}>Assurance incluse</strong> · toute la durée</div>
                 <div><strong style={{ color: 'var(--ink)' }}>4 tailles</strong> · de S (≈30 cartons) à XL (une maison)</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
