@@ -147,41 +147,89 @@ const ARTICLES = [
     cat: "Longue distance",
     title: "Déménagement Nice → Paris : délais et organisation en 2026",
     date: "26 mai 2026",
-    read: "9 min",
+    read: "13 min",
     excerpt: "En combien de temps se fait un Nice-Paris, ce qui fait varier le coût, et comment éviter les pièges des 930 km qui séparent la Côte d'Azur de la capitale.",
     thumb: "Carte Nice–Paris · ruban d'autoroute",
     body: () => (
       <React.Fragment>
-        <p className="lead-p">Le <strong>déménagement Nice → Paris</strong> est l'un des trajets longue distance les plus demandés de France : environ 930 kilomètres, près de 9 heures de route, et une logistique qui ne s'improvise pas. Voici tout ce qu'il faut savoir sur les délais, l'organisation et ce qui fait varier le coût, pour le réussir sans mauvaise surprise.</p>
+        <p className="lead-p">Le <strong>déménagement Nice → Paris</strong> est l'un des trajets longue distance les plus demandés de France : environ 930 kilomètres, près de 9 heures de route, et une logistique qui ne s'improvise pas. Combien de temps faut-il vraiment ? Quand réserver ? Qu'est-ce qui fait varier le prix ? Et pourquoi l'arrivée à Paris est-elle plus délicate que la route elle-même ? Ce guide complet répond à tout, étape par étape, pour réussir votre Nice-Paris sans mauvaise surprise.</p>
 
         <blockquote>Le bon réflexe : un seul camion, une seule équipe du chargement niçois au déchargement parisien. Pas de groupage hasardeux, pas de transbordement en entrepôt qui rallonge les délais et abîme le mobilier.</blockquote>
 
-        <h2>Combien de temps pour un déménagement Nice-Paris ?</h2>
-        <p>Le trajet routier représente une journée. Selon la formule choisie, le déménagement complet (emballage, route, livraison, installation) s'étale sur 1 à 3 jours. En <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire en entrepôt. C'est la différence majeure avec le groupage, où vos affaires patientent qu'un camion se remplisse.</p>
+        <h2>Le trajet Nice-Paris en chiffres</h2>
+        <p>De la Côte d'Azur à la capitale, comptez environ <strong>930 km</strong> et <strong>9 heures de route</strong> hors pauses, en remontant la vallée du Rhône par l'A8 puis l'A7 et l'A6, l'« autoroute du Soleil » dans le sens inverse des vacanciers. C'est une distance qui impose des temps de conduite réglementaires pour le chauffeur, un véhicule bien entretenu et un mobilier soigneusement arrimé. Sur un tel trajet, rien ne doit bouger entre le départ et l'arrivée : la qualité du chargement compte autant que celle de la conduite.</p>
+
+        <h2>Combien de temps dure un déménagement Nice-Paris ?</h2>
+        <p>La question revient sans cesse, et la réponse dépend de la formule. Décomposons le déménagement en phases :</p>
+        <ul>
+          <li><strong>La préparation</strong> (cartons, tri, démontage) : de quelques jours à deux semaines selon que vous la faites vous-même ou qu'on s'en charge.</li>
+          <li><strong>Le chargement à Nice</strong> : une demi-journée à une journée selon le volume et les accès.</li>
+          <li><strong>La route</strong> : une journée de transport.</li>
+          <li><strong>La livraison et l'installation à Paris</strong> : une demi-journée à une journée (déchargement, remontage, mise en place).</li>
+        </ul>
+        <h3>Les scénarios selon la formule</h3>
+        <p>En formule <a href="Formules.html">Coup de main</a>, où vous gérez vos cartons, le déménagement se concentre souvent sur <strong>2 jours</strong> : chargement le jour 1, route et livraison le lendemain. En <strong>Mains libres</strong> ou <strong>Mains dans les poches</strong>, où l'on emballe et déballe, comptez plutôt <strong>2 à 3 jours</strong> au total, emballage et installation compris. En <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire.</p>
+
+        <h2>Camion dédié ou groupage : la différence qui change tout</h2>
+        <p>C'est le point que beaucoup découvrent trop tard. Deux modèles s'opposent :</p>
+        <ul>
+          <li><strong>Le groupage</strong> : vos affaires partagent le camion avec d'autres déménagements. Elles attendent en entrepôt qu'un véhicule se remplisse dans votre direction, puis sont transbordées. Résultat : un coût souvent plus bas, mais des délais flous (parfois une à deux semaines), et un risque de casse à chaque manipulation.</li>
+          <li><strong>Le camion dédié</strong> : un véhicule réservé à votre seul chargement, plombé au départ de Nice, livré en une traite par la même équipe. Délai fiable, une seule manipulation au départ et à l'arrivée, aucun mélange avec les affaires d'un autre.</li>
+        </ul>
+        <p>Sur un Nice-Paris, nous privilégions le camion dédié : c'est la garantie d'une date d'arrivée tenue et d'un mobilier qui voyage en sécurité.</p>
+
+        <h2>Quand réserver son déménagement Nice-Paris ?</h2>
+        <p>Anticipez. Pour un trajet longue distance, réservez idéalement <strong>3 à 4 semaines à l'avance</strong>, et davantage en haute saison. Les périodes les plus tendues sont l'été (juin à septembre), les fins de mois et les week-ends, quand les baux tournent et que tout le monde déménage en même temps. Un déménagement en milieu de mois, un jour de semaine et hors été est plus facile à caler, plus fluide, et souvent plus avantageux. Cela dit, on sait aussi gérer les départs serrés quand un compromis se signe vite.</p>
 
         <h2>Ce qui fait varier le coût d'un Nice-Paris</h2>
-        <p>Plutôt qu'un prix unique, retenez les leviers qui font monter ou baisser la facture. C'est ce que chiffre votre devis :</p>
+        <p>Plutôt qu'un prix unique, retenez les leviers qui font monter ou baisser la facture. C'est exactement ce que chiffre votre devis :</p>
         <ul>
-          <li><strong>Le volume</strong> en m³ : c'est le premier facteur. Trier avant de partir fait mécaniquement baisser le coût.</li>
-          <li><strong>La formule</strong> : du simple transport (Coup de main) au clé en main avec emballage complet (Mains dans les poches).</li>
-          <li><strong>Les accès</strong> aux deux adresses : étage, ascenseur, distance de portage, monte-meuble éventuel.</li>
-          <li><strong>La saison</strong> : juin à septembre et fins de mois sont plus demandés, donc plus tendus.</li>
-          <li><strong>Les options</strong> : garde-meuble relais, démontage/remontage, emballage des fragiles.</li>
+          <li><strong>Le volume</strong> en m³ : c'est le premier facteur. Trier et alléger avant de partir fait mécaniquement baisser le coût.</li>
+          <li><strong>La formule</strong> : du simple transport (Coup de main) au clé en main avec emballage et déballage complets (Mains dans les poches).</li>
+          <li><strong>Les accès</strong> aux deux adresses : étage, présence et taille de l'ascenseur, distance de portage, monte-meuble éventuel.</li>
+          <li><strong>La saison et la date</strong> : juin à septembre, fins de mois et week-ends sont plus demandés, donc plus tendus.</li>
+          <li><strong>Les options</strong> : garde-meuble relais, démontage/remontage, emballage des fragiles, assurance en valeur déclarée.</li>
         </ul>
-        <p>Pour un chiffrage personnalisé et ferme, le plus fiable reste le <a href="Devis.html">devis gratuit</a>, affiné si besoin par visite vidéo.</p>
+        <p>Pour un chiffrage personnalisé et <strong>ferme</strong> (le prix annoncé est le prix payé), le plus fiable reste le <a href="Devis.html">devis gratuit</a>, affiné si besoin par une courte visite vidéo. Pour comprendre comment bien estimer votre volume, lisez aussi notre article <a href="Article.html?a=estimer-volume">estimer le volume de votre déménagement</a>.</p>
 
-        <h2>Les pièges parisiens à anticiper</h2>
-        <p>Sur un Nice-Paris, le défi n'est pas la route, c'est l'arrivée. Paris impose ses règles : <strong>autorisation de stationnement</strong> à demander en mairie d'arrondissement, immeubles haussmanniens sans ascenseur ou à cage trop étroite (le monte-meuble par la façade devient indispensable), et créneaux de livraison serrés. Un déménageur qui connaît les deux villes vous évite l'amende et les heures perdues à tourner pour se garer.</p>
+        <h2>Au départ de Nice : les contraintes à anticiper</h2>
+        <p>Avant même la route, le chargement niçois a ses règles. Selon votre quartier (ruelles du Vieux-Nice, immeubles du Carré d'Or, hauteurs de Cimiez), il faut réserver un emplacement de stationnement auprès de la Ville de Nice, prévoir le portage ou le monte-meuble, et charger de préférence tôt le matin pour éviter la chaleur estivale et la circulation du bord de mer. On détaille tout cela dans notre guide <a href="Demenagement-Nice.html">déménager à Nice</a>.</p>
 
-        <h2>Bien préparer son déménagement Nice-Paris</h2>
+        <h2>À l'arrivée à Paris : le vrai défi</h2>
+        <p>Sur un Nice-Paris, le défi n'est pas la route, c'est l'arrivée. Paris impose ses règles, et les ignorer coûte cher en temps et en amendes :</p>
+        <h3>L'autorisation de stationnement, par arrondissement</h3>
+        <p>Pour réserver l'emplacement du camion devant l'immeuble, il faut une autorisation d'occupation de voirie, à demander à la mairie d'arrondissement concernée, plusieurs jours à l'avance. Sans elle, impossible de garantir une place : on tourne, on se gare loin, on porte sur des dizaines de mètres, ou on bloque la rue. On s'en charge pour vous.</p>
+        <h3>Les immeubles haussmanniens et le monte-meuble</h3>
+        <p>Beaucoup d'immeubles parisiens ont des escaliers en colimaçon, des cages exiguës, des derniers étages sans ascenseur ou un ascenseur minuscule. Pour les meubles volumineux, le <strong>monte-meuble par la façade</strong> devient indispensable. Il se repère et se chiffre dès le devis, jamais en surprise le jour J.</p>
+        <h3>Les créneaux et la circulation</h3>
+        <p>Intra-muros, le stationnement est minuté, certaines rues sont étroites ou à sens unique, et un gros porteur n'accède pas partout : on transborde parfois avec un véhicule plus maniable. En proche couronne, plus de place mais des trajets de portage parfois longs. On adapte le véhicule et la méthode à votre adresse exacte.</p>
+
+        <h2>L'organisation du jour J, des deux côtés</h2>
+        <p>Au départ de Nice, on charge tôt, on protège et on cale pour la longue route. Sur place à Paris, on décharge sur le créneau réservé, on remonte les meubles démontés et on installe. Avec une équipe dédiée, ce sont les <strong>mêmes déménageurs du premier au dernier carton</strong> : aucune dilution de responsabilité, aucun transbordement. Pour un déroulé pas-à-pas complet, voyez notre <a href="Article.html?a=demenagement-nice-paris-reussir">guide pour réussir son Nice-Paris</a>.</p>
+
+        <h2>Le garde-meuble relais entre les deux</h2>
+        <p>Les dates de départ et d'arrivée coïncident rarement à la perfection : un bail qui se termine avant que l'autre commence, des travaux, une vente qui traîne. Le <a href="Stockage.html">garde-meuble</a> en box sécurisé fait le pont, à Nice avant le départ ou à l'arrivée, le temps qu'il faut, vos affaires protégées et assurées.</p>
+
+        <h2>Les erreurs les plus fréquentes</h2>
         <ul>
-          <li><strong>Réservez 3 à 4 semaines à l'avance</strong>, davantage en haute saison.</li>
-          <li><strong>Évitez juin-septembre</strong> si votre calendrier le permet.</li>
-          <li><strong>Triez avant de partir</strong> : chaque m³ en moins compte sur un long trajet.</li>
-          <li><strong>Comparez des devis équivalents</strong>, qui décrivent le même service.</li>
-          <li><strong>Pensez au garde-meuble relais</strong> si vos dates de départ et d'arrivée ne coïncident pas.</li>
+          <li><strong>Réserver trop tard</strong> : les bons créneaux d'été partent des semaines à l'avance.</li>
+          <li><strong>Sous-estimer son volume</strong> : un camion trop petit le jour J, c'est un deuxième voyage et des frais.</li>
+          <li><strong>Oublier l'autorisation de stationnement</strong> à Paris : amende et portage à rallonge.</li>
+          <li><strong>Comparer des devis qui ne décrivent pas le même service</strong> : on croit économiser, on paie le jour J.</li>
+          <li><strong>Choisir le groupage sans le savoir</strong> : délais flous et manipulations multiples.</li>
         </ul>
-        <p>Pour aller plus loin, lisez notre <a href="Article.html?a=demenagement-nice-paris-reussir">guide complet pour réussir son Nice-Paris</a>, ou consultez directement la page <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris</a> et demandez votre devis.</p>
+
+        <h2>Questions fréquentes sur le Nice-Paris</h2>
+        <h3>Peut-on livrer le lendemain du chargement ?</h3>
+        <p>Oui, en camion dédié : on charge un jour à Nice et on livre le lendemain à Paris, selon une fenêtre d'arrivée annoncée. C'est l'avantage du trajet direct, sans attente en entrepôt.</p>
+        <h3>Faut-il être présent au départ et à l'arrivée ?</h3>
+        <p>Idéalement oui, ou une personne de confiance, pour ouvrir, indiquer la mise en place et signer. Si ce n'est pas possible, on s'organise avec vous en amont.</p>
+        <h3>Mes affaires sont-elles assurées sur les 930 km ?</h3>
+        <p>Oui, une assurance est incluse dans chaque formule, du chargement à la livraison. Pour les objets de valeur, on propose une couverture en valeur déclarée.</p>
+        <h3>Et si je déménage juste un studio ?</h3>
+        <p>Le trajet reste possible et chiffré au plus juste selon votre petit volume. La formule Coup de main est souvent la plus adaptée pour un studio.</p>
+
+        <p>Pour passer à l'action, consultez la page <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris</a>, lisez notre <a href="Article.html?a=demenagement-nice-paris-reussir">guide complet pour réussir son Nice-Paris</a>, et demandez votre <a href="Devis.html">devis gratuit sous 24h</a> : on s'occupe de tout, du premier carton niçois à la dernière étagère parisienne.</p>
       </React.Fragment>
     )
   },
@@ -190,35 +238,93 @@ const ARTICLES = [
     cat: "Longue distance",
     title: "Réussir son déménagement Nice-Paris : le guide complet pas-à-pas",
     date: "24 mai 2026",
-    read: "9 min",
+    read: "14 min",
     excerpt: "Rétroplanning sur 8 semaines, cartons, formalités, jour J des deux côtés : la méthode pas-à-pas pour quitter la Côte d'Azur et s'installer à Paris sans stress.",
     thumb: "Cartons étiquetés · départ vers le nord",
     body: () => (
       <React.Fragment>
-        <p className="lead-p">Quitter la douceur niçoise pour l'effervescence parisienne, c'est un grand changement de vie, et un déménagement de 930 km à orchestrer. Voici le <strong>guide pas-à-pas pour réussir votre déménagement Nice → Paris</strong>, du rétroplanning à la première nuit dans la capitale.</p>
+        <p className="lead-p">Quitter la douceur niçoise pour l'effervescence parisienne, c'est un grand changement de vie, et un déménagement de 930 km à orchestrer. Bien préparé, il se déroule sans accroc ; improvisé, il vire au cauchemar. Voici le <strong>guide pas-à-pas complet pour réussir votre déménagement Nice → Paris</strong> : rétroplanning, choix de la formule, tri, emballage, formalités, jour J des deux côtés et installation.</p>
 
-        <h2>8 semaines avant : le rétroplanning</h2>
+        <h2>Le rétroplanning, semaine par semaine</h2>
+        <p>Un Nice-Paris réussi se joue sur la préparation. Voici le calendrier idéal :</p>
         <ul>
-          <li><strong>J-8 semaines</strong> — demandez vos devis et bloquez la date. Les bons créneaux partent vite, surtout l'été.</li>
+          <li><strong>J-8 semaines</strong> — demandez vos devis et bloquez la date. Les bons créneaux partent vite, surtout entre juin et septembre.</li>
           <li><strong>J-6 semaines</strong> — triez, donnez, vendez. Chaque m³ en moins fait baisser la facture sur un long trajet.</li>
+          <li><strong>J-5 semaines</strong> — commandez vos cartons et fournitures (adhésif, papier bulle, marqueurs), et commencez par les pièces que vous utilisez peu.</li>
           <li><strong>J-4 semaines</strong> — résiliez ou transférez vos contrats (énergie, internet, assurance) et lancez votre changement d'adresse.</li>
-          <li><strong>J-2 semaines</strong> — réservez l'autorisation de stationnement à Nice <em>et</em> à Paris, et commandez vos cartons.</li>
-          <li><strong>J-3 jours</strong> — finalisez les cartons, préparez la boîte « première nuit » et confirmez les accès avec le déménageur.</li>
+          <li><strong>J-3 semaines</strong> — emballez progressivement, pièce par pièce, en étiquetant au fur et à mesure.</li>
+          <li><strong>J-2 semaines</strong> — réservez l'autorisation de stationnement à Nice <em>et</em> à Paris, confirmez les accès avec le déménageur.</li>
+          <li><strong>J-3 jours</strong> — finalisez les derniers cartons, préparez la boîte « première nuit », videz et dégivrez le réfrigérateur.</li>
+          <li><strong>Jour J</strong> — gardez sur vous papiers, clés, chargeurs et le nécessaire de la première nuit.</li>
         </ul>
 
-        <h2>Les formalités à ne pas oublier</h2>
-        <p>Un changement de région, c'est aussi de l'administratif. Pensez au transfert ou à la résiliation de l'énergie et d'internet, à la mise à jour de votre adresse (impôts, banque, assurance, carte grise sous un mois), à la réexpédition du courrier, et à l'inscription des enfants dans leur nouvel établissement. Un changement d'adresse bien fait évite des semaines de courrier perdu.</p>
+        <h2>Choisir la bonne formule pour un Nice-Paris</h2>
+        <p>Sur un trajet aussi long, le choix de la formule change tout, en confort comme en budget :</p>
+        <ul>
+          <li><strong>Coup de main</strong> — vous emballez vos cartons, on gère le muscle, le transport et le déchargement. Le plus économique, idéal pour les petits budgets et les studios.</li>
+          <li><strong>Mains libres</strong> — on protège, on emballe les fragiles, on démonte et on remonte. Le bon compromis pour un déménagement serein sans se fatiguer.</li>
+          <li><strong>Mains dans les poches</strong> — on s'occupe de tout, de l'emballage de la dernière assiette au remontage à l'arrivée. Pour les agendas chargés et les biens précieux.</li>
+        </ul>
+        <p>Le détail et le comparatif sont sur la page <a href="Formules.html">nos formules</a>.</p>
 
-        <h2>Bien emballer pour la route</h2>
-        <p>Sur 930 km, le calage est crucial : un carton mal rempli s'écrase, un meuble mal protégé se raye. Privilégiez des cartons pleins mais pas trop lourds (les livres dans de petits cartons), protégez la vaisselle et les écrans, démontez ce qui peut l'être et étiquetez chaque carton par <strong>pièce de destination</strong>. En formule <a href="Formules.html">Mains libres ou Mains dans les poches</a>, l'équipe s'occupe de tout l'emballage et du démontage.</p>
+        <h2>Trier et alléger avant 930 km</h2>
+        <p>C'est l'étape la plus rentable. Sur un long trajet, transporter ce dont on ne se sert plus coûte cher pour rien. Triez par catégorie : ce que vous gardez, ce que vous vendez (meubles en bon état, électroménager), ce que vous donnez (associations, plateformes) et ce que vous jetez ou recyclez (déchèterie pour l'encombrant). Les meubles en kit fatigués supportent mal la route : il est souvent plus malin de les remplacer à l'arrivée que de les transporter.</p>
+
+        <h2>L'art du carton : emballer pour durer</h2>
+        <p>Sur 930 km, le calage est crucial : un carton mal rempli s'écrase, un meuble mal protégé se raye. Quelques règles de pro :</p>
+        <ul>
+          <li><strong>Les livres et objets lourds</strong> dans de petits cartons, pour qu'ils restent portables.</li>
+          <li><strong>La vaisselle</strong> emballée pièce par pièce dans du papier, à la verticale, calée serré.</li>
+          <li><strong>Les vêtements</strong> en cartons-penderie ou en valises, pour gagner du temps.</li>
+          <li><strong>Les écrans et l'électronique</strong> dans leur boîte d'origine si possible, sinon bien protégés et signalés « fragile ».</li>
+          <li><strong>Étiquetez chaque carton par pièce de destination</strong> et notez son contenu : le déchargement à Paris en sera transformé.</li>
+        </ul>
+        <p>En formule <a href="Formules.html">Mains libres ou Mains dans les poches</a>, l'équipe s'occupe de tout l'emballage, avec un matériel professionnel.</p>
         <blockquote>Sur un long trajet, la qualité du chargement compte autant que la conduite. Entre Nice et Paris, rien ne doit bouger dans le camion.</blockquote>
 
-        <h2>Le jour J, des deux côtés</h2>
-        <p>Au départ de Nice, on charge tôt pour éviter la chaleur et la circulation du bord de mer. À l'arrivée à Paris, on décharge sur le créneau de stationnement réservé, on remonte les meubles et on installe. Avec une <a href="Demenagement-Nice-Paris.html">équipe dédiée Nice-Paris</a>, ce sont les mêmes déménageurs du premier au dernier carton : aucun transbordement, aucune dilution de responsabilité.</p>
+        <h2>Démontage, remontage et protection des meubles</h2>
+        <p>Les meubles volumineux voyagent mieux démontés : armoires, lits, grandes tables. Conservez la visserie dans des sachets étiquetés, scotchés au meuble correspondant. Chaque meuble est ensuite protégé de couvertures, de housses et de film, et calé dans le camion pour ne pas bouger sur l'autoroute. À l'arrivée, on remonte tout. En formule complète, ce démontage/remontage est inclus : vous n'avez ni tournevis ni notice à sortir.</p>
 
-        <h2>Et après : réussir son installation</h2>
-        <p>Gardez une boîte « première nuit » accessible (draps, trousse de toilette, chargeurs, cafetière, papier toilette). C'est le petit secret qui transforme une première soirée parisienne épuisante en simple emménagement. Déballez d'abord la cuisine et les chambres, le reste peut attendre le week-end.</p>
-        <p>Pour la partie chiffres et délais, lisez notre article <a href="Article.html?a=demenagement-nice-paris-prix-delais">Nice → Paris : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis.html">devis gratuit sous 24h</a>.</p>
+        <h2>Les formalités du changement de région</h2>
+        <p>Un Nice-Paris, c'est aussi un dossier administratif à ne pas négliger :</p>
+        <ul>
+          <li><strong>Énergie et internet</strong> — résiliez ou transférez, et souscrivez à l'arrivée pour avoir tout de suite courant et connexion.</li>
+          <li><strong>Adresse</strong> — mettez à jour impôts, banque, assurances, employeur, sécurité sociale et mutuelle ; changez l'adresse de la carte grise dans le mois.</li>
+          <li><strong>Courrier</strong> — souscrivez une réexpédition pour ne rien perdre pendant la transition.</li>
+          <li><strong>Enfants</strong> — inscrivez-les dans leur nouvel établissement, en anticipant les délais.</li>
+          <li><strong>Stationnement</strong> — la fameuse autorisation de voirie, à Nice comme à Paris.</li>
+        </ul>
+
+        <h2>Le jour du départ à Nice</h2>
+        <p>On charge tôt, pour éviter la chaleur estivale et la circulation du bord de mer. L'équipe protège les derniers meubles, sort les cartons selon l'accès (escalier, ascenseur, monte-meuble), et arrime tout dans le camion. Gardez avec vous une « valise de survie » et vos documents importants : ils ne partent pas dans le camion. Selon votre quartier, l'emplacement de stationnement a été réservé en amont (voyez notre guide <a href="Demenagement-Nice.html">déménager à Nice</a>).</p>
+
+        <h2>Sur la route</h2>
+        <p>Une journée de transport sépare les deux villes. En camion dédié, vos affaires ne s'arrêtent pas en entrepôt et ne sont pas transbordées : elles roulent en direct, sous la responsabilité de la même équipe, vers une fenêtre d'arrivée annoncée.</p>
+
+        <h2>Le jour de l'arrivée à Paris</h2>
+        <p>On décharge sur le créneau de stationnement réservé, on monte par l'escalier, l'ascenseur ou le monte-meuble selon l'immeuble, on remonte les meubles démontés et on installe pièce par pièce. Avec une <a href="Demenagement-Nice-Paris.html">équipe dédiée Nice-Paris</a>, ce sont les mêmes déménageurs du premier au dernier carton : aucun transbordement, aucune dilution de responsabilité.</p>
+
+        <h2>L'installation et la boîte « première nuit »</h2>
+        <p>Gardez une boîte « première nuit » accessible et clairement identifiée : draps, oreillers, trousse de toilette, chargeurs, cafetière, quelques couverts, papier toilette, une lampe. C'est le petit secret qui transforme une première soirée parisienne épuisante en simple emménagement. Déballez d'abord la cuisine et les chambres ; le salon et la déco peuvent attendre le week-end.</p>
+
+        <h2>Les erreurs à éviter</h2>
+        <ul>
+          <li><strong>Tout emballer la veille</strong> : commencez plusieurs semaines avant, pièce par pièce.</li>
+          <li><strong>Surcharger les gros cartons</strong> : ils deviennent imbrûlables et se déchirent.</li>
+          <li><strong>Ne pas étiqueter</strong> : à l'arrivée, c'est la chasse aux objets dans trente cartons identiques.</li>
+          <li><strong>Oublier les formalités d'adresse</strong> : des semaines de courrier et de démarches perdues.</li>
+          <li><strong>Laisser la boîte « première nuit » au fond du camion</strong> : gardez-la avec vous.</li>
+        </ul>
+
+        <h2>Questions fréquentes</h2>
+        <h3>Combien de cartons pour un appartement ?</h3>
+        <p>Comptez en gros 10 à 15 cartons pour un studio, 20 à 30 pour un deux-pièces, 30 à 50 pour un trois-pièces. Mieux vaut en prévoir quelques-uns de plus.</p>
+        <h3>Faut-il vider les meubles et tiroirs ?</h3>
+        <p>Oui, on déménage les meubles vides : c'est plus sûr pour eux et plus sécurisé au portage. Les vêtements peuvent rester dans certaines commodes légères, à voir avec l'équipe.</p>
+        <h3>Puis-je laisser des affaires en garde-meuble ?</h3>
+        <p>Oui, le <a href="Stockage.html">garde-meuble</a> relais est idéal si vos dates ne coïncident pas ou si votre logement parisien est plus petit.</p>
+
+        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article.html?a=demenagement-nice-paris-prix-delais">Nice → Paris : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis.html">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
       </React.Fragment>
     )
   },
@@ -227,28 +333,73 @@ const ARTICLES = [
     cat: "Villes",
     title: "Déménager à La Rochelle : centre historique, Les Minimes et les îles",
     date: "22 mai 2026",
-    read: "8 min",
+    read: "12 min",
     excerpt: "Arcades médiévales, plus grand port de plaisance d'Europe, îles de Ré et d'Oléron : le guide complet pour déménager à La Rochelle sans mauvaise surprise.",
     thumb: "Tours du Vieux-Port de La Rochelle",
     body: () => (
       <React.Fragment>
-        <p className="lead-p">Ville maritime au charme rare, <strong>La Rochelle</strong> séduit autant qu'elle complique un déménagement : centre historique piéton à arcades, immeubles anciens sans ascenseur, plus grand port de plaisance d'Europe, et un lien quotidien avec les îles. Voici comment préparer votre <strong>déménagement à La Rochelle</strong>, quartier par quartier.</p>
+        <p className="lead-p">Ville maritime au charme rare, <strong>La Rochelle</strong> séduit autant qu'elle complique un déménagement : centre historique piéton à arcades, immeubles anciens sans ascenseur, plus grand port de plaisance d'Europe, et un lien quotidien avec les îles. Ce guide complet vous accompagne quartier par quartier pour préparer votre <strong>déménagement à La Rochelle</strong>, du Vieux-Port aux îles de Ré et d'Oléron, sans mauvaise surprise.</p>
+
+        <h2>Pourquoi La Rochelle attire (et déménage) autant</h2>
+        <p>Entre océan, patrimoine et qualité de vie, La Rochelle est l'une des villes les plus prisées de la façade atlantique. Université dynamique, capitale française de la voile, tissu d'entreprises et tourisme : la ville brasse étudiants, jeunes actifs, familles, plaisanciers et retraités. Résultat, un marché immobilier tendu et beaucoup de déménagements, locaux comme longue distance. Mais son charme a un revers logistique : un centre ancien difficile d'accès et une géographie tournée vers l'eau, qu'il faut connaître pour déménager sereinement.</p>
 
         <h2>Le centre historique : magnifique, exigeant</h2>
-        <p>Le Vieux-Port et ses trois tours, le quartier Saint-Nicolas, le Gabut et les rues à arcades sont en grande partie piétonniers et pavés. Le camion ne va pas jusqu'à la porte : il faut réserver un emplacement au plus près en mairie, prévoir le portage sous les arcades, et souvent un <strong>monte-meuble</strong> pour les étages des immeubles en pierre de taille, rarement équipés d'ascenseur. C'est un déménagement de méthode et de soin, pas de force.</p>
+        <p>Le Vieux-Port et ses trois tours (Saint-Nicolas, la Chaîne, la Lanterne), le quartier Saint-Nicolas, le Gabut coloré et les fameuses rues à arcades sont en grande partie piétonniers et pavés. Le camion ne va pas jusqu'à la porte : il faut réserver un emplacement au plus près en mairie, prévoir le portage sous les arcades, et souvent un <strong>monte-meuble</strong> pour les étages des immeubles en pierre de taille, rarement équipés d'ascenseur. C'est un déménagement de méthode et de soin, pas de force brute. Le mobilier des maisons anciennes y est parfois ancien et délicat, on le protège en conséquence.</p>
 
         <h2>Les Minimes et le bord d'océan</h2>
-        <p>Premier port de plaisance d'Europe, le quartier des Minimes concentre résidences étudiantes et copropriétés modernes. Accès marina, gardiens, créneaux d'ascenseur, badges : tout se coordonne en amont. À la Genette, à Port-Neuf ou à Tasdon, ce sont plutôt des maisons rochelaises et des accès résidentiels, plus simples mais à anticiper malgré tout en saison touristique.</p>
+        <p>Premier port de plaisance d'Europe, le quartier des Minimes concentre résidences étudiantes et copropriétés modernes face à l'eau. Accès marina, gardiens, créneaux d'ascenseur, badges : tout se coordonne en amont avec les syndics. C'est aussi le quartier où l'on déménage le plus d'étudiants, surtout à la rentrée. Le long du bord d'océan et vers les plages, les résidences sont plus récentes mais le stationnement se tend fortement en saison touristique.</p>
         <blockquote>À La Rochelle, on déménage au rythme de la mer, et parfois de la marée, quand on passe vers les îles.</blockquote>
 
-        <h2>Déménager vers les îles de Ré, d'Oléron et d'Aix</h2>
-        <p>Un déménagement insulaire ne s'improvise pas. Le <strong>pont de l'île de Ré</strong> et son péage, la circulation estivale qui sature l'accès, les marées, et pour l'île d'Aix la navette par bateau : tout cela s'intègre au planning et au devis. C'est une spécialité locale qui demande de l'expérience. On anticipe ces contraintes dès le <a href="Demenagement-La-Rochelle.html">devis La Rochelle</a> pour livrer sans accroc, même au bout d'une route de sel.</p>
+        <h2>Les quartiers résidentiels</h2>
+        <p>Au-delà du centre et des Minimes, La Rochelle s'étend en quartiers résidentiels aux profils variés :</p>
+        <ul>
+          <li><strong>La Genette</strong> — quartier prisé du bord de mer, belles maisons et appartements bourgeois, accès généralement corrects.</li>
+          <li><strong>Port-Neuf et Tasdon</strong> — secteurs résidentiels et familiaux, immeubles et pavillons.</li>
+          <li><strong>Laleu et La Pallice</strong> — vers le port de commerce, mélange résidentiel et activité.</li>
+          <li><strong>Mireuil et Villeneuve-les-Salines</strong> — grands ensembles et logements collectifs, accès souvent plus simples avec parking.</li>
+        </ul>
+        <p>Chaque quartier a sa logique d'accès et de stationnement, qu'on repère pour dimensionner le camion et l'équipe.</p>
 
-        <h2>Étudiants, plaisanciers, familles : à chacun sa formule</h2>
-        <p>Ville universitaire et capitale de la voile, La Rochelle voit déménager des profils très variés. Un studio étudiant aux Minimes se gère vite et à petit budget en formule <a href="Formules.html">Coup de main</a> ; une maison familiale en pierre demande plutôt une formule complète avec démontage et protection. Le <a href="Stockage.html">garde-meuble</a> est précieux entre deux logements ou pour une résidence secondaire.</p>
+        <h2>L'agglomération rochelaise</h2>
+        <p>Beaucoup de déménagements se font dans la couronne de La Rochelle, où l'on intervient tout autant : <strong>Aytré, Lagord, Périgny, Puilboreau, Châtelaillon-Plage, Angoulins, Nieul-sur-Mer</strong>. Communes pavillonnaires, lotissements récents ou bourgs anciens : l'accès y est en général plus facile qu'au cœur de La Rochelle, ce qui fluidifie le déménagement et réduit le coût de portage.</p>
+
+        <h2>Déménager vers les îles de Ré, d'Oléron et d'Aix</h2>
+        <p>C'est la grande spécialité locale, et elle ne s'improvise pas. Trois logiques différentes :</p>
+        <ul>
+          <li><strong>Île de Ré</strong> — accessible par le pont (et son péage). En été, la circulation sature l'accès : on cale le déménagement hors des pics, et on connaît les villages aux ruelles étroites (Saint-Martin, Ars, La Flotte).</li>
+          <li><strong>Île d'Oléron</strong> — reliée par le viaduc, sans péage, mais avec là aussi une forte affluence estivale à anticiper.</li>
+          <li><strong>Île d'Aix</strong> — accessible uniquement par bateau : la logistique du bac, les horaires et les marées font partie intégrante du planning.</li>
+        </ul>
+        <p>Tout cela s'intègre au devis dès le départ pour livrer sans accroc, même au bout d'une route de sel. On détaille ces services sur la page <a href="Demenagement-La-Rochelle.html">déménagement à La Rochelle</a>.</p>
+
+        <h2>Quand déménager à La Rochelle</h2>
+        <p>Le calendrier compte. L'<strong>été</strong> est à double tranchant : météo idéale, mais ville et îles saturées de touristes, stationnement difficile et accès aux îles engorgé. La <strong>rentrée</strong> concentre les déménagements étudiants autour des Minimes. Si votre calendrier le permet, un jour de semaine hors haute saison est plus fluide et plus disponible. Pour les îles, évitez juillet-août autant que possible.</p>
+
+        <h2>Stationnement et autorisations</h2>
+        <p>Comme dans toute ville à centre ancien, le stationnement du camion se prépare. Dans le centre historique et les zones piétonnes, il faut une <strong>autorisation de stationnement</strong> à demander en mairie, pour réserver un emplacement au plus près de votre porte. On effectue cette démarche pour vous, ce qui évite l'amende et le portage à rallonge sous les arcades.</p>
 
         <h2>Local ou longue distance ?</h2>
-        <p>Que vous bougiez dans l'agglomération (Aytré, Lagord, Périgny, Châtelaillon) ou que vous rejoigniez La Rochelle depuis l'autre bout du pays, comme la Côte d'Azur, on s'occupe de tout, du premier au dernier carton, avec une seule équipe. <a href="Demenagement-La-Rochelle.html">Découvrez notre page dédiée à La Rochelle</a> pour le détail des services, ou demandez votre <a href="Devis.html">devis gratuit sous 24h</a>.</p>
+        <p>Que vous bougiez dans l'agglomération ou que vous rejoigniez La Rochelle depuis l'autre bout du pays, comme la Côte d'Azur, on s'occupe de tout avec une seule équipe, sans groupage. La liaison <strong>La Rochelle ↔ Nice</strong> et plus largement vers le sud-est est l'une de nos longues distances régulières : camion dédié, mobilier protégé et délais tenus du premier au dernier carton.</p>
+
+        <h2>À chaque profil sa formule</h2>
+        <p>La Rochelle voit déménager des profils très variés, et chacun a sa solution :</p>
+        <ul>
+          <li><strong>Étudiants</strong> — un studio aux Minimes se gère vite et à petit budget en formule <a href="Formules.html">Coup de main</a>, surtout à la rentrée.</li>
+          <li><strong>Familles</strong> — une maison rochelaise en pierre demande plutôt une formule complète, avec démontage, protection et remontage.</li>
+          <li><strong>Plaisanciers et résidences secondaires</strong> — déménagements partiels, mises en garde-meuble saisonnières, coordination à distance.</li>
+          <li><strong>Retraités</strong> — emballage soigné du mobilier ancien, accompagnement à chaque étape.</li>
+        </ul>
+        <p>Le <a href="Stockage.html">garde-meuble</a> en box sécurisé est précieux entre deux logements, pour une résidence secondaire ou un décalage de dates sur une longue distance.</p>
+
+        <h2>Questions fréquentes</h2>
+        <h3>Le camion accède-t-il au centre historique ?</h3>
+        <p>Rarement jusqu'à la porte : le centre est piéton et pavé. On réserve un emplacement au plus près, on porte sous les arcades et on installe un monte-meuble si l'escalier ancien ne passe pas.</p>
+        <h3>Déménagez-vous sur les îles toute l'année ?</h3>
+        <p>Oui, en intégrant pont, péage, marées et navette bateau selon l'île. On évite autant que possible les pics estivaux qui engorgent l'accès.</p>
+        <h3>Faites-vous les petits déménagements étudiants ?</h3>
+        <p>Bien sûr : c'est fréquent vu l'université. On gère les studios et petits volumes à un tarif honnête, idéalement réservés tôt en période de rentrée.</p>
+
+        <p>Pour le détail des services, voyez notre page dédiée <a href="Demenagement-La-Rochelle.html">déménagement à La Rochelle</a>, et demandez votre <a href="Devis.html">devis gratuit sous 24h</a> : on s'occupe de tout, du Vieux-Port jusqu'aux îles.</p>
       </React.Fragment>
     )
   },
