@@ -5,51 +5,51 @@ const { useState, useEffect, useRef } = React;
 const CURRENT = document.body.getAttribute('data-page') || 'accueil';
 
 const NAV = [
-{ key: 'accueil', label: 'Accueil', href: 'Les Bras Cassés.html' },
-{ key: 'formules', label: 'Formules', href: 'Formules.html' },
-{ key: 'france', label: 'En France', mega: 'france' },
-{ key: 'international', label: 'International', mega: 'intl' },
-{ key: 'stockage', label: 'Stockage', href: 'Stockage.html' },
-{ key: 'mutation', label: 'Mutation professionnelle', dropdown: [
-  { label: "Je suis un salarié", href: "Mutations.html" },
-  { label: "Je suis un militaire", href: "Militaire.html" },
-  { label: "Je suis une entreprise", href: "Entreprise.html" }] },
-{ key: 'apropos', label: 'À propos', href: 'Apropos.html' }];
+{ key: 'accueil', label: t('Accueil'), href: 'Les Bras Cassés.html' },
+{ key: 'formules', label: t('Formules'), href: 'Formules.html' },
+{ key: 'france', label: t('En France'), mega: 'france' },
+{ key: 'international', label: t('International'), mega: 'intl' },
+{ key: 'stockage', label: t('Stockage'), href: 'Stockage.html' },
+{ key: 'mutation', label: t('Mutation professionnelle'), dropdown: [
+  { label: t("Je suis un salarié"), href: "Mutations.html" },
+  { label: t("Je suis un militaire"), href: "Militaire.html" },
+  { label: t("Je suis une entreprise"), href: "Entreprise.html" }] },
+{ key: 'apropos', label: t('À propos'), href: 'Apropos.html' }];
 
 // Mega-menu content for "En France" and "International"
 const MEGA = {
   france: {
-    eyebrow: "Déménagement en France",
-    title: "De la Côte d'Azur\nà tout l'Hexagone.",
-    blurb: "Implantés à Nice, on déménage dans toute la région et partout en France — même équipe, même soin, du studio au grand volume.",
-    cta: { label: "Devis longue distance", href: "Devis.html" },
+    eyebrow: t("Déménagement en France"),
+    title: t("De la Côte d'Azur\nà tout l'Hexagone."),
+    blurb: t("Implantés à Nice, on déménage dans toute la région et partout en France — même équipe, même soin, du studio au grand volume."),
+    cta: { label: t("Devis longue distance"), href: "Devis.html" },
     columns: [
-    { title: "Côte d'Azur", links: [
+    { title: t("Côte d'Azur"), links: [
       ["Nice", "Demenagement-Nice.html"], ["Cannes", "Demenagement-Cannes.html"], ["Antibes", "Demenagement-Antibes.html"],
       ["Monaco", "Demenagement-Monaco.html"], ["Menton", "Demenagement-Menton.html"], ["Grasse", "Demenagement-Grasse.html"],
       ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer.html"], ["Le Cannet", "Demenagement-Le-Cannet.html"],
       ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var.html"], ["Mandelieu", "Demenagement-Mandelieu.html"]] },
 
-    { title: "Longue distance", links: [
+    { title: t("Longue distance"), links: [
       ["Nice → Paris", "Demenagement-Nice-Paris.html"], ["Nice → Lyon", "Demenagement-Nice-Lyon.html"],
       ["Nice → Marseille", "Demenagement-Nice-Marseille.html"], ["Nice → Toulouse", "Demenagement-Nice-Toulouse.html"],
       ["Nice → Bordeaux", "Demenagement-Nice-Bordeaux.html"]] },
 
-    { title: "Autres villes", links: [
-      ["Déménagement La Rochelle", "Demenagement-La-Rochelle.html"]] }]
+    { title: t("Autres villes"), links: [
+      [t("Déménagement La Rochelle"), "Demenagement-La-Rochelle.html"]] }]
 
 
   },
   intl: {
-    eyebrow: "Déménagement international",
-    title: "Au-delà des\nfrontières.",
-    blurb: "Suisse, Italie, Espagne, Benelux : on organise le transport, les formalités douanières et le suivi jusqu'à destination.",
-    cta: { label: "Devis international", href: "Devis.html" },
+    eyebrow: t("Déménagement international"),
+    title: t("Au-delà des\nfrontières."),
+    blurb: t("Suisse, Italie, Espagne, Benelux : on organise le transport, les formalités douanières et le suivi jusqu'à destination."),
+    cta: { label: t("Devis international"), href: "Devis.html" },
     columns: [
-    { title: "Suisse", links: [["Genève", "Demenagement-Nice-Geneve.html"], ["Lausanne", "Demenagement-Nice-Lausanne.html"]] },
-    { title: "Italie", links: [["Milan", "Demenagement-Nice-Milan.html"], ["Turin", "Demenagement-Nice-Turin.html"]] },
-    { title: "Espagne", links: [["Barcelone", "Demenagement-Nice-Barcelone.html"], ["Madrid", "Demenagement-Nice-Madrid.html"]] },
-    { title: "Benelux", links: [["Bruxelles", "Demenagement-Nice-Bruxelles.html"], ["Luxembourg", "Demenagement-Nice-Luxembourg.html"]] }]
+    { title: t("Suisse"), links: [["Genève", "Demenagement-Nice-Geneve.html"], ["Lausanne", "Demenagement-Nice-Lausanne.html"]] },
+    { title: t("Italie"), links: [["Milan", "Demenagement-Nice-Milan.html"], ["Turin", "Demenagement-Nice-Turin.html"]] },
+    { title: t("Espagne"), links: [["Barcelone", "Demenagement-Nice-Barcelone.html"], ["Madrid", "Demenagement-Nice-Madrid.html"]] },
+    { title: t("Benelux"), links: [["Bruxelles", "Demenagement-Nice-Bruxelles.html"], ["Luxembourg", "Demenagement-Nice-Luxembourg.html"]] }]
 
   }
 };
@@ -108,11 +108,11 @@ function Nav() {
 
   return (
     <React.Fragment>
-    <a href="#contenu" className="skip-link">Aller au contenu</a>
+    <a href="#contenu" className="skip-link">{t('Aller au contenu')}</a>
     <header className="nav" style={{ borderRadius: "0px", padding: "0px", borderWidth: "0px 0px 3px", margin: "10px" }} onMouseLeave={scheduleClose}>
       <div className="wrap nav-inner" style={{ borderRadius: "0px" }}>
         <Logo />
-        <nav className="nav-links" aria-label="Navigation principale">
+        <nav className="nav-links" aria-label={t('Navigation principale')}>
           {NAV.map((n) =>
           n.mega ?
           <button
@@ -145,14 +145,21 @@ function Nav() {
           )}
         </nav>
         <div className="nav-actions">
+          {(CURRENT === 'accueil' || window.IS_EN) &&
+          <a href={window.IS_EN ? '/' : '/en/'} className="lang-switch" aria-label={window.IS_EN ? 'Voir en français' : 'View in English'} hrefLang={window.IS_EN ? 'fr' : 'en'}>
+            <span className={window.IS_EN ? '' : 'lang-on'}>FR</span>
+            <span className="lang-sep">/</span>
+            <span className={window.IS_EN ? 'lang-on' : ''}>EN</span>
+          </a>
+          }
           <a href="tel:+33781961445" className="btn btn-ghost nav-call">
             <svg className="nav-call-ic" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
             <span className="lbl-full">07 81 96 14 45</span>
-            <span className="lbl-short">Appeler</span>
+            <span className="lbl-short">{t('Appeler')}</span>
           </a>
           <a href="Devis.html" className="btn btn-primary nav-devis">
-            <span className="lbl-full">Devis gratuit</span>
-            <span className="lbl-short">Devis gratuit</span>
+            <span className="lbl-full">{t('Devis gratuit')}</span>
+            <span className="lbl-short">{t('Devis gratuit')}</span>
             <span className="arrow">→</span>
           </a>
           <button className="nav-burger" aria-label="Menu" onClick={() => setOpen((o) => !o)}>

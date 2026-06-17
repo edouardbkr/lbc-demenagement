@@ -3233,3 +3233,10 @@ label.seg-opt:focus-within,
 @media (max-width: 900px) {
   .resa-summary { position: static; }
 }
+
+/* Sélecteur de langue FR/EN */
+.lang-switch{display:inline-flex;align-items:center;gap:5px;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-decoration:none;padding:8px 10px;border:1px solid var(--rule-strong);border-radius:10px;margin-right:4px}
+.lang-switch .lang-on{color:var(--accent)}
+.lang-switch .lang-sep{opacity:.4;font-weight:400}
+.lang-switch:hover{border-color:var(--accent)}
+@media(max-width:980px){.lang-switch{display:none}}
