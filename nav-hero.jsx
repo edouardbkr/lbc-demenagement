@@ -14,6 +14,11 @@ function Hero({ headlineVariant }) {
     }
   };
   const h = headlines[headlineVariant] || headlines.a;
+  const heroVideoRef = React.useRef(null);
+  React.useEffect(() => {
+    const v = heroVideoRef.current;
+    if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+  }, []);
   return (
     <section className="hero" id="top" style={{ paddingTop: "16px" }}>
       <div className="wrap" style={{ paddingTop: "20px" }}>
@@ -37,9 +42,7 @@ function Hero({ headlineVariant }) {
           <div className="hero-photo reveal">
             <div className="scribble"><br /></div>
             <div className="hero-photo-frame">
-              <div className="ph">
-                <div className="ph-label">Photo éditoriale — équipe en intervention</div>
-              </div>
+              <video ref={heroVideoRef} className="hero-video" src="assets/hero-video.mp4" autoPlay muted loop playsInline preload="auto" aria-label="LBC Déménagement en intervention" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
             <div className="photo-tag"><span className="dot"></span>Nice · Cimiez</div>
           </div>
