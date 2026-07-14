@@ -223,6 +223,17 @@ function Formules({ recommendedTier }) {
 }
 
 function Gallery() {
+  const [cols, setCols] = React.useState(() => (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 760px)').matches) ? 1 : 2);
+  React.useEffect(() => {
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia('(max-width: 760px)');
+    const on = () => setCols(mq.matches ? 1 : 2);
+    on();
+    mq.addEventListener ? mq.addEventListener('change', on) : mq.addListener(on);
+    return () => { mq.removeEventListener ? mq.removeEventListener('change', on) : mq.removeListener(on); };
+  }, []);
+  const imgStyle = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' };
+  const tileStyle = { position: 'relative', overflow: 'hidden', aspectRatio: '3 / 2' };
   return (
     <section className="gallery">
       <div className="wrap">
@@ -234,13 +245,13 @@ function Gallery() {
           <div className="meta">Sélection · Printemps 2026 →</div>
         </div>
 
-        <div className="gallery-strip gallery-2 reveal-stagger">
-          <div className="gallery-tile">
-            <img src="assets/gallery-chargement.jpg" alt="Déménageur LBC chargeant le mobilier protégé dans le camion" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        <div className="reveal-stagger" style={{ display: 'grid', gridTemplateColumns: cols === 1 ? '1fr' : '1fr 1fr', gap: 14, marginTop: 26 }}>
+          <div className="gallery-tile" style={tileStyle}>
+            <img src="assets/gallery-chargement.jpg" alt="Déménageur LBC chargeant le mobilier protégé dans le camion" loading="lazy" style={imgStyle} />
             <div className="ph-label">Chargement · Nice</div>
           </div>
-          <div className="gallery-tile">
-            <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          <div className="gallery-tile" style={tileStyle}>
+            <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" style={imgStyle} />
             <div className="ph-label">Monte-meuble · accès étage</div>
           </div>
         </div>
