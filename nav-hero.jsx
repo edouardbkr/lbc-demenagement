@@ -44,7 +44,6 @@ function Hero({ headlineVariant }) {
             <div className="hero-photo-frame">
               <video ref={heroVideoRef} className="hero-video" src="assets/hero-video.mp4" autoPlay muted loop playsInline preload="auto" aria-label="LBC Déménagement en intervention" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
             </div>
-            <div className="photo-tag"><span className="dot"></span>Nice · Cimiez</div>
           </div>
         </div>
 
