@@ -3240,3 +3240,6 @@ label.seg-opt:focus-within,
 .lang-switch .lang-sep{opacity:.4;font-weight:400}
 .lang-switch:hover{border-color:var(--accent)}
 @media(max-width:980px){.lang-switch{display:none}}
+
+/* Photos réelles dans la galerie "En action" */
+.gallery-tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}

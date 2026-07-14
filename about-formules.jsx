@@ -236,13 +236,15 @@ function Gallery() {
 
         <div className="gallery-strip reveal-stagger">
           <div className="gallery-tile">
-            <div className="ph"><div className="ph-label">Chargement · Cimiez</div></div>
+            <img src="assets/gallery-chargement.jpg" alt="Déménageur LBC chargeant le mobilier protégé dans le camion" loading="lazy" />
+            <div className="ph-label">Chargement</div>
           </div>
           <div className="gallery-tile">
             <div className="ph"><div className="ph-label">Démontage meuble</div></div>
           </div>
           <div className="gallery-tile">
-            <div className="ph"><div className="ph-label">Emballage fragile</div></div>
+            <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" />
+            <div className="ph-label">Monte-meuble</div>
           </div>
           <div className="gallery-tile">
             <div className="ph"><div className="ph-label">Camion · Promenade</div></div>
