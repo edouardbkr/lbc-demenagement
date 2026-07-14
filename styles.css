@@ -3243,3 +3243,8 @@ label.seg-opt:focus-within,
 
 /* Photos réelles dans la galerie "En action" */
 .gallery-tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* Galerie 2 photos : grandes, plein cadre (2 col desktop, 1 col mobile) */
+.gallery-strip.gallery-2{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
+.gallery-strip.gallery-2 .gallery-tile{aspect-ratio:3/2}
+@media(max-width:640px){.gallery-strip.gallery-2{grid-template-columns:1fr}}

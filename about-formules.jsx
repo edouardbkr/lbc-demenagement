@@ -234,20 +234,14 @@ function Gallery() {
           <div className="meta">Sélection · Printemps 2026 →</div>
         </div>
 
-        <div className="gallery-strip reveal-stagger">
+        <div className="gallery-strip gallery-2 reveal-stagger">
           <div className="gallery-tile">
-            <img src="assets/gallery-chargement.jpg" alt="Déménageur LBC chargeant le mobilier protégé dans le camion" loading="lazy" />
-            <div className="ph-label">Chargement</div>
+            <img src="assets/gallery-chargement.jpg" alt="Déménageur LBC chargeant le mobilier protégé dans le camion" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <div className="ph-label">Chargement · Nice</div>
           </div>
           <div className="gallery-tile">
-            <div className="ph"><div className="ph-label">Démontage meuble</div></div>
-          </div>
-          <div className="gallery-tile">
-            <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" />
-            <div className="ph-label">Monte-meuble</div>
-          </div>
-          <div className="gallery-tile">
-            <div className="ph"><div className="ph-label">Camion · Promenade</div></div>
+            <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <div className="ph-label">Monte-meuble · accès étage</div>
           </div>
         </div>
       </div>
