@@ -99,7 +99,7 @@ function DevisHero() {
           Deux minutes, cinq infos. On revient vers vous sous 24h avec un prix précis et définitif, formule conseillée comprise. <span className="ast">*</span>Pas de numéro surtaxé, pas de spam.
         </p>
         <p style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 16px', borderRadius: 999, background: 'rgba(215,91,61,0.10)', color: 'var(--accent, #D75B3D)', fontWeight: 700, fontSize: 14 }}>
-          <span aria-hidden="true">💳</span> Payez en 3 fois avec Alma
+          <span aria-hidden="true">💳</span> Payez en 3 fois sans frais avec Klarna
         </p>
       </div>
     </section>);
@@ -485,7 +485,7 @@ function DevisForm() {
                       selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
                     </div>
                     <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
-                    <span className="hint" style={{ marginTop: 8 }}>💳 <strong>Paiement en 3 fois avec Alma</strong> disponible pour étaler le coût de votre déménagement.</span>
+                    <span className="hint" style={{ marginTop: 8 }}>💳 <strong>Paiement en 3 fois sans frais avec Klarna</strong> disponible pour étaler le coût de votre déménagement.</span>
                   </div>
                 </div>
                 <div className="form-nav" style={{ marginTop: 32 }}>
