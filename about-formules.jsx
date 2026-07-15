@@ -1,6 +1,11 @@
 // about-formules.jsx — About section + Formules (3 tiers)
 
 function About() {
+  const aboutVidRef = React.useRef(null);
+  React.useEffect(() => {
+    const v = aboutVidRef.current;
+    if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+  }, []);
   return (
     <section className="sec about" id="about" style={{ padding: "1px 0px 140px" }}>
       <div className="wrap">
@@ -44,19 +49,16 @@ function About() {
 
           <div className="about-photo-stack reveal">
             <div className="about-photo portrait">
-              <div className="ph">
-                <div className="caption">Les fondateurs · Atelier Nice</div>
-              </div>
+              <video ref={aboutVidRef} src="assets/about-video.mp4" autoPlay muted loop playsInline preload="auto" aria-label="Déménageurs LBC protégeant le mobilier" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div className="caption">Protection soignée · Nice</div>
             </div>
             <div className="about-photo truck">
-              <div className="ph">
-                <div className="caption">Camion LBC · Vieux-Nice</div>
-              </div>
+              <img src="assets/gallery-chargement.jpg" alt="Camion LBC en chargement à Nice" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div className="caption">Camion LBC · Nice</div>
             </div>
             <div className="about-photo detail">
-              <div className="ph">
-                <div className="caption">Détail · Emballage soigné</div>
-              </div>
+              <img src="assets/g-emballage.jpg" alt="Emballage soigné des objets fragiles" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div className="caption">Détail · Emballage soigné</div>
             </div>
           </div>
         </div>
@@ -239,7 +241,6 @@ function Gallery() {
   const imgStyle = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' };
   const tileStyle = { position: 'relative', overflow: 'hidden', aspectRatio: '3 / 2' };
   const shots = [
-    ['assets/g-emballage.jpg', 'Emballage soigné', "Emballage des objets fragiles par notre équipe, à Nice"],
     ['assets/g-protection.jpg', 'Protection du mobilier', 'Protection intégrale du mobilier au film et aux housses'],
     ['assets/g-escalier.jpg', 'Manutention · escaliers', 'Portage soigné du mobilier dans les escaliers'],
     ['assets/g-machine.jpg', 'Électroménager', "Transport sécurisé de l'électroménager au diable"],
