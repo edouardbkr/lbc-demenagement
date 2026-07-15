@@ -223,17 +223,29 @@ function Formules({ recommendedTier }) {
 }
 
 function Gallery() {
-  const [cols, setCols] = React.useState(() => (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 760px)').matches) ? 1 : 2);
+  const colsFor = () => {
+    if (typeof window === 'undefined' || !window.matchMedia) return 3;
+    if (window.matchMedia('(max-width: 640px)').matches) return 1;
+    if (window.matchMedia('(max-width: 1000px)').matches) return 2;
+    return 3;
+  };
+  const [cols, setCols] = React.useState(colsFor);
   React.useEffect(() => {
-    if (!window.matchMedia) return;
-    const mq = window.matchMedia('(max-width: 760px)');
-    const on = () => setCols(mq.matches ? 1 : 2);
-    on();
-    mq.addEventListener ? mq.addEventListener('change', on) : mq.addListener(on);
-    return () => { mq.removeEventListener ? mq.removeEventListener('change', on) : mq.removeListener(on); };
+    const calc = () => setCols(colsFor());
+    calc();
+    window.addEventListener('resize', calc);
+    return () => window.removeEventListener('resize', calc);
   }, []);
   const imgStyle = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' };
   const tileStyle = { position: 'relative', overflow: 'hidden', aspectRatio: '3 / 2' };
+  const shots = [
+    ['assets/g-emballage.jpg', 'Emballage soigné', "Emballage des objets fragiles par notre équipe, à Nice"],
+    ['assets/g-protection.jpg', 'Protection du mobilier', 'Protection intégrale du mobilier au film et aux housses'],
+    ['assets/g-escalier.jpg', 'Manutention · escaliers', 'Portage soigné du mobilier dans les escaliers'],
+    ['assets/g-machine.jpg', 'Électroménager', "Transport sécurisé de l'électroménager au diable"],
+    ['assets/g-matelas.jpg', 'Chargement', 'Chargement méthodique dans le camion'],
+    ['assets/gallery-montemeuble.jpg', 'Monte-meuble · accès étage', 'Monte-meuble pour desservir les étages'],
+  ];
   return (
     <section className="gallery">
       <div className="wrap">
@@ -242,18 +254,16 @@ function Gallery() {
             En action.<br />
             <em>Vrais cartons, vrais clients, vrais sourires.</em>
           </h3>
-          <div className="meta">Sélection · Printemps 2026 →</div>
+          <div className="meta">Nos chantiers · Nice & Côte d'Azur →</div>
         </div>
 
-        <div className="reveal-stagger" style={{ display: 'grid', gridTemplateColumns: cols === 1 ? '1fr' : '1fr 1fr', gap: 14, marginTop: 26 }}>
-          <div className="gallery-tile" style={tileStyle}>
-            <img src="assets/gallery-chargement.jpg" alt="Déménageur LBC chargeant le mobilier protégé dans le camion" loading="lazy" style={imgStyle} />
-            <div className="ph-label">Chargement · Nice</div>
-          </div>
-          <div className="gallery-tile" style={tileStyle}>
-            <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" style={imgStyle} />
-            <div className="ph-label">Monte-meuble · accès étage</div>
-          </div>
+        <div className="reveal-stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(' + cols + ', 1fr)', gap: 14, marginTop: 26 }}>
+          {shots.map((s, i) => (
+            <div className="gallery-tile" key={i} style={tileStyle}>
+              <img src={s[0]} alt={s[2]} loading="lazy" style={imgStyle} />
+              <div className="ph-label">{s[1]}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>);
