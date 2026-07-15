@@ -394,6 +394,10 @@ function QuickQuote({ variant = "light" }) {
       }).catch(() => {});
     } catch (err) {}
 
+    // Meta : événement d'insight (le Lead sera compté à l'étape 1 du devis,
+    // pour ne pas compter deux fois le même prospect).
+    if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
+
     // Redirect to the full quote page with everything pre-filled.
     const p = new URLSearchParams();
     if (depart) p.set("depart", depart);

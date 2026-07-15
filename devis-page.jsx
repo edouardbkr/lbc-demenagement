@@ -298,6 +298,8 @@ function DevisForm() {
     if (earlySent.current) return;
     if (all && all._honey) return;
     earlySent.current = true;
+    // Conversion Meta : lead qualifié dès l'étape 1 (nom + tél + email capturés).
+    if (window.fbq) window.fbq("track", "Lead");
     try {
       fetch(LEAD_ENDPOINT, {
         method: "POST",
@@ -368,6 +370,8 @@ function DevisForm() {
         })
       }).catch(() => {});
     } catch (err) {}
+    // Conversion Meta : devis complet finalisé (événement d'insight, en plus du Lead).
+    if (window.fbq) window.fbq("trackCustom", "DevisComplet");
     sendToCockpit(all);
     setSent(true);
     scrollToForm();

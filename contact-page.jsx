@@ -90,6 +90,8 @@ function ContactForm() {
         })
       }).catch(() => {});
     } catch (err) {}
+    // Conversion Meta : message envoyé depuis la page Contact.
+    if (window.fbq) window.fbq("track", "Lead");
     setSent(true);
   };
 

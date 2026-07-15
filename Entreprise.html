@@ -3,6 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Meta Pixel — définit fbq() sans rien charger. Le pixel ne part
+       QU'APRÈS accord RGPD du visiteur (chargement piloté dans consent.js). -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[]}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  </script>
+  <!-- End Meta Pixel Code -->
   <title>Déménagement d'entreprise & de bureaux à Nice et sur la Côte d'Azur · LBC* Les Bras Cassés</title>
   <meta name="description" content="Déménagement d'entreprise et transfert de bureaux à Nice, Sophia Antipolis, Cannes, Antibes, Monaco et sur toute la Côte d'Azur, sans interruption d'activité : hors heures ouvrées, informatique et archives maîtrisées, devis et facture conformes. LBC* Les Bras Cassés." />
   <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -5,6 +5,7 @@
 (function () {
   var GA_ID = "G-6EB2NW1G4K";
   var CLARITY_ID = "x7jx6xsk0x";
+  var META_PIXEL_ID = "1607921347678142";
   var STORAGE_KEY = "lbc-consent-v1";
 
   function getConsent() {
@@ -33,7 +34,23 @@
     })(window, document, "clarity", "script", CLARITY_ID);
   }
 
-  function loadTrackers() { loadGA(); loadClarity(); }
+  function loadMetaPixel() {
+    // fbq() est déjà défini (stub dans le <head>). Ici on charge réellement
+    // la librairie Meta et on déclenche le PageView — uniquement après accord.
+    if (window._lbcPixelLoaded) return;
+    window._lbcPixelLoaded = true;
+    var t = document.createElement("script");
+    t.async = true;
+    t.src = "https://connect.facebook.net/en_US/fbevents.js";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(t, s);
+    if (typeof window.fbq === "function") {
+      window.fbq("init", META_PIXEL_ID);
+      window.fbq("track", "PageView");
+    }
+  }
+
+  function loadTrackers() { loadGA(); loadClarity(); loadMetaPixel(); }
 
   function hideBanner() {
     var b = document.getElementById("lbc-consent");
@@ -67,7 +84,8 @@
     bar.setAttribute("aria-label", "Consentement aux cookies de mesure d'audience");
     bar.innerHTML =
       "<p>On utilise des cookies de mesure d'audience (Google Analytics, Microsoft " +
-      "Clarity) pour comprendre comment le site est utilisé et l'améliorer. " +
+      "Clarity) et de mesure publicitaire (pixel Meta / Facebook) pour comprendre " +
+      "comment le site est utilisé et améliorer nos campagnes. " +
       "Vous gardez la main. <a href=\"Confidentialite.html\">En savoir plus</a></p>" +
       "<div class=\"lbc-consent-actions\">" +
       "<button id=\"lbc-consent-refuse\" type=\"button\">Refuser</button>" +

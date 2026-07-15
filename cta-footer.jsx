@@ -28,6 +28,8 @@ function CTA() {
         })
       }).catch(() => {});
     } catch (err) {}
+    // Conversion Meta : demande de rappel depuis l'accueil.
+    if (window.fbq) window.fbq("track", "Lead");
     setSent(true);
   };
 
