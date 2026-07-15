@@ -42,7 +42,8 @@ const sideOf = (all, s) => ({
 // Envoie la demande complète dans la table leads du cockpit (en plus de l'email).
 // Étage/ascenseur/taille/portage/accès partent en champs structurés ; le reste (fragiles,
 // à démonter, flexibilité, contact, détails) part en notes — pas de doublon.
-function sendToCockpit(all) {
+function sendToCockpit(all, opts) {
+  opts = opts || {};
   const c = sbClient();
   if (!c) { console.warn("[LBC] Supabase non chargé — lead NON envoyé au cockpit (recharge la page en Cmd+Shift+R)"); return; }
   const np = (all.nom || "").trim().split(/\s+/);
@@ -53,10 +54,12 @@ function sendToCockpit(all) {
   const notes = all.details ? "Détails client : " + all.details : "";
   const payload = {
     source: "site_web",
+    leadId: opts.leadId || null,
+    statut: opts.partiel ? "Lead démarré (formulaire en cours)" : "Devis complet",
     client: { prenom, nom, tel: all.tel || "", email: all.email || "", contactPref: all.contact || "" },
     codeParrain: (all.codeParrain || "").trim().toUpperCase(),
     formule: FORMULE_TO_APP[all.formule] || "standard",
-    formulaireType: inventaire.length ? "detaille" : "basique",
+    formulaireType: opts.partiel ? "partiel" : (inventaire.length ? "detaille" : "basique"),
     volumeEstime: SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null,
     cartons: all.cartons || 0,
     dateSouhaitee: all.date || "",
@@ -94,6 +97,9 @@ function DevisHero() {
         <h1>Votre devis déménagement, <em>gratuit et sans engagement.</em></h1>
         <p className="lede">
           Deux minutes, cinq infos. On revient vers vous sous 24h avec un prix précis et définitif, formule conseillée comprise. <span className="ast">*</span>Pas de numéro surtaxé, pas de spam.
+        </p>
+        <p style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 16px', borderRadius: 999, background: 'rgba(215,91,61,0.10)', color: 'var(--accent, #D75B3D)', fontWeight: 700, fontSize: 14 }}>
+          <span aria-hidden="true">💳</span> Payez en 3 fois avec Alma
         </p>
       </div>
     </section>);
@@ -294,6 +300,13 @@ function DevisForm() {
   // Fire a lead notification as soon as step 0 is validated — so an abandoned
   // quote still leaves us the prospect's name, phone & email to follow up.
   const earlySent = useRef(false);
+  // Identifiant unique du lead, partagé entre l'enregistrement « étape 1 » et le
+  // « devis complet » pour que le cockpit puisse relier les deux (même prospect).
+  const leadIdRef = useRef(null);
+  const getLeadId = () => {
+    if (!leadIdRef.current) leadIdRef.current = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    return leadIdRef.current;
+  };
   const sendEarly = (all) => {
     if (earlySent.current) return;
     if (all && all._honey) return;
@@ -319,6 +332,9 @@ function DevisForm() {
         })
       }).catch(() => {});
     } catch (err) {}
+    // Enregistrement dans le cockpit DÈS l'étape 1 : le lead (nom, tél, email) est
+    // garanti côté base, même si le prospect abandonne l'inventaire ensuite.
+    sendToCockpit(all, { partiel: true, leadId: getLeadId() });
   };
 
   const goStep0 = (e) => {
@@ -372,7 +388,7 @@ function DevisForm() {
     } catch (err) {}
     // Conversion Meta : devis complet finalisé (événement d'insight, en plus du Lead).
     if (window.fbq) window.fbq("trackCustom", "DevisComplet");
-    sendToCockpit(all);
+    sendToCockpit(all, { leadId: getLeadId() });
     setSent(true);
     scrollToForm();
   };
@@ -430,7 +446,7 @@ function DevisForm() {
                     </div>
                   </div>
                   <div className="lf full">
-                    <label>Code de parrainage <span style={{ color: '#9aa4ab', fontWeight: 400 }}>(optionnel — 50 € de réduction)</span></label>
+                    <label>Code de parrainage <span style={{ color: '#9aa4ab', fontWeight: 400 }}>(optionnel)</span></label>
                     <input type="text" name="codeParrain" value={data.codeParrain || ''} onChange={(e) => set('codeParrain', e.target.value.toUpperCase())} placeholder="Ex : DUPONT123" autoComplete="off" />
                   </div>
 
@@ -469,6 +485,7 @@ function DevisForm() {
                       selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
                     </div>
                     <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
+                    <span className="hint" style={{ marginTop: 8 }}>💳 <strong>Paiement en 3 fois avec Alma</strong> disponible pour étaler le coût de votre déménagement.</span>
                   </div>
                 </div>
                 <div className="form-nav" style={{ marginTop: 32 }}>
