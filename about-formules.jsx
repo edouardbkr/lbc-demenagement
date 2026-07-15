@@ -57,8 +57,8 @@ function About() {
               <div className="caption">Emballage soigné</div>
             </div>
             <div className="about-photo detail">
-              <img src="assets/gallery-montemeuble.jpg" alt="Monte-meuble LBC pour accéder aux étages" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              <div className="caption">Monte-meuble · accès étage</div>
+              <img src="assets/gallery-chargement.jpg" alt="Camion LBC en chargement à Nice" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div className="caption">Camion LBC · Nice</div>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ function Gallery() {
     ['assets/g-escalier.jpg', 'Manutention · escaliers', 'Portage soigné du mobilier dans les escaliers'],
     ['assets/g-machine.jpg', 'Électroménager', "Transport sécurisé de l'électroménager au diable"],
     ['assets/g-matelas.jpg', 'Chargement', 'Chargement méthodique dans le camion'],
-    ['assets/gallery-chargement.jpg', 'Camion LBC · Nice', "Chargement du mobilier dans le camion LBC à Nice"],
+    ['assets/gallery-montemeuble.jpg', 'Monte-meuble · accès étage', 'Monte-meuble pour desservir les étages'],
   ];
   return (
     <section className="gallery">
