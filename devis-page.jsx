@@ -112,6 +112,7 @@ function DevisHero() {
           <span style={{ opacity: 0.4 }}>·</span>
           <span>Réponse sous 24h</span>
         </div>
+        <a href="#devis-form-top" className="btn btn-primary devis-hero-cta" style={{ marginTop: 26 }}>Commencer mon devis <span className="arrow">→</span></a>
       </div>
     </section>);
 
@@ -471,6 +472,7 @@ function DevisForm() {
                   <button type="submit" className="form-submit">Continuer<span>→</span></button>
                   {tried0 && !step0Complete && <span className="form-incomplete">Il manque quelques infos — voir les champs en rouge.</span>}
                 </div>
+                <p style={{ marginTop: 14, fontSize: 13.5, color: 'var(--muted)' }}>Gratuit · sans engagement · sans carte bancaire · réponse sous 24h.</p>
               </form>
             }
 
@@ -530,6 +532,9 @@ function DevisForm() {
             {step === 2 &&
             <InventoryStep data={data} set={set} onBack={back} onSubmit={submit} />
             }
+            <p style={{ marginTop: 22, textAlign: 'center', fontSize: 15, color: 'var(--ink-2)' }}>
+              Vous préférez en parler ? <a href="tel:+33781961445" style={{ color: 'var(--accent)', fontWeight: 700 }}>07 81 96 14 45</a>
+            </p>
             </React.Fragment>
             )}
           </div>
@@ -556,6 +561,37 @@ function DevisForm() {
 
 }
 
+const REVIEWS = [
+{ name: "Mari", text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante. Un grand merci pour votre sérieux et votre efficacité. Je recommande cette entreprise sans hésitation !" },
+{ name: "Jean", text: "Excellente prestation ! L'équipe a été très réactive, soigneuse et toujours à l'écoute. Tout a été transporté sans le moindre dommage et le déménagement s'est terminé plus rapidement que prévu. Un vrai service de qualité avec des personnes sympathiques et professionnelles. Merci encore !" },
+{ name: "Eliza", text: "Je recommande cette entreprise les yeux fermés. Dès le premier contact, tout a été clair et bien organisé. Le jour du déménagement, l'équipe est arrivée à l'heure, a pris grand soin de nos affaires et a travaillé avec efficacité tout au long de la journée. Un service sérieux, des tarifs honnêtes et une équipe très agréable. Merci pour votre professionnalisme !" }];
+
+
+function Testimonials() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num"><span className="asterisk">*</span> Ils nous ont fait confiance</div></div>
+          <h2 className="dim-em">Ce que disent<br /><em>nos clients.</em></h2>
+        </div>
+        <div className="reveal-stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 40 }}>
+          {REVIEWS.map((r, i) =>
+          <figure key={i} style={{ margin: 0, background: 'var(--paper-2)', border: '1px solid var(--rule)', borderRadius: 16, padding: 28, display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div style={{ color: 'var(--accent)', fontSize: 18, letterSpacing: 2 }} aria-label="Note 5 sur 5">★★★★★</div>
+              <blockquote style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: 'var(--ink-2)' }}>{r.text}</blockquote>
+              <figcaption style={{ fontWeight: 700, color: 'var(--ink)', marginTop: 'auto' }}>— {r.name}</figcaption>
+            </figure>
+          )}
+        </div>
+        <p style={{ marginTop: 24, fontSize: 14, color: 'var(--muted)' }}>
+          <span style={{ color: 'var(--accent)', fontWeight: 700 }}>★ 4,9/5</span> · Avis clients vérifiés sur Google &amp; Trustpilot
+        </p>
+      </div>
+    </section>);
+
+}
+
 function App() {
   useScrollReveal();
   return (
@@ -564,6 +600,7 @@ function App() {
       <main>
         <DevisHero />
         <DevisForm />
+        <Testimonials />
       </main>
       <Footer />
     </React.Fragment>);
