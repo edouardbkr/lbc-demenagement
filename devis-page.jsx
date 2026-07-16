@@ -99,18 +99,13 @@ function DevisHero() {
           Deux minutes, cinq infos. On revient vers vous sous 24h avec un prix précis et définitif, formule conseillée comprise. <span className="ast">*</span>Pas de numéro surtaxé, pas de spam.
         </p>
         <p style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 16px', borderRadius: 999, background: 'rgba(215,91,61,0.10)', color: 'var(--accent, #D75B3D)', fontWeight: 700, fontSize: 14 }}>
-          <span aria-hidden="true">💳</span> Payez en 3 fois sans frais avec Klarna
+          <span aria-hidden="true">💳</span> Déménagement payable en 3× sans frais (Klarna)
         </p>
-        <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px 16px', fontSize: 14.5, color: 'rgba(242,232,207,0.82)' }}>
-          <span style={{ fontWeight: 700, color: '#f3ece1' }}><span style={{ color: 'var(--accent)' }}>★</span> 4,9/5</span>
-          <span style={{ opacity: 0.4 }}>·</span>
-          <span>Avis vérifiés Google &amp; Trustpilot</span>
-          <span style={{ opacity: 0.4 }}>·</span>
-          <span>Assurance incluse</span>
-          <span style={{ opacity: 0.4 }}>·</span>
-          <span>Prix ferme, zéro surprise</span>
-          <span style={{ opacity: 0.4 }}>·</span>
-          <span>Réponse sous 24h</span>
+        <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', gap: '10px 18px', fontSize: 14, color: 'rgba(242,232,207,0.85)' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)', fontWeight: 700 }}>★&nbsp;4,9/5</span> Google &amp; Trustpilot</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Assurance incluse</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Prix ferme, zéro surprise</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Réponse sous 24h</span>
         </div>
         <a href="#devis-form-top" className="btn btn-primary devis-hero-cta" style={{ marginTop: 26 }}>Commencer mon devis <span className="arrow">→</span></a>
       </div>
@@ -514,7 +509,7 @@ function DevisForm() {
                       selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
                     </div>
                     <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
-                    <span className="hint" style={{ marginTop: 8 }}>💳 <strong>Paiement en 3 fois sans frais avec Klarna</strong> disponible pour étaler le coût de votre déménagement.</span>
+                    <span className="hint" style={{ marginTop: 8 }}>💳 Bon à savoir : votre <strong>déménagement est payable en 3× sans frais</strong> avec Klarna, au moment de la prestation et seulement si vous le souhaitez. <strong>Le devis, lui, est 100&nbsp;% gratuit</strong>, sans engagement ni carte bancaire.</span>
                   </div>
                   <div className="lf full">
                     <label>Détails utiles (optionnel)</label>
