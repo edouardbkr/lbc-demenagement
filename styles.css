@@ -1841,7 +1841,16 @@ body.density-compact .gallery { padding: clamp(40px, 6vw, 80px) 0; }
   display: none; flex-direction: column; gap: 0;
   padding: 8px var(--pad-x) 20px; border-bottom: 1px solid var(--rule); background: var(--paper);
 }
-.mobile-menu.open { display: flex; }
+.mobile-menu.open {
+  display: flex;
+  /* Le menu (sticky) peut dépasser l'écran quand une liste de villes est ouverte :
+     on lui donne son propre défilement, borné à la hauteur visible sous la barre nav. */
+  max-height: calc(100vh - 88px);
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+  overscroll-behavior: contain; /* le scroll ne se propage plus à la page derrière */
+  -webkit-overflow-scrolling: touch;
+}
 .mobile-menu a {
   padding: 16px 0; border-bottom: 1px solid var(--rule);
   font-family: var(--serif); font-size: 28px; font-weight: 500;

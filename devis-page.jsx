@@ -101,6 +101,17 @@ function DevisHero() {
         <p style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 16px', borderRadius: 999, background: 'rgba(215,91,61,0.10)', color: 'var(--accent, #D75B3D)', fontWeight: 700, fontSize: 14 }}>
           <span aria-hidden="true">💳</span> Payez en 3 fois sans frais avec Klarna
         </p>
+        <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px 16px', fontSize: 14.5, color: 'var(--ink-2)' }}>
+          <span style={{ fontWeight: 700, color: 'var(--ink)' }}><span style={{ color: 'var(--accent)' }}>★</span> 4,9/5</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Avis vérifiés Google &amp; Trustpilot</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Assurance incluse</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Prix ferme, zéro surprise</span>
+          <span style={{ opacity: 0.4 }}>·</span>
+          <span>Réponse sous 24h</span>
+        </div>
       </div>
     </section>);
 
@@ -468,25 +479,6 @@ function DevisForm() {
                       <Choice name="surf" value="t4" label="4 pièces +" sub="80 m² +" selected={data.surface === 't4'} onSelect={(v) => set('surface', v)} />
                     </div>
                   </div>
-                  <div className="lf full">
-                    <label>Formule souhaitée</label>
-                    <div className="formule-cards">
-                      <FormuleOption
-                      value="standard" name="Coup de main" tag="L'essentiel, bien fait."
-                      items={["Transport & véhicule adapté", "Chargement & déchargement par l'équipe", "Déménagement local ou longue distance", "Assurance incluse"]}
-                      selected={data.formule === 'standard'} onSelect={(v) => set('formule', v)} />
-                      <FormuleOption
-                      value="premium" name="Mains libres" badge="Le plus demandé" tag="Le confort, sans le stress."
-                      items={["Protection intégrale du mobilier", "Démontage & remontage des meubles", "Emballage des objets fragiles", "Assurance incluse"]}
-                      selected={data.formule === 'premium'} onSelect={(v) => set('formule', v)} />
-                      <FormuleOption
-                      value="luxe" name="Mains dans les poches" tag="Clé en main, de A à Z."
-                      items={["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"]}
-                      selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
-                    </div>
-                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
-                    <span className="hint" style={{ marginTop: 8 }}>💳 <strong>Paiement en 3 fois sans frais avec Klarna</strong> disponible pour étaler le coût de votre déménagement.</span>
-                  </div>
                 </div>
                 <div className="form-nav" style={{ marginTop: 32 }}>
                   <button type="submit" className="form-submit">Continuer<span>→</span></button>
@@ -515,6 +507,25 @@ function DevisForm() {
                       <option>Dans le mois</option>
                       <option>Pas encore décidé</option>
                     </select>
+                  </div>
+                  <div className="lf full">
+                    <label>Formule souhaitée</label>
+                    <div className="formule-cards">
+                      <FormuleOption
+                      value="standard" name="Coup de main" tag="L'essentiel, bien fait."
+                      items={["Transport & véhicule adapté", "Chargement & déchargement par l'équipe", "Déménagement local ou longue distance", "Assurance incluse"]}
+                      selected={data.formule === 'standard'} onSelect={(v) => set('formule', v)} />
+                      <FormuleOption
+                      value="premium" name="Mains libres" badge="Le plus demandé" tag="Le confort, sans le stress."
+                      items={["Protection intégrale du mobilier", "Démontage & remontage des meubles", "Emballage des objets fragiles", "Assurance incluse"]}
+                      selected={data.formule === 'premium'} onSelect={(v) => set('formule', v)} />
+                      <FormuleOption
+                      value="luxe" name="Mains dans les poches" tag="Clé en main, de A à Z."
+                      items={["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"]}
+                      selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
+                    </div>
+                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
+                    <span className="hint" style={{ marginTop: 8 }}>💳 <strong>Paiement en 3 fois sans frais avec Klarna</strong> disponible pour étaler le coût de votre déménagement.</span>
                   </div>
                   <div className="lf full">
                     <label>Détails utiles (optionnel)</label>
@@ -552,48 +563,6 @@ function DevisForm() {
               <div className="sub">Avis clients vérifiés · Google &amp; Trustpilot</div>
             </div>
           </aside>
-        </div>
-      </div>
-    </section>);
-
-}
-
-const COST = [
-{ vol: "Studio · < 30 m²", local: "670 – 870 €", longue: "1 570 – 2 050 €" },
-{ vol: "2 pièces · 30–50 m²", local: "990 – 1 290 €", longue: "2 320 – 3 030 €" },
-{ vol: "3 pièces · 50–80 m²", local: "1 510 – 1 970 €", longue: "3 550 – 4 640 €" },
-{ vol: "4 pièces + · 80 m² +", local: "2 420 – 3 160 €", longue: "5 690 – 7 430 €" }];
-
-
-function CostSection() {
-  return (
-    <section className="sec testimonials">
-      <div className="wrap">
-        <div className="sec-head reveal">
-          <div><div className="sec-num"><span className="asterisk">*</span> Repères de prix</div></div>
-          <h2 className="dim-em">Combien coûte un déménagement<br /><em>en 2026 ?</em></h2>
-        </div>
-        <div className="reveal">
-          <p style={{ maxWidth: '60ch', color: 'var(--ink-2)', fontSize: 18, lineHeight: 1.6 }}>
-            Voici quelques repères indicatifs du marché en formule Mains libres, hors options. Votre devis, lui, est <strong>précis et définitif</strong> : le prix annoncé est le prix payé, sans supplément le jour J.
-          </p>
-          <table className="cost-table">
-            <thead>
-              <tr><th style={{ width: '40%' }}>Volume</th><th>Local (&lt; 50 km)</th><th>Longue distance</th></tr>
-            </thead>
-            <tbody>
-              {COST.map((r, i) =>
-              <tr key={i}>
-                  <td>{r.vol}</td>
-                  <td><span className="price">{r.local}</span></td>
-                  <td><span className="price">{r.longue}</span></td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-          <p style={{ marginTop: 16, fontSize: 13, color: 'var(--muted)' }}>
-            Estimations moyennes constatées · données indicatives, ne valent pas devis.
-          </p>
         </div>
       </div>
     </section>);
