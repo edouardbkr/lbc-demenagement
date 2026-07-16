@@ -101,8 +101,8 @@ function DevisHero() {
         <p style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 16px', borderRadius: 999, background: 'rgba(215,91,61,0.10)', color: 'var(--accent, #D75B3D)', fontWeight: 700, fontSize: 14 }}>
           <span aria-hidden="true">💳</span> Payez en 3 fois sans frais avec Klarna
         </p>
-        <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px 16px', fontSize: 14.5, color: 'var(--ink-2)' }}>
-          <span style={{ fontWeight: 700, color: 'var(--ink)' }}><span style={{ color: 'var(--accent)' }}>★</span> 4,9/5</span>
+        <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px 16px', fontSize: 14.5, color: 'rgba(242,232,207,0.82)' }}>
+          <span style={{ fontWeight: 700, color: '#f3ece1' }}><span style={{ color: 'var(--accent)' }}>★</span> 4,9/5</span>
           <span style={{ opacity: 0.4 }}>·</span>
           <span>Avis vérifiés Google &amp; Trustpilot</span>
           <span style={{ opacity: 0.4 }}>·</span>
@@ -448,19 +448,6 @@ function DevisForm() {
                     <label>Email</label>
                     <input type="email" name="email" className={(tried0 && !(data.email || '').trim() ? 'field-error' : '') + (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || '') ? ' is-valid' : '')} defaultValue={data.email} onChange={(e) => set('email', e.target.value)} placeholder="jean@exemple.fr" autoComplete="email" />
                   </div>
-                  <div className="lf full">
-                    <label>Comment préférez-vous être recontacté ?</label>
-                    <div className="choice-row">
-                      <Choice name="ct" value="tel" label="Téléphone" selected={data.contact === 'tel'} onSelect={(v) => set('contact', v)} />
-                      <Choice name="ct" value="mail" label="Email" selected={data.contact === 'mail'} onSelect={(v) => set('contact', v)} />
-                      <Choice name="ct" value="sms" label="SMS" selected={data.contact === 'sms'} onSelect={(v) => set('contact', v)} />
-                    </div>
-                  </div>
-                  <div className="lf full">
-                    <label>Code de parrainage <span style={{ color: '#9aa4ab', fontWeight: 400 }}>(optionnel)</span></label>
-                    <input type="text" name="codeParrain" value={data.codeParrain || ''} onChange={(e) => set('codeParrain', e.target.value.toUpperCase())} placeholder="Ex : DUPONT123" autoComplete="off" />
-                  </div>
-
                   <div className="lf full"><div className="form-section-head">Votre logement</div></div>
                   <div className="lf full">
                     <label>Type de logement {tried0 && !data.type && <span className="req-hint">— à sélectionner</span>}</label>
