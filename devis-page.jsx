@@ -44,8 +44,6 @@ const sideOf = (all, s) => ({
 // à démonter, flexibilité, contact, détails) part en notes — pas de doublon.
 function sendToCockpit(all, opts) {
   opts = opts || {};
-  const c = sbClient();
-  if (!c) { console.warn("[LBC] Supabase non chargé — lead NON envoyé au cockpit (recharge la page en Cmd+Shift+R)"); return; }
   const np = (all.nom || "").trim().split(/\s+/);
   const prenom = np.shift() || "";
   const nom = np.join(" ");
@@ -77,12 +75,22 @@ function sendToCockpit(all, opts) {
     arrivee: sideOf(all, "arrivee"),
     message: notes };
 
+  // Envoi REST direct AVEC keepalive : la requête SURVIT même si le visiteur quitte la page juste
+  // après l'étape 1 (avant, l'insert sans keepalive était annulé au départ → lead perdu côté cockpit,
+  // alors que l'email, lui, avait keepalive et arrivait quand même).
   try {
-    console.log("[LBC] Envoi du lead au cockpit…", payload);
-    c.from("leads").insert({ payload }).then(
-      (res) => { if (res && res.error) console.error("[LBC] Erreur insert lead :", res.error); else console.log("[LBC] ✓ Lead envoyé au cockpit"); },
-      (err) => { console.error("[LBC] Insert rejeté :", err); });
-  } catch (e) { console.error("[LBC] Exception sendToCockpit :", e); }
+    fetch(SUPA_URL + "/rest/v1/leads", {
+      method: "POST",
+      keepalive: true,
+      headers: {
+        "apikey": SUPA_ANON,
+        "Authorization": "Bearer " + SUPA_ANON,
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({ payload })
+    }).catch(() => {});
+  } catch (e) {}
 }
 
 function DevisHero() {
