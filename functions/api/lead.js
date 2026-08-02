@@ -112,10 +112,47 @@ async function envoyerNotif(env, payload) {
 // de toucher à Supabase, donc sans rien consommer.
 const TAILLE_MAX = 64 * 1024;   // 64 Ko
 
+// ── Limitation du débit ───────────────────────────────────────────────────────
+// Rien n'oblige à passer par le formulaire : on peut appeler cette adresse en boucle. Et comme
+// chaque lead déclenche un e-mail vers contact@lbcdemenagement.com, une simple boucle noierait
+// la boîte et le cockpit sous des milliers de faux prospects, rendant les vrais introuvables.
+//
+// Un vrai visiteur envoie 3 à 4 demandes pour un même devis (étape 1, devis complet, rappel).
+// La limite est fixée large pour ne jamais gêner plusieurs personnes derrière une même box ou
+// un même réseau d'entreprise, tout en arrêtant net un envoi automatisé.
+const FENETRE = 60;    // secondes
+const MAX_PAR_FENETRE = 15;
+
+// Le compteur est stocké dans le cache de Cloudflare : pas de base à installer, pas de
+// configuration. Il est propre à chaque centre de données, ce qui suffit ici — une boucle part
+// d'un endroit, donc elle frappe toujours le même.
+async function tropDeRequetes(request) {
+  const ip = request.headers.get("CF-Connecting-IP");
+  if (!ip || typeof caches === "undefined" || !caches.default) return false;  // dans le doute, on laisse passer
+  const cle = new Request("https://limite.interne/lead/" + encodeURIComponent(ip));
+  try {
+    const vu = await caches.default.match(cle);
+    const n = vu ? Number(await vu.text()) || 0 : 0;
+    if (n >= MAX_PAR_FENETRE) return true;
+    await caches.default.put(cle, new Response(String(n + 1), {
+      headers: { "cache-control": "max-age=" + FENETRE }
+    }));
+    return false;
+  } catch (e) {
+    return false;   // un souci de cache ne doit JAMAIS bloquer un vrai prospect
+  }
+}
+
 export async function onRequestPost(context) {
   const json = (obj, status) => new Response(JSON.stringify(obj), { status: status || 200, headers: { "content-type": "application/json" } });
   let payload = null;
   try {
+    // Trop de demandes depuis la même adresse : on refuse sans rien enregistrer et SANS envoyer
+    // d'alerte « lead perdu » (ce n'en est pas un, et l'alerte serait le déni de service).
+    if (await tropDeRequetes(context.request)) {
+      return json({ error: "trop de demandes, réessayez dans une minute" }, 429);
+    }
+
     // Refus immédiat si le corps annoncé est démesuré, avant même de le lire.
     const taille = Number(context.request.headers.get("content-length") || 0);
     if (taille > TAILLE_MAX) return json({ error: "payload trop volumineux" }, 413);
