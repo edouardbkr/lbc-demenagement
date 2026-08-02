@@ -23,7 +23,13 @@ function ArticleCard({ a, featured }) {
   return (
     <a href={href} className={featured ? "blog-featured" : "article-card"}>
       <div className="article-thumb">
-        <div className="ph"><div className="ph-label">{a.thumb}</div></div>
+        {a.image ?
+          // width/height explicites : le navigateur réserve la place avant le chargement,
+          // ce qui évite le décalage de mise en page que Google pénalise (CLS).
+          <img src={a.image} alt={a.imageAlt || a.title} loading="lazy" decoding="async"
+               width="1200" height="800"
+               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /> :
+          <div className="ph"><div className="ph-label">{a.thumb}</div></div>}
         <div className="article-cat">{a.cat}</div>
       </div>
       <div className="article-body">

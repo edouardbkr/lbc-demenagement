@@ -34,7 +34,25 @@ function ArticleHero({
     className: "amx-sep"
   }, "\xB7"), React.createElement("span", {
     className: "amx"
-  }, a.read, " de lecture"))));
+  }, a.read, " de lecture")), a.image && React.createElement("figure", {
+    style: {
+      margin: '28px 0 0',
+      borderRadius: 16,
+      overflow: 'hidden'
+    }
+  }, React.createElement("img", {
+    src: a.image,
+    alt: a.imageAlt || a.title,
+    decoding: "async",
+    fetchPriority: "high",
+    width: "1200",
+    height: "800",
+    style: {
+      width: '100%',
+      height: 'auto',
+      display: 'block'
+    }
+  }))));
 }
 function ArticleBody({
   a

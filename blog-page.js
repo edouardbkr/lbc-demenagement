@@ -27,7 +27,20 @@ function ArticleCard({
     className: featured ? "blog-featured" : "article-card"
   }, React.createElement("div", {
     className: "article-thumb"
-  }, React.createElement("div", {
+  }, a.image ? React.createElement("img", {
+    src: a.image,
+    alt: a.imageAlt || a.title,
+    loading: "lazy",
+    decoding: "async",
+    width: "1200",
+    height: "800",
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'block'
+    }
+  }) : React.createElement("div", {
     className: "ph"
   }, React.createElement("div", {
     className: "ph-label"

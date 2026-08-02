@@ -35,6 +35,17 @@ function ArticleHero({ a }) {
           <span className="amx-sep">·</span>
           <span className="amx">{a.read} de lecture</span>
         </p>
+
+        {/* Illustration principale de l'article.
+            Pas de loading="lazy" ici : c'est l'image la plus grande visible dès l'ouverture,
+            donc celle que Google mesure pour le LCP. La différer la ralentirait.
+            width/height explicites pour réserver la place et éviter le décalage (CLS). */}
+        {a.image &&
+          <figure style={{ margin: '28px 0 0', borderRadius: 16, overflow: 'hidden' }}>
+            <img src={a.image} alt={a.imageAlt || a.title} decoding="async" fetchPriority="high"
+                 width="1200" height="800"
+                 style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </figure>}
       </div>
     </section>
   );

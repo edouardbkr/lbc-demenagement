@@ -2,6 +2,8 @@
 (function () {
 const ARTICLES = [{
   slug: "estimer-volume",
+  image: "assets/blog/estimer-volume-demenagement-camion-20m3.jpg",
+  imageAlt: "Camion de déménagement LBC de 20 m³ et ses dimensions : 4,50 × 2,10 × 2,10 mètres",
   cat: "Méthode",
   title: "Estimer le volume de votre déménagement en m³, sans se tromper",
   date: "28 avril 2026",
@@ -17,6 +19,8 @@ const ARTICLES = [{
   }, "checklist de d\xE9m\xE9nagement"), " vous \xE9vite les oublis classiques."))
 }, {
   slug: "demenager-nice",
+  image: "assets/blog/stationnement-demenagement-vieux-nice.jpg",
+  imageAlt: "Camion de déménagement stationné dans une rue du Vieux-Nice devant une aire de livraison",
   cat: "Côte d'Azur",
   title: "Déménager à Nice : stationnement, autorisations et bons réflexes par quartier",
   date: "9 avril 2026",
@@ -36,6 +40,8 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), ". Un d\xE9m\xE9nagement r\xE9ussi \xE0 Nice, c'est 80 % de pr\xE9paration et 20 % de muscles."))
 }, {
   slug: "choisir-demenageur",
+  image: "assets/blog/choisir-demenageur-devis-7-signaux.jpg",
+  imageAlt: "Devis de déménagement et les 7 signaux à vérifier avant de signer : prix ferme, assurance, acompte, SIRET",
   cat: "Conseils",
   title: "Choisir sa société de déménagement : 7 signaux qui ne trompent pas",
   date: "21 mars 2026",
@@ -53,6 +59,8 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), " pour comparer en toute connaissance de cause."))
 }, {
   slug: "demenagement-nice-paris-prix-delais",
+  image: "assets/blog/demenagement-nice-paris-930-km-trajet.jpg",
+  imageAlt: "Trajet de déménagement Nice-Paris : 930 km par les autoroutes A8, A7 et A6, environ 9 heures de route",
   cat: "Longue distance",
   title: "Déménagement Nice → Paris : délais et organisation en 2026",
   date: "26 mai 2026",
@@ -84,6 +92,8 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), " : on s'occupe de tout, du premier carton ni\xE7ois \xE0 la derni\xE8re \xE9tag\xE8re parisienne."))
 }, {
   slug: "demenagement-nice-paris-reussir",
+  image: "assets/blog/demenagement-nice-paris-retroplanning-8-semaines.jpg",
+  imageAlt: "Rétroplanning d'un déménagement Nice-Paris en 8 semaines, du tri des affaires à la livraison",
   cat: "Longue distance",
   title: "Réussir son déménagement Nice-Paris : le guide complet pas-à-pas",
   date: "24 mai 2026",
@@ -109,6 +119,8 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), " : on vous accompagne du premier carton \xE0 la derni\xE8re \xE9tag\xE8re."))
 }, {
   slug: "demenagement-la-rochelle-guide",
+  image: "assets/blog/demenagement-la-rochelle-vieux-port-minimes.jpg",
+  imageAlt: "Déménagement à La Rochelle : les tours du Vieux-Port, le quartier des Minimes et les îles",
   cat: "Villes",
   title: "Déménager à La Rochelle : centre historique, Les Minimes et les îles",
   date: "22 mai 2026",
@@ -130,6 +142,8 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), " : on s'occupe de tout, du Vieux-Port jusqu'aux \xEEles."))
 }, {
   slug: "demenagement-international-depuis-nice",
+  image: "assets/blog/demenagement-international-depuis-nice-douane.jpg",
+  imageAlt: "Déménagement international depuis Nice vers Genève, Milan, Barcelone, Luxembourg et Bruxelles, avec passage en douane",
   cat: "International",
   title: "Déménagement international depuis Nice : formalités, douanes et conseils",
   date: "19 mai 2026",
@@ -161,6 +175,8 @@ const ARTICLES = [{
   }, "destinations et trajets"), " depuis Nice."))
 }, {
   slug: "villes-demarches-speciales-demenagement",
+  image: "assets/blog/demenagement-adresses-reglementees-monte-meuble.jpg",
+  imageAlt: "Monte-meuble déployé sur une façade pour un déménagement en zone réglementée",
   cat: "Conseils",
   title: "Ces adresses où déménager demande des démarches spéciales (et comment on s'en occupe)",
   date: "16 mai 2026",
@@ -186,6 +202,8 @@ const ARTICLES = [{
   }, "zones desservies"), "."))
 }, {
   slug: "demenagement-etudiant-nice",
+  image: "assets/blog/demenagement-etudiant-nice-studio-6m3.jpg",
+  imageAlt: "Déménagement étudiant à Nice : un studio de 6 m³, une matinée, deux amis et un vélo",
   cat: "Côte d'Azur",
   title: "Déménagement étudiant à Nice : petit budget, gros soulagement",
   date: "14 mai 2026",
