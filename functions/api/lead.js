@@ -107,12 +107,26 @@ async function envoyerNotif(env, payload) {
   } catch (e) { console.error("[lead] envoi notification", (e && e.message) || e); }
 }
 
+// Un lead normal fait quelques kilo-octets. Au-delà, ce n'est pas un prospect : c'est quelqu'un
+// qui essaie de remplir la base ou de nous faire envoyer un e-mail géant. On coupe court avant
+// de toucher à Supabase, donc sans rien consommer.
+const TAILLE_MAX = 64 * 1024;   // 64 Ko
+
 export async function onRequestPost(context) {
   const json = (obj, status) => new Response(JSON.stringify(obj), { status: status || 200, headers: { "content-type": "application/json" } });
   let payload = null;
   try {
-    const body = await context.request.json().catch(() => null);
-    if (!body || !body.payload) return json({ error: "payload requis" }, 400);
+    // Refus immédiat si le corps annoncé est démesuré, avant même de le lire.
+    const taille = Number(context.request.headers.get("content-length") || 0);
+    if (taille > TAILLE_MAX) return json({ error: "payload trop volumineux" }, 413);
+
+    const brut = await context.request.text().catch(() => "");
+    // Le content-length peut mentir ou être absent : on revérifie sur le contenu réel.
+    if (brut.length > TAILLE_MAX) return json({ error: "payload trop volumineux" }, 413);
+
+    let body = null;
+    try { body = JSON.parse(brut); } catch (e) { body = null; }
+    if (!body || !body.payload || typeof body.payload !== "object") return json({ error: "payload requis" }, 400);
     payload = body.payload;
 
     let r = await insert(payload);

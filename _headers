@@ -1,0 +1,38 @@
+# En-têtes de sécurité appliqués par Cloudflare Pages à toutes les pages.
+#
+# Avant ce fichier, le site n'envoyait que x-content-type-options et referrer-policy.
+# Il manquait notamment de quoi empêcher qu'un escroc affiche lbcdemenagement.com dans une
+# iframe invisible par-dessus son propre site, pour faire cliquer les visiteurs à leur insu
+# (clickjacking). C'est le genre de montage utilisé pour détourner des demandes de devis.
+
+/*
+  # Interdit d'afficher le site dans une iframe, sur n'importe quel autre domaine.
+  # Les deux lignes disent la même chose : la première pour les navigateurs récents
+  # (via la directive frame-ancestors plus bas), celle-ci pour les plus anciens.
+  X-Frame-Options: DENY
+
+  # Force HTTPS pendant 1 an, y compris sur les sous-domaines. Sans ça, un visiteur qui tape
+  # « lbcdemenagement.com » part en HTTP avant d'être redirigé, et cette première requête peut
+  # être interceptée sur un wifi public.
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  # Le navigateur ne doit pas deviner le type d'un fichier : un fichier uploadé qui se ferait
+  # passer pour une image ne sera pas exécuté comme du script.
+  X-Content-Type-Options: nosniff
+
+  # Ne transmet l'adresse complète de la page qu'aux pages de notre propre domaine.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Le site n'a besoin ni de la caméra, ni du micro, ni de la position. On les refuse.
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+  # Liste blanche de tout ce que la page a le droit de charger ou de contacter.
+  # Domaines autorisés, et pourquoi :
+  #   fonts.googleapis.com / fonts.gstatic.com : les polices du site
+  #   connect.facebook.net / facebook.com      : le pixel Meta, chargé UNIQUEMENT après
+  #                                              consentement RGPD (piloté par consent.js)
+  #   formsubmit.co                            : notification e-mail des formulaires
+  # 'unsafe-inline' pour les scripts reste nécessaire : deux scripts sont écrits directement
+  # dans le HTML (le stub du pixel et l'animation d'apparition). Le site n'affiche aucun
+  # contenu écrit par un visiteur, donc il n'y a pas de porte d'entrée XSS à protéger ici.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://www.facebook.com; media-src 'self' blob:; connect-src 'self' https://formsubmit.co https://connect.facebook.net https://www.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests
