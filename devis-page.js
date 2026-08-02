@@ -165,7 +165,7 @@ function DevisHero() {
       color: 'var(--accent)',
       fontWeight: 700
     }
-  }, "\u2605\xA05,0/5"), " sur Google"), React.createElement("span", {
+  }, "\u2605\xA05,0/5"), " \xB7 +100 avis clients"), React.createElement("span", {
     style: {
       display: 'inline-flex',
       alignItems: 'center',
@@ -1055,14 +1055,14 @@ function DevisForm() {
     className: "stars"
   }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("div", {
     className: "sub"
-  }, React.createElement("a", {
+  }, "+100 avis clients \xB7", ' ', React.createElement("a", {
     href: "https://maps.app.goo.gl/8s8k2kZrFJpTn8e18",
     target: "_blank",
     rel: "noopener noreferrer",
     style: {
       color: 'inherit'
     }
-  }, "Avis clients v\xE9rifi\xE9s sur Google")))))));
+  }, "voir sur Google")))))));
 }
 const REVIEWS = [{
   name: "Mari",
@@ -1138,7 +1138,7 @@ function Testimonials() {
       color: 'var(--accent)',
       fontWeight: 700
     }
-  }, "\u2605 5,0/5"), " \xB7 Avis clients v\xE9rifi\xE9s sur Google")));
+  }, "\u2605 5,0/5"), " \xB7 +100 avis clients")));
 }
 function App() {
   useScrollReveal();

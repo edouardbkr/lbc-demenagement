@@ -187,14 +187,10 @@ function Testimonials() {
             {quotes.map((q, i) => (
               <article className="testi-card" key={i}>
                 <header className="tc-head">
-                  <image-slot
-                    id={"testi-" + q.id}
-                    class="tc-avatar"
-                    shape="circle"
-                    src={"assets/avatars/" + q.id + ".png"}
-                    placeholder="Photo"
-                    style={{ width: "46px", height: "46px" }}
-                  ></image-slot>
+                  {/* Les pastilles de photo ont été retirées le 2 août 2026 : elles affichaient
+                      un cercle gris vide (aucun fichier dans assets/avatars/). Et il n'y a pas
+                      de photo à y mettre : ce sont de vrais avis Google, on ne va pas inventer
+                      des visages. Le nom et les étoiles suffisent. */}
                   <div className="tc-id">
                     <div className="tc-name">{q.name}</div>
                     <div className="tc-city">{q.city}</div>

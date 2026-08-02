@@ -245,17 +245,7 @@ function Testimonials() {
     key: i
   }, React.createElement("header", {
     className: "tc-head"
-  }, React.createElement("image-slot", {
-    id: "testi-" + q.id,
-    class: "tc-avatar",
-    shape: "circle",
-    src: "assets/avatars/" + q.id + ".png",
-    placeholder: "Photo",
-    style: {
-      width: "46px",
-      height: "46px"
-    }
-  }), React.createElement("div", {
+  }, React.createElement("div", {
     className: "tc-id"
   }, React.createElement("div", {
     className: "tc-name"
