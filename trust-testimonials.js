@@ -142,35 +142,35 @@ function Values() {
 }
 function Testimonials() {
   const quotes = [{
-    text: "On appréhendait un peu le jour J, au final tout s'est fait dans le calme. La vaisselle de ma grand-mère a été emballée pièce par pièce, rien de cassé à l'arrivée.",
-    name: "Camille R.",
-    city: "Nice",
-    id: "camille"
+    text: "J'ai fait appel à LBC déménagement et j'ai eu une super expérience ! Edouard et Anthony sont très pros et super sympas. Ils ont pris soin de tous les meubles, démonté et même remonté le canapé puis installé la machine à laver ! Tout était bien sécurisé. Une prestation au top, je recommande !",
+    name: "Khalid B.",
+    city: "Avis Google",
+    id: "khalid"
   }, {
-    text: "Déménagement de nos bureaux un dimanche, tout le monde a retrouvé son poste le lundi matin. Le devis a été tenu, pas de supplément sur la facture.",
-    name: "Marc D.",
-    city: "Antibes",
-    id: "marc"
+    text: "Une force titanesque et un professionnalisme d'exception. Très bonne adaptation même avec de grosses contraintes : chemin sans route, grosse pente, gros escalier… Merci à vous.",
+    name: "Jannick F.",
+    city: "Avis Google",
+    id: "jannick"
   }, {
-    text: "Trois étages sans ascenseur et une vieille armoire normande. Démontée, transportée et remontée sans une rayure. Du travail propre.",
-    name: "Sophie L.",
-    city: "Cannes",
-    id: "sophie"
+    text: "Edouard et Anthony sont parfaits : ponctuels, disponibles, professionnels et agréables en plus. Je recommande chaudement cette entreprise. Vous ne serez pas déçus.",
+    name: "Michèle A.",
+    city: "Avis Google",
+    id: "michele"
   }, {
-    text: "Réservé le mardi, déménagé le samedi. Studio bouclé en une matinée et un prix correct pour un petit volume. Équipe à l'heure et efficace.",
-    name: "Thomas B.",
-    city: "Saint-Laurent-du-Var",
-    id: "thomas"
+    text: "Équipe bien managée par M. Edouard, bien équipée (camion, outils de roulage et de protection) et au top, tant au niveau de son professionnalisme (bonne évaluation préalable) que de son dynamisme et sa gentillesse. Je recommande sans hésitation !",
+    name: "Denis E.",
+    city: "Avis Google",
+    id: "denis"
   }, {
-    text: "Nice → Lyon avec deux enfants en bas âge. Tout est arrivé le lendemain intact, et ils ont remonté les lits en premier pour qu'on puisse coucher les petits le soir.",
-    name: "Naïma K.",
-    city: "Menton",
-    id: "naima"
+    text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante.",
+    name: "Mari M.",
+    city: "Avis Google",
+    id: "mari"
   }, {
-    text: "J'ai organisé le déménagement de ma mère à distance. Équipe ponctuelle, patiente avec elle, avec un point par téléphone à chaque étape. Rien à redire.",
-    name: "Élise V.",
-    city: "Nice · Cimiez",
-    id: "elise"
+    text: "Un service sans faute et exceptionnel à tout point de vue. Une gentillesse qui nous rassure et un professionnalisme qui nous donne confiance. Merci pour votre prestation !",
+    name: "Nanou S.",
+    city: "Avis Google",
+    id: "nanou"
   }];
   const pinRef = React.useRef(null);
   const stickyRef = React.useRef(null);

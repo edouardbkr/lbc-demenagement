@@ -125,7 +125,7 @@ function DevisHero() {
           <span aria-hidden="true">💳</span> Déménagement payable en 3× sans frais (Klarna)
         </p>
         <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', gap: '10px 18px', fontSize: 14, color: 'rgba(242,232,207,0.85)' }}>
-          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)', fontWeight: 700 }}>★&nbsp;4,9/5</span> Google &amp; Trustpilot</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)', fontWeight: 700 }}>★&nbsp;5,0/5</span> sur Google</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Assurance incluse</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Prix ferme, zéro surprise</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Prix affiché immédiatement</span>
@@ -712,10 +712,17 @@ function DevisForm() {
                 <li>Aucun engagement, aucune carte bancaire</li>
               </ul>
             </div>
+            {/* Note réelle relevée sur la fiche Google Business : 5,0. On ne cite que Google :
+                aucun profil Trustpilot n'existe pour LBC, et annoncer des avis Trustpilot
+                inexistants serait la même faute que les faux témoignages retirés le 2 août. */}
             <div className="aside-rating">
-              <div className="big">4,9</div>
+              <div className="big">5,0</div>
               <div className="stars">★★★★★</div>
-              <div className="sub">Avis clients vérifiés · Google &amp; Trustpilot</div>
+              <div className="sub">
+                <a href="https://maps.app.goo.gl/8s8k2kZrFJpTn8e18" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                  Avis clients vérifiés sur Google
+                </a>
+              </div>
             </div>
           </aside>
         </div>
@@ -748,7 +755,7 @@ function Testimonials() {
           )}
         </div>
         <p style={{ marginTop: 24, fontSize: 14, color: 'var(--muted)' }}>
-          <span style={{ color: 'var(--accent)', fontWeight: 700 }}>★ 4,9/5</span> · Avis clients vérifiés sur Google &amp; Trustpilot
+          <span style={{ color: 'var(--accent)', fontWeight: 700 }}>★ 5,0/5</span> · Avis clients vérifiés sur Google
         </p>
       </div>
     </section>);
