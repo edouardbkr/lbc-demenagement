@@ -142,6 +142,16 @@ p { margin: 0; }
   color: var(--ink);
   border: 1px solid var(--rule);
 }
+.btn-wa {
+  background: #25D366;
+  color: #fff;
+  font-weight: 800;
+  padding: 17px 30px;
+  font-size: 15px;
+  box-shadow: 0 8px 22px rgba(37,211,102,0.38);
+}
+.btn-wa:hover { background: #20bd5a; }
+.btn-wa svg { width: 22px; height: 22px; flex: none; }
 .btn .arrow {
   width: 22px; height: 22px;
   display: inline-flex; align-items: center; justify-content: center;
@@ -1841,7 +1851,16 @@ body.density-compact .gallery { padding: clamp(40px, 6vw, 80px) 0; }
   display: none; flex-direction: column; gap: 0;
   padding: 8px var(--pad-x) 20px; border-bottom: 1px solid var(--rule); background: var(--paper);
 }
-.mobile-menu.open { display: flex; }
+.mobile-menu.open {
+  display: flex;
+  /* Le menu (sticky) peut dépasser l'écran quand une liste de villes est ouverte :
+     on lui donne son propre défilement, borné à la hauteur visible sous la barre nav. */
+  max-height: calc(100vh - 88px);
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+  overscroll-behavior: contain; /* le scroll ne se propage plus à la page derrière */
+  -webkit-overflow-scrolling: touch;
+}
 .mobile-menu a {
   padding: 16px 0; border-bottom: 1px solid var(--rule);
   font-family: var(--serif); font-size: 28px; font-weight: 500;
@@ -3248,3 +3267,104 @@ label.seg-opt:focus-within,
 .gallery-strip.gallery-2{grid-template-columns:1fr 1fr;grid-auto-rows:auto}
 .gallery-strip.gallery-2 .gallery-tile{aspect-ratio:3/2}
 @media(max-width:640px){.gallery-strip.gallery-2{grid-template-columns:1fr}}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Écran de fin du devis : fourchette de prix + choix du créneau de rappel
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Bloc prix — la récompense de l'écran de fin. C'est ce que le prospect retient. */
+.ds-price {
+  margin: 26px auto 0;
+  max-width: 520px;
+  padding: 26px 24px 22px;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--paper-2), var(--field));
+  text-align: center;
+}
+.ds-price-label {
+  display: block;
+  font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+.ds-price-range {
+  display: flex; align-items: baseline; justify-content: center; gap: 10px;
+  flex-wrap: wrap;
+  font-family: var(--serif);
+  font-size: clamp(30px, 6vw, 46px); font-weight: 600; color: var(--ink);
+  letter-spacing: -0.02em; line-height: 1.05;
+}
+.ds-price-range .cur { font-size: .62em; font-weight: 600; margin-left: 2px; }
+.ds-price-range .dash { color: var(--accent); font-size: .7em; }
+/* Sélecteurs préfixés par .devis-success : sinon la règle générique « .devis-success p »
+   (plus spécifique) écrase la taille et les marges de ce paragraphe. */
+.devis-success .ds-price-sub { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 12px auto 0; max-width: 42ch; }
+.devis-success .ds-price-sub strong { color: var(--ink-2); }
+
+/* Choix du créneau de rappel */
+.rdv-box { margin: 26px auto 0; max-width: 560px; text-align: left; }
+.rdv-head { text-align: center; margin-bottom: 18px; }
+.rdv-head h4 {
+  font-family: var(--serif); font-size: clamp(20px, 2.6vw, 25px); font-weight: 600;
+  color: var(--ink); margin: 0 0 6px; letter-spacing: -0.01em;
+}
+.rdv-head p { font-size: 14.5px; line-height: 1.55; color: var(--muted); margin: 0 auto; max-width: 44ch; }
+
+.rdv-days {
+  display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 10px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin;
+}
+.rdv-day {
+  flex: 0 0 auto; min-width: 76px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 10px 12px; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--field-border); background: var(--field);
+  font-family: var(--sans); color: var(--ink-2);
+  transition: border-color .15s, background .15s, color .15s;
+}
+.rdv-day:hover { border-color: var(--accent); }
+.rdv-day-top { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: capitalize; }
+.rdv-day-bot { font-size: 13.5px; font-weight: 600; opacity: .75; }
+.rdv-day.on { background: var(--ink); border-color: var(--ink); color: var(--cream-on-dark); }
+
+.rdv-slots {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 8px; margin-top: 12px;
+}
+.rdv-slot {
+  padding: 12px 8px; border-radius: 11px; cursor: pointer;
+  border: 1px solid var(--field-border); background: var(--field);
+  font-family: var(--sans); font-size: 15px; font-weight: 600; color: var(--ink-2);
+  transition: border-color .15s, background .15s, color .15s;
+}
+.rdv-slot:hover { border-color: var(--accent); }
+.rdv-slot.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+
+/* Le libellé contient une heure, il est donc long : « .btn » impose white-space:nowrap et
+   des majuscules espacées, ce qui le faisait déborder du bouton sur mobile. On l'autorise
+   à passer à la ligne et on réduit l'interlettrage. */
+.rdv-confirm {
+  width: 100%; margin-top: 20px;
+  justify-content: center; text-align: center;
+  white-space: normal;
+  line-height: 1.35;
+  letter-spacing: .035em;
+  padding: 16px 18px;
+  gap: 8px;
+}
+.rdv-confirm:disabled { opacity: .5; cursor: not-allowed; }
+.devis-success .rdv-note, .rdv-note { font-size: 13px; color: var(--muted); text-align: center; margin: 10px auto 0; max-width: none; }
+
+/* Confirmation du rendez-vous pris */
+.rdv-done {
+  margin: 24px auto 0; max-width: 520px; padding: 18px 20px;
+  border: 1px solid rgba(22, 150, 90, .32); border-radius: 14px;
+  background: rgba(22, 150, 90, .08); text-align: center;
+}
+.rdv-done strong { color: #0B7A3B; }
+
+@media (max-width: 520px) {
+  .rdv-confirm { font-size: 13px; padding: 15px 14px; letter-spacing: .02em; }
+  .rdv-slots { grid-template-columns: repeat(3, 1fr); }
+  .rdv-day { min-width: 68px; padding: 9px 10px; }
+}

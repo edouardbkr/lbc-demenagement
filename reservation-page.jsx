@@ -48,6 +48,8 @@ function ResaPage() {
     e.preventDefault();
     if (!canPay) { setTried(true); return; }
     // NB: aucun appel de paiement réel ici — brancher Stripe côté serveur.
+    // Conversion Meta : réservation d'un box de stockage.
+    if (window.fbq) window.fbq("track", "Lead");
     setDone(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

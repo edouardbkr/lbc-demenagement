@@ -31,7 +31,7 @@ function MentionsLegales() {
           <li><strong>RCS&nbsp;:</strong> <Fill>ville et numéro RCS</Fill></li>
           <li><strong>N° TVA intracommunautaire&nbsp;:</strong> <Fill>FR + numéro</Fill></li>
           <li><strong>Directeur de la publication&nbsp;:</strong> <Fill>nom du représentant légal</Fill></li>
-          <li><strong>Contact&nbsp;:</strong> <a href="tel:+33781961445">07 81 96 14 45</a> · <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
+          <li><strong>Contact&nbsp;:</strong> <a href="tel:+33615976577">06 15 97 65 77</a> · <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
         </ul>
       </LBlock>
 

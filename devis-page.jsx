@@ -5,17 +5,8 @@ const { useState, useEffect, useRef } = React;
 const LEAD_EMAIL = "contact@lbcdemenagement.com";
 const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 
-// Cockpit LBC (base unique Supabase) — la clé anon est publique, l'insert est restreint
-// à la seule table « leads » (le site dépose, ne lit rien). Réception temps réel côté cockpit.
-const SUPA_URL = "https://bxkzhyxdmtfutsaogxxk.supabase.co";
-const SUPA_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4a3poeXhkbXRmdXRzYW9neHhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEyNTQ5MTYsImV4cCI6MjA5NjgzMDkxNn0.IWdomNH2VYgkK7pxjf1C6vaiLAgmdZiiio6Q7-ElZuE";
-let _sbClient = null;
-function sbClient() {
-  if (_sbClient) return _sbClient;
-  if (!window.supabase || !window.supabase.createClient) return null;
-  _sbClient = window.supabase.createClient(SUPA_URL, SUPA_ANON);
-  return _sbClient;
-}
+// Cockpit LBC : le site ne parle JAMAIS à Supabase directement depuis le navigateur (bloqué par les
+// bloqueurs de pub → leads perdus). Tout passe par /api/lead, une fonction sur notre propre domaine.
 // Formules site → clés app (libellés identiques côté app : Coup de main / Mains libres / Mains dans les poches)
 const FORMULE_TO_APP = { standard: "eco", premium: "standard", luxe: "premium" };
 const SURFACE_VOL = { studio: 14, t2: 25, t3: 40, t4: 60 };
@@ -42,22 +33,46 @@ const sideOf = (all, s) => ({
 // Envoie la demande complète dans la table leads du cockpit (en plus de l'email).
 // Étage/ascenseur/taille/portage/accès partent en champs structurés ; le reste (fragiles,
 // à démonter, flexibilité, contact, détails) part en notes — pas de doublon.
-function sendToCockpit(all) {
-  const c = sbClient();
-  if (!c) { console.warn("[LBC] Supabase non chargé — lead NON envoyé au cockpit (recharge la page en Cmd+Shift+R)"); return; }
+function sendToCockpit(all, opts) {
+  opts = opts || {};
   const np = (all.nom || "").trim().split(/\s+/);
   const prenom = np.shift() || "";
   const nom = np.join(" ");
   const inventaire = window.buildInventoryArray ? window.buildInventoryArray(all) : [];
   const mapToList = (m) => Object.entries(m || {}).filter((x) => x[1] > 0).map((x) => ({ label: x[0], qty: x[1] }));
-  const notes = all.details ? "Détails client : " + all.details : "";
+  // Canal d'acquisition mesuré à l'arrivée du visiteur (voir le bloc ATTRIBUTION de site.jsx).
+  const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
+  // Les notes portent aussi la fourchette annoncée au client et le créneau de rappel choisi :
+  // même si le cockpit n'exploite pas encore ces champs, l'info reste visible dans la fiche.
+  const notes = [
+    all.details ? "Détails client : " + all.details : "",
+    opts.estimation ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "",
+    opts.estimation && opts.estimation.detail ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "",
+    opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ?
+      "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "",
+    opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "",
+    at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") +
+         (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") +
+         (at.referent ? " · venu de " + at.referent : "") : ""
+  ].filter(Boolean).join("\n");
   const payload = {
-    source: "site_web",
+    source: (at && at.canal) || "site_web",
+    attribution: at || null,
+    leadId: opts.leadId || null,
+    statut: opts.partiel ? "Lead démarré (formulaire en cours)" : "Devis complet",
     client: { prenom, nom, tel: all.tel || "", email: all.email || "", contactPref: all.contact || "" },
     codeParrain: (all.codeParrain || "").trim().toUpperCase(),
     formule: FORMULE_TO_APP[all.formule] || "standard",
-    formulaireType: inventaire.length ? "detaille" : "basique",
-    volumeEstime: SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null,
+    formulaireType: opts.partiel ? "partiel" : (inventaire.length ? "detaille" : "basique"),
+    // Volume : celui calculé par le moteur d'estimation (inventaire réel, marge incluse) s'il
+    // existe, sinon le volume théorique de la surface déclarée.
+    volumeEstime: opts.estimation ? opts.estimation.volume : (SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null),
+    // Fourchette annoncée au client + créneau de rappel choisi (repris dans la fiche du cockpit)
+    estimationBasse: opts.estimation ? opts.estimation.bas : null,
+    estimationHaute: opts.estimation ? opts.estimation.haut : null,
+    km: opts.estimation ? opts.estimation.km : null,
+    rdvDate: opts.rdv ? opts.rdv.date : "",
+    rdvHeure: opts.rdv ? opts.rdv.heure : "",
     cartons: all.cartons || 0,
     dateSouhaitee: all.date || "",
     flexibilite: all.flex || "",
@@ -74,12 +89,23 @@ function sendToCockpit(all) {
     arrivee: sideOf(all, "arrivee"),
     message: notes };
 
+  // Envoi REST direct AVEC keepalive : la requête SURVIT même si le visiteur quitte la page juste
+  // après l'étape 1 (avant, l'insert sans keepalive était annulé au départ → lead perdu côté cockpit,
+  // alors que l'email, lui, avait keepalive et arrivait quand même).
+  // Enregistrement via NOTRE domaine (/api/lead), pas directement vers supabase.co : une requête
+  // même-origine n'est pas bloquée par les bloqueurs de pub / navigateurs privés (cas de leads perdus).
+  // Renvoie la promesse fetch : submit() peut ATTENDRE la confirmation avant d'afficher l'écran WhatsApp.
+  // Résout à true (enregistré), false (refus explicite du serveur) ou null (indéterminé : réseau coupé,
+  // page quittée…). On ne traite QUE le false comme un échec : un indéterminé part souvent quand même
+  // grâce à keepalive, inutile d'alarmer le visiteur pour rien.
   try {
-    console.log("[LBC] Envoi du lead au cockpit…", payload);
-    c.from("leads").insert({ payload }).then(
-      (res) => { if (res && res.error) console.error("[LBC] Erreur insert lead :", res.error); else console.log("[LBC] ✓ Lead envoyé au cockpit"); },
-      (err) => { console.error("[LBC] Insert rejeté :", err); });
-  } catch (e) { console.error("[LBC] Exception sendToCockpit :", e); }
+    return fetch("/api/lead", {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ payload })
+    }).then((r) => r.ok).catch(() => null);
+  } catch (e) { return Promise.resolve(null); }
 }
 
 function DevisHero() {
@@ -89,12 +115,22 @@ function DevisHero() {
         <div className="breadcrumb">
           <a href="Les Bras Cassés.html">Accueil</a>
           <span className="sep">/</span>
-          <span>DEVIS GRATUIT SOUS 24H</span>
+          <span>DEVIS GRATUIT · PRIX IMMÉDIAT</span>
         </div>
         <h1>Votre devis déménagement, <em>gratuit et sans engagement.</em></h1>
         <p className="lede">
-          Deux minutes, cinq infos. On revient vers vous sous 24h avec un prix précis et définitif, formule conseillée comprise. <span className="ast">*</span>Pas de numéro surtaxé, pas de spam.
+          Deux minutes, cinq infos, et <strong>votre fourchette de prix s'affiche tout de suite</strong>. Vous choisissez ensuite quand on vous appelle pour la confirmer au centime près. <span className="ast">*</span>Pas de numéro surtaxé, pas de spam.
         </p>
+        <p style={{ marginTop: 18, display: 'inline-flex', alignItems: 'center', gap: 8, padding: '9px 16px', borderRadius: 999, background: 'rgba(215,91,61,0.10)', color: 'var(--accent, #D75B3D)', fontWeight: 700, fontSize: 14 }}>
+          <span aria-hidden="true">💳</span> Déménagement payable en 3× sans frais (Klarna)
+        </p>
+        <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', gap: '10px 18px', fontSize: 14, color: 'rgba(242,232,207,0.85)' }}>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)', fontWeight: 700 }}>★&nbsp;4,9/5</span> Google &amp; Trustpilot</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Assurance incluse</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Prix ferme, zéro surprise</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ color: 'var(--accent)' }}>✓</span> Prix affiché immédiatement</span>
+        </div>
+        <a href="#devis-form-top" className="btn btn-primary devis-hero-cta" style={{ marginTop: 26 }}>Commencer mon devis <span className="arrow">→</span></a>
       </div>
     </section>);
 
@@ -157,7 +193,8 @@ function getPrefill() {
     date: p.get("date") || "",
     surface: p.get("surface") || "",
     tel: p.get("tel") || "",
-    nom: p.get("nom") || ""
+    nom: p.get("nom") || "",
+    lead: p.get("lead") || ""
   };
 }
 const SURFACE_LABEL = { studio: "Studio (< 30 m²)", t2: "2 pièces (30–50 m²)", t3: "3 pièces (50–80 m²)", t4: "4 pièces + (80 m² +)" };
@@ -239,6 +276,15 @@ function DevisForm() {
   const [tried0, setTried0] = useState(false);
   const [tried1, setTried1] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  // true = le serveur a explicitement refusé d'enregistrer le lead. On affiche alors un écran de repli
+  // honnête (WhatsApp + téléphone) au lieu d'un « c'est bien reçu ! » mensonger.
+  const [failed, setFailed] = useState(false);
+  // Fourchette de prix calculée et affichée au prospect sur l'écran de fin
+  const [estim, setEstim] = useState(null);
+  // Créneau de rappel choisi par le prospect ({ date, heure, label }), et envoi en cours
+  const [rdv, setRdv] = useState(null);
+  const [rdvSending, setRdvSending] = useState(false);
 
   // Progressive French mobile formatting: "06 12 34 56 78" as you type.
   const formatPhoneFR = (raw) => {
@@ -291,13 +337,41 @@ function DevisForm() {
   // Step 0 (coordonnées + logement) — name + phone + email are the priority capture.
   const step0Complete = !!(data.nom || "").trim() && !!(data.tel || "").trim() && !!(data.email || "").trim() && !!data.type && !!data.surface;
 
+  // Lien WhatsApp pré-rempli affiché sur l'écran de fin. Le prospect nous écrit en
+  // premier, au pic d'intention : c'est LUI qui initie la conversation, ce qui évite
+  // les relances à froid et crée de la proximité. Message pré-rédigé avec son nom,
+  // son trajet et sa date pour qu'on l'identifie immédiatement.
+  const waLead = () => {
+    const who = (data.nom || "").trim();
+    const dep = (data.depart || "").trim();
+    const arr = (data.arrivee || "").trim();
+    const dt = (data.date || "").trim();
+    const trajet = dep && arr ? "Déménagement de " + dep + " vers " + arr : (dep ? "Déménagement depuis " + dep : "Déménagement");
+    const quand = dt ? ", prévu le " + dt : "";
+    const l2 = (who ? who + " — " : "") + trajet + quand + ".";
+    const fin = rdv ? "Vous devez m'appeler " + rdv.label + ", mais je préfère qu'on échange ici. Merci !" : "J'aimerais recevoir mon devis. Merci !";
+    const msg = "Bonjour, je viens de faire ma demande de devis sur votre site 🙂\n" + l2 + "\n" + fin;
+    return "https://wa.me/33615976577?text=" + encodeURIComponent(msg);
+  };
+
   // Fire a lead notification as soon as step 0 is validated — so an abandoned
   // quote still leaves us the prospect's name, phone & email to follow up.
   const earlySent = useRef(false);
+  // Identifiant unique du lead, partagé entre l'enregistrement « étape 1 » et le
+  // « devis complet » pour que le cockpit puisse relier les deux (même prospect).
+  // S'il vient de la barre rapide (param ?lead=…), on le RÉUTILISE : le cockpit met alors
+  // à jour le lead déjà déposé par la barre au lieu d'en créer un doublon.
+  const leadIdRef = useRef(PRE.lead || null);
+  const getLeadId = () => {
+    if (!leadIdRef.current) leadIdRef.current = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    return leadIdRef.current;
+  };
   const sendEarly = (all) => {
     if (earlySent.current) return;
     if (all && all._honey) return;
     earlySent.current = true;
+    // Conversion Meta : lead qualifié dès l'étape 1 (nom + tél + email capturés).
+    if (window.fbq) window.fbq("track", "Lead");
     try {
       fetch(LEAD_ENDPOINT, {
         method: "POST",
@@ -317,6 +391,9 @@ function DevisForm() {
         })
       }).catch(() => {});
     } catch (err) {}
+    // Enregistrement dans le cockpit DÈS l'étape 1 : le lead (nom, tél, email) est
+    // garanti côté base, même si le prospect abandonne l'inventaire ensuite.
+    sendToCockpit(all, { partiel: true, leadId: getLeadId() });
   };
 
   const goStep0 = (e) => {
@@ -331,9 +408,10 @@ function DevisForm() {
     scrollToForm();
   };
 
-  const submit = () => {
+  const submit = async () => {
     const all = { ...data };
     if (all._honey) { setSent(true); return; }
+    if (sending) return;
     const accessStr = (s) => [
     all[s],
     all[s + "_etage"] && "Étage " + all[s + "_etage"],
@@ -341,6 +419,32 @@ function DevisForm() {
     all[s + "_portage"] && "Portage : " + all[s + "_portage"],
     all[s + "_acces"] && "Accès : " + all[s + "_acces"]].
     filter(Boolean).join(" · ") || "—";
+
+    // ── Estimation du prix, calculée AVANT tout envoi pour qu'elle parte avec le lead ──
+    // La distance vient des coordonnées mémorisées par l'autocomplétion d'adresse (instantané)
+    // ou d'un géocodage à la volée. 3 s de garde-fou : sans distance, le moteur retombe sur sa
+    // valeur par défaut, l'estimation reste affichable.
+    setSending(true);
+    let estim = null;
+    try {
+      if (window.LBC_PRICING) {
+        const km = await Promise.race([
+          window.LBC_PRICING.distanceKm(all.depart, all.arrivee),
+          new Promise((r) => setTimeout(() => r(null), 3000))
+        ]);
+        estim = window.LBC_PRICING.estimer({
+          surface: all.surface,
+          inventaire: window.buildInventoryArray ? window.buildInventoryArray(all) : [],
+          cartons: all.cartons,
+          formule: all.formule,
+          km: km,
+          depart: sideOf(all, "depart"),
+          arrivee: sideOf(all, "arrivee")
+        });
+      }
+    } catch (e) {}
+    setEstim(estim);
+
     try {
       fetch(LEAD_ENDPOINT, {
         method: "POST",
@@ -364,12 +468,63 @@ function DevisForm() {
           "Cartons (est.)": all.cartons ? String(all.cartons) : "—",
           "Objets fragiles / précieux": formatTags(all.fragile),
           "À démonter / remonter": formatTags(all.demontage),
-          "Détails": all.details || "—"
+          "Détails": all.details || "—",
+          "⚠️ Fourchette annoncée au client": estim ? estim.bas + " € – " + estim.haut + " €" : "non affichée",
+          "Volume retenu / distance": estim ? estim.volume + " m³ · ~" + estim.km + " km" : "—",
+          "🎯 Canal d'acquisition": (function(){ const a=window.LBC_ATTRIB&&window.LBC_ATTRIB(); return a?(a.canal+(a.campagne?" · "+a.campagne:"")):"inconnu"; })(),
+          "Volume déclaré par le client": estim && estim.detail ? estim.detail.volumeDeclare + " m³" + (estim.detail.plancherApplique ? " 🔎 très peu pour ce logement, inventaire à vérifier au téléphone" : "") : "—",
+          "Coûts estimés / bénéfice attendu": estim && estim.detail ? estim.detail.couts + " € → " + (estim.bas - estim.detail.couts) + " à " + (estim.haut - estim.detail.couts) + " €" : "—"
         })
       }).catch(() => {});
     } catch (err) {}
-    sendToCockpit(all);
+    // Conversion Meta : devis complet finalisé (événement d'insight, en plus du Lead).
+    if (window.fbq) window.fbq("trackCustom", "DevisComplet");
+    // On ATTEND la confirmation d'enregistrement du lead (max 6s de sécurité) AVANT d'afficher
+    // l'écran WhatsApp : sinon, sur mobile, l'ouverture immédiate de WhatsApp met le navigateur
+    // en arrière-plan et TUE la requête en vol → lead perdu (cas Cindy Arnold, 23/07).
+    let ok = null;
+    try {
+      ok = await Promise.race([
+        sendToCockpit(all, { leadId: getLeadId(), estimation: estim }),
+        new Promise((r) => setTimeout(() => r(null), 6000))
+      ]);
+    } catch (e) {}
+    setSending(false);
+    setFailed(ok === false);
     setSent(true);
+    scrollToForm();
+  };
+
+  // Le prospect a choisi son créneau de rappel. On renvoie le lead avec le MÊME leadId :
+  // le cockpit reconnaît le lead existant et le complète au lieu de créer un doublon.
+  const confirmRdv = async (choix) => {
+    if (rdvSending) return;
+    setRdvSending(true);
+    const all = { ...data };
+    try {
+      fetch(LEAD_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          _subject: "📞 Rappel demandé — " + (all.nom || "prospect") + " — " + choix.label,
+          _template: "table",
+          "À rappeler": choix.label,
+          "Nom": all.nom || "—",
+          "Téléphone": all.tel || "—",
+          "Email": all.email || "—",
+          "Fourchette annoncée": estim ? estim.bas + " € – " + estim.haut + " €" : "—"
+        })
+      }).catch(() => {});
+    } catch (err) {}
+    try {
+      await Promise.race([
+        sendToCockpit(all, { leadId: getLeadId(), estimation: estim, rdv: choix }),
+        new Promise((r) => setTimeout(() => r(null), 6000))
+      ]);
+    } catch (e) {}
+    setRdvSending(false);
+    setRdv(choix);
     scrollToForm();
   };
 
@@ -385,16 +540,55 @@ function DevisForm() {
           <div className="form-card">
             {sent ? (
               <div className="devis-success" role="status">
-                <div className="ds-check" aria-hidden="true">
+                <div className="ds-check" aria-hidden="true" style={failed ? { background: 'rgba(194,54,43,.10)', color: '#C2362B', borderColor: 'rgba(194,54,43,.35)' } : null}>
+                  {failed ?
+                  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 8v5"/><path d="M12 17h.01"/><path d="M10.3 3.9 2.4 17.5a2 2 0 0 0 1.7 3h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg> :
                   <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                  }
                 </div>
-                <h3>Demande envoyée, merci&nbsp;!</h3>
-                <p>On a bien reçu votre demande. <strong>Notre équipe vous rappelle sous 24h</strong> avec un devis clair et définitif{data.nom ? ", " + data.nom.trim().split(" ")[0] : ""}.</p>
-                <p className="ds-sub">Une question d'ici là&nbsp;? Appelez-nous au <a href="tel:+33781961445">07 81 96 14 45</a>.</p>
+                {failed ?
+                <React.Fragment>
+                  <h3>Votre demande n'a pas pu être enregistrée.</h3>
+                  <p>Un souci technique de notre côté, rien à voir avec vous. Ne perdez pas vos 2 minutes&nbsp;: envoyez-nous votre demande sur WhatsApp, elle est déjà pré-remplie&nbsp;👇</p>
+                </React.Fragment> :
+                <React.Fragment>
+                  <h3>Votre demande est bien reçue&nbsp;!</h3>
+                  {estim ?
+                  <React.Fragment>
+                    <p>Voici votre estimation, calculée sur ce que vous venez de nous décrire.</p>
+                    <div className="ds-price">
+                      <span className="ds-price-label">Votre déménagement</span>
+                      <div className="ds-price-range">
+                        <span>{estim.bas.toLocaleString("fr-FR")}<span className="cur">€</span></span>
+                        <span className="dash">–</span>
+                        <span>{estim.haut.toLocaleString("fr-FR")}<span className="cur">€</span></span>
+                      </div>
+                      <p className="ds-price-sub">
+                        Fourchette basée sur <strong>{estim.volume}&nbsp;m³</strong> et <strong>~{estim.km}&nbsp;km</strong>.
+                        Votre <strong>prix ferme et définitif</strong> est confirmé en 5 minutes au téléphone, et il ne bouge plus le jour J.
+                      </p>
+                    </div>
+                  </React.Fragment> :
+                  <p>On revient vers vous avec un prix précis et définitif.</p>
+                  }
+                  {rdv ?
+                  <div className="rdv-done">
+                    <p style={{ margin: 0 }}>📞 C'est noté. On vous appelle <strong>{rdv.label}</strong>{data.tel ? " au " + data.tel : ""}.</p>
+                  </div> :
+                  <RappelPicker onConfirm={confirmRdv} confirming={rdvSending} />
+                  }
+                </React.Fragment>
+                }
                 <div className="ds-actions">
-                  <a className="btn btn-primary" href="Les Bras Cassés.html">Retour à l'accueil<span className="arrow">→</span></a>
-                  <a className="btn btn-ghost" href="Checklist.html">Voir la checklist déménagement</a>
+                  <a className="btn btn-wa" href={waLead()} target="_blank" rel="noopener noreferrer">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.05L2 22l5.1-1.34A10 10 0 1 0 12 2zm5.86 14.15c-.25.7-1.45 1.33-2 1.4-.53.06-1.16.09-1.87-.12-.43-.14-.98-.32-1.7-.63-2.98-1.29-4.93-4.3-5.08-4.49-.15-.2-1.22-1.62-1.22-3.08 0-1.46.77-2.18 1.04-2.48.28-.3.6-.37.8-.37h.57c.18 0 .43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.61.17.3.77 1.27 1.66 2.06 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.74-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg>
+                    {failed ? "Envoyer ma demande sur WhatsApp" : rdv ? "Nous écrire sur WhatsApp" : "Je préfère en parler tout de suite sur WhatsApp"}
+                  </a>
                 </div>
+                <p className="ds-sub">
+                  {failed ? <React.Fragment>Ou appelez-nous directement au <a href="tel:+33615976577">06 15 97 65 77</a>, on prend votre demande en direct.</React.Fragment>
+                          : <React.Fragment>Pas de WhatsApp&nbsp;? Appelez-nous au <a href="tel:+33615976577">06 15 97 65 77</a>.</React.Fragment>}
+                </p>
               </div>
             ) : (
             <React.Fragment>
@@ -417,19 +611,6 @@ function DevisForm() {
                     <label>Email</label>
                     <input type="email" name="email" className={(tried0 && !(data.email || '').trim() ? 'field-error' : '') + (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || '') ? ' is-valid' : '')} defaultValue={data.email} onChange={(e) => set('email', e.target.value)} placeholder="jean@exemple.fr" autoComplete="email" />
                   </div>
-                  <div className="lf full">
-                    <label>Comment préférez-vous être recontacté ?</label>
-                    <div className="choice-row">
-                      <Choice name="ct" value="tel" label="Téléphone" selected={data.contact === 'tel'} onSelect={(v) => set('contact', v)} />
-                      <Choice name="ct" value="mail" label="Email" selected={data.contact === 'mail'} onSelect={(v) => set('contact', v)} />
-                      <Choice name="ct" value="sms" label="SMS" selected={data.contact === 'sms'} onSelect={(v) => set('contact', v)} />
-                    </div>
-                  </div>
-                  <div className="lf full">
-                    <label>Code de parrainage <span style={{ color: '#9aa4ab', fontWeight: 400 }}>(optionnel — 50 € de réduction)</span></label>
-                    <input type="text" name="codeParrain" value={data.codeParrain || ''} onChange={(e) => set('codeParrain', e.target.value.toUpperCase())} placeholder="Ex : DUPONT123" autoComplete="off" />
-                  </div>
-
                   <div className="lf full"><div className="form-section-head">Votre logement</div></div>
                   <div className="lf full">
                     <label>Type de logement {tried0 && !data.type && <span className="req-hint">— à sélectionner</span>}</label>
@@ -448,29 +629,12 @@ function DevisForm() {
                       <Choice name="surf" value="t4" label="4 pièces +" sub="80 m² +" selected={data.surface === 't4'} onSelect={(v) => set('surface', v)} />
                     </div>
                   </div>
-                  <div className="lf full">
-                    <label>Formule souhaitée</label>
-                    <div className="formule-cards">
-                      <FormuleOption
-                      value="standard" name="Coup de main" tag="L'essentiel, bien fait."
-                      items={["Transport & véhicule adapté", "Chargement & déchargement par l'équipe", "Déménagement local ou longue distance", "Assurance incluse"]}
-                      selected={data.formule === 'standard'} onSelect={(v) => set('formule', v)} />
-                      <FormuleOption
-                      value="premium" name="Mains libres" badge="Le plus demandé" tag="Le confort, sans le stress."
-                      items={["Protection intégrale du mobilier", "Démontage & remontage des meubles", "Emballage des objets fragiles", "Assurance incluse"]}
-                      selected={data.formule === 'premium'} onSelect={(v) => set('formule', v)} />
-                      <FormuleOption
-                      value="luxe" name="Mains dans les poches" tag="Clé en main, de A à Z."
-                      items={["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"]}
-                      selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
-                    </div>
-                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
-                  </div>
                 </div>
                 <div className="form-nav" style={{ marginTop: 32 }}>
                   <button type="submit" className="form-submit">Continuer<span>→</span></button>
                   {tried0 && !step0Complete && <span className="form-incomplete">Il manque quelques infos — voir les champs en rouge.</span>}
                 </div>
+                <p style={{ marginTop: 14, fontSize: 13.5, color: 'var(--muted)' }}>Gratuit · sans engagement · sans carte bancaire · réponse sous 24h.</p>
               </form>
             }
 
@@ -496,6 +660,25 @@ function DevisForm() {
                     </select>
                   </div>
                   <div className="lf full">
+                    <label>Formule souhaitée</label>
+                    <div className="formule-cards">
+                      <FormuleOption
+                      value="standard" name="Coup de main" tag="L'essentiel, bien fait."
+                      items={["Transport & véhicule adapté", "Chargement & déchargement par l'équipe", "Déménagement local ou longue distance", "Assurance incluse"]}
+                      selected={data.formule === 'standard'} onSelect={(v) => set('formule', v)} />
+                      <FormuleOption
+                      value="premium" name="Mains libres" badge="Le plus demandé" tag="Le confort, sans le stress."
+                      items={["Protection intégrale du mobilier", "Démontage & remontage des meubles", "Emballage des objets fragiles", "Assurance incluse"]}
+                      selected={data.formule === 'premium'} onSelect={(v) => set('formule', v)} />
+                      <FormuleOption
+                      value="luxe" name="Mains dans les poches" tag="Clé en main, de A à Z."
+                      items={["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"]}
+                      selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
+                    </div>
+                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
+                    <span className="hint" style={{ marginTop: 8 }}>💳 Bon à savoir : votre <strong>déménagement est payable en 3× sans frais</strong> avec Klarna, au moment de la prestation et seulement si vous le souhaitez. <strong>Le devis, lui, est 100&nbsp;% gratuit</strong>, sans engagement ni carte bancaire.</span>
+                  </div>
+                  <div className="lf full">
                     <label>Détails utiles (optionnel)</label>
                     <textarea name="details" defaultValue={data.details} placeholder="Stationnement à réserver, animaux, garde-meuble, contrainte d'horaire… toute info qui évite une surprise le jour J."></textarea>
                   </div>
@@ -509,8 +692,11 @@ function DevisForm() {
             }
 
             {step === 2 &&
-            <InventoryStep data={data} set={set} onBack={back} onSubmit={submit} />
+            <InventoryStep data={data} set={set} onBack={back} onSubmit={submit} sending={sending} />
             }
+            <p style={{ marginTop: 22, textAlign: 'center', fontSize: 15, color: 'var(--ink-2)' }}>
+              Vous préférez en parler ? <a href="tel:+33615976577" style={{ color: 'var(--accent)', fontWeight: 700 }}>06 15 97 65 77</a>
+            </p>
             </React.Fragment>
             )}
           </div>
@@ -519,7 +705,8 @@ function DevisForm() {
             <div className="aside-card">
               <h4>Ce que vous obtenez</h4>
               <ul>
-                <li>Un prix précis et définitif sous 24h</li>
+                <li>Votre fourchette de prix immédiatement</li>
+                <li>Le rappel à l'heure que vous choisissez</li>
                 <li>La formule conseillée pour votre volume</li>
                 <li>Un interlocuteur unique, joignable 24/7</li>
                 <li>Aucun engagement, aucune carte bancaire</li>
@@ -537,43 +724,32 @@ function DevisForm() {
 
 }
 
-const COST = [
-{ vol: "Studio · < 30 m²", local: "670 – 870 €", longue: "1 570 – 2 050 €" },
-{ vol: "2 pièces · 30–50 m²", local: "990 – 1 290 €", longue: "2 320 – 3 030 €" },
-{ vol: "3 pièces · 50–80 m²", local: "1 510 – 1 970 €", longue: "3 550 – 4 640 €" },
-{ vol: "4 pièces + · 80 m² +", local: "2 420 – 3 160 €", longue: "5 690 – 7 430 €" }];
+const REVIEWS = [
+{ name: "Mari", text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante. Un grand merci pour votre sérieux et votre efficacité. Je recommande cette entreprise sans hésitation !" },
+{ name: "Jean", text: "Excellente prestation ! L'équipe a été très réactive, soigneuse et toujours à l'écoute. Tout a été transporté sans le moindre dommage et le déménagement s'est terminé plus rapidement que prévu. Un vrai service de qualité avec des personnes sympathiques et professionnelles. Merci encore !" },
+{ name: "Eliza", text: "Je recommande cette entreprise les yeux fermés. Dès le premier contact, tout a été clair et bien organisé. Le jour du déménagement, l'équipe est arrivée à l'heure, a pris grand soin de nos affaires et a travaillé avec efficacité tout au long de la journée. Un service sérieux, des tarifs honnêtes et une équipe très agréable. Merci pour votre professionnalisme !" }];
 
 
-function CostSection() {
+function Testimonials() {
   return (
-    <section className="sec testimonials">
+    <section className="sec">
       <div className="wrap">
         <div className="sec-head reveal">
-          <div><div className="sec-num"><span className="asterisk">*</span> Repères de prix</div></div>
-          <h2 className="dim-em">Combien coûte un déménagement<br /><em>en 2026 ?</em></h2>
+          <div><div className="sec-num"><span className="asterisk">*</span> Ils nous ont fait confiance</div></div>
+          <h2 className="dim-em">Ce que disent<br /><em>nos clients.</em></h2>
         </div>
-        <div className="reveal">
-          <p style={{ maxWidth: '60ch', color: 'var(--ink-2)', fontSize: 18, lineHeight: 1.6 }}>
-            Voici quelques repères indicatifs du marché en formule Mains libres, hors options. Votre devis, lui, est <strong>précis et définitif</strong> : le prix annoncé est le prix payé, sans supplément le jour J.
-          </p>
-          <table className="cost-table">
-            <thead>
-              <tr><th style={{ width: '40%' }}>Volume</th><th>Local (&lt; 50 km)</th><th>Longue distance</th></tr>
-            </thead>
-            <tbody>
-              {COST.map((r, i) =>
-              <tr key={i}>
-                  <td>{r.vol}</td>
-                  <td><span className="price">{r.local}</span></td>
-                  <td><span className="price">{r.longue}</span></td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-          <p style={{ marginTop: 16, fontSize: 13, color: 'var(--muted)' }}>
-            Estimations moyennes constatées · données indicatives, ne valent pas devis.
-          </p>
+        <div className="reveal-stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24, marginTop: 40 }}>
+          {REVIEWS.map((r, i) =>
+          <figure key={i} style={{ margin: 0, background: 'var(--paper-2)', border: '1px solid var(--rule)', borderRadius: 16, padding: 28, display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div style={{ color: 'var(--accent)', fontSize: 18, letterSpacing: 2 }} aria-label="Note 5 sur 5">★★★★★</div>
+              <blockquote style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6, color: 'var(--ink-2)' }}>{r.text}</blockquote>
+              <figcaption style={{ fontWeight: 700, color: 'var(--ink)', marginTop: 'auto' }}>— {r.name}</figcaption>
+            </figure>
+          )}
         </div>
+        <p style={{ marginTop: 24, fontSize: 14, color: 'var(--muted)' }}>
+          <span style={{ color: 'var(--accent)', fontWeight: 700 }}>★ 4,9/5</span> · Avis clients vérifiés sur Google &amp; Trustpilot
+        </p>
       </div>
     </section>);
 
@@ -587,6 +763,7 @@ function App() {
       <main>
         <DevisHero />
         <DevisForm />
+        <Testimonials />
       </main>
       <Footer />
     </React.Fragment>);

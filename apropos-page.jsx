@@ -41,7 +41,7 @@ function AproposStory() {
   return (
     <section className="sec">
       <div className="wrap">
-        <div className="about-grid">
+        <div className="about-grid" style={{ gridTemplateColumns: '1fr', maxWidth: 820 }}>
           <div className="about-copy reveal">
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Notre histoire</div>
             <p className="lead">
@@ -57,11 +57,6 @@ function AproposStory() {
               « On voulait bâtir l'entreprise qu'on aurait rêvé d'appeler le jour de notre propre galère. »
               <span className="ap-quote-by">— Edouard & Anthony, fondateurs de LBC*</span>
             </p>
-          </div>
-          <div className="about-photo-stack reveal">
-            <image-slot id="ap-founders" class="ap-slot portrait" shape="rounded" radius="2" placeholder="Edouard & Anthony"></image-slot>
-            <image-slot id="ap-truck" class="ap-slot truck" shape="rounded" radius="2" placeholder="Le camion LBC"></image-slot>
-            <image-slot id="ap-detail" class="ap-slot detail" shape="rounded" radius="2" placeholder="En plein déménagement"></image-slot>
           </div>
         </div>
       </div>

@@ -5,6 +5,40 @@ const { useState } = React;
 const LEAD_EMAIL = "contact@lbcdemenagement.com";
 const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 
+// Enregistrement du lead dans le cockpit via NOTRE domaine (/api/lead), en plus de l'e-mail.
+// Indispensable : formsubmit.co est un domaine tiers, coupé par les bloqueurs de pub et les DNS
+// filtrants. Quand il l'était, ce formulaire ne laissait AUCUNE trace nulle part. La requête
+// même-origine, elle, passe toujours.
+// Résout à true (enregistré), false (refus explicite) ou null (indéterminé — on ne l'alarme pas).
+function sendContactToCockpit(upd) {
+  const np = (upd.nom || "").trim().split(/\s+/);
+  const prenom = np.shift() || "";
+  const nom = np.join(" ");
+  const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
+  const payload = {
+    source: (at && at.canal) || "site_web",
+    attribution: at || null,
+    statut: "Message page Contact",
+    client: { prenom, nom, tel: upd.tel || "", email: upd.email || "", contactPref: "" },
+    formule: "standard",
+    formulaireType: "partiel",
+    dateSouhaitee: upd.date || "",
+    message: [
+      "Message envoyé depuis la page Contact.",
+      upd.type ? "Type de déménagement : " + upd.type : "",
+      upd.message ? "Message du client : " + upd.message : ""
+    ].filter(Boolean).join("\n")
+  };
+  try {
+    return fetch("/api/lead", {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ payload })
+    }).then((r) => r.ok).catch(() => null);
+  } catch (e) { return Promise.resolve(null); }
+}
+
 function ContactHero() {
   return (
     <section className="page-hero">
@@ -25,7 +59,7 @@ function ContactHero() {
 
 function ContactInfo() {
   const items = [
-  { k: "Téléphone", v: "07 81 96 14 45", href: "tel:+33781961445" },
+  { k: "Téléphone", v: "06 15 97 65 77", href: "tel:+33615976577" },
   { k: "Email", v: "contact@lbcdemenagement.com", href: "mailto:contact@lbcdemenagement.com" },
   { k: "Adresse", v: "12 rue d'Italie, 06000 Nice" },
   { k: "Horaires", v: "Lun–Sam · 8h–19h" },
@@ -54,6 +88,12 @@ function ContactInfo() {
 
 function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  // true = le serveur a explicitement refusé d'enregistrer. On le dit au visiteur plutôt que
+  // d'afficher un « message envoyé » alors que rien n'est arrivé.
+  const [failed, setFailed] = useState(false);
+  // Données saisies, conservées pour permettre un nouvel essai sans rien retaper.
+  const [last, setLast] = useState(null);
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const boxParam = params.get("box");
   const typeParam = params.get("type");
@@ -67,12 +107,13 @@ function ContactForm() {
     return d.replace(/(\d{2})(?=\d)/g, "$1 ").trim();
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     const upd = {};
     for (const el of e.currentTarget.elements) {if (el.name) upd[el.name] = el.value;}
     // Anti-spam honeypot: bots fill it, humans don't — silently accept & drop.
     if (upd._honey) { setSent(true); return; }
+    if (sending) return;
     try {
       fetch(LEAD_ENDPOINT, {
         method: "POST",
@@ -90,15 +131,65 @@ function ContactForm() {
         })
       }).catch(() => {});
     } catch (err) {}
+    // On ATTEND l'enregistrement cockpit (6 s de sécurité) avant de dire au visiteur que c'est parti.
+    setSending(true);
+    let ok = null;
+    try {
+      ok = await Promise.race([
+        sendContactToCockpit(upd),
+        new Promise((r) => setTimeout(() => r(null), 6000))
+      ]);
+    } catch (err) {}
+    setSending(false);
+    if (ok === false) { setLast(upd); setFailed(true); return; }
+    // Conversion Meta : message envoyé depuis la page Contact.
+    if (window.fbq) window.fbq("track", "Lead");
     setSent(true);
   };
+
+  // Nouvelle tentative d'enregistrement avec les données déjà saisies (rien à retaper).
+  const retry = async () => {
+    if (sending || !last) return;
+    setSending(true);
+    let ok = null;
+    try {
+      ok = await Promise.race([
+        sendContactToCockpit(last),
+        new Promise((r) => setTimeout(() => r(null), 6000))
+      ]);
+    } catch (err) {}
+    setSending(false);
+    if (ok === false) return;
+    if (window.fbq) window.fbq("track", "Lead");
+    setFailed(false);
+    setSent(true);
+  };
+
+  if (failed) {
+    return (
+      <div className="form-card contact-card contact-thanks">
+        <div className="contact-thanks-mark" style={{ background: 'rgba(194,54,43,.10)', color: '#C2362B' }}>!</div>
+        <h3>Nous n'avons pas pu enregistrer votre message.</h3>
+        <p>
+          Un souci technique de notre côté. Le plus rapide&nbsp;: appelez-nous au <a href="tel:+33615976577">06 15 97 65 77</a>,
+          ou écrivez-nous à <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a>. On vous répond tout de suite.
+        </p>
+        <p style={{ marginTop: 12 }}>
+          {/* Réessaie avec les données déjà saisies : le visiteur ne retape rien. */}
+          <button type="button" className="btn btn-ghost" disabled={sending} onClick={retry}>
+            {sending ? "Envoi en cours…" : "Réessayer l'envoi"}
+          </button>
+        </p>
+      </div>);
+
+  }
 
   if (sent) {
     return (
       <div className="form-card contact-card contact-thanks">
         <div className="contact-thanks-mark">✓</div>
         <h3>Message envoyé.</h3>
-        <p>Merci ! On revient vers vous dans la journée ouvrée. Pour une urgence, appelez-nous au <a href="tel:+33781961445">07 81 96 14 45</a>.</p>
+        <p>Merci ! On revient vers vous dans la journée ouvrée. Pour une urgence, appelez-nous au <a href="tel:+33615976577">06 15 97 65 77</a>.</p>
       </div>);
 
   }
@@ -140,7 +231,7 @@ function ContactForm() {
         </div>
       </div>
       <div style={{ marginTop: 28 }}>
-        <button type="submit" className="form-submit">Envoyer le message<span>→</span></button>
+        <button type="submit" className="form-submit" disabled={sending}>{sending ? "Envoi en cours…" : "Envoyer le message"}<span>→</span></button>
       </div>
       <p className="contact-formnote">Réponse sous 24h ouvrées · Aucune donnée revendue.</p>
     </form>);

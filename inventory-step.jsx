@@ -217,7 +217,7 @@ function AddFurniture({ onAdd }) {
 
 }
 
-function InventoryStep({ data, set, onBack, onNext, onSubmit }) {
+function InventoryStep({ data, set, onBack, onNext, onSubmit, sending }) {
   const allRooms = getAllRooms(data);
   const [room, setRoom] = useState(allRooms[0].key);
   const inv = data.inv || {};
@@ -343,7 +343,7 @@ function InventoryStep({ data, set, onBack, onNext, onSubmit }) {
         <div className="inv-nav">
           <button type="button" className="btn btn-ghost" onClick={onBack}>← Retour</button>
           {onSubmit ?
-          <button type="button" className="form-submit" onClick={onSubmit}>Recevoir mon devis<span>→</span></button> :
+          <button type="button" className="form-submit" onClick={onSubmit} disabled={sending} style={sending ? { opacity: 0.75 } : null}>{sending ? "Calcul de votre prix…" : <>Voir mon prix<span>→</span></>}</button> :
           <button type="button" className="form-submit" onClick={onNext}>Continuer<span>→</span></button>
           }
         </div>

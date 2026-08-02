@@ -1,6 +1,111 @@
 // site.jsx — Shared chrome: Nav, Footer, MarqueeBar, MascotStamp, QuickQuote, reveal hook
 const { useState, useEffect, useRef } = React;
 
+// ═══════════════════════════════════════════════════════════════════════════
+// ATTRIBUTION — d'où vient chaque prospect
+//
+// Ce bloc s'exécute sur TOUTES les pages du site (site.jsx est chargé partout).
+// Il détermine le canal d'acquisition à l'arrivée du visiteur et le mémorise, pour
+// que le formulaire de devis puisse l'envoyer avec le lead.
+//
+// On garde DEUX attributions :
+//   • premier contact (first touch) — jamais écrasé. C'est le canal qui a fait
+//     découvrir LBC. C'est lui qui mérite le budget publicitaire.
+//   • dernier contact (last touch) — mis à jour à chaque visite. C'est le canal
+//     qui a déclenché la demande.
+// Un prospect qui voit une pub Meta, puis revient trois jours plus tard via Google
+// en tapant « les bras cassés » : le mérite revient à Meta, pas à Google.
+//
+// ⚠️ POINT CRITIQUE : le trafic Google Maps (fiche d'établissement) arrive avec le
+// même référent que le référencement naturel. Impossible de les distinguer SANS
+// ajouter un paramètre au lien « Site web » de la fiche Google Business Profile.
+// ═══════════════════════════════════════════════════════════════════════════
+(function () {
+  const CLE = 'lbc_attrib';
+  const PAYANT = ['cpc', 'ppc', 'paid', 'paidsocial', 'paid_social', 'display', 'ads'];
+
+  function hote(url) {
+    try { return new URL(url).hostname.replace(/^www\./, '').toLowerCase(); } catch (e) { return ''; }
+  }
+
+  // Détermine le canal à partir des paramètres d'URL et du référent.
+  function detecter() {
+    const p = new URLSearchParams(window.location.search);
+    const g = (k) => (p.get(k) || '').trim().toLowerCase();
+    const src = g('utm_source'), med = g('utm_medium'), camp = p.get('utm_campaign') || '';
+    const gclid = p.get('gclid') || p.get('gbraid') || p.get('wbraid') || '';
+    const fbclid = p.get('fbclid') || '';
+    const ref = hote(document.referrer || '');
+    const payant = PAYANT.indexOf(med.replace(/[-\s]/g, '_')) >= 0;
+
+    let canal = '';
+    // 1. Les identifiants de clic publicitaire sont la preuve la plus fiable : ils ne
+    //    peuvent pas être présents sans un vrai clic sur une annonce payante.
+    if (gclid) canal = 'google_ads';
+    else if (fbclid && payant) canal = 'meta_ads';
+    // 2. Balises UTM explicites
+    else if (src === 'gmb' || src === 'google_maps' || src === 'maps' || med === 'maps' || med === 'gmb') canal = 'google_maps';
+    else if (src.indexOf('google') >= 0) canal = payant ? 'google_ads' : 'google_seo';
+    else if (['facebook', 'instagram', 'meta', 'fb', 'ig'].indexOf(src) >= 0) canal = payant ? 'meta_ads' : 'meta_social';
+    else if (src.indexOf('leboncoin') >= 0) canal = 'leboncoin';
+    else if (src) canal = 'autre';
+    // 3. À défaut, le référent
+    else if (fbclid) canal = 'meta_social';
+    else if (ref.indexOf('google') >= 0) canal = (document.referrer.indexOf('/maps') >= 0 || document.referrer.indexOf('/local') >= 0) ? 'google_maps' : 'google_seo';
+    else if (ref.indexOf('bing') >= 0 || ref.indexOf('yahoo') >= 0 || ref.indexOf('ecosia') >= 0 || ref.indexOf('duckduckgo') >= 0) canal = 'autre_seo';
+    else if (ref.indexOf('facebook') >= 0 || ref.indexOf('instagram') >= 0 || ref.indexOf('fb.com') >= 0) canal = 'meta_social';
+    else if (ref.indexOf('leboncoin') >= 0) canal = 'leboncoin';
+    else if (ref && ref.indexOf('lbcdemenagement') < 0) canal = 'referral';
+    else if (!ref) canal = 'direct';
+    else return null; // navigation interne : on ne touche à rien
+
+    return {
+      canal: canal,
+      source: src || (ref || 'direct'),
+      medium: med || '',
+      campagne: camp || '',
+      gclid: gclid ? gclid.slice(0, 120) : '',
+      fbclid: fbclid ? fbclid.slice(0, 120) : '',
+      referent: (document.referrer || '').slice(0, 200),
+      page: (window.location.pathname + window.location.search).slice(0, 200),
+      date: new Date().toISOString().slice(0, 10)
+    };
+  }
+
+  function lire() {
+    try { return JSON.parse(localStorage.getItem(CLE) || 'null'); } catch (e) { return null; }
+  }
+
+  try {
+    const vu = detecter();
+    if (vu) {
+      const stock = lire() || {};
+      // Le premier contact ne s'écrase jamais.
+      if (!stock.premier) stock.premier = vu;
+      // Une navigation interne ne remplace pas le dernier contact connu.
+      if (vu.canal !== 'direct' || !stock.dernier) stock.dernier = vu;
+      try { localStorage.setItem(CLE, JSON.stringify(stock)); } catch (e) {}
+    }
+  } catch (e) {}
+
+  // Consommé par les formulaires au moment de l'envoi du lead.
+  window.LBC_ATTRIB = function () {
+    const s = lire() || {};
+    const d = s.dernier || s.premier || null;
+    const p = s.premier || null;
+    if (!d) return null;
+    return {
+      canal: d.canal,
+      canalPremier: p ? p.canal : d.canal,
+      source: d.source, medium: d.medium, campagne: d.campagne,
+      gclid: d.gclid, fbclid: d.fbclid,
+      referent: d.referent, pageArrivee: d.page,
+      premierContactLe: p ? p.date : d.date,
+      premiereCampagne: p ? p.campagne : ''
+    };
+  };
+})();
+
 // Current page detection from <body data-page="...">
 const CURRENT = document.body.getAttribute('data-page') || 'accueil';
 
@@ -152,9 +257,9 @@ function Nav() {
             <span className={window.IS_EN ? 'lang-on' : ''}>EN</span>
           </a>
           }
-          <a href="tel:+33781961445" className="btn btn-ghost nav-call">
+          <a href="tel:+33615976577" className="btn btn-ghost nav-call">
             <svg className="nav-call-ic" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
-            <span className="lbl-full">07 81 96 14 45</span>
+            <span className="lbl-full">06 15 97 65 77</span>
             <span className="lbl-short">{t('Appeler')}</span>
           </a>
           <a href="Devis.html" className="btn btn-primary nav-devis">
@@ -290,6 +395,43 @@ function MascotStamp() {
 const LEAD_EMAIL = "contact@lbcdemenagement.com";
 const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 
+// Cockpit LBC (Supabase) — la barre rapide dépose AUSSI le lead dans le cockpit (pas seulement l'email),
+// pour qu'un prospect qui ne termine pas la page Devis apparaisse quand même. Insert restreint à la table leads.
+const QQ_SURFACE_VOL = { studio: 14, t2: 25, t3: 40, t4: 60 };
+const qqVilleFrom = (addr) => { if (!addr) return ""; const parts = String(addr).split(",").map((s) => s.trim()).filter(Boolean); return parts.length ? parts[parts.length - 1] : addr; };
+// Dépose le lead de la barre rapide dans le cockpit. leadId partagé avec la page Devis (voir redirection)
+// pour que, si le prospect termine ensuite le devis complet, le cockpit mette à jour CE lead (pas de doublon).
+function qqSendToCockpit(fields, leadId) {
+  const np = (fields.nom || "").trim().split(/\s+/);
+  const prenom = np.shift() || "";
+  const nom = np.join(" ");
+  const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
+  const payload = {
+    source: (at && at.canal) || "site_web",
+    attribution: at || null,
+    leadId: leadId || null,
+    statut: "Lead démarré (barre rapide)",
+    client: { prenom, nom, tel: fields.tel || "", email: "", contactPref: "" },
+    formule: "standard",
+    formulaireType: "partiel",
+    volumeEstime: QQ_SURFACE_VOL[fields.surface] != null ? QQ_SURFACE_VOL[fields.surface] : null,
+    dateSouhaitee: fields.date || "",
+    depart: { adresse: fields.depart || "", ville: qqVilleFrom(fields.depart) },
+    arrivee: { adresse: fields.arrivee || "", ville: qqVilleFrom(fields.arrivee) },
+    message: "Lead capté via la barre rapide (formulaire court, non finalisé)." };
+
+  // Via NOTRE domaine (/api/lead) et non supabase.co directement : requête même-origine, non bloquée
+  // par les bloqueurs de pub / navigateurs privés (fiabilise la capture du lead barre rapide).
+  try {
+    return fetch("/api/lead", {
+      method: "POST",
+      keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ payload })
+    }).catch(() => {});
+  } catch (e) { return Promise.resolve(); }
+}
+
 // Address autocomplete powered by the French Base Adresse Nationale
 // (api-adresse.data.gouv.fr — free, no API key, CORS-enabled).
 function AddressField({ name, label, placeholder, defaultValue = "", className = "qq-field", inputClassName, hint, required, onValue, error }) {
@@ -305,7 +447,16 @@ function AddressField({ name, label, placeholder, defaultValue = "", className =
     fetch("https://api-adresse.data.gouv.fr/search/?limit=5&q=" + encodeURIComponent(q)).
     then((r) => r.json()).
     then((d) => {
-      const labels = (d.features || []).map((f) => f.properties.label);
+      const feats = d.features || [];
+      // On mémorise les coordonnées de chaque adresse proposée : l'estimation de prix en fin de
+      // formulaire s'en sert pour calculer la distance sans refaire d'appel réseau.
+      window.LBC_GEO = window.LBC_GEO || {};
+      feats.forEach((f) => {
+        const lbl = f.properties && f.properties.label;
+        const c = f.geometry && f.geometry.coordinates;
+        if (lbl && c) window.LBC_GEO[lbl.trim().toLowerCase()] = { lon: c[0], lat: c[1] };
+      });
+      const labels = feats.map((f) => f.properties.label);
       setItems(labels);setOpen(labels.length > 0);setHi(-1);
     }).
     catch(() => {});
@@ -394,6 +545,15 @@ function QuickQuote({ variant = "light" }) {
       }).catch(() => {});
     } catch (err) {}
 
+    // Meta : événement d'insight (le Lead sera compté à l'étape 1 du devis,
+    // pour ne pas compter deux fois le même prospect).
+    if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
+
+    // Identifiant de lead partagé barre rapide ↔ page Devis (dédup côté cockpit).
+    const leadId = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+    // Dépose le lead dans le cockpit dès la barre rapide (keepalive survit à la redirection).
+    qqSendToCockpit({ nom, tel, depart, arrivee, date, surface }, leadId);
+
     // Redirect to the full quote page with everything pre-filled.
     const p = new URLSearchParams();
     if (depart) p.set("depart", depart);
@@ -402,6 +562,7 @@ function QuickQuote({ variant = "light" }) {
     if (tel) p.set("tel", tel);
     if (nom) p.set("nom", nom);
     if (surface) p.set("surface", surface);
+    p.set("lead", leadId);
     const qs = p.toString();
     window.location.href = "Devis.html" + (qs ? "?" + qs : "");
   };
@@ -442,7 +603,7 @@ function QuickQuote({ variant = "light" }) {
       <div className={"qq-note" + (variant === "dark" ? " on-dark" : "")}>
         <span><span className="chk">✓</span> Gratuit &amp; sans engagement</span>
         <span><span className="chk">✓</span> Réponse sous 24h</span>
-        <a href="tel:+33781961445" className="qq-phone">Ou appelez-nous : <strong>07 81 96 14 45</strong></a>
+        <a href="tel:+33615976577" className="qq-phone">Ou appelez-nous : <strong>06 15 97 65 77</strong></a>
       </div>
     </div>);
 
@@ -518,7 +679,7 @@ function FooterSEO() {
 }
 
 function FloatWhatsApp() {
-  const phone = "33781961445";
+  const phone = "33615976577";
   const msg = encodeURIComponent("Bonjour LBC ! Je souhaite un devis pour mon déménagement.");
   return (
     <a className="wa-float" href={"https://wa.me/" + phone + "?text=" + msg} target="_blank" rel="noopener" aria-label="Devis rapide par WhatsApp">
@@ -702,7 +863,7 @@ function Footer() {
               <div className="footer-col">
                 <h4>Contact</h4>
                 <ul>
-                  <li><a href="tel:+33781961445">07 81 96 14 45</a></li>
+                  <li><a href="tel:+33615976577">06 15 97 65 77</a></li>
                   <li><a className="footer-email" href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
                   <li>12 rue d'Italie<br />06000 Nice</li>
                   <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 8h–19h</li>

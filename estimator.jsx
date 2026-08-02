@@ -1,21 +1,30 @@
 // estimator.jsx — "Votre déménagement en 10 secondes" : estimation animée
 const { useState: useEstState, useEffect: useEstEffect, useRef: useEstRef } = React;
 
-const EST_SURFACE = [
-{ key: "studio", label: "Studio", sub: "< 30 m²", base: 690 },
-{ key: "t2", label: "2 pièces", sub: "30–50 m²", base: 1020 },
-{ key: "t3", label: "3 pièces", sub: "50–80 m²", base: 1560 },
-{ key: "maison", label: "Maison", sub: "> 90 m²", base: 2500 }];
+// ⚠️ Cet estimateur utilise EXACTEMENT le même moteur que la fin du formulaire de devis
+// (pricing.jsx). C'est indispensable : un prospect qui voit une fourchette ici puis une
+// fourchette plus élevée à la fin du formulaire se sent piégé. Un seul moteur, un seul prix.
+// Ici on n'a pas d'inventaire, donc le moteur retient le HAUT de la fourchette de volume :
+// l'estimation d'accueil est donc toujours la plus prudente, et remplir le devis détaillé ne
+// peut que la préciser.
 
+// Les clés de surface correspondent à celles du moteur (« maison » = t4)
+const EST_SURFACE = [
+{ key: "studio", label: "Studio", sub: "< 30 m²" },
+{ key: "t2", label: "2 pièces", sub: "30–50 m²" },
+{ key: "t3", label: "3 pièces", sub: "50–80 m²" },
+{ key: "t4", label: "Maison", sub: "> 90 m²" }];
+
+// Distance représentative de chaque zone, en km réels (le moteur facture au km)
 const EST_DIST = [
-{ key: "local", label: "Local", sub: "Alpes-Maritimes", mult: 1 },
-{ key: "regional", label: "Régional", sub: "PACA", mult: 1.45 },
-{ key: "national", label: "National", sub: "Toute la France", mult: 2.35 }];
+{ key: "local", label: "Local", sub: "Alpes-Maritimes", km: 25 },
+{ key: "regional", label: "Régional", sub: "PACA", km: 130 },
+{ key: "national", label: "National", sub: "Toute la France", km: 750 }];
 
 const EST_FORM = [
-{ key: "standard", label: "Coup de main", mult: 1 },
-{ key: "premium", label: "Mains libres", mult: 1.1 },
-{ key: "luxe", label: "Mains dans les poches", mult: 1.72 }];
+{ key: "standard", label: "Coup de main" },
+{ key: "premium", label: "Mains libres" },
+{ key: "luxe", label: "Mains dans les poches" }];
 
 // Rolling number that eases toward its target
 function RollingNum({ value }) {
@@ -55,12 +64,12 @@ function Estimator() {
   const [dist, setDist] = useEstState("local");
   const [form, setForm] = useEstState("premium");
 
-  const s = EST_SURFACE.find((x) => x.key === surface);
   const d = EST_DIST.find((x) => x.key === dist);
-  const f = EST_FORM.find((x) => x.key === form);
-  const center = s.base * d.mult * f.mult;
-  const low = Math.round(center * 0.88 / 10) * 10;
-  const high = Math.round(center * 1.15 / 10) * 10;
+  // Accès neutre (rez-de-chaussée, camion devant) : sans info, on n'ajoute pas de surcoût ici.
+  const est = window.LBC_PRICING ?
+    window.LBC_PRICING.estimer({ surface: surface, formule: form, km: d.km }) : null;
+  const low = est ? est.bas : 0;
+  const high = est ? est.haut : 0;
 
   return (
     <section className="sec est" id="estimateur">
@@ -69,7 +78,7 @@ function Estimator() {
           <div className="est-head">
             <div className="sec-num"><span className="asterisk">*</span> Estimation express</div>
             <h2>Votre déménagement<br /><em>en 10 secondes.</em></h2>
-            <p>Trois clics, une fourchette. Le prix ferme arrive ensuite par devis, sous 24h.</p>
+            <p>Trois clics, une fourchette. Détaillez votre inventaire dans le devis et votre prix se précise immédiatement.</p>
           </div>
 
           <div className="est-controls">
