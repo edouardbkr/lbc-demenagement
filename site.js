@@ -815,31 +815,31 @@ const COTE_AZUR = [["Déménagement Nice", "Demenagement-Nice"], ["Déménagemen
 const FRANCE = [];
 const CONSEILS = [{
   label: "Estimer le volume de votre déménagement",
-  href: "Article?a=estimer-volume"
+  href: "Article-estimer-volume"
 }, {
   label: "Déménagement Nice → Paris : délais & organisation",
-  href: "Article?a=demenagement-nice-paris-prix-delais"
+  href: "Article-demenagement-nice-paris-prix-delais"
 }, {
   label: "Réussir son déménagement Nice-Paris",
-  href: "Article?a=demenagement-nice-paris-reussir"
+  href: "Article-demenagement-nice-paris-reussir"
 }, {
   label: "Déménagement international depuis Nice",
-  href: "Article?a=demenagement-international-depuis-nice"
+  href: "Article-demenagement-international-depuis-nice"
 }, {
   label: "Déménager à La Rochelle",
-  href: "Article?a=demenagement-la-rochelle-guide"
+  href: "Article-demenagement-la-rochelle-guide"
 }, {
   label: "Villes aux démarches spéciales",
-  href: "Article?a=villes-demarches-speciales-demenagement"
+  href: "Article-villes-demarches-speciales-demenagement"
 }, {
   label: "Déménagement étudiant à Nice",
-  href: "Article?a=demenagement-etudiant-nice"
+  href: "Article-demenagement-etudiant-nice"
 }, {
   label: "Déménager à Nice : stationnement & autorisations",
-  href: "Article?a=demenager-nice"
+  href: "Article-demenager-nice"
 }, {
   label: "Bien choisir sa société de déménagement",
-  href: "Article?a=choisir-demenageur"
+  href: "Article-choisir-demenageur"
 }];
 function FooterSEO() {
   return React.createElement("section", {

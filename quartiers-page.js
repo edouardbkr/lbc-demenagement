@@ -242,10 +242,88 @@ function QCTA() {
     variant: "dark"
   }))));
 }
+function QNiceDetail() {
+  const items = [{
+    url: "Demenagement-Vieux-Nice",
+    nom: "Vieux-Nice",
+    d: "Zone piétonne, bornes escamotables, ruelles inaccessibles au camion."
+  }, {
+    url: "Demenagement-Cimiez-Nice",
+    nom: "Cimiez",
+    d: "Colline en lacets, grands volumes, mobilier ancien."
+  }, {
+    url: "Demenagement-Carre-d-Or-Nice",
+    nom: "Le Carré d'Or",
+    d: "Immeubles bourgeois, ascenseurs anciens, monte-meuble fréquent."
+  }, {
+    url: "Demenagement-Liberation-Nice",
+    nom: "Libération",
+    d: "Marché, tramway, stationnement disputé : l'horaire fait tout."
+  }, {
+    url: "Demenagement-Riquier-Nice",
+    nom: "Riquier",
+    d: "Rues étroites, immeubles sans ascenseur, portage à chiffrer."
+  }, {
+    url: "Demenagement-Port-Nice",
+    nom: "Le Port",
+    d: "Pente dès qu'on quitte le quai, circulation contrainte."
+  }];
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " Nice, quartier par quartier")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Chaque quartier a ", React.createElement("em", null, "ses propres contraintes."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 780
+    }
+  }, "\xC0 Nice, le service de la mairie \xE0 contacter et le d\xE9lai de demande changent selon l'endroit que vous occupez. On l'explique quartier par quartier, avec la m\xE9thode qu'on applique sur place."), React.createElement("div", {
+    style: {
+      display: 'grid',
+      gap: 14,
+      marginTop: 24,
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
+    }
+  }, items.map((it, i) => React.createElement("a", {
+    key: i,
+    href: it.url,
+    style: {
+      display: 'block',
+      padding: '18px 20px',
+      borderRadius: 14,
+      textDecoration: 'none',
+      background: 'rgba(255,255,255,0.04)',
+      border: '1px solid rgba(255,255,255,0.10)'
+    }
+  }, React.createElement("div", {
+    style: {
+      fontWeight: 700,
+      marginBottom: 6
+    }
+  }, "D\xE9m\xE9nagement ", it.nom, " ", React.createElement("span", {
+    className: "arrow"
+  }, "\u2192")), React.createElement("div", {
+    style: {
+      opacity: 0.8,
+      fontSize: 14.5
+    }
+  }, it.d))))));
+}
 function App() {
   useScrollReveal();
-  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(QHero, null), React.createElement(QVieuxNice, null), React.createElement(QGrid, null), React.createElement(QWhy, null), React.createElement(QCTA, null)), React.createElement(Footer, null));
+  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(QHero, null), React.createElement(QVieuxNice, null), React.createElement(QNiceDetail, null), React.createElement(QGrid, null), React.createElement(QWhy, null), React.createElement(QCTA, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { QHero, QVieuxNice, QGrid, QWhy, QCTA, App }); } catch (e) {}
+  try { Object.assign(window, { QHero, QVieuxNice, QGrid, QWhy, QCTA, QNiceDetail, App }); } catch (e) {}
 })();

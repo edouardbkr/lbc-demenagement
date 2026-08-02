@@ -26,6 +26,37 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="consent.js?v=77681bec" defer></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Réservation de déménagement",
+  "description": "Réservation de date de déménagement avec acompte, confirmation immédiate.",
+  "serviceType": "Déménagement",
+  "provider": {
+    "@id": "https://lbcdemenagement.com/#entreprise"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Nice"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Alpes-Maritimes"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Provence-Alpes-Côte d'Azur"
+    },
+    {
+      "@type": "Country",
+      "name": "France"
+    }
+  ],
+  "url": "https://lbcdemenagement.com/Reservation"
+}
+  </script>
 </head>
 <body data-page="reservation">
   <div id="root"></div>
@@ -43,7 +74,7 @@
   <script src="assets/vendor/react-dom.production.min.js?v=feb8ddc9"></script>
   <script src="i18n.js?v=02ca3d49"></script>
 
-  <script src="site.js?v=18f0c746"></script>
+  <script src="site.js?v=e382fa88"></script>
   <script src="reservation-page.js?v=c2ff9b6c"></script>
 
   <style id="__om-edit-overrides"></style>

@@ -21,7 +21,7 @@ function ArticleCard({
   a,
   featured
 }) {
-  const href = "Article?a=" + a.slug;
+  const href = "Article-" + a.slug;
   return React.createElement("a", {
     href: href,
     className: featured ? "blog-featured" : "article-card"

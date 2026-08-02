@@ -2,7 +2,8 @@
 (function () {
 function currentSlug() {
   const m = window.location.search.match(/[?&]a=([^&]+)/);
-  return m ? decodeURIComponent(m[1]) : null;
+  if (m) return decodeURIComponent(m[1]);
+  return document.body && document.body.dataset && document.body.dataset.article || null;
 }
 function ArticleHero({
   a
@@ -95,7 +96,7 @@ function MoreArticles({
     className: "blog-grid reveal-stagger"
   }, others.map(a => React.createElement("a", {
     key: a.slug,
-    href: "Article?a=" + a.slug,
+    href: "Article-" + a.slug,
     className: "article-card"
   }, React.createElement("div", {
     className: "article-thumb"
@@ -119,7 +120,16 @@ function App() {
   useScrollReveal();
   const a = getArticle(currentSlug());
   React.useEffect(() => {
-    document.title = a.title + " · LBC* Les Bras Cassés";
+    if (document.body.dataset.article) return;
+    document.title = a.title;
+    const url = "https://lbcdemenagement.com/Article-" + a.slug;
+    let lien = document.querySelector('link[rel="canonical"]');
+    if (!lien) {
+      lien = document.createElement("link");
+      lien.rel = "canonical";
+      document.head.appendChild(lien);
+    }
+    lien.href = url;
   }, [a]);
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(ArticleHero, {
     a: a

@@ -1,8 +1,19 @@
-// article-page.jsx — Single article reader (reads ?a=slug)
+// article-page.jsx — Single article reader
 
+/**
+ * Quel article afficher ?
+ *
+ * Chaque article a désormais sa propre page (Article-<slug>.html), générée par gen-articles.js,
+ * qui porte le slug dans l'attribut data-article du <body>. C'est la voie normale : une page,
+ * une adresse, un titre, une canonique, un balisage.
+ *
+ * L'ancienne forme `Article?a=slug` reste acceptée pour ne pas casser les liens déjà partagés
+ * ou déjà indexés par Google.
+ */
 function currentSlug() {
   const m = window.location.search.match(/[?&]a=([^&]+)/);
-  return m ? decodeURIComponent(m[1]) : null;
+  if (m) return decodeURIComponent(m[1]);
+  return (document.body && document.body.dataset && document.body.dataset.article) || null;
 }
 
 function ArticleHero({ a }) {
@@ -60,7 +71,7 @@ function MoreArticles({ current }) {
         </div>
         <div className="blog-grid reveal-stagger">
           {others.map(a => (
-            <a key={a.slug} href={"Article?a=" + a.slug} className="article-card">
+            <a key={a.slug} href={"Article-" + a.slug} className="article-card">
               <div className="article-thumb">
                 <div className="ph"><div className="ph-label">{a.thumb}</div></div>
                 <div className="article-cat">{a.cat}</div>
@@ -81,7 +92,17 @@ function MoreArticles({ current }) {
 function App() {
   useScrollReveal();
   const a = getArticle(currentSlug());
-  React.useEffect(() => { document.title = a.title + " · LBC* Les Bras Cassés"; }, [a]);
+  // Sur la page générée, titre et canonique sont déjà justes dans le HTML : on n'y touche pas.
+  // Sur l'ancienne adresse `Article?a=slug`, on les corrige et on pointe la canonique vers la
+  // nouvelle page, pour que Google concentre le référencement sur une seule adresse par article.
+  React.useEffect(() => {
+    if (document.body.dataset.article) return;
+    document.title = a.title;
+    const url = "https://lbcdemenagement.com/Article-" + a.slug;
+    let lien = document.querySelector('link[rel="canonical"]');
+    if (!lien) { lien = document.createElement("link"); lien.rel = "canonical"; document.head.appendChild(lien); }
+    lien.href = url;
+  }, [a]);
   return (
     <React.Fragment>
       <Nav />

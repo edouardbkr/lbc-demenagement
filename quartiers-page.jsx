@@ -128,6 +128,46 @@ function QCTA() {
 
 }
 
+/**
+ * Accès aux pages quartier de Nice.
+ *
+ * Sans ce bloc, les six pages quartier seraient orphelines : aucun lien depuis le site, donc
+ * pas de découverte par Google et aucune transmission de popularité depuis les pages fortes.
+ * C'est le maillage interne qui fait vivre une page, pas seulement sa présence dans le sitemap.
+ */
+function QNiceDetail() {
+  const items = [
+    { url: "Demenagement-Vieux-Nice", nom: "Vieux-Nice", d: "Zone piétonne, bornes escamotables, ruelles inaccessibles au camion." },
+    { url: "Demenagement-Cimiez-Nice", nom: "Cimiez", d: "Colline en lacets, grands volumes, mobilier ancien." },
+    { url: "Demenagement-Carre-d-Or-Nice", nom: "Le Carré d'Or", d: "Immeubles bourgeois, ascenseurs anciens, monte-meuble fréquent." },
+    { url: "Demenagement-Liberation-Nice", nom: "Libération", d: "Marché, tramway, stationnement disputé : l'horaire fait tout." },
+    { url: "Demenagement-Riquier-Nice", nom: "Riquier", d: "Rues étroites, immeubles sans ascenseur, portage à chiffrer." },
+    { url: "Demenagement-Port-Nice", nom: "Le Port", d: "Pente dès qu'on quitte le quai, circulation contrainte." }
+  ];
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> Nice, quartier par quartier</div></div>
+          <h2 className="dim-em">Chaque quartier a <em>ses propres contraintes.</em></h2>
+        </div>
+        <p className="lead" style={{ maxWidth: 780 }}>
+          À Nice, le service de la mairie à contacter et le délai de demande changent selon
+          l'endroit que vous occupez. On l'explique quartier par quartier, avec la méthode
+          qu'on applique sur place.
+        </p>
+        <div style={{ display: 'grid', gap: 14, marginTop: 24, gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          {items.map((it, i) =>
+            <a key={i} href={it.url} style={{ display: 'block', padding: '18px 20px', borderRadius: 14, textDecoration: 'none', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.10)' }}>
+              <div style={{ fontWeight: 700, marginBottom: 6 }}>Déménagement {it.nom} <span className="arrow">→</span></div>
+              <div style={{ opacity: 0.8, fontSize: 14.5 }}>{it.d}</div>
+            </a>
+          )}
+        </div>
+      </div>
+    </section>);
+}
+
 function App() {
   useScrollReveal();
   return (
@@ -136,6 +176,7 @@ function App() {
       <main>
         <QHero />
         <QVieuxNice />
+        <QNiceDetail />
         <QGrid />
         <QWhy />
         <QCTA />
