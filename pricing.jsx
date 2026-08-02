@@ -37,14 +37,28 @@
     camionJourSup: 120,       // € par journée supplémentaire
 
     // ── MARGE CIBLE ────────────────────────────────────────────────────────
-    // C'est le bénéfice qui doit rester APRÈS déduction de tous les coûts ci-dessus.
-    // Règle d'Edouard : jamais moins de 1 000 € net en local, jamais moins de 1 500 € net
-    // en longue distance (où le chantier immobilise 2 à 3 jours).
-    margeLocale: { min: 1000, max: 2000 },
-    margeLongue: { min: 1500, max: 2500 },
-    seuilLongueDistanceKm: 150,   // au-delà (trajet aller), on bascule sur la marge longue
+    // C'est ce qui reste APRÈS déduction de tous les coûts ci-dessus.
+    //
+    // Trois tranches de distance, et dans chacune une distinction petit / gros chantier.
+    // Un déménagement de 25 m³ mobilise un camion, plus de bras et souvent une journée
+    // entière : il ne peut pas rapporter la même chose qu'un studio.
+    //
+    //   local     ≤ 50 km    la journée, retour le soir
+    //   régional  50–200 km  la ville d'à côté, souvent la journée mais tendue
+    //   longue    > 200 km   2 à 3 jours de mobilisation
+    //
+    // ⚠️ Ces marges s'ajoutent aux coûts, elles ne les remplacent pas. Et la main d'œuvre
+    // est comptée dans les coûts : si tu fais le chantier toi-même, ce qui rentre
+    // réellement dans ta poche est la marge PLUS cette main d'œuvre.
+    seuilGrosVolumeM3: 20,        // à partir de là, on bascule sur la grille « gros »
+    margeParDistance: [
+      { jusquKm: 50,       petit: { min: 600,  max: 900  }, gros: { min: 1000, max: 1400 } },
+      { jusquKm: 200,      petit: { min: 1300, max: 1500 }, gros: { min: 1600, max: 1900 } },
+      { jusquKm: Infinity, petit: { min: 1700, max: 2000 }, gros: { min: 1900, max: 2400 } }
+    ],
+    seuilLongueDistanceKm: 200,   // au-delà : journées de route en plus, camion à la journée
 
-    // La marge suit aussi la formule : une prestation clé en main se vend plus cher.
+    // La marge suit aussi la formule : emballer et réinstaller se vend plus cher.
     formuleMult: { standard: 1.0, premium: 1.2, luxe: 1.45 },
 
     // Marge de sécurité sur le volume. Les clients oublient TOUJOURS des choses (cave, garage,
@@ -53,7 +67,7 @@
 
     // Prix plancher affiché : en dessous, un déménagement n'est jamais rentable, même
     // pour trois cartons à 10 km. Filet de sécurité, rarement atteint.
-    minimum: 890,
+    minimum: 900,
 
     // Surcoût d'accès (identique au cockpit) — main d'œuvre supplémentaire
     etageSansAscenseur: 20,   // € par étage
@@ -77,8 +91,13 @@
     // C'est l'INVENTAIRE qui commande : un T2 peut très bien contenir 40 m³, et deux T3
     // identiques n'ont rien à voir l'un avec l'autre. La surface ne sert donc qu'à deux choses :
     //
-    //   • « max » = volume retenu quand le client N'A PAS rempli d'inventaire. On prend le haut
-    //     de la fourchette, jamais le milieu : sans information, on facture le cas défavorable.
+    //   • « typique » = volume retenu quand le client N'A PAS rempli d'inventaire. C'est ce
+    //     qu'on rencontre réellement dans ce type de logement.
+    //     On prenait « max » auparavant : tous les 4 pièces étaient alors chiffrés comme des
+    //     maisons de 65 m³, soit près de 3 000 € pour un déménagement local. Le prix affiché
+    //     faisait fuir avant le premier appel. Le prix ferme se confirme de toute façon au
+    //     téléphone après vérification de l'inventaire : mieux vaut une estimation crédible
+    //     qu'une estimation défensive que personne ne valide.
     //   • « min » = simple garde-fou anti-absurdité quand l'inventaire EST rempli.
     //
     // Ce plancher est volontairement BAS. La rentabilité n'est pas assurée par le volume mais
@@ -90,10 +109,10 @@
     //
     // L'inventaire déclaré s'applique tel quel dès qu'il dépasse ce plancher, sans limite haute.
     volumeSurface: {
-      studio: { min: 5, max: 15 },
-      t2: { min: 8, max: 25 },
-      t3: { min: 12, max: 40 },
-      t4: { min: 18, max: 65 }
+      studio: { min: 5, typique: 12, max: 15 },
+      t2: { min: 8, typique: 20, max: 25 },
+      t3: { min: 12, typique: 30, max: 40 },
+      t4: { min: 18, typique: 42, max: 65 }
     }
   };
 
@@ -174,9 +193,11 @@
     // bâclé) ou à combler l'absence totale d'inventaire (on prend alors le haut de fourchette).
     let volBase;
     if (aInventaire) volBase = Math.max(volInv, plage ? plage.min : 0);
-    // Sans meubles déclarés on part du haut de fourchette, mais on prend quand même le dessus si
-    // le client a annoncé un gros paquet de cartons (200 cartons dans un studio, ça arrive).
-    else volBase = Math.max(plage ? plage.max : 0, volInv);
+    // Sans meubles déclarés on part du volume TYPIQUE de ce logement, pas du maximum : le
+    // maximum chiffrait chaque 4 pièces comme une maison et faisait fuir avant le premier
+    // appel. On prend quand même le dessus si le client a annoncé un gros paquet de cartons
+    // (200 cartons dans un studio, ça arrive).
+    else volBase = Math.max(plage ? (plage.typique || plage.max) : 0, volInv);
 
     if (!volBase) return null;
     const volume = Math.round(volBase * CFG.margeVolume);
@@ -201,13 +222,20 @@
     const couts = carburant + peage + mainOeuvre + camion + acces;
 
     // ── Marge cible, qui doit rester APRÈS déduction des coûts ──
-    const m = km > CFG.seuilLongueDistanceKm ? CFG.margeLongue : CFG.margeLocale;
-    const margeMin = m.min * mult;
-    const margeMax = m.max * mult;
+    // On choisit la tranche de distance, puis la grille petit ou gros chantier.
+    const tranche = CFG.margeParDistance.find((t) => km <= t.jusquKm) ||
+                    CFG.margeParDistance[CFG.margeParDistance.length - 1];
+    const grille = volume >= CFG.seuilGrosVolumeM3 ? tranche.gros : tranche.petit;
+    const margeMin = grille.min * mult;
+    const margeMax = grille.max * mult;
 
     let bas = arrondi10(couts + margeMin);
     let haut = arrondi10(couts + margeMax);
     if (bas < CFG.minimum) { bas = CFG.minimum; haut = Math.max(haut, arrondi10(CFG.minimum * 1.4)); }
+    // La fourchette doit rester lisible : trop serrée elle n'a pas de sens, trop large elle
+    // n'engage à rien et le prospect n'ose plus réserver. On vise 25 à 40 % d'écart.
+    if (haut < arrondi10(bas * 1.25)) haut = arrondi10(bas * 1.25);
+    if (haut > arrondi10(bas * 1.45)) haut = arrondi10(bas * 1.45);
 
     return {
       bas, haut, volume, km,

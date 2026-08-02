@@ -19,22 +19,46 @@
     camionSeuilM3: 20,
     camionLocation: 200,
     camionJourSup: 120,
-    margeLocale: {
-      min: 1000,
-      max: 2000
-    },
-    margeLongue: {
-      min: 1500,
-      max: 2500
-    },
-    seuilLongueDistanceKm: 150,
+    seuilGrosVolumeM3: 20,
+    margeParDistance: [{
+      jusquKm: 50,
+      petit: {
+        min: 600,
+        max: 900
+      },
+      gros: {
+        min: 1000,
+        max: 1400
+      }
+    }, {
+      jusquKm: 200,
+      petit: {
+        min: 1300,
+        max: 1500
+      },
+      gros: {
+        min: 1600,
+        max: 1900
+      }
+    }, {
+      jusquKm: Infinity,
+      petit: {
+        min: 1700,
+        max: 2000
+      },
+      gros: {
+        min: 1900,
+        max: 2400
+      }
+    }],
+    seuilLongueDistanceKm: 200,
     formuleMult: {
       standard: 1.0,
       premium: 1.2,
       luxe: 1.45
     },
     margeVolume: 1.10,
-    minimum: 890,
+    minimum: 900,
     etageSansAscenseur: 20,
     etageAscenseur1p: 8,
     portageOffert: 20,
@@ -46,18 +70,22 @@
     volumeSurface: {
       studio: {
         min: 5,
+        typique: 12,
         max: 15
       },
       t2: {
         min: 8,
+        typique: 20,
         max: 25
       },
       t3: {
         min: 12,
+        typique: 30,
         max: 40
       },
       t4: {
         min: 18,
+        typique: 42,
         max: 65
       }
     }
@@ -187,7 +215,7 @@
     const aInventaire = (o.inventaire || []).length > 0;
     const plage = CFG.volumeSurface[o.surface] || null;
     let volBase;
-    if (aInventaire) volBase = Math.max(volInv, plage ? plage.min : 0);else volBase = Math.max(plage ? plage.max : 0, volInv);
+    if (aInventaire) volBase = Math.max(volInv, plage ? plage.min : 0);else volBase = Math.max(plage ? plage.typique || plage.max : 0, volInv);
     if (!volBase) return null;
     const volume = Math.round(volBase * CFG.margeVolume);
     const km = o.km != null && o.km > 0 ? Math.round(o.km) : CFG.kmParDefaut;
@@ -203,15 +231,18 @@
     const camion = volume >= CFG.camionSeuilM3 ? CFG.camionLocation + (nbJours - 1) * CFG.camionJourSup : 0;
     const acces = surcoutAcces(o.depart) + surcoutAcces(o.arrivee);
     const couts = carburant + peage + mainOeuvre + camion + acces;
-    const m = km > CFG.seuilLongueDistanceKm ? CFG.margeLongue : CFG.margeLocale;
-    const margeMin = m.min * mult;
-    const margeMax = m.max * mult;
+    const tranche = CFG.margeParDistance.find(t => km <= t.jusquKm) || CFG.margeParDistance[CFG.margeParDistance.length - 1];
+    const grille = volume >= CFG.seuilGrosVolumeM3 ? tranche.gros : tranche.petit;
+    const margeMin = grille.min * mult;
+    const margeMax = grille.max * mult;
     let bas = arrondi10(couts + margeMin);
     let haut = arrondi10(couts + margeMax);
     if (bas < CFG.minimum) {
       bas = CFG.minimum;
       haut = Math.max(haut, arrondi10(CFG.minimum * 1.4));
     }
+    if (haut < arrondi10(bas * 1.25)) haut = arrondi10(bas * 1.25);
+    if (haut > arrondi10(bas * 1.45)) haut = arrondi10(bas * 1.45);
     return {
       bas,
       haut,
