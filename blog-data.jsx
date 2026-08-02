@@ -3,6 +3,7 @@
 const ARTICLES = [
   {
     slug: "estimer-volume",
+    seoTitle: "Estimer le volume d'un déménagement en m³ · LBC",
     image: "assets/blog/estimer-volume-demenagement-camion-20m3.jpg",
     imageAlt: "Camion de déménagement LBC de 20 m³ et ses dimensions : 4,50 × 2,10 × 2,10 mètres",
     cat: "Méthode",
@@ -56,6 +57,7 @@ const ARTICLES = [
   },
   {
     slug: "demenager-nice",
+    seoTitle: "Déménager à Nice : stationnement et autorisations · LBC",
     image: "assets/blog/stationnement-demenagement-vieux-nice.jpg",
     imageAlt: "Camion de déménagement stationné dans une rue du Vieux-Nice devant une aire de livraison",
     cat: "Côte d'Azur",
@@ -100,6 +102,7 @@ const ARTICLES = [
   },
   {
     slug: "choisir-demenageur",
+    seoTitle: "Choisir son déménageur : 7 signaux à vérifier · LBC",
     image: "assets/blog/choisir-demenageur-devis-7-signaux.jpg",
     imageAlt: "Devis de déménagement et les 7 signaux à vérifier avant de signer : prix ferme, assurance, acompte, SIRET",
     cat: "Conseils",
@@ -150,6 +153,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-nice-paris-prix-delais",
+    seoTitle: "Déménagement Nice-Paris : délais et prix 2026 · LBC",
     image: "assets/blog/demenagement-nice-paris-930-km-trajet.jpg",
     imageAlt: "Trajet de déménagement Nice-Paris : 930 km par les autoroutes A8, A7 et A6, environ 9 heures de route",
     cat: "Longue distance",
@@ -243,6 +247,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-nice-paris-reussir",
+    seoTitle: "Réussir son déménagement Nice-Paris : le guide · LBC",
     image: "assets/blog/demenagement-nice-paris-retroplanning-8-semaines.jpg",
     imageAlt: "Rétroplanning d'un déménagement Nice-Paris en 8 semaines, du tri des affaires à la livraison",
     cat: "Longue distance",
@@ -340,6 +345,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-la-rochelle-guide",
+    seoTitle: "Déménager à La Rochelle : le guide complet · LBC",
     image: "assets/blog/demenagement-la-rochelle-vieux-port-minimes.jpg",
     imageAlt: "Déménagement à La Rochelle : les tours du Vieux-Port, le quartier des Minimes et les îles",
     cat: "Villes",
@@ -417,6 +423,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-international-depuis-nice",
+    seoTitle: "Déménagement international depuis Nice · LBC",
     image: "assets/blog/demenagement-international-depuis-nice-douane.jpg",
     imageAlt: "Déménagement international depuis Nice vers Genève, Milan, Barcelone, Luxembourg et Bruxelles, avec passage en douane",
     cat: "International",
@@ -453,6 +460,7 @@ const ARTICLES = [
   },
   {
     slug: "villes-demarches-speciales-demenagement",
+    seoTitle: "Déménager à une adresse réglementée · LBC",
     image: "assets/blog/demenagement-adresses-reglementees-monte-meuble.jpg",
     imageAlt: "Monte-meuble déployé sur une façade pour un déménagement en zone réglementée",
     cat: "Conseils",
@@ -487,6 +495,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-etudiant-nice",
+    seoTitle: "Déménagement étudiant à Nice, petit budget · LBC",
     image: "assets/blog/demenagement-etudiant-nice-studio-6m3.jpg",
     imageAlt: "Déménagement étudiant à Nice : un studio de 6 m³, une matinée, deux amis et un vélo",
     cat: "Côte d'Azur",
