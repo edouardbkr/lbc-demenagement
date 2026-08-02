@@ -34,25 +34,7 @@ function ArticleHero({
     className: "amx-sep"
   }, "\xB7"), React.createElement("span", {
     className: "amx"
-  }, a.read, " de lecture")), a.image && React.createElement("figure", {
-    style: {
-      margin: '28px 0 0',
-      borderRadius: 16,
-      overflow: 'hidden'
-    }
-  }, React.createElement("img", {
-    src: a.image,
-    alt: a.imageAlt || a.title,
-    decoding: "async",
-    fetchPriority: "high",
-    width: "1200",
-    height: "800",
-    style: {
-      width: '100%',
-      height: 'auto',
-      display: 'block'
-    }
-  }))));
+  }, a.read, " de lecture"))));
 }
 function ArticleBody({
   a
@@ -68,9 +50,23 @@ function ArticleBody({
     style: {
       aspectRatio: '16/7',
       marginBottom: 48,
-      overflow: 'hidden'
+      overflow: 'hidden',
+      borderRadius: 14
     }
-  }, React.createElement("div", {
+  }, a.image ? React.createElement("img", {
+    src: a.image,
+    alt: a.imageAlt || a.title,
+    decoding: "async",
+    fetchPriority: "high",
+    width: "1200",
+    height: "800",
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'block'
+    }
+  }) : React.createElement("div", {
     className: "ph"
   }, React.createElement("div", {
     className: "ph-label"
@@ -118,7 +114,20 @@ function MoreArticles({
     className: "article-card"
   }, React.createElement("div", {
     className: "article-thumb"
-  }, React.createElement("div", {
+  }, a.image ? React.createElement("img", {
+    src: a.image,
+    alt: a.imageAlt || a.title,
+    loading: "lazy",
+    decoding: "async",
+    width: "1200",
+    height: "800",
+    style: {
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'block'
+    }
+  }) : React.createElement("div", {
     className: "ph"
   }, React.createElement("div", {
     className: "ph-label"

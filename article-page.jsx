@@ -36,16 +36,6 @@ function ArticleHero({ a }) {
           <span className="amx">{a.read} de lecture</span>
         </p>
 
-        {/* Illustration principale de l'article.
-            Pas de loading="lazy" ici : c'est l'image la plus grande visible dès l'ouverture,
-            donc celle que Google mesure pour le LCP. La différer la ralentirait.
-            width/height explicites pour réserver la place et éviter le décalage (CLS). */}
-        {a.image &&
-          <figure style={{ margin: '28px 0 0', borderRadius: 16, overflow: 'hidden' }}>
-            <img src={a.image} alt={a.imageAlt || a.title} decoding="async" fetchPriority="high"
-                 width="1200" height="800"
-                 style={{ width: '100%', height: 'auto', display: 'block' }} />
-          </figure>}
       </div>
     </section>
   );
@@ -57,8 +47,19 @@ function ArticleBody({ a }) {
     <article className="sec">
       <div className="wrap">
         <div className="prose reveal">
-          <div style={{aspectRatio:'16/7', marginBottom: 48, overflow:'hidden'}}>
-            <div className="ph"><div className="ph-label">{a.thumb}</div></div>
+          {/* L'emplacement prévu par la maquette pour l'illustration de l'article. Il restait
+              vide (un cadre gris avec un libellé) : c'est ici que l'image va, pas au-dessus
+              du titre, sinon elle fait doublon et pousse tout le contenu vers le bas.
+
+              Pas de loading="lazy" : c'est la plus grande image visible à l'ouverture, donc
+              celle que Google mesure pour le LCP. La différer ralentirait la page.
+              Le ratio 16/7 vient de la maquette, objectFit recadre proprement. */}
+          <div style={{aspectRatio:'16/7', marginBottom: 48, overflow:'hidden', borderRadius: 14}}>
+            {a.image ?
+              <img src={a.image} alt={a.imageAlt || a.title} decoding="async" fetchPriority="high"
+                   width="1200" height="800"
+                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /> :
+              <div className="ph"><div className="ph-label">{a.thumb}</div></div>}
           </div>
           <Body />
           <div style={{marginTop: 56, paddingTop: 32, borderTop:'1px solid var(--rule)', display:'flex', gap:14, flexWrap:'wrap', alignItems:'center'}}>
@@ -84,7 +85,12 @@ function MoreArticles({ current }) {
           {others.map(a => (
             <a key={a.slug} href={"Article-" + a.slug} className="article-card">
               <div className="article-thumb">
-                <div className="ph"><div className="ph-label">{a.thumb}</div></div>
+                {/* Vignettes des articles liés : loading="lazy", elles sont en bas de page. */}
+                {a.image ?
+                  <img src={a.image} alt={a.imageAlt || a.title} loading="lazy" decoding="async"
+                       width="1200" height="800"
+                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /> :
+                  <div className="ph"><div className="ph-label">{a.thumb}</div></div>}
                 <div className="article-cat">{a.cat}</div>
               </div>
               <div className="article-body">
