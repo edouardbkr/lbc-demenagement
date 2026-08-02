@@ -108,7 +108,7 @@ const MIL_DEEP = [{
   p: "Une affectation aux Antilles, en Guyane, à La Réunion, à Mayotte ou en Polynésie, c'est une logistique à part. Le mobilier voyage par voie maritime, en caisses ou conteneurs, avec un conditionnement renforcé contre l'humidité et les manipulations portuaires, un inventaire valorisé et des délais d'acheminement à anticiper. On organise l'emballage, le transport jusqu'au port, l'embarquement et le suivi jusqu'à votre nouvelle affectation outre-mer."
 }, {
   t: "OTAN, ambassades, étranger",
-  p: "Pour une affectation à l'étranger (état-major OTAN, mission, poste en ambassade), on gère le transport international, l'inventaire et les formalités douanières de bout en bout, avec une seule équipe du départ à l'arrivée. C'est le même savoir-faire que pour le <a href=\"Diplomatique.html\">personnel diplomatique</a>, et plus largement pour toute <a href=\"Mutations.html\">mutation professionnelle</a>."
+  p: "Pour une affectation à l'étranger (état-major OTAN, mission, poste en ambassade), on gère le transport international, l'inventaire et les formalités douanières de bout en bout, avec une seule équipe du départ à l'arrivée. C'est le même savoir-faire que pour le <a href=\"Diplomatique\">personnel diplomatique</a>, et plus largement pour toute <a href=\"Mutations\">mutation professionnelle</a>."
 }];
 const MIL_FAQ = [{
   q: "Qui prend en charge un déménagement militaire ?",
@@ -137,7 +137,7 @@ function MilHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "D\xE9m\xE9nagement militaire")), React.createElement("h1", null, "Mutation militaire ? ", React.createElement("em", null, "Un dossier carr\xE9, des d\xE9lais tenus.")), React.createElement("p", {
@@ -178,12 +178,12 @@ function MilIntro() {
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis conforme sous 24h", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-ghost"
   }, "Voir les formules"))), React.createElement("div", {
     className: "reveal"
@@ -237,13 +237,13 @@ function MilIntro() {
       lineHeight: 1.5
     }
   }, "Aussi pour la ", React.createElement("a", {
-    href: "Mutations.html",
+    href: "Mutations",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
     }
   }, "mutation professionnelle"), " et le ", React.createElement("a", {
-    href: "Diplomatique.html",
+    href: "Diplomatique",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
@@ -406,7 +406,7 @@ function MilBases() {
       marginTop: 24
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis pour Toulon", React.createElement("span", {
     className: "arrow"

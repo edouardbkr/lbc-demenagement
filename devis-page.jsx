@@ -113,7 +113,7 @@ function DevisHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>DEVIS GRATUIT · PRIX IMMÉDIAT</span>
         </div>
@@ -675,7 +675,7 @@ function DevisForm() {
                       items={["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"]}
                       selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
                     </div>
-                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules.html" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
+                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
                     <span className="hint" style={{ marginTop: 8 }}>💳 Bon à savoir : votre <strong>déménagement est payable en 3× sans frais</strong> avec Klarna, au moment de la prestation et seulement si vous le souhaitez. <strong>Le devis, lui, est 100&nbsp;% gratuit</strong>, sans engagement ni carte bancaire.</span>
                   </div>
                   <div className="lf full">

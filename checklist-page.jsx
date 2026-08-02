@@ -44,7 +44,7 @@ function ChecklistHero({ done, total }) {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Checklist déménagement</span>
         </div>
@@ -120,7 +120,7 @@ function Checklist() {
               <div className="ck-cta-title">La première ligne, c'est le devis.</div>
               <div className="ck-cta-sub">Deux minutes, et on s'occupe du plus lourd de la liste.</div>
             </div>
-            <a href="Devis.html" className="btn btn-primary">Obtenir mon devis<span className="arrow">→</span></a>
+            <a href="Devis" className="btn btn-primary">Obtenir mon devis<span className="arrow">→</span></a>
           </div>
         </div>
       </section>

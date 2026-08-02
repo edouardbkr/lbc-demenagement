@@ -3,37 +3,37 @@
 const QUARTIERS = [{
   ville: "Nice",
   nom: "Le Carré d'Or",
-  file: "Demenagement-Nice.html",
+  file: "Demenagement-Nice",
   desc: "Le triangle chic de Nice, entre Masséna et la Promenade : immeubles bourgeois, boutiques de luxe, plafonds hauts.",
   defi: "Façades classées, ascenseurs anciens trop petits pour les meubles : le monte-meuble par la fenêtre est souvent la solution."
 }, {
   ville: "Nice",
   nom: "Cimiez",
-  file: "Demenagement-Nice.html",
+  file: "Demenagement-Nice",
   desc: "La colline aristocratique de Nice, ses palais Belle Époque, ses musées et ses villas sous les oliviers.",
   defi: "Accès en lacets, grandes demeures, mobilier ancien et œuvres d'art : protection renforcée et main experte."
 }, {
   ville: "Cannes",
   nom: "Le Suquet",
-  file: "Demenagement-Cannes.html",
+  file: "Demenagement-Cannes",
   desc: "Le vieux Cannes perché, ses ruelles en escaliers et sa vue sur la baie depuis le clocher.",
   defi: "Camion impossible jusqu'à la porte : portage à dos dans les escaliers et monte-meuble pour les volumes."
 }, {
   ville: "Monaco",
   nom: "Monte-Carlo",
-  file: "Demenagement-Monaco.html",
+  file: "Demenagement-Monaco",
   desc: "L'adresse la plus prestigieuse de la Riviera : tours résidentielles, palaces, mobilier d'exception.",
   defi: "Créneaux de régie, ascenseurs à réserver, discrétion absolue et assurance en valeur déclarée."
 }, {
   ville: "Antibes",
   nom: "Le Cap d'Antibes",
-  file: "Demenagement-Antibes.html",
+  file: "Demenagement-Antibes",
   desc: "Presqu'île de villas mythiques entre pins et mer, l'une des adresses les plus rares de la côte.",
   defi: "Propriétés fermées, allées privées, biens de grande valeur : intervention sur mesure et confidentielle."
 }, {
   ville: "Cagnes-sur-Mer",
   nom: "Le Haut-de-Cagnes",
-  file: "Demenagement-Cagnes-sur-Mer.html",
+  file: "Demenagement-Cagnes-sur-Mer",
   desc: "Village médiéval en colimaçon autour de son château, pavés et ruelles d'artistes suspendues.",
   defi: "Dédale pavé inaccessible aux camions : navette en petit véhicule, portage et monte-meuble."
 }];
@@ -45,7 +45,7 @@ function QHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Quartiers d'exception")), React.createElement("h1", null, "Les quartiers qui ne se d\xE9m\xE9nagent ", React.createElement("em", null, "pas comme les autres.")), React.createElement("p", {
@@ -86,12 +86,12 @@ function QVieuxNice() {
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Demenagement-Nice.html",
+    href: "Demenagement-Nice",
     className: "btn btn-primary"
   }, "D\xE9m\xE9nagement \xE0 Nice", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-ghost"
   }, "Devis gratuit"))), React.createElement("div", {
     className: "reveal"

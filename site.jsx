@@ -110,16 +110,16 @@ const { useState, useEffect, useRef } = React;
 const CURRENT = document.body.getAttribute('data-page') || 'accueil';
 
 const NAV = [
-{ key: 'accueil', label: t('Accueil'), href: 'Les Bras Cassés.html' },
-{ key: 'formules', label: t('Formules'), href: 'Formules.html' },
+{ key: 'accueil', label: t('Accueil'), href: '/' },
+{ key: 'formules', label: t('Formules'), href: 'Formules' },
 { key: 'france', label: t('En France'), mega: 'france' },
 { key: 'international', label: t('International'), mega: 'intl' },
-{ key: 'stockage', label: t('Stockage'), href: 'Stockage.html' },
+{ key: 'stockage', label: t('Stockage'), href: 'Stockage' },
 { key: 'mutation', label: t('Mutation professionnelle'), dropdown: [
-  { label: t("Je suis un salarié"), href: "Mutations.html" },
-  { label: t("Je suis un militaire"), href: "Militaire.html" },
-  { label: t("Je suis une entreprise"), href: "Entreprise.html" }] },
-{ key: 'apropos', label: t('À propos'), href: 'Apropos.html' }];
+  { label: t("Je suis un salarié"), href: "Mutations" },
+  { label: t("Je suis un militaire"), href: "Militaire" },
+  { label: t("Je suis une entreprise"), href: "Entreprise" }] },
+{ key: 'apropos', label: t('À propos'), href: 'Apropos' }];
 
 // Mega-menu content for "En France" and "International"
 const MEGA = {
@@ -127,21 +127,21 @@ const MEGA = {
     eyebrow: t("Déménagement en France"),
     title: t("De la Côte d'Azur\nà tout l'Hexagone."),
     blurb: t("Implantés à Nice, on déménage dans toute la région et partout en France — même équipe, même soin, du studio au grand volume."),
-    cta: { label: t("Devis longue distance"), href: "Devis.html" },
+    cta: { label: t("Devis longue distance"), href: "Devis" },
     columns: [
     { title: t("Côte d'Azur"), links: [
-      ["Nice", "Demenagement-Nice.html"], ["Cannes", "Demenagement-Cannes.html"], ["Antibes", "Demenagement-Antibes.html"],
-      ["Monaco", "Demenagement-Monaco.html"], ["Menton", "Demenagement-Menton.html"], ["Grasse", "Demenagement-Grasse.html"],
-      ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer.html"], ["Le Cannet", "Demenagement-Le-Cannet.html"],
-      ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var.html"], ["Mandelieu", "Demenagement-Mandelieu.html"]] },
+      ["Nice", "Demenagement-Nice"], ["Cannes", "Demenagement-Cannes"], ["Antibes", "Demenagement-Antibes"],
+      ["Monaco", "Demenagement-Monaco"], ["Menton", "Demenagement-Menton"], ["Grasse", "Demenagement-Grasse"],
+      ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Le Cannet", "Demenagement-Le-Cannet"],
+      ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Mandelieu", "Demenagement-Mandelieu"]] },
 
     { title: t("Longue distance"), links: [
-      ["Nice → Paris", "Demenagement-Nice-Paris.html"], ["Nice → Lyon", "Demenagement-Nice-Lyon.html"],
-      ["Nice → Marseille", "Demenagement-Nice-Marseille.html"], ["Nice → Toulouse", "Demenagement-Nice-Toulouse.html"],
-      ["Nice → Bordeaux", "Demenagement-Nice-Bordeaux.html"]] },
+      ["Nice → Paris", "Demenagement-Nice-Paris"], ["Nice → Lyon", "Demenagement-Nice-Lyon"],
+      ["Nice → Marseille", "Demenagement-Nice-Marseille"], ["Nice → Toulouse", "Demenagement-Nice-Toulouse"],
+      ["Nice → Bordeaux", "Demenagement-Nice-Bordeaux"]] },
 
     { title: t("Autres villes"), links: [
-      [t("Déménagement La Rochelle"), "Demenagement-La-Rochelle.html"]] }]
+      [t("Déménagement La Rochelle"), "Demenagement-La-Rochelle"]] }]
 
 
   },
@@ -149,12 +149,12 @@ const MEGA = {
     eyebrow: t("Déménagement international"),
     title: t("Au-delà des\nfrontières."),
     blurb: t("Suisse, Italie, Espagne, Benelux : on organise le transport, les formalités douanières et le suivi jusqu'à destination."),
-    cta: { label: t("Devis international"), href: "Devis.html" },
+    cta: { label: t("Devis international"), href: "Devis" },
     columns: [
-    { title: t("Suisse"), links: [["Genève", "Demenagement-Nice-Geneve.html"], ["Lausanne", "Demenagement-Nice-Lausanne.html"]] },
-    { title: t("Italie"), links: [["Milan", "Demenagement-Nice-Milan.html"], ["Turin", "Demenagement-Nice-Turin.html"]] },
-    { title: t("Espagne"), links: [["Barcelone", "Demenagement-Nice-Barcelone.html"], ["Madrid", "Demenagement-Nice-Madrid.html"]] },
-    { title: t("Benelux"), links: [["Bruxelles", "Demenagement-Nice-Bruxelles.html"], ["Luxembourg", "Demenagement-Nice-Luxembourg.html"]] }]
+    { title: t("Suisse"), links: [["Genève", "Demenagement-Nice-Geneve"], ["Lausanne", "Demenagement-Nice-Lausanne"]] },
+    { title: t("Italie"), links: [["Milan", "Demenagement-Nice-Milan"], ["Turin", "Demenagement-Nice-Turin"]] },
+    { title: t("Espagne"), links: [["Barcelone", "Demenagement-Nice-Barcelone"], ["Madrid", "Demenagement-Nice-Madrid"]] },
+    { title: t("Benelux"), links: [["Bruxelles", "Demenagement-Nice-Bruxelles"], ["Luxembourg", "Demenagement-Nice-Luxembourg"]] }]
 
   }
 };
@@ -162,7 +162,7 @@ const MEGA = {
 
 function Logo() {
   return (
-    <a href="Les Bras Cassés.html" className="logo" aria-label="LBC — Les Bras Cassés, accueil">
+    <a href="/" className="logo" aria-label="LBC — Les Bras Cassés, accueil">
       <img src="assets/lbc-wordmark-sm.png" alt="LBC* — Les Bras Cassés" decoding="async" width="432" height="240" />
     </a>);
 
@@ -262,7 +262,7 @@ function Nav() {
             <span className="lbl-full">06 15 97 65 77</span>
             <span className="lbl-short">{t('Appeler')}</span>
           </a>
-          <a href="Devis.html" className="btn btn-primary nav-devis">
+          <a href="Devis" className="btn btn-primary nav-devis">
             <span className="lbl-full">{t('Devis gratuit')}</span>
             <span className="lbl-short">{t('Devis gratuit')}</span>
             <span className="arrow">→</span>
@@ -311,7 +311,7 @@ function Nav() {
 
         <a key={n.key} href={n.href}>{n.label}</a>
         )}
-        <a href="Devis.html" style={{ color: 'var(--accent)' }}>Devis gratuit →</a>
+        <a href="Devis" style={{ color: 'var(--accent)' }}>Devis gratuit →</a>
       </div>
     </header>
     </React.Fragment>);
@@ -515,7 +515,7 @@ function QuickQuote({ variant = "light" }) {
     e.preventDefault();
     const f = e.currentTarget;
     // Anti-spam honeypot: real users never fill this hidden field.
-    if (f._honey && f._honey.value) { window.location.href = "Devis.html"; return; }
+    if (f._honey && f._honey.value) { window.location.href = "Devis"; return; }
     const depart = f.depart.value.trim();
     const arrivee = f.arrivee.value.trim();
     const date = f.date.value.trim();
@@ -564,7 +564,7 @@ function QuickQuote({ variant = "light" }) {
     if (surface) p.set("surface", surface);
     p.set("lead", leadId);
     const qs = p.toString();
-    window.location.href = "Devis.html" + (qs ? "?" + qs : "");
+    window.location.href = "Devis" + (qs ? "?" + qs : "");
   };
   return (
     <div style={{ opacity: "1" }}>
@@ -611,22 +611,22 @@ function QuickQuote({ variant = "light" }) {
 
 // ---- SEO footer (cities + conseils) ----
 const COTE_AZUR = [
-["Déménagement Nice", "Demenagement-Nice.html"], ["Déménagement Cannes", "Demenagement-Cannes.html"], ["Déménagement Antibes", "Demenagement-Antibes.html"], ["Déménagement Monaco", "Demenagement-Monaco.html"],
-["Déménagement Menton", "Demenagement-Menton.html"], ["Déménagement Grasse", "Demenagement-Grasse.html"], ["Déménagement Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer.html"], ["Déménagement Le Cannet", "Demenagement-Le-Cannet.html"],
-["Déménagement Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var.html"], ["Déménagement Mandelieu", "Demenagement-Mandelieu.html"]];
+["Déménagement Nice", "Demenagement-Nice"], ["Déménagement Cannes", "Demenagement-Cannes"], ["Déménagement Antibes", "Demenagement-Antibes"], ["Déménagement Monaco", "Demenagement-Monaco"],
+["Déménagement Menton", "Demenagement-Menton"], ["Déménagement Grasse", "Demenagement-Grasse"], ["Déménagement Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Déménagement Le Cannet", "Demenagement-Le-Cannet"],
+["Déménagement Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Déménagement Mandelieu", "Demenagement-Mandelieu"]];
 
 const FRANCE = [];
 
 const CONSEILS = [
-{ label: "Estimer le volume de votre déménagement", href: "Article.html?a=estimer-volume" },
-{ label: "Déménagement Nice → Paris : délais & organisation", href: "Article.html?a=demenagement-nice-paris-prix-delais" },
-{ label: "Réussir son déménagement Nice-Paris", href: "Article.html?a=demenagement-nice-paris-reussir" },
-{ label: "Déménagement international depuis Nice", href: "Article.html?a=demenagement-international-depuis-nice" },
-{ label: "Déménager à La Rochelle", href: "Article.html?a=demenagement-la-rochelle-guide" },
-{ label: "Villes aux démarches spéciales", href: "Article.html?a=villes-demarches-speciales-demenagement" },
-{ label: "Déménagement étudiant à Nice", href: "Article.html?a=demenagement-etudiant-nice" },
-{ label: "Déménager à Nice : stationnement & autorisations", href: "Article.html?a=demenager-nice" },
-{ label: "Bien choisir sa société de déménagement", href: "Article.html?a=choisir-demenageur" }];
+{ label: "Estimer le volume de votre déménagement", href: "Article?a=estimer-volume" },
+{ label: "Déménagement Nice → Paris : délais & organisation", href: "Article?a=demenagement-nice-paris-prix-delais" },
+{ label: "Réussir son déménagement Nice-Paris", href: "Article?a=demenagement-nice-paris-reussir" },
+{ label: "Déménagement international depuis Nice", href: "Article?a=demenagement-international-depuis-nice" },
+{ label: "Déménager à La Rochelle", href: "Article?a=demenagement-la-rochelle-guide" },
+{ label: "Villes aux démarches spéciales", href: "Article?a=villes-demarches-speciales-demenagement" },
+{ label: "Déménagement étudiant à Nice", href: "Article?a=demenagement-etudiant-nice" },
+{ label: "Déménager à Nice : stationnement & autorisations", href: "Article?a=demenager-nice" },
+{ label: "Bien choisir sa société de déménagement", href: "Article?a=choisir-demenageur" }];
 
 
 function FooterSEO() {
@@ -639,27 +639,27 @@ function FooterSEO() {
             <div className="seo-sub first">PACA · Région niçoise</div>
             <div className="seo-cities">
               {COTE_AZUR.map((c, i) => <a key={i} href={c[1]}>{c[0]}</a>)}
-              <a href="Quartiers.html">Quartiers d'exception (Vieux-Nice…)</a>
+              <a href="Quartiers">Quartiers d'exception (Vieux-Nice…)</a>
             </div>
             <div className="seo-sub">Longue distance · France</div>
             <div className="seo-cities">
-              <a href="Demenagement-Nice-Paris.html">Déménagement Nice → Paris</a>
-              <a href="Demenagement-Nice-Lyon.html">Déménagement Nice → Lyon</a>
-              <a href="Demenagement-Nice-Marseille.html">Déménagement Nice → Marseille</a>
-              <a href="Demenagement-Nice-Toulouse.html">Déménagement Nice → Toulouse</a>
-              <a href="Demenagement-Nice-Bordeaux.html">Déménagement Nice → Bordeaux</a>
-              <a href="Demenagement-La-Rochelle.html">Déménagement La Rochelle</a>
+              <a href="Demenagement-Nice-Paris">Déménagement Nice → Paris</a>
+              <a href="Demenagement-Nice-Lyon">Déménagement Nice → Lyon</a>
+              <a href="Demenagement-Nice-Marseille">Déménagement Nice → Marseille</a>
+              <a href="Demenagement-Nice-Toulouse">Déménagement Nice → Toulouse</a>
+              <a href="Demenagement-Nice-Bordeaux">Déménagement Nice → Bordeaux</a>
+              <a href="Demenagement-La-Rochelle">Déménagement La Rochelle</a>
             </div>
             <div className="seo-sub">Déménagement international</div>
             <div className="seo-cities">
-              <a href="Demenagement-Nice-Geneve.html">Nice → Genève</a>
-              <a href="Demenagement-Nice-Lausanne.html">Nice → Lausanne</a>
-              <a href="Demenagement-Nice-Bruxelles.html">Nice → Bruxelles</a>
-              <a href="Demenagement-Nice-Luxembourg.html">Nice → Luxembourg</a>
-              <a href="Demenagement-Nice-Barcelone.html">Nice → Barcelone</a>
-              <a href="Demenagement-Nice-Madrid.html">Nice → Madrid</a>
-              <a href="Demenagement-Nice-Milan.html">Nice → Milan</a>
-              <a href="Demenagement-Nice-Turin.html">Nice → Turin</a>
+              <a href="Demenagement-Nice-Geneve">Nice → Genève</a>
+              <a href="Demenagement-Nice-Lausanne">Nice → Lausanne</a>
+              <a href="Demenagement-Nice-Bruxelles">Nice → Bruxelles</a>
+              <a href="Demenagement-Nice-Luxembourg">Nice → Luxembourg</a>
+              <a href="Demenagement-Nice-Barcelone">Nice → Barcelone</a>
+              <a href="Demenagement-Nice-Madrid">Nice → Madrid</a>
+              <a href="Demenagement-Nice-Milan">Nice → Milan</a>
+              <a href="Demenagement-Nice-Turin">Nice → Turin</a>
             </div>
           </div>
           <div>
@@ -668,7 +668,7 @@ function FooterSEO() {
               {CONSEILS.map((c, i) => <a key={i} href={c.href}>{c.label}</a>)}
             </div>
             <div className="seo-sub">Besoin d'un chiffrage ?</div>
-            <a href="Devis.html" className="btn btn-primary" style={{ marginTop: 4 }}>
+            <a href="Devis" className="btn btn-primary" style={{ marginTop: 4 }}>
               Obtenir mon devis gratuit<span className="arrow">→</span>
             </a>
           </div>
@@ -842,22 +842,22 @@ function Footer() {
               <div className="footer-col">
                 <h4>Nos services</h4>
                 <ul>
-                  <li><a href="Formules.html">Nos formules</a></li>
-                  <li><a href="Mutations.html">Mutation professionnelle</a></li>
-                  <li><a href="Militaire.html">Déménagement militaire</a></li>
-                  <li><a href="Diplomatique.html">Déménagement diplomatique</a></li>
-                  <li><a href="Stockage.html">Stockage &amp; garde-meuble</a></li>
+                  <li><a href="Formules">Nos formules</a></li>
+                  <li><a href="Mutations">Mutation professionnelle</a></li>
+                  <li><a href="Militaire">Déménagement militaire</a></li>
+                  <li><a href="Diplomatique">Déménagement diplomatique</a></li>
+                  <li><a href="Stockage">Stockage &amp; garde-meuble</a></li>
                 </ul>
               </div>
               <div className="footer-col">
                 <h4>Le site</h4>
                 <ul>
-                  <li><a href="Les Bras Cassés.html">Accueil</a></li>
-                  <li><a href="Blog.html">Blog &amp; conseils</a></li>
-                  <li><a href="FAQ.html">Questions fréquentes</a></li>
-                  <li><a href="Checklist.html">Checklist déménagement</a></li>
-                  <li><a href="Devis.html">Devis gratuit</a></li>
-                  <li><a href="Les Bras Cassés.html#avis">Avis clients</a></li>
+                  <li><a href="/">Accueil</a></li>
+                  <li><a href="Blog">Blog &amp; conseils</a></li>
+                  <li><a href="FAQ">Questions fréquentes</a></li>
+                  <li><a href="Checklist">Checklist déménagement</a></li>
+                  <li><a href="Devis">Devis gratuit</a></li>
+                  <li><a href="/#avis">Avis clients</a></li>
                 </ul>
               </div>
               <div className="footer-col">
@@ -872,9 +872,9 @@ function Footer() {
               <div className="footer-col">
                 <h4>Légal</h4>
                 <ul>
-                  <li><a href="Mentions-legales.html">Mentions légales</a></li>
-                  <li><a href="Confidentialite.html">Confidentialité</a></li>
-                  <li><a href="CGV.html">CGV</a></li>
+                  <li><a href="Mentions-legales">Mentions légales</a></li>
+                  <li><a href="Confidentialite">Confidentialité</a></li>
+                  <li><a href="CGV">CGV</a></li>
                 </ul>
               </div>
             </div>

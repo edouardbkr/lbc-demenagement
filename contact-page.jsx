@@ -44,7 +44,7 @@ function ContactHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>CONTACT</span>
         </div>
@@ -80,7 +80,7 @@ function ContactInfo() {
         )}
       </dl>
       <p className="contact-quick">
-        Vous voulez un chiffrage complet ? Le <a href="Devis.html">formulaire de devis</a> prend deux minutes.
+        Vous voulez un chiffrage complet ? Le <a href="Devis">formulaire de devis</a> prend deux minutes.
       </p>
     </div>);
 

@@ -1,21 +1,21 @@
 // quartiers-page.jsx — Quartiers d'exception de la Côte d'Azur (Vieux-Nice en vedette)
 const QUARTIERS = [
-{ ville: "Nice", nom: "Le Carré d'Or", file: "Demenagement-Nice.html",
+{ ville: "Nice", nom: "Le Carré d'Or", file: "Demenagement-Nice",
   desc: "Le triangle chic de Nice, entre Masséna et la Promenade : immeubles bourgeois, boutiques de luxe, plafonds hauts.",
   defi: "Façades classées, ascenseurs anciens trop petits pour les meubles : le monte-meuble par la fenêtre est souvent la solution." },
-{ ville: "Nice", nom: "Cimiez", file: "Demenagement-Nice.html",
+{ ville: "Nice", nom: "Cimiez", file: "Demenagement-Nice",
   desc: "La colline aristocratique de Nice, ses palais Belle Époque, ses musées et ses villas sous les oliviers.",
   defi: "Accès en lacets, grandes demeures, mobilier ancien et œuvres d'art : protection renforcée et main experte." },
-{ ville: "Cannes", nom: "Le Suquet", file: "Demenagement-Cannes.html",
+{ ville: "Cannes", nom: "Le Suquet", file: "Demenagement-Cannes",
   desc: "Le vieux Cannes perché, ses ruelles en escaliers et sa vue sur la baie depuis le clocher.",
   defi: "Camion impossible jusqu'à la porte : portage à dos dans les escaliers et monte-meuble pour les volumes." },
-{ ville: "Monaco", nom: "Monte-Carlo", file: "Demenagement-Monaco.html",
+{ ville: "Monaco", nom: "Monte-Carlo", file: "Demenagement-Monaco",
   desc: "L'adresse la plus prestigieuse de la Riviera : tours résidentielles, palaces, mobilier d'exception.",
   defi: "Créneaux de régie, ascenseurs à réserver, discrétion absolue et assurance en valeur déclarée." },
-{ ville: "Antibes", nom: "Le Cap d'Antibes", file: "Demenagement-Antibes.html",
+{ ville: "Antibes", nom: "Le Cap d'Antibes", file: "Demenagement-Antibes",
   desc: "Presqu'île de villas mythiques entre pins et mer, l'une des adresses les plus rares de la côte.",
   defi: "Propriétés fermées, allées privées, biens de grande valeur : intervention sur mesure et confidentielle." },
-{ ville: "Cagnes-sur-Mer", nom: "Le Haut-de-Cagnes", file: "Demenagement-Cagnes-sur-Mer.html",
+{ ville: "Cagnes-sur-Mer", nom: "Le Haut-de-Cagnes", file: "Demenagement-Cagnes-sur-Mer",
   desc: "Village médiéval en colimaçon autour de son château, pavés et ruelles d'artistes suspendues.",
   defi: "Dédale pavé inaccessible aux camions : navette en petit véhicule, portage et monte-meuble." }];
 
@@ -25,7 +25,7 @@ function QHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Quartiers d'exception</span>
         </div>
@@ -49,8 +49,8 @@ function QVieuxNice() {
             <p>Déménager ici ne s'improvise pas. On réserve l'emplacement au plus près des accès autorisés, on protège les passages, et on porte — parfois sur plusieurs dizaines de mètres et quelques étages sans ascenseur. Pour les pianos, armoires et canapés, le <strong style={{ color: 'var(--ink)' }}>monte-meuble par la façade</strong> fait gagner des heures et évite la casse.</p>
             <p>Marché du cours Saleya le matin, terrasses l'après-midi, festivités le soir : on cale aussi votre déménagement sur les bons créneaux pour ne pas se retrouver coincés derrière les étals.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Demenagement-Nice.html" className="btn btn-primary">Déménagement à Nice<span className="arrow">→</span></a>
-              <a href="Devis.html" className="btn btn-ghost">Devis gratuit</a>
+              <a href="Demenagement-Nice" className="btn btn-primary">Déménagement à Nice<span className="arrow">→</span></a>
+              <a href="Devis" className="btn btn-ghost">Devis gratuit</a>
             </div>
           </div>
           <div className="reveal">

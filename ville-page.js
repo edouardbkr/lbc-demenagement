@@ -11,11 +11,11 @@ function VilleHero({
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("a", {
-    href: "Zones.html"
+    href: "Zones"
   }, "Zones desservies"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, c.name)), React.createElement("h1", null, "D\xE9m\xE9nagement \xE0 ", React.createElement("em", null, c.name)), React.createElement("p", {
@@ -59,12 +59,12 @@ function VilleIntro({
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis gratuit \xE0 ", c.name, React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-ghost"
   }, "Voir les formules"))), React.createElement("div", {
     className: "reveal"
@@ -198,7 +198,7 @@ function VilleFormules({
     }
   }, tiers.map((t, i) => React.createElement("a", {
     key: i,
-    href: "Formules.html",
+    href: "Formules",
     className: "article-card",
     style: {
       padding: 0

@@ -65,9 +65,9 @@ function ResaPage() {
         <section className="page-hero">
           <div className="wrap">
             <div className="breadcrumb">
-              <a href="Les Bras Cassés.html">Accueil</a>
+              <a href="/">Accueil</a>
               <span className="sep">/</span>
-              <a href="Stockage.html">Stockage</a>
+              <a href="Stockage">Stockage</a>
               <span className="sep">/</span>
               <span>Réserver</span>
             </div>
@@ -87,8 +87,8 @@ function ResaPage() {
                 <p>Votre <strong>box {box.size} ({box.surf})</strong> est bloqué. Référence&nbsp;: <strong>{ref}</strong>.</p>
                 <p className="ds-sub">Un récapitulatif part sur <strong>{data.email}</strong>. On vous appelle au {data.tel} pour fixer la date d'enlèvement.</p>
                 <div className="ds-actions">
-                  <a className="btn btn-primary" href="Les Bras Cassés.html">Retour à l'accueil<span className="arrow">→</span></a>
-                  <a className="btn btn-ghost" href="Stockage.html">Voir le service stockage</a>
+                  <a className="btn btn-primary" href="/">Retour à l'accueil<span className="arrow">→</span></a>
+                  <a className="btn btn-ghost" href="Stockage">Voir le service stockage</a>
                 </div>
               </div> :
 

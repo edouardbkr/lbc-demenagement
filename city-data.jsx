@@ -3,7 +3,7 @@
 
 const CITIES = {
   "nice": {
-    name: "Nice", file: "Demenagement-Nice.html", cp: "06000 – 06300", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Nice", file: "Demenagement-Nice", cp: "06000 – 06300", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Nice par des déménageurs nés ici : du Vieux-Nice à Cimiez, on connaît chaque rue. Devis gratuit sous 24h, prix ferme.",
     intro: "On est des déménageurs niçois, pas une enseigne nationale qui sous-traite au plus offrant. On a grandi entre la Promenade et les collines, et on connaît Nice rue par rue : les ruelles piétonnes du Vieux-Nice où le camion ne rentre pas, les immeubles bourgeois du Carré d'Or, les résidences perchées de Cimiez et de Gairaut, les tours de l'Arénas et de la plaine du Var. Chaque secteur a ses contraintes d'accès, de stationnement et d'étage : on les anticipe dès le devis, pour qu'il n'y ait aucune mauvaise surprise le jour J.",
     quartiers: ["Vieux-Nice", "Carré d'Or", "Cimiez", "Libération", "Le Port", "Riquier", "Nice Nord", "Fabron", "Magnan", "L'Ariane", "Gambetta", "Saint-Roch", "Gairaut", "Las Planas", "Saint-Isidore"],
@@ -29,7 +29,7 @@ const CITIES = {
     nearby: ["cagnes-sur-mer", "saint-laurent-du-var", "cannes", "monaco"]
   },
   "cannes": {
-    name: "Cannes", file: "Demenagement-Cannes.html", cp: "06400", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Cannes", file: "Demenagement-Cannes", cp: "06400", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Cannes : de La Croisette au Suquet en passant par La Bocca. On déménage hors des pics du Festival, devis gratuit sous 24h.",
     intro: "À Cannes, on déménage aussi bien un studio à La Bocca qu'un appartement de standing sur La Croisette ou une villa à La Californie. La ville a une particularité que peu de déménageurs maîtrisent : son calendrier. Entre le Festival du film, le MIPIM, les régates et les samedis estivaux, certaines semaines paralysent le centre et le bord de mer. On planifie votre déménagement hors de ces pics, on réserve l'emplacement camion en amont et on coordonne avec les syndics des résidences, pour vous éviter les blocages et les amendes.",
     quartiers: ["La Croisette", "Le Suquet", "La Bocca", "Carnot", "Palm Beach", "La Californie", "Pointe Croisette", "Le Cannet-Rocheville", "Prado-République", "La Ferrage", "Petit Juas"],
@@ -55,7 +55,7 @@ const CITIES = {
     nearby: ["mandelieu", "le-cannet", "antibes", "grasse"]
   },
   "antibes": {
-    name: "Antibes", file: "Demenagement-Antibes.html", cp: "06600", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Antibes", file: "Demenagement-Antibes", cp: "06600", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Antibes et Juan-les-Pins : du Vieil Antibes au Cap, de Port Vauban à la Fontonne. Devis gratuit sous 24h.",
     intro: "Antibes, c'est trois communes en une : la vieille ville fortifiée aux ruelles piétonnes, le Cap et ses villas d'exception, et Juan-les-Pins, station balnéaire saturée l'été. On adapte le camion, le portage et le planning à chacun de ces mondes. On gère aussi les accès particuliers d'Antibes : les abords de Port Vauban, le plus grand port de plaisance d'Europe, les résidences fermées de la Fontonne et des Semboules, et le mobilier de valeur fréquent au Cap d'Antibes.",
     quartiers: ["Vieil Antibes", "Cap d'Antibes", "Juan-les-Pins", "La Fontonne", "Les Semboules", "La Salis", "Port Vauban", "Les Combes", "La Croix-Rouge", "Le Ponteil", "Les Trois Moulins"],
@@ -81,7 +81,7 @@ const CITIES = {
     nearby: ["cannes", "cagnes-sur-mer", "nice"]
   },
   "monaco": {
-    name: "Monaco", file: "Demenagement-Monaco.html", cp: "98000", dept: "Principauté de Monaco", region: "cote",
+    name: "Monaco", file: "Demenagement-Monaco", cp: "98000", dept: "Principauté de Monaco", region: "cote",
     lede: "Déménagement à Monaco : Monte-Carlo, La Condamine, Fontvieille. Discrétion absolue, créneaux et ascenseurs gérés. Devis gratuit sous 24h.",
     intro: "Déménager à Monaco ne s'improvise pas. Circulation dense, immeubles de grande hauteur, ascenseurs et monte-charges à réserver, créneaux de livraison stricts imposés par les régies, stationnement minuté : c'est un déménagement qui se prépare comme un projet logistique. On coordonne en amont avec les syndics et les régies, on gère les autorisations de la Principauté, et on intervient avec discrétion, équipe réduite et expérimentée, pour le mobilier de prestige comme pour un studio d'employé frontalier.",
     quartiers: ["Monte-Carlo", "La Condamine", "Fontvieille", "Larvotto", "Jardin Exotique", "Les Moneghetti", "La Rousse", "Saint-Roman", "Les Spélugues"],
@@ -107,7 +107,7 @@ const CITIES = {
     nearby: ["menton", "nice"]
   },
   "menton": {
-    name: "Menton", file: "Demenagement-Menton.html", cp: "06500", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Menton", file: "Demenagement-Menton", cp: "06500", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Menton, la perle de la France : vieille ville en escaliers, villas de Garavan, frontière italienne. Devis gratuit sous 24h.",
     intro: "Menton est la ville la plus à l'est de la Côte d'Azur, à un jet de pierre de l'Italie, et elle grimpe. Sa vieille ville s'étage en escaliers jusqu'à la basilique, Garavan aligne ses villas en terrasses face à la frontière, et les quartiers du centre et du bord de mer concentrent immeubles et résidences. On connaît les contraintes de portage et de stationnement de chaque secteur, et on gère aussi les nombreux déménagements transfrontaliers vers Vintimille et la Riviera italienne.",
     quartiers: ["Vieille Ville", "Garavan", "Borrigo", "Careï", "Carnolès", "Les Sablettes", "Monti", "Le Centre", "Madone", "Val de Gorbio"],
@@ -133,7 +133,7 @@ const CITIES = {
     nearby: ["monaco", "nice"]
   },
   "grasse": {
-    name: "Grasse", file: "Demenagement-Grasse.html", cp: "06130", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Grasse", file: "Demenagement-Grasse", cp: "06130", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Grasse, capitale du parfum : vieille ville médiévale perchée, hameaux de l'arrière-pays. Devis gratuit sous 24h.",
     intro: "La vieille ville de Grasse, perchée et truffée de ruelles médiévales en forte pente, est un vrai défi pour tout déménageur qui ne la connaît pas. Mais Grasse, c'est aussi les quartiers résidentiels de Saint-Jacques et du Plan, et un arrière-pays de mas, de bastides et de hameaux dispersés (Magagnosc, Plascassier, Saint-Antoine). On intervient sur l'ensemble du territoire grassois avec le matériel adapté et une bonne dose d'expérience locale du dénivelé et des accès en lacets.",
     quartiers: ["Vieille Ville", "Saint-Jacques", "Le Plan", "Magagnosc", "Plascassier", "Saint-Antoine", "Les Aspres", "Le Petit Paris", "Saint-Claude", "La Paoute"],
@@ -159,7 +159,7 @@ const CITIES = {
     nearby: ["cannes", "le-cannet", "mandelieu"]
   },
   "cagnes-sur-mer": {
-    name: "Cagnes-sur-Mer", file: "Demenagement-Cagnes-sur-Mer.html", cp: "06800", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Cagnes-sur-Mer", file: "Demenagement-Cagnes-sur-Mer", cp: "06800", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Cagnes-sur-Mer : du village perché du Haut-de-Cagnes au front de mer du Cros. À deux pas de notre base niçoise. Devis sous 24h.",
     intro: "Cagnes-sur-Mer condense toute la Côte d'Azur sur une seule commune : un village médiéval perché (le Haut-de-Cagnes) aux ruelles pavées, un front de mer animé (le Cros-de-Cagnes) avec ses pêcheurs et ses restaurants, l'hippodrome, et des quartiers résidentiels modernes comme le Béal et les Vespins. On bascule du portage minutieux dans le vieux village au déménagement express en bord de mer selon l'adresse. Et comme on est basés juste à côté, à Nice, on intervient vite, à toute heure et pour tous les volumes.",
     quartiers: ["Haut-de-Cagnes", "Cros-de-Cagnes", "Le Béal", "Les Vespins", "Val Fleuri", "Les Bréguières", "Cagnes Centre", "Hippodrome", "Les Colettes", "Le Logis"],
@@ -185,7 +185,7 @@ const CITIES = {
     nearby: ["saint-laurent-du-var", "nice", "antibes"]
   },
   "le-cannet": {
-    name: "Le Cannet", file: "Demenagement-Le-Cannet.html", cp: "06110", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Le Cannet", file: "Demenagement-Le-Cannet", cp: "06110", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement au Cannet : Rocheville, vieux village cher à Bonnard, hauteurs de Cannes. Rues en pente maîtrisées, devis gratuit sous 24h.",
     intro: "Le Cannet domine Cannes depuis ses collines. La ville mêle trois ambiances : le vieux village pittoresque et perché, cher au peintre Bonnard, le quartier vivant et commerçant de Rocheville, et des résidences modernes étagées à flanc de colline. Sa particularité de déménagement, ce sont ses rues en pente et ses virages serrés, qui imposent souvent un camion bien dimensionné ou un transbordement. On connaît ces hauteurs cannettanes et on adapte le matériel à chaque accès.",
     quartiers: ["Rocheville", "Le Vieux Cannet", "Les Tourrades", "La Croix des Gardes", "L'Aubarède", "Le Cannet Centre", "Garibondy", "Cheval Blanc", "Les Mûriers"],
@@ -211,7 +211,7 @@ const CITIES = {
     nearby: ["cannes", "mandelieu", "grasse"]
   },
   "saint-laurent-du-var": {
-    name: "Saint-Laurent-du-Var", file: "Demenagement-Saint-Laurent-du-Var.html", cp: "06700", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Saint-Laurent-du-Var", file: "Demenagement-Saint-Laurent-du-Var", cp: "06700", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Saint-Laurent-du-Var : bord du Var, Cap 3000, port et bord de mer. À deux pas de notre base niçoise. Devis sous 24h.",
     intro: "Coincée entre Nice, Cagnes et l'aéroport, à l'embouchure du Var, Saint-Laurent-du-Var est un carrefour résidentiel et commercial qu'on connaît parfaitement : c'est quasiment notre arrière-cour. Du centre-ville aux quartiers pavillonnaires des Pugets, des résidences du bord de mer aux commerces de la zone Cap 3000 et du port, on intervient très vite et pour tous les profils, particuliers comme professionnels. La proximité de notre base niçoise rend les déménagements laurentins rapides et économiques.",
     quartiers: ["Centre-ville", "Les Pugets", "Tzanteleïna", "Bord de mer", "Le Point du Jour", "Les Vespins", "La Gare", "Montaleigne", "Les Iscles", "Le Plan"],
@@ -237,7 +237,7 @@ const CITIES = {
     nearby: ["nice", "cagnes-sur-mer", "cannes"]
   },
   "mandelieu": {
-    name: "Mandelieu-la-Napoule", file: "Demenagement-Mandelieu.html", cp: "06210", dept: "Alpes-Maritimes (06)", region: "cote",
+    name: "Mandelieu-la-Napoule", file: "Demenagement-Mandelieu", cp: "06210", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Mandelieu-la-Napoule : marinas de La Napoule, golfs, hauteurs du Capitou. Résidences principales et secondaires. Devis sous 24h.",
     intro: "Mandelieu-la-Napoule se vit entre l'eau et les collines. D'un côté, le port de plaisance, le château de La Napoule, les marinas et les résidences du bord de Siagne ; de l'autre, les golfs, le massif de l'Estérel et les maisons perchées du Capitou aux accès en lacets. C'est aussi la capitale locale de la résidence secondaire, ce qui implique beaucoup de déménagements saisonniers, partiels ou coordonnés à distance. On déménage particuliers et résidents à l'année comme propriétaires de passage, toute l'année.",
     quartiers: ["La Napoule", "Capitou", "Cottage", "Les Termes", "Minelle", "Le Centre", "La Siagne", "Les Marines", "Cannes-Marina", "L'Estérel"],

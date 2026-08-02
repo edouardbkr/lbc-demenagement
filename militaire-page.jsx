@@ -38,7 +38,7 @@ const MIL_DEEP = [
 { t: "Pris en charge ou indemnisé : on s'adapte", p: "Lors d'un changement de résidence commandé, votre déménagement peut être organisé à titre officiel ou indemnisé selon un barème, en fonction de votre statut et de l'organisme gestionnaire. Dans tous les cas, notre rôle est le même : vous remettre un devis conforme aux exigences administratives et, après la prestation, une facture et des attestations en règle pour votre dossier de prise en charge ou de remboursement. On ne décide pas de vos droits, mais on vous donne des pièces irréprochables pour les faire valoir." },
 { t: "Des délais qui ne se négocient pas", p: "Dans l'armée, une date d'affectation est un ordre, pas une suggestion. On le sait, et on cale le déménagement au cordeau : date de chargement, fenêtre de livraison, et garde-meuble relais si le logement de la nouvelle base ou la concession de logement n'est pas encore disponible. Vous prenez votre poste à l'heure, l'esprit dégagé, pendant qu'on s'occupe de la logistique. La ponctualité n'est pas une option, c'est notre engagement." },
 { t: "Outre-mer : le conditionnement maritime", p: "Une affectation aux Antilles, en Guyane, à La Réunion, à Mayotte ou en Polynésie, c'est une logistique à part. Le mobilier voyage par voie maritime, en caisses ou conteneurs, avec un conditionnement renforcé contre l'humidité et les manipulations portuaires, un inventaire valorisé et des délais d'acheminement à anticiper. On organise l'emballage, le transport jusqu'au port, l'embarquement et le suivi jusqu'à votre nouvelle affectation outre-mer." },
-{ t: "OTAN, ambassades, étranger", p: "Pour une affectation à l'étranger (état-major OTAN, mission, poste en ambassade), on gère le transport international, l'inventaire et les formalités douanières de bout en bout, avec une seule équipe du départ à l'arrivée. C'est le même savoir-faire que pour le <a href=\"Diplomatique.html\">personnel diplomatique</a>, et plus largement pour toute <a href=\"Mutations.html\">mutation professionnelle</a>." }];
+{ t: "OTAN, ambassades, étranger", p: "Pour une affectation à l'étranger (état-major OTAN, mission, poste en ambassade), on gère le transport international, l'inventaire et les formalités douanières de bout en bout, avec une seule équipe du départ à l'arrivée. C'est le même savoir-faire que pour le <a href=\"Diplomatique\">personnel diplomatique</a>, et plus largement pour toute <a href=\"Mutations\">mutation professionnelle</a>." }];
 
 
 const MIL_FAQ = [
@@ -55,7 +55,7 @@ function MilHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Déménagement militaire</span>
         </div>
@@ -78,8 +78,8 @@ function MilIntro() {
             <p className="lead">Dans l'armée, une mutation ne se discute pas, elle s'exécute. Et un <strong style={{ color: 'var(--ink)' }}>déménagement militaire</strong> ne s'improvise pas non plus : barèmes, justificatifs précis, délais imposés, et parfois l'outre-mer ou l'étranger au bout de la route. On connaît ces procédures, on parle le même langage que votre dossier de prise en charge, et on respecte vos délais au cordeau.</p>
             <p>Basés à Nice, on dessert toutes les garnisons de la région PACA, à commencer par <strong style={{ color: 'var(--ink)' }}>Toulon</strong>, premier port militaire d'Europe, ainsi que Draguignan, Hyères, Fréjus, Istres ou Orange. Devis conforme aux barèmes, justificatifs complets pour votre remboursement, coordination avec votre date d'affectation et garde-meuble en transition : vous avez une seule chose à faire, rejoindre votre poste. Quelle que soit la formule, du simple transport au clé en main, vous avez des déménageurs expérimentés, une assurance incluse et un interlocuteur unique.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis conforme sous 24h<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis conforme sous 24h<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">
@@ -93,7 +93,7 @@ function MilIntro() {
                 <div><strong style={{ color: 'var(--ink)' }}>Garnison n°1</strong> · Toulon</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
-                Aussi pour la <a href="Mutations.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>mutation professionnelle</a> et le <a href="Diplomatique.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>personnel diplomatique</a>.
+                Aussi pour la <a href="Mutations" style={{ color: 'var(--accent)', fontWeight: 600 }}>mutation professionnelle</a> et le <a href="Diplomatique" style={{ color: 'var(--accent)', fontWeight: 600 }}>personnel diplomatique</a>.
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@ function MilBases() {
           <h3>Déménagement militaire à Toulon</h3>
           <p>Premier port militaire d'Europe, Toulon concentre une grande part des mutations de la Marine nationale. On y déménage chaque mois : base navale, Préfecture maritime, quartiers du Mourillon et de Saint-Roch, logements de fonction et résidences. Stationnement, accès aux enceintes et créneaux : on connaît le terrain toulonnais et on cale tout au cordeau.</p>
           <div className="hero-ctas" style={{ marginTop: 24 }}>
-            <a href="Devis.html" className="btn btn-primary">Devis pour Toulon<span className="arrow">→</span></a>
+            <a href="Devis" className="btn btn-primary">Devis pour Toulon<span className="arrow">→</span></a>
           </div>
         </div>
         <div className="ap-values reveal-stagger" style={{ marginTop: 36 }}>

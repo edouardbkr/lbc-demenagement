@@ -48,7 +48,7 @@ const ARTICLES = [
         <p>Plus besoin d'attendre un rendez-vous physique. Une <strong>visite vidéo</strong> de quinze minutes suffit à un professionnel pour estimer votre volume au m³ près, repérer les meubles à démonter, anticiper les accès (étage, ascenseur, distance de portage) et chiffrer une formule adaptée. C'est rapide, gratuit, et bien plus fiable qu'un simple formulaire ou un estimateur en ligne, qui restent une première approche utile mais approximative.</p>
 
         <h2>Du volume au devis ferme</h2>
-        <p>Une fois le volume connu, le reste s'enchaîne : taille du camion, nombre de déménageurs, durée et formule. Chez nous, ce volume débouche sur un <strong>devis détaillé et ferme</strong> : le prix annoncé est le prix payé, sans supplément le jour J. Faites une première estimation avec notre <a href="Devis.html">formulaire de devis gratuit</a>, et on affine ensemble par visite vidéo si besoin. Pour préparer la suite, notre <a href="Checklist.html">checklist de déménagement</a> vous évite les oublis classiques.</p>
+        <p>Une fois le volume connu, le reste s'enchaîne : taille du camion, nombre de déménageurs, durée et formule. Chez nous, ce volume débouche sur un <strong>devis détaillé et ferme</strong> : le prix annoncé est le prix payé, sans supplément le jour J. Faites une première estimation avec notre <a href="Devis">formulaire de devis gratuit</a>, et on affine ensemble par visite vidéo si besoin. Pour préparer la suite, notre <a href="Checklist">checklist de déménagement</a> vous évite les oublis classiques.</p>
       </React.Fragment>
     )
   },
@@ -90,7 +90,7 @@ const ARTICLES = [
         </ul>
 
         <h2>Local, longue distance ou garde-meuble</h2>
-        <p>Que vous bougiez d'un quartier à l'autre, que vous quittiez Nice pour <a href="Demenagement-Nice-Paris.html">Paris</a> ou l'étranger, ou que vous ayez besoin d'un <a href="Stockage.html">garde-meuble</a> entre deux logements, la préparation reste la même : anticiper les accès et les autorisations. Découvrez le détail de nos services sur la page <a href="Demenagement-Nice.html">déménagement à Nice</a>, ou demandez directement un <a href="Devis.html">devis gratuit sous 24h</a>. Un déménagement réussi à Nice, c'est 80 % de préparation et 20 % de muscles.</p>
+        <p>Que vous bougiez d'un quartier à l'autre, que vous quittiez Nice pour <a href="Demenagement-Nice-Paris">Paris</a> ou l'étranger, ou que vous ayez besoin d'un <a href="Stockage">garde-meuble</a> entre deux logements, la préparation reste la même : anticiper les accès et les autorisations. Découvrez le détail de nos services sur la page <a href="Demenagement-Nice">déménagement à Nice</a>, ou demandez directement un <a href="Devis">devis gratuit sous 24h</a>. Un déménagement réussi à Nice, c'est 80 % de préparation et 20 % de muscles.</p>
       </React.Fragment>
     )
   },
@@ -138,7 +138,7 @@ const ARTICLES = [
           <li>Le démontage, le remontage et la protection sont-ils inclus dans la formule ?</li>
           <li>L'autorisation de stationnement est-elle prise en charge ?</li>
         </ul>
-        <p>Un professionnel répond sans hésiter, et le met par écrit. C'est exactement l'esprit de nos <a href="Formules.html">formules</a> : un devis clair, une assurance incluse et des déménageurs déclarés. Pour aller plus loin, notre <a href="FAQ.html">FAQ</a> répond aux questions les plus fréquentes, et vous pouvez demander un <a href="Devis.html">devis gratuit sous 24h</a> pour comparer en toute connaissance de cause.</p>
+        <p>Un professionnel répond sans hésiter, et le met par écrit. C'est exactement l'esprit de nos <a href="Formules">formules</a> : un devis clair, une assurance incluse et des déménageurs déclarés. Pour aller plus loin, notre <a href="FAQ">FAQ</a> répond aux questions les plus fréquentes, et vous pouvez demander un <a href="Devis">devis gratuit sous 24h</a> pour comparer en toute connaissance de cause.</p>
       </React.Fragment>
     )
   },
@@ -168,7 +168,7 @@ const ARTICLES = [
           <li><strong>La livraison et l'installation à Paris</strong> : une demi-journée à une journée (déchargement, remontage, mise en place).</li>
         </ul>
         <h3>Les scénarios selon la formule</h3>
-        <p>En formule <a href="Formules.html">Coup de main</a>, où vous gérez vos cartons, le déménagement se concentre souvent sur <strong>2 jours</strong> : chargement le jour 1, route et livraison le lendemain. En <strong>Mains libres</strong> ou <strong>Mains dans les poches</strong>, où l'on emballe et déballe, comptez plutôt <strong>2 à 3 jours</strong> au total, emballage et installation compris. En <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire.</p>
+        <p>En formule <a href="Formules">Coup de main</a>, où vous gérez vos cartons, le déménagement se concentre souvent sur <strong>2 jours</strong> : chargement le jour 1, route et livraison le lendemain. En <strong>Mains libres</strong> ou <strong>Mains dans les poches</strong>, où l'on emballe et déballe, comptez plutôt <strong>2 à 3 jours</strong> au total, emballage et installation compris. En <a href="Demenagement-Nice-Paris">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire.</p>
 
         <h2>Camion dédié ou groupage : la différence qui change tout</h2>
         <p>C'est le point que beaucoup découvrent trop tard. Deux modèles s'opposent :</p>
@@ -190,10 +190,10 @@ const ARTICLES = [
           <li><strong>La saison et la date</strong> : juin à septembre, fins de mois et week-ends sont plus demandés, donc plus tendus.</li>
           <li><strong>Les options</strong> : garde-meuble relais, démontage/remontage, emballage des fragiles, assurance en valeur déclarée.</li>
         </ul>
-        <p>Pour un chiffrage personnalisé et <strong>ferme</strong> (le prix annoncé est le prix payé), le plus fiable reste le <a href="Devis.html">devis gratuit</a>, affiné si besoin par une courte visite vidéo. Pour comprendre comment bien estimer votre volume, lisez aussi notre article <a href="Article.html?a=estimer-volume">estimer le volume de votre déménagement</a>.</p>
+        <p>Pour un chiffrage personnalisé et <strong>ferme</strong> (le prix annoncé est le prix payé), le plus fiable reste le <a href="Devis">devis gratuit</a>, affiné si besoin par une courte visite vidéo. Pour comprendre comment bien estimer votre volume, lisez aussi notre article <a href="Article?a=estimer-volume">estimer le volume de votre déménagement</a>.</p>
 
         <h2>Au départ de Nice : les contraintes à anticiper</h2>
-        <p>Avant même la route, le chargement niçois a ses règles. Selon votre quartier (ruelles du Vieux-Nice, immeubles du Carré d'Or, hauteurs de Cimiez), il faut réserver un emplacement de stationnement auprès de la Ville de Nice, prévoir le portage ou le monte-meuble, et charger de préférence tôt le matin pour éviter la chaleur estivale et la circulation du bord de mer. On détaille tout cela dans notre guide <a href="Demenagement-Nice.html">déménager à Nice</a>.</p>
+        <p>Avant même la route, le chargement niçois a ses règles. Selon votre quartier (ruelles du Vieux-Nice, immeubles du Carré d'Or, hauteurs de Cimiez), il faut réserver un emplacement de stationnement auprès de la Ville de Nice, prévoir le portage ou le monte-meuble, et charger de préférence tôt le matin pour éviter la chaleur estivale et la circulation du bord de mer. On détaille tout cela dans notre guide <a href="Demenagement-Nice">déménager à Nice</a>.</p>
 
         <h2>À l'arrivée à Paris : le vrai défi</h2>
         <p>Sur un Nice-Paris, le défi n'est pas la route, c'est l'arrivée. Paris impose ses règles, et les ignorer coûte cher en temps et en amendes :</p>
@@ -205,10 +205,10 @@ const ARTICLES = [
         <p>Intra-muros, le stationnement est minuté, certaines rues sont étroites ou à sens unique, et un gros porteur n'accède pas partout : on transborde parfois avec un véhicule plus maniable. En proche couronne, plus de place mais des trajets de portage parfois longs. On adapte le véhicule et la méthode à votre adresse exacte.</p>
 
         <h2>L'organisation du jour J, des deux côtés</h2>
-        <p>Au départ de Nice, on charge tôt, on protège et on cale pour la longue route. Sur place à Paris, on décharge sur le créneau réservé, on remonte les meubles démontés et on installe. Avec une équipe dédiée, ce sont les <strong>mêmes déménageurs du premier au dernier carton</strong> : aucune dilution de responsabilité, aucun transbordement. Pour un déroulé pas-à-pas complet, voyez notre <a href="Article.html?a=demenagement-nice-paris-reussir">guide pour réussir son Nice-Paris</a>.</p>
+        <p>Au départ de Nice, on charge tôt, on protège et on cale pour la longue route. Sur place à Paris, on décharge sur le créneau réservé, on remonte les meubles démontés et on installe. Avec une équipe dédiée, ce sont les <strong>mêmes déménageurs du premier au dernier carton</strong> : aucune dilution de responsabilité, aucun transbordement. Pour un déroulé pas-à-pas complet, voyez notre <a href="Article?a=demenagement-nice-paris-reussir">guide pour réussir son Nice-Paris</a>.</p>
 
         <h2>Le garde-meuble relais entre les deux</h2>
-        <p>Les dates de départ et d'arrivée coïncident rarement à la perfection : un bail qui se termine avant que l'autre commence, des travaux, une vente qui traîne. Le <a href="Stockage.html">garde-meuble</a> en box sécurisé fait le pont, à Nice avant le départ ou à l'arrivée, le temps qu'il faut, vos affaires protégées et assurées.</p>
+        <p>Les dates de départ et d'arrivée coïncident rarement à la perfection : un bail qui se termine avant que l'autre commence, des travaux, une vente qui traîne. Le <a href="Stockage">garde-meuble</a> en box sécurisé fait le pont, à Nice avant le départ ou à l'arrivée, le temps qu'il faut, vos affaires protégées et assurées.</p>
 
         <h2>Les erreurs les plus fréquentes</h2>
         <ul>
@@ -229,7 +229,7 @@ const ARTICLES = [
         <h3>Et si je déménage juste un studio ?</h3>
         <p>Le trajet reste possible et chiffré au plus juste selon votre petit volume. La formule Coup de main est souvent la plus adaptée pour un studio.</p>
 
-        <p>Pour passer à l'action, consultez la page <a href="Demenagement-Nice-Paris.html">déménagement Nice → Paris</a>, lisez notre <a href="Article.html?a=demenagement-nice-paris-reussir">guide complet pour réussir son Nice-Paris</a>, et demandez votre <a href="Devis.html">devis gratuit sous 24h</a> : on s'occupe de tout, du premier carton niçois à la dernière étagère parisienne.</p>
+        <p>Pour passer à l'action, consultez la page <a href="Demenagement-Nice-Paris">déménagement Nice → Paris</a>, lisez notre <a href="Article?a=demenagement-nice-paris-reussir">guide complet pour réussir son Nice-Paris</a>, et demandez votre <a href="Devis">devis gratuit sous 24h</a> : on s'occupe de tout, du premier carton niçois à la dernière étagère parisienne.</p>
       </React.Fragment>
     )
   },
@@ -265,7 +265,7 @@ const ARTICLES = [
           <li><strong>Mains libres</strong> — on protège, on emballe les fragiles, on démonte et on remonte. Le bon compromis pour un déménagement serein sans se fatiguer.</li>
           <li><strong>Mains dans les poches</strong> — on s'occupe de tout, de l'emballage de la dernière assiette au remontage à l'arrivée. Pour les agendas chargés et les biens précieux.</li>
         </ul>
-        <p>Le détail et le comparatif sont sur la page <a href="Formules.html">nos formules</a>.</p>
+        <p>Le détail et le comparatif sont sur la page <a href="Formules">nos formules</a>.</p>
 
         <h2>Trier et alléger avant 930 km</h2>
         <p>C'est l'étape la plus rentable. Sur un long trajet, transporter ce dont on ne se sert plus coûte cher pour rien. Triez par catégorie : ce que vous gardez, ce que vous vendez (meubles en bon état, électroménager), ce que vous donnez (associations, plateformes) et ce que vous jetez ou recyclez (déchèterie pour l'encombrant). Les meubles en kit fatigués supportent mal la route : il est souvent plus malin de les remplacer à l'arrivée que de les transporter.</p>
@@ -279,7 +279,7 @@ const ARTICLES = [
           <li><strong>Les écrans et l'électronique</strong> dans leur boîte d'origine si possible, sinon bien protégés et signalés « fragile ».</li>
           <li><strong>Étiquetez chaque carton par pièce de destination</strong> et notez son contenu : le déchargement à Paris en sera transformé.</li>
         </ul>
-        <p>En formule <a href="Formules.html">Mains libres ou Mains dans les poches</a>, l'équipe s'occupe de tout l'emballage, avec un matériel professionnel.</p>
+        <p>En formule <a href="Formules">Mains libres ou Mains dans les poches</a>, l'équipe s'occupe de tout l'emballage, avec un matériel professionnel.</p>
         <blockquote>Sur un long trajet, la qualité du chargement compte autant que la conduite. Entre Nice et Paris, rien ne doit bouger dans le camion.</blockquote>
 
         <h2>Démontage, remontage et protection des meubles</h2>
@@ -296,13 +296,13 @@ const ARTICLES = [
         </ul>
 
         <h2>Le jour du départ à Nice</h2>
-        <p>On charge tôt, pour éviter la chaleur estivale et la circulation du bord de mer. L'équipe protège les derniers meubles, sort les cartons selon l'accès (escalier, ascenseur, monte-meuble), et arrime tout dans le camion. Gardez avec vous une « valise de survie » et vos documents importants : ils ne partent pas dans le camion. Selon votre quartier, l'emplacement de stationnement a été réservé en amont (voyez notre guide <a href="Demenagement-Nice.html">déménager à Nice</a>).</p>
+        <p>On charge tôt, pour éviter la chaleur estivale et la circulation du bord de mer. L'équipe protège les derniers meubles, sort les cartons selon l'accès (escalier, ascenseur, monte-meuble), et arrime tout dans le camion. Gardez avec vous une « valise de survie » et vos documents importants : ils ne partent pas dans le camion. Selon votre quartier, l'emplacement de stationnement a été réservé en amont (voyez notre guide <a href="Demenagement-Nice">déménager à Nice</a>).</p>
 
         <h2>Sur la route</h2>
         <p>Une journée de transport sépare les deux villes. En camion dédié, vos affaires ne s'arrêtent pas en entrepôt et ne sont pas transbordées : elles roulent en direct, sous la responsabilité de la même équipe, vers une fenêtre d'arrivée annoncée.</p>
 
         <h2>Le jour de l'arrivée à Paris</h2>
-        <p>On décharge sur le créneau de stationnement réservé, on monte par l'escalier, l'ascenseur ou le monte-meuble selon l'immeuble, on remonte les meubles démontés et on installe pièce par pièce. Avec une <a href="Demenagement-Nice-Paris.html">équipe dédiée Nice-Paris</a>, ce sont les mêmes déménageurs du premier au dernier carton : aucun transbordement, aucune dilution de responsabilité.</p>
+        <p>On décharge sur le créneau de stationnement réservé, on monte par l'escalier, l'ascenseur ou le monte-meuble selon l'immeuble, on remonte les meubles démontés et on installe pièce par pièce. Avec une <a href="Demenagement-Nice-Paris">équipe dédiée Nice-Paris</a>, ce sont les mêmes déménageurs du premier au dernier carton : aucun transbordement, aucune dilution de responsabilité.</p>
 
         <h2>L'installation et la boîte « première nuit »</h2>
         <p>Gardez une boîte « première nuit » accessible et clairement identifiée : draps, oreillers, trousse de toilette, chargeurs, cafetière, quelques couverts, papier toilette, une lampe. C'est le petit secret qui transforme une première soirée parisienne épuisante en simple emménagement. Déballez d'abord la cuisine et les chambres ; le salon et la déco peuvent attendre le week-end.</p>
@@ -322,9 +322,9 @@ const ARTICLES = [
         <h3>Faut-il vider les meubles et tiroirs ?</h3>
         <p>Oui, on déménage les meubles vides : c'est plus sûr pour eux et plus sécurisé au portage. Les vêtements peuvent rester dans certaines commodes légères, à voir avec l'équipe.</p>
         <h3>Puis-je laisser des affaires en garde-meuble ?</h3>
-        <p>Oui, le <a href="Stockage.html">garde-meuble</a> relais est idéal si vos dates ne coïncident pas ou si votre logement parisien est plus petit.</p>
+        <p>Oui, le <a href="Stockage">garde-meuble</a> relais est idéal si vos dates ne coïncident pas ou si votre logement parisien est plus petit.</p>
 
-        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article.html?a=demenagement-nice-paris-prix-delais">Nice → Paris : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis.html">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
+        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article?a=demenagement-nice-paris-prix-delais">Nice → Paris : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
       </React.Fragment>
     )
   },
@@ -370,7 +370,7 @@ const ARTICLES = [
           <li><strong>Île d'Oléron</strong> — reliée par le viaduc, sans péage, mais avec là aussi une forte affluence estivale à anticiper.</li>
           <li><strong>Île d'Aix</strong> — accessible uniquement par bateau : la logistique du bac, les horaires et les marées font partie intégrante du planning.</li>
         </ul>
-        <p>Tout cela s'intègre au devis dès le départ pour livrer sans accroc, même au bout d'une route de sel. On détaille ces services sur la page <a href="Demenagement-La-Rochelle.html">déménagement à La Rochelle</a>.</p>
+        <p>Tout cela s'intègre au devis dès le départ pour livrer sans accroc, même au bout d'une route de sel. On détaille ces services sur la page <a href="Demenagement-La-Rochelle">déménagement à La Rochelle</a>.</p>
 
         <h2>Quand déménager à La Rochelle</h2>
         <p>Le calendrier compte. L'<strong>été</strong> est à double tranchant : météo idéale, mais ville et îles saturées de touristes, stationnement difficile et accès aux îles engorgé. La <strong>rentrée</strong> concentre les déménagements étudiants autour des Minimes. Si votre calendrier le permet, un jour de semaine hors haute saison est plus fluide et plus disponible. Pour les îles, évitez juillet-août autant que possible.</p>
@@ -384,12 +384,12 @@ const ARTICLES = [
         <h2>À chaque profil sa formule</h2>
         <p>La Rochelle voit déménager des profils très variés, et chacun a sa solution :</p>
         <ul>
-          <li><strong>Étudiants</strong> — un studio aux Minimes se gère vite et à petit budget en formule <a href="Formules.html">Coup de main</a>, surtout à la rentrée.</li>
+          <li><strong>Étudiants</strong> — un studio aux Minimes se gère vite et à petit budget en formule <a href="Formules">Coup de main</a>, surtout à la rentrée.</li>
           <li><strong>Familles</strong> — une maison rochelaise en pierre demande plutôt une formule complète, avec démontage, protection et remontage.</li>
           <li><strong>Plaisanciers et résidences secondaires</strong> — déménagements partiels, mises en garde-meuble saisonnières, coordination à distance.</li>
           <li><strong>Retraités</strong> — emballage soigné du mobilier ancien, accompagnement à chaque étape.</li>
         </ul>
-        <p>Le <a href="Stockage.html">garde-meuble</a> en box sécurisé est précieux entre deux logements, pour une résidence secondaire ou un décalage de dates sur une longue distance.</p>
+        <p>Le <a href="Stockage">garde-meuble</a> en box sécurisé est précieux entre deux logements, pour une résidence secondaire ou un décalage de dates sur une longue distance.</p>
 
         <h2>Questions fréquentes</h2>
         <h3>Le camion accède-t-il au centre historique ?</h3>
@@ -399,7 +399,7 @@ const ARTICLES = [
         <h3>Faites-vous les petits déménagements étudiants ?</h3>
         <p>Bien sûr : c'est fréquent vu l'université. On gère les studios et petits volumes à un tarif honnête, idéalement réservés tôt en période de rentrée.</p>
 
-        <p>Pour le détail des services, voyez notre page dédiée <a href="Demenagement-La-Rochelle.html">déménagement à La Rochelle</a>, et demandez votre <a href="Devis.html">devis gratuit sous 24h</a> : on s'occupe de tout, du Vieux-Port jusqu'aux îles.</p>
+        <p>Pour le détail des services, voyez notre page dédiée <a href="Demenagement-La-Rochelle">déménagement à La Rochelle</a>, et demandez votre <a href="Devis">devis gratuit sous 24h</a> : on s'occupe de tout, du Vieux-Port jusqu'aux îles.</p>
       </React.Fragment>
     )
   },
@@ -416,10 +416,10 @@ const ARTICLES = [
         <p className="lead-p">Partir vivre à l'étranger depuis la Côte d'Azur est plus simple qu'il n'y paraît, à condition d'anticiper. Voici l'essentiel du <strong>déménagement international depuis Nice</strong> vers la Suisse, l'Italie, l'Espagne et le Benelux : formalités, douanes, délais et bons réflexes.</p>
 
         <h2>Union européenne : la libre circulation simplifie tout</h2>
-        <p>Vers l'Italie (<a href="Demenagement-Nice-Milan.html">Milan</a>, <a href="Demenagement-Nice-Turin.html">Turin</a>), l'Espagne (<a href="Demenagement-Nice-Barcelone.html">Barcelone</a>, <a href="Demenagement-Nice-Madrid.html">Madrid</a>) ou le Benelux (<a href="Demenagement-Nice-Bruxelles.html">Bruxelles</a>, <a href="Demenagement-Nice-Luxembourg.html">Luxembourg</a>), pas de douane pour vos biens personnels : la libre circulation s'applique. Un inventaire détaillé suffit. Le vrai enjeu, c'est la logistique du trajet, l'accès à l'arrivée (escaliers étroits à Bruxelles, ascenseurs minuscules à Barcelone, cours intérieures à Milan) et le respect des délais.</p>
+        <p>Vers l'Italie (<a href="Demenagement-Nice-Milan">Milan</a>, <a href="Demenagement-Nice-Turin">Turin</a>), l'Espagne (<a href="Demenagement-Nice-Barcelone">Barcelone</a>, <a href="Demenagement-Nice-Madrid">Madrid</a>) ou le Benelux (<a href="Demenagement-Nice-Bruxelles">Bruxelles</a>, <a href="Demenagement-Nice-Luxembourg">Luxembourg</a>), pas de douane pour vos biens personnels : la libre circulation s'applique. Un inventaire détaillé suffit. Le vrai enjeu, c'est la logistique du trajet, l'accès à l'arrivée (escaliers étroits à Bruxelles, ascenseurs minuscules à Barcelone, cours intérieures à Milan) et le respect des délais.</p>
 
         <h2>Suisse : un pays hors UE, des formalités en plus</h2>
-        <p>Vers <a href="Demenagement-Nice-Geneve.html">Genève</a> ou <a href="Demenagement-Nice-Lausanne.html">Lausanne</a>, la Suisse n'étant pas dans l'Union européenne, vos effets personnels passent la douane. Il faut un <strong>inventaire détaillé et valorisé</strong> et le formulaire 18.44 (effets de déménagement), généralement exonéré de droits si vous transférez votre résidence principale. Rien d'insurmontable : un déménageur habitué prépare ce dossier avec vous et vous guide ligne par ligne.</p>
+        <p>Vers <a href="Demenagement-Nice-Geneve">Genève</a> ou <a href="Demenagement-Nice-Lausanne">Lausanne</a>, la Suisse n'étant pas dans l'Union européenne, vos effets personnels passent la douane. Il faut un <strong>inventaire détaillé et valorisé</strong> et le formulaire 18.44 (effets de déménagement), généralement exonéré de droits si vous transférez votre résidence principale. Rien d'insurmontable : un déménageur habitué prépare ce dossier avec vous et vous guide ligne par ligne.</p>
         <blockquote>La clé d'un déménagement international réussi, c'est l'inventaire : précis, valorisé, et conforme aux attentes de la douane comme de l'assurance.</blockquote>
 
         <h2>Camion dédié contre groupage</h2>
@@ -433,7 +433,7 @@ const ARTICLES = [
           <li><strong>Pensez au garde-meuble relais</strong> — utile si votre logement à l'étranger n'est pas prêt le jour du départ.</li>
           <li><strong>Renseignez les formalités locales</strong> — inscription consulaire, contrats d'énergie, équivalences administratives.</li>
         </ul>
-        <p>Pour un chiffrage précis vers votre destination, demandez un <a href="Devis.html">devis international gratuit</a> : on s'occupe du transport, des formalités douanières et du suivi jusqu'à la porte d'arrivée. Découvrez aussi nos <a href="Zones.html">destinations et trajets</a> depuis Nice.</p>
+        <p>Pour un chiffrage précis vers votre destination, demandez un <a href="Devis">devis international gratuit</a> : on s'occupe du transport, des formalités douanières et du suivi jusqu'à la porte d'arrivée. Découvrez aussi nos <a href="Zones">destinations et trajets</a> depuis Nice.</p>
       </React.Fragment>
     )
   },
@@ -450,10 +450,10 @@ const ARTICLES = [
         <p className="lead-p">Toutes les adresses ne se déménagent pas de la même façon. Sur la Côte d'Azur, certaines villes et quartiers imposent des <strong>démarches spéciales</strong> : autorisations administratives, créneaux imposés, monte-meuble, coordination avec une régie. Bonne nouvelle : ce sont précisément ces cas qu'un déménageur local gère pour vous.</p>
 
         <h2>Monaco : la logistique du prestige</h2>
-        <p>Déménager à <a href="Demenagement-Monaco.html">Monaco</a> se prépare comme un projet : créneaux imposés par la régie d'immeuble, réservation d'ascenseurs et de monte-charges, autorisations d'accès et stationnement strictement minuté sur un territoire dense. On prépare l'intervention en amont avec la régie, avec une équipe réduite et expérimentée, dans la plus grande discrétion, pour le mobilier de prestige comme pour un studio.</p>
+        <p>Déménager à <a href="Demenagement-Monaco">Monaco</a> se prépare comme un projet : créneaux imposés par la régie d'immeuble, réservation d'ascenseurs et de monte-charges, autorisations d'accès et stationnement strictement minuté sur un territoire dense. On prépare l'intervention en amont avec la régie, avec une équipe réduite et expérimentée, dans la plus grande discrétion, pour le mobilier de prestige comme pour un studio.</p>
 
         <h2>Les centres historiques piétons</h2>
-        <p>Vieux-Nice, <a href="Demenagement-Cannes.html">Le Suquet à Cannes</a>, vieille ville de <a href="Demenagement-Menton.html">Menton</a> ou de <a href="Demenagement-Grasse.html">Grasse</a> : ruelles inaccessibles au camion, escaliers, pavés, fortes pentes. La solution combine emplacement réservé au plus près, portage maîtrisé, véhicule relais plus maniable et <strong>monte-meuble par la façade</strong> quand l'escalier ne passe pas. Chaque vieille ville a sa logique, qu'on connaît.</p>
+        <p>Vieux-Nice, <a href="Demenagement-Cannes">Le Suquet à Cannes</a>, vieille ville de <a href="Demenagement-Menton">Menton</a> ou de <a href="Demenagement-Grasse">Grasse</a> : ruelles inaccessibles au camion, escaliers, pavés, fortes pentes. La solution combine emplacement réservé au plus près, portage maîtrisé, véhicule relais plus maniable et <strong>monte-meuble par la façade</strong> quand l'escalier ne passe pas. Chaque vieille ville a sa logique, qu'on connaît.</p>
         <blockquote>Une autorisation de stationnement oubliée, c'est une amende et des cartons portés sur cent mètres. On la demande pour vous, systématiquement.</blockquote>
 
         <h2>Immeubles classés, villas perchées, accès complexes</h2>
@@ -465,7 +465,7 @@ const ARTICLES = [
         </ul>
 
         <h2>Notre rôle : tout anticiper dès le devis</h2>
-        <p>On repère les contraintes à la visite ou via les informations d'accès du <a href="Devis.html">formulaire de devis</a>, on commande le bon matériel (monte-meuble, protections, véhicule adapté) et on effectue les démarches administratives. Vous n'avez ni autorisation à courir, ni mauvaise surprise le jour J. Pour les adresses d'exception, voyez aussi notre page <a href="Quartiers.html">Quartiers d'exception</a> et nos <a href="Zones.html">zones desservies</a>.</p>
+        <p>On repère les contraintes à la visite ou via les informations d'accès du <a href="Devis">formulaire de devis</a>, on commande le bon matériel (monte-meuble, protections, véhicule adapté) et on effectue les démarches administratives. Vous n'avez ni autorisation à courir, ni mauvaise surprise le jour J. Pour les adresses d'exception, voyez aussi notre page <a href="Quartiers">Quartiers d'exception</a> et nos <a href="Zones">zones desservies</a>.</p>
       </React.Fragment>
     )
   },
@@ -487,7 +487,7 @@ const ARTICLES = [
         <h2>Les quartiers étudiants et leurs pièges</h2>
         <ul>
           <li><strong>Valrose &amp; Saint-Maurice</strong> — près des facs, mais rues en pente et petits immeubles sans ascenseur.</li>
-          <li><strong>Le centre &amp; Jean-Médecin</strong> — pratique et central, mais stationnement compliqué : <a href="Demenagement-Nice.html">autorisation de voirie</a> recommandée.</li>
+          <li><strong>Le centre &amp; Jean-Médecin</strong> — pratique et central, mais stationnement compliqué : <a href="Demenagement-Nice">autorisation de voirie</a> recommandée.</li>
           <li><strong>Le Port &amp; Riquier</strong> — colocations prisées, accès parfois étroits, escaliers anciens.</li>
           <li><strong>Saint-Roch &amp; Libération</strong> — bons plans loyer, immeubles résidentiels, accès en général plus simples.</li>
         </ul>
@@ -498,12 +498,12 @@ const ARTICLES = [
         <ul>
           <li><strong>Triez avant</strong> — les meubles fatigués ne valent pas le transport, donnez ou vendez.</li>
           <li><strong>Regroupez</strong> — si un ami déménage la même semaine, mutualiser le déplacement peut tout changer.</li>
-          <li><strong>Choisissez la bonne formule</strong> — en <a href="Formules.html">Coup de main</a>, vous emballez et on porte et transporte. Pour les meubles encombrants ou un étage sans ascenseur, on s'occupe du muscle.</li>
+          <li><strong>Choisissez la bonne formule</strong> — en <a href="Formules">Coup de main</a>, vous emballez et on porte et transporte. Pour les meubles encombrants ou un étage sans ascenseur, on s'occupe du muscle.</li>
         </ul>
 
         <h2>Garde-meuble entre deux années</h2>
-        <p>Vous rentrez chez vos parents l'été mais gardez le logement l'an prochain ? Le <a href="Stockage.html">garde-meuble en box sécurisé</a> évite de tout trimballer deux fois et de payer un déménagement aller-retour. C'est souvent plus malin, et moins cher, qu'un loyer de vide pendant deux mois.</p>
-        <p>Bref, même un petit déménagement mérite un vrai pro : c'est rapide, sécurisé et étonnamment abordable. Demandez un <a href="Devis.html">devis gratuit sous 24h</a> et gardez votre énergie pour vos partiels.</p>
+        <p>Vous rentrez chez vos parents l'été mais gardez le logement l'an prochain ? Le <a href="Stockage">garde-meuble en box sécurisé</a> évite de tout trimballer deux fois et de payer un déménagement aller-retour. C'est souvent plus malin, et moins cher, qu'un loyer de vide pendant deux mois.</p>
+        <p>Bref, même un petit déménagement mérite un vrai pro : c'est rapide, sécurisé et étonnamment abordable. Demandez un <a href="Devis">devis gratuit sous 24h</a> et gardez votre énergie pour vos partiels.</p>
       </React.Fragment>
     )
   }

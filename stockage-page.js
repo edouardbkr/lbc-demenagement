@@ -147,7 +147,7 @@ function StockHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Stockage & garde-meuble")), React.createElement("h1", null, "Vos affaires au chaud, ", React.createElement("em", null, "le temps qu'il vous faut.")), React.createElement("p", {
@@ -188,12 +188,12 @@ function StockIntro() {
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis stockage sous 24h", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Reservation.html",
+    href: "Reservation",
     className: "btn btn-ghost"
   }, "R\xE9server un box"))), React.createElement("div", {
     className: "reveal"
@@ -247,7 +247,7 @@ function StockIntro() {
       lineHeight: 1.5
     }
   }, "Archives d'entreprise ? Voir aussi l'", React.createElement("a", {
-    href: "Archivage.html",
+    href: "Archivage",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
@@ -356,7 +356,7 @@ function StockOffers() {
   }, o.boxes), React.createElement("p", {
     className: "stock-ex"
   }, o.ex), React.createElement("a", {
-    href: "Reservation.html?box=" + encodeURIComponent(o.size),
+    href: "Reservation?box=" + encodeURIComponent(o.size),
     className: "btn btn-ghost stock-cta"
   }, "R\xE9server ce box")))), React.createElement("p", {
     className: "hint",

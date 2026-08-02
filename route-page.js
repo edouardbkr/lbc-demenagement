@@ -27,7 +27,7 @@ function RHero({
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, r.intl ? "International" : "Longue distance")), React.createElement("h1", null, "D\xE9m\xE9nagement ", React.createElement("em", null, r.from, " \u2192 ", r.to)), React.createElement("p", {
@@ -100,12 +100,12 @@ function RIntro({
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis ", r.from, " \u2192 ", r.to, React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-ghost"
   }, "Voir les formules"))), React.createElement("div", {
     className: "reveal"

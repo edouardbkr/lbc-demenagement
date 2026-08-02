@@ -30,7 +30,7 @@ const PRO_DEEP = [
 { t: "Le transfert informatique et serveurs", p: "C'est le point le plus sensible d'un déménagement de bureaux. Postes de travail, écrans, baies de brassage, serveurs : on débranche méthodiquement, on étiquette chaque câble et chaque poste, on emballe en protection antistatique et on transporte calé et tracé. À l'arrivée, on replace et on rebranche selon le plan, en coordination avec votre service informatique ou votre prestataire. Le matériel critique peut être déménagé en premier et en priorité, pour que le réseau soit opérationnel dès la reprise." },
 { t: "Étiquetage et plan d'implantation", p: "Un transfert réussi se joue sur la rigueur de l'étiquetage. Chaque carton et chaque meuble est repéré par service et par collaborateur, et un plan d'implantation des nouveaux locaux est validé avec vous en amont. Résultat : à l'arrivée, rien n'est posé au hasard, chaque poste retrouve sa place et chacun récupère ses affaires sans chercher. C'est ce qui transforme une reprise chaotique en simple reprise de travail." },
 { t: "Vos quartiers d'affaires, on les connaît", p: "Notre vrai atout, c'est de connaître le terrain économique azuréen. Les bureaux de l'Arénas et de l'Éco-Vallée (Nice Méridia) près de l'aéroport, la technopole de Sophia Antipolis (Antibes, Valbonne), les sièges et commerces de la Croisette et de Cannes La Bocca, les bureaux de Monaco, la zone commerciale de Cap 3000 à Saint-Laurent-du-Var, les zones d'activité de Carros et de la Trinité : on sait où se garer, comment accéder aux parkings et aux quais, et quels créneaux d'immeuble respecter. Un transfert sur la Côte d'Azur sans perdre une heure à chercher un accès." },
-{ t: "Commerce, cabinet, archives : chaque métier ses règles", p: "Un commerce veut une fermeture la plus courte possible : on planifie au plus serré, parfois de nuit, pour rouvrir vite. Un cabinet (avocat, médecin, expert-comptable) exige une confidentialité absolue des dossiers : cartons scellés, inventaire, traçabilité. Pour les archives et documents, on assure une chaîne de traçabilité complète, et on peut les mettre en <a href=\"Archivage.html\">archivage sécurisé</a> ou en <a href=\"Stockage.html\">garde-meuble</a> pendant la transition. À chaque métier sa contrainte, qu'on intègre dès le devis." }];
+{ t: "Commerce, cabinet, archives : chaque métier ses règles", p: "Un commerce veut une fermeture la plus courte possible : on planifie au plus serré, parfois de nuit, pour rouvrir vite. Un cabinet (avocat, médecin, expert-comptable) exige une confidentialité absolue des dossiers : cartons scellés, inventaire, traçabilité. Pour les archives et documents, on assure une chaîne de traçabilité complète, et on peut les mettre en <a href=\"Archivage\">archivage sécurisé</a> ou en <a href=\"Stockage\">garde-meuble</a> pendant la transition. À chaque métier sa contrainte, qu'on intègre dès le devis." }];
 
 
 const PRO_FAQ = [
@@ -47,7 +47,7 @@ function EntHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Déménagement d'entreprise</span>
         </div>
@@ -70,8 +70,8 @@ function EntIntro() {
             <p className="lead">Déménager une entreprise, ce n'est pas déménager un appartement en plus grand. L'enjeu n'est pas votre mobilier, c'est votre <strong style={{ color: 'var(--ink)' }}>activité</strong> : chaque heure de bureaux fermés, de caisse éteinte ou de serveur débranché coûte de l'argent. On pilote votre <strong style={{ color: 'var(--ink)' }}>transfert de bureaux à Nice et sur la Côte d'Azur</strong> comme un projet, pour que vos équipes retrouvent des postes prêts à l'emploi sans perdre une journée de production.</p>
             <p>Un chef de projet unique, une intervention hors heures ouvrées, un matériel informatique et des archives traités avec méthode, et une facturation pro conforme : tout est pensé pour que votre transfert soit un non-événement pour votre activité. Du studio de trois personnes au plateau de deux cents, on adapte l'équipe et le planning.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis & planning sous 24h<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis & planning sous 24h<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">
@@ -85,7 +85,7 @@ function EntIntro() {
                 <div><strong style={{ color: 'var(--ink)' }}>Zone</strong> · Nice, Côte d'Azur et national</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
-                Archives à transférer ? Voir aussi l'<a href="Archivage.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>archivage sécurisé</a>.
+                Archives à transférer ? Voir aussi l'<a href="Archivage" style={{ color: 'var(--accent)', fontWeight: 600 }}>archivage sécurisé</a>.
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@ function EntFeats() {
           )}
         </div>
         <div className="reveal" style={{ marginTop: 36, fontSize: 15, color: 'var(--ink-2)' }}>
-          Besoin de reloger un collaborateur ? Voir aussi nos pages <a href="Mutations.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>Mutations professionnelles</a> et <a href="Militaire.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>Déménagement militaire</a>.
+          Besoin de reloger un collaborateur ? Voir aussi nos pages <a href="Mutations" style={{ color: 'var(--accent)', fontWeight: 600 }}>Mutations professionnelles</a> et <a href="Militaire" style={{ color: 'var(--accent)', fontWeight: 600 }}>Déménagement militaire</a>.
         </div>
       </div>
     </section>);

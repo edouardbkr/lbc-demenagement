@@ -6,9 +6,9 @@ function VilleHero({ c }) {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
-          <a href="Zones.html">Zones desservies</a>
+          <a href="Zones">Zones desservies</a>
           <span className="sep">/</span>
           <span>{c.name}</span>
         </div>
@@ -34,8 +34,8 @@ function VilleIntro({ c }) {
               Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair, sans surprise. À {c.name} comme partout sur la Côte d'Azur, le nom est la blague : le travail, lui, est sérieux.
             </p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis gratuit à {c.name}<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis gratuit à {c.name}<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">
@@ -104,7 +104,7 @@ function VilleFormules({ c }) {
         </div>
         <div className="blog-grid reveal-stagger" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
           {tiers.map((t, i) =>
-          <a key={i} href="Formules.html" className="article-card" style={{ padding: 0 }}>
+          <a key={i} href="Formules" className="article-card" style={{ padding: 0 }}>
               <div className="article-body" style={{ padding: '32px 30px 34px' }}>
                 <div className="article-meta">Formule 0{i + 1}</div>
                 <div className="article-title">{t.n}</div>

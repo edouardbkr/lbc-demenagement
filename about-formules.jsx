@@ -2,10 +2,28 @@
 
 function About() {
   const aboutVidRef = React.useRef(null);
+
+  // Même logique que la vidéo du hero (voir nav-hero.jsx) : cette vidéo pèse 5,5 Mo et se
+  // téléchargeait entièrement à chaque visite, alors qu'elle est bien plus bas dans la page.
+  // Désormais l'image d'aperçu s'affiche tout de suite, et la vidéo n'est chargée que sur
+  // grand écran, une fois la page prête.
+  const [videoOk, setVideoOk] = React.useState(false);
+  React.useEffect(() => {
+    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    const sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const co = navigator.connection || {};
+    const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
+    if (petitEcran || sobre || reseauFaible) return;
+
+    const lancer = () => setVideoOk(true);
+    if (document.readyState === "complete") setTimeout(lancer, 400);
+    else window.addEventListener("load", () => setTimeout(lancer, 400), { once: true });
+  }, []);
+
   React.useEffect(() => {
     const v = aboutVidRef.current;
     if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
-  }, []);
+  }, [videoOk]);
   return (
     <section className="sec about" id="about" style={{ padding: "1px 0px 140px" }}>
       <div className="wrap">
@@ -28,7 +46,7 @@ function About() {
               Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* traite vos affaires comme les siennes. Un devis ferme, du matériel pro, et des gens qui savent ce que «&nbsp;fragile&nbsp;» veut dire.
             </p>
             <p style={{ color: 'var(--ink)' }}>
-              Le nom est la blague. <strong>Le travail est sérieux.</strong> <a href="Apropos.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
+              Le nom est la blague. <strong>Le travail est sérieux.</strong> <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
             </p>
 
             <ul className="about-trust reveal-stagger">
@@ -49,7 +67,9 @@ function About() {
 
           <div className="about-photo-stack reveal">
             <div className="about-photo portrait">
-              <video ref={aboutVidRef} src="assets/about-video.mp4" autoPlay muted loop playsInline preload="auto" aria-label="Déménageurs LBC protégeant le mobilier" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              {videoOk ?
+              <video ref={aboutVidRef} src="assets/about-video.mp4" poster="assets/about-poster.jpg" autoPlay muted loop playsInline preload="none" aria-label="Déménageurs LBC protégeant le mobilier" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /> :
+              <img src="assets/about-poster.jpg" alt="Déménageurs LBC protégeant le mobilier" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />}
               <div className="caption">Protection soignée · Nice</div>
             </div>
             <div className="about-photo truck">
@@ -121,7 +141,7 @@ function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon, i
       </ul>
 
       <div className="formula-cta">
-        <a href="Devis.html" className="btn-formula">
+        <a href="Devis" className="btn-formula">
           <span>Demander un devis</span>
           <span className="btn-formula-arrow">→</span>
         </a>

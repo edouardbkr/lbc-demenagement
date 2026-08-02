@@ -10,9 +10,9 @@ function ArticleHero({ a }) {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
-          <a href="Blog.html">Blog</a>
+          <a href="Blog">Blog</a>
           <span className="sep">/</span>
           <span>{a.cat}</span>
         </div>
@@ -40,8 +40,8 @@ function ArticleBody({ a }) {
           </div>
           <Body />
           <div style={{marginTop: 56, paddingTop: 32, borderTop:'1px solid var(--rule)', display:'flex', gap:14, flexWrap:'wrap', alignItems:'center'}}>
-            <a href="Devis.html" className="btn btn-primary">Obtenir mon devis gratuit<span className="arrow">→</span></a>
-            <a href="Blog.html" className="btn btn-ghost">← Tous les articles</a>
+            <a href="Devis" className="btn btn-primary">Obtenir mon devis gratuit<span className="arrow">→</span></a>
+            <a href="Blog" className="btn btn-ghost">← Tous les articles</a>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ function MoreArticles({ current }) {
         </div>
         <div className="blog-grid reveal-stagger">
           {others.map(a => (
-            <a key={a.slug} href={"Article.html?a=" + a.slug} className="article-card">
+            <a key={a.slug} href={"Article?a=" + a.slug} className="article-card">
               <div className="article-thumb">
                 <div className="ph"><div className="ph-label">{a.thumb}</div></div>
                 <div className="article-cat">{a.cat}</div>

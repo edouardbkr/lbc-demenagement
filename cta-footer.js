@@ -123,7 +123,7 @@ function CTA() {
   }, "toujours."))), React.createElement("p", {
     className: "cta-side"
   }, "Laissez-nous vos coordonn\xE9es : on vous rappelle dans la journ\xE9e avec un prix pr\xE9cis et d\xE9finitif, pas un app\xE2t marketing. Vous voulez aller plus vite ? Le ", React.createElement("a", {
-    href: "Devis.html"
+    href: "Devis"
   }, "formulaire de devis complet"), " prend deux minutes."), React.createElement("p", {
     className: "cta-side",
     style: {

@@ -113,7 +113,7 @@
     .bar{gap:10px; flex-wrap:wrap;}
   }
 </style>
-  <script src="consent.js?v=fb4c7a68" defer></script>
+  <script src="consent.js?v=77681bec" defer></script>
 </head>
 <body>
   <div class="bar">
@@ -151,47 +151,47 @@
 <script>
   var PAGES = [
     {g:"Principales", items:[
-      ["Les Bras Cassés.html","Accueil"],
-      ["Formules.html","Formules & tarifs"],
-      ["Devis.html","Devis en ligne"],
-      ["Apropos.html","À propos"],
-      ["Contact.html","Contact"],
-      ["FAQ.html","FAQ"],
-      ["Blog.html","Blog"],
-      ["Article.html","Article de blog"],
-      ["Checklist.html","Checklist déménagement"],
+      ["/","Accueil"],
+      ["Formules","Formules & tarifs"],
+      ["Devis","Devis en ligne"],
+      ["Apropos","À propos"],
+      ["Contact","Contact"],
+      ["FAQ","FAQ"],
+      ["Blog","Blog"],
+      ["Article","Article de blog"],
+      ["Checklist","Checklist déménagement"],
     ]},
     {g:"Services", items:[
-      ["Stockage.html","Stockage"],
-      ["Archivage.html","Archivage"],
-      ["Entreprise.html","Déménagement entreprise"],
-      ["Diplomatique.html","Diplomatique"],
-      ["Militaire.html","Militaire"],
-      ["Mutations.html","Mutations"],
-      ["Zones.html","Zones desservies"],
-      ["Quartiers.html","Quartiers de Nice"],
+      ["Stockage","Stockage"],
+      ["Archivage","Archivage"],
+      ["Entreprise","Déménagement entreprise"],
+      ["Diplomatique","Diplomatique"],
+      ["Militaire","Militaire"],
+      ["Mutations","Mutations"],
+      ["Zones","Zones desservies"],
+      ["Quartiers","Quartiers de Nice"],
     ]},
     {g:"Villes", items:[
-      ["Demenagement-Nice.html","Nice"],
-      ["Demenagement-Cannes.html","Cannes"],
-      ["Demenagement-Antibes.html","Antibes"],
-      ["Demenagement-Monaco.html","Monaco"],
-      ["Demenagement-Menton.html","Menton"],
-      ["Demenagement-Grasse.html","Grasse"],
-      ["Demenagement-Cagnes-sur-Mer.html","Cagnes-sur-Mer"],
-      ["Demenagement-Saint-Laurent-du-Var.html","Saint-Laurent-du-Var"],
-      ["Demenagement-Le-Cannet.html","Le Cannet"],
-      ["Demenagement-Mandelieu.html","Mandelieu"],
+      ["Demenagement-Nice","Nice"],
+      ["Demenagement-Cannes","Cannes"],
+      ["Demenagement-Antibes","Antibes"],
+      ["Demenagement-Monaco","Monaco"],
+      ["Demenagement-Menton","Menton"],
+      ["Demenagement-Grasse","Grasse"],
+      ["Demenagement-Cagnes-sur-Mer","Cagnes-sur-Mer"],
+      ["Demenagement-Saint-Laurent-du-Var","Saint-Laurent-du-Var"],
+      ["Demenagement-Le-Cannet","Le Cannet"],
+      ["Demenagement-Mandelieu","Mandelieu"],
     ]},
     {g:"Trajets longue distance", items:[
-      ["Demenagement-Nice-Paris.html","Nice → Paris"],
-      ["Demenagement-Nice-Lyon.html","Nice → Lyon"],
-      ["Demenagement-Nice-Marseille.html","Nice → Marseille"],
-      ["Demenagement-Nice-Milan.html","Nice → Milan"],
-      ["Demenagement-Nice-Turin.html","Nice → Turin"],
-      ["Demenagement-Nice-Geneve.html","Nice → Genève"],
-      ["Demenagement-Nice-Barcelone.html","Nice → Barcelone"],
-      ["Demenagement-Nice-Bruxelles.html","Nice → Bruxelles"],
+      ["Demenagement-Nice-Paris","Nice → Paris"],
+      ["Demenagement-Nice-Lyon","Nice → Lyon"],
+      ["Demenagement-Nice-Marseille","Nice → Marseille"],
+      ["Demenagement-Nice-Milan","Nice → Milan"],
+      ["Demenagement-Nice-Turin","Nice → Turin"],
+      ["Demenagement-Nice-Geneve","Nice → Genève"],
+      ["Demenagement-Nice-Barcelone","Nice → Barcelone"],
+      ["Demenagement-Nice-Bruxelles","Nice → Bruxelles"],
     ]},
     {g:"Autres", items:[
       ["404.html","Page 404"],
@@ -277,7 +277,7 @@
   window.addEventListener('resize', scaleToFit);
 
   // init
-  var start = 'Les Bras Cassés.html';
+  var start = '/';
   try{ var saved = localStorage.getItem('lbc_mobile_page'); if(saved && flat.indexOf(saved)>=0) start = saved; }catch(e){}
   hint.textContent = 'Rendu réel des pages à la largeur d\u2019un téléphone';
   applySize();

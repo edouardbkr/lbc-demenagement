@@ -86,7 +86,7 @@
       "<p>On utilise des cookies de mesure d'audience (Google Analytics, Microsoft " +
       "Clarity) et de mesure publicitaire (pixel Meta / Facebook) pour comprendre " +
       "comment le site est utilisé et améliorer nos campagnes. " +
-      "Vous gardez la main. <a href=\"Confidentialite.html\">En savoir plus</a></p>" +
+      "Vous gardez la main. <a href=\"Confidentialite\">En savoir plus</a></p>" +
       "<div class=\"lbc-consent-actions\">" +
       "<button id=\"lbc-consent-refuse\" type=\"button\">Refuser</button>" +
       "<button id=\"lbc-consent-accept\" type=\"button\">Accepter</button>" +

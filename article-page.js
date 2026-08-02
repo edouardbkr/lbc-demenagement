@@ -14,11 +14,11 @@ function ArticleHero({
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("a", {
-    href: "Blog.html"
+    href: "Blog"
   }, "Blog"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, a.cat)), React.createElement("h1", null, a.title), React.createElement("p", {
@@ -66,12 +66,12 @@ function ArticleBody({
       alignItems: 'center'
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Obtenir mon devis gratuit", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Blog.html",
+    href: "Blog",
     className: "btn btn-ghost"
   }, "\u2190 Tous les articles")))));
 }
@@ -95,7 +95,7 @@ function MoreArticles({
     className: "blog-grid reveal-stagger"
   }, others.map(a => React.createElement("a", {
     key: a.slug,
-    href: "Article.html?a=" + a.slug,
+    href: "Article?a=" + a.slug,
     className: "article-card"
   }, React.createElement("div", {
     className: "article-thumb"

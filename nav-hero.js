@@ -41,6 +41,18 @@ function Hero({
   };
   const h = headlines[headlineVariant] || headlines.a;
   const heroVideoRef = React.useRef(null);
+  const [videoOk, setVideoOk] = React.useState(false);
+  React.useEffect(() => {
+    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    const sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const co = navigator.connection || {};
+    const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
+    if (petitEcran || sobre || reseauFaible) return;
+    const lancer = () => setVideoOk(true);
+    if (document.readyState === "complete") setTimeout(lancer, 200);else window.addEventListener("load", () => setTimeout(lancer, 200), {
+      once: true
+    });
+  }, []);
   React.useEffect(() => {
     const v = heroVideoRef.current;
     if (v) {
@@ -48,7 +60,7 @@ function Hero({
       const p = v.play();
       if (p && p.catch) p.catch(() => {});
     }
-  }, []);
+  }, [videoOk]);
   return React.createElement("section", {
     className: "hero",
     id: "top",
@@ -104,7 +116,7 @@ function Hero({
   }, h.scribble))), React.createElement("div", {
     className: "hero-ctas"
   }, React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-primary hero-cta-link"
   }, "Trouver ma formule id\xE9ale", React.createElement("span", {
     className: "arrow"
@@ -114,16 +126,29 @@ function Hero({
     className: "scribble"
   }, React.createElement("br", null)), React.createElement("div", {
     className: "hero-photo-frame"
-  }, React.createElement("video", {
+  }, videoOk ? React.createElement("video", {
     ref: heroVideoRef,
     className: "hero-video",
     src: "assets/hero-video.mp4",
+    poster: "assets/hero-poster.jpg",
     autoPlay: true,
     muted: true,
     loop: true,
     playsInline: true,
-    preload: "auto",
+    preload: "none",
     "aria-label": "LBC D\xE9m\xE9nagement en intervention",
+    style: {
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      display: "block"
+    }
+  }) : React.createElement("img", {
+    className: "hero-video",
+    src: "assets/hero-poster.jpg",
+    alt: "D\xE9m\xE9nageurs LBC prot\xE9geant un canap\xE9 avant transport",
+    width: "960",
+    height: "540",
     style: {
       width: "100%",
       height: "100%",

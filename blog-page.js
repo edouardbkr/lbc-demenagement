@@ -8,7 +8,7 @@ function BlogHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Blog & conseils")), React.createElement("h1", null, "Le carnet des ", React.createElement("em", null, "Bras Cass\xE9s.")), React.createElement("p", {
@@ -21,7 +21,7 @@ function ArticleCard({
   a,
   featured
 }) {
-  const href = "Article.html?a=" + a.slug;
+  const href = "Article?a=" + a.slug;
   return React.createElement("a", {
     href: href,
     className: featured ? "blog-featured" : "article-card"

@@ -8,7 +8,7 @@ function ZonesHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Zones desservies")), React.createElement("h1", null, "O\xF9 l'on ", React.createElement("em", null, "d\xE9m\xE9nage.")), React.createElement("p", {

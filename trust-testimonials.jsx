@@ -208,7 +208,7 @@ function Testimonials() {
               <div className="te-inner">
                 <div className="te-stars">★★★★★</div>
                 <p>Et le prochain avis,<br/><em>c'est peut-être le vôtre.</em></p>
-                <a href="Devis.html" className="btn btn-primary">Demander un devis<span className="arrow">→</span></a>
+                <a href="Devis" className="btn btn-primary">Demander un devis<span className="arrow">→</span></a>
               </div>
             </div>
           </div>
@@ -284,7 +284,7 @@ function HomeFaq() {
         <div className="home-faq-foot reveal">
           <span>Une question qui n'est pas là&nbsp;?</span>
           <a href="tel:+33615976577" className="btn btn-ghost">06 15 97 65 77</a>
-          <a href="FAQ.html" className="btn btn-primary">Toutes les questions<span className="arrow">→</span></a>
+          <a href="FAQ" className="btn btn-primary">Toutes les questions<span className="arrow">→</span></a>
         </div>
       </div>
     </section>

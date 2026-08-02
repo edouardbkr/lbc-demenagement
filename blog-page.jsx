@@ -5,7 +5,7 @@ function BlogHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Blog &amp; conseils</span>
         </div>
@@ -19,7 +19,7 @@ function BlogHero() {
 }
 
 function ArticleCard({ a, featured }) {
-  const href = "Article.html?a=" + a.slug;
+  const href = "Article?a=" + a.slug;
   return (
     <a href={href} className={featured ? "blog-featured" : "article-card"}>
       <div className="article-thumb">

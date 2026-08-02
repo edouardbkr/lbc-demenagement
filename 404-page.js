@@ -125,23 +125,23 @@ function NotFound() {
   }, "On a bien cherch\xE9 dans tous les cartons\u2026 introuvable. Mais pas de panique : on sait exactement o\xF9 vous ramener."), React.createElement("div", {
     className: "nf-ctas"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html",
+    href: "/",
     className: "btn btn-primary"
   }, "Retour \xE0 l'accueil", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-ghost"
   }, "Demander un devis")), React.createElement("div", {
     className: "nf-links"
   }, React.createElement("a", {
-    href: "Formules.html"
+    href: "Formules"
   }, "Formules"), React.createElement("span", null, "\xB7"), React.createElement("a", {
-    href: "Stockage.html"
+    href: "Stockage"
   }, "Stockage"), React.createElement("span", null, "\xB7"), React.createElement("a", {
-    href: "Checklist.html"
+    href: "Checklist"
   }, "Checklist"), React.createElement("span", null, "\xB7"), React.createElement("a", {
-    href: "Contact.html"
+    href: "Contact"
   }, "Contact"))));
 }
 function App() {

@@ -1,7 +1,7 @@
 // route-data.jsx — Pages "trajet" (corridors longue distance & international). Clé = data-route.
 const ROUTES = {
   "nice-paris": {
-    from: "Nice", to: "Paris", file: "Demenagement-Nice-Paris.html", km: "930 km", duree: "≈ 9 h de route", pays: "France",
+    from: "Nice", to: "Paris", file: "Demenagement-Nice-Paris", km: "930 km", duree: "≈ 9 h de route", pays: "France",
     lede: "Déménagement Nice → Paris : notre liaison longue distance la plus fréquente. Camion dédié, une seule équipe, devis ferme sous 24h.",
     intro: "Quitter la Méditerranée pour la capitale, c'est notre trajet phare : on l'assure quasiment chaque semaine. On charge sur la Côte d'Azur et on livre dans Paris intra-muros ou en proche couronne, avec une seule équipe du départ à l'arrivée, un camion dédié et plombé. Pas de groupage, pas de transbordement dans un entrepôt, pas de vos cartons mélangés à ceux d'un autre. Le défi d'un Nice–Paris ne se joue pas sur la route, mais à l'arrivée : étages haussmanniens, cours exiguës et stationnement parisien réglementé, qu'on anticipe dès le devis.",
     points: [
@@ -24,7 +24,7 @@ const ROUTES = {
     ]
   },
   "nice-lyon": {
-    from: "Nice", to: "Lyon", file: "Demenagement-Nice-Lyon.html", km: "470 km", duree: "≈ 5 h de route", pays: "France",
+    from: "Nice", to: "Lyon", file: "Demenagement-Nice-Lyon", km: "470 km", duree: "≈ 5 h de route", pays: "France",
     lede: "Déménagement Nice → Lyon : l'étape rhodanienne, à mi-chemin de la France. Camion dédié, devis gratuit sous 24h.",
     intro: "Entre la Méditerranée et le nord, Lyon est l'une de nos liaisons régulières, à seulement cinq heures de route. La capitale des Gaules a ses propres règles de déménagement : la ville aux deux collines (Fourvière et la Croix-Rousse) grimpe et se traverse de traboules, le Vieux Lyon aligne ses immeubles Renaissance aux cages étroites, et la Presqu'île est un hypercentre dense au stationnement compté. On charge le matin à Nice et on livre dans la foulée, avec une équipe qui connaît les contraintes lyonnaises.",
     points: [
@@ -47,7 +47,7 @@ const ROUTES = {
     ]
   },
   "nice-marseille": {
-    from: "Nice", to: "Marseille", file: "Demenagement-Nice-Marseille.html", km: "200 km", duree: "≈ 2 h de route", pays: "France",
+    from: "Nice", to: "Marseille", file: "Demenagement-Nice-Marseille", km: "200 km", duree: "≈ 2 h de route", pays: "France",
     lede: "Déménagement Nice → Marseille : la cité phocéenne à deux heures. Trajet court et fréquent, devis gratuit sous 24h.",
     intro: "À deux heures de Nice par l'autoroute, Marseille est une destination quasi quotidienne pour nous. La deuxième ville de France a un caractère bien à elle, et son déménagement aussi : du Vieux-Port aux collines, des ruelles du Panier aux immeubles haussmanniens de la Préfecture, des quartiers en pente aux résidences modernes du sud, les accès et le stationnement varient énormément d'un arrondissement à l'autre. La distance courte rend le trajet économique, même pour un studio, et souvent réalisable dans la journée.",
     points: [
@@ -70,7 +70,7 @@ const ROUTES = {
     ]
   },
   "nice-toulouse": {
-    from: "Nice", to: "Toulouse", file: "Demenagement-Nice-Toulouse.html", km: "560 km", duree: "≈ 6 h de route", pays: "France",
+    from: "Nice", to: "Toulouse", file: "Demenagement-Nice-Toulouse", km: "560 km", duree: "≈ 6 h de route", pays: "France",
     lede: "Déménagement Nice → Toulouse : cap sur la ville rose. Camion dédié, une seule équipe, devis gratuit sous 24h.",
     intro: "On assure régulièrement la liaison Nice–Toulouse, qui traverse tout le sud de la France. La ville rose a son ambiance et ses contraintes : un centre historique tout en brique aux rues étroites autour du Capitole, les ruelles des Carmes et de Saint-Cyprien le long de la Garonne, et de vastes quartiers résidentiels et étudiants en périphérie. Votre déménagement est pris en charge de A à Z, avec les mêmes déménageurs sur les ≈ 560 km, du chargement niçois jusqu'à l'installation toulousaine.",
     points: [
@@ -93,7 +93,7 @@ const ROUTES = {
     ]
   },
   "nice-bordeaux": {
-    from: "Nice", to: "Bordeaux", file: "Demenagement-Nice-Bordeaux.html", km: "800 km", duree: "≈ 8 h de route", pays: "France",
+    from: "Nice", to: "Bordeaux", file: "Demenagement-Nice-Bordeaux", km: "800 km", duree: "≈ 8 h de route", pays: "France",
     lede: "Déménagement Nice → Bordeaux : la grande traversée du sud. Camion dédié, mobilier arrimé, devis gratuit sous 24h.",
     intro: "Relier Nice à Bordeaux, c'est traverser tout le sud de la France d'une côte à l'autre. On organise ce déménagement longue distance avec un trajet optimisé et un mobilier protégé jusqu'au cœur de la ville. Capitale mondiale du vin, Bordeaux a un centre du XVIIIe siècle classé à l'UNESCO, avec ses immeubles en pierre blonde, et ses fameuses échoppes, ces maisons de ville basses des Chartrons, de Saint-Michel ou de la Bastide. On connaît ces accès typiquement bordelais et on les anticipe.",
     points: [
@@ -116,7 +116,7 @@ const ROUTES = {
     ]
   },
   "nice-geneve": {
-    from: "Nice", to: "Genève", file: "Demenagement-Nice-Geneve.html", km: "470 km", duree: "≈ 5 h de route", pays: "Suisse", intl: true,
+    from: "Nice", to: "Genève", file: "Demenagement-Nice-Geneve", km: "470 km", duree: "≈ 5 h de route", pays: "Suisse", intl: true,
     lede: "Déménagement Nice → Genève : international maîtrisé, formalités douanières comprises. Devis gratuit sous 24h.",
     intro: "Cap sur la Suisse : on relie régulièrement Nice et Genève. Un déménagement international vers la Confédération a une particularité de taille par rapport à un trajet français : la frontière. Inventaire valorisé pour la douane, formulaire de mobilier de déménagement, documents en règle : on prépare tout avec vous pour un passage fluide. À l'arrivée, on gère les accès des immeubles genevois, le stationnement contraint du centre et les créneaux des résidences, y compris autour des organisations internationales.",
     points: [
@@ -139,7 +139,7 @@ const ROUTES = {
     ]
   },
   "nice-lausanne": {
-    from: "Nice", to: "Lausanne", file: "Demenagement-Nice-Lausanne.html", km: "530 km", duree: "≈ 5 h 30 de route", pays: "Suisse", intl: true,
+    from: "Nice", to: "Lausanne", file: "Demenagement-Nice-Lausanne", km: "530 km", duree: "≈ 5 h 30 de route", pays: "Suisse", intl: true,
     lede: "Déménagement Nice → Lausanne : Suisse romande, bord du Léman. Formalités douanières incluses, devis gratuit sous 24h.",
     intro: "Au bord du Léman, Lausanne est une destination internationale régulière. Comme tout déménagement vers la Suisse, il implique un passage de douane qu'on prépare entièrement avec vous : inventaire valorisé et documents de mobilier. La ville a une autre particularité : elle est l'une des plus pentues de Suisse, étagée entre le lac et la colline, ce qui complique souvent l'accès aux immeubles. On organise le trajet, les formalités et le déménagement de bout en bout, frontière comprise.",
     points: [
@@ -162,7 +162,7 @@ const ROUTES = {
     ]
   },
   "nice-bruxelles": {
-    from: "Nice", to: "Bruxelles", file: "Demenagement-Nice-Bruxelles.html", km: "1 150 km", duree: "≈ 11 h de route", pays: "Belgique", intl: true,
+    from: "Nice", to: "Bruxelles", file: "Demenagement-Nice-Bruxelles", km: "1 150 km", duree: "≈ 11 h de route", pays: "Belgique", intl: true,
     lede: "Déménagement Nice → Bruxelles : longue distance européenne. Une seule équipe, pas de groupage, devis gratuit sous 24h.",
     intro: "Du soleil méditerranéen au cœur de l'Europe : on assure le Nice–Bruxelles de bout en bout. Bonne nouvelle administrative, la Belgique étant dans l'Union européenne, il n'y a pas de douane : un inventaire détaillé suffit. Le vrai sujet, c'est l'arrivée. Bruxelles est une ville de maisons de maître étroites et hautes, aux escaliers raides et exigus typiquement belges, et au stationnement réglementé par communes. On connaît ces contraintes et on prévoit le monte-meuble dès le devis.",
     points: [
@@ -185,7 +185,7 @@ const ROUTES = {
     ]
   },
   "nice-luxembourg": {
-    from: "Nice", to: "Luxembourg", file: "Demenagement-Nice-Luxembourg.html", km: "920 km", duree: "≈ 9 h de route", pays: "Luxembourg", intl: true,
+    from: "Nice", to: "Luxembourg", file: "Demenagement-Nice-Luxembourg", km: "920 km", duree: "≈ 9 h de route", pays: "Luxembourg", intl: true,
     lede: "Déménagement Nice → Luxembourg : mobilité professionnelle et expatriation. Devis conforme employeur, gratuit sous 24h.",
     intro: "La grande majorité des déménagements Nice–Luxembourg sont liés à une mutation, une expatriation ou une prise de poste dans la finance, les institutions européennes ou le secteur tertiaire. Le Grand-Duché étant dans l'Union européenne, il n'y a pas de douane : un inventaire détaillé suffit. On fournit un devis conforme à transmettre à votre employeur ou service RH, et on gère tout le trajet européen, du chargement niçois jusqu'à l'installation, avec une seule équipe.",
     points: [
@@ -208,7 +208,7 @@ const ROUTES = {
     ]
   },
   "nice-barcelone": {
-    from: "Nice", to: "Barcelone", file: "Demenagement-Nice-Barcelone.html", km: "660 km", duree: "≈ 6 h 30 de route", pays: "Espagne", intl: true,
+    from: "Nice", to: "Barcelone", file: "Demenagement-Nice-Barcelone", km: "660 km", duree: "≈ 6 h 30 de route", pays: "Espagne", intl: true,
     lede: "Déménagement Nice → Barcelone : la Méditerranée d'une côte à l'autre. Formalités UE simples, devis gratuit sous 24h.",
     intro: "Le long de la Méditerranée, Nice–Barcelone est un trajet international qu'on affectionne : deux villes de bord de mer reliées par la côte. L'Espagne étant dans l'Union européenne, pas de douane, un inventaire détaillé suffit. À l'arrivée, la capitale catalane a ses propres contraintes : les immeubles de l'Eixample avec leurs ascenseurs minuscules, les ruelles médiévales du Barri Gòtic, et un stationnement très réglementé. On connaît ces particularités barcelonaises et on prévoit le monte-meuble quand il le faut.",
     points: [
@@ -231,7 +231,7 @@ const ROUTES = {
     ]
   },
   "nice-madrid": {
-    from: "Nice", to: "Madrid", file: "Demenagement-Nice-Madrid.html", km: "1 280 km", duree: "≈ 13 h de route", pays: "Espagne", intl: true,
+    from: "Nice", to: "Madrid", file: "Demenagement-Nice-Madrid", km: "1 280 km", duree: "≈ 13 h de route", pays: "Espagne", intl: true,
     lede: "Déménagement Nice → Madrid : grande traversée vers la capitale espagnole. Camion dédié, formalités UE simples, devis sous 24h.",
     intro: "Direction le centre de la péninsule : Nice–Madrid est un déménagement international au long cours, l'un de nos plus longs trajets. L'Espagne étant dans l'Union européenne, pas de douane, un inventaire détaillé suffit. On planifie soigneusement l'itinéraire et le timing sur les ≈ 1 280 km, on protège et arrime tout pour la durée, et on livre jusqu'au cœur de la capitale, dans les immeubles du centre madrilène (Centro, Salamanca, Chamberí) souvent anciens et aux accès contraints.",
     points: [
@@ -254,7 +254,7 @@ const ROUTES = {
     ]
   },
   "nice-milan": {
-    from: "Nice", to: "Milan", file: "Demenagement-Nice-Milan.html", km: "320 km", duree: "≈ 3 h 30 de route", pays: "Italie", intl: true,
+    from: "Nice", to: "Milan", file: "Demenagement-Nice-Milan", km: "320 km", duree: "≈ 3 h 30 de route", pays: "Italie", intl: true,
     lede: "Déménagement Nice → Milan : l'Italie du nord à portée de camion. Trajet court, formalités UE simples, devis sous 24h.",
     intro: "L'Italie du nord est juste de l'autre côté de la frontière : Nice–Milan est un trajet international court et fréquent, souvent réalisable dans la journée. L'Italie étant dans l'Union européenne, pas de douane, un inventaire détaillé suffit. À l'arrivée, la capitale lombarde a ses particularités : immeubles à cortile (cours intérieures) et ascenseurs étroits, ZTL (zones à trafic limité) très réglementées dans le centre. On charge sur la côte et on livre à Milan en gérant ces contraintes.",
     points: [
@@ -277,7 +277,7 @@ const ROUTES = {
     ]
   },
   "nice-turin": {
-    from: "Nice", to: "Turin", file: "Demenagement-Nice-Turin.html", km: "230 km", duree: "≈ 2 h 45 de route", pays: "Italie", intl: true,
+    from: "Nice", to: "Turin", file: "Demenagement-Nice-Turin", km: "230 km", duree: "≈ 2 h 45 de route", pays: "Italie", intl: true,
     lede: "Déménagement Nice → Turin : le Piémont par la montagne, l'une de nos destinations italiennes les plus proches. Devis sous 24h.",
     intro: "Turin, capitale du Piémont, est l'une de nos destinations italiennes les plus proches : on franchit la frontière par la vallée de la Roya et le col ou le tunnel, et on livre dans la cité piémontaise en quelques heures. L'Italie étant dans l'Union européenne, pas de douane, un inventaire détaillé suffit. Ville à l'urbanisme élégant et régulier, Turin aligne de belles bâtisses anciennes à hauts plafonds et cages d'escalier étroites, qu'on aborde avec le matériel adapté.",
     points: [

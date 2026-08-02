@@ -47,7 +47,7 @@ function StockHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Stockage &amp; garde-meuble</span>
         </div>
@@ -70,8 +70,8 @@ function StockIntro() {
             <p className="lead">Besoin de mettre vos affaires à l'abri un moment ? Notre <strong style={{ color: 'var(--ink)' }}>garde-meuble à Nice</strong> n'est pas un simple box vide à louer : c'est un service complet. Notre entrepôt est à Nice, et on vient chercher vos affaires chez vous partout sur la <strong style={{ color: 'var(--ink)' }}>Côte d'Azur</strong> — Nice, Cannes, Antibes, Monaco, Grasse, Menton, Cagnes-sur-Mer, Saint-Laurent-du-Var. On emballe, on inventorie, on stocke, et on relivre quand vous êtes prêt. Vous ne portez rien, vous ne louez aucun camion, vous ne mobilisez personne.</p>
             <p>Un trou entre deux logements sur le 06, des travaux, une vente immobilière à désencombrer pour les visites, une résidence secondaire à libérer en fin de saison, une expatriation depuis Nice ou Monaco, un manque de place : du carton isolé à la maison entière, on dimensionne le box à votre besoin, sans engagement de durée et avec l'assurance incluse. Un stockage tranquille au cœur des Alpes-Maritimes, et tout qui ressort intact le jour voulu.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis stockage sous 24h<span className="arrow">→</span></a>
-              <a href="Reservation.html" className="btn btn-ghost">Réserver un box</a>
+              <a href="Devis" className="btn btn-primary">Devis stockage sous 24h<span className="arrow">→</span></a>
+              <a href="Reservation" className="btn btn-ghost">Réserver un box</a>
             </div>
           </div>
           <div className="reveal">
@@ -85,7 +85,7 @@ function StockIntro() {
                 <div><strong style={{ color: 'var(--ink)' }}>4 tailles</strong> · de S (≈30 cartons) à XL (une maison)</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
-                Archives d'entreprise ? Voir aussi l'<a href="Archivage.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>archivage sécurisé</a>.
+                Archives d'entreprise ? Voir aussi l'<a href="Archivage" style={{ color: 'var(--accent)', fontWeight: 600 }}>archivage sécurisé</a>.
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@ function StockOffers() {
               <div className="stock-price"><span className="stock-amount">{o.price} €</span><span className="stock-per">/ mois</span></div>
               <div className="stock-boxes">{o.boxes}</div>
               <p className="stock-ex">{o.ex}</p>
-              <a href={"Reservation.html?box=" + encodeURIComponent(o.size)} className="btn btn-ghost stock-cta">Réserver ce box</a>
+              <a href={"Reservation?box=" + encodeURIComponent(o.size)} className="btn btn-ghost stock-cta">Réserver ce box</a>
             </div>
           )}
         </div>

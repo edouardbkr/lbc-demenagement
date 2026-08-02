@@ -273,7 +273,7 @@ function Testimonials() {
   }, React.createElement("div", {
     className: "te-stars"
   }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("p", null, "Et le prochain avis,", React.createElement("br", null), React.createElement("em", null, "c'est peut-\xEAtre le v\xF4tre.")), React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Demander un devis", React.createElement("span", {
     className: "arrow"
@@ -358,7 +358,7 @@ function HomeFaq() {
     href: "tel:+33615976577",
     className: "btn btn-ghost"
   }, "06 15 97 65 77"), React.createElement("a", {
-    href: "FAQ.html",
+    href: "FAQ",
     className: "btn btn-primary"
   }, "Toutes les questions", React.createElement("span", {
     className: "arrow"

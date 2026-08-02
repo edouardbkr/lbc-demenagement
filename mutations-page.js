@@ -90,7 +90,7 @@ const MUT_DEEP = [{
   p: "La région attire les cadres : la technopole de Sophia Antipolis (Antibes, Valbonne) draine l'industrie tech et les sièges, Monaco concentre la finance et les emplois frontaliers, et Nice, Cannes et l'arrière-pays vivent du tourisme, de la santé et des services. Beaucoup de mutations se font donc VERS la Côte d'Azur. Et là, notre avantage est décisif : on connaît les quartiers, les accès et le stationnement de Nice, Cannes, Antibes, Monaco ou Grasse, donc votre arrivée se passe sans accroc, du Vieux-Nice à Sophia Antipolis."
 }, {
   t: "Mutation longue distance : un camion dédié, une équipe",
-  p: "Quand la mutation vous éloigne, on assure aussi les longues distances : un <a href=\"Demenagement-Nice-Paris.html\">Nice → Paris</a>, un <a href=\"Demenagement-Nice-Lyon.html\">Nice → Lyon</a>, un <a href=\"Demenagement-Nice-Toulouse.html\">Nice → Toulouse</a> vers l'aéronautique, ou un <a href=\"Demenagement-Nice-Luxembourg.html\">Nice → Luxembourg</a> dans la finance. Sur ces trajets, on travaille en camion dédié et plombé, une seule équipe du chargement à la livraison, sans groupage ni transbordement. Votre mobilier arrive à date, intact, pendant que vous vous concentrez sur votre nouveau poste."
+  p: "Quand la mutation vous éloigne, on assure aussi les longues distances : un <a href=\"Demenagement-Nice-Paris\">Nice → Paris</a>, un <a href=\"Demenagement-Nice-Lyon\">Nice → Lyon</a>, un <a href=\"Demenagement-Nice-Toulouse\">Nice → Toulouse</a> vers l'aéronautique, ou un <a href=\"Demenagement-Nice-Luxembourg\">Nice → Luxembourg</a> dans la finance. Sur ces trajets, on travaille en camion dédié et plombé, une seule équipe du chargement à la livraison, sans groupage ni transbordement. Votre mobilier arrive à date, intact, pendant que vous vous concentrez sur votre nouveau poste."
 }];
 const MUT_FAQ = [{
   q: "Mon employeur peut-il payer directement le déménageur ?",
@@ -119,7 +119,7 @@ function MutHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Mutation professionnelle")), React.createElement("h1", null, "Mut\xE9 pour le travail ? ", React.createElement("em", null, "On g\xE8re le d\xE9m\xE9nagement et la paperasse.")), React.createElement("p", {
@@ -160,12 +160,12 @@ function MutIntro() {
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis conforme sous 24h", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-ghost"
   }, "Voir les formules"))), React.createElement("div", {
     className: "reveal"
@@ -219,13 +219,13 @@ function MutIntro() {
       lineHeight: 1.5
     }
   }, "Aussi pour les ", React.createElement("a", {
-    href: "Militaire.html",
+    href: "Militaire",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
     }
   }, "militaires"), " et le ", React.createElement("a", {
-    href: "Diplomatique.html",
+    href: "Diplomatique",
     style: {
       color: 'var(--accent)',
       fontWeight: 600

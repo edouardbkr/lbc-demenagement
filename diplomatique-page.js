@@ -109,7 +109,7 @@ function DipHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "D\xE9m\xE9nagement diplomatique")), React.createElement("h1", null, "D\xE9m\xE9nagement diplomatique, ", React.createElement("em", null, "au millim\xE8tre du protocole.")), React.createElement("p", {
@@ -150,12 +150,12 @@ function DipIntro() {
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis confidentiel sous 24h", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-ghost"
   }, "Voir les formules"))), React.createElement("div", {
     className: "reveal"
@@ -209,13 +209,13 @@ function DipIntro() {
       lineHeight: 1.5
     }
   }, "Voir aussi le ", React.createElement("a", {
-    href: "Militaire.html",
+    href: "Militaire",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
     }
   }, "d\xE9m\xE9nagement militaire"), " et la ", React.createElement("a", {
-    href: "Mutations.html",
+    href: "Mutations",
     style: {
       color: 'var(--accent)',
       fontWeight: 600

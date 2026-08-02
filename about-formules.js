@@ -3,6 +3,18 @@
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function About() {
   const aboutVidRef = React.useRef(null);
+  const [videoOk, setVideoOk] = React.useState(false);
+  React.useEffect(() => {
+    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    const sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const co = navigator.connection || {};
+    const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
+    if (petitEcran || sobre || reseauFaible) return;
+    const lancer = () => setVideoOk(true);
+    if (document.readyState === "complete") setTimeout(lancer, 400);else window.addEventListener("load", () => setTimeout(lancer, 400), {
+      once: true
+    });
+  }, []);
   React.useEffect(() => {
     const v = aboutVidRef.current;
     if (v) {
@@ -10,7 +22,7 @@ function About() {
       const p = v.play();
       if (p && p.catch) p.catch(() => {});
     }
-  }, []);
+  }, [videoOk]);
   return React.createElement("section", {
     className: "sec about",
     id: "about",
@@ -49,7 +61,7 @@ function About() {
       color: 'var(--ink)'
     }
   }, "Le nom est la blague. ", React.createElement("strong", null, "Le travail est s\xE9rieux."), " ", React.createElement("a", {
-    href: "Apropos.html",
+    href: "Apropos",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
@@ -102,15 +114,28 @@ function About() {
     className: "about-photo-stack reveal"
   }, React.createElement("div", {
     className: "about-photo portrait"
-  }, React.createElement("video", {
+  }, videoOk ? React.createElement("video", {
     ref: aboutVidRef,
     src: "assets/about-video.mp4",
+    poster: "assets/about-poster.jpg",
     autoPlay: true,
     muted: true,
     loop: true,
     playsInline: true,
-    preload: "auto",
+    preload: "none",
     "aria-label": "D\xE9m\xE9nageurs LBC prot\xE9geant le mobilier",
+    style: {
+      position: 'absolute',
+      inset: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      display: 'block'
+    }
+  }) : React.createElement("img", {
+    src: "assets/about-poster.jpg",
+    alt: "D\xE9m\xE9nageurs LBC prot\xE9geant le mobilier",
+    loading: "lazy",
     style: {
       position: 'absolute',
       inset: 0,
@@ -255,7 +280,7 @@ function Formule({
   }, it))), React.createElement("div", {
     className: "formula-cta"
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn-formula"
   }, React.createElement("span", null, "Demander un devis"), React.createElement("span", {
     className: "btn-formula-arrow"

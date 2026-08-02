@@ -103,7 +103,7 @@ function ArcHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Archivage")), React.createElement("h1", null, "Vos archives, ", React.createElement("em", null, "entre de bonnes mains \u2014 et sous cl\xE9.")), React.createElement("p", {

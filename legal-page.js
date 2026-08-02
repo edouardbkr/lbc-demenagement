@@ -41,12 +41,12 @@ function MentionsLegales() {
     n: "4",
     title: "Donn\xE9es personnelles"
   }, React.createElement("p", null, "Les informations transmises via les formulaires de devis et de contact sont trait\xE9es conform\xE9ment \xE0 notre ", React.createElement("a", {
-    href: "Confidentialite.html"
+    href: "Confidentialite"
   }, "politique de confidentialit\xE9"), ". Vous disposez d'un droit d'acc\xE8s, de rectification et de suppression de vos donn\xE9es \u2014 voir la page d\xE9di\xE9e pour exercer vos droits.")), React.createElement(LBlock, {
     n: "5",
     title: "Cookies"
   }, React.createElement("p", null, "Ce site utilise uniquement les cookies strictement n\xE9cessaires \xE0 son fonctionnement et, le cas \xE9ch\xE9ant, des outils de mesure d'audience. Vous pouvez configurer votre navigateur pour refuser les cookies non essentiels. Pour en savoir plus, consultez la ", React.createElement("a", {
-    href: "Confidentialite.html"
+    href: "Confidentialite"
   }, "politique de confidentialit\xE9"), ".")), React.createElement(LBlock, {
     n: "6",
     title: "Responsabilit\xE9"
@@ -146,7 +146,7 @@ function LegalPage() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, doc.crumb)), React.createElement("h1", null, doc.title), React.createElement("p", {
@@ -167,11 +167,11 @@ function LegalPage() {
     className: "legal-cross",
     "aria-label": "Autres pages l\xE9gales"
   }, React.createElement("a", {
-    href: "Mentions-legales.html"
+    href: "Mentions-legales"
   }, "Mentions l\xE9gales"), React.createElement("a", {
-    href: "Confidentialite.html"
+    href: "Confidentialite"
   }, "Confidentialit\xE9"), React.createElement("a", {
-    href: "CGV.html"
+    href: "CGV"
   }, "CGV")))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(LegalPage, null));

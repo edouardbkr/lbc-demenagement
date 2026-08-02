@@ -107,7 +107,7 @@ function Estimator() {
               </div>
               <span className="est-note"><span className="ast">*</span>Estimation indicative, hors options. Votre devis, lui, est précis et définitif.</span>
             </div>
-            <a href="Devis.html" className="btn btn-primary est-cta">Obtenir mon prix ferme<span className="arrow">→</span></a>
+            <a href="Devis" className="btn btn-primary est-cta">Obtenir mon prix ferme<span className="arrow">→</span></a>
           </div>
         </div>
       </div>

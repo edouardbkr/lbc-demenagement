@@ -27,7 +27,7 @@ const MUT_DEEP = [
 { t: "Synchroniser déménagement et prise de poste", p: "Une mutation impose un calendrier serré : une date d'arrivée, parfois une période d'essai, souvent un logement pas encore disponible. On cale le déménagement sur votre prise de poste plutôt que l'inverse, et on absorbe les décalages grâce au garde-meuble relais : vos affaires patientent en box sécurisé, à Nice avant le départ ou à destination, le temps que votre logement se libère. Vous arrivez l'esprit libre pour votre premier jour, pas en pleine logistique." },
 { t: "Mobili-Pass, frais réels : ce qu'il faut savoir", p: "Au-delà de l'employeur, deux dispositifs reviennent souvent. Le Mobili-Pass d'Action Logement aide les salariés du privé qui déménagent pour un motif professionnel, généralement au-delà d'une certaine distance domicile-travail. Et fiscalement, les frais de déménagement liés à un changement d'emploi peuvent être déductibles si vous déclarez vos frais réels. Dans les deux cas, c'est la facture conforme qui fait foi : on vous la fournit en règle. On ne décide pas de votre éligibilité (c'est Action Logement, votre RH ou le fisc qui tranchent), mais on vous donne tous les documents utiles." },
 { t: "Muté à Nice ou sur la Côte d'Azur", p: "La région attire les cadres : la technopole de Sophia Antipolis (Antibes, Valbonne) draine l'industrie tech et les sièges, Monaco concentre la finance et les emplois frontaliers, et Nice, Cannes et l'arrière-pays vivent du tourisme, de la santé et des services. Beaucoup de mutations se font donc VERS la Côte d'Azur. Et là, notre avantage est décisif : on connaît les quartiers, les accès et le stationnement de Nice, Cannes, Antibes, Monaco ou Grasse, donc votre arrivée se passe sans accroc, du Vieux-Nice à Sophia Antipolis." },
-{ t: "Mutation longue distance : un camion dédié, une équipe", p: "Quand la mutation vous éloigne, on assure aussi les longues distances : un <a href=\"Demenagement-Nice-Paris.html\">Nice → Paris</a>, un <a href=\"Demenagement-Nice-Lyon.html\">Nice → Lyon</a>, un <a href=\"Demenagement-Nice-Toulouse.html\">Nice → Toulouse</a> vers l'aéronautique, ou un <a href=\"Demenagement-Nice-Luxembourg.html\">Nice → Luxembourg</a> dans la finance. Sur ces trajets, on travaille en camion dédié et plombé, une seule équipe du chargement à la livraison, sans groupage ni transbordement. Votre mobilier arrive à date, intact, pendant que vous vous concentrez sur votre nouveau poste." }];
+{ t: "Mutation longue distance : un camion dédié, une équipe", p: "Quand la mutation vous éloigne, on assure aussi les longues distances : un <a href=\"Demenagement-Nice-Paris\">Nice → Paris</a>, un <a href=\"Demenagement-Nice-Lyon\">Nice → Lyon</a>, un <a href=\"Demenagement-Nice-Toulouse\">Nice → Toulouse</a> vers l'aéronautique, ou un <a href=\"Demenagement-Nice-Luxembourg\">Nice → Luxembourg</a> dans la finance. Sur ces trajets, on travaille en camion dédié et plombé, une seule équipe du chargement à la livraison, sans groupage ni transbordement. Votre mobilier arrive à date, intact, pendant que vous vous concentrez sur votre nouveau poste." }];
 
 
 const MUT_FAQ = [
@@ -44,7 +44,7 @@ function MutHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Mutation professionnelle</span>
         </div>
@@ -67,8 +67,8 @@ function MutIntro() {
             <p className="lead">Une mutation professionnelle, c'est déjà assez de stress comme ça : un nouveau poste, une nouvelle ville, parfois toute une famille à réinstaller. Le déménagement et sa paperasse ne devraient pas en rajouter. Que vous soyez muté <strong style={{ color: 'var(--ink)' }}>à Nice et sur la Côte d'Azur</strong> ou que vous quittiez la région pour ailleurs en France, on prend en charge votre <strong style={{ color: 'var(--ink)' }}>déménagement de mutation</strong> de A à Z et on vous fournit exactement les documents qu'attendent votre service RH, Action Logement ou le fisc.</p>
             <p>Devis conforme accepté par les RH, coordination avec votre date de prise de poste, garde-meuble en transition et facture en règle : tout est pensé pour qu'une seule chose vous occupe vraiment, votre nouveau travail. Quelle que soit la formule, du simple transport au clé en main, vous avez des déménageurs expérimentés, une assurance incluse et un interlocuteur unique.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis conforme sous 24h<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis conforme sous 24h<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">
@@ -82,7 +82,7 @@ function MutIntro() {
                 <div><strong style={{ color: 'var(--ink)' }}>Zone</strong> · Nice, Côte d'Azur et toute la France</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
-                Aussi pour les <a href="Militaire.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>militaires</a> et le <a href="Diplomatique.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>personnel diplomatique</a>.
+                Aussi pour les <a href="Militaire" style={{ color: 'var(--accent)', fontWeight: 600 }}>militaires</a> et le <a href="Diplomatique" style={{ color: 'var(--accent)', fontWeight: 600 }}>personnel diplomatique</a>.
               </div>
             </div>
           </div>

@@ -70,7 +70,7 @@ function AproposHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Qui sommes-nous")), React.createElement("h1", null, "Deux amis, un camion, ", React.createElement("em", null, "et une vieille rancune contre les d\xE9m\xE9nagements rat\xE9s.")), React.createElement("p", {

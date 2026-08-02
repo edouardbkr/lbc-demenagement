@@ -11,7 +11,7 @@ function RHero({ r }) {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>{r.intl ? "International" : "Longue distance"}</span>
         </div>
@@ -43,8 +43,8 @@ function RIntro({ r }) {
               Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — des déménageurs expérimentés et soigneux, une assurance complète et un devis clair et définitif. {r.intl ? "À l'international comme en France, " : ""}le nom est la blague : le travail, lui, est sérieux.
             </p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis {r.from} → {r.to}<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis {r.from} → {r.to}<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">

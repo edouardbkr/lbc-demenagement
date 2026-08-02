@@ -171,7 +171,7 @@ function Estimator() {
   }, React.createElement("span", {
     className: "ast"
   }, "*"), "Estimation indicative, hors options. Votre devis, lui, est pr\xE9cis et d\xE9finitif.")), React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary est-cta"
   }, "Obtenir mon prix ferme", React.createElement("span", {
     className: "arrow"

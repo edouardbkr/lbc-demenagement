@@ -5,7 +5,7 @@ function FormulesHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Nos formules</span>
         </div>
@@ -174,7 +174,7 @@ function FormulaFinder() {
                   <div className="finder-res-name">{res.name}</div>
                   <div className="finder-res-tag">« {res.tag} »</div>
                   <p className="finder-res-desc">{res.desc}</p>
-                  <a href="Devis.html" className="btn btn-primary">Demander cette formule<span className="arrow">→</span></a>
+                  <a href="Devis" className="btn btn-primary">Demander cette formule<span className="arrow">→</span></a>
                 </React.Fragment> :
 
               <div className="finder-empty">

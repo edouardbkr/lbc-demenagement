@@ -30,7 +30,7 @@ function DipHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Déménagement diplomatique</span>
         </div>
@@ -53,8 +53,8 @@ function DipIntro() {
             <p className="lead">La Côte d'Azur est une terre diplomatique à part. <strong style={{ color: 'var(--ink)' }}>Nice</strong> abrite l'un des plus importants corps consulaires de France, avec des consulats de dizaines de pays, et la Principauté de <strong style={{ color: 'var(--ink)' }}>Monaco</strong> concentre missions, consulats et organisations internationales. On connaît ce terrain, ses exigences protocolaires et sa discrétion, et on déménage pour lui comme pour n'importe quelle capitale du monde.</p>
             <p>Prise de poste d'un consul à Nice, fin de mission d'un diplomate à Monaco, transfert de résidence d'un fonctionnaire international, mutation vers une ambassade à l'étranger : franchise douanière, inventaire valorisé multilingue, emballage musée et confidentialité d'État. Un chef de projet unique coordonne tout, du protocole au dernier carton.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis confidentiel sous 24h<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis confidentiel sous 24h<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">
@@ -68,7 +68,7 @@ function DipIntro() {
                 <div><strong style={{ color: 'var(--ink)' }}>Portée</strong> · de la Côte d'Azur vers le monde</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
-                Voir aussi le <a href="Militaire.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>déménagement militaire</a> et la <a href="Mutations.html" style={{ color: 'var(--accent)', fontWeight: 600 }}>mutation professionnelle</a>.
+                Voir aussi le <a href="Militaire" style={{ color: 'var(--accent)', fontWeight: 600 }}>déménagement militaire</a> et la <a href="Mutations" style={{ color: 'var(--accent)', fontWeight: 600 }}>mutation professionnelle</a>.
               </div>
             </div>
           </div>

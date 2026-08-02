@@ -39,7 +39,7 @@ function LRHero() {
     <section className="page-hero">
       <div className="wrap">
         <div className="breadcrumb">
-          <a href="Les Bras Cassés.html">Accueil</a>
+          <a href="/">Accueil</a>
           <span className="sep">/</span>
           <span>Déménagement La Rochelle</span>
         </div>
@@ -65,8 +65,8 @@ function LRIntro() {
             <p className="lead">La Rochelle, ses trois tours, son Vieux-Port et ses arcades médiévales, est une ville maritime au charme unique et aux accès parfois exigeants. Centre historique piéton et pavé, immeubles anciens sans ascenseur, plus grand port de plaisance d'Europe aux Minimes, et un pont vers les îles de Ré et d'Oléron : chaque secteur a ses contraintes, qu'on connaît et qu'on anticipe. On y déménage particuliers, étudiants, plaisanciers et entreprises, du studio au bord de l'eau à la maison rochelaise en pierre de taille.</p>
             <p>Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair et définitif. Le nom est la blague : le travail, lui, est sérieux.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis.html" className="btn btn-primary">Devis gratuit à La Rochelle<span className="arrow">→</span></a>
-              <a href="Formules.html" className="btn btn-ghost">Voir les formules</a>
+              <a href="Devis" className="btn btn-primary">Devis gratuit à La Rochelle<span className="arrow">→</span></a>
+              <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">

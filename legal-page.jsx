@@ -49,11 +49,11 @@ function MentionsLegales() {
       </LBlock>
 
       <LBlock n="4" title="Données personnelles">
-        <p>Les informations transmises via les formulaires de devis et de contact sont traitées conformément à notre <a href="Confidentialite.html">politique de confidentialité</a>. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données — voir la page dédiée pour exercer vos droits.</p>
+        <p>Les informations transmises via les formulaires de devis et de contact sont traitées conformément à notre <a href="Confidentialite">politique de confidentialité</a>. Vous disposez d'un droit d'accès, de rectification et de suppression de vos données — voir la page dédiée pour exercer vos droits.</p>
       </LBlock>
 
       <LBlock n="5" title="Cookies">
-        <p>Ce site utilise uniquement les cookies strictement nécessaires à son fonctionnement et, le cas échéant, des outils de mesure d'audience. Vous pouvez configurer votre navigateur pour refuser les cookies non essentiels. Pour en savoir plus, consultez la <a href="Confidentialite.html">politique de confidentialité</a>.</p>
+        <p>Ce site utilise uniquement les cookies strictement nécessaires à son fonctionnement et, le cas échéant, des outils de mesure d'audience. Vous pouvez configurer votre navigateur pour refuser les cookies non essentiels. Pour en savoir plus, consultez la <a href="Confidentialite">politique de confidentialité</a>.</p>
       </LBlock>
 
       <LBlock n="6" title="Responsabilité">
@@ -161,7 +161,7 @@ function LegalPage() {
         <section className="page-hero">
           <div className="wrap">
             <div className="breadcrumb">
-              <a href="Les Bras Cassés.html">Accueil</a>
+              <a href="/">Accueil</a>
               <span className="sep">/</span>
               <span>{doc.crumb}</span>
             </div>
@@ -179,9 +179,9 @@ function LegalPage() {
                 <strong>Note&nbsp;:</strong> les mentions signalées <span className="legal-fill">[à compléter]</span> doivent être renseignées avec vos informations réelles (SIRET, RCS, hébergeur, assureur, délais…) avant la mise en ligne.
               </div>
               <nav className="legal-cross" aria-label="Autres pages légales">
-                <a href="Mentions-legales.html">Mentions légales</a>
-                <a href="Confidentialite.html">Confidentialité</a>
-                <a href="CGV.html">CGV</a>
+                <a href="Mentions-legales">Mentions légales</a>
+                <a href="Confidentialite">Confidentialité</a>
+                <a href="CGV">CGV</a>
               </nav>
             </div>
           </div>

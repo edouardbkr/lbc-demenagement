@@ -123,7 +123,7 @@ function DevisHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "DEVIS GRATUIT \xB7 PRIX IMM\xC9DIAT")), React.createElement("h1", null, "Votre devis d\xE9m\xE9nagement, ", React.createElement("em", null, "gratuit et sans engagement.")), React.createElement("p", {
@@ -992,7 +992,7 @@ function DevisForm() {
       marginTop: 12
     }
   }, "Pas certain ? Prenez ", React.createElement("strong", null, "Mains libres"), ". On ajuste ensemble au moment du devis. ", React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     target: "_blank",
     rel: "noopener",
     style: {

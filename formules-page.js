@@ -8,7 +8,7 @@ function FormulesHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Nos formules")), React.createElement("h1", null, "Trois formules, ", React.createElement("em", null, "une seule exigence.")), React.createElement("p", {
@@ -352,7 +352,7 @@ function FormulaFinder() {
   }, "\xAB ", res.tag, " \xBB"), React.createElement("p", {
     className: "finder-res-desc"
   }, res.desc), React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Demander cette formule", React.createElement("span", {
     className: "arrow"

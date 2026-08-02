@@ -193,7 +193,7 @@ function FaqHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "FAQ")), React.createElement("h1", null, "Questions fr\xE9quentes, ", React.createElement("em", null, "r\xE9ponses directes.")), React.createElement("p", {

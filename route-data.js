@@ -4,7 +4,7 @@ const ROUTES = {
   "nice-paris": {
     from: "Nice",
     to: "Paris",
-    file: "Demenagement-Nice-Paris.html",
+    file: "Demenagement-Nice-Paris",
     km: "930 km",
     duree: "≈ 9 h de route",
     pays: "France",
@@ -53,7 +53,7 @@ const ROUTES = {
   "nice-lyon": {
     from: "Nice",
     to: "Lyon",
-    file: "Demenagement-Nice-Lyon.html",
+    file: "Demenagement-Nice-Lyon",
     km: "470 km",
     duree: "≈ 5 h de route",
     pays: "France",
@@ -102,7 +102,7 @@ const ROUTES = {
   "nice-marseille": {
     from: "Nice",
     to: "Marseille",
-    file: "Demenagement-Nice-Marseille.html",
+    file: "Demenagement-Nice-Marseille",
     km: "200 km",
     duree: "≈ 2 h de route",
     pays: "France",
@@ -151,7 +151,7 @@ const ROUTES = {
   "nice-toulouse": {
     from: "Nice",
     to: "Toulouse",
-    file: "Demenagement-Nice-Toulouse.html",
+    file: "Demenagement-Nice-Toulouse",
     km: "560 km",
     duree: "≈ 6 h de route",
     pays: "France",
@@ -200,7 +200,7 @@ const ROUTES = {
   "nice-bordeaux": {
     from: "Nice",
     to: "Bordeaux",
-    file: "Demenagement-Nice-Bordeaux.html",
+    file: "Demenagement-Nice-Bordeaux",
     km: "800 km",
     duree: "≈ 8 h de route",
     pays: "France",
@@ -249,7 +249,7 @@ const ROUTES = {
   "nice-geneve": {
     from: "Nice",
     to: "Genève",
-    file: "Demenagement-Nice-Geneve.html",
+    file: "Demenagement-Nice-Geneve",
     km: "470 km",
     duree: "≈ 5 h de route",
     pays: "Suisse",
@@ -299,7 +299,7 @@ const ROUTES = {
   "nice-lausanne": {
     from: "Nice",
     to: "Lausanne",
-    file: "Demenagement-Nice-Lausanne.html",
+    file: "Demenagement-Nice-Lausanne",
     km: "530 km",
     duree: "≈ 5 h 30 de route",
     pays: "Suisse",
@@ -349,7 +349,7 @@ const ROUTES = {
   "nice-bruxelles": {
     from: "Nice",
     to: "Bruxelles",
-    file: "Demenagement-Nice-Bruxelles.html",
+    file: "Demenagement-Nice-Bruxelles",
     km: "1 150 km",
     duree: "≈ 11 h de route",
     pays: "Belgique",
@@ -399,7 +399,7 @@ const ROUTES = {
   "nice-luxembourg": {
     from: "Nice",
     to: "Luxembourg",
-    file: "Demenagement-Nice-Luxembourg.html",
+    file: "Demenagement-Nice-Luxembourg",
     km: "920 km",
     duree: "≈ 9 h de route",
     pays: "Luxembourg",
@@ -449,7 +449,7 @@ const ROUTES = {
   "nice-barcelone": {
     from: "Nice",
     to: "Barcelone",
-    file: "Demenagement-Nice-Barcelone.html",
+    file: "Demenagement-Nice-Barcelone",
     km: "660 km",
     duree: "≈ 6 h 30 de route",
     pays: "Espagne",
@@ -499,7 +499,7 @@ const ROUTES = {
   "nice-madrid": {
     from: "Nice",
     to: "Madrid",
-    file: "Demenagement-Nice-Madrid.html",
+    file: "Demenagement-Nice-Madrid",
     km: "1 280 km",
     duree: "≈ 13 h de route",
     pays: "Espagne",
@@ -549,7 +549,7 @@ const ROUTES = {
   "nice-milan": {
     from: "Nice",
     to: "Milan",
-    file: "Demenagement-Nice-Milan.html",
+    file: "Demenagement-Nice-Milan",
     km: "320 km",
     duree: "≈ 3 h 30 de route",
     pays: "Italie",
@@ -599,7 +599,7 @@ const ROUTES = {
   "nice-turin": {
     from: "Nice",
     to: "Turin",
-    file: "Demenagement-Nice-Turin.html",
+    file: "Demenagement-Nice-Turin",
     km: "230 km",
     duree: "≈ 2 h 45 de route",
     pays: "Italie",

@@ -3,7 +3,7 @@
 const CITIES = {
   "nice": {
     name: "Nice",
-    file: "Demenagement-Nice.html",
+    file: "Demenagement-Nice",
     cp: "06000 – 06300",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -56,7 +56,7 @@ const CITIES = {
   },
   "cannes": {
     name: "Cannes",
-    file: "Demenagement-Cannes.html",
+    file: "Demenagement-Cannes",
     cp: "06400",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -109,7 +109,7 @@ const CITIES = {
   },
   "antibes": {
     name: "Antibes",
-    file: "Demenagement-Antibes.html",
+    file: "Demenagement-Antibes",
     cp: "06600",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -162,7 +162,7 @@ const CITIES = {
   },
   "monaco": {
     name: "Monaco",
-    file: "Demenagement-Monaco.html",
+    file: "Demenagement-Monaco",
     cp: "98000",
     dept: "Principauté de Monaco",
     region: "cote",
@@ -215,7 +215,7 @@ const CITIES = {
   },
   "menton": {
     name: "Menton",
-    file: "Demenagement-Menton.html",
+    file: "Demenagement-Menton",
     cp: "06500",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -268,7 +268,7 @@ const CITIES = {
   },
   "grasse": {
     name: "Grasse",
-    file: "Demenagement-Grasse.html",
+    file: "Demenagement-Grasse",
     cp: "06130",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -321,7 +321,7 @@ const CITIES = {
   },
   "cagnes-sur-mer": {
     name: "Cagnes-sur-Mer",
-    file: "Demenagement-Cagnes-sur-Mer.html",
+    file: "Demenagement-Cagnes-sur-Mer",
     cp: "06800",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -374,7 +374,7 @@ const CITIES = {
   },
   "le-cannet": {
     name: "Le Cannet",
-    file: "Demenagement-Le-Cannet.html",
+    file: "Demenagement-Le-Cannet",
     cp: "06110",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -427,7 +427,7 @@ const CITIES = {
   },
   "saint-laurent-du-var": {
     name: "Saint-Laurent-du-Var",
-    file: "Demenagement-Saint-Laurent-du-Var.html",
+    file: "Demenagement-Saint-Laurent-du-Var",
     cp: "06700",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -480,7 +480,7 @@ const CITIES = {
   },
   "mandelieu": {
     name: "Mandelieu-la-Napoule",
-    file: "Demenagement-Mandelieu.html",
+    file: "Demenagement-Mandelieu",
     cp: "06210",
     dept: "Alpes-Maritimes (06)",
     region: "cote",

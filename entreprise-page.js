@@ -103,7 +103,7 @@ const PRO_DEEP = [{
   p: "Notre vrai atout, c'est de connaître le terrain économique azuréen. Les bureaux de l'Arénas et de l'Éco-Vallée (Nice Méridia) près de l'aéroport, la technopole de Sophia Antipolis (Antibes, Valbonne), les sièges et commerces de la Croisette et de Cannes La Bocca, les bureaux de Monaco, la zone commerciale de Cap 3000 à Saint-Laurent-du-Var, les zones d'activité de Carros et de la Trinité : on sait où se garer, comment accéder aux parkings et aux quais, et quels créneaux d'immeuble respecter. Un transfert sur la Côte d'Azur sans perdre une heure à chercher un accès."
 }, {
   t: "Commerce, cabinet, archives : chaque métier ses règles",
-  p: "Un commerce veut une fermeture la plus courte possible : on planifie au plus serré, parfois de nuit, pour rouvrir vite. Un cabinet (avocat, médecin, expert-comptable) exige une confidentialité absolue des dossiers : cartons scellés, inventaire, traçabilité. Pour les archives et documents, on assure une chaîne de traçabilité complète, et on peut les mettre en <a href=\"Archivage.html\">archivage sécurisé</a> ou en <a href=\"Stockage.html\">garde-meuble</a> pendant la transition. À chaque métier sa contrainte, qu'on intègre dès le devis."
+  p: "Un commerce veut une fermeture la plus courte possible : on planifie au plus serré, parfois de nuit, pour rouvrir vite. Un cabinet (avocat, médecin, expert-comptable) exige une confidentialité absolue des dossiers : cartons scellés, inventaire, traçabilité. Pour les archives et documents, on assure une chaîne de traçabilité complète, et on peut les mettre en <a href=\"Archivage\">archivage sécurisé</a> ou en <a href=\"Stockage\">garde-meuble</a> pendant la transition. À chaque métier sa contrainte, qu'on intègre dès le devis."
 }];
 const PRO_FAQ = [{
   q: "Pouvez-vous intervenir le soir, le week-end ou les jours fériés ?",
@@ -132,7 +132,7 @@ function EntHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "D\xE9m\xE9nagement d'entreprise")), React.createElement("h1", null, "D\xE9m\xE9nager vos bureaux ", React.createElement("em", null, "sans mettre l'activit\xE9 en pause.")), React.createElement("p", {
@@ -173,12 +173,12 @@ function EntIntro() {
       marginTop: 32
     }
   }, React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Devis & planning sous 24h", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
-    href: "Formules.html",
+    href: "Formules",
     className: "btn btn-ghost"
   }, "Voir les formules"))), React.createElement("div", {
     className: "reveal"
@@ -232,7 +232,7 @@ function EntIntro() {
       lineHeight: 1.5
     }
   }, "Archives \xE0 transf\xE9rer ? Voir aussi l'", React.createElement("a", {
-    href: "Archivage.html",
+    href: "Archivage",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
@@ -411,13 +411,13 @@ function EntFeats() {
       color: 'var(--ink-2)'
     }
   }, "Besoin de reloger un collaborateur ? Voir aussi nos pages ", React.createElement("a", {
-    href: "Mutations.html",
+    href: "Mutations",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
     }
   }, "Mutations professionnelles"), " et ", React.createElement("a", {
-    href: "Militaire.html",
+    href: "Militaire",
     style: {
       color: 'var(--accent)',
       fontWeight: 600

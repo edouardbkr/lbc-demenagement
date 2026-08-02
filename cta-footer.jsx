@@ -114,7 +114,7 @@ function CTA() {
               <em>Nous, on l'est <span className="scribble">toujours.</span></em>
             </h2>
             <p className="cta-side">
-              Laissez-nous vos coordonnées : on vous rappelle dans la journée avec un prix précis et définitif, pas un appât marketing. Vous voulez aller plus vite ? Le <a href="Devis.html">formulaire de devis complet</a> prend deux minutes.
+              Laissez-nous vos coordonnées : on vous rappelle dans la journée avec un prix précis et définitif, pas un appât marketing. Vous voulez aller plus vite ? Le <a href="Devis">formulaire de devis complet</a> prend deux minutes.
             </p>
             <p className="cta-side" style={{ marginTop: 16 }}>
               Préférez de vive voix ? <a href="tel:+33615976577">06 15 97 65 77</a><br />

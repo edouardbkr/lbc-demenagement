@@ -48,14 +48,14 @@ function NotFound() {
           On a bien cherché dans tous les cartons… introuvable. Mais pas de panique : on sait exactement où vous ramener.
         </p>
         <div className="nf-ctas">
-          <a href="Les Bras Cassés.html" className="btn btn-primary">Retour à l'accueil<span className="arrow">→</span></a>
-          <a href="Devis.html" className="btn btn-ghost">Demander un devis</a>
+          <a href="/" className="btn btn-primary">Retour à l'accueil<span className="arrow">→</span></a>
+          <a href="Devis" className="btn btn-ghost">Demander un devis</a>
         </div>
         <div className="nf-links">
-          <a href="Formules.html">Formules</a><span>·</span>
-          <a href="Stockage.html">Stockage</a><span>·</span>
-          <a href="Checklist.html">Checklist</a><span>·</span>
-          <a href="Contact.html">Contact</a>
+          <a href="Formules">Formules</a><span>·</span>
+          <a href="Stockage">Stockage</a><span>·</span>
+          <a href="Checklist">Checklist</a><span>·</span>
+          <a href="Contact">Contact</a>
         </div>
       </div>
     </section>);

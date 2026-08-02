@@ -101,11 +101,11 @@ function ResaPage() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("a", {
-    href: "Stockage.html"
+    href: "Stockage"
   }, "Stockage"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "R\xE9server")), React.createElement("h1", null, done ? "Réservation confirmée." : "Réservez votre box."), React.createElement("p", {
@@ -139,12 +139,12 @@ function ResaPage() {
     className: "ds-actions"
   }, React.createElement("a", {
     className: "btn btn-primary",
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Retour \xE0 l'accueil", React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
     className: "btn btn-ghost",
-    href: "Stockage.html"
+    href: "Stockage"
   }, "Voir le service stockage"))) : React.createElement("form", {
     className: "devis-form resa-grid",
     onSubmit: pay

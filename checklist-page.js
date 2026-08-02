@@ -39,7 +39,7 @@ function ChecklistHero({
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "Checklist d\xE9m\xE9nagement")), React.createElement("h1", null, "Votre d\xE9m\xE9nagement, ", React.createElement("em", null, "sans rien oublier.")), React.createElement("p", {
@@ -150,7 +150,7 @@ function Checklist() {
   }, "La premi\xE8re ligne, c'est le devis."), React.createElement("div", {
     className: "ck-cta-sub"
   }, "Deux minutes, et on s'occupe du plus lourd de la liste.")), React.createElement("a", {
-    href: "Devis.html",
+    href: "Devis",
     className: "btn btn-primary"
   }, "Obtenir mon devis", React.createElement("span", {
     className: "arrow"

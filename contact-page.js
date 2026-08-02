@@ -49,7 +49,7 @@ function ContactHero() {
   }, React.createElement("div", {
     className: "breadcrumb"
   }, React.createElement("a", {
-    href: "Les Bras Cass\xE9s.html"
+    href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
   }, "/"), React.createElement("span", null, "CONTACT")), React.createElement("h1", null, "Parlons de votre ", React.createElement("em", null, "d\xE9m\xE9nagement.")), React.createElement("p", {
@@ -93,7 +93,7 @@ function ContactInfo() {
   }, it.v) : it.v)))), React.createElement("p", {
     className: "contact-quick"
   }, "Vous voulez un chiffrage complet ? Le ", React.createElement("a", {
-    href: "Devis.html"
+    href: "Devis"
   }, "formulaire de devis"), " prend deux minutes."));
 }
 function ContactForm() {
