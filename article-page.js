@@ -48,7 +48,7 @@ function ArticleBody({
     className: "prose reveal"
   }, React.createElement("div", {
     style: {
-      aspectRatio: '16/7',
+      aspectRatio: '3/2',
       marginBottom: 48,
       overflow: 'hidden',
       borderRadius: 14

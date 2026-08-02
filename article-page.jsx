@@ -54,7 +54,11 @@ function ArticleBody({ a }) {
               Pas de loading="lazy" : c'est la plus grande image visible à l'ouverture, donc
               celle que Google mesure pour le LCP. La différer ralentirait la page.
               Le ratio 16/7 vient de la maquette, objectFit recadre proprement. */}
-          <div style={{aspectRatio:'16/7', marginBottom: 48, overflow:'hidden', borderRadius: 14}}>
+          {/* Cadre en 3/2, le ratio exact des illustrations (1200 × 800).
+              Il était en 16/7 : l'image était alors rognée en haut et en bas, ce qui coupait
+              une partie du visuel (le camion, la barrière de douane…). Au ratio de l'image,
+              elle s'affiche entière. */}
+          <div style={{aspectRatio:'3/2', marginBottom: 48, overflow:'hidden', borderRadius: 14}}>
             {a.image ?
               <img src={a.image} alt={a.imageAlt || a.title} decoding="async" fetchPriority="high"
                    width="1200" height="800"

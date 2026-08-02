@@ -41,14 +41,15 @@ function Hero({
   };
   const h = headlines[headlineVariant] || headlines.a;
   const heroVideoRef = React.useRef(null);
-  const [videoOk, setVideoOk] = React.useState(false);
+  const [source, setSource] = React.useState(null);
   React.useEffect(() => {
-    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
     const sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const co = navigator.connection || {};
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
-    if (petitEcran || sobre || reseauFaible) return;
-    const lancer = () => setVideoOk(true);
+    if (sobre || reseauFaible) return;
+    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    const fichier = petitEcran ? "assets/hero-video-mobile.mp4" : "assets/hero-video.mp4";
+    const lancer = () => setSource(fichier);
     if (document.readyState === "complete") setTimeout(lancer, 200);else window.addEventListener("load", () => setTimeout(lancer, 200), {
       once: true
     });
@@ -60,7 +61,7 @@ function Hero({
       const p = v.play();
       if (p && p.catch) p.catch(() => {});
     }
-  }, [videoOk]);
+  }, [source]);
   return React.createElement("section", {
     className: "hero",
     id: "top",
@@ -126,10 +127,10 @@ function Hero({
     className: "scribble"
   }, React.createElement("br", null)), React.createElement("div", {
     className: "hero-photo-frame"
-  }, videoOk ? React.createElement("video", {
+  }, source ? React.createElement("video", {
     ref: heroVideoRef,
     className: "hero-video",
-    src: "assets/hero-video.mp4",
+    src: source,
     poster: "assets/hero-poster.jpg",
     autoPlay: true,
     muted: true,

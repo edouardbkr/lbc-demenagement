@@ -3,14 +3,15 @@
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function About() {
   const aboutVidRef = React.useRef(null);
-  const [videoOk, setVideoOk] = React.useState(false);
+  const [source, setSource] = React.useState(null);
   React.useEffect(() => {
-    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
     const sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const co = navigator.connection || {};
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
-    if (petitEcran || sobre || reseauFaible) return;
-    const lancer = () => setVideoOk(true);
+    if (sobre || reseauFaible) return;
+    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    const fichier = petitEcran ? "assets/about-video-mobile.mp4" : "assets/about-video.mp4";
+    const lancer = () => setSource(fichier);
     if (document.readyState === "complete") setTimeout(lancer, 400);else window.addEventListener("load", () => setTimeout(lancer, 400), {
       once: true
     });
@@ -22,7 +23,7 @@ function About() {
       const p = v.play();
       if (p && p.catch) p.catch(() => {});
     }
-  }, [videoOk]);
+  }, [source]);
   return React.createElement("section", {
     className: "sec about",
     id: "about",
@@ -114,9 +115,9 @@ function About() {
     className: "about-photo-stack reveal"
   }, React.createElement("div", {
     className: "about-photo portrait"
-  }, videoOk ? React.createElement("video", {
+  }, source ? React.createElement("video", {
     ref: aboutVidRef,
-    src: "assets/about-video.mp4",
+    src: source,
     poster: "assets/about-poster.jpg",
     autoPlay: true,
     muted: true,

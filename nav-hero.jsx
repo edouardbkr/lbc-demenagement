@@ -25,17 +25,22 @@ function Hero({ headlineVariant }) {
   // QUE sur grand écran, et seulement une fois la page entièrement prête. Sur mobile, elle ne
   // se charge jamais : le visiteur voit l'aperçu, télécharge 19 Mo de moins, et la page est
   // utilisable immédiatement.
-  const [videoOk, setVideoOk] = React.useState(false);
+  // La vidéo joue PARTOUT, mobile compris, mais pas dans la même version.
+  // Sur mobile on sert un fichier de 1,3 Mo (568 × 320) au lieu des 13,5 Mo de l'original :
+  // à la taille d'affichage d'un téléphone, la différence ne se voit pas, et la page reste
+  // légère. Dans les deux cas la vidéo n'est chargée qu'une fois la page prête, pour ne pas
+  // retarder l'affichage du premier écran.
+  const [source, setSource] = React.useState(null);
   React.useEffect(() => {
-    // Pas de vidéo sur mobile, ni si le visiteur a demandé à limiter les animations,
-    // ni s'il est sur une connexion lente ou en économie de données.
-    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    // On respecte le visiteur qui a demandé moins d'animations, ou qui économise ses données.
     const sobre = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const co = navigator.connection || {};
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
-    if (petitEcran || sobre || reseauFaible) return;
+    if (sobre || reseauFaible) return;
 
-    const lancer = () => setVideoOk(true);
+    const petitEcran = window.matchMedia("(max-width: 900px)").matches;
+    const fichier = petitEcran ? "assets/hero-video-mobile.mp4" : "assets/hero-video.mp4";
+    const lancer = () => setSource(fichier);
     if (document.readyState === "complete") setTimeout(lancer, 200);
     else window.addEventListener("load", () => setTimeout(lancer, 200), { once: true });
   }, []);
@@ -43,7 +48,7 @@ function Hero({ headlineVariant }) {
   React.useEffect(() => {
     const v = heroVideoRef.current;
     if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
-  }, [videoOk]);
+  }, [source]);
   return (
     <section className="hero" id="top" style={{ paddingTop: "16px" }}>
       <div className="wrap" style={{ paddingTop: "20px" }}>
@@ -67,8 +72,8 @@ function Hero({ headlineVariant }) {
           <div className="hero-photo reveal">
             <div className="scribble"><br /></div>
             <div className="hero-photo-frame">
-              {videoOk ?
-              <video ref={heroVideoRef} className="hero-video" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoPlay muted loop playsInline preload="none" aria-label="LBC Déménagement en intervention" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> :
+              {source ?
+              <video ref={heroVideoRef} className="hero-video" src={source} poster="assets/hero-poster.jpg" autoPlay muted loop playsInline preload="none" aria-label="LBC Déménagement en intervention" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> :
               <img className="hero-video" src="assets/hero-poster.jpg" alt="Déménageurs LBC protégeant un canapé avant transport" width="960" height="540" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />}
             </div>
           </div>
