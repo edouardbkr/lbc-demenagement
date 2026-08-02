@@ -27,12 +27,25 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
 
   # Liste blanche de tout ce que la page a le droit de charger ou de contacter.
+  #
   # Domaines autorisés, et pourquoi :
-  #   fonts.googleapis.com / fonts.gstatic.com : les polices du site
-  #   connect.facebook.net / facebook.com      : le pixel Meta, chargé UNIQUEMENT après
-  #                                              consentement RGPD (piloté par consent.js)
-  #   formsubmit.co                            : notification e-mail des formulaires
-  # 'unsafe-inline' pour les scripts reste nécessaire : deux scripts sont écrits directement
+  #   fonts.googleapis.com / fonts.gstatic.com   les polices du site
+  #   googletagmanager / google-analytics        Google Analytics 4 (mesure d'audience)
+  #   clarity.ms                                 Microsoft Clarity (enregistrements de session
+  #                                              et cartes de chaleur, pour voir où les
+  #                                              visiteurs bloquent)
+  #   connect.facebook.net / facebook.com        le pixel Meta
+  #   formsubmit.co                              notification e-mail des formulaires
+  #
+  # ⚠️ Les trois outils de mesure ne se chargent QU'APRÈS accord RGPD du visiteur, c'est
+  # consent.js qui les déclenche. Les autoriser ici ne les active pas : ça les empêche
+  # seulement d'être bloqués quand le visiteur a accepté.
+  #
+  # PIÈGE VÉCU : cette liste avait été écrite sans eux. Les tests ne le voyaient pas, car
+  # sans accepter le bandeau de cookies aucun traceur ne se charge, donc aucune violation
+  # n'apparaît. Toujours tester en acceptant le bandeau.
+  #
+  # 'unsafe-inline' reste nécessaire pour les scripts : deux scripts sont écrits directement
   # dans le HTML (le stub du pixel et l'animation d'apparition). Le site n'affiche aucun
-  # contenu écrit par un visiteur, donc il n'y a pas de porte d'entrée XSS à protéger ici.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://www.facebook.com; media-src 'self' blob:; connect-src 'self' https://formsubmit.co https://connect.facebook.net https://www.facebook.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests
+  # contenu écrit par un visiteur, il n'y a donc pas de porte d'entrée XSS à protéger ici.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https://www.facebook.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://stats.g.doubleclick.net https://www.google.com https://www.google.fr; media-src 'self' blob:; connect-src 'self' https://formsubmit.co https://connect.facebook.net https://www.facebook.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://stats.g.doubleclick.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; object-src 'none'; upgrade-insecure-requests
