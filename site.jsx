@@ -250,13 +250,11 @@ function Nav() {
           )}
         </nav>
         <div className="nav-actions">
-          {(CURRENT === 'accueil' || window.IS_EN) &&
-          <a href={window.IS_EN ? '/' : '/en/'} className="lang-switch" aria-label={window.IS_EN ? 'Voir en français' : 'View in English'} hrefLang={window.IS_EN ? 'fr' : 'en'}>
-            <span className={window.IS_EN ? '' : 'lang-on'}>FR</span>
-            <span className="lang-sep">/</span>
-            <span className={window.IS_EN ? 'lang-on' : ''}>EN</span>
-          </a>
-          }
+          {/* La bascule FR / EN a été retirée le 3 août 2026.
+              Elle envoyait vers /en/, qui ne contenait qu'UNE page alors que le site français
+              en compte 60 : le visiteur anglophone arrivait sur une impasse. Les balises
+              hreflang qui annonçaient une version anglaise complète ont été retirées aussi.
+              À remettre le jour où la traduction sera réellement faite, avec les hreflang. */}
           <a href="tel:+33615976577" className="btn btn-ghost nav-call">
             <svg className="nav-call-ic" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
             <span className="lbl-full">06 15 97 65 77</span>

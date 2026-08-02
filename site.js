@@ -297,18 +297,7 @@ function Nav() {
     onMouseEnter: scheduleClose
   }, n.label))), React.createElement("div", {
     className: "nav-actions"
-  }, (CURRENT === 'accueil' || window.IS_EN) && React.createElement("a", {
-    href: window.IS_EN ? '/' : '/en/',
-    className: "lang-switch",
-    "aria-label": window.IS_EN ? 'Voir en français' : 'View in English',
-    hrefLang: window.IS_EN ? 'fr' : 'en'
-  }, React.createElement("span", {
-    className: window.IS_EN ? '' : 'lang-on'
-  }, "FR"), React.createElement("span", {
-    className: "lang-sep"
-  }, "/"), React.createElement("span", {
-    className: window.IS_EN ? 'lang-on' : ''
-  }, "EN")), React.createElement("a", {
+  }, React.createElement("a", {
     href: "tel:+33615976577",
     className: "btn btn-ghost nav-call"
   }, React.createElement("svg", {
