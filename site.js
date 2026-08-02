@@ -524,7 +524,7 @@ function qqSendToCockpit(fields, leadId) {
       prenom,
       nom,
       tel: fields.tel || "",
-      email: "",
+      email: fields.email || "",
       contactPref: ""
     },
     formule: "standard",
@@ -539,7 +539,7 @@ function qqSendToCockpit(fields, leadId) {
       adresse: fields.arrivee || "",
       ville: qqVilleFrom(fields.arrivee)
     },
-    message: "Lead capté via la barre rapide (formulaire court, non finalisé)."
+    message: "Lead capté via la barre rapide : étape 1 remplie" + (fields.type ? ", logement « " + fields.type + " »" : "") + ". Le prospect a été renvoyé à l'étape 2 du devis."
   };
   try {
     return fetch("/api/lead", {
@@ -670,14 +670,22 @@ function QuickQuote({
       window.location.href = "Devis";
       return;
     }
-    const depart = f.depart.value.trim();
-    const arrivee = f.arrivee.value.trim();
-    const date = f.date.value.trim();
-    const tel = f.tel.value.trim();
     const nom = f.nom.value.trim();
-    const surfaceEl = f.surface;
-    const surface = surfaceEl.value;
-    const surfaceLabel = surfaceEl.selectedIndex > 0 ? surfaceEl.options[surfaceEl.selectedIndex].text : "";
+    const tel = f.tel.value.trim();
+    const email = f.email.value.trim();
+    const type = f.type.value;
+    const surface = f.surface.value;
+    const TYPE_LABEL = {
+      appart: "Appartement",
+      maison: "Maison",
+      bureau: "Bureaux"
+    };
+    const SURF_LABEL = {
+      studio: "Studio (< 30 m²)",
+      t2: "2 pièces (30–50 m²)",
+      t3: "3 pièces (50–80 m²)",
+      t4: "4 pièces + (80 m² +)"
+    };
     try {
       fetch(LEAD_ENDPOINT, {
         method: "POST",
@@ -689,13 +697,12 @@ function QuickQuote({
         body: JSON.stringify({
           _subject: "🚚 Nouvelle demande de devis (barre rapide) — Les Bras Cassés",
           _template: "table",
-          "Étape": "Barre rapide (page d'accueil)",
+          "Étape": "Étape 1 remplie depuis la barre rapide",
           "Nom": nom || "—",
           "Téléphone": tel || "—",
-          "Adresse de départ": depart || "—",
-          "Adresse d'arrivée": arrivee || "—",
-          "Date souhaitée": date || "—",
-          "Surface": surfaceLabel || "—"
+          "Email": email || "—",
+          "Type de logement": TYPE_LABEL[type] || "—",
+          "Surface": SURF_LABEL[surface] || "—"
         })
       }).catch(() => {});
     } catch (err) {}
@@ -704,21 +711,19 @@ function QuickQuote({
     qqSendToCockpit({
       nom,
       tel,
-      depart,
-      arrivee,
-      date,
+      email,
+      type,
       surface
     }, leadId);
     const p = new URLSearchParams();
-    if (depart) p.set("depart", depart);
-    if (arrivee) p.set("arrivee", arrivee);
-    if (date) p.set("date", date);
-    if (tel) p.set("tel", tel);
     if (nom) p.set("nom", nom);
+    if (tel) p.set("tel", tel);
+    if (email) p.set("email", email);
+    if (type) p.set("type", type);
     if (surface) p.set("surface", surface);
     p.set("lead", leadId);
-    const qs = p.toString();
-    window.location.href = "Devis" + (qs ? "?" + qs : "");
+    p.set("etape", "2");
+    window.location.href = "Devis?" + p.toString();
   };
   return React.createElement("div", {
     style: {
@@ -734,31 +739,58 @@ function QuickQuote({
     tabIndex: "-1",
     autoComplete: "off",
     "aria-hidden": "true"
-  }), React.createElement(AddressField, {
-    name: "depart",
-    label: "D\xE9part",
-    placeholder: "Adresse de d\xE9part",
-    className: "qq-field qq-a-dep"
-  }), React.createElement(AddressField, {
-    name: "arrivee",
-    label: "Arriv\xE9e",
-    placeholder: "Adresse d'arriv\xE9e",
-    className: "qq-field qq-a-arr"
   }), React.createElement("div", {
-    className: "qq-field qq-a-date"
-  }, React.createElement("label", null, "Date"), React.createElement("input", {
+    className: "qq-field qq-a-nom"
+  }, React.createElement("label", null, "Pr\xE9nom & nom"), React.createElement("input", {
     type: "text",
-    name: "date",
-    placeholder: "JJ / MM / AAAA",
-    onFocus: e => e.target.type = 'date',
-    onBlur: e => {
-      if (!e.target.value) e.target.type = 'text';
+    name: "nom",
+    placeholder: "Jean Dupont",
+    autoComplete: "name",
+    required: true
+  })), React.createElement("div", {
+    className: "qq-field qq-a-tel"
+  }, React.createElement("label", null, "T\xE9l\xE9phone"), React.createElement("input", {
+    type: "tel",
+    name: "tel",
+    inputMode: "numeric",
+    autoComplete: "tel",
+    placeholder: "06 12 34 56 78",
+    required: true,
+    onInput: e => {
+      let d = e.target.value.replace(/[^\d+]/g, '');
+      if (d.startsWith('+33')) d = '0' + d.slice(3);
+      d = d.replace(/\D/g, '').slice(0, 10);
+      e.target.value = d.replace(/(\d{2})(?=\d)/g, '$1 ').trim();
     }
   })), React.createElement("div", {
+    className: "qq-field qq-a-email"
+  }, React.createElement("label", null, "Email"), React.createElement("input", {
+    type: "email",
+    name: "email",
+    placeholder: "jean@exemple.fr",
+    autoComplete: "email",
+    required: true
+  })), React.createElement("div", {
+    className: "qq-field is-select qq-a-type"
+  }, React.createElement("label", null, "Type de logement"), React.createElement("select", {
+    name: "type",
+    defaultValue: "",
+    required: true
+  }, React.createElement("option", {
+    value: "",
+    disabled: true
+  }, "Appartement, maison\u2026"), React.createElement("option", {
+    value: "appart"
+  }, "Appartement"), React.createElement("option", {
+    value: "maison"
+  }, "Maison"), React.createElement("option", {
+    value: "bureau"
+  }, "Bureaux"))), React.createElement("div", {
     className: "qq-field is-select qq-a-surf"
-  }, React.createElement("label", null, "Surface"), React.createElement("select", {
+  }, React.createElement("label", null, "Surface actuelle"), React.createElement("select", {
     name: "surface",
-    defaultValue: ""
+    defaultValue: "",
+    required: true
   }, React.createElement("option", {
     value: "",
     disabled: true
@@ -770,29 +802,7 @@ function QuickQuote({
     value: "t3"
   }, "3 pi\xE8ces \xB7 50\u201380 m\xB2"), React.createElement("option", {
     value: "t4"
-  }, "4 pi\xE8ces \xB7 80\u2013110 m\xB2"), React.createElement("option", {
-    value: "t4"
-  }, "Maison \xB7 > 110 m\xB2"))), React.createElement("div", {
-    className: "qq-field qq-a-nom"
-  }, React.createElement("label", null, "Nom & pr\xE9nom"), React.createElement("input", {
-    type: "text",
-    name: "nom",
-    placeholder: "Jean Dupont"
-  })), React.createElement("div", {
-    className: "qq-field qq-a-tel"
-  }, React.createElement("label", null, "T\xE9l\xE9phone"), React.createElement("input", {
-    type: "tel",
-    name: "tel",
-    inputMode: "numeric",
-    autoComplete: "tel",
-    placeholder: "06 12 34 56 78",
-    onInput: e => {
-      let d = e.target.value.replace(/[^\d+]/g, '');
-      if (d.startsWith('+33')) d = '0' + d.slice(3);
-      d = d.replace(/\D/g, '').slice(0, 10);
-      e.target.value = d.replace(/(\d{2})(?=\d)/g, '$1 ').trim();
-    }
-  })), React.createElement("button", {
+  }, "4 pi\xE8ces + \xB7 80 m\xB2 +"))), React.createElement("button", {
     type: "submit",
     className: "qq-submit qq-a-btn"
   }, React.createElement("span", {
@@ -800,7 +810,7 @@ function QuickQuote({
     "aria-hidden": "true"
   }, "\u2192"), React.createElement("span", {
     className: "qq-submit-label"
-  }, "Je d\xE9m\xE9nage\xA0!"))), React.createElement("div", {
+  }, "\xC9tape suivante"))), React.createElement("div", {
     className: "qq-note" + (variant === "dark" ? " on-dark" : "")
   }, React.createElement("span", null, React.createElement("span", {
     className: "chk"

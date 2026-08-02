@@ -285,14 +285,21 @@ function FormuleOption({
 function getPrefill() {
   const p = new URLSearchParams(window.location.search);
   return {
+    nom: p.get("nom") || "",
+    tel: p.get("tel") || "",
+    email: p.get("email") || "",
+    type: p.get("type") || "",
+    surface: p.get("surface") || "",
     depart: p.get("depart") || "",
     arrivee: p.get("arrivee") || "",
     date: p.get("date") || "",
-    surface: p.get("surface") || "",
-    tel: p.get("tel") || "",
-    nom: p.get("nom") || "",
-    lead: p.get("lead") || ""
+    lead: p.get("lead") || "",
+    etape: p.get("etape") || ""
   };
+}
+function etapeInitiale(PRE) {
+  const complet = PRE.nom && PRE.tel && PRE.email && PRE.type && PRE.surface;
+  return PRE.etape === "2" && complet ? 1 : 0;
 }
 const SURFACE_LABEL = {
   studio: "Studio (< 30 m²)",
@@ -432,7 +439,7 @@ function AccessBlock({
 }
 function DevisForm() {
   const PRE = getPrefill();
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(etapeInitiale(PRE));
   const [data, setData] = useState({
     surface: PRE.surface || "",
     formule: "premium",
@@ -440,7 +447,9 @@ function DevisForm() {
     arrivee: PRE.arrivee,
     date: PRE.date,
     tel: PRE.tel,
-    nom: PRE.nom
+    nom: PRE.nom,
+    email: PRE.email,
+    type: PRE.type
   });
   const set = (k, v) => setData(d => ({
     ...d,
@@ -1145,5 +1154,5 @@ function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(DevisHero, null), React.createElement(DevisForm, null), React.createElement(Testimonials, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { sendToCockpit, DevisHero, Stepper, Choice, FormuleOption, getPrefill, SegSelect, AccessBlock, DevisForm, Testimonials, App }); } catch (e) {}
+  try { Object.assign(window, { sendToCockpit, DevisHero, Stepper, Choice, FormuleOption, getPrefill, etapeInitiale, SegSelect, AccessBlock, DevisForm, Testimonials, App }); } catch (e) {}
 })();

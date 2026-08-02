@@ -10,7 +10,7 @@ function ctaSendToCockpit(upd) {
   const payload = {
     source: at && at.canal || "site_web",
     attribution: at || null,
-    statut: "Demande de rappel (accueil)",
+    statut: "Lead démarré (étape 1 depuis l'accueil)",
     client: {
       prenom,
       nom,
@@ -20,9 +20,14 @@ function ctaSendToCockpit(upd) {
     },
     formule: "standard",
     formulaireType: "partiel",
-    dateSouhaitee: upd.date || "",
+    volumeEstime: {
+      studio: 14,
+      t2: 25,
+      t3: 40,
+      t4: 60
+    }[upd.surface] ?? null,
     contactPref: "Téléphone",
-    message: ["Demande de rappel captée sur le bandeau de la page d'accueil.", upd.type ? "Type de déménagement : " + upd.type : ""].filter(Boolean).join("\n")
+    message: ["Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.", upd.type ? "Type de logement : " + upd.type : "", upd.surface ? "Surface déclarée : " + upd.surface : ""].filter(Boolean).join("\n")
   };
   try {
     return fetch("/api/lead", {
@@ -65,13 +70,13 @@ function CTA() {
         },
         keepalive: true,
         body: JSON.stringify({
-          _subject: "📞 Demande de rappel (accueil) — Les Bras Cassés",
+          _subject: "🚚 Nouvelle demande de devis (accueil) — Les Bras Cassés",
           _template: "table",
           "Nom": upd.nom || "—",
           "Téléphone": upd.tel || "—",
           "Email": upd.email || "—",
-          "Date souhaitée": upd.date || "—",
-          "Type de déménagement": upd.type || "—"
+          "Type de logement": upd.type || "—",
+          "Surface": upd.surface || "—"
         })
       }).catch(() => {});
     } catch (err) {}
@@ -86,8 +91,13 @@ function CTA() {
       setFailed(true);
       return;
     }
-    if (window.fbq) window.fbq("track", "Lead");
-    setSent(true);
+    if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
+    const p = new URLSearchParams();
+    ["nom", "tel", "email", "type", "surface"].forEach(k => {
+      if (upd[k]) p.set(k, upd[k]);
+    });
+    p.set("etape", "2");
+    window.location.href = "Devis?" + p.toString();
   };
   const retry = async () => {
     if (sending || !last) return;
@@ -122,9 +132,7 @@ function CTA() {
     className: "scribble"
   }, "toujours."))), React.createElement("p", {
     className: "cta-side"
-  }, "Laissez-nous vos coordonn\xE9es : on vous rappelle dans la journ\xE9e avec un prix pr\xE9cis et d\xE9finitif, pas un app\xE2t marketing. Vous voulez aller plus vite ? Le ", React.createElement("a", {
-    href: "Devis"
-  }, "formulaire de devis complet"), " prend deux minutes."), React.createElement("p", {
+  }, "Commencez ici : ces cinq informations suffisent pour d\xE9marrer. On encha\xEEne ensuite sur les adresses et votre inventaire, et vous obtenez une fourchette de prix imm\xE9diate. Deux minutes en tout, sans engagement."), React.createElement("p", {
     className: "cta-side",
     style: {
       marginTop: 16
@@ -216,31 +224,46 @@ function CTA() {
   }, React.createElement("div", {
     className: "field"
   }, React.createElement("label", {
-    htmlFor: "f-date"
-  }, "Date souhait\xE9e"), React.createElement("input", {
-    id: "f-date",
-    name: "date",
-    type: "date",
-    style: {
-      colorScheme: 'dark'
-    },
-    required: true
-  })), React.createElement("div", {
-    className: "field"
-  }, React.createElement("label", {
     htmlFor: "f-type"
-  }, "Type de d\xE9m\xE9nagement"), React.createElement("select", {
+  }, "Type de logement"), React.createElement("select", {
     id: "f-type",
     name: "type",
-    defaultValue: ""
+    defaultValue: "",
+    required: true
   }, React.createElement("option", {
     value: "",
     disabled: true
-  }, "Choisir une formule\u2026"), React.createElement("option", null, "Coup de main"), React.createElement("option", null, "Mains libres"), React.createElement("option", null, "Mains dans les poches"), React.createElement("option", null, "Entreprise / bureaux")))), React.createElement("button", {
+  }, "Appartement, maison\u2026"), React.createElement("option", {
+    value: "appart"
+  }, "Appartement"), React.createElement("option", {
+    value: "maison"
+  }, "Maison"), React.createElement("option", {
+    value: "bureau"
+  }, "Bureaux"))), React.createElement("div", {
+    className: "field"
+  }, React.createElement("label", {
+    htmlFor: "f-surface"
+  }, "Surface actuelle"), React.createElement("select", {
+    id: "f-surface",
+    name: "surface",
+    defaultValue: "",
+    required: true
+  }, React.createElement("option", {
+    value: "",
+    disabled: true
+  }, "Choisir une surface\u2026"), React.createElement("option", {
+    value: "studio"
+  }, "Studio \xB7 < 30 m\xB2"), React.createElement("option", {
+    value: "t2"
+  }, "2 pi\xE8ces \xB7 30\u201350 m\xB2"), React.createElement("option", {
+    value: "t3"
+  }, "3 pi\xE8ces \xB7 50\u201380 m\xB2"), React.createElement("option", {
+    value: "t4"
+  }, "4 pi\xE8ces + \xB7 80 m\xB2 +")))), React.createElement("button", {
     type: "submit",
     className: "cta-submit",
     disabled: sending
-  }, sending ? "Envoi en cours…" : "Être rappelé sous 24h", React.createElement("span", null, "\u2192"))))));
+  }, sending ? "Envoi en cours…" : "Étape suivante", React.createElement("span", null, "\u2192"))))));
 }
 Object.assign(window, {
   CTA

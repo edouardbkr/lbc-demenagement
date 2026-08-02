@@ -411,14 +411,18 @@ function qqSendToCockpit(fields, leadId) {
     attribution: at || null,
     leadId: leadId || null,
     statut: "Lead démarré (barre rapide)",
-    client: { prenom, nom, tel: fields.tel || "", email: "", contactPref: "" },
+    // L'email est désormais capté dès la barre rapide : c'est ce qui permet de relancer un
+    // prospect qui abandonne avant l'étape 2, ce qui était impossible auparavant.
+    client: { prenom, nom, tel: fields.tel || "", email: fields.email || "", contactPref: "" },
     formule: "standard",
     formulaireType: "partiel",
     volumeEstime: QQ_SURFACE_VOL[fields.surface] != null ? QQ_SURFACE_VOL[fields.surface] : null,
     dateSouhaitee: fields.date || "",
     depart: { adresse: fields.depart || "", ville: qqVilleFrom(fields.depart) },
     arrivee: { adresse: fields.arrivee || "", ville: qqVilleFrom(fields.arrivee) },
-    message: "Lead capté via la barre rapide (formulaire court, non finalisé)." };
+    message: "Lead capté via la barre rapide : étape 1 remplie" +
+             (fields.type ? ", logement « " + fields.type + " »" : "") +
+             ". Le prospect a été renvoyé à l'étape 2 du devis." };
 
   // Via NOTRE domaine (/api/lead) et non supabase.co directement : requête même-origine, non bloquée
   // par les bloqueurs de pub / navigateurs privés (fiabilise la capture du lead barre rapide).
@@ -509,23 +513,38 @@ function AddressField({ name, label, placeholder, defaultValue = "", className =
 
 }
 
-// Quick quote bar — Nextories style. variant: "light" | "dark"
+// Barre rapide — reprend EXACTEMENT les champs de l'étape 1 du devis.
+//
+// POURQUOI CET ALIGNEMENT
+// -----------------------
+// Avant, la barre demandait départ, arrivée et date, c'est-à-dire des informations de
+// l'étape 2, puis renvoyait le visiteur à l'étape 1 du devis où on lui redemandait son nom,
+// son téléphone et son email. Double saisie, et beaucoup d'abandons à cet endroit.
+//
+// Désormais : les cinq champs de l'étape 1 (nom, téléphone, email, type de logement,
+// surface). À la validation, Edouard reçoit son e-mail comme d'habitude, le lead est déposé
+// dans le cockpit, et le visiteur arrive DIRECTEMENT à l'étape 2 du devis, déjà rempli.
+// Il continue là où il s'est arrêté au lieu de recommencer.
+//
+// variant: "light" | "dark"
 function QuickQuote({ variant = "light" }) {
   const go = (e) => {
     e.preventDefault();
     const f = e.currentTarget;
-    // Anti-spam honeypot: real users never fill this hidden field.
+    // Anti-spam honeypot : les robots le remplissent, pas les humains.
     if (f._honey && f._honey.value) { window.location.href = "Devis"; return; }
-    const depart = f.depart.value.trim();
-    const arrivee = f.arrivee.value.trim();
-    const date = f.date.value.trim();
-    const tel = f.tel.value.trim();
-    const nom = f.nom.value.trim();
-    const surfaceEl = f.surface;
-    const surface = surfaceEl.value;
-    const surfaceLabel = surfaceEl.selectedIndex > 0 ? surfaceEl.options[surfaceEl.selectedIndex].text : "";
 
-    // Notify the owner immediately (fire-and-forget — keepalive survives the redirect).
+    const nom = f.nom.value.trim();
+    const tel = f.tel.value.trim();
+    const email = f.email.value.trim();
+    const type = f.type.value;
+    const surface = f.surface.value;
+
+    const TYPE_LABEL = { appart: "Appartement", maison: "Maison", bureau: "Bureaux" };
+    const SURF_LABEL = { studio: "Studio (< 30 m²)", t2: "2 pièces (30–50 m²)",
+                         t3: "3 pièces (50–80 m²)", t4: "4 pièces + (80 m² +)" };
+
+    // Notification e-mail immédiate (keepalive : la requête survit à la redirection).
     try {
       fetch(LEAD_ENDPOINT, {
         method: "POST",
@@ -534,70 +553,73 @@ function QuickQuote({ variant = "light" }) {
         body: JSON.stringify({
           _subject: "🚚 Nouvelle demande de devis (barre rapide) — Les Bras Cassés",
           _template: "table",
-          "Étape": "Barre rapide (page d'accueil)",
+          "Étape": "Étape 1 remplie depuis la barre rapide",
           "Nom": nom || "—",
           "Téléphone": tel || "—",
-          "Adresse de départ": depart || "—",
-          "Adresse d'arrivée": arrivee || "—",
-          "Date souhaitée": date || "—",
-          "Surface": surfaceLabel || "—"
+          "Email": email || "—",
+          "Type de logement": TYPE_LABEL[type] || "—",
+          "Surface": SURF_LABEL[surface] || "—"
         })
       }).catch(() => {});
     } catch (err) {}
 
-    // Meta : événement d'insight (le Lead sera compté à l'étape 1 du devis,
-    // pour ne pas compter deux fois le même prospect).
+    // Meta : le Lead sera compté au devis complet, pour ne pas compter deux fois le prospect.
     if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
 
-    // Identifiant de lead partagé barre rapide ↔ page Devis (dédup côté cockpit).
+    // Identifiant partagé barre rapide ↔ page Devis : le cockpit dédoublonne dessus.
     const leadId = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-    // Dépose le lead dans le cockpit dès la barre rapide (keepalive survit à la redirection).
-    qqSendToCockpit({ nom, tel, depart, arrivee, date, surface }, leadId);
+    qqSendToCockpit({ nom, tel, email, type, surface }, leadId);
 
-    // Redirect to the full quote page with everything pre-filled.
+    // Redirection vers le devis, pré-rempli, à l'étape 2.
     const p = new URLSearchParams();
-    if (depart) p.set("depart", depart);
-    if (arrivee) p.set("arrivee", arrivee);
-    if (date) p.set("date", date);
-    if (tel) p.set("tel", tel);
     if (nom) p.set("nom", nom);
+    if (tel) p.set("tel", tel);
+    if (email) p.set("email", email);
+    if (type) p.set("type", type);
     if (surface) p.set("surface", surface);
     p.set("lead", leadId);
-    const qs = p.toString();
-    window.location.href = "Devis" + (qs ? "?" + qs : "");
+    p.set("etape", "2");
+    window.location.href = "Devis?" + p.toString();
   };
+
   return (
     <div style={{ opacity: "1" }}>
       <form className={"quick-quote" + (variant === "dark" ? " on-dark" : "")} onSubmit={go}>
         <input type="text" name="_honey" className="hp-field" tabIndex="-1" autoComplete="off" aria-hidden="true" />
-        <AddressField name="depart" label="Départ" placeholder="Adresse de départ" className="qq-field qq-a-dep" />
-        <AddressField name="arrivee" label="Arrivée" placeholder="Adresse d'arrivée" className="qq-field qq-a-arr" />
-        <div className="qq-field qq-a-date">
-          <label>Date</label>
-          <input type="text" name="date" placeholder="JJ / MM / AAAA" onFocus={(e) => e.target.type = 'date'} onBlur={(e) => {if (!e.target.value) e.target.type = 'text';}} />
+        <div className="qq-field qq-a-nom">
+          <label>Prénom & nom</label>
+          <input type="text" name="nom" placeholder="Jean Dupont" autoComplete="name" required />
+        </div>
+        <div className="qq-field qq-a-tel">
+          <label>Téléphone</label>
+          <input type="tel" name="tel" inputMode="numeric" autoComplete="tel" placeholder="06 12 34 56 78" required onInput={(e) => { let d = e.target.value.replace(/[^\d+]/g, ''); if (d.startsWith('+33')) d = '0' + d.slice(3); d = d.replace(/\D/g, '').slice(0, 10); e.target.value = d.replace(/(\d{2})(?=\d)/g, '$1 ').trim(); }} />
+        </div>
+        <div className="qq-field qq-a-email">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jean@exemple.fr" autoComplete="email" required />
+        </div>
+        <div className="qq-field is-select qq-a-type">
+          <label>Type de logement</label>
+          <select name="type" defaultValue="" required>
+            <option value="" disabled>Appartement, maison…</option>
+            <option value="appart">Appartement</option>
+            <option value="maison">Maison</option>
+            <option value="bureau">Bureaux</option>
+          </select>
         </div>
         <div className="qq-field is-select qq-a-surf">
-          <label>Surface</label>
-          <select name="surface" defaultValue="">
+          <label>Surface actuelle</label>
+          <select name="surface" defaultValue="" required>
             <option value="" disabled>Surface actuelle</option>
             <option value="studio">Studio · &lt; 30 m²</option>
             <option value="t2">2 pièces · 30–50 m²</option>
             <option value="t3">3 pièces · 50–80 m²</option>
-            <option value="t4">4 pièces · 80–110 m²</option>
-            <option value="t4">Maison · &gt; 110 m²</option>
+            <option value="t4">4 pièces + · 80 m² +</option>
           </select>
-        </div>
-        <div className="qq-field qq-a-nom">
-          <label>Nom & prénom</label>
-          <input type="text" name="nom" placeholder="Jean Dupont" />
-        </div>
-        <div className="qq-field qq-a-tel">
-          <label>Téléphone</label>
-          <input type="tel" name="tel" inputMode="numeric" autoComplete="tel" placeholder="06 12 34 56 78" onInput={(e) => { let d = e.target.value.replace(/[^\d+]/g, ''); if (d.startsWith('+33')) d = '0' + d.slice(3); d = d.replace(/\D/g, '').slice(0, 10); e.target.value = d.replace(/(\d{2})(?=\d)/g, '$1 ').trim(); }} />
         </div>
         <button type="submit" className="qq-submit qq-a-btn">
           <span className="qq-submit-arrow" aria-hidden="true">→</span>
-          <span className="qq-submit-label">Je déménage&nbsp;!</span>
+          <span className="qq-submit-label">Étape suivante</span>
         </button>
       </form>
       <div className={"qq-note" + (variant === "dark" ? " on-dark" : "")}>

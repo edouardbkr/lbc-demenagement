@@ -1989,35 +1989,38 @@ body.density-compact .gallery { padding: clamp(40px, 6vw, 80px) 0; }
 .quick-quote {
   background: var(--paper-2); border: 1px solid var(--rule);
   box-shadow: 0 24px 50px -28px rgba(31,58,75,0.45);
+  /* Les champs reprennent EXACTEMENT l'étape 1 du devis (nom, téléphone, email, type de
+     logement, surface) : le visiteur ne ressaisit jamais deux fois la même chose, et il
+     reprend directement à l'étape 2. Les adresses et la date sont donc passées à l'étape 2,
+     là où elles étaient déjà demandées. */
   padding: 14px; display: grid;
-  grid-template-columns: 1.3fr 1.3fr 1.1fr auto;
+  grid-template-columns: 1.2fr 1fr 1.4fr auto;
   grid-template-areas:
-    "dep arr date btn"
-    "surf nom tel btn";
+    "nom tel email btn"
+    "type surf surf btn";
   gap: 10px; align-items: stretch;
 }
-.qq-a-dep { grid-area: dep; }
-.qq-a-arr { grid-area: arr; }
-.qq-a-date { grid-area: date; }
-.qq-a-surf { grid-area: surf; }
 .qq-a-nom { grid-area: nom; }
 .qq-a-tel { grid-area: tel; }
+.qq-a-email { grid-area: email; }
+.qq-a-type { grid-area: type; }
+.qq-a-surf { grid-area: surf; }
 .qq-a-btn { grid-area: btn; height: 100%; }
 .quick-quote.on-dark { background: rgba(255,255,255,0.97); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6); }
 @media (max-width: 880px) {
   .quick-quote {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-      "dep arr"
-      "date surf"
       "nom tel"
+      "email email"
+      "type surf"
       "btn btn";
   }
 }
 @media (max-width: 480px) {
   .quick-quote {
     grid-template-columns: 1fr;
-    grid-template-areas: "dep" "arr" "date" "surf" "nom" "tel" "btn";
+    grid-template-areas: "nom" "tel" "email" "type" "surf" "btn";
   }
 }
 .qq-field {

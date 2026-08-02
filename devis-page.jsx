@@ -184,18 +184,38 @@ function FormuleOption({ value, name, level, tag, badge, inherit, items, selecte
 
 }
 
-// Read values pre-filled from the quick-quote bar (?depart=…&arrivee=…&date=…&surface=…)
+// Valeurs transmises par les formulaires rapides du site (barre rapide, bloc de bas de page).
+//
+// Ces formulaires reprennent désormais exactement les champs de l'étape 1. Ils passent aussi
+// `etape=2` : le visiteur reprend là où il s'est arrêté au lieu de resaisir son nom, son
+// téléphone et son email qu'il vient déjà de donner. C'est là que se perdaient les prospects.
 function getPrefill() {
   const p = new URLSearchParams(window.location.search);
   return {
+    nom: p.get("nom") || "",
+    tel: p.get("tel") || "",
+    email: p.get("email") || "",
+    type: p.get("type") || "",
+    surface: p.get("surface") || "",
+    // Encore acceptés : d'anciens liens partagés ou indexés peuvent les porter.
     depart: p.get("depart") || "",
     arrivee: p.get("arrivee") || "",
     date: p.get("date") || "",
-    surface: p.get("surface") || "",
-    tel: p.get("tel") || "",
-    nom: p.get("nom") || "",
-    lead: p.get("lead") || ""
+    lead: p.get("lead") || "",
+    etape: p.get("etape") || ""
   };
+}
+
+/**
+ * À quelle étape ouvrir le formulaire ?
+ *
+ * On saute l'étape 1 uniquement si elle est réellement complète. Sinon le visiteur se
+ * retrouverait à l'étape 2 avec des champs obligatoires vides derrière lui, sans comprendre
+ * pourquoi il ne peut pas aller au bout.
+ */
+function etapeInitiale(PRE) {
+  const complet = PRE.nom && PRE.tel && PRE.email && PRE.type && PRE.surface;
+  return (PRE.etape === "2" && complet) ? 1 : 0;
 }
 const SURFACE_LABEL = { studio: "Studio (< 30 m²)", t2: "2 pièces (30–50 m²)", t3: "3 pièces (50–80 m²)", t4: "4 pièces + (80 m² +)" };
 const FORMULE_LABEL = { standard: "Coup de main", premium: "Mains libres", luxe: "Mains dans les poches" };
@@ -262,7 +282,7 @@ function AccessBlock({ side, label, addrLabel, data, set, showErrors }) {
 
 function DevisForm() {
   const PRE = getPrefill();
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(etapeInitiale(PRE));
   const [data, setData] = useState({
     surface: PRE.surface || "",
     formule: "premium",
@@ -270,7 +290,9 @@ function DevisForm() {
     arrivee: PRE.arrivee,
     date: PRE.date,
     tel: PRE.tel,
-    nom: PRE.nom
+    nom: PRE.nom,
+    email: PRE.email,
+    type: PRE.type
   });
   const set = (k, v) => setData((d) => ({ ...d, [k]: v }));
   const [tried0, setTried0] = useState(false);

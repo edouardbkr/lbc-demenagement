@@ -16,15 +16,18 @@ function ctaSendToCockpit(upd) {
   const payload = {
     source: (at && at.canal) || "site_web",
     attribution: at || null,
-    statut: "Demande de rappel (accueil)",
+    statut: "Lead démarré (étape 1 depuis l'accueil)",
     client: { prenom, nom, tel: upd.tel || "", email: upd.email || "", contactPref: "Téléphone" },
     formule: "standard",
     formulaireType: "partiel",
-    dateSouhaitee: upd.date || "",
+    // Volume théorique déduit de la surface, comme le fait la page Devis : la fiche du
+    // cockpit est ainsi exploitable même si le prospect s'arrête à l'étape 2.
+    volumeEstime: ({ studio: 14, t2: 25, t3: 40, t4: 60 })[upd.surface] ?? null,
     contactPref: "Téléphone",
     message: [
-      "Demande de rappel captée sur le bandeau de la page d'accueil.",
-      upd.type ? "Type de déménagement : " + upd.type : ""
+      "Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.",
+      upd.type ? "Type de logement : " + upd.type : "",
+      upd.surface ? "Surface déclarée : " + upd.surface : ""
     ].filter(Boolean).join("\n")
   };
   try {
@@ -63,13 +66,13 @@ function CTA() {
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         keepalive: true,
         body: JSON.stringify({
-          _subject: "📞 Demande de rappel (accueil) — Les Bras Cassés",
+          _subject: "🚚 Nouvelle demande de devis (accueil) — Les Bras Cassés",
           _template: "table",
           "Nom": upd.nom || "—",
           "Téléphone": upd.tel || "—",
           "Email": upd.email || "—",
-          "Date souhaitée": upd.date || "—",
-          "Type de déménagement": upd.type || "—"
+          "Type de logement": upd.type || "—",
+          "Surface": upd.surface || "—"
         })
       }).catch(() => {});
     } catch (err) {}
@@ -79,9 +82,15 @@ function CTA() {
     try { ok = await enregistrer(upd); } catch (err) {}
     setSending(false);
     if (ok === false) { setLast(upd); setFailed(true); return; }
-    // Conversion Meta : demande de rappel depuis l'accueil.
-    if (window.fbq) window.fbq("track", "Lead");
-    setSent(true);
+    if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
+
+    // Ce bloc reprend exactement les champs de l'étape 1 du devis : plutôt que d'afficher un
+    // simple « c'est envoyé », on emmène le visiteur à l'étape 2, déjà remplie. Il continue
+    // son devis au lieu d'attendre un rappel, et Edouard a déjà reçu l'e-mail et le lead.
+    const p = new URLSearchParams();
+    ["nom", "tel", "email", "type", "surface"].forEach((k) => { if (upd[k]) p.set(k, upd[k]); });
+    p.set("etape", "2");
+    window.location.href = "Devis?" + p.toString();
   };
 
   // Nouvelle tentative avec les données déjà saisies (rien à retaper).
@@ -114,7 +123,7 @@ function CTA() {
               <em>Nous, on l'est <span className="scribble">toujours.</span></em>
             </h2>
             <p className="cta-side">
-              Laissez-nous vos coordonnées : on vous rappelle dans la journée avec un prix précis et définitif, pas un appât marketing. Vous voulez aller plus vite ? Le <a href="Devis">formulaire de devis complet</a> prend deux minutes.
+              Commencez ici : ces cinq informations suffisent pour démarrer. On enchaîne ensuite sur les adresses et votre inventaire, et vous obtenez une fourchette de prix immédiate. Deux minutes en tout, sans engagement.
             </p>
             <p className="cta-side" style={{ marginTop: 16 }}>
               Préférez de vive voix ? <a href="tel:+33615976577">06 15 97 65 77</a><br />
@@ -155,24 +164,32 @@ function CTA() {
               <label htmlFor="f-email">Email</label>
               <input id="f-email" name="email" type="email" placeholder="jean@exemple.fr" required />
             </div>
+            {/* Mêmes champs que l'étape 1 du devis : type de LOGEMENT et surface, pas la
+                formule (elle se choisit plus loin, une fois le volume connu) et pas la date
+                (elle est demandée à l'étape 2, avec les adresses). */}
             <div className="cta-row">
               <div className="field">
-                <label htmlFor="f-date">Date souhaitée</label>
-                <input id="f-date" name="date" type="date" style={{ colorScheme: 'dark' }} required />
+                <label htmlFor="f-type">Type de logement</label>
+                <select id="f-type" name="type" defaultValue="" required>
+                  <option value="" disabled>Appartement, maison…</option>
+                  <option value="appart">Appartement</option>
+                  <option value="maison">Maison</option>
+                  <option value="bureau">Bureaux</option>
+                </select>
               </div>
               <div className="field">
-                <label htmlFor="f-type">Type de déménagement</label>
-                <select id="f-type" name="type" defaultValue="">
-                  <option value="" disabled>Choisir une formule…</option>
-                  <option>Coup de main</option>
-                  <option>Mains libres</option>
-                  <option>Mains dans les poches</option>
-                  <option>Entreprise / bureaux</option>
+                <label htmlFor="f-surface">Surface actuelle</label>
+                <select id="f-surface" name="surface" defaultValue="" required>
+                  <option value="" disabled>Choisir une surface…</option>
+                  <option value="studio">Studio · &lt; 30 m²</option>
+                  <option value="t2">2 pièces · 30–50 m²</option>
+                  <option value="t3">3 pièces · 50–80 m²</option>
+                  <option value="t4">4 pièces + · 80 m² +</option>
                 </select>
               </div>
             </div>
             <button type="submit" className="cta-submit" disabled={sending}>
-              {sending ? "Envoi en cours…" : "Être rappelé sous 24h"}
+              {sending ? "Envoi en cours…" : "Étape suivante"}
               <span>→</span>
             </button>
           </form>}
