@@ -2,7 +2,7 @@
 // One file, three documents — selected via <body data-legal="...">.
 // Placeholders [À COMPLÉTER : …] mark info the owner must fill with real data.
 
-const LEGAL_UPDATED = "Juin 2026";
+const LEGAL_UPDATED = "Août 2026";
 
 // Small helpers for consistent prose blocks --------------------------------
 function LBlock({ n, title, children }) {
@@ -24,13 +24,15 @@ function MentionsLegales() {
       <LBlock n="1" title="Éditeur du site">
         <p>Le présent site est édité par&nbsp;:</p>
         <ul className="legal-defs">
-          <li><strong>Dénomination&nbsp;:</strong> LBC* Les Bras Cassés — SAS</li>
+          <li><strong>Dénomination&nbsp;:</strong> LBC DÉMÉNAGEMENT — SAS (société par actions simplifiée)</li>
           <li><strong>Capital social&nbsp;:</strong> 3 000&nbsp;€</li>
           <li><strong>Siège social&nbsp;:</strong> 12 rue d'Italie, 06000 Nice, France</li>
-          <li><strong>SIRET&nbsp;:</strong> <Fill>numéro SIRET à 14 chiffres</Fill></li>
-          <li><strong>RCS&nbsp;:</strong> <Fill>ville et numéro RCS</Fill></li>
-          <li><strong>N° TVA intracommunautaire&nbsp;:</strong> <Fill>FR + numéro</Fill></li>
-          <li><strong>Directeur de la publication&nbsp;:</strong> <Fill>nom du représentant légal</Fill></li>
+          <li><strong>SIREN&nbsp;:</strong> 106&nbsp;789&nbsp;860</li>
+          <li><strong>SIRET&nbsp;:</strong> 106&nbsp;789&nbsp;860&nbsp;00017 (siège)</li>
+          <li><strong>RCS&nbsp;:</strong> Nice 106&nbsp;789&nbsp;860</li>
+          <li><strong>Code APE&nbsp;:</strong> 4942Z — services de déménagement</li>
+          <li><strong>N° TVA intracommunautaire&nbsp;:</strong> FR29&nbsp;106&nbsp;789&nbsp;860</li>
+          <li><strong>Directeur de la publication&nbsp;:</strong> Edouard Bakirian</li>
           <li><strong>Contact&nbsp;:</strong> <a href="tel:+33615976577">06 15 97 65 77</a> · <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
         </ul>
       </LBlock>
@@ -38,9 +40,9 @@ function MentionsLegales() {
       <LBlock n="2" title="Hébergement">
         <p>Le site est hébergé par&nbsp;:</p>
         <ul className="legal-defs">
-          <li><strong>Hébergeur&nbsp;:</strong> <Fill>nom de l'hébergeur</Fill></li>
-          <li><strong>Adresse&nbsp;:</strong> <Fill>adresse de l'hébergeur</Fill></li>
-          <li><strong>Contact&nbsp;:</strong> <Fill>téléphone / e-mail de l'hébergeur</Fill></li>
+          <li><strong>Hébergeur&nbsp;:</strong> Cloudflare, Inc.</li>
+          <li><strong>Adresse&nbsp;:</strong> 101 Townsend Street, San Francisco, CA 94107, États-Unis</li>
+          <li><strong>Contact&nbsp;:</strong> <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">cloudflare.com</a></li>
         </ul>
       </LBlock>
 
@@ -85,7 +87,7 @@ function Confidentialite() {
       </LBlock>
 
       <LBlock n="4" title="Durée de conservation">
-        <p>Les données des prospects sont conservées <Fill>durée, ex. 3 ans</Fill> à compter du dernier contact. Les données des clients sont conservées le temps de la relation contractuelle puis archivées conformément aux obligations légales (notamment comptables).</p>
+        <p>Les données des prospects sont conservées <strong>3&nbsp;ans</strong> à compter du dernier contact. Les données des clients sont conservées le temps de la relation contractuelle puis archivées conformément aux obligations légales (notamment comptables).</p>
       </LBlock>
 
       <LBlock n="5" title="Destinataires">
@@ -113,11 +115,11 @@ function CGV() {
       </LBlock>
 
       <LBlock n="2" title="Devis et commande">
-        <p>Chaque prestation fait l'objet d'un devis gratuit et personnalisé, valable <Fill>durée de validité, ex. 30 jours</Fill>. La commande est ferme à la signature du devis et au versement de l'acompte éventuel. Le devis signé prévaut sur toute estimation indicative affichée sur le site.</p>
+        <p>Chaque prestation fait l'objet d'un devis gratuit et personnalisé, valable <strong>30&nbsp;jours</strong>. La commande est ferme à la signature du devis et au versement de l'acompte éventuel. Le devis signé prévaut sur toute estimation indicative affichée sur le site.</p>
       </LBlock>
 
       <LBlock n="3" title="Prix et paiement">
-        <p>Les prix sont indiqués en euros, <Fill>HT ou TTC, préciser le taux de TVA</Fill>. Un acompte de <Fill>pourcentage, ex. 30 %</Fill> peut être demandé à la réservation pour bloquer la date&nbsp;; le solde est exigible <Fill>à préciser, ex. le jour de la prestation</Fill>. Moyens de paiement acceptés&nbsp;: carte, virement, chèque ou espèces.</p>
+        <p>Les prix sont indiqués en euros, <strong>nets de taxe</strong> : TVA non applicable, article 293 B du Code général des impôts. Un acompte de <strong>30 %</strong> peut être demandé à la réservation pour bloquer la date&nbsp;; le solde est exigible <strong>le jour de la prestation, à la fin du déchargement</strong>. Moyens de paiement acceptés&nbsp;: carte, virement, chèque ou espèces.</p>
       </LBlock>
 
       <LBlock n="4" title="Obligations du client">
@@ -133,7 +135,7 @@ function CGV() {
       </LBlock>
 
       <LBlock n="7" title="Annulation et report">
-        <p>Toute annulation ou report doit être notifié <Fill>délai, ex. 7 jours avant</Fill> la date prévue. Les conditions de remboursement de l'acompte en cas d'annulation tardive sont précisées au devis.</p>
+        <p>Toute annulation ou report doit être notifié <strong>au moins 7 jours avant</strong> la date prévue. Les conditions de remboursement de l'acompte en cas d'annulation tardive sont précisées au devis.</p>
       </LBlock>
 
       <LBlock n="8" title="Réclamations, médiation et litiges">
