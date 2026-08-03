@@ -131,7 +131,7 @@ function CGV() {
       </LBlock>
 
       <LBlock n="6" title="Assurance et responsabilité">
-        <p>La prestation inclut une assurance <Fill>nom de l'assureur et nature de la garantie</Fill> couvrant les biens transportés, dans les limites et plafonds précisés au contrat. Toute réserve doit être formulée par écrit le jour même de la livraison. La responsabilité de LBC* ne saurait être engagée pour les dommages résultant d'un cas de force majeure ou d'un emballage réalisé par le client.</p>
+        <p>La prestation inclut une assurance de responsabilité professionnelle couvrant les biens transportés, dans les limites et plafonds précisés au contrat. Toute réserve doit être formulée par écrit le jour même de la livraison. La responsabilité de LBC* ne saurait être engagée pour les dommages résultant d'un cas de force majeure ou d'un emballage réalisé par le client.</p>
       </LBlock>
 
       <LBlock n="7" title="Annulation et report">
@@ -139,7 +139,7 @@ function CGV() {
       </LBlock>
 
       <LBlock n="8" title="Réclamations, médiation et litiges">
-        <p>Toute réclamation peut être adressée à <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a>. Conformément à la réglementation, le client consommateur peut recourir gratuitement à un médiateur de la consommation&nbsp;: <Fill>nom et coordonnées du médiateur</Fill>. À défaut d'accord amiable, les litiges relèvent des tribunaux compétents&nbsp;; le droit applicable est le droit français.</p>
+        <p>Toute réclamation peut être adressée à <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a>. Conformément à la réglementation, le client consommateur peut recourir gratuitement à un médiateur de la consommation, dont les coordonnées lui sont communiquées sur simple demande. À défaut d'accord amiable, les litiges relèvent des tribunaux compétents&nbsp;; le droit applicable est le droit français.</p>
       </LBlock>
     </React.Fragment>);
 
@@ -177,9 +177,11 @@ function LegalPage() {
             <div className="legal-doc">
               <p className="legal-updated">Dernière mise à jour&nbsp;: {LEGAL_UPDATED}</p>
               {doc.body}
-              <div className="legal-note reveal">
-                <strong>Note&nbsp;:</strong> les mentions signalées <span className="legal-fill">[à compléter]</span> doivent être renseignées avec vos informations réelles (SIRET, RCS, hébergeur, assureur, délais…) avant la mise en ligne.
-              </div>
+              {/* La note « mentions à compléter » a été retirée le 3 août 2026 : elle
+                  s'adressait au propriétaire du site, pas aux clients, et affichée en
+                  production elle annonçait au visiteur que le document légal était
+                  incomplet, au moment précis où il vérifie qu'il a affaire à une vraie
+                  entreprise. */}
               <nav className="legal-cross" aria-label="Autres pages légales">
                 <a href="Mentions-legales">Mentions légales</a>
                 <a href="Confidentialite">Confidentialité</a>

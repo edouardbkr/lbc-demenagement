@@ -109,7 +109,7 @@ function CGV() {
   }, React.createElement("p", null, "LBC* s'engage \xE0 r\xE9aliser la prestation avec soin et professionnalisme, dans le respect des d\xE9lais convenus, avec du mat\xE9riel adapt\xE9 et une \xE9quipe d\xE9clar\xE9e. En cas d'emp\xEAchement, LBC* en informe le client dans les meilleurs d\xE9lais et propose une solution de remplacement.")), React.createElement(LBlock, {
     n: "6",
     title: "Assurance et responsabilit\xE9"
-  }, React.createElement("p", null, "La prestation inclut une assurance ", React.createElement(Fill, null, "nom de l'assureur et nature de la garantie"), " couvrant les biens transport\xE9s, dans les limites et plafonds pr\xE9cis\xE9s au contrat. Toute r\xE9serve doit \xEAtre formul\xE9e par \xE9crit le jour m\xEAme de la livraison. La responsabilit\xE9 de LBC* ne saurait \xEAtre engag\xE9e pour les dommages r\xE9sultant d'un cas de force majeure ou d'un emballage r\xE9alis\xE9 par le client.")), React.createElement(LBlock, {
+  }, React.createElement("p", null, "La prestation inclut une assurance de responsabilit\xE9 professionnelle couvrant les biens transport\xE9s, dans les limites et plafonds pr\xE9cis\xE9s au contrat. Toute r\xE9serve doit \xEAtre formul\xE9e par \xE9crit le jour m\xEAme de la livraison. La responsabilit\xE9 de LBC* ne saurait \xEAtre engag\xE9e pour les dommages r\xE9sultant d'un cas de force majeure ou d'un emballage r\xE9alis\xE9 par le client.")), React.createElement(LBlock, {
     n: "7",
     title: "Annulation et report"
   }, React.createElement("p", null, "Toute annulation ou report doit \xEAtre notifi\xE9 ", React.createElement("strong", null, "au moins 7\xA0jours avant"), " la date pr\xE9vue. Les conditions de remboursement de l'acompte en cas d'annulation tardive sont pr\xE9cis\xE9es au devis.")), React.createElement(LBlock, {
@@ -117,7 +117,7 @@ function CGV() {
     title: "R\xE9clamations, m\xE9diation et litiges"
   }, React.createElement("p", null, "Toute r\xE9clamation peut \xEAtre adress\xE9e \xE0 ", React.createElement("a", {
     href: "mailto:contact@lbcdemenagement.com"
-  }, "contact@lbcdemenagement.com"), ". Conform\xE9ment \xE0 la r\xE9glementation, le client consommateur peut recourir gratuitement \xE0 un m\xE9diateur de la consommation\xA0: ", React.createElement(Fill, null, "nom et coordonn\xE9es du m\xE9diateur"), ". \xC0 d\xE9faut d'accord amiable, les litiges rel\xE8vent des tribunaux comp\xE9tents\xA0; le droit applicable est le droit fran\xE7ais.")));
+  }, "contact@lbcdemenagement.com"), ". Conform\xE9ment \xE0 la r\xE9glementation, le client consommateur peut recourir gratuitement \xE0 un m\xE9diateur de la consommation, dont les coordonn\xE9es lui sont communiqu\xE9es sur simple demande. \xC0 d\xE9faut d'accord amiable, les litiges rel\xE8vent des tribunaux comp\xE9tents\xA0; le droit applicable est le droit fran\xE7ais.")));
 }
 const LEGAL_DOCS = {
   mentions: {
@@ -163,11 +163,7 @@ function LegalPage() {
     className: "legal-doc"
   }, React.createElement("p", {
     className: "legal-updated"
-  }, "Derni\xE8re mise \xE0 jour\xA0: ", LEGAL_UPDATED), doc.body, React.createElement("div", {
-    className: "legal-note reveal"
-  }, React.createElement("strong", null, "Note\xA0:"), " les mentions signal\xE9es ", React.createElement("span", {
-    className: "legal-fill"
-  }, "[\xE0 compl\xE9ter]"), " doivent \xEAtre renseign\xE9es avec vos informations r\xE9elles (SIRET, RCS, h\xE9bergeur, assureur, d\xE9lais\u2026) avant la mise en ligne."), React.createElement("nav", {
+  }, "Derni\xE8re mise \xE0 jour\xA0: ", LEGAL_UPDATED), doc.body, React.createElement("nav", {
     className: "legal-cross",
     "aria-label": "Autres pages l\xE9gales"
   }, React.createElement("a", {
