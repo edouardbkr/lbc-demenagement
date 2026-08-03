@@ -25,9 +25,18 @@
     peageKm: 0.18,            // € par km d'autoroute (classe 3/4)
     peageDesKm: 60,           // en dessous, trajet local sans autoroute payante
 
-    mainOeuvreMin: 300,       // € — plancher de main d'œuvre, jamais moins sur un chantier
+    // ── MAIN D'ŒUVRE ───────────────────────────────────────────────────────
+    // Elle n'est un COÛT que lorsqu'il faut payer quelqu'un EN PLUS.
+    //
+    // Sur les petits et moyens chantiers, Edouard et Anthony font le travail eux-mêmes :
+    // leur temps n'est pas une dépense, c'est leur revenu. Le compter en coût revenait à
+    // déduire leur propre salaire du bénéfice affiché, donc à sous-estimer ce qui rentre
+    // réellement. Au-delà du seuil ci-dessous, il faut du renfort, et là c'est une vraie
+    // sortie d'argent.
+    seuilRenfortM3: 35,       // au-delà, un troisième paire de bras est nécessaire
+    mainOeuvreMin: 300,       // € — plancher de main d'œuvre quand il y a renfort
     mainOeuvreM3: 20,         // € par m³ manipulé (charge, porte, cale, décharge) — compté UNE fois
-    tarifJourRoute: 300,      // € par journée de route supplémentaire (équipe mobilisée)
+    tarifJourRoute: 300,      // € par journée de route supplémentaire (renfort mobilisé)
     // La formule change la charge de travail : tout emballer et tout réinstaller coûte
     // beaucoup plus d'heures que simplement charger et décharger.
     mainOeuvreFormule: { standard: 1.0, premium: 1.25, luxe: 1.6 },
@@ -51,10 +60,18 @@
     // est comptée dans les coûts : si tu fais le chantier toi-même, ce qui rentre
     // réellement dans ta poche est la marge PLUS cette main d'œuvre.
     seuilGrosVolumeM3: 20,        // à partir de là, on bascule sur la grille « gros »
+    // Depuis que la main d'œuvre interne n'est plus comptée en coût, ces marges sont bien
+    // ce qui rentre RÉELLEMENT dans la poche.
+    //
+    // La marge est un socle PLUS une part au m³ (voir margeParM3). Sans cette part, un
+    // 3 pièces de 33 m³ ressortait au même prix qu'un 2 pièces de 22 m³ : puisque le travail
+    // n'est plus compté en coût, le volume ne pesait plus sur rien. Or 11 m³ de plus, c'est
+    // une demi-journée de plus. Le prix doit le refléter, sinon il n'est pas crédible.
+    margeParM3: 15,
     margeParDistance: [
-      { jusquKm: 50,       petit: { min: 600,  max: 900  }, gros: { min: 1000, max: 1400 } },
-      { jusquKm: 200,      petit: { min: 1300, max: 1500 }, gros: { min: 1600, max: 1900 } },
-      { jusquKm: Infinity, petit: { min: 1700, max: 2000 }, gros: { min: 1900, max: 2400 } }
+      { jusquKm: 50,       petit: { min: 700,  max: 950  }, gros: { min: 800,  max: 1150 } },
+      { jusquKm: 200,      petit: { min: 1150, max: 1400 }, gros: { min: 1300, max: 1650 } },
+      { jusquKm: Infinity, petit: { min: 1550, max: 1900 }, gros: { min: 1600, max: 2100 } }
     ],
     seuilLongueDistanceKm: 200,   // au-delà : journées de route en plus, camion à la journée
 
@@ -212,11 +229,16 @@
     // ── Coûts réels du chantier ──
     const carburant = kmAR * (conso(volume) / 100) * CFG.prixCarburant;
     const peage = km > CFG.peageDesKm ? kmAR * CFG.peageKm : 0;
-    // Manutention : chargement + déchargement. C'est un travail total, fait UNE fois, pas
-    // une dépense qui se répète chaque jour. Les journées de route s'ajoutent séparément.
-    const manutention = Math.max(CFG.mainOeuvreMin, volume * CFG.mainOeuvreM3 * multMO);
+    // Manutention : chargement + déchargement. Travail total, fait UNE fois, pas une dépense
+    // qui se répète chaque jour. Les journées de route s'ajoutent séparément.
+    //
+    // ⚠️ Elle n'est comptée en COÛT que si le chantier dépasse le seuil de renfort. En dessous,
+    // Edouard et Anthony s'en chargent : leur temps est leur revenu, pas une dépense, et le
+    // déduire du bénéfice affiché fausserait la lecture de la rentabilité.
+    const renfort = volume >= CFG.seuilRenfortM3;
+    const manutention = renfort ? Math.max(CFG.mainOeuvreMin, volume * CFG.mainOeuvreM3 * multMO) : 0;
     const joursRoute = km > CFG.seuilLongueDistanceKm ? Math.ceil(kmAR / 700) : 0;
-    const mainOeuvre = manutention + joursRoute * CFG.tarifJourRoute;
+    const mainOeuvre = manutention + (renfort ? joursRoute * CFG.tarifJourRoute : 0);
     const camion = volume >= CFG.camionSeuilM3 ? CFG.camionLocation + (nbJours - 1) * CFG.camionJourSup : 0;
     const acces = surcoutAcces(o.depart) + surcoutAcces(o.arrivee);
     const couts = carburant + peage + mainOeuvre + camion + acces;
@@ -226,8 +248,11 @@
     const tranche = CFG.margeParDistance.find((t) => km <= t.jusquKm) ||
                     CFG.margeParDistance[CFG.margeParDistance.length - 1];
     const grille = volume >= CFG.seuilGrosVolumeM3 ? tranche.gros : tranche.petit;
-    const margeMin = grille.min * mult;
-    const margeMax = grille.max * mult;
+    // Socle + part au m³ : deux chantiers de volumes différents ne peuvent pas rapporter
+    // la même chose, même quand c'est nous qui portons.
+    const partVolume = volume * (CFG.margeParM3 || 0);
+    const margeMin = (grille.min + partVolume) * mult;
+    const margeMax = (grille.max + partVolume) * mult;
 
     let bas = arrondi10(couts + margeMin);
     let haut = arrondi10(couts + margeMax);

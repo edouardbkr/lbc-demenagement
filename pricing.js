@@ -8,6 +8,7 @@
     consoGrand: 22,
     peageKm: 0.18,
     peageDesKm: 60,
+    seuilRenfortM3: 35,
     mainOeuvreMin: 300,
     mainOeuvreM3: 20,
     tarifJourRoute: 300,
@@ -20,35 +21,36 @@
     camionLocation: 200,
     camionJourSup: 120,
     seuilGrosVolumeM3: 20,
+    margeParM3: 15,
     margeParDistance: [{
       jusquKm: 50,
       petit: {
-        min: 600,
-        max: 900
+        min: 700,
+        max: 950
       },
       gros: {
-        min: 1000,
-        max: 1400
+        min: 800,
+        max: 1150
       }
     }, {
       jusquKm: 200,
       petit: {
-        min: 1300,
-        max: 1500
+        min: 1150,
+        max: 1400
       },
       gros: {
-        min: 1600,
-        max: 1900
+        min: 1300,
+        max: 1650
       }
     }, {
       jusquKm: Infinity,
       petit: {
-        min: 1700,
-        max: 2000
+        min: 1550,
+        max: 1900
       },
       gros: {
-        min: 1900,
-        max: 2400
+        min: 1600,
+        max: 2100
       }
     }],
     seuilLongueDistanceKm: 200,
@@ -225,16 +227,18 @@
     const kmAR = km * 2;
     const carburant = kmAR * (conso(volume) / 100) * CFG.prixCarburant;
     const peage = km > CFG.peageDesKm ? kmAR * CFG.peageKm : 0;
-    const manutention = Math.max(CFG.mainOeuvreMin, volume * CFG.mainOeuvreM3 * multMO);
+    const renfort = volume >= CFG.seuilRenfortM3;
+    const manutention = renfort ? Math.max(CFG.mainOeuvreMin, volume * CFG.mainOeuvreM3 * multMO) : 0;
     const joursRoute = km > CFG.seuilLongueDistanceKm ? Math.ceil(kmAR / 700) : 0;
-    const mainOeuvre = manutention + joursRoute * CFG.tarifJourRoute;
+    const mainOeuvre = manutention + (renfort ? joursRoute * CFG.tarifJourRoute : 0);
     const camion = volume >= CFG.camionSeuilM3 ? CFG.camionLocation + (nbJours - 1) * CFG.camionJourSup : 0;
     const acces = surcoutAcces(o.depart) + surcoutAcces(o.arrivee);
     const couts = carburant + peage + mainOeuvre + camion + acces;
     const tranche = CFG.margeParDistance.find(t => km <= t.jusquKm) || CFG.margeParDistance[CFG.margeParDistance.length - 1];
     const grille = volume >= CFG.seuilGrosVolumeM3 ? tranche.gros : tranche.petit;
-    const margeMin = grille.min * mult;
-    const margeMax = grille.max * mult;
+    const partVolume = volume * (CFG.margeParM3 || 0);
+    const margeMin = (grille.min + partVolume) * mult;
+    const margeMax = (grille.max + partVolume) * mult;
     let bas = arrondi10(couts + margeMin);
     let haut = arrondi10(couts + margeMax);
     if (bas < CFG.minimum) {
