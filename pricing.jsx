@@ -219,7 +219,17 @@
     if (!volBase) return null;
     const volume = Math.round(volBase * CFG.margeVolume);
 
-    const km = (o.km != null && o.km > 0) ? Math.round(o.km) : CFG.kmParDefaut;
+    // ⚠️ INCIDENT DU 3 AOÛT 2026 — À NE JAMAIS REFAIRE.
+    // Quand le géocodage échouait, on retombait en silence sur kmParDefaut (30 km) et on
+    // affichait quand même un prix. Résultat : un Cannes → Honfleur de 1 038 km a été chiffré
+    // comme un trajet de 30 km, et un Villes-sur-Auzon → Serdinya de 361 km aussi. Des clients
+    // ont reçu une estimation très en dessous de la réalité, impossible à défendre au téléphone.
+    // La cause était une politique de sécurité qui bloquait l'appel à l'API adresse.
+    //
+    // Désormais : si la distance n'est pas connue, on le DIT. Le prix n'est plus affiché sur
+    // une distance inventée. Un prix manquant est gênant ; un prix faux coûte un client.
+    const distanceFiable = (o.km != null && o.km > 0);
+    const km = distanceFiable ? Math.round(o.km) : CFG.kmParDefaut;
     const mult = CFG.formuleMult[o.formule] != null ? CFG.formuleMult[o.formule] : 1.2;
     const multMO = CFG.mainOeuvreFormule[o.formule] != null ? CFG.mainOeuvreFormule[o.formule] : 1.25;
 
@@ -264,6 +274,9 @@
 
     return {
       bas, haut, volume, km,
+      // false = la distance n'a pas pu être calculée. Celui qui affiche ce résultat DOIT
+      // masquer le prix dans ce cas, et proposer un rappel plutôt qu'un chiffre inventé.
+      distanceFiable,
       // Détail interne, utile pour vérifier la rentabilité (jamais affiché au client)
       detail: { couts: Math.round(couts), carburant: Math.round(carburant), peage: Math.round(peage),
                 mainOeuvre: Math.round(mainOeuvre), camion: camion, acces: acces, jours: nbJours,

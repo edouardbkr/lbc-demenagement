@@ -62,7 +62,7 @@ function sendToCockpit(all, opts) {
     qty: x[1]
   }));
   const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
-  const notes = [all.details ? "Détails client : " + all.details : "", opts.estimation ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ? "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "", opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "", at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") + (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") + (at.referent ? " · venu de " + at.referent : "") : ""].filter(Boolean).join("\n");
+  const notes = [all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ? "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "", opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "", at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") + (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") + (at.referent ? " · venu de " + at.referent : "") : ""].filter(Boolean).join("\n");
   const payload = {
     source: at && at.canal || "site_web",
     attribution: at || null,
@@ -604,7 +604,7 @@ function DevisForm() {
     let estim = null;
     try {
       if (window.LBC_PRICING) {
-        const km = await Promise.race([window.LBC_PRICING.distanceKm(all.depart, all.arrivee), new Promise(r => setTimeout(() => r(null), 3000))]);
+        const km = await Promise.race([window.LBC_PRICING.distanceKm(all.depart, all.arrivee), new Promise(r => setTimeout(() => r(null), 8000))]);
         estim = window.LBC_PRICING.estimer({
           surface: all.surface,
           inventaire: window.buildInventoryArray ? window.buildInventoryArray(all) : [],
@@ -758,7 +758,7 @@ function DevisForm() {
     strokeLinejoin: "round"
   }, React.createElement("path", {
     d: "M20 6L9 17l-5-5"
-  }))), failed ? React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande n'a pas pu \xEAtre enregistr\xE9e."), React.createElement("p", null, "Un souci technique de notre c\xF4t\xE9, rien \xE0 voir avec vous. Ne perdez pas vos 2 minutes\xA0: envoyez-nous votre demande sur WhatsApp, elle est d\xE9j\xE0 pr\xE9-remplie\xA0\uD83D\uDC47")) : React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande est bien re\xE7ue\xA0!"), estim ? React.createElement(React.Fragment, null, React.createElement("p", null, "Voici votre estimation, calcul\xE9e sur ce que vous venez de nous d\xE9crire."), React.createElement("div", {
+  }))), failed ? React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande n'a pas pu \xEAtre enregistr\xE9e."), React.createElement("p", null, "Un souci technique de notre c\xF4t\xE9, rien \xE0 voir avec vous. Ne perdez pas vos 2 minutes\xA0: envoyez-nous votre demande sur WhatsApp, elle est d\xE9j\xE0 pr\xE9-remplie\xA0\uD83D\uDC47")) : React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande est bien re\xE7ue\xA0!"), estim && estim.distanceFiable ? React.createElement(React.Fragment, null, React.createElement("p", null, "Voici votre estimation, calcul\xE9e sur ce que vous venez de nous d\xE9crire."), React.createElement("div", {
     className: "ds-price"
   }, React.createElement("span", {
     className: "ds-price-label"
@@ -772,7 +772,7 @@ function DevisForm() {
     className: "cur"
   }, "\u20AC"))), React.createElement("p", {
     className: "ds-price-sub"
-  }, "Fourchette bas\xE9e sur ", React.createElement("strong", null, estim.volume, "\xA0m\xB3"), " et ", React.createElement("strong", null, "~", estim.km, "\xA0km"), ". Votre ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), " est confirm\xE9 en 5 minutes au t\xE9l\xE9phone, et il ne bouge plus le jour J."))) : React.createElement("p", null, "On revient vers vous avec un prix pr\xE9cis et d\xE9finitif."), rdv ? React.createElement("div", {
+  }, "Fourchette bas\xE9e sur ", React.createElement("strong", null, estim.volume, "\xA0m\xB3"), " et ", React.createElement("strong", null, "~", estim.km, "\xA0km"), ". Votre ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), " est confirm\xE9 en 5 minutes au t\xE9l\xE9phone, et il ne bouge plus le jour J."))) : React.createElement("p", null, "Votre trajet demande une v\xE9rification de notre c\xF4t\xE9\xA0: on vous rappelle tr\xE8s vite avec un ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), ", calcul\xE9 sur votre distance r\xE9elle."), rdv ? React.createElement("div", {
     className: "rdv-done"
   }, React.createElement("p", {
     style: {

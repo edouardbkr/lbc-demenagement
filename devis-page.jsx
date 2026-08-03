@@ -46,7 +46,8 @@ function sendToCockpit(all, opts) {
   // même si le cockpit n'exploite pas encore ces champs, l'info reste visible dans la fiche.
   const notes = [
     all.details ? "Détails client : " + all.details : "",
-    opts.estimation ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "",
+    opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "",
+    opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "",
     opts.estimation && opts.estimation.detail ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "",
     opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ?
       "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "",
@@ -452,7 +453,7 @@ function DevisForm() {
       if (window.LBC_PRICING) {
         const km = await Promise.race([
           window.LBC_PRICING.distanceKm(all.depart, all.arrivee),
-          new Promise((r) => setTimeout(() => r(null), 3000))
+          new Promise((r) => setTimeout(() => r(null), 8000))
         ]);
         estim = window.LBC_PRICING.estimer({
           surface: all.surface,
@@ -575,7 +576,12 @@ function DevisForm() {
                 </React.Fragment> :
                 <React.Fragment>
                   <h3>Votre demande est bien reçue&nbsp;!</h3>
-                  {estim ?
+                  {/* On n'affiche le prix QUE si la distance a réellement été calculée.
+                        Le 3 août 2026, un géocodage bloqué faisait retomber le moteur sur une
+                        distance par défaut de 30 km : un Cannes → Honfleur de 1 038 km a été
+                        annoncé au prix d'un trajet local. Un prix manquant se rattrape en un
+                        appel ; un prix faux fait perdre le client et la crédibilité. */}
+                    {estim && estim.distanceFiable ?
                   <React.Fragment>
                     <p>Voici votre estimation, calculée sur ce que vous venez de nous décrire.</p>
                     <div className="ds-price">
@@ -591,7 +597,7 @@ function DevisForm() {
                       </p>
                     </div>
                   </React.Fragment> :
-                  <p>On revient vers vous avec un prix précis et définitif.</p>
+                  <p>Votre trajet demande une vérification de notre côté&nbsp;: on vous rappelle très vite avec un <strong>prix ferme et définitif</strong>, calculé sur votre distance réelle.</p>
                   }
                   {rdv ?
                   <div className="rdv-done">

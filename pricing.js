@@ -220,7 +220,8 @@
     if (aInventaire) volBase = Math.max(volInv, plage ? plage.min : 0);else volBase = Math.max(plage ? plage.typique || plage.max : 0, volInv);
     if (!volBase) return null;
     const volume = Math.round(volBase * CFG.margeVolume);
-    const km = o.km != null && o.km > 0 ? Math.round(o.km) : CFG.kmParDefaut;
+    const distanceFiable = o.km != null && o.km > 0;
+    const km = distanceFiable ? Math.round(o.km) : CFG.kmParDefaut;
     const mult = CFG.formuleMult[o.formule] != null ? CFG.formuleMult[o.formule] : 1.2;
     const multMO = CFG.mainOeuvreFormule[o.formule] != null ? CFG.mainOeuvreFormule[o.formule] : 1.25;
     const nbJours = jours(km, volume);
@@ -252,6 +253,7 @@
       haut,
       volume,
       km,
+      distanceFiable,
       detail: {
         couts: Math.round(couts),
         carburant: Math.round(carburant),
