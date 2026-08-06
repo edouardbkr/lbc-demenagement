@@ -28,7 +28,7 @@ async function alerteLeadPerdu(env, detail, payload) {
     await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": "Bearer " + cle, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: NOTIF_FROM, to: [NOTIF_TO], subject: "🚨 LEAD NON ENREGISTRÉ — à rattraper à la main", html: corps })
+      body: JSON.stringify({ from: NOTIF_FROM, to: NOTIF_TO, subject: "🚨 LEAD NON ENREGISTRÉ — à rattraper à la main", html: corps })
     });
   } catch (e) { console.error("[lead] alerte non envoyée", (e && e.message) || e); }
 }
@@ -47,7 +47,23 @@ async function insert(payload) {
 // limite les envois rapprochés. Un même prospect déclenchait 3 envois en 2 minutes
 // (étape 1, devis complet, rappel) et certains disparaissaient sans laisser de trace.
 // Ici l'envoi part de Cloudflare, sur un domaine vérifié, avec des logs de livraison.
-const NOTIF_TO = "contact@lbcdemenagement.com";
+// ⚠️ DEUX DESTINATAIRES, ET C'EST VOLONTAIRE — correction du 6 août 2026.
+//
+// Ces notifications partaient de notifications@lbcdemenagement.com vers
+// contact@lbcdemenagement.com : le domaine s'écrivait à lui-même, en passant par un
+// serveur extérieur (Amazon SES, derrière Resend). Pour Hostinger, qui reçoit le
+// courrier du domaine, c'est la signature exacte d'une usurpation, et il classait tout
+// en spam MÊME AVEC un SPF et un DKIM valides. Vérifié : le DKIM est bien publié sur
+// resend._domainkey, et send.lbcdemenagement.com porte le bon SPF. L'authentification
+// n'était pas en cause.
+//
+// hPanel n'offre aucun réglage anti-spam sur le plan Starter : impossible de mettre
+// l'expéditeur en liste blanche. D'où l'ajout de l'adresse Gmail, qui ne partage pas
+// le domaine et reçoit donc normalement.
+//
+// contact@ est CONSERVÉ : si un jour la boîte du domaine est réparée ou changée
+// d'hébergeur, rien n'est à refaire, et en attendant aucune demande ne peut se perdre.
+const NOTIF_TO = ["bkredouard@gmail.com", "contact@lbcdemenagement.com"];
 const NOTIF_FROM = "Site LBC <notifications@lbcdemenagement.com>";
 
 const esc = (v) => String(v == null || v === "" ? "—" : v)
@@ -59,10 +75,13 @@ function construireNotif(p) {
   const rdv = p.rdvDate ? (p.rdvDate + (p.rdvHeure ? " à " + p.rdvHeure.replace(":", "h") : "")) : "";
   const fourchette = (p.estimationBasse && p.estimationHaute) ? (p.estimationBasse + " € – " + p.estimationHaute + " €") : "";
 
-  let sujet;
-  if (rdv) sujet = "📞 Rappel " + rdv + " — " + nom;
-  else if (p.statut === "Devis complet") sujet = "🚚 Devis complet — " + nom + (fourchette ? " — " + fourchette : "");
-  else sujet = "🔔 " + (p.statut || "Nouveau lead") + " — " + nom;
+  // Le rappel est une INFO EN PLUS, pas un type de lead : quand un prospect finit son devis
+  // et demande à être rappelé, l'ancien sujet n'affichait que « Rappel » et masquait le fait
+  // qu'un devis complet venait d'arriver. Les deux doivent tenir dans le même sujet.
+  const nature = p.statut === "Devis complet" ? "🚚 Devis complet" : "🔔 " + (p.statut || "Nouveau lead");
+  const sujet = nature + " — " + nom
+    + (fourchette ? " — " + fourchette : "")
+    + (rdv ? " · 📞 à rappeler " + rdv : "");
 
   const trajet = [(p.depart || {}).ville || (p.depart || {}).adresse, (p.arrivee || {}).ville || (p.arrivee || {}).adresse].filter(Boolean).join(" → ");
   const lignes = [
@@ -100,7 +119,7 @@ async function envoyerNotif(env, payload) {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Authorization": "Bearer " + cle, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: NOTIF_FROM, to: [NOTIF_TO], subject: sujet, html: html,
+      body: JSON.stringify({ from: NOTIF_FROM, to: NOTIF_TO, subject: sujet, html: html,
                              reply_to: (payload.client && payload.client.email) || undefined })
     });
     if (!r.ok) console.error("[lead] Resend a refusé l'envoi", r.status, await r.text().catch(() => ""));

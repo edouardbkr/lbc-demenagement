@@ -35,7 +35,7 @@ const COMPARE_ROWS = [{
   p: true,
   l: true
 }, {
-  label: "Assurance multirisque incluse",
+  label: "Assurance du déménageur incluse — 8 000 € par objet",
   s: true,
   p: true,
   l: true

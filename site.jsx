@@ -114,7 +114,6 @@ const NAV = [
 { key: 'formules', label: t('Formules'), href: 'Formules' },
 { key: 'france', label: t('En France'), mega: 'france' },
 { key: 'international', label: t('International'), mega: 'intl' },
-{ key: 'stockage', label: t('Stockage'), href: 'Stockage' },
 { key: 'mutation', label: t('Mutation professionnelle'), dropdown: [
   { label: t("Je suis un salarié"), href: "Mutations" },
   { label: t("Je suis un militaire"), href: "Militaire" },
@@ -139,9 +138,7 @@ const MEGA = {
       ["Nice → Paris", "Demenagement-Nice-Paris"], ["Nice → Lyon", "Demenagement-Nice-Lyon"],
       ["Nice → Marseille", "Demenagement-Nice-Marseille"], ["Nice → Toulouse", "Demenagement-Nice-Toulouse"],
       ["Nice → Bordeaux", "Demenagement-Nice-Bordeaux"]] },
-
-    { title: t("Autres villes"), links: [
-      [t("Déménagement La Rochelle"), "Demenagement-La-Rochelle"]] }]
+]
 
 
   },
@@ -163,7 +160,7 @@ const MEGA = {
 function Logo() {
   return (
     <a href="/" className="logo" aria-label="LBC — Les Bras Cassés, accueil">
-      <img src="assets/lbc-wordmark-sm.png" alt="LBC* — Les Bras Cassés" decoding="async" width="432" height="240" />
+      <img src="assets/lbc-wordmark-sm.png" alt="LBC Déménagement — déménageur à Nice" decoding="async" width="432" height="240" />
     </a>);
 
 }
@@ -342,7 +339,7 @@ function RoadDivider() {
     <div className="road-divider" aria-hidden="true">
       <div className="road-line"></div>
       <div className="road-truck">
-        <img className="road-logo" src="assets/lbc-wordmark-sm.png" alt="LBC* Déménagement" />
+        <img className="road-logo" src="assets/lbc-wordmark-sm.png" alt="LBC Déménagement" />
         <svg viewBox="0 0 380 150" width="300" fill="none" stroke="var(--ink)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">
           <g className="road-speed" stroke="var(--accent)" strokeWidth="3.5">
             <path d="M52 56 H12" />
@@ -378,7 +375,7 @@ function MascotStamp() {
           <span className="mascot-stamp-line">Le nom est la blague.</span>
         </div>
         <div className="mascot-stamp-circle">
-          <img src="assets/lbc-mascot-sm.png" alt="Mascotte LBC* Les Bras Cassés" loading="lazy" decoding="async" width="560" height="560" />
+          <img src="assets/lbc-mascot-sm.png" alt="Mascotte LBC Déménagement" loading="lazy" decoding="async" width="560" height="560" />
         </div>
         <div className="mascot-stamp-aside right">
           <span className="mascot-stamp-kicker">Nice · PACA · France</span>
@@ -390,8 +387,6 @@ function MascotStamp() {
 }
 
 // Email destination for lead notifications (FormSubmit.co — free, no account)
-const LEAD_EMAIL = "contact@lbcdemenagement.com";
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 
 // Cockpit LBC (Supabase) — la barre rapide dépose AUSSI le lead dans le cockpit (pas seulement l'email),
 // pour qu'un prospect qui ne termine pas la page Devis apparaisse quand même. Insert restreint à la table leads.
@@ -529,8 +524,11 @@ function QuickQuote({ variant = "light" }) {
   const go = (e) => {
     e.preventDefault();
     const f = e.currentTarget;
-    // Anti-spam honeypot : les robots le remplissent, pas les humains.
-    if (f._honey && f._honey.value) { window.location.href = "Devis"; return; }
+    // Anti-spam honeypot. ⚠️ Il ne fait PLUS disparaître la demande : « les robots le
+    // remplissent, pas les humains » est faux sur les navigateurs intégrés Facebook et
+    // Instagram, où le remplissage automatique renseigne aussi les champs cachés. De vrais
+    // prospects étaient renvoyés vers /Devis sans que leur nom ni leur téléphone ne partent
+    // nulle part. On enregistre toujours ; le déclenchement du piège est signalé dans la fiche.
 
     const nom = f.nom.value.trim();
     const tel = f.tel.value.trim();
@@ -542,24 +540,10 @@ function QuickQuote({ variant = "light" }) {
     const SURF_LABEL = { studio: "Studio (< 30 m²)", t2: "2 pièces (30–50 m²)",
                          t3: "3 pièces (50–80 m²)", t4: "4 pièces + (80 m² +)" };
 
-    // Notification e-mail immédiate (keepalive : la requête survit à la redirection).
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🚚 Nouvelle demande de devis (barre rapide) — Les Bras Cassés",
-          _template: "table",
-          "Étape": "Étape 1 remplie depuis la barre rapide",
-          "Nom": nom || "—",
-          "Téléphone": tel || "—",
-          "Email": email || "—",
-          "Type de logement": TYPE_LABEL[type] || "—",
-          "Surface": SURF_LABEL[surface] || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
+    // La notification e-mail est envoyée par /api/lead, depuis notre propre serveur.
+    // (Le service tiers formsubmit.co a été retiré : il faisait doublon avec cet envoi, il est
+    // souvent bloqué par les bloqueurs de publicité, et il transmettait le nom, le téléphone et
+    // l'e-mail de nos prospects à un sous-traitant que nous n'avons jamais déclaré.)
 
     // Meta : le Lead sera compté au devis complet, pour ne pas compter deux fois le prospect.
     if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
@@ -642,7 +626,6 @@ const CONSEILS = [
 { label: "Déménagement Nice → Paris : délais & organisation", href: "Article-demenagement-nice-paris-prix-delais" },
 { label: "Réussir son déménagement Nice-Paris", href: "Article-demenagement-nice-paris-reussir" },
 { label: "Déménagement international depuis Nice", href: "Article-demenagement-international-depuis-nice" },
-{ label: "Déménager à La Rochelle", href: "Article-demenagement-la-rochelle-guide" },
 { label: "Villes aux démarches spéciales", href: "Article-villes-demarches-speciales-demenagement" },
 { label: "Déménagement étudiant à Nice", href: "Article-demenagement-etudiant-nice" },
 { label: "Déménager à Nice : stationnement & autorisations", href: "Article-demenager-nice" },
@@ -668,7 +651,6 @@ function FooterSEO() {
               <a href="Demenagement-Nice-Marseille">Déménagement Nice → Marseille</a>
               <a href="Demenagement-Nice-Toulouse">Déménagement Nice → Toulouse</a>
               <a href="Demenagement-Nice-Bordeaux">Déménagement Nice → Bordeaux</a>
-              <a href="Demenagement-La-Rochelle">Déménagement La Rochelle</a>
             </div>
             <div className="seo-sub">Déménagement international</div>
             <div className="seo-cities">
@@ -790,7 +772,7 @@ function Footer() {
         <div className="wrap">
           <div className="footer-top">
             <div className="footer-brand">
-              <img src="assets/lbc-wordmark-sm.png" alt="LBC* — Les Bras Cassés" loading="lazy" decoding="async" width="432" height="240" />
+              <img src="assets/lbc-wordmark-sm.png" alt="LBC Déménagement — déménageur à Nice" loading="lazy" decoding="async" width="432" height="240" />
               <p className="footer-tagline">
                 Déménageurs professionnels basés à Nice. Particuliers et entreprises, PACA et toute la France.
               </p>
@@ -803,7 +785,6 @@ function Footer() {
                   <li><a href="Mutations">Mutation professionnelle</a></li>
                   <li><a href="Militaire">Déménagement militaire</a></li>
                   <li><a href="Diplomatique">Déménagement diplomatique</a></li>
-                  <li><a href="Stockage">Stockage &amp; garde-meuble</a></li>
                 </ul>
               </div>
               <div className="footer-col">
@@ -813,6 +794,7 @@ function Footer() {
                   <li><a href="Blog">Blog &amp; conseils</a></li>
                   <li><a href="FAQ">Questions fréquentes</a></li>
                   <li><a href="Checklist">Checklist déménagement</a></li>
+                  <li><a href="Partenaires">Devenir partenaire</a></li>
                   <li><a href="Devis">Devis gratuit</a></li>
                   <li><a href="/#avis">Avis clients</a></li>
                 </ul>
@@ -837,7 +819,7 @@ function Footer() {
             </div>
           </div>
           <div className="footer-bottom">
-            <div>© 2026 LBC* Déménagement — SAS au capital de 3 000€ · 12 rue d'Italie, 06000 Nice</div>
+            <div>© 2026 LBC Déménagement — SAS au capital de 3 000€ · 12 rue d'Italie, 06000 Nice</div>
             <div className="footer-made">Les Bras Cassés. Le nom est la blague, le travail est sérieux.</div>
           </div>
         </div>

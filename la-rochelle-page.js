@@ -45,8 +45,8 @@ const LR_SERVICES = [{
   t: "Vers les îles",
   d: "Ré, Oléron, Aix : déménagements insulaires planifiés selon ponts, marées et navettes."
 }, {
-  t: "Garde-meuble",
-  d: "Box sécurisé pour une transition entre deux logements ou une résidence secondaire."
+  t: "Transport vers votre box",
+  d: "Vous stockez entre deux logements ou pour une résidence secondaire."
 }];
 const LR_FAQ = [{
   q: "Intervenez-vous dans le centre historique piéton ?",
@@ -65,7 +65,7 @@ const LR_FAQ = [{
   a: "Bien sûr, c'est fréquent vu l'université et les résidences des Minimes : on gère les petits volumes et les studios meublés à un tarif honnête, surtout à la rentrée."
 }, {
   q: "Proposez-vous un garde-meuble à La Rochelle ?",
-  a: "Oui, en box sécurisé : idéal pour une transition entre deux logements, une résidence secondaire ou un décalage de dates sur un trajet longue distance."
+  a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
 }];
 function LRHero() {
   return React.createElement("section", {

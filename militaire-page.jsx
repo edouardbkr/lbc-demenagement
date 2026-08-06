@@ -46,7 +46,7 @@ const MIL_FAQ = [
 { q: "Fournissez-vous un devis conforme aux barèmes ?", a: "Oui, c'est notre quotidien : un devis détaillé, clair et conforme aux exigences administratives, prêt à intégrer votre dossier de prise en charge ou de remboursement." },
 { q: "Gérez-vous les déménagements outre-mer ?", a: "Oui : Antilles, Guyane, Réunion, Mayotte, Polynésie. On organise le conditionnement maritime renforcé, l'inventaire valorisé, l'embarquement et le suivi jusqu'à destination, en tenant compte des délais d'acheminement." },
 { q: "Et les affectations à l'étranger (OTAN, ambassade) ?", a: "Oui : transport international, inventaire et formalités douanières gérés de bout en bout, avec une seule équipe du chargement à la livraison, comme pour le personnel diplomatique." },
-{ q: "Que faire si mon logement sur la nouvelle base n'est pas prêt ?", a: "On utilise le garde-meuble relais : vos affaires sont stockées en box sécurisé le temps que votre logement ou votre concession se libère, puis livrées dès que vous êtes prêt." },
+{ q: "Que faire si mon logement sur la nouvelle base n'est pas prêt ?", a: "On vous aide à trouver un garde-meuble relais : vos affaires sont stockées en box sécurisé le temps que votre logement ou votre concession se libère, puis livrées dès que vous êtes prêt." },
 { q: "Intervenez-vous dans toutes les garnisons ?", a: "Oui. Toulon est notre destination militaire n°1, mais on dessert toutes les bases de métropole (Draguignan, Hyères, Fréjus, Istres, Orange, Salon, Brest, Lorient, Cherbourg…), d'outre-mer et à l'étranger. Indiquez votre affectation, on s'occupe du reste." }];
 
 

@@ -83,7 +83,7 @@ function About() {
     strokeLinejoin: "round"
   }, React.createElement("path", {
     d: "M20 6L9 17l-5-5"
-  }))), React.createElement("span", null, React.createElement("strong", null, "Prix ferme"), " \u2014 le devis est le prix pay\xE9, z\xE9ro surprise.")), React.createElement("li", null, React.createElement("span", {
+  }))), React.createElement("span", null, React.createElement("strong", null, "Prix ferme"), " \u2014 le devis est le prix pay\xE9, sur la base de l\u2019inventaire d\xE9clar\xE9.")), React.createElement("li", null, React.createElement("span", {
     className: "at-ic",
     "aria-hidden": "true"
   }, React.createElement("svg", {
@@ -299,7 +299,7 @@ function Formules({
     pitch: "Vous gérez vos cartons, on gère le muscle, la route et la casse. Le déménagement sans superflu, fait dans les règles.",
     ideal: "les petits budgets et celles et ceux qui aiment mettre la main à la pâte.",
     icon: React.createElement(IconBox, null),
-    items: ["Transport de vos affaires avec véhicule adapté", "Chargement et déchargement par notre équipe", "Déménagement local ou longue distance", "Assurance multirisque incluse"]
+    items: ["Transport de vos affaires avec véhicule adapté", "Chargement et déchargement par notre équipe", "Déménagement local ou longue distance", "Assurance du déménageur incluse — 8 000 € par objet"]
   }, {
     key: "premium",
     tier: 2,

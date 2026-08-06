@@ -5,8 +5,6 @@ const {
   useEffect,
   useRef
 } = React;
-const LEAD_EMAIL = "contact@lbcdemenagement.com";
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 const FORMULE_TO_APP = {
   standard: "eco",
   premium: "standard",
@@ -49,6 +47,8 @@ const sideOf = (all, s) => ({
   ascenseur: all[s + "_asc"] === "Oui",
   ascTaille: all[s + "_asc"] === "Oui" ? ASC_CAP_TO_TAILLE[all[s + "_asc_cap"]] || "" : "Aucun",
   portage: PORTAGE_TO_M[all[s + "_portage"]] != null ? PORTAGE_TO_M[all[s + "_portage"]] : "",
+  monteMeuble: all[s + "_monte"] === "Oui",
+  monteMeubleIncertain: all[s + "_monte"] === "Je ne sais pas",
   acces: all[s + "_acces"] || ""
 });
 function sendToCockpit(all, opts) {
@@ -62,7 +62,16 @@ function sendToCockpit(all, opts) {
     qty: x[1]
   }));
   const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
-  const notes = [all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ? "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "", opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "", at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") + (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") + (at.referent ? " · venu de " + at.referent : "") : ""].filter(Boolean).join("\n");
+  const notes = [all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.demontageLignes || []).length ? "🔧 Démontage déclaré : " + opts.estimation.detail.demontageLignes.map(function (l) {
+    return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " " + (l.facture ? "= " + l.montant + " €" : "(compris dans la formule)") + (l.connu ? "" : " ⚠️ tarif non répertorié, à vérifier");
+  }).join(" · ") + ". Total facturé " + opts.estimation.detail.demontage + " €, DÉJÀ compris dans la fourchette ci-dessus." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.speciauxLignes || []).length ? "🎹 Objets spéciaux : " + opts.estimation.detail.speciauxLignes.map(function (l) {
+    return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " = " + l.montant + " €";
+  }).join(" · ") + ". Total " + opts.estimation.detail.speciaux + " €, déjà compris dans la fourchette." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.monteMeuble > 0 ? "🏗 MONTE-MEUBLE demandé par le client (" + opts.estimation.detail.monteMeubleNb + " façade" + (opts.estimation.detail.monteMeubleNb > 1 ? "s" : "") + ") : " + opts.estimation.detail.monteMeuble + " € refacturés au prix coûtant, déjà compris dans la fourchette. À réserver." : "", function () {
+    const c = [];
+    if (opts.estimation && all.depart_monte === "Je ne sais pas") c.push("au départ");
+    if (opts.estimation && all.arrivee_monte === "Je ne sais pas") c.push("à l'arrivée");
+    return c.length ? "🏗 Monte-meuble INCERTAIN " + c.join(" et ") + " : le client ne sait pas. Rien n'a été facturé. À trancher à l'appel, c'est 400 à 600 € par façade." : "";
+  }(), opts.estimation && opts.estimation.visioRequise ? "📦 MAINS DANS LES POCHES demandée. Le prix ci-dessus est celui de MAINS LIBRES, l'emballage n'est pas compris. Le client a été prévenu à l'écran qu'une visio ou des photos sont nécessaires. À caler à l'appel." : "", opts.estimation && opts.estimation.detail && opts.estimation.distanceFiable ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ? "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "", opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "", all && all._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : "", !opts.partiel && !opts.estimation ? "🚨 AUCUN PRIX N'A ÉTÉ AFFICHÉ à ce client : le moteur d'estimation n'a pas tourné. Chiffrer à la main." : "", at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") + (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") + (at.referent ? " · venu de " + at.referent : "") : ""].filter(Boolean).join("\n");
   const payload = {
     source: at && at.canal || "site_web",
     attribution: at || null,
@@ -423,6 +432,23 @@ function AccessBlock({
     value: v("portage"),
     options: PORT_OPTS,
     onSelect: x => set(f("portage"), x)
+  })), etageNum(v("etage")) >= 2 && v("asc") === "Non" && React.createElement("div", {
+    className: "access-field"
+  }, React.createElement("label", null, "Faut-il un monte-meuble\xA0? ", React.createElement("span", {
+    className: "access-hint"
+  }, "\u2014 si l'escalier ne passe pas")), React.createElement(SegSelect, {
+    value: v("monte"),
+    options: [{
+      v: "Non",
+      l: "Non"
+    }, {
+      v: "Oui",
+      l: "Oui"
+    }, {
+      v: "Je ne sais pas",
+      l: "Je ne sais pas"
+    }],
+    onSelect: x => set(f("monte"), x)
   })), React.createElement("div", {
     className: "access-field"
   }, React.createElement("label", null, "Acc\xE8s camion ", miss("acces") && React.createElement("span", {
@@ -541,31 +567,8 @@ function DevisForm() {
   };
   const sendEarly = all => {
     if (earlySent.current) return;
-    if (all && all._honey) return;
     earlySent.current = true;
     if (window.fbq) window.fbq("track", "Lead");
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🔔 Nouveau contact devis (étape 1) — Les Bras Cassés",
-          _template: "table",
-          "Statut": "Lead démarré — à relancer si le devis n'est pas finalisé",
-          "Nom": all.nom || "—",
-          "Téléphone": all.tel || "—",
-          "Email": all.email || "—",
-          "Contact préféré": all.contact || "—",
-          "Type de logement": all.type || "—",
-          "Surface": SURFACE_LABEL[all.surface] || all.surface || "—",
-          "Formule souhaitée": FORMULE_LABEL[all.formule] || all.formule || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     sendToCockpit(all, {
       partiel: true,
       leadId: getLeadId()
@@ -594,10 +597,6 @@ function DevisForm() {
     const all = {
       ...data
     };
-    if (all._honey) {
-      setSent(true);
-      return;
-    }
     if (sending) return;
     const accessStr = s => [all[s], all[s + "_etage"] && "Étage " + all[s + "_etage"], all[s + "_asc"] && "Ascenseur : " + (all[s + "_asc"] === "Oui" ? "Oui" + (all[s + "_asc_cap"] ? " (" + all[s + "_asc_cap"] + ")" : "") : "Non"), all[s + "_portage"] && "Portage : " + all[s + "_portage"], all[s + "_acces"] && "Accès : " + all[s + "_acces"]].filter(Boolean).join(" · ") || "—";
     setSending(true);
@@ -610,6 +609,7 @@ function DevisForm() {
           inventaire: window.buildInventoryArray ? window.buildInventoryArray(all) : [],
           cartons: all.cartons,
           formule: all.formule,
+          demontage: all.demontage,
           km: km,
           depart: sideOf(all, "depart"),
           arrivee: sideOf(all, "arrivee")
@@ -617,45 +617,14 @@ function DevisForm() {
       }
     } catch (e) {}
     setEstim(estim);
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🚚 Demande de devis complète — Les Bras Cassés",
-          _template: "table",
-          "Nom": all.nom || "—",
-          "Téléphone": all.tel || "—",
-          "Email": all.email || "—",
-          "Contact préféré": all.contact || "—",
-          "Type de logement": all.type || "—",
-          "Surface": SURFACE_LABEL[all.surface] || all.surface || "—",
-          "Formule souhaitée": FORMULE_LABEL[all.formule] || all.formule || "—",
-          "Adresse de départ": accessStr("depart"),
-          "Adresse d'arrivée": accessStr("arrivee"),
-          "Date souhaitée": all.date || "—",
-          "Flexibilité": all.flex || "—",
-          "Inventaire meubles": formatInventory(all),
-          "Cartons (est.)": all.cartons ? String(all.cartons) : "—",
-          "Objets fragiles / précieux": formatTags(all.fragile),
-          "À démonter / remonter": formatTags(all.demontage),
-          "Détails": all.details || "—",
-          "⚠️ Fourchette annoncée au client": estim ? estim.bas + " € – " + estim.haut + " €" : "non affichée",
-          "Volume retenu / distance": estim ? estim.volume + " m³ · ~" + estim.km + " km" : "—",
-          "🎯 Canal d'acquisition": function () {
-            const a = window.LBC_ATTRIB && window.LBC_ATTRIB();
-            return a ? a.canal + (a.campagne ? " · " + a.campagne : "") : "inconnu";
-          }(),
-          "Volume déclaré par le client": estim && estim.detail ? estim.detail.volumeDeclare + " m³" + (estim.detail.plancherApplique ? " 🔎 très peu pour ce logement, inventaire à vérifier au téléphone" : "") : "—",
-          "Coûts estimés / bénéfice attendu": estim && estim.detail ? estim.detail.couts + " € → " + (estim.bas - estim.detail.couts) + " à " + (estim.haut - estim.detail.couts) + " €" : "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     if (window.fbq) window.fbq("trackCustom", "DevisComplet");
+    if (window.gtag) window.gtag("event", "devis_termine", {
+      value: estim ? estim.bas : undefined,
+      currency: "EUR",
+      volume_m3: estim ? estim.volume : undefined,
+      distance_km: estim ? estim.km : undefined,
+      formule: all.formule || ""
+    });
     let ok = null;
     try {
       ok = await Promise.race([sendToCockpit(all, {
@@ -675,31 +644,18 @@ function DevisForm() {
       ...data
     };
     try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "📞 Rappel demandé — " + (all.nom || "prospect") + " — " + choix.label,
-          _template: "table",
-          "À rappeler": choix.label,
-          "Nom": all.nom || "—",
-          "Téléphone": all.tel || "—",
-          "Email": all.email || "—",
-          "Fourchette annoncée": estim ? estim.bas + " € – " + estim.haut + " €" : "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
-    try {
       await Promise.race([sendToCockpit(all, {
         leadId: getLeadId(),
         estimation: estim,
         rdv: choix
       }), new Promise(r => setTimeout(() => r(null), 6000))]);
     } catch (e) {}
+    if (window.fbq) window.fbq("trackCustom", "RappelDemande");
+    if (window.gtag) window.gtag("event", "rappel_demande", {
+      value: estim ? estim.bas : undefined,
+      currency: "EUR",
+      creneau: choix.label || ""
+    });
     setRdvSending(false);
     setRdv(choix);
     scrollToForm();
@@ -762,7 +718,7 @@ function DevisForm() {
     className: "ds-price"
   }, React.createElement("span", {
     className: "ds-price-label"
-  }, "Votre d\xE9m\xE9nagement"), React.createElement("div", {
+  }, estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"), React.createElement("div", {
     className: "ds-price-range"
   }, React.createElement("span", null, estim.bas.toLocaleString("fr-FR"), React.createElement("span", {
     className: "cur"
@@ -772,7 +728,9 @@ function DevisForm() {
     className: "cur"
   }, "\u20AC"))), React.createElement("p", {
     className: "ds-price-sub"
-  }, "Fourchette bas\xE9e sur ", React.createElement("strong", null, estim.volume, "\xA0m\xB3"), " et ", React.createElement("strong", null, "~", estim.km, "\xA0km"), ". Votre ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), " est confirm\xE9 en 5 minutes au t\xE9l\xE9phone, et il ne bouge plus le jour J."))) : React.createElement("p", null, "Votre trajet demande une v\xE9rification de notre c\xF4t\xE9\xA0: on vous rappelle tr\xE8s vite avec un ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), ", calcul\xE9 sur votre distance r\xE9elle."), rdv ? React.createElement("div", {
+  }, "Fourchette bas\xE9e sur ", React.createElement("strong", null, estim.volume, "\xA0m\xB3"), " et ", React.createElement("strong", null, "~", estim.km, "\xA0km"), ". Votre ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), " est confirm\xE9 en 5 minutes au t\xE9l\xE9phone, et il ne bouge plus le jour J.")), estim.visioRequise ? React.createElement("div", {
+    className: "ds-note-visio"
+  }, React.createElement("p", null, React.createElement("strong", null, "Vous avez choisi Mains dans les poches"), ", o\xF9 nous faisons aussi tous vos cartons. Le montant ci-dessus est celui de la formule", " ", React.createElement("strong", null, "Mains libres"), "\xA0: il ne comprend pas encore l'emballage."), React.createElement("p", null, "Ce chiffrage-l\xE0 d\xE9pend enti\xE8rement de ce que vous avez \xE0 emballer, et nous ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.", React.createElement("strong", null, " Quelques photos ou 15 minutes en visio"), " nous suffisent pour voir la vaisselle, les fragiles et le volume r\xE9el de cartons, et vous repartez avec un ", React.createElement("strong", null, "prix ferme"), ".")) : null) : React.createElement("p", null, "Votre trajet demande une v\xE9rification de notre c\xF4t\xE9\xA0: on vous rappelle tr\xE8s vite avec un ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), ", calcul\xE9 sur votre distance r\xE9elle."), rdv ? React.createElement("div", {
     className: "rdv-done"
   }, React.createElement("p", {
     style: {

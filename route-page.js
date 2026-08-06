@@ -599,7 +599,7 @@ function App() {
   const slug = document.body.getAttribute('data-route');
   const r = getRoute(slug);
   React.useEffect(() => {
-    document.title = "Déménagement " + r.from + " → " + r.to + " · LBC* Les Bras Cassés";
+    document.title = "Déménagement " + r.from + " → " + r.to + " · LBC Déménagement";
   }, []);
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(RHero, {
     r: r

@@ -56,7 +56,7 @@ const AP_TIMELINE = [{
 }, {
   y: "03",
   t: "Plus loin que Nice",
-  d: "Déménagements locaux, longues distances, entreprises et garde-meuble sécurisé : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse."
+  d: "Déménagements locaux, longues distances, entreprises : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse."
 }, {
   y: "04",
   t: "Aujourd'hui",

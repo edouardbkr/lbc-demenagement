@@ -1,3 +1,7 @@
+# ⚠️ La redirection www -> non-www NE PEUT PAS se faire ici : _redirects de
+# Cloudflare Pages ne matche que des chemins, jamais un nom d hote. Elle doit
+# etre creee dans le tableau de bord Cloudflare, Regles > Regles de redirection.
+
 # Home
 /les%20bras%20cass%C3%A9s    /    301
 /les-bras-casses              /    301
@@ -88,9 +92,17 @@
 /mutations.html	/Mutations	301
 /quartiers	/Quartiers	301
 /quartiers.html	/Quartiers	301
-/reservation	/Reservation	301
-/reservation.html	/Reservation	301
-/stockage	/Stockage	301
-/stockage.html	/Stockage	301
 /zones	/Zones	301
 /zones.html	/Zones	301
+
+# Garde-meuble retiré de l'offre le 2026-08-06 : LBC n'exploite pas d'entrepôt et
+# l'activité n'est pas déclarée à son assureur. Les anciennes URL sont indexées et
+# liées depuis les articles : on les envoie sur Contact plutôt qu'en 404.
+/Stockage	/Contact	301
+/Stockage.html	/Contact	301
+/stockage	/Contact	301
+/stockage.html	/Contact	301
+/Reservation	/Contact	301
+/Reservation.html	/Contact	301
+/reservation	/Contact	301
+/reservation.html	/Contact	301

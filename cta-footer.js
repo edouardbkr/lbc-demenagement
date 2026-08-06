@@ -1,7 +1,5 @@
 /* cta-footer.jsx — compilé par build.js, ne pas éditer */
 (function () {
-const CTA_LEAD_EMAIL = "contact@lbcdemenagement.com";
-const CTA_LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + CTA_LEAD_EMAIL;
 function ctaSendToCockpit(upd) {
   const np = (upd.nom || "").trim().split(/\s+/);
   const prenom = np.shift() || "";
@@ -27,7 +25,7 @@ function ctaSendToCockpit(upd) {
       t4: 60
     }[upd.surface] ?? null,
     contactPref: "Téléphone",
-    message: ["Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.", upd.type ? "Type de logement : " + upd.type : "", upd.surface ? "Surface déclarée : " + upd.surface : ""].filter(Boolean).join("\n")
+    message: ["Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.", upd.type ? "Type de logement : " + upd.type : "", upd.surface ? "Surface déclarée : " + upd.surface : "", upd._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : ""].filter(Boolean).join("\n")
   };
   try {
     return fetch("/api/lead", {
@@ -56,30 +54,7 @@ function CTA() {
     for (const el of e.currentTarget.elements) {
       if (el.name) upd[el.name] = el.value;
     }
-    if (upd._honey) {
-      setSent(true);
-      return;
-    }
     if (sending) return;
-    try {
-      fetch(CTA_LEAD_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🚚 Nouvelle demande de devis (accueil) — Les Bras Cassés",
-          _template: "table",
-          "Nom": upd.nom || "—",
-          "Téléphone": upd.tel || "—",
-          "Email": upd.email || "—",
-          "Type de logement": upd.type || "—",
-          "Surface": upd.surface || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     setSending(true);
     let ok = null;
     try {

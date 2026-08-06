@@ -2,8 +2,9 @@
 const { useState, useEffect, useRef } = React;
 
 // Lead notification endpoint (FormSubmit.co — kept in sync with site.jsx)
-const LEAD_EMAIL = "contact@lbcdemenagement.com";
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
+// Plus aucun service tiers dans la boucle : la notification e-mail part de /api/lead,
+// depuis notre propre serveur. formsubmit.co faisait doublon, était souvent bloqué par les
+// bloqueurs de publicité, et recevait les coordonnées de nos prospects sans être déclaré.
 
 // Cockpit LBC : le site ne parle JAMAIS à Supabase directement depuis le navigateur (bloqué par les
 // bloqueurs de pub → leads perdus). Tout passe par /api/lead, une fonction sur notre propre domaine.
@@ -28,6 +29,11 @@ const sideOf = (all, s) => ({
   ascenseur: all[s + "_asc"] === "Oui",
   ascTaille: all[s + "_asc"] === "Oui" ? ASC_CAP_TO_TAILLE[all[s + "_asc_cap"]] || "" : "Aucun",
   portage: PORTAGE_TO_M[all[s + "_portage"]] != null ? PORTAGE_TO_M[all[s + "_portage"]] : "",
+  // Seul un « Oui » franc déclenche la facturation du monte-meuble. Un « Je ne sais
+  // pas » ne doit surtout pas ajouter 400 € en silence : il se règle à l'appel, et
+  // la note du cockpit le signale.
+  monteMeuble: all[s + "_monte"] === "Oui",
+  monteMeubleIncertain: all[s + "_monte"] === "Je ne sais pas",
   acces: all[s + "_acces"] || "" });
 
 // Envoie la demande complète dans la table leads du cockpit (en plus de l'email).
@@ -48,10 +54,44 @@ function sendToCockpit(all, opts) {
     all.details ? "Détails client : " + all.details : "",
     opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "",
     opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "",
-    opts.estimation && opts.estimation.detail ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "",
+    // Le client a demandé « Mains dans les poches » : la fourchette ci-dessus est celle de
+    // « Mains libres », et il en a été prévenu à l'écran. Le prix de l'emballage se chiffre
+    // après visio. Sans cette note, on risquerait de facturer l'emballage au prix affiché.
+    // Le détail du démontage, ligne par ligne, avec ce qui a été facturé et ce qui est
+    // compris dans la formule. Sans ce détail, impossible de savoir en reprenant la fiche
+    // si les 350 € du dressing sont déjà dans la fourchette annoncée ou non.
+    opts.estimation && opts.estimation.detail && (opts.estimation.detail.demontageLignes || []).length ?
+      "🔧 Démontage déclaré : " + opts.estimation.detail.demontageLignes.map(function (l) {
+        return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " " +
+          (l.facture ? "= " + l.montant + " €" : "(compris dans la formule)") + (l.connu ? "" : " ⚠️ tarif non répertorié, à vérifier");
+      }).join(" · ") + ". Total facturé " + opts.estimation.detail.demontage + " €, DÉJÀ compris dans la fourchette ci-dessus." : "",
+    opts.estimation && opts.estimation.detail && (opts.estimation.detail.speciauxLignes || []).length ?
+      "🎹 Objets spéciaux : " + opts.estimation.detail.speciauxLignes.map(function (l) {
+        return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " = " + l.montant + " €";
+      }).join(" · ") + ". Total " + opts.estimation.detail.speciaux + " €, déjà compris dans la fourchette." : "",
+    opts.estimation && opts.estimation.detail && opts.estimation.detail.monteMeuble > 0 ?
+      "🏗 MONTE-MEUBLE demandé par le client (" + opts.estimation.detail.monteMeubleNb + " façade" +
+      (opts.estimation.detail.monteMeubleNb > 1 ? "s" : "") + ") : " + opts.estimation.detail.monteMeuble +
+      " € refacturés au prix coûtant, déjà compris dans la fourchette. À réserver." : "",
+    // Un « je ne sais pas » ne facture rien mais ne doit pas disparaître : c'est
+    // 400 à 600 € qui se décideront au téléphone.
+    (function () {
+      const c = [];
+      if (opts.estimation && all.depart_monte === "Je ne sais pas") c.push("au départ");
+      if (opts.estimation && all.arrivee_monte === "Je ne sais pas") c.push("à l'arrivée");
+      return c.length ? "🏗 Monte-meuble INCERTAIN " + c.join(" et ") + " : le client ne sait pas. Rien n'a été facturé. À trancher à l'appel, c'est 400 à 600 € par façade." : "";
+    })(),
+    opts.estimation && opts.estimation.visioRequise ?
+      "📦 MAINS DANS LES POCHES demandée. Le prix ci-dessus est celui de MAINS LIBRES, l'emballage n'est pas compris. Le client a été prévenu à l'écran qu'une visio ou des photos sont nécessaires. À caler à l'appel." : "",
+    // ⚠️ Ces chiffres ne valent QUE si la distance a été calculée. Sans elle, le moteur
+    // retombe sur 30 km par défaut : les coûts et le bénéfice affichés ici étaient alors
+    // bâtis sur un trajet qui n'existe pas, juste sous une note disant l'inverse.
+    opts.estimation && opts.estimation.detail && opts.estimation.distanceFiable ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "",
     opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ?
       "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "",
     opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "",
+    all && all._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : "",
+    !opts.partiel && !opts.estimation ? "🚨 AUCUN PRIX N'A ÉTÉ AFFICHÉ à ce client : le moteur d'estimation n'a pas tourné. Chiffrer à la main." : "",
     at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") +
          (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") +
          (at.referent ? " · venu de " + at.referent : "") : ""
@@ -265,6 +305,18 @@ function AccessBlock({ side, label, addrLabel, data, set, showErrors }) {
         <label>Distance de portage <span className="access-hint">— camion → porte</span> {miss("portage") && <span className="req-hint">— à choisir</span>}</label>
         <SegSelect error={miss("portage")} value={v("portage")} options={PORT_OPTS} onSelect={(x) => set(f("portage"), x)} />
       </div>
+      {/* Monte-meuble : c'est le client qui le déclare, lui seul voit sa façade et
+          son escalier. Le deviner depuis un étage et une absence d'ascenseur
+          produirait autant de fausses alertes que d'oublis.
+          La question n'apparaît qu'à partir du 2e étage sans ascenseur : en dessous,
+          elle n'a pas lieu d'être et allongerait le formulaire pour rien. */}
+      {etageNum(v("etage")) >= 2 && v("asc") === "Non" &&
+      <div className="access-field">
+        <label>Faut-il un monte-meuble&nbsp;? <span className="access-hint">— si l'escalier ne passe pas</span></label>
+        <SegSelect value={v("monte")} options={[{ v: "Non", l: "Non" }, { v: "Oui", l: "Oui" }, { v: "Je ne sais pas", l: "Je ne sais pas" }]}
+          onSelect={(x) => set(f("monte"), x)} />
+      </div>
+      }
       <div className="access-field">
         <label>Accès camion {miss("acces") && <span className="req-hint">— à choisir</span>}</label>
         <select className={"access-sel" + (miss("acces") ? " field-error" : "")} name={f("acces")} defaultValue={v("acces")} onChange={(e) => set(f("acces"), e.target.value)}>
@@ -391,29 +443,13 @@ function DevisForm() {
   };
   const sendEarly = (all) => {
     if (earlySent.current) return;
-    if (all && all._honey) return;
+    // ⚠️ Le piège anti-robot ne fait plus DISPARAÎTRE le lead. Les navigateurs intégrés
+    // (Facebook, Instagram) et les gestionnaires de mots de passe remplissent tout seuls les
+    // champs cachés : de vrais prospects étaient classés « robot » et jetés sans un mot, alors
+    // que l'écran leur affichait « demande envoyée ». On enregistre toujours, on signale.
     earlySent.current = true;
     // Conversion Meta : lead qualifié dès l'étape 1 (nom + tél + email capturés).
     if (window.fbq) window.fbq("track", "Lead");
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🔔 Nouveau contact devis (étape 1) — Les Bras Cassés",
-          _template: "table",
-          "Statut": "Lead démarré — à relancer si le devis n'est pas finalisé",
-          "Nom": all.nom || "—",
-          "Téléphone": all.tel || "—",
-          "Email": all.email || "—",
-          "Contact préféré": all.contact || "—",
-          "Type de logement": all.type || "—",
-          "Surface": SURFACE_LABEL[all.surface] || all.surface || "—",
-          "Formule souhaitée": FORMULE_LABEL[all.formule] || all.formule || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     // Enregistrement dans le cockpit DÈS l'étape 1 : le lead (nom, tél, email) est
     // garanti côté base, même si le prospect abandonne l'inventaire ensuite.
     sendToCockpit(all, { partiel: true, leadId: getLeadId() });
@@ -433,7 +469,9 @@ function DevisForm() {
 
   const submit = async () => {
     const all = { ...data };
-    if (all._honey) { setSent(true); return; }
+    // Même raison qu'au-dessus : on n'abandonne plus l'envoi quand le piège se déclenche.
+    // C'est ce retour silencieux qui a fait perdre le devis complet de Christian Allavena
+    // (03/08, venu de Meta) : il a vu « envoyé », et rien n'est jamais parti.
     if (sending) return;
     const accessStr = (s) => [
     all[s],
@@ -460,6 +498,10 @@ function DevisForm() {
           inventaire: window.buildInventoryArray ? window.buildInventoryArray(all) : [],
           cartons: all.cartons,
           formule: all.formule,
+          // Les meubles que le client a déclaré vouloir faire démonter. Jusqu'ici cette
+          // information partait dans la fiche du cockpit sans jamais entrer dans le prix :
+          // trois heures de démontage d'un dressing ne pesaient rien sur l'estimation.
+          demontage: all.demontage,
           km: km,
           depart: sideOf(all, "depart"),
           arrivee: sideOf(all, "arrivee")
@@ -468,40 +510,19 @@ function DevisForm() {
     } catch (e) {}
     setEstim(estim);
 
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🚚 Demande de devis complète — Les Bras Cassés",
-          _template: "table",
-          "Nom": all.nom || "—",
-          "Téléphone": all.tel || "—",
-          "Email": all.email || "—",
-          "Contact préféré": all.contact || "—",
-          "Type de logement": all.type || "—",
-          "Surface": SURFACE_LABEL[all.surface] || all.surface || "—",
-          "Formule souhaitée": FORMULE_LABEL[all.formule] || all.formule || "—",
-          "Adresse de départ": accessStr("depart"),
-          "Adresse d'arrivée": accessStr("arrivee"),
-          "Date souhaitée": all.date || "—",
-          "Flexibilité": all.flex || "—",
-          "Inventaire meubles": formatInventory(all),
-          "Cartons (est.)": all.cartons ? String(all.cartons) : "—",
-          "Objets fragiles / précieux": formatTags(all.fragile),
-          "À démonter / remonter": formatTags(all.demontage),
-          "Détails": all.details || "—",
-          "⚠️ Fourchette annoncée au client": estim ? estim.bas + " € – " + estim.haut + " €" : "non affichée",
-          "Volume retenu / distance": estim ? estim.volume + " m³ · ~" + estim.km + " km" : "—",
-          "🎯 Canal d'acquisition": (function(){ const a=window.LBC_ATTRIB&&window.LBC_ATTRIB(); return a?(a.canal+(a.campagne?" · "+a.campagne:"")):"inconnu"; })(),
-          "Volume déclaré par le client": estim && estim.detail ? estim.detail.volumeDeclare + " m³" + (estim.detail.plancherApplique ? " 🔎 très peu pour ce logement, inventaire à vérifier au téléphone" : "") : "—",
-          "Coûts estimés / bénéfice attendu": estim && estim.detail ? estim.detail.couts + " € → " + (estim.bas - estim.detail.couts) + " à " + (estim.haut - estim.detail.couts) + " €" : "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     // Conversion Meta : devis complet finalisé (événement d'insight, en plus du Lead).
     if (window.fbq) window.fbq("trackCustom", "DevisComplet");
+    // Conversion Analytics : sans cet événement, GA4 ne connaissait que « form_start » et ne
+    // savait donc jamais qui allait au bout. L'entonnoir devait être reconstitué à la main en
+    // croisant avec la base. On envoie aussi la fourchette annoncée : Meta et Google peuvent
+    // alors optimiser sur la VALEUR du devis, pas sur le simple fait d'avoir ouvert le formulaire.
+    if (window.gtag) window.gtag("event", "devis_termine", {
+      value: estim ? estim.bas : undefined,
+      currency: "EUR",
+      volume_m3: estim ? estim.volume : undefined,
+      distance_km: estim ? estim.km : undefined,
+      formule: all.formule || ""
+    });
     // On ATTEND la confirmation d'enregistrement du lead (max 6s de sécurité) AVANT d'afficher
     // l'écran WhatsApp : sinon, sur mobile, l'ouverture immédiate de WhatsApp met le navigateur
     // en arrière-plan et TUE la requête en vol → lead perdu (cas Cindy Arnold, 23/07).
@@ -525,27 +546,17 @@ function DevisForm() {
     setRdvSending(true);
     const all = { ...data };
     try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "📞 Rappel demandé — " + (all.nom || "prospect") + " — " + choix.label,
-          _template: "table",
-          "À rappeler": choix.label,
-          "Nom": all.nom || "—",
-          "Téléphone": all.tel || "—",
-          "Email": all.email || "—",
-          "Fourchette annoncée": estim ? estim.bas + " € – " + estim.haut + " €" : "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
-    try {
       await Promise.race([
         sendToCockpit(all, { leadId: getLeadId(), estimation: estim, rdv: choix }),
         new Promise((r) => setTimeout(() => r(null), 6000))
       ]);
     } catch (e) {}
+    // Le prospect qui choisit un créneau est le plus chaud de tous : il attend notre appel.
+    // C'est cet événement-là qui mérite de devenir l'objectif des campagnes Meta.
+    if (window.fbq) window.fbq("trackCustom", "RappelDemande");
+    if (window.gtag) window.gtag("event", "rappel_demande", {
+      value: estim ? estim.bas : undefined, currency: "EUR", creneau: choix.label || ""
+    });
     setRdvSending(false);
     setRdv(choix);
     scrollToForm();
@@ -585,7 +596,9 @@ function DevisForm() {
                   <React.Fragment>
                     <p>Voici votre estimation, calculée sur ce que vous venez de nous décrire.</p>
                     <div className="ds-price">
-                      <span className="ds-price-label">Votre déménagement</span>
+                      <span className="ds-price-label">
+                        {estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"}
+                      </span>
                       <div className="ds-price-range">
                         <span>{estim.bas.toLocaleString("fr-FR")}<span className="cur">€</span></span>
                         <span className="dash">–</span>
@@ -596,6 +609,26 @@ function DevisForm() {
                         Votre <strong>prix ferme et définitif</strong> est confirmé en 5 minutes au téléphone, et il ne bouge plus le jour J.
                       </p>
                     </div>
+                    {/* « Mains dans les poches » n'est pas estimable en ligne : le prix
+                        dépend de ce qu'il y a à emballer, et l'annoncer au jugé revient
+                        à le renier après la visite. On affiche donc la formule juste en
+                        dessous, en le disant franchement. Un client prévenu accepte la
+                        visio ; un client qui découvre l'écart après coup s'en va. */}
+                    {estim.visioRequise ?
+                    <div className="ds-note-visio">
+                      <p>
+                        <strong>Vous avez choisi Mains dans les poches</strong>, où nous faisons
+                        aussi tous vos cartons. Le montant ci-dessus est celui de la formule{" "}
+                        <strong>Mains libres</strong>&nbsp;: il ne comprend pas encore l'emballage.
+                      </p>
+                      <p>
+                        Ce chiffrage-là dépend entièrement de ce que vous avez à emballer, et nous
+                        ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.
+                        <strong> Quelques photos ou 15 minutes en visio</strong> nous suffisent pour
+                        voir la vaisselle, les fragiles et le volume réel de cartons, et vous
+                        repartez avec un <strong>prix ferme</strong>.
+                      </p>
+                    </div> : null}
                   </React.Fragment> :
                   <p>Votre trajet demande une vérification de notre côté&nbsp;: on vous rappelle très vite avec un <strong>prix ferme et définitif</strong>, calculé sur votre distance réelle.</p>
                   }

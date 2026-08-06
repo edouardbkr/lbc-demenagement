@@ -3304,6 +3304,21 @@ label.seg-opt:focus-within,
 .devis-success .ds-price-sub { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 12px auto 0; max-width: 42ch; }
 .devis-success .ds-price-sub strong { color: var(--ink-2); }
 
+/* Encart « Mains dans les poches » : la fourchette affichée est celle de Mains libres,
+   l'emballage n'y est pas compris. Ton d'information, pas d'alerte : ce n'est pas une
+   erreur du client, c'est une étape en plus. D'où le fond sable de la marque plutôt
+   qu'un rouge d'avertissement, qui donnerait l'impression d'un problème.
+   Préfixé par .devis-success comme .ds-price-sub, sinon la règle générique
+   « .devis-success p » écrase la taille et les marges. */
+.ds-note-visio {
+  margin: 18px auto 0; max-width: 520px; padding: 18px 20px;
+  border: 1px solid var(--rule); border-radius: 14px;
+  background: var(--paper-2); text-align: left;
+}
+.devis-success .ds-note-visio p { font-size: 13.5px; line-height: 1.6; color: var(--muted); margin: 0; max-width: none; }
+.devis-success .ds-note-visio p + p { margin-top: 10px; }
+.devis-success .ds-note-visio strong { color: var(--ink-2); }
+
 /* Choix du créneau de rappel */
 .rdv-box { margin: 26px auto 0; max-width: 560px; text-align: left; }
 .rdv-head { text-align: center; margin-bottom: 18px; }
@@ -3370,4 +3385,33 @@ label.seg-opt:focus-within,
   .rdv-confirm { font-size: 13px; padding: 15px 14px; letter-spacing: .02em; }
   .rdv-slots { grid-template-columns: repeat(3, 1fr); }
   .rdv-day { min-width: 68px; padding: 9px 10px; }
+}
+
+/* L accroche du hero : le jeu de mots garde sa place a l ecran, mais il
+   n est plus le H1. Voir nav-hero.jsx, variante c. */
+.hero-accroche {
+  font-family: var(--serif);
+  font-size: clamp(19px, 2.4vw, 26px);
+  line-height: 1.3;
+  color: var(--ink-2);
+  opacity: .85;
+  margin: 0 0 18px;
+  max-width: 620px;
+}
+.hero-accroche .asterisk { color: var(--accent); font-weight: 700; margin-right: 2px; }
+.hero-accroche .scribble { font-family: var(--script); color: var(--accent); font-size: 1.15em; margin-left: 4px; }
+
+/* Bouton fantome sur le bandeau fonce des pages interieures.
+   .btn-ghost est dessine pour les fonds clairs : texte encre, bordure encre.
+   Pose sur le page-hero navy, il devenait de l encre sur de l encre, donc
+   un bouton invisible. Meme traitement que sur la page 404 (.nf). */
+.page-hero .btn-ghost,
+.cta-band .btn-ghost {
+  border-color: rgba(242, 232, 207, 0.42);
+  color: var(--cream-on-dark);
+}
+.page-hero .btn-ghost:hover,
+.cta-band .btn-ghost:hover {
+  background: rgba(242, 232, 207, 0.12);
+  color: var(--cream-on-dark);
 }

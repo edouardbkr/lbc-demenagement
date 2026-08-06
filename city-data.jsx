@@ -23,7 +23,6 @@ const CITIES = {
       { q: "Gérez-vous le stationnement et les autorisations à Nice ?", a: "Oui, on s'occupe de la demande d'autorisation de stationnement auprès de la Ville de Nice, créneaux de zones piétonnes compris, pour que le camion soit au plus près de votre porte." },
       { q: "Un déménagement dans Nice prend combien de temps ?", a: "Pour un studio ou un deux-pièces, souvent une demi-journée. Pour un appartement familial ou une villa, une journée complète. On vous donne une estimation réaliste dès le devis." },
       { q: "Faites-vous les déménagements longue distance au départ de Nice ?", a: "Oui, c'est une grande partie de notre activité : Nice → Paris, Lyon, Marseille, mais aussi l'international vers la Suisse, l'Italie ou l'Espagne, avec la même équipe du départ à l'arrivée." },
-      { q: "Proposez-vous un garde-meuble à Nice ?", a: "Oui, en box sécurisé, pratique entre deux logements, pour une vente en cours ou un chevauchement de dates. On peut stocker quelques cartons comme un appartement entier." },
       { q: "Le devis peut-il changer le jour du déménagement ?", a: "Non. Le prix annoncé est le prix payé. On chiffre à partir du volume et des accès réels (étage, ascenseur, distance de portage), et c'est écrit noir sur blanc." }
     ],
     nearby: ["cagnes-sur-mer", "saint-laurent-du-var", "cannes", "monaco"]
@@ -49,7 +48,6 @@ const CITIES = {
       { q: "Gérez-vous les immeubles avec syndic sur la Croisette ?", a: "Oui, on coordonne en amont avec gardiens et syndics : réservation d'ascenseur, créneaux imposés, badges et protection des parties communes. Tout est calé avant le jour J." },
       { q: "Intervenez-vous dans le Suquet et ses ruelles ?", a: "Oui, avec portage, véhicule relais et monte-meuble adaptés aux ruelles en escaliers du vieux Cannes. C'est chiffré dès le devis." },
       { q: "Déménagez-vous les villas de La Californie ?", a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Mains dans les poches." },
-      { q: "Faites-vous le garde-meuble à Cannes ?", a: "Oui, en box sécurisé. Pratique pour les résidences secondaires, une vente en cours ou un décalage entre deux dates." },
       { q: "Un déménagement Cannes vers Nice ou Paris, vous le faites ?", a: "Bien sûr : local sur tout le bassin cannois, et longue distance vers Nice, Paris, Lyon ou l'international, avec une seule équipe du départ à l'arrivée." }
     ],
     nearby: ["mandelieu", "le-cannet", "antibes", "grasse"]
@@ -74,7 +72,6 @@ const CITIES = {
       { q: "Déménagez-vous les villas du Cap d'Antibes ?", a: "Oui, avec un soin particulier pour le mobilier de valeur : protection sur mesure, emballage renforcé et assurance en valeur déclarée pour les œuvres d'art et les objets précieux." },
       { q: "Et la vieille ville d'Antibes, accessible au camion ?", a: "Rarement jusqu'à la porte. On stationne au plus près dans les ruelles, on gère le portage et on installe un monte-meuble quand l'escalier l'exige." },
       { q: "Intervenez-vous à Juan-les-Pins en été ?", a: "Oui, mais on privilégie les créneaux hors affluence pour éviter la circulation et le stationnement saturé du littoral. Le déménagement est plus rapide et plus serein." },
-      { q: "Gérez-vous les résidences secondaires et le garde-meuble ?", a: "C'est une spécialité locale : ouvertures de saison, mises en box sécurisé, déménagements partiels coordonnés à distance. On s'adapte à votre calendrier." },
       { q: "Faites-vous les déménagements internationaux depuis Antibes ?", a: "Oui, fréquemment : vers l'Italie, la Suisse, l'Espagne et au-delà. Inventaire, logistique et formalités gérés de bout en bout." },
       { q: "Le devis est-il ferme à Antibes ?", a: "Oui, prix ferme. On chiffre selon le volume et les accès réels de votre adresse, sans supplément surprise le jour du déménagement." }
     ],
@@ -127,7 +124,6 @@ const CITIES = {
       { q: "Comment gérez-vous la vieille ville en escaliers ?", a: "Portage à dos pour les volumes raisonnables, monte-meuble pour le reste, et stationnement réservé au plus près. On repère l'accès avant et on chiffre tout au devis." },
       { q: "Intervenez-vous à Garavan et ses villas en terrasses ?", a: "Oui, on connaît les accès en hauteur et les chemins étroits du quartier. On adapte le véhicule, on transborde si besoin et on protège le mobilier ancien." },
       { q: "Faites-vous les petits déménagements et les retraités ?", a: "Bien sûr. Beaucoup de nos clients mentonnais déménagent un appartement ou une partie de leur mobilier : on prend le temps, on emballe avec soin et on coordonne avec la famille à distance si besoin." },
-      { q: "Proposez-vous un garde-meuble à Menton ?", a: "Oui, en box sécurisé, idéal entre deux logements, pour une résidence secondaire ou une vente en cours." },
       { q: "Le prix est-il ferme malgré les accès difficiles ?", a: "Oui. Les escaliers, le portage, le monte-meuble éventuel et la frontière sont intégrés au devis. Le prix annoncé est le prix payé." }
     ],
     nearby: ["monaco", "nice"]
@@ -146,13 +142,12 @@ const CITIES = {
       { t: "Le défi du vieux Grasse", p: "Le centre historique de Grasse est un labyrinthe médiéval en forte pente où le camion ne s'aventure tout simplement pas. Ici, le déménagement se gagne à l'organisation : on stationne au plus près, on porte sur des distances parfois longues, et on déploie un monte-meuble dès que la configuration l'exige. Tout est repéré et anticipé en amont, parce qu'à Grasse, le mauvais réflexe c'est de découvrir l'accès le jour J." },
       { t: "Entre ville et campagne", p: "Au-delà du centre, Grasse est l'une des communes les plus étendues du département. Magagnosc, Plascassier, Saint-Antoine, les Aspres : un arrière-pays de mas, de bastides et de villas perdues au bout de chemins étroits, derrière des portails, sur des terrains en restanques. Nos chauffeurs connaissent ces accès en lacets et adaptent le véhicule, quitte à transborder avec un utilitaire plus petit pour atteindre la porte." },
       { t: "Une ville de mutations professionnelles", p: "Capitale mondiale du parfum, Grasse vit au rythme de son industrie : parfumeurs, laboratoires, saisonniers de la fleur. On y croise régulièrement des déménagements liés à une mutation ou à une prise de poste, avec devis conforme à transmettre à un employeur. On gère ces dossiers proprement, facture en règle comprise, en plus des déménagements de particuliers classiques." },
-      { t: "Garde-meuble et déménagements partiels", p: "Entre une vente en cours, un logement de l'arrière-pays pas encore prêt ou une résidence secondaire, beaucoup de déménagements grassois passent par une phase de stockage. On propose un garde-meuble en box sécurisé et on gère les déménagements partiels, en plusieurs temps si nécessaire, sans vous faire payer deux fois le déplacement." }
+      { t: "Déménagements partiels", p: "Entre une vente en cours, un logement de l'arrière-pays pas encore prêt ou une résidence secondaire, beaucoup de déménagements grassois passent par une phase de stockage. On propose un garde-meuble en box sécurisé et on gère les déménagements partiels, en plusieurs temps si nécessaire, sans vous faire payer deux fois le déplacement." }
     ],
     faq: [
       { q: "Le camion accède-t-il au centre historique de Grasse ?", a: "Rarement jusqu'à la porte : les ruelles médiévales sont en forte pente et étroites. On stationne au plus près, on gère le portage et on installe un monte-meuble si besoin." },
       { q: "Desservez-vous les hameaux de l'arrière-pays grassois ?", a: "Oui : Magagnosc, Plascassier, Saint-Antoine, les mas et bastides isolés. Les accès en lacets et les chemins étroits sont anticipés, sans supplément caché." },
       { q: "Gérez-vous les déménagements liés à une mutation professionnelle ?", a: "Oui, fréquent à Grasse vu son industrie du parfum : devis conforme pour votre employeur, facture en règle pour le remboursement, coordination avec votre prise de poste." },
-      { q: "Faites-vous le garde-meuble à Grasse ?", a: "Oui, en box sécurisé. Pratique entre deux logements, pour une vente en cours ou une résidence secondaire de l'arrière-pays." },
       { q: "Déménagez-vous les villas avec terrain en pente ?", a: "Oui. Jardins, restanques, accès en lacets et portails sont pris en compte dès le devis, avec transbordement par petit véhicule quand c'est nécessaire." },
       { q: "Un déménagement Grasse vers la côte ou plus loin, c'est possible ?", a: "Bien sûr : local vers Cannes, Nice et tout le bassin, ou longue distance partout en France et à l'international, avec la même équipe du départ à l'arrivée." }
     ],
@@ -180,7 +175,7 @@ const CITIES = {
       { q: "Gérez-vous le bord de mer du Cros-de-Cagnes ?", a: "Oui. On réserve le stationnement et on gère les créneaux malgré l'animation et la place rare du front de mer, surtout en saison." },
       { q: "Déménagez-vous les copropriétés du Béal et des Vespins ?", a: "Oui, on coordonne avec le syndic ou le gardien : réservation d'ascenseur, protection des parties communes et créneaux éventuels." },
       { q: "Faites-vous les petits volumes et les studios ?", a: "Bien sûr. La proximité de notre base rend même les petites surfaces rapides et économiques à déménager." },
-      { q: "Proposez-vous un garde-meuble près de Cagnes ?", a: "Oui, en box sécurisé, pratique entre deux logements ou pour un décalage de dates. On stocke de quelques cartons à un appartement entier." }
+      { q: "Proposez-vous un garde-meuble près de Cagnes ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }
     ],
     nearby: ["saint-laurent-du-var", "nice", "antibes"]
   },
@@ -256,7 +251,6 @@ const CITIES = {
       { q: "Déménagez-vous les résidences des marinas de Mandelieu ?", a: "Oui : on coordonne accès aux quais, gardiens, badges et créneaux des résidences portuaires en amont, pour accéder au plus près sans perdre de temps." },
       { q: "Gérez-vous les résidences secondaires ?", a: "C'est une spécialité locale : ouvertures et fermetures de saison, garde-meuble, déménagements partiels, le tout coordonné à distance si vous n'êtes pas sur place." },
       { q: "Et les maisons du Capitou en hauteur ?", a: "Les accès en lacets et les terrains en pente sont anticipés dès le devis. On adapte le véhicule et on transborde avec un petit utilitaire si la route se rétrécit." },
-      { q: "Proposez-vous un garde-meuble à Mandelieu ?", a: "Oui, en box sécurisé, particulièrement utile pour les résidences secondaires, un décalage de dates ou une vente en cours." },
       { q: "Faites-vous les déménagements longue distance depuis Mandelieu ?", a: "Oui : vers Paris, Lyon, toute la France et l'international, avec une seule équipe du chargement à la livraison." },
       { q: "Le prix est-il ferme malgré les accès variés ?", a: "Oui. Quais, lacets, transbordement éventuel et étages sont intégrés au devis, qui est détaillé et définitif." }
     ],

@@ -215,7 +215,7 @@ function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-ville');
   const c = getCity(slug);
-  React.useEffect(() => {document.title = "Déménagement " + c.name + " — Devis gratuit 24h · LBC* Les Bras Cassés";}, [c]);
+  React.useEffect(() => {document.title = "Déménagement " + c.name + " — Devis gratuit 24h · LBC Déménagement";}, [c]);
   return (
     <React.Fragment>
       <Nav />

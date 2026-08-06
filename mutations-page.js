@@ -54,8 +54,8 @@ const MUT_FEATS = [{
     d: "M12 7v5l3.5 2"
   }))
 }, {
-  t: "Garde-meuble en transition",
-  d: "Logement pas encore dispo ? On stocke vos affaires en box sécurisé le temps qu'il faut.",
+  t: "Transition entre deux logements",
+  d: "Logement pas encore dispo ? On vous aide à trouver un box et on assure le transport, en box sécurisé le temps qu'il faut.",
   icon: React.createElement(MI, null, React.createElement("rect", {
     x: "3",
     y: "7",
@@ -106,7 +106,7 @@ const MUT_FAQ = [{
   a: "Les frais de déménagement liés à un changement d'emploi peuvent être déductibles si vous optez pour la déclaration aux frais réels, sous conditions. On vous fournit une facture conforme pour appuyer votre déclaration ; pour l'éligibilité exacte, référez-vous à l'administration fiscale."
 }, {
   q: "Que faire si mon nouveau logement n'est pas encore disponible ?",
-  a: "On utilise le garde-meuble relais : vos affaires sont stockées en box sécurisé, à Nice ou à destination, le temps que le logement se libère. On cale ensuite la livraison sur votre disponibilité réelle."
+  a: "On vous aide à trouver un garde-meuble relais : vos affaires sont stockées en box sécurisé, à Nice ou à destination, le temps que le logement se libère. On cale ensuite la livraison sur votre disponibilité réelle."
 }, {
   q: "Gérez-vous les mutations sur la Côte d'Azur, en France et à l'étranger ?",
   a: "Oui. Basés à Nice, on déménage sur toute la Côte d'Azur (Cannes, Antibes, Monaco, Sophia Antipolis, Grasse, Menton…), en longue distance partout en France, et à l'international (Suisse, Italie, Espagne, Benelux). Une seule équipe du départ à l'arrivée, formalités douanières comprises hors Union européenne."

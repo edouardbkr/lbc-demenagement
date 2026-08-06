@@ -115,7 +115,7 @@ const FAQS = [{
 }, {
   cat: "Assurance & sécurité",
   q: "Mes affaires sont-elles assurées ?",
-  a: "Oui, une assurance multirisque est incluse dans chaque formule. Pour les objets de valeur (œuvres d'art, instruments, vaisselle précieuse), une couverture renforcée en valeur déclarée est disponible."
+  a: "Oui. L'assurance de responsabilité du déménageur est incluse dans chaque formule, sans supplément : jusqu'à 8 000 € par objet et 150 000 € par déménagement, avec une franchise de 350 €. Les tableaux, sculptures, antiquités et objets de collection font exception : comme chez tous les déménageurs, ils sont exclus de la garantie de base et doivent être déclarés un par un, avec leur valeur, avant le déménagement. On s'occupe de la démarche ; la surprime de 0,30 % de la valeur vous est refacturée à l'euro près, sans marge."
 }, {
   cat: "Assurance & sécurité",
   q: "Et en cas de casse ?",
@@ -167,11 +167,11 @@ const FAQS = [{
 }, {
   cat: "Pratique",
   q: "Puis-je annuler ou reporter ?",
-  a: "Oui. Un report est gratuit s'il est signalé à l'avance ; en cas d'annulation tardive, seul l'acompte peut rester dû. Les conditions exactes figurent sur votre devis, en clair."
+  a: "Oui, et les règles sont les mêmes pour tout le monde. Report gratuit s'il est demandé plus de 7 jours avant, l'acompte suit la nouvelle date. Annulation : acompte intégralement remboursé à plus de 14 jours de la date prévue, moitié retenue entre 14 et 7 jours, acompte conservé en deçà. Rien d'autre que l'acompte n'est jamais dû. Et vous avez 14 jours après la signature pour vous rétracter, remboursé à 100 %."
 }, {
   cat: "Pratique",
   q: "Proposez-vous du garde-meuble / stockage ?",
-  a: "Oui, en box sécurisé pour quelques jours comme pour plusieurs mois — pratique quand les dates d'entrée et de sortie ne coïncident pas. On vous chiffre le stockage avec le déménagement."
+  a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
 }, {
   cat: "Pratique",
   q: "Travaillez-vous le week-end et les jours fériés ?",

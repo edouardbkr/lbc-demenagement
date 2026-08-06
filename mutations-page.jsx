@@ -18,7 +18,7 @@ const MUT_PRISE = [
 const MUT_FEATS = [
 { t: "Devis accepté par les RH", d: "Détaillé, clair, conforme aux exigences des employeurs et organismes. Comparatifs fournis sur demande.", icon: <MI><path d="M6 2h9l5 5v15H6z" /><path d="M9 12h6M9 16h6M9 8h2" /></MI> },
 { t: "Coordination prise de poste", d: "On synchronise le déménagement avec votre date d'arrivée, même à l'autre bout de la France ou à l'étranger.", icon: <MI><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></MI> },
-{ t: "Garde-meuble en transition", d: "Logement pas encore dispo ? On stocke vos affaires en box sécurisé le temps qu'il faut.", icon: <MI><rect x="3" y="7" width="18" height="13" rx="1" /><path d="M3 7l9-4 9 4M8 20v-6h8v6" /></MI> },
+{ t: "Transition entre deux logements", d: "Logement pas encore dispo ? On vous aide à trouver un box et on assure le transport, en box sécurisé le temps qu'il faut.", icon: <MI><rect x="3" y="7" width="18" height="13" rx="1" /><path d="M3 7l9-4 9 4M8 20v-6h8v6" /></MI> },
 { t: "Accompagnement de bout en bout", d: "Un interlocuteur unique qui connaît la paperasse et vous évite les allers-retours administratifs.", icon: <MI><path d="M16 21v-2a4 4 0 0 0-8 0v2" /><circle cx="12" cy="7" r="4" /></MI> }];
 
 
@@ -35,7 +35,7 @@ const MUT_FAQ = [
 { q: "Pouvez-vous fournir plusieurs devis comparatifs pour ma RH ?", a: "Oui. Beaucoup de services mobilité exigent deux ou trois devis pour valider une mutation. On vous prépare des devis clairs et détaillés, faciles à comparer, dans le format attendu par votre employeur." },
 { q: "Qu'est-ce que le Mobili-Pass d'Action Logement ?", a: "C'est une aide d'Action Logement destinée aux salariés du secteur privé qui changent de logement pour un motif professionnel, en général au-delà d'une certaine distance. On vous remet les justificatifs et la facture nécessaires au dossier ; l'éligibilité est étudiée par Action Logement." },
 { q: "Les frais de déménagement sont-ils déductibles des impôts ?", a: "Les frais de déménagement liés à un changement d'emploi peuvent être déductibles si vous optez pour la déclaration aux frais réels, sous conditions. On vous fournit une facture conforme pour appuyer votre déclaration ; pour l'éligibilité exacte, référez-vous à l'administration fiscale." },
-{ q: "Que faire si mon nouveau logement n'est pas encore disponible ?", a: "On utilise le garde-meuble relais : vos affaires sont stockées en box sécurisé, à Nice ou à destination, le temps que le logement se libère. On cale ensuite la livraison sur votre disponibilité réelle." },
+{ q: "Que faire si mon nouveau logement n'est pas encore disponible ?", a: "On vous aide à trouver un garde-meuble relais : vos affaires sont stockées en box sécurisé, à Nice ou à destination, le temps que le logement se libère. On cale ensuite la livraison sur votre disponibilité réelle." },
 { q: "Gérez-vous les mutations sur la Côte d'Azur, en France et à l'étranger ?", a: "Oui. Basés à Nice, on déménage sur toute la Côte d'Azur (Cannes, Antibes, Monaco, Sophia Antipolis, Grasse, Menton…), en longue distance partout en France, et à l'international (Suisse, Italie, Espagne, Benelux). Une seule équipe du départ à l'arrivée, formalités douanières comprises hors Union européenne." }];
 
 

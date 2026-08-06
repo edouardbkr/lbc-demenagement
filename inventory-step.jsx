@@ -59,15 +59,27 @@ const SALON_ITEMS = [
 { key: "tv", label: "Télévision", icon: "tv" },
 { key: "biblio", label: "Bibliothèque", icon: "biblio" }];
 
+// Les lits et les dressings sont détaillés plus finement que le reste, et ce n'est
+// pas un caprice de catalogue : ce sont les deux postes de démontage les plus longs,
+// et l'écart de tarif à l'intérieur d'une même famille est énorme. Un lit 2 places se
+// démonte en 35 min (60 €), un lit coffre en 1 h 10 (120 €). Une armoire 2 portes
+// coûte 100 €, un dressing sur mesure 350 €. Tant que le client cochait « Armoire /
+// dressing », il fallait le rappeler pour savoir lequel. Maintenant le devis se
+// chiffre tout seul. Les libellés doivent rester identiques à ceux de DEMONTAGE
+// ci-dessous et aux motifs de DEMONTAGE_TARIF dans pricing.jsx.
 const CHAMBRE_ITEMS = [
 { key: "lit2", label: "Lit 2 places", icon: "lit" },
 { key: "litking", label: "Lit king size", icon: "lit" },
 { key: "litelec", label: "Lit électrique", icon: "lit" },
 { key: "litcoffre", label: "Lit coffre", icon: "lit" },
+{ key: "litsuperpose", label: "Lit superposé", icon: "lit" },
 { key: "lit1", label: "Lit 1 place / enfant", icon: "lit" },
 { key: "matelas", label: "Matelas", icon: "matelas" },
-{ key: "armoire", label: "Armoire", icon: "armoire" },
-{ key: "dressing", label: "Dressing", icon: "armoire" },
+{ key: "armoire2", label: "Armoire 2 portes", icon: "armoire" },
+{ key: "armoire3", label: "Armoire 3 portes", icon: "armoire" },
+{ key: "dressing", label: "Dressing jusqu'à 2 m", icon: "armoire" },
+{ key: "dressingcoul", label: "Dressing à portes coulissantes", icon: "armoire" },
+{ key: "dressingsur", label: "Dressing sur mesure, plus de 2 m", icon: "armoire" },
 { key: "commode", label: "Commode", icon: "commode" },
 { key: "chevet", label: "Table de chevet", icon: "chevet" },
 { key: "miroir", label: "Miroir", icon: "miroir" }];
@@ -150,7 +162,21 @@ const ROOMS = [
 { key: "special", name: "Objets spéciaux", icon: ICON.star, items: SPECIAL_ITEMS }];
 
 const FRAGILE = ["Vaisselle & verrerie", "Miroirs & vitres", "Œuvres d'art / tableaux", "TV & écrans", "Informatique", "Instruments de musique", "Luminaires", "Cave à vin"];
-const DEMONTAGE = ["Lit", "Armoire / dressing", "Table", "Meuble en kit", "Cuisine équipée", "Étagères", "Bureau"];
+// Ce que le client déclare à démonter. La liste est volontairement calquée sur les
+// tarifs de DEMONTAGE_TARIF (pricing.jsx) : chaque intitulé coché se chiffre seul.
+// L'ancienne version regroupait tout sous « Lit » et « Armoire / dressing », ce qui
+// mettait 60 € et 350 € derrière la même case et obligeait à rappeler le client.
+//
+// ⚠️ « Cuisine équipée » a été RETIRÉ, volontairement. LBC ne démonte pas les cuisines :
+// il y a de la plomberie, de l'électricité, un plan de travail souvent scié sur mesure
+// qui ne se remonte pas ailleurs, et un raccordement gaz qui engage la responsabilité de
+// l'entreprise. Le proposer dans une liste revenait à s'y engager. Un client qui le
+// demande quand même l'écrira dans « autre », et ce sera traité à l'appel.
+const DEMONTAGE = [
+"Lit 2 places", "Lit king size", "Lit électrique", "Lit coffre", "Lit superposé", "Lit 1 place / enfant",
+"Armoire 2 portes", "Armoire 3 portes",
+"Dressing jusqu'à 2 m", "Dressing à portes coulissantes", "Dressing sur mesure, plus de 2 m",
+"Table à manger", "Bureau", "Étagère / bibliothèque", "Meuble en kit"];
 
 // All rooms = predefined + custom rooms the prospect added
 function getAllRooms(data) {

@@ -96,7 +96,7 @@ const ARTICLES = [
         </ul>
 
         <h2>Local, longue distance ou garde-meuble</h2>
-        <p>Que vous bougiez d'un quartier à l'autre, que vous quittiez Nice pour <a href="Demenagement-Nice-Paris">Paris</a> ou l'étranger, ou que vous ayez besoin d'un <a href="Stockage">garde-meuble</a> entre deux logements, la préparation reste la même : anticiper les accès et les autorisations. Découvrez le détail de nos services sur la page <a href="Demenagement-Nice">déménagement à Nice</a>, ou demandez directement un <a href="Devis">devis gratuit sous 24h</a>. Un déménagement réussi à Nice, c'est 80 % de préparation et 20 % de muscles.</p>
+        <p>Que vous bougiez d'un quartier à l'autre, que vous quittiez Nice pour <a href="Demenagement-Nice-Paris">Paris</a> ou l'étranger, ou que vous ayez besoin d'un garde-meuble entre deux logements, la préparation reste la même : anticiper les accès et les autorisations. Découvrez le détail de nos services sur la page <a href="Demenagement-Nice">déménagement à Nice</a>, ou demandez directement un <a href="Devis">devis gratuit sous 24h</a>. Un déménagement réussi à Nice, c'est 80 % de préparation et 20 % de muscles.</p>
       </React.Fragment>
     )
   },
@@ -220,7 +220,7 @@ const ARTICLES = [
         <p>Au départ de Nice, on charge tôt, on protège et on cale pour la longue route. Sur place à Paris, on décharge sur le créneau réservé, on remonte les meubles démontés et on installe. Avec une équipe dédiée, ce sont les <strong>mêmes déménageurs du premier au dernier carton</strong> : aucune dilution de responsabilité, aucun transbordement. Pour un déroulé pas-à-pas complet, voyez notre <a href="Article-demenagement-nice-paris-reussir">guide pour réussir son Nice-Paris</a>.</p>
 
         <h2>Le garde-meuble relais entre les deux</h2>
-        <p>Les dates de départ et d'arrivée coïncident rarement à la perfection : un bail qui se termine avant que l'autre commence, des travaux, une vente qui traîne. Le <a href="Stockage">garde-meuble</a> en box sécurisé fait le pont, à Nice avant le départ ou à l'arrivée, le temps qu'il faut, vos affaires protégées et assurées.</p>
+        <p>Les dates de départ et d'arrivée coïncident rarement à la perfection : un bail qui se termine avant que l'autre commence, des travaux, une vente qui traîne. Le garde-meuble en box sécurisé fait le pont, à Nice avant le départ ou à l'arrivée, le temps qu'il faut, vos affaires protégées et assurées.</p>
 
         <h2>Les erreurs les plus fréquentes</h2>
         <ul>
@@ -337,7 +337,7 @@ const ARTICLES = [
         <h3>Faut-il vider les meubles et tiroirs ?</h3>
         <p>Oui, on déménage les meubles vides : c'est plus sûr pour eux et plus sécurisé au portage. Les vêtements peuvent rester dans certaines commodes légères, à voir avec l'équipe.</p>
         <h3>Puis-je laisser des affaires en garde-meuble ?</h3>
-        <p>Oui, le <a href="Stockage">garde-meuble</a> relais est idéal si vos dates ne coïncident pas ou si votre logement parisien est plus petit.</p>
+        <p>Oui, un garde-meuble relais est utile si vos dates ne coïncident pas ou si votre logement parisien est plus petit. On vous oriente vers un prestataire de confiance et on organise le transport dans les deux sens.</p>
 
         <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article-demenagement-nice-paris-prix-delais">Nice → Paris : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
       </React.Fragment>
@@ -407,7 +407,7 @@ const ARTICLES = [
           <li><strong>Plaisanciers et résidences secondaires</strong> — déménagements partiels, mises en garde-meuble saisonnières, coordination à distance.</li>
           <li><strong>Retraités</strong> — emballage soigné du mobilier ancien, accompagnement à chaque étape.</li>
         </ul>
-        <p>Le <a href="Stockage">garde-meuble</a> en box sécurisé est précieux entre deux logements, pour une résidence secondaire ou un décalage de dates sur une longue distance.</p>
+        <p>Un garde-meuble en box sécurisé est précieux entre deux logements, pour une résidence secondaire ou un décalage de dates sur une longue distance. Nous n'exploitons pas d'entrepôt, mais nous vous orientons et nous assurons le transport.</p>
 
         <h2>Questions fréquentes</h2>
         <h3>Le camion accède-t-il au centre historique ?</h3>
@@ -529,7 +529,7 @@ const ARTICLES = [
         </ul>
 
         <h2>Garde-meuble entre deux années</h2>
-        <p>Vous rentrez chez vos parents l'été mais gardez le logement l'an prochain ? Le <a href="Stockage">garde-meuble en box sécurisé</a> évite de tout trimballer deux fois et de payer un déménagement aller-retour. C'est souvent plus malin, et moins cher, qu'un loyer de vide pendant deux mois.</p>
+        <p>Vous rentrez chez vos parents l'été mais gardez le logement l'an prochain ? Un garde-meuble en box sécurisé évite de tout trimballer deux fois et de payer un déménagement aller-retour. C'est souvent plus malin, et moins cher, qu'un loyer de vide pendant deux mois.</p>
         <p>Bref, même un petit déménagement mérite un vrai pro : c'est rapide, sécurisé et étonnamment abordable. Demandez un <a href="Devis">devis gratuit sous 24h</a> et gardez votre énergie pour vos partiels.</p>
       </React.Fragment>
     )

@@ -384,7 +384,7 @@ function App() {
   const slug = document.body.getAttribute('data-ville');
   const c = getCity(slug);
   React.useEffect(() => {
-    document.title = "Déménagement " + c.name + " — Devis gratuit 24h · LBC* Les Bras Cassés";
+    document.title = "Déménagement " + c.name + " — Devis gratuit 24h · LBC Déménagement";
   }, [c]);
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(VilleHero, {
     c: c

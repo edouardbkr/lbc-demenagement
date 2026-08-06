@@ -22,7 +22,7 @@ const COMPARE_ROWS = [
 { label: "Véhicule adapté + équipe dédiée", s: true, p: true, l: true },
 { label: "Chargement & déchargement", s: true, p: true, l: true },
 { label: "Local ou longue distance", s: true, p: true, l: true },
-{ label: "Assurance multirisque incluse", s: true, p: true, l: true },
+{ label: "Assurance du déménageur incluse — 8 000 € par objet", s: true, p: true, l: true },
 { label: "Emballage des objets fragiles", s: false, p: true, l: true },
 { label: "Protection intégrale du mobilier", s: false, p: true, l: true },
 { label: "Démontage & remontage des meubles", s: false, p: true, l: true },

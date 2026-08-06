@@ -457,6 +457,10 @@ const CHAMBRE_ITEMS = [{
   label: "Lit coffre",
   icon: "lit"
 }, {
+  key: "litsuperpose",
+  label: "Lit superposé",
+  icon: "lit"
+}, {
   key: "lit1",
   label: "Lit 1 place / enfant",
   icon: "lit"
@@ -465,12 +469,24 @@ const CHAMBRE_ITEMS = [{
   label: "Matelas",
   icon: "matelas"
 }, {
-  key: "armoire",
-  label: "Armoire",
+  key: "armoire2",
+  label: "Armoire 2 portes",
+  icon: "armoire"
+}, {
+  key: "armoire3",
+  label: "Armoire 3 portes",
   icon: "armoire"
 }, {
   key: "dressing",
-  label: "Dressing",
+  label: "Dressing jusqu'à 2 m",
+  icon: "armoire"
+}, {
+  key: "dressingcoul",
+  label: "Dressing à portes coulissantes",
+  icon: "armoire"
+}, {
+  key: "dressingsur",
+  label: "Dressing sur mesure, plus de 2 m",
   icon: "armoire"
 }, {
   key: "commode",
@@ -748,7 +764,7 @@ const ROOMS = [{
   items: SPECIAL_ITEMS
 }];
 const FRAGILE = ["Vaisselle & verrerie", "Miroirs & vitres", "Œuvres d'art / tableaux", "TV & écrans", "Informatique", "Instruments de musique", "Luminaires", "Cave à vin"];
-const DEMONTAGE = ["Lit", "Armoire / dressing", "Table", "Meuble en kit", "Cuisine équipée", "Étagères", "Bureau"];
+const DEMONTAGE = ["Lit 2 places", "Lit king size", "Lit électrique", "Lit coffre", "Lit superposé", "Lit 1 place / enfant", "Armoire 2 portes", "Armoire 3 portes", "Dressing jusqu'à 2 m", "Dressing à portes coulissantes", "Dressing sur mesure, plus de 2 m", "Table à manger", "Bureau", "Étagère / bibliothèque", "Meuble en kit"];
 function getAllRooms(data) {
   const custom = (data.customRooms || []).map(c => ({
     key: c.key,

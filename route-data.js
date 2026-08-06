@@ -30,7 +30,7 @@ const ROUTES = {
       t: "Le camion dédié, pas le groupage",
       p: "Beaucoup de déménageurs longue distance font du groupage : vos affaires attendent en entrepôt qu'un camion se remplisse avec d'autres déménagements, puis sont transbordées. Résultat : des délais flous et des risques de casse à chaque manipulation. Nous, c'est un camion dédié à votre seul chargement, plombé au départ de Nice. Une seule équipe, une seule manipulation au départ, une seule à l'arrivée, et une date d'arrivée fiable."
     }, {
-      t: "Garde-meuble relais entre les deux",
+      t: "Le relais entre les deux dates",
       p: "Sur un grand déménagement, les dates de départ et d'arrivée ne coïncident pas toujours : un bail qui se termine avant que l'autre commence, des travaux en cours, une vente qui traîne. On propose un garde-meuble en box sécurisé pour faire le relais, à Nice avant le départ ou à l'arrivée, sans vous obliger à improviser. Vos affaires restent protégées et assurées le temps qu'il faut."
     }],
     faq: [{
@@ -47,7 +47,7 @@ const ROUTES = {
       a: "Oui, on dépose la demande d'autorisation d'occupation de voirie auprès de la Ville de Paris pour réserver l'emplacement camion devant votre immeuble."
     }, {
       q: "Puis-je stocker mes affaires entre le départ et l'arrivée ?",
-      a: "Oui, on propose un garde-meuble relais en box sécurisé si vos dates ne coïncident pas, à Nice ou à l'arrivée, avec vos affaires assurées."
+      a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
     }]
   },
   "nice-lyon": {
@@ -194,7 +194,7 @@ const ROUTES = {
       a: "Oui, tout est compris et ferme : transport, équipe, protection. Aucun supplément kilométrique surprise."
     }, {
       q: "Un garde-meuble est-il possible entre les deux ?",
-      a: "Oui, en box sécurisé, à Nice avant le départ ou à l'arrivée, si vos dates de logement ne coïncident pas."
+      a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
     }]
   },
   "nice-bordeaux": {
@@ -243,7 +243,7 @@ const ROUTES = {
       a: "Oui : calage et arrimage renforcés pour la longue route, plus une assurance incluse du chargement à la livraison. Rien ne bouge en chemin."
     }, {
       q: "Un garde-meuble est-il possible ?",
-      a: "Oui, en box sécurisé, à Nice ou à l'arrivée, si vos dates de départ et d'arrivée ne coïncident pas."
+      a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
     }]
   },
   "nice-geneve": {
@@ -293,7 +293,7 @@ const ROUTES = {
       a: "Oui, le devis est détaillé et définitif, formalités comprises. Pas de supplément surprise au passage de la frontière."
     }, {
       q: "Un garde-meuble est-il possible des deux côtés ?",
-      a: "Oui, en relais, à Nice ou à l'arrivée, si votre logement genevois n'est pas encore disponible. Vos affaires restent assurées."
+      a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
     }]
   },
   "nice-lausanne": {
@@ -440,7 +440,7 @@ const ROUTES = {
       a: "≈ 920 km : une bonne journée de route, avec une fenêtre de livraison annoncée au devis et tenue."
     }, {
       q: "Garde-meuble possible des deux côtés ?",
-      a: "Oui, en relais, à Nice ou à l'arrivée, si votre logement luxembourgeois n'est pas encore disponible. Vos affaires restent assurées."
+      a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
     }, {
       q: "Faites-vous un camion dédié ?",
       a: "Oui, un camion dédié à votre seul chargement, plombé au départ. Pas de groupage, une seule équipe jusqu'au Luxembourg."

@@ -288,7 +288,7 @@ function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-route');
   const r = getRoute(slug);
-  React.useEffect(() => {document.title = "Déménagement " + r.from + " → " + r.to + " · LBC* Les Bras Cassés";}, []);
+  React.useEffect(() => {document.title = "Déménagement " + r.from + " → " + r.to + " · LBC Déménagement";}, []);
   return (
     <React.Fragment>
       <Nav />

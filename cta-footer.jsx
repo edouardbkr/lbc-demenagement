@@ -1,7 +1,5 @@
 // cta-footer.jsx — Home contact CTA band (Footer now lives in site.jsx)
 
-const CTA_LEAD_EMAIL = "contact@lbcdemenagement.com";
-const CTA_LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + CTA_LEAD_EMAIL;
 
 // Enregistrement du lead dans le cockpit via NOTRE domaine (/api/lead), en plus de l'e-mail.
 // Indispensable : formsubmit.co est un domaine tiers, coupé par les bloqueurs de pub et les DNS
@@ -27,7 +25,8 @@ function ctaSendToCockpit(upd) {
     message: [
       "Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.",
       upd.type ? "Type de logement : " + upd.type : "",
-      upd.surface ? "Surface déclarée : " + upd.surface : ""
+      upd.surface ? "Surface déclarée : " + upd.surface : "",
+      upd._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : ""
     ].filter(Boolean).join("\n")
   };
   try {
@@ -57,25 +56,14 @@ function CTA() {
     e.preventDefault();
     const upd = {};
     for (const el of e.currentTarget.elements) { if (el.name) upd[el.name] = el.value; }
-    // Anti-spam honeypot : les bots le remplissent, pas les humains.
-    if (upd._honey) { setSent(true); return; }
+    // ⚠️ Le piège anti-robot ne fait plus disparaître la demande. Les navigateurs intégrés
+    // (Facebook, Instagram) et les gestionnaires de mots de passe remplissent tout seuls les
+    // champs cachés : de vrais prospects étaient classés « robot » et jetés sans un mot, alors
+    // que l'écran leur affichait « demande envoyée ». On enregistre toujours, on signale.
     if (sending) return;
-    try {
-      fetch(CTA_LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🚚 Nouvelle demande de devis (accueil) — Les Bras Cassés",
-          _template: "table",
-          "Nom": upd.nom || "—",
-          "Téléphone": upd.tel || "—",
-          "Email": upd.email || "—",
-          "Type de logement": upd.type || "—",
-          "Surface": upd.surface || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
+    // La notification e-mail part de /api/lead, depuis notre propre serveur (formsubmit.co,
+    // service tiers, a été retiré : doublon, souvent bloqué, et destinataire non déclaré des
+    // données personnelles de nos prospects).
     // On ATTEND l'enregistrement cockpit (6 s de sécurité) avant de dire au visiteur que c'est parti.
     setSending(true);
     let ok = null;

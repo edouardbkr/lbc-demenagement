@@ -73,12 +73,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://lbcdemenagement.com/Demenagement-La-Rochelle</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://lbcdemenagement.com/Demenagement-Le-Cannet</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -253,12 +247,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lbcdemenagement.com/Stockage</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://lbcdemenagement.com/Zones</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -290,12 +278,6 @@
   </url>
   <url>
     <loc>https://lbcdemenagement.com/Article-demenagement-nice-paris-reussir</loc>
-    <lastmod>2026-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://lbcdemenagement.com/Article-demenagement-la-rochelle-guide</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -353,5 +335,10 @@
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lbcdemenagement.com/Partenaires</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

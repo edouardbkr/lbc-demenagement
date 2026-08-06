@@ -3,8 +3,6 @@
 const {
   useState
 } = React;
-const LEAD_EMAIL = "contact@lbcdemenagement.com";
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 function sendContactToCockpit(upd) {
   const np = (upd.nom || "").trim().split(/\s+/);
   const prenom = np.shift() || "";
@@ -24,7 +22,7 @@ function sendContactToCockpit(upd) {
     formule: "standard",
     formulaireType: "partiel",
     dateSouhaitee: upd.date || "",
-    message: ["Message envoyé depuis la page Contact.", upd.type ? "Type de déménagement : " + upd.type : "", upd.message ? "Message du client : " + upd.message : ""].filter(Boolean).join("\n")
+    message: ["Message envoyé depuis la page Contact.", upd.type ? "Type de déménagement : " + upd.type : "", upd.message ? "Message du client : " + upd.message : "", upd._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : ""].filter(Boolean).join("\n")
   };
   try {
     return fetch("/api/lead", {
@@ -104,7 +102,7 @@ function ContactForm() {
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const boxParam = params.get("box");
   const typeParam = params.get("type");
-  const presetType = boxParam || typeParam === "stockage" ? "Stockage / garde-meuble" : "";
+  const presetType = "";
   const presetMsg = boxParam ? "Bonjour, je souhaite réserver un box de stockage taille " + boxParam + ". Pouvez-vous me recontacter ? Merci." : "";
   const formatPhoneFR = raw => {
     let d = (raw || "").replace(/[^\d+]/g, "");
@@ -118,31 +116,7 @@ function ContactForm() {
     for (const el of e.currentTarget.elements) {
       if (el.name) upd[el.name] = el.value;
     }
-    if (upd._honey) {
-      setSent(true);
-      return;
-    }
     if (sending) return;
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "✉️ Nouveau message (page Contact) — Les Bras Cassés",
-          _template: "table",
-          "Nom": upd.nom || "—",
-          "Téléphone": upd.tel || "—",
-          "Email": upd.email || "—",
-          "Date souhaitée": upd.date || "—",
-          "Type de déménagement": upd.type || "—",
-          "Message": upd.message || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     setSending(true);
     let ok = null;
     try {
@@ -269,7 +243,7 @@ function ContactForm() {
   }, React.createElement("option", {
     value: "",
     disabled: true
-  }, "Choisir\u2026"), React.createElement("option", null, "Coup de main"), React.createElement("option", null, "Mains libres"), React.createElement("option", null, "Mains dans les poches"), React.createElement("option", null, "Entreprise / bureaux"), React.createElement("option", null, "Stockage / garde-meuble"))), React.createElement("div", {
+  }, "Choisir\u2026"), React.createElement("option", null, "Coup de main"), React.createElement("option", null, "Mains libres"), React.createElement("option", null, "Mains dans les poches"), React.createElement("option", null, "Entreprise / bureaux"))), React.createElement("div", {
     className: "lf full"
   }, React.createElement("label", {
     htmlFor: "c-message"

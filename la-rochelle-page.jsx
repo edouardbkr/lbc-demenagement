@@ -22,7 +22,7 @@ const LR_SERVICES = [
 { t: "Déménagement local", d: "Dans La Rochelle et l'agglomération (Aytré, Lagord, Périgny, Châtelaillon) : intervention rapide, tous volumes." },
 { t: "Longue distance", d: "La Rochelle ↔ toute la France, dont Nice et la Côte d'Azur : camion dédié, une seule équipe, délais tenus." },
 { t: "Vers les îles", d: "Ré, Oléron, Aix : déménagements insulaires planifiés selon ponts, marées et navettes." },
-{ t: "Garde-meuble", d: "Box sécurisé pour une transition entre deux logements ou une résidence secondaire." }];
+{ t: "Transport vers votre box", d: "Vous stockez entre deux logements ou pour une résidence secondaire." }];
 
 
 const LR_FAQ = [
@@ -31,7 +31,7 @@ const LR_FAQ = [
 { q: "Faites-vous La Rochelle – Nice et la longue distance ?", a: "Absolument : c'est l'une de nos liaisons longue distance. Camion dédié, une seule équipe du chargement à la livraison, sans groupage, et prix clair et ferme." },
 { q: "Gérez-vous les résidences des Minimes ?", a: "Oui : copropriétés, résidences étudiantes et accès marina sont coordonnés en amont avec gardiens et syndics, avec réservation d'ascenseur si besoin." },
 { q: "Déménagez-vous les étudiants à La Rochelle ?", a: "Bien sûr, c'est fréquent vu l'université et les résidences des Minimes : on gère les petits volumes et les studios meublés à un tarif honnête, surtout à la rentrée." },
-{ q: "Proposez-vous un garde-meuble à La Rochelle ?", a: "Oui, en box sécurisé : idéal pour une transition entre deux logements, une résidence secondaire ou un décalage de dates sur un trajet longue distance." }];
+{ q: "Proposez-vous un garde-meuble à La Rochelle ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }];
 
 
 function LRHero() {

@@ -15,7 +15,7 @@ const AP_VALUES = [
 const AP_TIMELINE = [
 { y: "01", t: "Le déclic", d: "Après un déménagement catastrophique — cartons écrasés, équipe fantôme à 8h — deux amis niçois en ont assez. Un constat simple : on peut tellement mieux faire." },
 { y: "02", t: "La promesse", d: "On fonde LBC* avec une règle non négociable : traiter les affaires des gens comme les nôtres. Un prix annoncé qu'on respecte, du matériel adapté, et jamais d'inconnu recruté la veille pour porter vos meubles." },
-{ y: "03", t: "Plus loin que Nice", d: "Déménagements locaux, longues distances, entreprises et garde-meuble sécurisé : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse." },
+{ y: "03", t: "Plus loin que Nice", d: "Déménagements locaux, longues distances, entreprises : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse." },
 { y: "04", t: "Aujourd'hui", d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Le nom fait sourire. Le travail, lui, reste sérieux." }];
 
 

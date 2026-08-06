@@ -2,8 +2,6 @@
 const { useState } = React;
 
 // Lead notification endpoint (FormSubmit.co — kept in sync with site.jsx)
-const LEAD_EMAIL = "contact@lbcdemenagement.com";
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 
 // Enregistrement du lead dans le cockpit via NOTRE domaine (/api/lead), en plus de l'e-mail.
 // Indispensable : formsubmit.co est un domaine tiers, coupé par les bloqueurs de pub et les DNS
@@ -26,7 +24,8 @@ function sendContactToCockpit(upd) {
     message: [
       "Message envoyé depuis la page Contact.",
       upd.type ? "Type de déménagement : " + upd.type : "",
-      upd.message ? "Message du client : " + upd.message : ""
+      upd.message ? "Message du client : " + upd.message : "",
+      upd._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : ""
     ].filter(Boolean).join("\n")
   };
   try {
@@ -97,7 +96,7 @@ function ContactForm() {
   const params = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
   const boxParam = params.get("box");
   const typeParam = params.get("type");
-  const presetType = (boxParam || typeParam === "stockage") ? "Stockage / garde-meuble" : "";
+  const presetType = "";
   const presetMsg = boxParam ? "Bonjour, je souhaite réserver un box de stockage taille " + boxParam + ". Pouvez-vous me recontacter ? Merci." : "";
   const formatPhoneFR = (raw) => {
     let d = (raw || "").replace(/[^\d+]/g, "");
@@ -111,26 +110,14 @@ function ContactForm() {
     e.preventDefault();
     const upd = {};
     for (const el of e.currentTarget.elements) {if (el.name) upd[el.name] = el.value;}
-    // Anti-spam honeypot: bots fill it, humans don't — silently accept & drop.
-    if (upd._honey) { setSent(true); return; }
+    // ⚠️ Le piège anti-robot ne fait plus disparaître le message. Les navigateurs intégrés
+    // (Facebook, Instagram) et les gestionnaires de mots de passe remplissent tout seuls les
+    // champs cachés : de vrais prospects étaient classés « robot » et jetés sans un mot, alors
+    // que l'écran leur affichait « message envoyé ». On enregistre toujours, on signale.
     if (sending) return;
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "✉️ Nouveau message (page Contact) — Les Bras Cassés",
-          _template: "table",
-          "Nom": upd.nom || "—",
-          "Téléphone": upd.tel || "—",
-          "Email": upd.email || "—",
-          "Date souhaitée": upd.date || "—",
-          "Type de déménagement": upd.type || "—",
-          "Message": upd.message || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
+    // La notification e-mail part de /api/lead, depuis notre propre serveur (formsubmit.co,
+    // service tiers, a été retiré : doublon, souvent bloqué, et destinataire non déclaré des
+    // données personnelles de nos prospects).
     // On ATTEND l'enregistrement cockpit (6 s de sécurité) avant de dire au visiteur que c'est parti.
     setSending(true);
     let ok = null;
@@ -222,7 +209,6 @@ function ContactForm() {
             <option>Mains libres</option>
             <option>Mains dans les poches</option>
             <option>Entreprise / bureaux</option>
-            <option>Stockage / garde-meuble</option>
           </select>
         </div>
         <div className="lf full">

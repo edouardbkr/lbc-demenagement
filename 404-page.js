@@ -137,8 +137,6 @@ function NotFound() {
   }, React.createElement("a", {
     href: "Formules"
   }, "Formules"), React.createElement("span", null, "\xB7"), React.createElement("a", {
-    href: "Stockage"
-  }, "Stockage"), React.createElement("span", null, "\xB7"), React.createElement("a", {
     href: "Checklist"
   }, "Checklist"), React.createElement("span", null, "\xB7"), React.createElement("a", {
     href: "Contact"

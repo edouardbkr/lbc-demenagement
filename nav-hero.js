@@ -37,6 +37,25 @@ function Hero({
       l1: "Notre nom vous fait sourire.",
       l2: React.createElement(React.Fragment, null, "Notre service vous fera ", React.createElement("em", null, "confiance.")),
       scribble: "pour de vrai."
+    },
+    c: {
+      accroche: React.createElement(React.Fragment, null, React.createElement("span", {
+        className: "asterisk",
+        style: {
+          fontFamily: "\"DM Sans\""
+        }
+      }, "*"), "Les Bras Cass\xE9s ? S\xFBrement pas vos affaires. ", React.createElement("span", {
+        className: "scribble"
+      }, "promis.")),
+      l1: "Déménageurs à Nice.",
+      l2: React.createElement(React.Fragment, null, React.createElement("em", {
+        style: {
+          opacity: "0.8",
+          fontFamily: "Newsreader",
+          fontSize: "clamp(34px, 9vw, 76px)"
+        }
+      }, "Le prix annonc\xE9 est le prix pay\xE9.")),
+      scribble: null
     }
   };
   const h = headlines[headlineVariant] || headlines.a;
@@ -102,7 +121,9 @@ function Hero({
     className: "hero-grid"
   }, React.createElement("div", {
     className: "reveal"
-  }, React.createElement("h1", {
+  }, h.accroche && React.createElement("p", {
+    className: "hero-accroche"
+  }, h.accroche), React.createElement("h1", {
     style: {
       fontFamily: "\"DM Sans\""
     }
@@ -112,7 +133,7 @@ function Hero({
       opacity: "0.8",
       fontFamily: "Newsreader"
     }
-  }, h.l2, React.createElement("span", {
+  }, h.l2, h.scribble && React.createElement("span", {
     className: "scribble"
   }, h.scribble))), React.createElement("div", {
     className: "hero-ctas"

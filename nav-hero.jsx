@@ -11,6 +11,24 @@ function Hero({ headlineVariant }) {
       l1: "Notre nom vous fait sourire.",
       l2: <>Notre service vous fera <em>confiance.</em></>,
       scribble: "pour de vrai."
+    },
+    // Variante c — le jeu de mots garde sa place à l'écran, mais il n'est plus
+    // le H1. Le H1 est le signal le plus fort qu'une page envoie à Google sur
+    // son sujet : celui de l'accueil ne contenait ni « déménagement », ni
+    // « Nice », ni aucun service. Il annonce maintenant les deux, plus
+    // l'engagement le plus différenciant.
+    //
+    // Pour essayer un autre titre, remplace l1 et l2 :
+    //   « Déménageurs à Nice. » / « Vos affaires arrivent comme elles sont parties. »
+    //   « Déménager à Nice, » / « sans mauvaise surprise le jour J. »
+    c: {
+      accroche: <>
+        <span className="asterisk" style={{ fontFamily: "\"DM Sans\"" }}>*</span>
+        Les Bras Cassés ? Sûrement pas vos affaires. <span className="scribble">promis.</span>
+      </>,
+      l1: "Déménageurs à Nice.",
+      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(34px, 9vw, 76px)" }}>Le prix annoncé est le prix payé.</em></>,
+      scribble: null
     }
   };
   const h = headlines[headlineVariant] || headlines.a;
@@ -59,9 +77,10 @@ function Hero({ headlineVariant }) {
 
         <div className="hero-grid">
           <div className="reveal">
+            {h.accroche && <p className="hero-accroche">{h.accroche}</p>}
             <h1 style={{ fontFamily: "\"DM Sans\"" }}>
               {h.l1}
-              <span className="l2" style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{h.l2}<span className="scribble">{h.scribble}</span></span>
+              <span className="l2" style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{h.l2}{h.scribble && <span className="scribble">{h.scribble}</span>}</span>
             </h1>
 
             <div className="hero-ctas">

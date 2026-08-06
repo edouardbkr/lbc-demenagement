@@ -13,14 +13,14 @@ const ROUTES = {
       { t: "Paris, le vrai défi est à l'arrivée", p: "Sur un Nice–Paris, la route est la partie facile. Le casse-tête, c'est l'arrivée parisienne : immeubles haussmanniens aux escaliers en colimaçon, derniers étages sans ascenseur, cours intérieures où le camion ne rentre pas, et un stationnement réglementé partout. On repère l'adresse en amont, on demande l'autorisation de voirie et on prévoit le monte-meuble par la façade quand l'escalier ne passe pas. Tout est chiffré au devis, pour qu'aucune contrainte parisienne ne devienne un supplément le jour même." },
       { t: "Intra-muros ou couronne, on connaît", p: "Que vous arriviez dans un studio du Marais, un familial du 15e, un appartement de Boulogne ou une maison de banlieue, la logistique change. Paris intra-muros impose des créneaux, des rues étroites et des stationnements minutés ; la proche couronne offre plus de place mais des trajets de portage parfois longs. On adapte le véhicule (un gros porteur ne rentre pas partout dans Paris) et on transborde avec un utilitaire plus maniable quand l'adresse l'exige." },
       { t: "Le camion dédié, pas le groupage", p: "Beaucoup de déménageurs longue distance font du groupage : vos affaires attendent en entrepôt qu'un camion se remplisse avec d'autres déménagements, puis sont transbordées. Résultat : des délais flous et des risques de casse à chaque manipulation. Nous, c'est un camion dédié à votre seul chargement, plombé au départ de Nice. Une seule équipe, une seule manipulation au départ, une seule à l'arrivée, et une date d'arrivée fiable." },
-      { t: "Garde-meuble relais entre les deux", p: "Sur un grand déménagement, les dates de départ et d'arrivée ne coïncident pas toujours : un bail qui se termine avant que l'autre commence, des travaux en cours, une vente qui traîne. On propose un garde-meuble en box sécurisé pour faire le relais, à Nice avant le départ ou à l'arrivée, sans vous obliger à improviser. Vos affaires restent protégées et assurées le temps qu'il faut." }
+      { t: "Le relais entre les deux dates", p: "Sur un grand déménagement, les dates de départ et d'arrivée ne coïncident pas toujours : un bail qui se termine avant que l'autre commence, des travaux en cours, une vente qui traîne. On propose un garde-meuble en box sécurisé pour faire le relais, à Nice avant le départ ou à l'arrivée, sans vous obliger à improviser. Vos affaires restent protégées et assurées le temps qu'il faut." }
     ],
     faq: [
       { q: "Combien de temps dure un déménagement Nice–Paris ?", a: "Le transport représente une journée de route (≈ 930 km). On charge un jour, on livre dans la foulée selon une fenêtre d'arrivée annoncée et tenue, sans attente en entrepôt." },
       { q: "Gérez-vous le monte-meuble à Paris ?", a: "Oui, et c'est souvent indispensable dans les immeubles haussmanniens à escaliers étroits. Il est repéré et chiffré dès le devis, jamais ajouté en surprise le jour J." },
       { q: "Faites-vous du groupage ou un camion dédié ?", a: "Un camion dédié à votre seul chargement, plombé au départ de Nice. Pas de groupage, pas de transbordement, pas de cartons mélangés à ceux d'un autre client." },
       { q: "Gérez-vous le stationnement à Paris ?", a: "Oui, on dépose la demande d'autorisation d'occupation de voirie auprès de la Ville de Paris pour réserver l'emplacement camion devant votre immeuble." },
-      { q: "Puis-je stocker mes affaires entre le départ et l'arrivée ?", a: "Oui, on propose un garde-meuble relais en box sécurisé si vos dates ne coïncident pas, à Nice ou à l'arrivée, avec vos affaires assurées." }
+      { q: "Puis-je stocker mes affaires entre le départ et l'arrivée ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }
     ]
   },
   "nice-lyon": {
@@ -89,7 +89,7 @@ const ROUTES = {
       { q: "Gérez-vous le centre historique toulousain ?", a: "Oui : stationnement réservé et portage adaptés aux rues étroites du centre en brique, autour du Capitole et des Carmes, avec monte-meuble si besoin." },
       { q: "Faites-vous les mutations dans l'aéronautique ?", a: "Oui, c'est fréquent sur ce trajet : devis conforme pour votre employeur, facture en règle et coordination avec votre prise de poste." },
       { q: "Le devis inclut-il le transport ?", a: "Oui, tout est compris et ferme : transport, équipe, protection. Aucun supplément kilométrique surprise." },
-      { q: "Un garde-meuble est-il possible entre les deux ?", a: "Oui, en box sécurisé, à Nice avant le départ ou à l'arrivée, si vos dates de logement ne coïncident pas." }
+      { q: "Un garde-meuble est-il possible entre les deux ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }
     ]
   },
   "nice-bordeaux": {
@@ -112,7 +112,7 @@ const ROUTES = {
       { q: "Gérez-vous les échoppes bordelaises ?", a: "Oui : ces maisons de ville basses et étroites se déménagent au portage soigné, avec un véhicule stationné au plus près. C'est anticipé dès le devis." },
       { q: "Et le centre classé au stationnement réglementé ?", a: "On réserve l'emplacement camion en amont, on gère les créneaux et on prévoit le monte-meuble pour les étages des immeubles anciens." },
       { q: "Mon mobilier est-il bien protégé sur 800 km ?", a: "Oui : calage et arrimage renforcés pour la longue route, plus une assurance incluse du chargement à la livraison. Rien ne bouge en chemin." },
-      { q: "Un garde-meuble est-il possible ?", a: "Oui, en box sécurisé, à Nice ou à l'arrivée, si vos dates de départ et d'arrivée ne coïncident pas." }
+      { q: "Un garde-meuble est-il possible ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }
     ]
   },
   "nice-geneve": {
@@ -135,7 +135,7 @@ const ROUTES = {
       { q: "Combien de temps dure le trajet Nice–Genève ?", a: "≈ 470 km, soit une demi-journée à une journée selon le passage de frontière et le déchargement. On annonce une fenêtre au devis." },
       { q: "Gérez-vous les expatriés et fonctionnaires internationaux ?", a: "Oui, c'est fréquent à Genève : devis conforme pour votre employeur, facture en règle et coordination avec votre prise de poste." },
       { q: "Le prix est-il ferme malgré la douane ?", a: "Oui, le devis est détaillé et définitif, formalités comprises. Pas de supplément surprise au passage de la frontière." },
-      { q: "Un garde-meuble est-il possible des deux côtés ?", a: "Oui, en relais, à Nice ou à l'arrivée, si votre logement genevois n'est pas encore disponible. Vos affaires restent assurées." }
+      { q: "Un garde-meuble est-il possible des deux côtés ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }
     ]
   },
   "nice-lausanne": {
@@ -203,7 +203,7 @@ const ROUTES = {
       { q: "C'est souvent une mutation, vous gérez ce cas ?", a: "Oui, c'est la majorité de nos Nice–Luxembourg : devis conforme à transmettre à votre employeur, facture en règle, et déménagement coordonné avec votre prise de poste." },
       { q: "Y a-t-il des formalités douanières ?", a: "Non, le Luxembourg est dans l'Union européenne : un inventaire détaillé suffit, on s'occupe de toute la logistique." },
       { q: "Combien de temps dure le trajet ?", a: "≈ 920 km : une bonne journée de route, avec une fenêtre de livraison annoncée au devis et tenue." },
-      { q: "Garde-meuble possible des deux côtés ?", a: "Oui, en relais, à Nice ou à l'arrivée, si votre logement luxembourgeois n'est pas encore disponible. Vos affaires restent assurées." },
+      { q: "Garde-meuble possible des deux côtés ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." },
       { q: "Faites-vous un camion dédié ?", a: "Oui, un camion dédié à votre seul chargement, plombé au départ. Pas de groupage, une seule équipe jusqu'au Luxembourg." }
     ]
   },

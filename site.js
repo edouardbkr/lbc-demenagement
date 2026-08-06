@@ -95,10 +95,6 @@ const NAV = [{
   label: t('International'),
   mega: 'intl'
 }, {
-  key: 'stockage',
-  label: t('Stockage'),
-  href: 'Stockage'
-}, {
   key: 'mutation',
   label: t('Mutation professionnelle'),
   dropdown: [{
@@ -131,9 +127,6 @@ const MEGA = {
     }, {
       title: t("Longue distance"),
       links: [["Nice → Paris", "Demenagement-Nice-Paris"], ["Nice → Lyon", "Demenagement-Nice-Lyon"], ["Nice → Marseille", "Demenagement-Nice-Marseille"], ["Nice → Toulouse", "Demenagement-Nice-Toulouse"], ["Nice → Bordeaux", "Demenagement-Nice-Bordeaux"]]
-    }, {
-      title: t("Autres villes"),
-      links: [[t("Déménagement La Rochelle"), "Demenagement-La-Rochelle"]]
     }]
   },
   intl: {
@@ -166,7 +159,7 @@ function Logo() {
     "aria-label": "LBC \u2014 Les Bras Cass\xE9s, accueil"
   }, React.createElement("img", {
     src: "assets/lbc-wordmark-sm.png",
-    alt: "LBC* \u2014 Les Bras Cass\xE9s",
+    alt: "LBC D\xE9m\xE9nagement \u2014 d\xE9m\xE9nageur \xE0 Nice",
     decoding: "async",
     width: "432",
     height: "240"
@@ -402,7 +395,7 @@ function RoadDivider() {
   }, React.createElement("img", {
     className: "road-logo",
     src: "assets/lbc-wordmark-sm.png",
-    alt: "LBC* D\xE9m\xE9nagement"
+    alt: "LBC D\xE9m\xE9nagement"
   }), React.createElement("svg", {
     viewBox: "0 0 380 150",
     width: "300",
@@ -473,7 +466,7 @@ function MascotStamp() {
     className: "mascot-stamp-circle"
   }, React.createElement("img", {
     src: "assets/lbc-mascot-sm.png",
-    alt: "Mascotte LBC* Les Bras Cass\xE9s",
+    alt: "Mascotte LBC D\xE9m\xE9nagement",
     loading: "lazy",
     decoding: "async",
     width: "560",
@@ -486,8 +479,6 @@ function MascotStamp() {
     className: "mascot-stamp-line"
   }, "Le travail est s\xE9rieux."))));
 }
-const LEAD_EMAIL = "contact@lbcdemenagement.com";
-const LEAD_ENDPOINT = "https://formsubmit.co/ajax/" + LEAD_EMAIL;
 const QQ_SURFACE_VOL = {
   studio: 14,
   t2: 25,
@@ -655,10 +646,6 @@ function QuickQuote({
   const go = e => {
     e.preventDefault();
     const f = e.currentTarget;
-    if (f._honey && f._honey.value) {
-      window.location.href = "Devis";
-      return;
-    }
     const nom = f.nom.value.trim();
     const tel = f.tel.value.trim();
     const email = f.email.value.trim();
@@ -675,26 +662,6 @@ function QuickQuote({
       t3: "3 pièces (50–80 m²)",
       t4: "4 pièces + (80 m² +)"
     };
-    try {
-      fetch(LEAD_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        keepalive: true,
-        body: JSON.stringify({
-          _subject: "🚚 Nouvelle demande de devis (barre rapide) — Les Bras Cassés",
-          _template: "table",
-          "Étape": "Étape 1 remplie depuis la barre rapide",
-          "Nom": nom || "—",
-          "Téléphone": tel || "—",
-          "Email": email || "—",
-          "Type de logement": TYPE_LABEL[type] || "—",
-          "Surface": SURF_LABEL[surface] || "—"
-        })
-      }).catch(() => {});
-    } catch (err) {}
     if (window.fbq) window.fbq("trackCustom", "DevisDemarre");
     const leadId = "L" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
     qqSendToCockpit({
@@ -825,9 +792,6 @@ const CONSEILS = [{
   label: "Déménagement international depuis Nice",
   href: "Article-demenagement-international-depuis-nice"
 }, {
-  label: "Déménager à La Rochelle",
-  href: "Article-demenagement-la-rochelle-guide"
-}, {
   label: "Villes aux démarches spéciales",
   href: "Article-villes-demarches-speciales-demenagement"
 }, {
@@ -872,9 +836,7 @@ function FooterSEO() {
     href: "Demenagement-Nice-Toulouse"
   }, "D\xE9m\xE9nagement Nice \u2192 Toulouse"), React.createElement("a", {
     href: "Demenagement-Nice-Bordeaux"
-  }, "D\xE9m\xE9nagement Nice \u2192 Bordeaux"), React.createElement("a", {
-    href: "Demenagement-La-Rochelle"
-  }, "D\xE9m\xE9nagement La Rochelle")), React.createElement("div", {
+  }, "D\xE9m\xE9nagement Nice \u2192 Bordeaux")), React.createElement("div", {
     className: "seo-sub"
   }, "D\xE9m\xE9nagement international"), React.createElement("div", {
     className: "seo-cities"
@@ -1004,7 +966,7 @@ function Footer() {
     className: "footer-brand"
   }, React.createElement("img", {
     src: "assets/lbc-wordmark-sm.png",
-    alt: "LBC* \u2014 Les Bras Cass\xE9s",
+    alt: "LBC D\xE9m\xE9nagement \u2014 d\xE9m\xE9nageur \xE0 Nice",
     loading: "lazy",
     decoding: "async",
     width: "432",
@@ -1023,9 +985,7 @@ function Footer() {
     href: "Militaire"
   }, "D\xE9m\xE9nagement militaire")), React.createElement("li", null, React.createElement("a", {
     href: "Diplomatique"
-  }, "D\xE9m\xE9nagement diplomatique")), React.createElement("li", null, React.createElement("a", {
-    href: "Stockage"
-  }, "Stockage & garde-meuble")))), React.createElement("div", {
+  }, "D\xE9m\xE9nagement diplomatique")))), React.createElement("div", {
     className: "footer-col"
   }, React.createElement("h4", null, "Le site"), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
     href: "/"
@@ -1036,6 +996,8 @@ function Footer() {
   }, "Questions fr\xE9quentes")), React.createElement("li", null, React.createElement("a", {
     href: "Checklist"
   }, "Checklist d\xE9m\xE9nagement")), React.createElement("li", null, React.createElement("a", {
+    href: "Partenaires"
+  }, "Devenir partenaire")), React.createElement("li", null, React.createElement("a", {
     href: "Devis"
   }, "Devis gratuit")), React.createElement("li", null, React.createElement("a", {
     href: "/#avis"
@@ -1061,7 +1023,7 @@ function Footer() {
     href: "CGV"
   }, "CGV")))))), React.createElement("div", {
     className: "footer-bottom"
-  }, React.createElement("div", null, "\xA9 2026 LBC* D\xE9m\xE9nagement \u2014 SAS au capital de 3 000\u20AC \xB7 12 rue d'Italie, 06000 Nice"), React.createElement("div", {
+  }, React.createElement("div", null, "\xA9 2026 LBC D\xE9m\xE9nagement \u2014 SAS au capital de 3 000\u20AC \xB7 12 rue d'Italie, 06000 Nice"), React.createElement("div", {
     className: "footer-made"
   }, "Les Bras Cass\xE9s. Le nom est la blague, le travail est s\xE9rieux.")))));
 }

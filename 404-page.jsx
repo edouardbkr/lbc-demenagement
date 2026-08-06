@@ -53,7 +53,6 @@ function NotFound() {
         </div>
         <div className="nf-links">
           <a href="Formules">Formules</a><span>·</span>
-          <a href="Stockage">Stockage</a><span>·</span>
           <a href="Checklist">Checklist</a><span>·</span>
           <a href="Contact">Contact</a>
         </div>
