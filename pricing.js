@@ -454,8 +454,20 @@
     }
     return out;
   }
-  function geocoder(requete) {
+  var SCORE_MINIMUM = 0.7;
+  function geocoderFrance(requete) {
     return fetch("https://api-adresse.data.gouv.fr/search/?limit=1&q=" + encodeURIComponent(requete)).then(r => r.json()).then(d => {
+      const f = (d.features || [])[0];
+      if (!f || !f.geometry || !f.geometry.coordinates) return null;
+      if (((f.properties || {}).score || 0) < SCORE_MINIMUM) return null;
+      return {
+        lon: f.geometry.coordinates[0],
+        lat: f.geometry.coordinates[1]
+      };
+    }).catch(() => null);
+  }
+  function geocoderMonde(requete) {
+    return fetch("https://photon.komoot.io/api/?limit=1&q=" + encodeURIComponent(requete)).then(r => r.json()).then(d => {
       const f = (d.features || [])[0];
       if (!f || !f.geometry || !f.geometry.coordinates) return null;
       return {
@@ -463,6 +475,9 @@
         lat: f.geometry.coordinates[1]
       };
     }).catch(() => null);
+  }
+  function geocoder(requete) {
+    return geocoderFrance(requete).then(r => r || geocoderMonde(requete));
   }
   function coordsDe(adresse) {
     if (!adresse) return Promise.resolve(null);

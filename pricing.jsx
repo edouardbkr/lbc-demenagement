@@ -841,8 +841,32 @@
     return out;
   }
 
-  function geocoder(requete) {
+  /* ⚠️ EN DESSOUS DE CE SCORE, LA BASE FRANÇAISE A DEVINÉ, PAS TROUVÉ.
+     Elle répond toujours quelque chose, même pour une adresse étrangère : « Avenue
+     Albert 62, Bruxelles » lui fait rendre « Avenue de Bruxelles, 81000 Albi », avec un
+     score de 0,55. Une vraie adresse française monte à 0,98. Sans ce seuil, un
+     déménagement vers la Belgique était chiffré sur Albi — moitié moins de kilomètres,
+     et un prix annoncé au client qu'on ne pouvait pas tenir. */
+  var SCORE_MINIMUM = 0.7;
+
+  function geocoderFrance(requete) {
     return fetch("https://api-adresse.data.gouv.fr/search/?limit=1&q=" + encodeURIComponent(requete))
+      .then((r) => r.json())
+      .then((d) => {
+        const f = (d.features || [])[0];
+        if (!f || !f.geometry || !f.geometry.coordinates) return null;
+        if (((f.properties || {}).score || 0) < SCORE_MINIMUM) return null;
+        return { lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] };
+      })
+      .catch(() => null);
+  }
+
+  /* Le reste du monde, via Photon (OpenStreetMap). On ne l'interroge qu'en second : la
+     base nationale est meilleure sur les adresses françaises.
+     ⚠️ Photon et pas Nominatim : Nominatim refuse les requêtes automatisées (403) et sa
+     politique d'usage interdit ce type d'appel depuis une application. */
+  function geocoderMonde(requete) {
+    return fetch("https://photon.komoot.io/api/?limit=1&q=" + encodeURIComponent(requete))
       .then((r) => r.json())
       .then((d) => {
         const f = (d.features || [])[0];
@@ -850,6 +874,10 @@
         return { lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] };
       })
       .catch(() => null);
+  }
+
+  function geocoder(requete) {
+    return geocoderFrance(requete).then((r) => r || geocoderMonde(requete));
   }
 
   function coordsDe(adresse) {
