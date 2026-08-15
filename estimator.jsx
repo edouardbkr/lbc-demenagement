@@ -13,7 +13,7 @@ const EST_SURFACE = [
 { key: "studio", label: "Studio", sub: "< 30 m²" },
 { key: "t2", label: "2 pièces", sub: "30–50 m²" },
 { key: "t3", label: "3 pièces", sub: "50–80 m²" },
-{ key: "t4", label: "Maison", sub: "> 90 m²" }];
+{ key: "maison", label: "Maison", sub: "> 90 m²" }];
 
 // Distance représentative de chaque zone, en km réels (le moteur facture au km)
 const EST_DIST = [
@@ -70,6 +70,13 @@ function Estimator() {
     window.LBC_PRICING.estimer({ surface: surface, formule: form, km: d.km }) : null;
   const low = est ? est.bas : 0;
   const high = est ? est.haut : 0;
+  /* « Mains dans les poches » affichait EXACTEMENT la même fourchette que « Mains
+     libres » : la grille la chiffre sur celle-ci, parce que l'emballage complet ne se
+     devine pas sans voir le logement. Le visiteur, lui, cliquait sur la formule la plus
+     chère, ne voyait pas le prix bouger d'un euro, et en concluait soit que l'emballage
+     était offert, soit que l'estimateur était cassé. On affiche donc un plancher franc
+     et on dit pourquoi, au lieu de faire semblant de savoir. */
+  const surDevis = (form === "luxe");
 
   return (
     <section className="sec est" id="estimateur">
@@ -101,11 +108,13 @@ function Estimator() {
               <span className="est-from">à partir de</span>
               <div className="est-range">
                 <span className="est-amount"><RollingNum value={low} /><span className="est-cur">€</span></span>
-                <span className="est-dash">–</span>
-                <span className="est-amount"><RollingNum value={high} /><span className="est-cur">€</span></span>
+                {!surDevis && <span className="est-dash">–</span>}
+                {!surDevis && <span className="est-amount"><RollingNum value={high} /><span className="est-cur">€</span></span>}
                 <span className="est-star">*</span>
               </div>
-              <span className="est-note"><span className="ast">*</span>Estimation indicative, hors options. Votre devis, lui, est précis et définitif.</span>
+              <span className="est-note"><span className="ast">*</span>{surDevis
+                ? "L'emballage de tous vos cartons se chiffre après une visite en visio de 10 minutes : c'est le seul moyen de vous annoncer un prix ferme plutôt qu'une fourchette large."
+                : "Estimation indicative, hors options. Votre devis, lui, est précis et définitif."}</span>
             </div>
             <a href="Devis" className="btn btn-primary est-cta">Obtenir mon prix ferme<span className="arrow">→</span></a>
           </div>

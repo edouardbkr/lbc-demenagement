@@ -19,36 +19,46 @@
     locationKmTarif: 0.11,
     locationKmSeuil: 1000,
     locationKmTarif2: 0.28,
+    seuilDeuxiemeCamionM3: 32,
     grilleFormule: {
       standard: {
-        m3Bas: 35,
-        m3Haut: 50,
+        m3Bas: 30,
+        m3Haut: 40,
+        m3BasGros: 35,
+        m3HautGros: 50,
         plancherBas: 400,
         plancherHaut: 550
       },
       premium: {
-        m3Bas: 50,
-        m3Haut: 70,
+        m3Bas: 40,
+        m3Haut: 60,
+        m3BasGros: 50,
+        m3HautGros: 70,
         plancherBas: 550,
         plancherHaut: 750
       },
       luxe: {
-        m3Bas: 50,
-        m3Haut: 70,
+        m3Bas: 40,
+        m3Haut: 60,
+        m3BasGros: 50,
+        m3HautGros: 70,
         plancherBas: 550,
         plancherHaut: 750
       }
     },
+    baseLat: 43.7102,
+    baseLng: 7.2620,
+    approcheFranchiseKm: 50,
+    approcheTarifKm: 0.90,
     kmInclus: 15,
     tarifKm: [{
-      jusquKm: 300,
-      temps: 1.55,
-      frais: 0.95
+      jusquKm: 500,
+      parCamion: 1.80
     }, {
       jusquKm: Infinity,
-      temps: 1.35,
-      frais: 0.95
+      parCamion: 1.75
     }],
+    tarifKmPropre: 1.50,
     prixMinimum: 400,
     margeVolume: 1.10,
     seuilLongueDistanceKm: 200,
@@ -81,10 +91,36 @@
         min: 18,
         typique: 42,
         max: 65
+      },
+      maison: {
+        min: 22,
+        typique: 48,
+        max: 90
       }
     }
   };
   const VOL = {
+    'appareil de sport / tapis': 1.2,
+    'autre électroménager': 0.5,
+    'dressing sur mesure, plus de 2 m': 3,
+    'dressing à portes coulissantes': 2.4,
+    'mobilier de véranda': 1.5,
+    'plancha': 0.3,
+    'plantes / jardinières': 0.15,
+    'plante': 0.15,
+    'jardinière': 0.15,
+    "œuvre d'art / tableau": 0.3,
+    "oeuvre d'art / tableau": 0.3,
+    'tableau': 0.3,
+    'cheminée': 0.3,
+    'lampe': 0.1,
+    'paravent': 0.2,
+    'pot de fleur': 0.08,
+    'malle': 0.15,
+    'carton': 0.05,
+    'cartons': 0.05,
+    'carton standard': 0.05,
+    'carton livres': 0.04,
     'canapé 2 places': 1.5,
     'canapé 3 places': 2.0,
     "canapé d'angle": 3.0,
@@ -274,18 +310,25 @@
     if (port > CFG.portageOffert) s += (port - CFG.portageOffert) * CFG.portageParMetre * parDix;
     return Math.round(s);
   }
-  function supplementKm(km, nbCamions) {
-    if (!(km > CFG.kmInclus)) return 0;
-    const n = Math.max(1, nbCamions || 1);
+  function kmUnCamionLoue(km) {
     let precedent = CFG.kmInclus,
       total = 0;
     for (let i = 0; i < CFG.tarifKm.length; i++) {
       const t = CFG.tarifKm[i];
       const borne = Math.min(km, t.jusquKm);
-      if (borne > precedent) total += (borne - precedent) * (t.temps + t.frais * n);
+      if (borne > precedent) total += (borne - precedent) * t.parCamion;
       precedent = borne;
       if (km <= t.jusquKm) break;
     }
+    return total;
+  }
+  function supplementKm(km, fl) {
+    if (!(km > CFG.kmInclus)) return 0;
+    const f = fl && typeof fl === 'object' ? fl : {
+      loues: Math.max(1, fl || 1),
+      propre: false
+    };
+    const total = kmUnCamionLoue(km) * Math.max(0, f.loues) + (f.propre ? (km - CFG.kmInclus) * CFG.tarifKmPropre : 0);
     return Math.round(total);
   }
   function flotte(volume) {
@@ -316,7 +359,7 @@
     const f = flotte(volume);
     if (!f.loues) return 0;
     const jours = Math.max(1, nbJours);
-    const parCamion = jours * (CFG.locationJourCamion + CFG.locationJourAssurance) + forfaitKmLoueur(km * 2);
+    const parCamion = forfaitKmLoueur(km * 2) + CFG.locationJourCamion * (jours - 1) + CFG.locationJourAssurance * jours;
     return Math.round(f.loues * parCamion);
   }
   function jours(km) {
@@ -329,7 +372,7 @@
     const aInventaire = (o.inventaire || []).length > 0;
     const plage = CFG.volumeSurface[o.surface] || null;
     let volBase;
-    if (aInventaire) volBase = Math.max(volInv, plage ? plage.min : 0);else volBase = Math.max(plage ? plage.typique || plage.max : 0, volInv);
+    if (aInventaire) volBase = volInv;else volBase = Math.max(plage ? plage.typique || plage.max : 0, volInv);
     if (!volBase) return null;
     const volume = Math.round(volBase * CFG.margeVolume);
     const distanceFiable = o.km != null;
@@ -339,16 +382,21 @@
     const nbJours = jours(km);
     const kmAR = km * 2;
     const g = CFG.grilleFormule[formuleEstimee] || CFG.grilleFormule.premium;
-    const volumeBas = Math.max(g.plancherBas, volume * g.m3Bas);
-    const volumeHaut = Math.max(g.plancherHaut, volume * g.m3Haut);
+    const deuxiemeCamion = volume > CFG.seuilDeuxiemeCamionM3;
+    const tarifBas = deuxiemeCamion ? g.m3BasGros : g.m3Bas;
+    const tarifHaut = deuxiemeCamion ? g.m3HautGros : g.m3Haut;
+    const volumeBas = Math.max(g.plancherBas, volume * tarifBas);
+    const volumeHaut = Math.max(g.plancherHaut, volume * tarifHaut);
     const fl = flotte(volume);
     const nbCamions = fl.loues + (fl.propre ? 1 : 0);
-    const prixKm = supplementKm(km, nbCamions);
+    const prixKm = supplementKm(km, fl);
+    const kmApp = Math.max(0, Math.round(o.kmApproche || 0) - CFG.approcheFranchiseKm);
+    const prixApproche = kmApp > 0 ? Math.round(kmApp * CFG.approcheTarifKm * nbCamions) : 0;
     const acces = surcoutAcces(o.depart, volume) + surcoutAcces(o.arrivee, volume);
     const dem = supplementDemontage(o.demontage, formuleEstimee);
     const spe = supplementSpeciaux(o.inventaire);
     const mm = coutMonteMeuble(o.depart, o.arrivee, volume);
-    const options = prixKm + acces + dem.total + spe.total + mm.total;
+    const options = prixKm + prixApproche + acces + dem.total + spe.total + mm.total;
     const bas = arrondi10(volumeBas + options);
     const haut = arrondi10(volumeHaut + options);
     const prixVolume = Math.round(volumeBas);
@@ -363,6 +411,8 @@
       haut,
       volume,
       km,
+      kmApproche: Math.round(o.kmApproche || 0),
+      prixApproche,
       distanceFiable,
       visioRequise,
       formuleEstimee,
@@ -384,16 +434,28 @@
         demontageLignes: dem.lignes,
         marge: Math.round(bas - couts),
         volumeDeclare: Math.round(volInv * 10) / 10,
-        plancherApplique: aInventaire && volInv < (plage ? plage.min : 0)
+        plancherApplique: false
       }
     };
   }
-  function coordsDe(adresse) {
-    if (!adresse) return Promise.resolve(null);
-    const cache = window.LBC_GEO || {};
-    const hit = cache[String(adresse).trim().toLowerCase()];
-    if (hit) return Promise.resolve(hit);
-    return fetch("https://api-adresse.data.gouv.fr/search/?limit=1&q=" + encodeURIComponent(adresse)).then(r => r.json()).then(d => {
+  function versionsDe(adresse) {
+    const s = String(adresse || "").trim();
+    if (!s) return [];
+    const out = [s];
+    const cp = s.match(/\b\d{5}\b/);
+    if (cp) {
+      const commune = s.slice(cp.index).trim();
+      if (commune && commune !== s) out.push(commune);
+    }
+    const virgule = s.lastIndexOf(",");
+    if (virgule > 0) {
+      const commune = s.slice(virgule + 1).trim();
+      if (commune && commune !== s && out.indexOf(commune) < 0) out.push(commune);
+    }
+    return out;
+  }
+  function geocoder(requete) {
+    return fetch("https://api-adresse.data.gouv.fr/search/?limit=1&q=" + encodeURIComponent(requete)).then(r => r.json()).then(d => {
       const f = (d.features || [])[0];
       if (!f || !f.geometry || !f.geometry.coordinates) return null;
       return {
@@ -401,6 +463,14 @@
         lat: f.geometry.coordinates[1]
       };
     }).catch(() => null);
+  }
+  function coordsDe(adresse) {
+    if (!adresse) return Promise.resolve(null);
+    const cache = window.LBC_GEO || {};
+    const hit = cache[String(adresse).trim().toLowerCase()];
+    if (hit) return Promise.resolve(hit);
+    const essais = versionsDe(adresse);
+    return essais.reduce((chaine, requete) => chaine.then(trouve => trouve || geocoder(requete)), Promise.resolve(null));
   }
   function haversine(a, b) {
     const R = 6371,
@@ -416,9 +486,19 @@
       return Math.round(haversine(a, b) * CFG.coefRoute);
     }).catch(() => null);
   }
+  function distanceBase(depart) {
+    return coordsDe(depart).then(a => {
+      if (!a) return 0;
+      return Math.round(haversine({
+        lat: CFG.baseLat,
+        lon: CFG.baseLng
+      }, a) * CFG.coefRoute);
+    }).catch(() => 0);
+  }
   window.LBC_PRICING = {
     estimer,
     distanceKm,
+    distanceBase,
     CFG
   };
 })();

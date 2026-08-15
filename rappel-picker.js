@@ -68,6 +68,16 @@
     const [heure, setHeure] = useState("");
     if (!jours.length) return null;
     const courant = jours.find(j => j.key === jour) || jours[0];
+    const maintenant = () => {
+      if (confirming) return;
+      const n = new Date();
+      onConfirm({
+        date: ymd(n),
+        heure: p2(n.getHours()) + ":" + p2(n.getMinutes()),
+        label: "tout de suite",
+        immediat: true
+      });
+    };
     const valider = () => {
       if (!heure || confirming) return;
       const d = courant.date;
@@ -86,7 +96,19 @@
       className: "rdv-box"
     }, React.createElement("div", {
       className: "rdv-head"
-    }, React.createElement("h4", null, "Quand souhaitez-vous qu'on vous appelle\xA0?"), React.createElement("p", null, "On vous confirme votre prix exact en 5 minutes au t\xE9l\xE9phone. ", React.createElement("strong", null, "7 jours sur 7, jusqu'\xE0 22h"), " : choisissez votre moment, on s'adapte.")), React.createElement("div", {
+    }, React.createElement("h4", null, "Quand souhaitez-vous qu'on vous appelle\xA0?"), React.createElement("p", null, "On vous confirme votre prix exact en 5 minutes au t\xE9l\xE9phone. ", React.createElement("strong", null, "7 jours sur 7, jusqu'\xE0 22h"), " : choisissez votre moment, on s'adapte.")), React.createElement("button", {
+      type: "button",
+      className: "rdv-now",
+      disabled: confirming,
+      onClick: maintenant
+    }, React.createElement("span", {
+      className: "rdv-now-ic",
+      "aria-hidden": "true"
+    }, "\uD83D\uDCDE"), React.createElement("span", {
+      className: "rdv-now-txt"
+    }, React.createElement("strong", null, confirming ? "Enregistrement…" : "Rappelez-moi tout de suite"), React.createElement("span", null, "On vous appelle dans les minutes qui suivent"))), React.createElement("div", {
+      className: "rdv-sep"
+    }, React.createElement("span", null, "ou choisissez votre cr\xE9neau")), React.createElement("div", {
       className: "rdv-days",
       role: "group",
       "aria-label": "Choisir un jour"

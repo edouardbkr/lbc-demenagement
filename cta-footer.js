@@ -18,12 +18,8 @@ function ctaSendToCockpit(upd) {
     },
     formule: "standard",
     formulaireType: "partiel",
-    volumeEstime: {
-      studio: 14,
-      t2: 25,
-      t3: 40,
-      t4: 60
-    }[upd.surface] ?? null,
+    volumeEstime: null,
+    logementDeclare: upd.surface || upd.type || "",
     contactPref: "Téléphone",
     message: ["Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.", upd.type ? "Type de logement : " + upd.type : "", upd.surface ? "Surface déclarée : " + upd.surface : "", upd._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : ""].filter(Boolean).join("\n")
   };

@@ -3,8 +3,21 @@
 # etre creee dans le tableau de bord Cloudflare, Regles > Regles de redirection.
 
 # Home
+# ⚠️ _redirects de Cloudflare Pages est SENSIBLE A LA CASSE. Les deux lignes en
+# minuscules ci-dessous existaient déjà, mais le fichier s'appelait « Les Bras Cassés.html »
+# avec des majuscules : cette adresse-là répondait donc 200 et servait un doublon complet
+# de l'accueil, sous l'ancien nom. Page supprimée le 7 août 2026, toutes les casses
+# rencontrées sont redirigées ici.
+/Les%20Bras%20Cass%C3%A9s    /    301
+/les%20Bras%20Cass%C3%A9s    /    301
 /les%20bras%20cass%C3%A9s    /    301
+/Les-Bras-Casses              /    301
 /les-bras-casses              /    301
+
+# Ancien routeur du blog. /Article servait le premier article, donc un doublon exact de
+# /Article-estimer-volume, et /Article?a=slug servait les autres. Chaque article a sa page
+# depuis le 3 août 2026. Page supprimée le 7 août 2026.
+/Article    /Blog    301
 
 # Pages avec espaces ou accents → URLs propres (optionnel, pour plus tard)
 

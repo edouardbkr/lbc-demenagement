@@ -1,3 +1,17 @@
+# Ce que le dépôt du site NE suit pas.
+
+# ── Règles d'origine, conservées ────────────────────────────────────────────────
 .thumbnail
 scraps/
 *.napkin
+
+# ── Ajouté le 15 août 2026 ──────────────────────────────────────────────────────
+# Les vidéos pèsent 22 Mo à elles seules, ne changent presque jamais, et chaque
+# version enregistrée en garderait une copie entière. Elles vivent sur le serveur.
+assets/*.mp4
+
+# Les dépendances sont réinstallables : elles n'ont rien à faire dans l'historique.
+node_modules/
+
+# Ce que macOS sème dans les dossiers.
+.DS_Store

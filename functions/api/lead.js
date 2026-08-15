@@ -61,9 +61,23 @@ async function insert(payload) {
 // l'expéditeur en liste blanche. D'où l'ajout de l'adresse Gmail, qui ne partage pas
 // le domaine et reçoit donc normalement.
 //
-// contact@ est CONSERVÉ : si un jour la boîte du domaine est réparée ou changée
-// d'hébergeur, rien n'est à refaire, et en attendant aucune demande ne peut se perdre.
-const NOTIF_TO = ["bkredouard@gmail.com", "contact@lbcdemenagement.com"];
+// Anthony, l'associé, ajouté le 8 août 2026 : il reçoit les mêmes leads pour pouvoir
+// rappeler sans attendre. Adresse Hotmail, et c'est le point important — une adresse
+// @lbcdemenagement.com serait tombée dans les indésirables pour la raison expliquée
+// ci-dessus, comme contact@. Toute adresse ajoutée ici doit rester hors du domaine.
+//
+// ⚠️ contact@ RETIRÉ le 14 août 2026. Il avait été gardé « au cas où la boîte serait
+// réparée », mais la lecture IMAP de la boîte a montré ce que ça coûtait : 144 des 159
+// notifications depuis le 1er août classées en indésirables, la dernière le jour même.
+// Aucune n'était perdue, les deux adresses hors domaine les reçoivent. En revanche :
+//   - 144 messages de spam par quinzaine noient les VRAIS messages clients qui
+//     tomberaient dans ce dossier, et il en tombe (un client a déjà répondu à un mail
+//     dont l'objet portait « *** SPAM *** ») ;
+//   - un filtre qui voit passer autant de courrier du même expéditeur classé
+//     indésirable durcit sa règle, au détriment de tout ce que le domaine envoie.
+// Le seul bénéfice d'une copie d'archive dans une boîte que personne ne lit ne justifie
+// pas d'entraîner le filtre contre nous.
+const NOTIF_TO = ["bkredouard@gmail.com", "anthonycem@hotmail.fr"];
 const NOTIF_FROM = "Site LBC <notifications@lbcdemenagement.com>";
 
 const esc = (v) => String(v == null || v === "" ? "—" : v)

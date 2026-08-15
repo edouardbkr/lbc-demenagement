@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Pages de travail et anciennes adresses : rien à indexer.
+Disallow: /Apercu%20mobile
+Disallow: /Hero%20variations
+
 Sitemap: https://lbcdemenagement.com/sitemap.xml

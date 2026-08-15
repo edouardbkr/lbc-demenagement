@@ -127,7 +127,8 @@ function CGV() {
       </LBlock>
 
       <LBlock n="2" title="Devis et commande">
-        <p>Chaque prestation fait l'objet d'un devis gratuit, personnalisé et sans engagement, <strong>valable 30&nbsp;jours</strong>. Le devis détaille la formule retenue, l'inventaire déclaré, le volume estimé, les moyens engagés et le prix.</p>
+        <p>Chaque prestation fait l'objet d'un devis gratuit, personnalisé et sans engagement, <strong>valable 15&nbsp;jours</strong> ; passé ce délai, il peut être réactualisé sur simple demande. Le devis détaille la formule retenue, l'inventaire déclaré, le volume estimé, les moyens engagés et le prix.</p>
+        <p><strong>La date du déménagement n'est réservée qu'à réception de l'acompte.</strong> Tant qu'il n'est pas versé, le créneau reste disponible pour un autre client, même si un devis a été émis.</p>
         <p>La commande devient ferme à la signature du devis et au versement de l'acompte. Le devis signé prévaut sur toute estimation indicative affichée sur le site ou communiquée par téléphone.</p>
       </LBlock>
 
@@ -203,12 +204,17 @@ function CGV() {
       </LBlock>
 
       <LBlock n="11" title="Assurance et indemnisation">
-        <p>La prestation inclut, sans supplément, l'<strong>assurance de responsabilité contractuelle du déménageur</strong> souscrite par LBC Déménagement auprès de <strong>Generali IARD</strong> (contrat Polytrans, par l'intermédiaire de SARL SYLCO, 18 rue de Lépante, 06000 Nice) — police n°&nbsp;<Fill>numéro de police d'assurance figurant sur l'attestation</Fill>.</p>
+        <p>La prestation inclut, sans supplément, l'<strong>assurance de responsabilité contractuelle du déménageur</strong> souscrite par LBC Déménagement auprès de <strong>Generali IARD</strong> (contrat Polytrans, par l'intermédiaire de SARL SYLCO, 18 rue de Lépante, 06000 Nice). L'attestation d'assurance est communiquée sur simple demande à contact@lbcdemenagement.com.</p>
         <p>Elle couvre les biens déménagés, y compris pendant les opérations de démontage, remontage, emballage et déballage, dans les limites suivantes&nbsp;:</p>
         <ul className="legal-defs">
           <li><strong>Déménagement de particuliers</strong> — indemnisation à concurrence de la valeur déclarée des biens, sans pouvoir excéder <strong>8&nbsp;000&nbsp;€ par objet</strong> et <strong>150&nbsp;000&nbsp;€ par déménagement</strong>. Franchise&nbsp;: <strong>350&nbsp;€</strong>.</li>
           <li><strong>Déménagement d'entreprises</strong> — mobilier et documents&nbsp;: <strong>230&nbsp;€ par m³</strong> confié&nbsp;; matériel et machines&nbsp;: 14&nbsp;€ par kilo, dans la limite de 15&nbsp;000&nbsp;€ par unité de charge&nbsp;; plafond de <strong>250&nbsp;000&nbsp;€ par déménagement</strong>. Franchise&nbsp;: <strong>750&nbsp;€</strong>.</li>
         </ul>
+        {/* Les franchises ci-dessus appartiennent au contrat qui lie LBC à son assureur ;
+            le client n'y est pas partie. Les laisser dans la liste des limites d'indemnisation
+            laissait croire qu'elles étaient déduites de ce qu'il perçoit, ce qui n'a jamais été
+            la pratique de LBC. Un prospect l'a lu ainsi le 7 août 2026. C'est désormais écrit. */}
+        <p><strong>Ces franchises restent intégralement à la charge de LBC Déménagement.</strong> Elles relèvent du contrat qui nous lie à notre assureur et ne sont <strong>jamais déduites de l'indemnité versée au client</strong>&nbsp;: le bien endommagé est indemnisé dès le premier euro.</p>
         <p>Sont exclus de cette garantie, conformément au contrat d'assurance&nbsp;: les dommages résultant d'une faute du client ou d'un emballage réalisé par lui, la vétusté et l'usure, les éraflures et craquellements de vernis, les meubles vermoulus, le désaccordement des instruments de musique, le décollement des meubles et des cadres, la panne d'un appareil qui ne résulte pas d'un événement caractérisé de transport, la perte de données sur support informatique, le coulage de liquides laissés dans des contenants mal fermés, ainsi que les biens visés à l'article 8.</p>
         <p><strong>Les objets d'art, sculptures, peintures, antiquités, fourrures, objets de curiosité ou de collection font l'objet de l'article 12&nbsp;: ils ne sont pas couverts par la garantie de base.</strong></p>
       </LBlock>
@@ -263,7 +269,7 @@ function CGV() {
 
       <LBlock n="20" title="Médiation et litiges">
         <p>En cas de différend, le client adresse d'abord une réclamation écrite à <a href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a>.</p>
-        <p>À défaut de solution sous deux mois, le client consommateur peut recourir <strong>gratuitement</strong> au médiateur de la consommation dont relève LBC Déménagement&nbsp;: <Fill>nom du médiateur de la consommation, son adresse postale et l'adresse de son site internet</Fill>. La saisine du médiateur est possible dans un délai maximal d'un an à compter de la réclamation écrite.</p>
+        <p>À défaut de solution sous deux mois, le client consommateur peut recourir <strong>gratuitement</strong> au médiateur de la consommation dont relève LBC Déménagement, dont les coordonnées lui sont communiquées sur simple demande à cette même adresse. La saisine du médiateur est possible dans un délai maximal d'un an à compter de la réclamation écrite.</p>
         <p>Le client peut également recourir à la plateforme européenne de règlement en ligne des litiges. À défaut d'accord amiable, les litiges relèvent des tribunaux compétents&nbsp;; le droit applicable est le droit français.</p>
       </LBlock>
     </React.Fragment>);

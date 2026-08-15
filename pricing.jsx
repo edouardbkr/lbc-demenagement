@@ -116,10 +116,27 @@
         12 m³ Mains libres  → 600 à 840 €, milieu 720 €  (il annonçait 700 €)
         20 m³ Coup de main  → 700 à 1 000 €, milieu 850 €  (il annonçait 800-900 €)
         40 m³ Mains libres  → à partir de 2 000 €  (il annonçait 2 000 € minimum)  */
+    /* ── BAISSE DU 9 AOÛT 2026, DÉCIDÉE PAR EDOUARD ──────────────────────────
+       Le marché ne suit plus sur les volumes moyens : un 30 m³ à 155 km sortait à
+       1 530 € alors qu'il fallait viser 1 300 à 1 600 €. On baisse donc le tarif au m³,
+       MAIS UNIQUEMENT jusqu'à 32 m³.
+
+       Pourquoi 32 et pas un autre nombre : c'est la capacité maximale d'Edouard SANS
+       louer un SECOND camion (un 20 m³ loué + son 12 m³ à lui, qui ne coûte rien). À
+       partir de 33 m³ il paie une deuxième location, une deuxième assurance, un deuxième
+       forfait kilométrique et un deuxième plein. Baisser là aussi l'aurait fait
+       travailler à moins de 300 € de marge par jour de camion sur les gros chantiers,
+       ce qu'il a refusé, à raison.
+
+       `m3Bas`/`m3Haut` s'appliquent jusqu'au seuil ; `m3BasGros`/`m3HautGros` au-delà,
+       et ces derniers sont les tarifs d'AVANT la baisse, inchangés.
+
+       ⚠️ Doit rester identique à I_GRILLE et I_SEUIL_2E_CAMION dans interne.jsx (cockpit).  */
+    seuilDeuxiemeCamionM3: 32,
     grilleFormule: {
-      standard: { m3Bas: 35, m3Haut: 50, plancherBas: 400, plancherHaut: 550 },  // Coup de main
-      premium:  { m3Bas: 50, m3Haut: 70, plancherBas: 550, plancherHaut: 750 },  // Mains libres
-      luxe:     { m3Bas: 50, m3Haut: 70, plancherBas: 550, plancherHaut: 750 }   // chiffré sur Mains libres
+      standard: { m3Bas: 30, m3Haut: 40, m3BasGros: 35, m3HautGros: 50, plancherBas: 400, plancherHaut: 550 },  // Coup de main
+      premium:  { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 550, plancherHaut: 750 },  // Mains libres
+      luxe:     { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 550, plancherHaut: 750 }   // chiffré sur Mains libres
     },
 
     /* ── LE KILOMÈTRE ────────────────────────────────────────────────────────
@@ -158,11 +175,56 @@
        Elle était fixée à 1,05 €, soit une remise de 32 % pour un gain réel de 18 % :
        trop généreuse. Portée à 1,35 € le 6 août 2026 sur proposition d'Edouard, ce
        qui donne 2,30 €/km pour un camion au lieu de 2,00 €.                        */
+    /* ── L'APPROCHE DEPUIS LA BASE ────────────────────────────────────────────
+       LBC part de Nice. Un chantier Marseille → Aix, c'est 30 km de déménagement mais
+       200 km d'approche à vide, ALLER ET RETOUR : 400 km de camion que personne ne
+       payait. Un chantier local à Lyon rapportait 940 € pour 940 km roulés à vide.
+
+       Le camion d'approche coûte réellement ~1,00 €/km (gazole + péage sur l'aller-retour
+       + forfait km du loueur). On facture 0,90 €, soit à peu près le coût, sans marge
+       dessus : l'objectif est d'arrêter de perdre de l'argent, pas d'en gagner sur la
+       route.
+
+       50 km offerts, parce que c'est la zone naturelle : Nice, Cannes, Antibes, Monaco,
+       Cagnes, Le Cannet ne bougent pas d'un euro. Décision d'Edouard du 10 août 2026.
+
+       ⚠️ Doit rester identique à I_APPROCHE dans interne.jsx (cockpit).             */
+    baseLat: 43.7102, baseLng: 7.2620,   // 12 rue d'Italie, 06000 Nice
+    approcheFranchiseKm: 50,
+    approcheTarifKm: 0.90,
+
     kmInclus: 15,
+    /* UN SEUL TARIF PAR KILOMÈTRE ET PAR CAMION.
+   ⚠️ REFONTE DU 9 AOÛT 2026, DÉCIDÉE PAR EDOUARD.
+   Le tarif était décomposé en « temps » (1,55 € puis 1,35 €, compté UNE SEULE FOIS quel
+   que soit le nombre de camions) et « frais » (0,95 € par camion). L'idée était que les
+   camions roulent en même temps, donc que la conduite ne se facture pas trois fois.
+
+   Elle était fausse : trois camions, ce sont trois conducteurs mobilisés, même
+   simultanément. Et l'effet chiffré était brutal — à trois camions, chaque camion ne
+   rapportait plus que 1,40 €/km alors que ses seuls frais (gazole, péage, forfait km du
+   loueur) en coûtaient 1,35. Un Nice-Paris à 60 m³ dégageait 184 € de marge par jour de
+   camion, contre 744 € sur un 20 m³ local.
+
+   Un seul tarif par kilomètre et par camion, donc. Plus aucune notion de temps ni
+   d'heures : le prix se compose du m³, du kilomètre par camion, du démontage-remontage,
+   du portage et des étages. Rien d'autre.
+
+   Conséquence assumée : les chantiers à UN camion baissent (2,50 € -> 1,80 €/km), ceux à
+   deux ou trois montent (4,40 € -> 5,40 €/km à trois). C'est l'inverse exact du défaut.
+
+       ⚠️ Doit rester identique à I_TARIF_KM dans interne.jsx (cockpit).            */
     tarifKm: [
-      { jusquKm: 300,      temps: 1.55, frais: 0.95 },
-      { jusquKm: Infinity, temps: 1.35, frais: 0.95 }
+      { jusquKm: 500,      parCamion: 1.80 },
+      { jusquKm: Infinity, parCamion: 1.75 }
     ],
+
+    /* Le 12 m³ appartient à LBC : il n'y a pas de location à répercuter, seulement du
+       carburant, du péage et de l'usure. Son kilomètre est donc facturé moins cher que
+       celui d'un 20 m³ loué. Ce n'est pas une remise commerciale, c'est le reflet d'un
+       coût réellement plus bas — ce qui le rend défendable au téléphone.
+       ⚠️ Doit rester identique à I_TARIF_KM_PROPRE dans interne.jsx. */
+    tarifKmPropre: 1.50,
 
     // En dessous, sortir le camion n'a pas de sens. Remplace l'ancien plancher de
     // 900 €, qui rendait tout petit déménagement local impossible à vendre.
@@ -235,13 +297,53 @@
       studio: { min: 5, typique: 12, max: 15 },
       t2: { min: 8, typique: 20, max: 25 },
       t3: { min: 12, typique: 30, max: 40 },
-      t4: { min: 18, typique: 42, max: 65 }
+      t4: { min: 18, typique: 42, max: 65 },
+      /* « Maison, plus de 90 m² » du widget d'accueil. Elle était chiffrée comme un
+         4 pièces, soit 42 m³, alors qu'une maison de cette taille en fait couramment
+         50 à 60 : le bouton des plus gros chantiers était celui qui sous-annonçait le
+         plus. Clé distincte de t4, pour ne pas déplacer l'estimation du formulaire,
+         où « 4 pièces + » désigne bien un appartement.
+         48 et pas 55 : l'incident documenté plus haut rappelle qu'une estimation à
+         65 m³ affichait près de 3 000 € en local et faisait fuir avant le premier
+         appel. 48 m³ relève l'annonce sans repasser ce seuil, et le prix ferme se
+         confirme de toute façon au téléphone, inventaire en main. */
+      maison: { min: 22, typique: 48, max: 90 }
     }
   };
 
   // Volumes de transport par meuble (m³) — table reprise du cockpit pour que le prix annoncé
   // au client et le devis calculé dans le cockpit partent de la MÊME base.
   const VOL = {
+    /* Libellés EXACTS du catalogue et des saisies manuelles. Sans eux, le repli à
+       0,80 m³ s'appliquait : un pot de fleur pesait autant qu'une commode. Et
+       « œuvre d'art / tableau » valait 1 m³ parce que le mot contient « table » —
+       la recherche par morceaux retient la plus GROSSE valeur, pas la plus précise.
+       Une clé exacte règle les deux cas : elle est consultée en premier. */
+    'appareil de sport / tapis':1.2,
+    'autre électroménager':0.5,
+    'dressing sur mesure, plus de 2 m':3,
+    'dressing à portes coulissantes':2.4,
+    'mobilier de véranda':1.5,
+    'plancha':0.3,
+    'plantes / jardinières':0.15,
+    'plante':0.15,
+    'jardinière':0.15,
+    "œuvre d'art / tableau":0.3,
+    "oeuvre d'art / tableau":0.3,
+    'tableau':0.3,
+    'cheminée':0.3,
+    'lampe':0.1,
+    'paravent':0.2,
+    'pot de fleur':0.08,
+    'malle':0.15,
+    /* ⚠️ LE CARTON N'EST PAS UN MEUBLE, ET IL MANQUAIT ICI.
+       Toute ligne d'inventaire contenant le mot « carton » retombait sur la valeur par
+       défaut de volMeuble, 0,80 m³, soit SEIZE FOIS le volume réel. Dix cartons de cave
+       pesaient 8 m³ au lieu de 0,5. Sur le dossier Fatim Dabo, le site a retenu 27 m³ au
+       lieu de 19, donc deux camions au lieu d'un, et a annoncé 3 850 € au lieu de 2 140 €.
+       Ces valeurs sont celles d'I_MEUBLES_VOL dans le cockpit : les deux tables doivent
+       dire la même chose du même meuble, sinon le prix du site et le devis divergent. */
+    'carton':0.05, 'cartons':0.05, 'carton standard':0.05, 'carton livres':0.04,
     'canapé 2 places': 1.5, 'canapé 3 places': 2.0, "canapé d'angle": 3.0, 'canapé convertible': 2.2, 'canapé': 1.8, 'fauteuil': 0.8, 'pouf': 0.3,
     'table basse': 0.5, 'meuble tv': 0.8, 'bibliothèque': 1.2, 'buffet': 1.3, 'vaisselier': 1.4, 'étagère': 0.7, 'meuble de rangement': 1.0,
     'lit simple': 1.0, 'lit double': 1.8, 'lit 2 places': 1.8, 'lit king size': 2.2, 'lit électrique': 2.0, 'lit coffre': 2.0, 'lit superposé': 2.0, 'lit 1 place': 1.0, 'sommier': 1.0, 'matelas double': 1.0, 'matelas': 0.8, 'lit': 1.5,
@@ -441,18 +543,26 @@
   // Supplément kilométrique, PROGRESSIF : les 15 premiers km sont inclus, puis chaque
   // tranche se facture à son tarif. Un trajet de 930 km paie donc 285 km à 2,50 €
   // puis 630 km à 2 €, et non 930 km au tarif de la dernière tranche.
-  function supplementKm(km, nbCamions) {
-    if (!(km > CFG.kmInclus)) return 0;
-    const n = Math.max(1, nbCamions || 1);
+  // Les kilomètres facturables d'UN camion loué, tranche par tranche.
+  function kmUnCamionLoue(km) {
     let precedent = CFG.kmInclus, total = 0;
     for (let i = 0; i < CFG.tarifKm.length; i++) {
       const t = CFG.tarifKm[i];
       const borne = Math.min(km, t.jusquKm);
-      // La part « frais » suit le nombre de camions, la part « temps » non.
-      if (borne > precedent) total += (borne - precedent) * (t.temps + t.frais * n);
+      if (borne > precedent) total += (borne - precedent) * t.parCamion;
       precedent = borne;
       if (km <= t.jusquKm) break;
     }
+    return total;
+  }
+  /* ⚠️ LE KILOMÈTRE SE FACTURE PAR CAMION, ET PLUS AU MÊME PRIX SELON LE CAMION.
+     On ne peut donc plus se contenter de compter les véhicules : il faut savoir lesquels.
+     Un 20 m³ loué est à 1,80 € (1,75 € au-delà de 500 km), le 12 m³ de la maison à 1,50 €. */
+  function supplementKm(km, fl) {
+    if (!(km > CFG.kmInclus)) return 0;
+    const f = (fl && typeof fl === 'object') ? fl : { loues: Math.max(1, fl || 1), propre: false };
+    const total = kmUnCamionLoue(km) * Math.max(0, f.loues)
+                + (f.propre ? (km - CFG.kmInclus) * CFG.tarifKmPropre : 0);
     return Math.round(total);
   }
 
@@ -491,12 +601,22 @@
   // Coût de location : zéro pour le camion de la maison, grille du loueur pour chaque
   // 20 m³ pris en renfort. Le camion et l'assurance se paient à la journée, le
   // kilométrage une seule fois sur le trajet total.
+  // Coût de location : zéro pour le camion de la maison, grille du loueur pour chaque
+  // 20 m³ pris en renfort.
+  //
+  // ⚠️ CORRIGÉ LE 10 AOÛT 2026. Le forfait kilométrique du loueur (49,50 € pour 100 km,
+  // 72,60 € pour 310 km…) COMPREND DÉJÀ LA PREMIÈRE JOURNÉE DE CAMION. Les 50 € par jour
+  // ne se paient qu'à partir de la DEUXIÈME journée. On les ajoutait à chaque location,
+  // y compris sur un chantier d'une journée : 50 € de coût inventé par camion, donc une
+  // marge affichée systématiquement trop basse sur tous les chantiers locaux.
+  // L'assurance, elle, est bien due chaque jour.
   function coutLocation(volume, km, nbJours) {
     const f = flotte(volume);
     if (!f.loues) return 0;
     const jours = Math.max(1, nbJours);
-    const parCamion = jours * (CFG.locationJourCamion + CFG.locationJourAssurance) +
-                      forfaitKmLoueur(km * 2);
+    const parCamion = forfaitKmLoueur(km * 2)
+                    + CFG.locationJourCamion * (jours - 1)
+                    + CFG.locationJourAssurance * jours;
     return Math.round(f.loues * parCamion);
   }
 
@@ -527,7 +647,14 @@
     // déménagement. La surface ne sert qu'à poser un plancher de crédibilité (inventaire
     // bâclé) ou à combler l'absence totale d'inventaire (on prend alors le haut de fourchette).
     let volBase;
-    if (aInventaire) volBase = Math.max(volInv, plage ? plage.min : 0);
+    /* ⚠️ L'INVENTAIRE DÉCLARÉ FAIT FOI, SANS PLANCHER. RÈGLE D'EDOUARD, 15 AOÛT 2026.
+       Cette ligne relevait le volume au minimum du logement dès qu'il paraissait « trop
+       faible ». Elle supposait que le client avait oublié des pièces. C'est faux : on
+       peut habiter un T4 et ne faire déménager que son salon. Le client déclarait 8,2 m³
+       et lisait « fourchette basée sur 20 m³ » sans jamais savoir qu'on avait multiplié
+       son inventaire par 2,4 — 9 devis sur 69 étaient dans ce cas, jusqu'à ×4,2.
+       Ce qu'il déclare est ce qu'on retient. */
+    if (aInventaire) volBase = volInv;
     // Sans meubles déclarés on part du volume TYPIQUE de ce logement, pas du maximum : le
     // maximum chiffrait chaque 4 pièces comme une maison et faisait fuir avant le premier
     // appel. On prend quand même le dessus si le client a annoncé un gros paquet de cartons
@@ -583,13 +710,21 @@
        reviendrait à facturer la route deux fois. Ils restent calculés plus bas
        pour que le cockpit affiche la marge réelle.                            */
     const g = CFG.grilleFormule[formuleEstimee] || CFG.grilleFormule.premium;
-    const volumeBas = Math.max(g.plancherBas, volume * g.m3Bas);
-    const volumeHaut = Math.max(g.plancherHaut, volume * g.m3Haut);
+    // Au-delà du seuil, un SECOND camion est loué : on revient au tarif d'avant la baisse.
+    const deuxiemeCamion = volume > CFG.seuilDeuxiemeCamionM3;
+    const tarifBas  = deuxiemeCamion ? g.m3BasGros  : g.m3Bas;
+    const tarifHaut = deuxiemeCamion ? g.m3HautGros : g.m3Haut;
+    const volumeBas = Math.max(g.plancherBas, volume * tarifBas);
+    const volumeHaut = Math.max(g.plancherHaut, volume * tarifHaut);
     // Le nombre de camions commande la part « frais » du kilomètre : il doit donc
     // être connu AVANT de calculer le prix, pas seulement au moment des coûts.
     const fl = flotte(volume);
     const nbCamions = fl.loues + (fl.propre ? 1 : 0);
-    const prixKm = supplementKm(km, nbCamions);
+    const prixKm = supplementKm(km, fl);
+    // Approche : ce qu'il en coûte d'aller travailler loin de la base. Facturée par camion,
+    // comme le reste, et seulement au-delà de la franchise.
+    const kmApp = Math.max(0, Math.round(o.kmApproche || 0) - CFG.approcheFranchiseKm);
+    const prixApproche = kmApp > 0 ? Math.round(kmApp * CFG.approcheTarifKm * nbCamions) : 0;
     const acces = surcoutAcces(o.depart, volume) + surcoutAcces(o.arrivee, volume);
     const dem = supplementDemontage(o.demontage, formuleEstimee);
     const spe = supplementSpeciaux(o.inventaire);
@@ -599,7 +734,7 @@
        et un dressing à démonter ne sont pas des incertitudes : ils sont là ou ils
        n'y sont pas. Les faire varier avec la fourchette laisserait croire qu'on
        hésite sur des faits que le client vient justement de déclarer. */
-    const options = prixKm + acces + dem.total + spe.total + mm.total;
+    const options = prixKm + prixApproche + acces + dem.total + spe.total + mm.total;
     const bas = arrondi10(volumeBas + options);
     const haut = arrondi10(volumeHaut + options);
     const prixVolume = Math.round(volumeBas);   // conservé pour le détail de la fiche
@@ -632,6 +767,7 @@
 
     return {
       bas, haut, volume, km,
+      kmApproche: Math.round(o.kmApproche || 0), prixApproche,
       // false = la distance n'a pas pu être calculée. Celui qui affiche ce résultat DOIT
       // masquer le prix dans ce cas, et proposer un rappel plutôt qu'un chiffre inventé.
       distanceFiable,
@@ -657,7 +793,9 @@
                 // Volume réellement déclaré par le client, et si le garde-fou a dû prendre le
                 // relais : c'est le signal qu'il faut vérifier l'inventaire au téléphone.
                 volumeDeclare: Math.round(volInv * 10) / 10,
-                plancherApplique: aInventaire && volInv < (plage ? plage.min : 0) }
+                /* Conservé à false : plus aucun volume n'est relevé. Le champ reste pour
+                   ne pas casser ce qui le lit encore. */
+                plancherApplique: false }
     };
   }
 
@@ -667,12 +805,44 @@
   // à la volée via la Base Adresse Nationale (gratuit, sans clé). En cas d'échec on
   // renvoie null et l'estimation retombe sur la distance par défaut.
   // ─────────────────────────────────────────────────────────────────────────
-  function coordsDe(adresse) {
-    if (!adresse) return Promise.resolve(null);
-    const cache = window.LBC_GEO || {};
-    const hit = cache[String(adresse).trim().toLowerCase()];
-    if (hit) return Promise.resolve(hit);
-    return fetch("https://api-adresse.data.gouv.fr/search/?limit=1&q=" + encodeURIComponent(adresse))
+  /* ⚠️ ON NE RENONCE PAS AU PREMIER ÉCHEC.
+     Une seule requête ratée et le client ne voyait AUCUN prix : la page annonçait
+     « nous vous rappelons » à quelqu'un venu chercher un montant. C'est arrivé deux
+     fois sur quatre-vingt-cinq demandes en deux mois, et les quatre adresses
+     concernées étaient parfaitement valides — c'est le service d'annuaire qui n'avait
+     pas répondu à cet instant.
+
+     On essaie donc l'adresse complète, puis, à défaut, le code postal et la commune
+     seuls : « 06250 Mougins » situe le chantier à un kilomètre près, ce qui est
+     largement assez pour une FOURCHETTE. Et ce second appel rattrape au passage
+     l'aléa réseau d'une seconde, qui est la cause la plus probable.
+
+     Une distance approchée vaut infiniment mieux que pas de prix du tout. */
+  function versionsDe(adresse) {
+    const s = String(adresse || "").trim();
+    if (!s) return [];
+    const out = [s];
+    /* ⚠️ LE CODE POSTAL D'ABORD, LA VIRGULE ENSUITE.
+       Quand le client passe par l'autocomplétion, l'adresse revient d'un seul tenant :
+       « 329 Rue Fontvieille 06250 Mougins », sans virgule. C'est le cas le PLUS
+       fréquent, et un repli qui ne saurait couper que sur la virgule l'aurait raté
+       précisément là où il sert le plus.
+       On coupe donc au code postal, qui marque toujours le début de la commune. */
+    const cp = s.match(/\b\d{5}\b/);
+    if (cp) {
+      const commune = s.slice(cp.index).trim();
+      if (commune && commune !== s) out.push(commune);
+    }
+    const virgule = s.lastIndexOf(",");
+    if (virgule > 0) {
+      const commune = s.slice(virgule + 1).trim();
+      if (commune && commune !== s && out.indexOf(commune) < 0) out.push(commune);
+    }
+    return out;
+  }
+
+  function geocoder(requete) {
+    return fetch("https://api-adresse.data.gouv.fr/search/?limit=1&q=" + encodeURIComponent(requete))
       .then((r) => r.json())
       .then((d) => {
         const f = (d.features || [])[0];
@@ -680,6 +850,18 @@
         return { lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1] };
       })
       .catch(() => null);
+  }
+
+  function coordsDe(adresse) {
+    if (!adresse) return Promise.resolve(null);
+    const cache = window.LBC_GEO || {};
+    const hit = cache[String(adresse).trim().toLowerCase()];
+    if (hit) return Promise.resolve(hit);
+    const essais = versionsDe(adresse);
+    return essais.reduce(
+      (chaine, requete) => chaine.then((trouve) => trouve || geocoder(requete)),
+      Promise.resolve(null)
+    );
   }
 
   function haversine(a, b) {
@@ -697,5 +879,15 @@
     }).catch(() => null);
   }
 
-  window.LBC_PRICING = { estimer, distanceKm, CFG };
+  // Distance à vol d'oiseau corrigée entre la base de Nice et l'adresse de départ du
+  // chantier. Sert à facturer l'approche. Renvoie 0 si l'adresse est introuvable : on
+  // préfère ne rien facturer plutôt que d'inventer un supplément.
+  function distanceBase(depart) {
+    return coordsDe(depart).then((a) => {
+      if (!a) return 0;
+      return Math.round(haversine({ lat: CFG.baseLat, lon: CFG.baseLng }, a) * CFG.coefRoute);
+    }).catch(() => 0);
+  }
+
+  window.LBC_PRICING = { estimer, distanceKm, distanceBase, CFG };
 })();

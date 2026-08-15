@@ -63,6 +63,19 @@
     if (!jours.length) return null;
     const courant = jours.find((j) => j.key === jour) || jours[0];
 
+    // Rappel immédiat. On envoie la date du jour et l'heure courante : le cockpit le
+    // classe donc en tête des rappels dus, sans avoir besoin d'un champ supplémentaire.
+    const maintenant = () => {
+      if (confirming) return;
+      const n = new Date();
+      onConfirm({
+        date: ymd(n),
+        heure: p2(n.getHours()) + ":" + p2(n.getMinutes()),
+        label: "tout de suite",
+        immediat: true
+      });
+    };
+
     const valider = () => {
       if (!heure || confirming) return;
       const d = courant.date;
@@ -76,6 +89,18 @@
           <h4>Quand souhaitez-vous qu'on vous appelle&nbsp;?</h4>
           <p>On vous confirme votre prix exact en 5 minutes au téléphone. <strong>7 jours sur 7, jusqu'à 22h</strong> : choisissez votre moment, on s'adapte.</p>
         </div>
+
+        {/* Le prospect qui vient de voir son prix est chaud MAINTENANT. Lui imposer de
+            choisir un créneau à 14h le refroidit et laisse le temps d'appeler ailleurs.
+            Ce bouton est donc en premier, avant la grille des jours et des heures. */}
+        <button type="button" className="rdv-now" disabled={confirming} onClick={maintenant}>
+          <span className="rdv-now-ic" aria-hidden="true">📞</span>
+          <span className="rdv-now-txt">
+            <strong>{confirming ? "Enregistrement…" : "Rappelez-moi tout de suite"}</strong>
+            <span>On vous appelle dans les minutes qui suivent</span>
+          </span>
+        </button>
+        <div className="rdv-sep"><span>ou choisissez votre créneau</span></div>
 
         <div className="rdv-days" role="group" aria-label="Choisir un jour">
           {jours.map((j) => {

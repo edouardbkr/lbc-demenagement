@@ -10,12 +10,6 @@ const FORMULE_TO_APP = {
   premium: "standard",
   luxe: "premium"
 };
-const SURFACE_VOL = {
-  studio: 14,
-  t2: 25,
-  t3: 40,
-  t4: 60
-};
 const ASC_CAP_TO_TAILLE = {
   "1 pers": "1 personne",
   "2 pers": "2 personnes",
@@ -40,9 +34,23 @@ const villeFrom = addr => {
   const parts = String(addr).split(",").map(s => s.trim()).filter(Boolean);
   return parts.length ? parts[parts.length - 1] : addr;
 };
+const adresseComplete = (all, s) => {
+  const rue = String(all[s] || "").trim();
+  const ville = String(all[s + "_ville"] || "").trim();
+  if (!rue) return ville;
+  if (!ville) return rue;
+  const cp = (ville.match(/\b\d{5}\b/) || [])[0];
+  if (cp && rue.indexOf(cp) >= 0) return rue;
+  if (!cp) {
+    const nu = ville.trim().toLowerCase();
+    if (nu && rue.toLowerCase().endsWith(nu)) return rue;
+  }
+  const m = ville.match(/^(.*?)[\s,]+(\d{5})$/);
+  return rue + ", " + (m ? m[2] + " " + m[1].trim() : ville);
+};
 const sideOf = (all, s) => ({
-  adresse: all[s] || "",
-  ville: villeFrom(all[s]),
+  adresse: adresseComplete(all, s),
+  ville: (all[s + "_ville"] || "").trim() || villeFrom(all[s]),
   etage: etageNum(all[s + "_etage"]),
   ascenseur: all[s + "_asc"] === "Oui",
   ascTaille: all[s + "_asc"] === "Oui" ? ASC_CAP_TO_TAILLE[all[s + "_asc_cap"]] || "" : "Aucun",
@@ -62,7 +70,7 @@ function sendToCockpit(all, opts) {
     qty: x[1]
   }));
   const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
-  const notes = [all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.demontageLignes || []).length ? "🔧 Démontage déclaré : " + opts.estimation.detail.demontageLignes.map(function (l) {
+  const notes = [opts.partiel && all.surface ? "🏠 Logement déclaré : " + all.surface + " (aucun volume : le formulaire n'est pas allé jusqu'à l'inventaire)" : "", all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.demontageLignes || []).length ? "🔧 Démontage déclaré : " + opts.estimation.detail.demontageLignes.map(function (l) {
     return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " " + (l.facture ? "= " + l.montant + " €" : "(compris dans la formule)") + (l.connu ? "" : " ⚠️ tarif non répertorié, à vérifier");
   }).join(" · ") + ". Total facturé " + opts.estimation.detail.demontage + " €, DÉJÀ compris dans la fourchette ci-dessus." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.speciauxLignes || []).length ? "🎹 Objets spéciaux : " + opts.estimation.detail.speciauxLignes.map(function (l) {
     return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " = " + l.montant + " €";
@@ -71,7 +79,7 @@ function sendToCockpit(all, opts) {
     if (opts.estimation && all.depart_monte === "Je ne sais pas") c.push("au départ");
     if (opts.estimation && all.arrivee_monte === "Je ne sais pas") c.push("à l'arrivée");
     return c.length ? "🏗 Monte-meuble INCERTAIN " + c.join(" et ") + " : le client ne sait pas. Rien n'a été facturé. À trancher à l'appel, c'est 400 à 600 € par façade." : "";
-  }(), opts.estimation && opts.estimation.visioRequise ? "📦 MAINS DANS LES POCHES demandée. Le prix ci-dessus est celui de MAINS LIBRES, l'emballage n'est pas compris. Le client a été prévenu à l'écran qu'une visio ou des photos sont nécessaires. À caler à l'appel." : "", opts.estimation && opts.estimation.detail && opts.estimation.distanceFiable ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ? "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "", opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "", all && all._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : "", !opts.partiel && !opts.estimation ? "🚨 AUCUN PRIX N'A ÉTÉ AFFICHÉ à ce client : le moteur d'estimation n'a pas tourné. Chiffrer à la main." : "", at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") + (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") + (at.referent ? " · venu de " + at.referent : "") : ""].filter(Boolean).join("\n");
+  }(), opts.estimation && opts.estimation.visioRequise ? "📦 MAINS DANS LES POCHES demandée. Le prix ci-dessus est celui de MAINS LIBRES, l'emballage n'est pas compris. Le client a été prévenu à l'écran qu'une visio ou des photos sont nécessaires. À caler à l'appel." : "", opts.estimation && opts.estimation.detail && opts.estimation.distanceFiable ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "", opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ? "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "", opts.estimation && opts.estimation.prixApproche > 0 ? "🚚 Approche facturée : " + opts.estimation.kmApproche + " km depuis Nice, soit " + opts.estimation.prixApproche + " € (50 km offerts, puis 0,90 €/km/camion). Sans ça, ce chantier partait à perte sur la route." : "", opts.rdv && opts.rdv.immediat ? "🔥 RAPPEL IMMÉDIAT DEMANDÉ. Le client a cliqué « rappelez-moi tout de suite » : il attend l'appel MAINTENANT. C'est le lead le plus chaud possible, chaque minute compte." : opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "", all && all._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : "", !opts.partiel && !opts.estimation ? "🚨 AUCUN PRIX N'A ÉTÉ AFFICHÉ à ce client : le moteur d'estimation n'a pas tourné. Chiffrer à la main." : "", at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") + (at.canalPremier && at.canalPremier !== at.canal ? " (1er contact via " + at.canalPremier + " le " + at.premierContactLe + ")" : "") + (at.referent ? " · venu de " + at.referent : "") : ""].filter(Boolean).join("\n");
   const payload = {
     source: at && at.canal || "site_web",
     attribution: at || null,
@@ -87,7 +95,8 @@ function sendToCockpit(all, opts) {
     codeParrain: (all.codeParrain || "").trim().toUpperCase(),
     formule: FORMULE_TO_APP[all.formule] || "standard",
     formulaireType: opts.partiel ? "partiel" : inventaire.length ? "detaille" : "basique",
-    volumeEstime: opts.estimation ? opts.estimation.volume : SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null,
+    volumeEstime: opts.estimation ? opts.estimation.volume : null,
+    logementDeclare: all.surface || "",
     estimationBasse: opts.estimation ? opts.estimation.bas : null,
     estimationHaute: opts.estimation ? opts.estimation.haut : null,
     km: opts.estimation ? opts.estimation.km : null,
@@ -299,8 +308,8 @@ function getPrefill() {
     email: p.get("email") || "",
     type: p.get("type") || "",
     surface: p.get("surface") || "",
-    depart: p.get("depart") || "",
-    arrivee: p.get("arrivee") || "",
+    depart_ville: p.get("depart") || "",
+    arrivee_ville: p.get("arrivee") || "",
     date: p.get("date") || "",
     lead: p.get("lead") || "",
     etape: p.get("etape") || ""
@@ -383,10 +392,26 @@ function AccessBlock({
     className: "access-dot"
   }), label), React.createElement(AddressField, {
     className: "lf",
+    name: side + "_ville",
+    type: "municipality",
+    label: React.createElement(React.Fragment, null, "Ville ", showErrors && !v("ville") && React.createElement("span", {
+      className: "req-hint"
+    }, "\u2014 \xE0 remplir")),
+    placeholder: "Nice",
+    defaultValue: v("ville"),
+    onValue: val => set(f("ville"), val),
+    error: showErrors && !v("ville")
+  }), React.createElement(AddressField, {
+    className: "lf",
     name: side,
-    label: addrLabel,
-    placeholder: "N\xB0, rue, ville\u2026",
+    label: React.createElement(React.Fragment, null, addrLabel, " ", React.createElement("span", {
+      className: "access-hint"
+    }, "\u2014 n\xB0 et rue"), " ", showErrors && !(data[side] || "").trim() && React.createElement("span", {
+      className: "req-hint"
+    }, "\u2014 \xE0 remplir")),
+    placeholder: "Num\xE9ro et nom de la rue",
     defaultValue: data[side],
+    pres: v("ville"),
     onValue: val => set(side, val),
     error: showErrors && !(data[side] || "").trim()
   }), React.createElement("div", {
@@ -469,8 +494,10 @@ function DevisForm() {
   const [data, setData] = useState({
     surface: PRE.surface || "",
     formule: "premium",
-    depart: PRE.depart,
-    arrivee: PRE.arrivee,
+    depart: "",
+    arrivee: "",
+    depart_ville: PRE.depart_ville,
+    arrivee_ville: PRE.arrivee_ville,
     date: PRE.date,
     tel: PRE.tel,
     nom: PRE.nom,
@@ -538,6 +565,7 @@ function DevisForm() {
   };
   const sideComplete = s => {
     if (!(data[s] || "").trim()) return false;
+    if (!(data[s + "_ville"] || "").trim()) return false;
     if (!data[s + "_etage"]) return false;
     if (!data[s + "_asc"]) return false;
     if (data[s + "_asc"] === "Oui" && !data[s + "_asc_cap"]) return false;
@@ -546,11 +574,11 @@ function DevisForm() {
     return true;
   };
   const step1Complete = sideComplete("depart") && sideComplete("arrivee") && !!data.date && !!data.flex;
-  const step0Complete = !!(data.nom || "").trim() && !!(data.tel || "").trim() && !!(data.email || "").trim() && !!data.type && !!data.surface;
+  const step0Complete = !!(data.nom || "").trim() && !!(data.tel || "").trim() && !!(data.email || "").trim() && !!data.type && !!data.surface && !!(data.depart_ville || "").trim() && !!(data.arrivee_ville || "").trim();
   const waLead = () => {
     const who = (data.nom || "").trim();
-    const dep = (data.depart || "").trim();
-    const arr = (data.arrivee || "").trim();
+    const dep = (data.depart_ville || data.depart || "").trim();
+    const arr = (data.arrivee_ville || data.arrivee || "").trim();
     const dt = (data.date || "").trim();
     const trajet = dep && arr ? "Déménagement de " + dep + " vers " + arr : dep ? "Déménagement depuis " + dep : "Déménagement";
     const quand = dt ? ", prévu le " + dt : "";
@@ -603,7 +631,7 @@ function DevisForm() {
     let estim = null;
     try {
       if (window.LBC_PRICING) {
-        const km = await Promise.race([window.LBC_PRICING.distanceKm(all.depart, all.arrivee), new Promise(r => setTimeout(() => r(null), 8000))]);
+        const [km, kmApproche] = await Promise.all([Promise.race([window.LBC_PRICING.distanceKm(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")), new Promise(r => setTimeout(() => r(null), 8000))]), Promise.race([window.LBC_PRICING.distanceBase(adresseComplete(all, "depart")), new Promise(r => setTimeout(() => r(0), 8000))])]);
         estim = window.LBC_PRICING.estimer({
           surface: all.surface,
           inventaire: window.buildInventoryArray ? window.buildInventoryArray(all) : [],
@@ -611,6 +639,7 @@ function DevisForm() {
           formule: all.formule,
           demontage: all.demontage,
           km: km,
+          kmApproche: kmApproche,
           depart: sideOf(all, "depart"),
           arrivee: sideOf(all, "arrivee")
         });
@@ -650,7 +679,7 @@ function DevisForm() {
         rdv: choix
       }), new Promise(r => setTimeout(() => r(null), 6000))]);
     } catch (e) {}
-    if (window.fbq) window.fbq("trackCustom", "RappelDemande");
+    if (window.fbq) window.fbq("trackCustom", choix.immediat ? "RappelImmediat" : "RappelDemande");
     if (window.gtag) window.gtag("event", "rappel_demande", {
       value: estim ? estim.bas : undefined,
       currency: "EUR",
@@ -837,6 +866,32 @@ function DevisForm() {
     selected: data.type === 'bureau',
     onSelect: v => set('type', v)
   }))), React.createElement("div", {
+    className: "lf full"
+  }, React.createElement("div", {
+    className: "form-section-head"
+  }, "Votre trajet ", React.createElement("span", null, "\u2014 pour situer votre d\xE9m\xE9nagement"))), React.createElement(AddressField, {
+    className: "lf",
+    name: "depart_ville",
+    type: "municipality",
+    label: React.createElement(React.Fragment, null, "Ville de d\xE9part ", tried0 && !(data.depart_ville || '').trim() && React.createElement("span", {
+      className: "req-hint"
+    }, "\u2014 \xE0 remplir")),
+    placeholder: "Nice",
+    defaultValue: data.depart_ville,
+    onValue: v => set('depart_ville', v),
+    error: tried0 && !(data.depart_ville || '').trim()
+  }), React.createElement(AddressField, {
+    className: "lf",
+    name: "arrivee_ville",
+    type: "municipality",
+    label: React.createElement(React.Fragment, null, "Ville d'arriv\xE9e ", tried0 && !(data.arrivee_ville || '').trim() && React.createElement("span", {
+      className: "req-hint"
+    }, "\u2014 \xE0 remplir")),
+    placeholder: "Marseille",
+    defaultValue: data.arrivee_ville,
+    onValue: v => set('arrivee_ville', v),
+    error: tried0 && !(data.arrivee_ville || '').trim()
+  }), React.createElement("div", {
     className: "lf full"
   }, React.createElement("label", null, "Surface actuelle ", tried0 && !data.surface && React.createElement("span", {
     className: "req-hint"

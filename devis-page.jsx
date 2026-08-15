@@ -10,7 +10,11 @@ const { useState, useEffect, useRef } = React;
 // bloqueurs de pub → leads perdus). Tout passe par /api/lead, une fonction sur notre propre domaine.
 // Formules site → clés app (libellés identiques côté app : Coup de main / Mains libres / Mains dans les poches)
 const FORMULE_TO_APP = { standard: "eco", premium: "standard", luxe: "premium" };
-const SURFACE_VOL = { studio: 14, t2: 25, t3: 40, t4: 60 };
+/* ⚠️ TABLE RETIRÉE LE 15 AOÛT 2026, NE PAS LA RÉTABLIR.
+   Elle traduisait un type de logement en volume à l'étape 1. Ce volume n'était pas celui
+   de l'estimateur — « T4 » valait 60 m³ ici et 20 m³ là, pour le même appartement — et le
+   cockpit dimensionnait les camions sur le premier chiffre venu sans jamais le corriger
+   quand le vrai arrivait. Le volume ne vient plus que de l'inventaire réel du client. */
 // Capacité cabine ascenseur (site) → taille (app)
 const ASC_CAP_TO_TAILLE = { "1 pers": "1 personne", "2 pers": "2 personnes", "3 pers": "3-4 personnes", "4 pers": "3-4 personnes", "5+ pers": "6+ personnes" };
 // Distance de portage (site, fourchette) → mètres représentatifs (champ numérique app)
@@ -22,9 +26,41 @@ const villeFrom = (addr) => {
   const parts = String(addr).split(",").map((s) => s.trim()).filter(Boolean);
   return parts.length ? parts[parts.length - 1] : addr;
 };
+/* ADRESSE COMPLÈTE = la rue saisie à l'étape 2 + la commune choisie à l'étape 1.
+   ⚠️ Elles sont recollées ICI et nulle part ailleurs. Avant, le champ adresse de l'étape 2
+   arrivait pré-rempli avec la ville ; le prospect cliquait dedans, tapait sa rue par-dessus,
+   et la ville disparaissait. Il ne restait que « 12 rue des Lauriers », que la Base Adresse
+   Nationale situe à Clermont-Ferrand. C'est ce qui a transformé un Nîmes → Nîmes en 45 km.
+   La ville a désormais son propre champ, que la saisie de la rue ne peut plus effacer. */
+const adresseComplete = (all, s) => {
+  const rue = String(all[s] || "").trim();
+  const ville = String(all[s + "_ville"] || "").trim();
+  if (!rue) return ville;
+  if (!ville) return rue;
+  /* L'autocomplétion de rue renvoie déjà « 12 Rue des Lauriers 30000 Nîmes » : on ne
+     recolle pas la commune dans ce cas, sinon l'adresse la contient deux fois.
+     On se fie au CODE POSTAL, pas au nom : « Avenue de Nice » contient « Nice » sans
+     être à Nice, et se faire duper là-dessus renverrait l'adresse à Antibes. */
+  const cp = (ville.match(/\b\d{5}\b/) || [])[0];
+  if (cp && rue.indexOf(cp) >= 0) return rue;
+  // Sans code postal, on ne saute le recollage que si la rue se TERMINE par la commune.
+  if (!cp) {
+    const nu = ville.trim().toLowerCase();
+    if (nu && rue.toLowerCase().endsWith(nu)) return rue;
+  }
+  /* Ordre postal français : « 12 rue d'Italie, 30000 Nîmes ». Le champ ville, lui, vaut
+     « Nîmes 30000 » (le code postal est collé après le nom pour distinguer les communes
+     homonymes dans la liste). On remet le code postal DEVANT en recollant : c'est le seul
+     ordre que le découpage du cockpit sait lire, et celui qu'attend le géocodeur. */
+  const m = ville.match(/^(.*?)[\s,]+(\d{5})$/);
+  return rue + ", " + (m ? m[2] + " " + m[1].trim() : ville);
+};
 const sideOf = (all, s) => ({
-  adresse: all[s] || "",
-  ville: villeFrom(all[s]),
+  adresse: adresseComplete(all, s),
+  // La ville vient du champ dédié de l'étape 1. villeFrom ne sert plus que de secours :
+  // il découpait sur les virgules, or l'autocomplétion renvoie « 20 Avenue X 06000 Nice »
+  // sans virgule — la ville valait donc l'adresse entière dans le cockpit.
+  ville: (all[s + "_ville"] || "").trim() || villeFrom(all[s]),
   etage: etageNum(all[s + "_etage"]),
   ascenseur: all[s + "_asc"] === "Oui",
   ascTaille: all[s + "_asc"] === "Oui" ? ASC_CAP_TO_TAILLE[all[s + "_asc_cap"]] || "" : "Aucun",
@@ -51,6 +87,10 @@ function sendToCockpit(all, opts) {
   // Les notes portent aussi la fourchette annoncée au client et le créneau de rappel choisi :
   // même si le cockpit n'exploite pas encore ces champs, l'info reste visible dans la fiche.
   const notes = [
+    /* Le type de logement remplace le volume inventé qu'on envoyait autrefois à l'étape 1.
+       C'est une information vraie, elle suffit pour rappeler le prospect, et elle ne fait
+       rien calculer de faux. */
+    (opts.partiel && all.surface) ? "🏠 Logement déclaré : " + all.surface + " (aucun volume : le formulaire n'est pas allé jusqu'à l'inventaire)" : "",
     all.details ? "Détails client : " + all.details : "",
     opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "",
     opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "",
@@ -89,7 +129,10 @@ function sendToCockpit(all, opts) {
     opts.estimation && opts.estimation.detail && opts.estimation.distanceFiable ? "Coûts estimés " + opts.estimation.detail.couts + " € → bénéfice attendu " + (opts.estimation.bas - opts.estimation.detail.couts) + " à " + (opts.estimation.haut - opts.estimation.detail.couts) + " €." : "",
     opts.estimation && opts.estimation.detail && opts.estimation.detail.plancherApplique ?
       "🔎 INVENTAIRE À VÉRIFIER : le client n'a déclaré que " + opts.estimation.detail.volumeDeclare + " m³ de meubles, c'est peu pour son logement. Le volume a été relevé au plancher. À confirmer au téléphone avant de figer le prix." : "",
-    opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : "",
+    opts.estimation && opts.estimation.prixApproche > 0 ?
+      "🚚 Approche facturée : " + opts.estimation.kmApproche + " km depuis Nice, soit " + opts.estimation.prixApproche + " € (50 km offerts, puis 0,90 €/km/camion). Sans ça, ce chantier partait à perte sur la route." : "",
+    opts.rdv && opts.rdv.immediat ? "🔥 RAPPEL IMMÉDIAT DEMANDÉ. Le client a cliqué « rappelez-moi tout de suite » : il attend l'appel MAINTENANT. C'est le lead le plus chaud possible, chaque minute compte." :
+    (opts.rdv ? "📞 Rappel demandé par le client : " + opts.rdv.label : ""),
     all && all._honey ? "🤖 Piège anti-robot déclenché. C'est très souvent le remplissage automatique d'un navigateur intégré (Facebook, Instagram) sur un VRAI prospect. Appelle-le : ne le jette pas sans avoir vérifié." : "",
     !opts.partiel && !opts.estimation ? "🚨 AUCUN PRIX N'A ÉTÉ AFFICHÉ à ce client : le moteur d'estimation n'a pas tourné. Chiffrer à la main." : "",
     at ? "🎯 Acquisition : " + at.canal + (at.campagne ? " · campagne « " + at.campagne + " »" : "") +
@@ -105,9 +148,13 @@ function sendToCockpit(all, opts) {
     codeParrain: (all.codeParrain || "").trim().toUpperCase(),
     formule: FORMULE_TO_APP[all.formule] || "standard",
     formulaireType: opts.partiel ? "partiel" : (inventaire.length ? "detaille" : "basique"),
-    // Volume : celui calculé par le moteur d'estimation (inventaire réel, marge incluse) s'il
-    // existe, sinon le volume théorique de la surface déclarée.
-    volumeEstime: opts.estimation ? opts.estimation.volume : (SURFACE_VOL[all.surface] != null ? SURFACE_VOL[all.surface] : null),
+    /* Le volume vient du moteur d'estimation, donc de l'inventaire réel du client, et de
+       nulle part ailleurs. Le repli sur « le volume théorique de la surface » a été retiré :
+       il fabriquait un chiffre que personne n'avait déclaré, différent de celui de
+       l'estimateur, et le cockpit dimensionnait les camions dessus.
+       Pas d'estimation, pas de volume. Le type de logement part quand même. */
+    volumeEstime: opts.estimation ? opts.estimation.volume : null,
+    logementDeclare: all.surface || "",
     // Fourchette annoncée au client + créneau de rappel choisi (repris dans la fiche du cockpit)
     estimationBasse: opts.estimation ? opts.estimation.bas : null,
     estimationHaute: opts.estimation ? opts.estimation.haut : null,
@@ -238,9 +285,11 @@ function getPrefill() {
     email: p.get("email") || "",
     type: p.get("type") || "",
     surface: p.get("surface") || "",
-    // Encore acceptés : d'anciens liens partagés ou indexés peuvent les porter.
-    depart: p.get("depart") || "",
-    arrivee: p.get("arrivee") || "",
+    /* Encore acceptés : d'anciens liens partagés ou indexés peuvent les porter. Ils ont
+       toujours contenu une VILLE, jamais une rue : ils remplissent donc le champ ville,
+       sinon on rangerait « Nice » dans la case « n° et rue ». */
+    depart_ville: p.get("depart") || "",
+    arrivee_ville: p.get("arrivee") || "",
     date: p.get("date") || "",
     lead: p.get("lead") || "",
     etape: p.get("etape") || ""
@@ -286,7 +335,19 @@ function AccessBlock({ side, label, addrLabel, data, set, showErrors }) {
   return (
     <div className="access-block">
       <div className="access-head"><span className="access-dot"></span>{label}</div>
-      <AddressField className="lf" name={side} label={addrLabel} placeholder="N°, rue, ville…" defaultValue={data[side]} onValue={(val) => set(side, val)} error={showErrors && !(data[side] || "").trim()} />
+      {/* Deux champs distincts, et c'est volontaire. La ville arrive déjà remplie de
+          l'étape 1 ; la rue reste vide et doit être saisie. Un seul champ « adresse »
+          pré-rempli avec la ville se faisait écraser par la rue, et l'adresse partait
+          sans commune : c'est l'origine des distances aberrantes. */}
+      <AddressField className="lf" name={side + "_ville"} type="municipality"
+        label={<>Ville {showErrors && !v("ville") && <span className="req-hint">— à remplir</span>}</>}
+        placeholder="Nice" defaultValue={v("ville")} onValue={(val) => set(f("ville"), val)}
+        error={showErrors && !v("ville")} />
+      {/* Jamais une adresse d'exemple en repère : en gris clair, « 12 rue d'Italie » se
+          lit comme un champ déjà rempli, et c'est en plus l'adresse de LBC. */}
+      <AddressField className="lf" name={side} label={<>{addrLabel} <span className="access-hint">— n° et rue</span> {showErrors && !(data[side] || "").trim() && <span className="req-hint">— à remplir</span>}</>}
+        placeholder="Numéro et nom de la rue" defaultValue={data[side]} pres={v("ville")}
+        onValue={(val) => set(side, val)} error={showErrors && !(data[side] || "").trim()} />
       <div className="access-field">
         <label>Étage {miss("etage") && <span className="req-hint">— à choisir</span>}</label>
         <SegSelect numeric error={miss("etage")} value={v("etage")} options={ETAGE_OPTS} onSelect={(x) => set(f("etage"), x)} />
@@ -339,8 +400,10 @@ function DevisForm() {
   const [data, setData] = useState({
     surface: PRE.surface || "",
     formule: "premium",
-    depart: PRE.depart,
-    arrivee: PRE.arrivee,
+    depart: "",
+    arrivee: "",
+    depart_ville: PRE.depart_ville,
+    arrivee_ville: PRE.arrivee_ville,
     date: PRE.date,
     tel: PRE.tel,
     nom: PRE.nom,
@@ -401,6 +464,9 @@ function DevisForm() {
   // Step 2 (Adresses & date) can only advance once every field is filled.
   const sideComplete = (s) => {
     if (!(data[s] || "").trim()) return false;
+    // La commune est exigée elle aussi : sans elle, l'adresse n'est pas localisable et
+    // Edouard se retrouve avec une rue sans ville dans sa fiche.
+    if (!(data[s + "_ville"] || "").trim()) return false;
     if (!data[s + "_etage"]) return false;
     if (!data[s + "_asc"]) return false;
     if (data[s + "_asc"] === "Oui" && !data[s + "_asc_cap"]) return false;
@@ -410,7 +476,8 @@ function DevisForm() {
   };
   const step1Complete = sideComplete("depart") && sideComplete("arrivee") && !!data.date && !!data.flex;
   // Step 0 (coordonnées + logement) — name + phone + email are the priority capture.
-  const step0Complete = !!(data.nom || "").trim() && !!(data.tel || "").trim() && !!(data.email || "").trim() && !!data.type && !!data.surface;
+  const step0Complete = !!(data.nom || "").trim() && !!(data.tel || "").trim() && !!(data.email || "").trim() && !!data.type && !!data.surface
+    && !!(data.depart_ville || "").trim() && !!(data.arrivee_ville || "").trim();
 
   // Lien WhatsApp pré-rempli affiché sur l'écran de fin. Le prospect nous écrit en
   // premier, au pic d'intention : c'est LUI qui initie la conversation, ce qui évite
@@ -418,8 +485,10 @@ function DevisForm() {
   // son trajet et sa date pour qu'on l'identifie immédiatement.
   const waLead = () => {
     const who = (data.nom || "").trim();
-    const dep = (data.depart || "").trim();
-    const arr = (data.arrivee || "").trim();
+    // Les VILLES, pas les rues : « Déménagement de Nîmes vers Montpellier » se lit d'un
+    // coup d'œil dans WhatsApp, une adresse complète noie le message.
+    const dep = (data.depart_ville || data.depart || "").trim();
+    const arr = (data.arrivee_ville || data.arrivee || "").trim();
     const dt = (data.date || "").trim();
     const trajet = dep && arr ? "Déménagement de " + dep + " vers " + arr : (dep ? "Déménagement depuis " + dep : "Déménagement");
     const quand = dt ? ", prévu le " + dt : "";
@@ -461,6 +530,9 @@ function DevisForm() {
     const upd = {};
     for (const el of e.currentTarget.elements) {if (el.name) upd[el.name] = el.value;}
     const all = { ...data, ...upd };
+    /* On ne recopie plus la ville dans le champ adresse : l'étape 2 affiche la commune
+       dans son propre champ, déjà remplie, et demande la rue à côté. Le prospect ne
+       retape rien, et sa rue ne peut plus effacer sa ville. */
     setData(all);
     sendEarly(all);
     setStep(1);
@@ -489,9 +561,18 @@ function DevisForm() {
     let estim = null;
     try {
       if (window.LBC_PRICING) {
-        const km = await Promise.race([
-          window.LBC_PRICING.distanceKm(all.depart, all.arrivee),
-          new Promise((r) => setTimeout(() => r(null), 8000))
+        const [km, kmApproche] = await Promise.all([
+          Promise.race([
+            // Toujours l'adresse COMPLÈTE : une rue seule se géocode à l'autre bout du pays.
+            window.LBC_PRICING.distanceKm(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")),
+            new Promise((r) => setTimeout(() => r(null), 8000))
+          ]),
+          // Approche depuis la base de Nice. En cas d'échec on renvoie 0 : mieux vaut ne
+          // rien facturer qu'un supplément bâti sur une adresse mal comprise.
+          Promise.race([
+            window.LBC_PRICING.distanceBase(adresseComplete(all, "depart")),
+            new Promise((r) => setTimeout(() => r(0), 8000))
+          ])
         ]);
         estim = window.LBC_PRICING.estimer({
           surface: all.surface,
@@ -503,6 +584,7 @@ function DevisForm() {
           // trois heures de démontage d'un dressing ne pesaient rien sur l'estimation.
           demontage: all.demontage,
           km: km,
+          kmApproche: kmApproche,
           depart: sideOf(all, "depart"),
           arrivee: sideOf(all, "arrivee")
         });
@@ -553,7 +635,7 @@ function DevisForm() {
     } catch (e) {}
     // Le prospect qui choisit un créneau est le plus chaud de tous : il attend notre appel.
     // C'est cet événement-là qui mérite de devenir l'objectif des campagnes Meta.
-    if (window.fbq) window.fbq("trackCustom", "RappelDemande");
+    if (window.fbq) window.fbq("trackCustom", choix.immediat ? "RappelImmediat" : "RappelDemande");
     if (window.gtag) window.gtag("event", "rappel_demande", {
       value: estim ? estim.bas : undefined, currency: "EUR", creneau: choix.label || ""
     });
@@ -681,6 +763,23 @@ function DevisForm() {
                       <Choice name="type" value="bureau" label="Bureaux" selected={data.type === 'bureau'} onSelect={(v) => set('type', v)} />
                     </div>
                   </div>
+                  {/* LES DEUX VILLES DÈS L'ÉTAPE 1.
+                      Un prospect qui abandonne ici n'envoyait qu'un nom et un téléphone :
+                      impossible de savoir s'il déménage à Nice ou à Brest, donc impossible
+                      de décider s'il faut le rappeler. Deux villes suffisent à trancher.
+                      On ne demande PAS l'adresse complète : c'est le champ le plus pénible
+                      à saisir sur un téléphone, et l'étape 1 est celle qu'il faut franchir. */}
+                  <div className="lf full"><div className="form-section-head">Votre trajet <span>— pour situer votre déménagement</span></div></div>
+                  <AddressField className="lf" name="depart_ville" type="municipality"
+                    label={<>Ville de départ {tried0 && !(data.depart_ville || '').trim() && <span className="req-hint">— à remplir</span>}</>}
+                    placeholder="Nice" defaultValue={data.depart_ville}
+                    onValue={(v) => set('depart_ville', v)}
+                    error={tried0 && !(data.depart_ville || '').trim()} />
+                  <AddressField className="lf" name="arrivee_ville" type="municipality"
+                    label={<>Ville d'arrivée {tried0 && !(data.arrivee_ville || '').trim() && <span className="req-hint">— à remplir</span>}</>}
+                    placeholder="Marseille" defaultValue={data.arrivee_ville}
+                    onValue={(v) => set('arrivee_ville', v)}
+                    error={tried0 && !(data.arrivee_ville || '').trim()} />
                   <div className="lf full">
                     <label>Surface actuelle {tried0 && !data.surface && <span className="req-hint">— à sélectionner</span>}</label>
                     <div className={"choice-row" + (tried0 && !data.surface ? " field-error" : "")}>

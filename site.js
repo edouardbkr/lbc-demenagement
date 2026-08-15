@@ -156,7 +156,7 @@ function Logo() {
   return React.createElement("a", {
     href: "/",
     className: "logo",
-    "aria-label": "LBC \u2014 Les Bras Cass\xE9s, accueil"
+    "aria-label": "LBC D\xE9m\xE9nagement, accueil"
   }, React.createElement("img", {
     src: "assets/lbc-wordmark-sm.png",
     alt: "LBC D\xE9m\xE9nagement \u2014 d\xE9m\xE9nageur \xE0 Nice",
@@ -479,12 +479,6 @@ function MascotStamp() {
     className: "mascot-stamp-line"
   }, "Le travail est s\xE9rieux."))));
 }
-const QQ_SURFACE_VOL = {
-  studio: 14,
-  t2: 25,
-  t3: 40,
-  t4: 60
-};
 const qqVilleFrom = addr => {
   if (!addr) return "";
   const parts = String(addr).split(",").map(s => s.trim()).filter(Boolean);
@@ -509,7 +503,8 @@ function qqSendToCockpit(fields, leadId) {
     },
     formule: "standard",
     formulaireType: "partiel",
-    volumeEstime: QQ_SURFACE_VOL[fields.surface] != null ? QQ_SURFACE_VOL[fields.surface] : null,
+    volumeEstime: null,
+    logementDeclare: fields.surface || fields.type || "",
     dateSouhaitee: fields.date || "",
     depart: {
       adresse: fields.depart || "",
@@ -546,7 +541,9 @@ function AddressField({
   hint,
   required,
   onValue,
-  error
+  error,
+  type,
+  pres
 }) {
   const [val, setVal] = useState(defaultValue);
   const [items, setItems] = useState([]);
@@ -560,7 +557,8 @@ function AddressField({
       setOpen(false);
       return;
     }
-    fetch("https://api-adresse.data.gouv.fr/search/?limit=5&q=" + encodeURIComponent(q)).then(r => r.json()).then(d => {
+    const cherche = pres && String(pres).trim() ? q + " " + String(pres).trim() : q;
+    fetch("https://api-adresse.data.gouv.fr/search/?limit=5&q=" + encodeURIComponent(cherche) + (type ? "&type=" + type : "")).then(r => r.json()).then(d => {
       const feats = d.features || [];
       window.LBC_GEO = window.LBC_GEO || {};
       feats.forEach(f => {
@@ -571,7 +569,7 @@ function AddressField({
           lat: c[1]
         };
       });
-      const labels = feats.map(f => f.properties.label);
+      const labels = feats.map(f => type === "municipality" && f.properties.postcode ? f.properties.label + " " + f.properties.postcode : f.properties.label);
       setItems(labels);
       setOpen(labels.length > 0);
       setHi(-1);
@@ -820,9 +818,25 @@ function FooterSEO() {
   }, COTE_AZUR.map((c, i) => React.createElement("a", {
     key: i,
     href: c[1]
-  }, c[0])), React.createElement("a", {
+  }, c[0]))), React.createElement("div", {
+    className: "seo-sub"
+  }, "Quartiers de Nice"), React.createElement("div", {
+    className: "seo-cities"
+  }, React.createElement("a", {
+    href: "Demenagement-Vieux-Nice"
+  }, "D\xE9m\xE9nagement Vieux-Nice"), React.createElement("a", {
+    href: "Demenagement-Cimiez-Nice"
+  }, "D\xE9m\xE9nagement Cimiez"), React.createElement("a", {
+    href: "Demenagement-Carre-d-Or-Nice"
+  }, "D\xE9m\xE9nagement Carr\xE9 d'Or"), React.createElement("a", {
+    href: "Demenagement-Liberation-Nice"
+  }, "D\xE9m\xE9nagement Lib\xE9ration"), React.createElement("a", {
+    href: "Demenagement-Port-Nice"
+  }, "D\xE9m\xE9nagement Port de Nice"), React.createElement("a", {
+    href: "Demenagement-Riquier-Nice"
+  }, "D\xE9m\xE9nagement Riquier"), React.createElement("a", {
     href: "Quartiers"
-  }, "Quartiers d'exception (Vieux-Nice\u2026)")), React.createElement("div", {
+  }, "Tous les quartiers")), React.createElement("div", {
     className: "seo-sub"
   }, "Longue distance \xB7 France"), React.createElement("div", {
     className: "seo-cities"
@@ -980,6 +994,10 @@ function Footer() {
   }, React.createElement("h4", null, "Nos services"), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
     href: "Formules"
   }, "Nos formules")), React.createElement("li", null, React.createElement("a", {
+    href: "Entreprise"
+  }, "D\xE9m\xE9nagement d'entreprise")), React.createElement("li", null, React.createElement("a", {
+    href: "Archivage"
+  }, "Archivage de documents")), React.createElement("li", null, React.createElement("a", {
     href: "Mutations"
   }, "Mutation professionnelle")), React.createElement("li", null, React.createElement("a", {
     href: "Militaire"
@@ -1008,7 +1026,9 @@ function Footer() {
   }, "06 15 97 65 77")), React.createElement("li", null, React.createElement("a", {
     className: "footer-email",
     href: "mailto:contact@lbcdemenagement.com"
-  }, "contact@lbcdemenagement.com")), React.createElement("li", null, "12 rue d'Italie", React.createElement("br", null), "06000 Nice"), React.createElement("li", {
+  }, "contact@lbcdemenagement.com")), React.createElement("li", null, React.createElement("a", {
+    href: "Contact"
+  }, "Nous \xE9crire")), React.createElement("li", null, "12 rue d'Italie", React.createElement("br", null), "06000 Nice"), React.createElement("li", {
     style: {
       marginTop: 6,
       color: 'var(--muted)'

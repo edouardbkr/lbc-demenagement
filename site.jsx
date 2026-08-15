@@ -159,7 +159,7 @@ const MEGA = {
 
 function Logo() {
   return (
-    <a href="/" className="logo" aria-label="LBC — Les Bras Cassés, accueil">
+    <a href="/" className="logo" aria-label="LBC Déménagement, accueil">
       <img src="assets/lbc-wordmark-sm.png" alt="LBC Déménagement — déménageur à Nice" decoding="async" width="432" height="240" />
     </a>);
 
@@ -390,7 +390,8 @@ function MascotStamp() {
 
 // Cockpit LBC (Supabase) — la barre rapide dépose AUSSI le lead dans le cockpit (pas seulement l'email),
 // pour qu'un prospect qui ne termine pas la page Devis apparaisse quand même. Insert restreint à la table leads.
-const QQ_SURFACE_VOL = { studio: 14, t2: 25, t3: 40, t4: 60 };
+/* ⚠️ TABLE RETIRÉE LE 15 AOÛT 2026, NE PAS LA RÉTABLIR. Voir devis-page.jsx : la barre
+   rapide ne déclare plus de volume, seulement un type de logement. */
 const qqVilleFrom = (addr) => { if (!addr) return ""; const parts = String(addr).split(",").map((s) => s.trim()).filter(Boolean); return parts.length ? parts[parts.length - 1] : addr; };
 // Dépose le lead de la barre rapide dans le cockpit. leadId partagé avec la page Devis (voir redirection)
 // pour que, si le prospect termine ensuite le devis complet, le cockpit mette à jour CE lead (pas de doublon).
@@ -409,7 +410,17 @@ function qqSendToCockpit(fields, leadId) {
     client: { prenom, nom, tel: fields.tel || "", email: fields.email || "", contactPref: "" },
     formule: "standard",
     formulaireType: "partiel",
-    volumeEstime: QQ_SURFACE_VOL[fields.surface] != null ? QQ_SURFACE_VOL[fields.surface] : null,
+    /* ⚠️ AUCUN VOLUME À L'ÉTAPE 1, C'EST VOULU.
+       Cette étape ne demande pas ce qu'il y a à déménager : elle demande un type de
+       logement. En traduire un volume revenait à inventer un chiffre, et ce chiffre
+       n'était pas le même que celui de l'estimateur — « T4 » valait 60 m³ ici et 20 à
+       l'étape 3, pour le même appartement, à quatre minutes d'intervalle. Le cockpit
+       fabriquait alors des camions sur cette valeur inventée, et ne les recalculait pas
+       quand le vrai volume arrivait.
+       Le type de logement est transmis tel quel : c'est une information vraie, elle suffit
+       pour rappeler le prospect, et elle ne fait rien calculer de faux. */
+    volumeEstime: null,
+    logementDeclare: fields.surface || fields.type || "",
     dateSouhaitee: fields.date || "",
     depart: { adresse: fields.depart || "", ville: qqVilleFrom(fields.depart) },
     arrivee: { adresse: fields.arrivee || "", ville: qqVilleFrom(fields.arrivee) },
@@ -431,7 +442,11 @@ function qqSendToCockpit(fields, leadId) {
 
 // Address autocomplete powered by the French Base Adresse Nationale
 // (api-adresse.data.gouv.fr — free, no API key, CORS-enabled).
-function AddressField({ name, label, placeholder, defaultValue = "", className = "qq-field", inputClassName, hint, required, onValue, error }) {
+/* `pres` = la commune déjà choisie par le prospect. On la colle à la recherche sans
+   l'afficher dans le champ. Sans ce contexte, taper « 12 rue des Lauriers » propose la
+   rue de Clermont-Ferrand, et « 3 rue de la Gare » celle de Saint-Denis de La Réunion :
+   c'est ainsi qu'un Nîmes → Nîmes s'est retrouvé à 45 km. */
+function AddressField({ name, label, placeholder, defaultValue = "", className = "qq-field", inputClassName, hint, required, onValue, error, type, pres }) {
   const [val, setVal] = useState(defaultValue);
   const [items, setItems] = useState([]);
   const [open, setOpen] = useState(false);
@@ -441,7 +456,11 @@ function AddressField({ name, label, placeholder, defaultValue = "", className =
 
   const query = (q) => {
     if (q.trim().length < 3) {setItems([]);setOpen(false);return;}
-    fetch("https://api-adresse.data.gouv.fr/search/?limit=5&q=" + encodeURIComponent(q)).
+    // type=municipality : le champ « ville » ne doit proposer que des communes, sinon
+    // le prospect choisit une rue et on se retrouve avec une adresse dans la case ville.
+    // La commune connue est ajoutée à la requête, jamais au texte saisi.
+    const cherche = pres && String(pres).trim() ? q + " " + String(pres).trim() : q;
+    fetch("https://api-adresse.data.gouv.fr/search/?limit=5&q=" + encodeURIComponent(cherche) + (type ? "&type=" + type : "")).
     then((r) => r.json()).
     then((d) => {
       const feats = d.features || [];
@@ -453,7 +472,15 @@ function AddressField({ name, label, placeholder, defaultValue = "", className =
         const c = f.geometry && f.geometry.coordinates;
         if (lbl && c) window.LBC_GEO[lbl.trim().toLowerCase()] = { lon: c[0], lat: c[1] };
       });
-      const labels = feats.map((f) => f.properties.label);
+      /* Pour une commune, le nom seul ne suffit pas : « Saint-Cyr » désigne quatre villes
+         différentes, de l'Ardèche à la Haute-Vienne, et « Saint-Cyr-sur-Mer » est encore
+         une cinquième. On colle donc le code postal à la suggestion. Effet secondaire
+         voulu : la valeur enregistrée devient « Nice 06000 », que le cockpit sait
+         découper en ville + code postal sans rien deviner. */
+      const labels = feats.map((f) =>
+        type === "municipality" && f.properties.postcode
+          ? f.properties.label + " " + f.properties.postcode
+          : f.properties.label);
       setItems(labels);setOpen(labels.length > 0);setHi(-1);
     }).
     catch(() => {});
@@ -642,7 +669,19 @@ function FooterSEO() {
             <div className="seo-sub first">PACA · Région niçoise</div>
             <div className="seo-cities">
               {COTE_AZUR.map((c, i) => <a key={i} href={c[1]}>{c[0]}</a>)}
-              <a href="Quartiers">Quartiers d'exception (Vieux-Nice…)</a>
+            </div>
+            {/* Les 6 pages quartier ne recevaient que 1 à 4 liens, tous depuis la page
+                Quartiers que Google n'a jamais crawlée : elles étaient donc hors d'atteinte.
+                Elles sont listées ici, en clair, comme les villes. */}
+            <div className="seo-sub">Quartiers de Nice</div>
+            <div className="seo-cities">
+              <a href="Demenagement-Vieux-Nice">Déménagement Vieux-Nice</a>
+              <a href="Demenagement-Cimiez-Nice">Déménagement Cimiez</a>
+              <a href="Demenagement-Carre-d-Or-Nice">Déménagement Carré d'Or</a>
+              <a href="Demenagement-Liberation-Nice">Déménagement Libération</a>
+              <a href="Demenagement-Port-Nice">Déménagement Port de Nice</a>
+              <a href="Demenagement-Riquier-Nice">Déménagement Riquier</a>
+              <a href="Quartiers">Tous les quartiers</a>
             </div>
             <div className="seo-sub">Longue distance · France</div>
             <div className="seo-cities">
@@ -782,6 +821,10 @@ function Footer() {
                 <h4>Nos services</h4>
                 <ul>
                   <li><a href="Formules">Nos formules</a></li>
+                  {/* Entreprise et Archivage n'étaient liées depuis AUCUNE page du site :
+                      Google ne les avait donc jamais crawlées. Ajoutées ici le 7 août 2026. */}
+                  <li><a href="Entreprise">Déménagement d'entreprise</a></li>
+                  <li><a href="Archivage">Archivage de documents</a></li>
                   <li><a href="Mutations">Mutation professionnelle</a></li>
                   <li><a href="Militaire">Déménagement militaire</a></li>
                   <li><a href="Diplomatique">Déménagement diplomatique</a></li>
@@ -804,6 +847,9 @@ function Footer() {
                 <ul>
                   <li><a href="tel:+33615976577">06 15 97 65 77</a></li>
                   <li><a className="footer-email" href="mailto:contact@lbcdemenagement.com">contact@lbcdemenagement.com</a></li>
+                  {/* La colonne s'appelait « Contact » mais ne menait pas à la page Contact :
+                      seule Partenaires y renvoyait, et Partenaires n'est pas indexée. */}
+                  <li><a href="Contact">Nous écrire</a></li>
                   <li>12 rue d'Italie<br />06000 Nice</li>
                   <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 8h–19h</li>
                 </ul>

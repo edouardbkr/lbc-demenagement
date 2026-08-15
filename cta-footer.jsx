@@ -18,9 +18,17 @@ function ctaSendToCockpit(upd) {
     client: { prenom, nom, tel: upd.tel || "", email: upd.email || "", contactPref: "Téléphone" },
     formule: "standard",
     formulaireType: "partiel",
-    // Volume théorique déduit de la surface, comme le fait la page Devis : la fiche du
-    // cockpit est ainsi exploitable même si le prospect s'arrête à l'étape 2.
-    volumeEstime: ({ studio: 14, t2: 25, t3: 40, t4: 60 })[upd.surface] ?? null,
+    /* ⚠️ AUCUN VOLUME À L'ÉTAPE 1, C'EST VOULU.
+       Cette étape ne demande pas ce qu'il y a à déménager : elle demande un type de
+       logement. En traduire un volume revenait à inventer un chiffre, et ce chiffre
+       n'était pas le même que celui de l'estimateur — « T4 » valait 60 m³ ici et 20 à
+       l'étape 3, pour le même appartement, à quatre minutes d'intervalle. Le cockpit
+       fabriquait alors des camions sur cette valeur inventée, et ne les recalculait pas
+       quand le vrai volume arrivait.
+       Le type de logement est transmis tel quel : c'est une information vraie, elle suffit
+       pour rappeler le prospect, et elle ne fait rien calculer de faux. */
+    volumeEstime: null,
+    logementDeclare: upd.surface || upd.type || "",
     contactPref: "Téléphone",
     message: [
       "Étape 1 remplie depuis le bandeau de la page d'accueil. Le prospect a été renvoyé à l'étape 2 du devis.",

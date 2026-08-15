@@ -18,7 +18,7 @@ const EST_SURFACE = [{
   label: "3 pièces",
   sub: "50–80 m²"
 }, {
-  key: "t4",
+  key: "maison",
   label: "Maison",
   sub: "> 90 m²"
 }];
@@ -108,6 +108,7 @@ function Estimator() {
   }) : null;
   const low = est ? est.bas : 0;
   const high = est ? est.haut : 0;
+  const surDevis = form === "luxe";
   return React.createElement("section", {
     className: "sec est",
     id: "estimateur"
@@ -156,9 +157,9 @@ function Estimator() {
     value: low
   }), React.createElement("span", {
     className: "est-cur"
-  }, "\u20AC")), React.createElement("span", {
+  }, "\u20AC")), !surDevis && React.createElement("span", {
     className: "est-dash"
-  }, "\u2013"), React.createElement("span", {
+  }, "\u2013"), !surDevis && React.createElement("span", {
     className: "est-amount"
   }, React.createElement(RollingNum, {
     value: high
@@ -170,7 +171,7 @@ function Estimator() {
     className: "est-note"
   }, React.createElement("span", {
     className: "ast"
-  }, "*"), "Estimation indicative, hors options. Votre devis, lui, est pr\xE9cis et d\xE9finitif.")), React.createElement("a", {
+  }, "*"), surDevis ? "L'emballage de tous vos cartons se chiffre après une visite en visio de 10 minutes : c'est le seul moyen de vous annoncer un prix ferme plutôt qu'une fourchette large." : "Estimation indicative, hors options. Votre devis, lui, est précis et définitif.")), React.createElement("a", {
     href: "Devis",
     className: "btn btn-primary est-cta"
   }, "Obtenir mon prix ferme", React.createElement("span", {
