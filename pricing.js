@@ -100,6 +100,21 @@
     }
   };
   const VOL = {
+    'gazinière': 0.5,
+    'bahut': 1.3,
+    'console': 0.4,
+    'tapis': 0.2,
+    'lampadaire': 0.15,
+    'lustre': 0.15,
+    'imprimante': 0.1,
+    'coffre': 0.5,
+    'vitrine': 0.8,
+    'meuble à chaussures': 0.3,
+    'meuble bas': 0.5,
+    'meuble haut': 0.4,
+    'table extérieure': 0.6,
+    'plaque de cuisson': 0.1,
+    'climatiseur mobile': 0.2,
     'appareil de sport / tapis': 1.2,
     'autre électroménager': 0.5,
     'dressing sur mesure, plus de 2 m': 3,

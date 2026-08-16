@@ -314,6 +314,11 @@
   // Volumes de transport par meuble (m³) — table reprise du cockpit pour que le prix annoncé
   // au client et le devis calculé dans le cockpit partent de la MÊME base.
   const VOL = {
+  /* Ajoutés le 16 août 2026 : relevés dans les inventaires réels des clients, où ils
+     tombaient tous sur les 0,80 m³ par défaut. Un lampadaire à 0,80 m³ pèse autant
+     qu'une commode dans le total, et une gazinière à 0,80 m³ est surestimée de moitié.
+     Valeurs calées sur les meubles voisins déjà présents. */
+  'gazinière':0.5,'bahut':1.3,'console':0.4,'tapis':0.2,'lampadaire':0.15,'lustre':0.15,'imprimante':0.1,'coffre':0.5,'vitrine':0.8,'meuble à chaussures':0.3,'meuble bas':0.5,'meuble haut':0.4,'table extérieure':0.6,'plaque de cuisson':0.1,'climatiseur mobile':0.2,
     /* Libellés EXACTS du catalogue et des saisies manuelles. Sans eux, le repli à
        0,80 m³ s'appliquait : un pot de fleur pesait autant qu'une commode. Et
        « œuvre d'art / tableau » valait 1 m³ parce que le mot contient « table » —
