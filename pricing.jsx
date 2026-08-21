@@ -912,13 +912,25 @@
     }).catch(() => null);
   }
 
-  // Distance à vol d'oiseau corrigée entre la base de Nice et l'adresse de départ du
-  // chantier. Sert à facturer l'approche. Renvoie 0 si l'adresse est introuvable : on
-  // préfère ne rien facturer plutôt que d'inventer un supplément.
-  function distanceBase(depart) {
-    return coordsDe(depart).then((a) => {
-      if (!a) return 0;
-      return Math.round(haversine({ lat: CFG.baseLat, lon: CFG.baseLng }, a) * CFG.coefRoute);
+  // Distance d'approche facturable : la base de Nice jusqu'à l'extrémité du chantier LA
+  // PLUS PROCHE d'elle, départ ou arrivée.
+  //
+  // ⚠️ ON PREND LA PLUS COURTE DES DEUX, JAMAIS LE DÉPART SEUL.
+  // Cette fonction ne regardait que l'adresse de départ. Sur un Bagnolet → Le Cannet, elle
+  // renvoyait 855 km et facturait 725 € d'approche, alors que l'arrivée est à 31 km de la
+  // base : le camion rentre chez lui à vide sur 31 km, pas sur 855. Le devis annoncé au
+  // client sortait 840 € au-dessus du prix réel, et c'est justement le marché principal —
+  // les gens qui s'installent sur la Côte. Douze dossiers en portaient la trace, jusqu'à
+  // 1 296 € facturés à tort sur un Mazerolles-du-Razès → Toulon.
+  // Le cockpit applique déjà cette règle (iRapprochementBase) : les deux doivent dire la
+  // même chose, sinon le site annonce un prix que le devis contredit.
+  //
+  // Renvoie 0 si aucune adresse n'est reconnue : mieux vaut ne rien facturer qu'inventer.
+  function distanceBase(depart, arrivee) {
+    const base = { lat: CFG.baseLat, lon: CFG.baseLng };
+    return Promise.all([coordsDe(depart), coordsDe(arrivee)]).then(([a, b]) => {
+      const d = [a, b].filter(Boolean).map((p) => haversine(base, p) * CFG.coefRoute);
+      return d.length ? Math.round(Math.min.apply(null, d)) : 0;
     }).catch(() => 0);
   }
 

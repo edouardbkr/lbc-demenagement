@@ -4,9 +4,15 @@
   const {
     useState
   } = React;
-  const HEURES = ["09:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+  const HEURES = ["07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
   const DELAI_MIN_MIN = 60;
-  const JOURS = 14;
+  const JOURS = 5;
+  const OUVERTURE = 7,
+    FERMETURE = 22;
+  function estOuvert(now) {
+    const h = now.getHours();
+    return h >= OUVERTURE && h < FERMETURE;
+  }
   const p2 = n => n < 10 ? "0" + n : "" + n;
   const ymd = d => d.getFullYear() + "-" + p2(d.getMonth() + 1) + "-" + p2(d.getDate());
   function heuresDispo(date, now) {
@@ -25,11 +31,13 @@
       const d = new Date(now);
       d.setDate(now.getDate() + i);
       const h = heuresDispo(d, now);
-      if (!h.length) continue;
+      const cestAujourdhui = i === 0;
+      if (!h.length && !(cestAujourdhui && estOuvert(now))) continue;
       out.push({
         date: d,
         key: ymd(d),
-        heures: h
+        heures: h,
+        immediat: cestAujourdhui && estOuvert(now)
       });
     }
     return out;
@@ -60,7 +68,8 @@
   }
   function RappelPicker({
     onConfirm,
-    confirming
+    confirming,
+    milieu
   }) {
     const now = new Date();
     const jours = joursDispo(now);
@@ -68,18 +77,18 @@
     const [heure, setHeure] = useState("");
     if (!jours.length) return null;
     const courant = jours.find(j => j.key === jour) || jours[0];
-    const maintenant = () => {
-      if (confirming) return;
-      const n = new Date();
-      onConfirm({
-        date: ymd(n),
-        heure: p2(n.getHours()) + ":" + p2(n.getMinutes()),
-        label: "tout de suite",
-        immediat: true
-      });
-    };
     const valider = () => {
       if (!heure || confirming) return;
+      if (heure === "now") {
+        const n = new Date();
+        onConfirm({
+          date: ymd(n),
+          heure: p2(n.getHours()) + ":" + p2(n.getMinutes()),
+          label: "maintenant",
+          immediat: true
+        });
+        return;
+      }
       const d = courant.date;
       const phrase = d.toLocaleDateString("fr-FR", {
         weekday: "long",
@@ -94,21 +103,9 @@
     };
     return React.createElement("div", {
       className: "rdv-box"
-    }, React.createElement("div", {
+    }, milieu, React.createElement("div", {
       className: "rdv-head"
-    }, React.createElement("h4", null, "Quand souhaitez-vous qu'on vous appelle\xA0?"), React.createElement("p", null, "On vous confirme votre prix exact en 5 minutes au t\xE9l\xE9phone. ", React.createElement("strong", null, "7 jours sur 7, jusqu'\xE0 22h"), " : choisissez votre moment, on s'adapte.")), React.createElement("button", {
-      type: "button",
-      className: "rdv-now",
-      disabled: confirming,
-      onClick: maintenant
-    }, React.createElement("span", {
-      className: "rdv-now-ic",
-      "aria-hidden": "true"
-    }, "\uD83D\uDCDE"), React.createElement("span", {
-      className: "rdv-now-txt"
-    }, React.createElement("strong", null, confirming ? "Enregistrement…" : "Rappelez-moi tout de suite"), React.createElement("span", null, "On vous appelle dans les minutes qui suivent"))), React.createElement("div", {
-      className: "rdv-sep"
-    }, React.createElement("span", null, "ou choisissez votre cr\xE9neau")), React.createElement("div", {
+    }, React.createElement("h4", null, "Quand souhaitez-vous qu'on vous appelle\xA0?"), React.createElement("p", null, "On vous confirme votre prix exact en 5 minutes au t\xE9l\xE9phone, ", React.createElement("strong", null, "7 jours sur 7, jusqu'\xE0 22h"), ".")), React.createElement("div", {
       className: "rdv-days",
       role: "group",
       "aria-label": "Choisir un jour"
@@ -131,7 +128,11 @@
       className: "rdv-slots",
       role: "group",
       "aria-label": "Choisir une heure"
-    }, courant.heures.map(h => React.createElement("button", {
+    }, courant.immediat && React.createElement("button", {
+      type: "button",
+      className: "rdv-slot rdv-slot-vite" + (heure === "now" ? " on" : ""),
+      onClick: () => setHeure("now")
+    }, "Maintenant"), courant.heures.map(h => React.createElement("button", {
       type: "button",
       key: h,
       className: "rdv-slot" + (h === heure ? " on" : ""),
@@ -141,11 +142,11 @@
       className: "btn btn-primary rdv-confirm",
       disabled: !heure || confirming,
       onClick: valider
-    }, confirming ? "Enregistrement…" : heure ? "Confirmer le rappel à " + heure.replace(":", "h") : "Choisissez une heure", !confirming && heure && React.createElement("span", {
+    }, confirming ? "Enregistrement…" : heure === "now" ? "Me rappeler maintenant" : heure ? "Confirmer le rappel à " + heure.replace(":", "h") : "Choisissez une heure", !confirming && heure && React.createElement("span", {
       className: "arrow"
     }, "\u2192")), React.createElement("p", {
       className: "rdv-note"
-    }, "Un emp\xEAchement\xA0? Vous pourrez d\xE9caler, on vous envoie un rappel avant l'appel."));
+    }, "Un emp\xEAchement\xA0? Vous pourrez d\xE9caler."));
   }
   Object.assign(window, {
     RappelPicker

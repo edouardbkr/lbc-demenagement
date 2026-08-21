@@ -516,13 +516,14 @@
       return Math.round(haversine(a, b) * CFG.coefRoute);
     }).catch(() => null);
   }
-  function distanceBase(depart) {
-    return coordsDe(depart).then(a => {
-      if (!a) return 0;
-      return Math.round(haversine({
-        lat: CFG.baseLat,
-        lon: CFG.baseLng
-      }, a) * CFG.coefRoute);
+  function distanceBase(depart, arrivee) {
+    const base = {
+      lat: CFG.baseLat,
+      lon: CFG.baseLng
+    };
+    return Promise.all([coordsDe(depart), coordsDe(arrivee)]).then(([a, b]) => {
+      const d = [a, b].filter(Boolean).map(p => haversine(base, p) * CFG.coefRoute);
+      return d.length ? Math.round(Math.min.apply(null, d)) : 0;
     }).catch(() => 0);
   }
   window.LBC_PRICING = {

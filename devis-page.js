@@ -631,7 +631,7 @@ function DevisForm() {
     let estim = null;
     try {
       if (window.LBC_PRICING) {
-        const [km, kmApproche] = await Promise.all([Promise.race([window.LBC_PRICING.distanceKm(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")), new Promise(r => setTimeout(() => r(null), 8000))]), Promise.race([window.LBC_PRICING.distanceBase(adresseComplete(all, "depart")), new Promise(r => setTimeout(() => r(0), 8000))])]);
+        const [km, kmApproche] = await Promise.all([Promise.race([window.LBC_PRICING.distanceKm(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")), new Promise(r => setTimeout(() => r(null), 8000))]), Promise.race([window.LBC_PRICING.distanceBase(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")), new Promise(r => setTimeout(() => r(0), 8000))])]);
         estim = window.LBC_PRICING.estimer({
           surface: all.surface,
           inventaire: window.buildInventoryArray ? window.buildInventoryArray(all) : [],
@@ -689,6 +689,34 @@ function DevisForm() {
     setRdv(choix);
     scrollToForm();
   };
+  const blocPrix = estim && estim.distanceFiable ? React.createElement("div", {
+    className: "ds-price"
+  }, React.createElement("span", {
+    className: "ds-price-label"
+  }, estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"), React.createElement("div", {
+    className: "ds-price-range"
+  }, React.createElement("span", null, estim.bas.toLocaleString("fr-FR"), React.createElement("span", {
+    className: "cur"
+  }, "\u20AC")), React.createElement("span", {
+    className: "dash"
+  }, "\u2013"), React.createElement("span", null, estim.haut.toLocaleString("fr-FR"), React.createElement("span", {
+    className: "cur"
+  }, "\u20AC"))), React.createElement("p", {
+    className: "ds-price-sub"
+  }, "Fourchette bas\xE9e sur ", React.createElement("strong", null, estim.volume, "\xA0m\xB3"), " et ", React.createElement("strong", null, "~", estim.km, "\xA0km"), ". Votre ", React.createElement("strong", null, "prix ferme"), " ne bouge plus le jour J.")) : React.createElement("p", {
+    className: "ds-price-attente"
+  }, "Votre trajet demande une v\xE9rification de notre c\xF4t\xE9\xA0: on vous rappelle tr\xE8s vite avec un ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), ", calcul\xE9 sur votre distance r\xE9elle.");
+  const blocRappel = rdv ? React.createElement(React.Fragment, null, React.createElement("div", {
+    className: "rdv-done"
+  }, React.createElement("p", {
+    style: {
+      margin: 0
+    }
+  }, "\uD83D\uDCDE C'est not\xE9. On vous appelle ", React.createElement("strong", null, rdv.label), data.tel ? " au " + data.tel : "", ".")), blocPrix) : React.createElement(RappelPicker, {
+    onConfirm: confirmRdv,
+    confirming: rdvSending,
+    milieu: blocPrix
+  });
   return React.createElement("section", {
     className: "sec"
   }, React.createElement("div", {
@@ -743,32 +771,19 @@ function DevisForm() {
     strokeLinejoin: "round"
   }, React.createElement("path", {
     d: "M20 6L9 17l-5-5"
-  }))), failed ? React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande n'a pas pu \xEAtre enregistr\xE9e."), React.createElement("p", null, "Un souci technique de notre c\xF4t\xE9, rien \xE0 voir avec vous. Ne perdez pas vos 2 minutes\xA0: envoyez-nous votre demande sur WhatsApp, elle est d\xE9j\xE0 pr\xE9-remplie\xA0\uD83D\uDC47")) : React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande est bien re\xE7ue\xA0!"), estim && estim.distanceFiable ? React.createElement(React.Fragment, null, React.createElement("p", null, "Voici votre estimation, calcul\xE9e sur ce que vous venez de nous d\xE9crire."), React.createElement("div", {
-    className: "ds-price"
+  }))), failed ? React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande n'a pas pu \xEAtre enregistr\xE9e."), React.createElement("p", null, "Un souci technique de notre c\xF4t\xE9, rien \xE0 voir avec vous. Ne perdez pas vos 2 minutes\xA0: envoyez-nous votre demande sur WhatsApp, elle est d\xE9j\xE0 pr\xE9-remplie\xA0\uD83D\uDC47")) : React.createElement(React.Fragment, null, React.createElement("h3", null, "Votre demande est bien re\xE7ue\xA0!"), React.createElement("ol", {
+    className: "ds-steps"
+  }, React.createElement("li", {
+    className: "ds-step done"
   }, React.createElement("span", {
-    className: "ds-price-label"
-  }, estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"), React.createElement("div", {
-    className: "ds-price-range"
-  }, React.createElement("span", null, estim.bas.toLocaleString("fr-FR"), React.createElement("span", {
-    className: "cur"
-  }, "\u20AC")), React.createElement("span", {
-    className: "dash"
-  }, "\u2013"), React.createElement("span", null, estim.haut.toLocaleString("fr-FR"), React.createElement("span", {
-    className: "cur"
-  }, "\u20AC"))), React.createElement("p", {
-    className: "ds-price-sub"
-  }, "Fourchette bas\xE9e sur ", React.createElement("strong", null, estim.volume, "\xA0m\xB3"), " et ", React.createElement("strong", null, "~", estim.km, "\xA0km"), ". Votre ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), " est confirm\xE9 en 5 minutes au t\xE9l\xE9phone, et il ne bouge plus le jour J.")), estim.visioRequise ? React.createElement("div", {
+    className: "n"
+  }, "\u2713"), "Votre demande"), React.createElement("li", {
+    className: "ds-step active"
+  }, React.createElement("span", {
+    className: "n"
+  }, "2"), "Votre rappel")), blocRappel, estim && estim.distanceFiable && estim.visioRequise ? React.createElement("div", {
     className: "ds-note-visio"
-  }, React.createElement("p", null, React.createElement("strong", null, "Vous avez choisi Mains dans les poches"), ", o\xF9 nous faisons aussi tous vos cartons. Le montant ci-dessus est celui de la formule", " ", React.createElement("strong", null, "Mains libres"), "\xA0: il ne comprend pas encore l'emballage."), React.createElement("p", null, "Ce chiffrage-l\xE0 d\xE9pend enti\xE8rement de ce que vous avez \xE0 emballer, et nous ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.", React.createElement("strong", null, " Quelques photos ou 15 minutes en visio"), " nous suffisent pour voir la vaisselle, les fragiles et le volume r\xE9el de cartons, et vous repartez avec un ", React.createElement("strong", null, "prix ferme"), ".")) : null) : React.createElement("p", null, "Votre trajet demande une v\xE9rification de notre c\xF4t\xE9\xA0: on vous rappelle tr\xE8s vite avec un ", React.createElement("strong", null, "prix ferme et d\xE9finitif"), ", calcul\xE9 sur votre distance r\xE9elle."), rdv ? React.createElement("div", {
-    className: "rdv-done"
-  }, React.createElement("p", {
-    style: {
-      margin: 0
-    }
-  }, "\uD83D\uDCDE C'est not\xE9. On vous appelle ", React.createElement("strong", null, rdv.label), data.tel ? " au " + data.tel : "", ".")) : React.createElement(RappelPicker, {
-    onConfirm: confirmRdv,
-    confirming: rdvSending
-  })), React.createElement("div", {
+  }, React.createElement("p", null, React.createElement("strong", null, "Vous avez choisi Mains dans les poches"), ", o\xF9 nous faisons aussi tous vos cartons. Le montant ci-dessus est celui de la formule", " ", React.createElement("strong", null, "Mains libres"), "\xA0: il ne comprend pas encore l'emballage."), React.createElement("p", null, "Ce chiffrage-l\xE0 d\xE9pend enti\xE8rement de ce que vous avez \xE0 emballer, et nous ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.", React.createElement("strong", null, " Quelques photos ou 15 minutes en visio"), " nous suffisent pour voir la vaisselle, les fragiles et le volume r\xE9el de cartons, et vous repartez avec un ", React.createElement("strong", null, "prix ferme"), ".")) : null), React.createElement("div", {
     className: "ds-actions"
   }, React.createElement("a", {
     className: "btn btn-wa",

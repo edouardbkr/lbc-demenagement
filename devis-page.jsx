@@ -567,10 +567,13 @@ function DevisForm() {
             window.LBC_PRICING.distanceKm(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")),
             new Promise((r) => setTimeout(() => r(null), 8000))
           ]),
-          // Approche depuis la base de Nice. En cas d'échec on renvoie 0 : mieux vaut ne
-          // rien facturer qu'un supplément bâti sur une adresse mal comprise.
+          // Approche depuis la base de Nice, jusqu'à l'extrémité LA PLUS PROCHE d'elle.
+          // Les DEUX adresses sont passées : n'envoyer que le départ facturait 855 km
+          // d'approche sur un Bagnolet → Le Cannet dont l'arrivée est à 31 km de la base.
+          // En cas d'échec on renvoie 0 : mieux vaut ne rien facturer qu'un supplément
+          // bâti sur une adresse mal comprise.
           Promise.race([
-            window.LBC_PRICING.distanceBase(adresseComplete(all, "depart")),
+            window.LBC_PRICING.distanceBase(adresseComplete(all, "depart"), adresseComplete(all, "arrivee")),
             new Promise((r) => setTimeout(() => r(0), 8000))
           ])
         ]);
@@ -643,6 +646,50 @@ function DevisForm() {
     setRdv(choix);
     scrollToForm();
   };
+  /* ⚠️ LE RAPPEL DOIT ÊTRE VISIBLE SANS FAIRE DÉFILER.
+     Il était placé APRÈS le prix et après la note « Mains dans les poches ». Sur mobile,
+     le prospect voyait son prix puis un paragraphe d'explications, et devait faire défiler
+     pour trouver le bouton. Or c'est à la seconde où il découvre son prix qu'il est le
+     plus chaud : chaque geste supplémentaire lui laisse le temps d'aller voir ailleurs.
+     Défini ici en variable pour être posé dans les deux branches — prix affiché ou
+     trajet à vérifier — sans dupliquer le code. */
+
+  /* On n'affiche le prix QUE si la distance a réellement été calculée. Le 3 août 2026, un
+     géocodage bloqué faisait retomber le moteur sur une distance par défaut de 30 km : un
+     Cannes → Honfleur de 1 038 km a été annoncé au prix d'un trajet local. Un prix manquant
+     se rattrape en un appel ; un prix faux fait perdre le client ET la crédibilité. */
+  const blocPrix = estim && estim.distanceFiable ? (
+    <div className="ds-price">
+      <span className="ds-price-label">
+        {estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"}
+      </span>
+      <div className="ds-price-range">
+        <span>{estim.bas.toLocaleString("fr-FR")}<span className="cur">€</span></span>
+        <span className="dash">–</span>
+        <span>{estim.haut.toLocaleString("fr-FR")}<span className="cur">€</span></span>
+      </div>
+      {/* Texte volontairement court : le titre du bloc de rappel, deux lignes plus haut,
+          annonce déjà les 5 minutes au téléphone. Le répéter ici repoussait la grille des
+          créneaux sous le pli sur mobile. */}
+      <p className="ds-price-sub">
+        Fourchette basée sur <strong>{estim.volume}&nbsp;m³</strong> et <strong>~{estim.km}&nbsp;km</strong>.
+        Votre <strong>prix ferme</strong> ne bouge plus le jour J.
+      </p>
+    </div>
+  ) : (
+    <p className="ds-price-attente">Votre trajet demande une vérification de notre côté&nbsp;: on vous rappelle très vite avec un <strong>prix ferme et définitif</strong>, calculé sur votre distance réelle.</p>
+  );
+
+  const blocRappel = rdv ? (
+    <React.Fragment>
+      <div className="rdv-done">
+        <p style={{ margin: 0 }}>📞 C'est noté. On vous appelle <strong>{rdv.label}</strong>{data.tel ? " au " + data.tel : ""}.</p>
+      </div>
+      {blocPrix}
+    </React.Fragment>
+  ) : <RappelPicker onConfirm={confirmRdv} confirming={rdvSending} milieu={blocPrix} />;
+
+
 
   return (
     <section className="sec">
@@ -669,57 +716,35 @@ function DevisForm() {
                 </React.Fragment> :
                 <React.Fragment>
                   <h3>Votre demande est bien reçue&nbsp;!</h3>
-                  {/* On n'affiche le prix QUE si la distance a réellement été calculée.
-                        Le 3 août 2026, un géocodage bloqué faisait retomber le moteur sur une
-                        distance par défaut de 30 km : un Cannes → Honfleur de 1 038 km a été
-                        annoncé au prix d'un trajet local. Un prix manquant se rattrape en un
-                        appel ; un prix faux fait perdre le client et la crédibilité. */}
-                    {estim && estim.distanceFiable ?
-                  <React.Fragment>
-                    <p>Voici votre estimation, calculée sur ce que vous venez de nous décrire.</p>
-                    <div className="ds-price">
-                      <span className="ds-price-label">
-                        {estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"}
-                      </span>
-                      <div className="ds-price-range">
-                        <span>{estim.bas.toLocaleString("fr-FR")}<span className="cur">€</span></span>
-                        <span className="dash">–</span>
-                        <span>{estim.haut.toLocaleString("fr-FR")}<span className="cur">€</span></span>
-                      </div>
-                      <p className="ds-price-sub">
-                        Fourchette basée sur <strong>{estim.volume}&nbsp;m³</strong> et <strong>~{estim.km}&nbsp;km</strong>.
-                        Votre <strong>prix ferme et définitif</strong> est confirmé en 5 minutes au téléphone, et il ne bouge plus le jour J.
-                      </p>
-                    </div>
-                    {/* « Mains dans les poches » n'est pas estimable en ligne : le prix
-                        dépend de ce qu'il y a à emballer, et l'annoncer au jugé revient
-                        à le renier après la visite. On affiche donc la formule juste en
-                        dessous, en le disant franchement. Un client prévenu accepte la
-                        visio ; un client qui découvre l'écart après coup s'en va. */}
-                    {estim.visioRequise ?
-                    <div className="ds-note-visio">
-                      <p>
-                        <strong>Vous avez choisi Mains dans les poches</strong>, où nous faisons
-                        aussi tous vos cartons. Le montant ci-dessus est celui de la formule{" "}
-                        <strong>Mains libres</strong>&nbsp;: il ne comprend pas encore l'emballage.
-                      </p>
-                      <p>
-                        Ce chiffrage-là dépend entièrement de ce que vous avez à emballer, et nous
-                        ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.
-                        <strong> Quelques photos ou 15 minutes en visio</strong> nous suffisent pour
-                        voir la vaisselle, les fragiles et le volume réel de cartons, et vous
-                        repartez avec un <strong>prix ferme</strong>.
-                      </p>
-                    </div> : null}
-                  </React.Fragment> :
-                  <p>Votre trajet demande une vérification de notre côté&nbsp;: on vous rappelle très vite avec un <strong>prix ferme et définitif</strong>, calculé sur votre distance réelle.</p>
-                  }
-                  {rdv ?
-                  <div className="rdv-done">
-                    <p style={{ margin: 0 }}>📞 C'est noté. On vous appelle <strong>{rdv.label}</strong>{data.tel ? " au " + data.tel : ""}.</p>
-                  </div> :
-                  <RappelPicker onConfirm={confirmRdv} confirming={rdvSending} />
-                  }
+                  {/* Le fil d'étapes : le prospect voit d'un coup d'œil que sa demande est
+                      derrière lui et qu'il ne reste qu'une chose à faire, fixer l'appel. */}
+                  <ol className="ds-steps">
+                    <li className="ds-step done"><span className="n">✓</span>Votre demande</li>
+                    <li className="ds-step active"><span className="n">2</span>Votre rappel</li>
+                  </ol>
+                  {/* Tout tient dans le rappel : le bouton immédiat, PUIS le prix, PUIS la
+                      grille des créneaux. Le prix arrive à la seconde où le prospect hésite
+                      entre « appelez-moi maintenant » et « je choisis une heure ». */}
+                  {blocRappel}
+                  {/* « Mains dans les poches » n'est pas estimable en ligne : le prix dépend
+                      de ce qu'il y a à emballer, et l'annoncer au jugé revient à le renier
+                      après la visite. On le dit franchement, juste en dessous. Un client
+                      prévenu accepte la visio ; un client qui découvre l'écart s'en va. */}
+                  {estim && estim.distanceFiable && estim.visioRequise ?
+                  <div className="ds-note-visio">
+                    <p>
+                      <strong>Vous avez choisi Mains dans les poches</strong>, où nous faisons
+                      aussi tous vos cartons. Le montant ci-dessus est celui de la formule{" "}
+                      <strong>Mains libres</strong>&nbsp;: il ne comprend pas encore l'emballage.
+                    </p>
+                    <p>
+                      Ce chiffrage-là dépend entièrement de ce que vous avez à emballer, et nous
+                      ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.
+                      <strong> Quelques photos ou 15 minutes en visio</strong> nous suffisent pour
+                      voir la vaisselle, les fragiles et le volume réel de cartons, et vous
+                      repartez avec un <strong>prix ferme</strong>.
+                    </p>
+                  </div> : null}
                 </React.Fragment>
                 }
                 <div className="ds-actions">
