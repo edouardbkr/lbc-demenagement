@@ -158,7 +158,15 @@ function Checklist() {
 }
 function App() {
   useScrollReveal();
-  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(Checklist, null)), React.createElement(Footer, null));
+  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(Checklist, null), React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "devis-hero-form"
+  }, React.createElement(QuickQuote, {
+    variant: "dark"
+  }))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { ChecklistHero, Checklist, App }); } catch (e) {}
