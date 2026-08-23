@@ -14,9 +14,9 @@ function Hero({ headlineVariant }) {
       scribble: "promis."
     },
     b: {
-      l1: "Notre nom vous fait sourire.",
-      l2: <>Notre service vous fera <em>confiance.</em></>,
-      scribble: "pour de vrai."
+      l1: "Déménageur à Nice.",
+      l2: <>Une équipe formée, <em>un devis qui ne bouge pas.</em></>,
+      scribble: null
     },
     // Variante c — le jeu de mots garde sa place à l'écran, mais il n'est plus
     // le H1. Le H1 est le signal le plus fort qu'une page envoie à Google sur
@@ -110,7 +110,7 @@ function Hero({ headlineVariant }) {
               soit libre à la date demandée. Les deux formulations doivent rester
               cohérentes : promettre ici ce qu'on nuance là-bas, c'est se faire prendre en
               défaut par le premier visiteur qui lit les deux pages. */}
-          <span className="pill pill-live"><span className="dot"></span>Devis en 24 h max</span>
+          <span className="pill pill-live"><span className="dot"></span>Devis en 24 h</span>
           <span className="pill"><svg className="pill-ic" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>PACA · Toute la France</span>
         </div>
 

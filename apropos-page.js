@@ -60,7 +60,7 @@ const AP_TIMELINE = [{
 }, {
   y: "04",
   t: "Aujourd'hui",
-  d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Le nom fait sourire. Le travail, lui, reste sérieux."
+  d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Une note de 5,0 sur Google, et l'exigence du premier jour."
 }];
 function AproposHero() {
   return React.createElement("section", {
@@ -75,7 +75,7 @@ function AproposHero() {
     className: "sep"
   }, "/"), React.createElement("span", null, "Qui sommes-nous")), React.createElement("h1", null, "Deux amis, un camion, ", React.createElement("em", null, "et une vieille rancune contre les d\xE9m\xE9nagements rat\xE9s.")), React.createElement("p", {
     className: "lede"
-  }, "On a appel\xE9 notre bo\xEEte \xAB Les Bras Cass\xE9s \xBB pour qu'on n'oublie jamais d'o\xF9 on vient \u2014 et pourquoi on fait ce m\xE9tier autrement. ", React.createElement("span", {
+  }, "Deux fondateurs qui d\xE9m\xE9nagent encore eux-m\xEAmes, des \xE9quipes qu'ils forment, et une r\xE8gle qui n'a jamais boug\xE9 : le prix annonc\xE9 est le prix pay\xE9. ", React.createElement("span", {
     className: "ast"
   }, "*"), "Voici l'histoire.")));
 }
@@ -119,7 +119,7 @@ function AproposStory() {
     }
   }, "que votre d\xE9m\xE9nagement arr\xEAte d'\xEAtre votre probl\xE8me.")), React.createElement("p", {
     className: "ap-quote"
-  }, "\xAB On voulait b\xE2tir l'entreprise qu'on aurait r\xEAv\xE9 d'appeler le jour de notre propre gal\xE8re. \xBB", React.createElement("span", {
+  }, "\xAB On voulait b\xE2tir l'entreprise qu'on aurait voulu trouver le jour de notre propre d\xE9m\xE9nagement. \xBB", React.createElement("span", {
     className: "ap-quote-by"
   }, "\u2014 Edouard & Anthony, fondateurs de LBC*"))))));
 }
@@ -169,7 +169,7 @@ function AproposTimeline() {
     className: "asterisk"
   }, "*"), " Notre parcours")), React.createElement("h2", {
     className: "dim-em"
-  }, "De la gal\xE8re", React.createElement("br", null), React.createElement("em", null, "au camion qui roule droit."))), React.createElement("div", {
+  }, "D'un d\xE9m\xE9nagement rat\xE9", React.createElement("br", null), React.createElement("em", null, "\xE0 une m\xE9thode qui ne l'est pas."))), React.createElement("div", {
     className: "ap-timeline reveal-stagger"
   }, AP_TIMELINE.map((m, i) => React.createElement("div", {
     className: "ap-tl-item",

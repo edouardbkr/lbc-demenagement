@@ -1042,7 +1042,7 @@ function Footer() {
     className: "footer-bottom"
   }, React.createElement("div", null, "\xA9 2026 LBC D\xE9m\xE9nagement \u2014 SAS au capital de 3 000\u20AC \xB7 12 rue d'Italie, 06000 Nice"), React.createElement("div", {
     className: "footer-made"
-  }, "Les Bras Cass\xE9s. Le nom est la blague, le travail est s\xE9rieux.")))));
+  }, "LBC D\xE9m\xE9nagement \xB7 12 rue d'Italie, 06000 Nice \xB7 D\xE9m\xE9nageurs professionnels depuis Nice.")))));
 }
 function useScrollReveal() {
   useEffect(() => {

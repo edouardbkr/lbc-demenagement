@@ -11,7 +11,7 @@ function FormulesHero() {
         </div>
         <h1>Trois formules, <em>une seule exigence.</em></h1>
         <p className="lede">
-          Coup de main, Mains libres ou Mains dans les poches : vous choisissez jusqu'où on va, jamais sur la qualité du geste. Chaque formule reprend la précédente et y ajoute le confort. <span className="ast">*</span>Et oui, c'est <span className="ast">*</span>Les Bras Cassés qui portent.
+          Coup de main, Mains libres ou Mains dans les poches : vous choisissez jusqu'où on va, jamais sur la qualité du geste. Chaque formule reprend la précédente et y ajoute du travail en moins pour vous. <span className="ast">*</span>Dans les trois, l'assurance et le prix ferme sont inclus.
         </p>
       </div>
     </section>);

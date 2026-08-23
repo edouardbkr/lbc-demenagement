@@ -43,7 +43,7 @@ function About() {
     className: "asterisk"
   }, "*"), " 01 / Qui sommes-nous")), React.createElement("h2", {
     className: "dim-em"
-  }, "Un nom qui fait sourire,", React.createElement("br", null), React.createElement("em", null, "un travail qui fait dormir tranquille."))), React.createElement("div", {
+  }, "Une exigence n\xE9e", React.createElement("br", null), React.createElement("em", null, "un travail qui fait dormir tranquille."))), React.createElement("div", {
     className: "about-grid"
   }, React.createElement("div", {
     className: "about-copy reveal"
@@ -53,7 +53,7 @@ function About() {
     style: {
       color: 'var(--ink)'
     }
-  }, "d\xE9m\xE9nagement rat\xE9"), ". Le n\xF4tre. De cette gal\xE8re est n\xE9e une promesse\xA0: ", React.createElement("em", null, "plus jamais \xE7a.")), React.createElement("p", null, "Fond\xE9e \xE0 Nice par ", React.createElement("strong", {
+  }, "d\xE9m\xE9nagement rat\xE9"), ". Le n\xF4tre. Meubles ab\xEEm\xE9s, facture qui double le jour m\xEAme, personne \xE0 qui parler. De cette exp\xE9rience est n\xE9e une exigence\xA0: ", React.createElement("em", null, "plus jamais \xE7a.")), React.createElement("p", null, "Fond\xE9e \xE0 Nice par ", React.createElement("strong", {
     style: {
       color: 'var(--ink)'
     }
@@ -61,7 +61,7 @@ function About() {
     style: {
       color: 'var(--ink)'
     }
-  }, "Le nom est la blague. ", React.createElement("strong", null, "Le travail est s\xE9rieux."), " ", React.createElement("a", {
+  }, "Un devis ferme, une \xE9quipe form\xE9e, une assurance qui couvre vraiment. ", React.createElement("a", {
     href: "Apropos",
     style: {
       color: 'var(--accent)',
@@ -394,7 +394,7 @@ function Gallery() {
     className: "wrap"
   }, React.createElement("div", {
     className: "gallery-head reveal"
-  }, React.createElement("h3", null, "En action.", React.createElement("br", null), React.createElement("em", null, "Vrais cartons, vrais clients, vrais sourires.")), React.createElement("div", {
+  }, React.createElement("h3", null, "En action.", React.createElement("br", null), React.createElement("em", null, "Vrais chantiers, vrais clients.")), React.createElement("div", {
     className: "meta"
   }, "Nos chantiers \xB7 Nice & C\xF4te d'Azur \u2192")), React.createElement("div", {
     className: "reveal-stagger",

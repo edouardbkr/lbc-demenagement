@@ -16,7 +16,7 @@ const AP_TIMELINE = [
 { y: "01", t: "Le déclic", d: "Après un déménagement catastrophique — cartons écrasés, équipe fantôme à 8h — deux amis niçois en ont assez. Un constat simple : on peut tellement mieux faire." },
 { y: "02", t: "La promesse", d: "On fonde LBC* avec une règle non négociable : traiter les affaires des gens comme les nôtres. Un prix annoncé qu'on respecte, du matériel adapté, et jamais d'inconnu recruté la veille pour porter vos meubles." },
 { y: "03", t: "Plus loin que Nice", d: "Déménagements locaux, longues distances, entreprises : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse." },
-{ y: "04", t: "Aujourd'hui", d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Le nom fait sourire. Le travail, lui, reste sérieux." }];
+{ y: "04", t: "Aujourd'hui", d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Une note de 5,0 sur Google, et l'exigence du premier jour." }];
 
 
 function AproposHero() {
@@ -30,7 +30,7 @@ function AproposHero() {
         </div>
         <h1>Deux amis, un camion, <em>et une vieille rancune contre les déménagements ratés.</em></h1>
         <p className="lede">
-          On a appelé notre boîte « Les Bras Cassés » pour qu'on n'oublie jamais d'où on vient — et pourquoi on fait ce métier autrement. <span className="ast">*</span>Voici l'histoire.
+          Deux fondateurs qui déménagent encore eux-mêmes, des équipes qu'ils forment, et une règle qui n'a jamais bougé : le prix annoncé est le prix payé. <span className="ast">*</span>Voici l'histoire.
         </p>
       </div>
     </section>);
@@ -54,7 +54,7 @@ function AproposStory() {
               Aujourd'hui, LBC* a grandi — mais l'exigence n'a pas bougé. <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony forment et encadrent chaque équipe</strong>, pour qu'on vous traite toujours comme leur tout premier client : <strong style={{ color: 'var(--ink)' }}>que votre déménagement arrête d'être votre problème.</strong>
             </p>
             <p className="ap-quote">
-              « On voulait bâtir l'entreprise qu'on aurait rêvé d'appeler le jour de notre propre galère. »
+              « On voulait bâtir l'entreprise qu'on aurait voulu trouver le jour de notre propre déménagement. »
               <span className="ap-quote-by">— Edouard & Anthony, fondateurs de LBC*</span>
             </p>
           </div>
@@ -92,7 +92,7 @@ function AproposTimeline() {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Notre parcours</div></div>
-          <h2 className="dim-em">De la galère<br /><em>au camion qui roule droit.</em></h2>
+          <h2 className="dim-em">D'un déménagement raté<br /><em>à une méthode qui ne l'est pas.</em></h2>
         </div>
         <div className="ap-timeline reveal-stagger">
           {AP_TIMELINE.map((m, i) =>

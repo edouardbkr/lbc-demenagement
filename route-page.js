@@ -94,7 +94,7 @@ function RIntro({
     style: {
       color: 'var(--ink)'
     }
-  }, "Coup de main, Mains libres ou Mains dans les poches"), " \u2014 des d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, une assurance compl\xE8te et un devis clair et d\xE9finitif. ", r.intl ? "À l'international comme en France, " : "", "le nom est la blague : le travail, lui, est s\xE9rieux."), React.createElement("div", {
+  }, "Coup de main, Mains libres ou Mains dans les poches"), " \u2014 des d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, une assurance compl\xE8te et un devis clair et d\xE9finitif. ", r.intl ? "À l'international comme en France, " : "", "chaque poste est d\xE9taill\xE9 au devis, et ce devis est d\xE9finitif."), React.createElement("div", {
     className: "hero-ctas",
     style: {
       marginTop: 32

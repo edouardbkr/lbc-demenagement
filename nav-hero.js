@@ -39,9 +39,9 @@ function Hero({
       scribble: "promis."
     },
     b: {
-      l1: "Notre nom vous fait sourire.",
-      l2: React.createElement(React.Fragment, null, "Notre service vous fera ", React.createElement("em", null, "confiance.")),
-      scribble: "pour de vrai."
+      l1: "Déménageur à Nice.",
+      l2: React.createElement(React.Fragment, null, "Une \xE9quipe form\xE9e, ", React.createElement("em", null, "un devis qui ne bouge pas.")),
+      scribble: null
     },
     c: {
       accroche: null,
@@ -97,7 +97,7 @@ function Hero({
     className: "pill pill-live"
   }, React.createElement("span", {
     className: "dot"
-  }), "Devis en 24 h max"), React.createElement("span", {
+  }), "Devis en 24 h"), React.createElement("span", {
     className: "pill"
   }, React.createElement("svg", {
     className: "pill-ic",

@@ -13,11 +13,9 @@ function FormulesHero() {
     className: "sep"
   }, "/"), React.createElement("span", null, "Nos formules")), React.createElement("h1", null, "Trois formules, ", React.createElement("em", null, "une seule exigence.")), React.createElement("p", {
     className: "lede"
-  }, "Coup de main, Mains libres ou Mains dans les poches : vous choisissez jusqu'o\xF9 on va, jamais sur la qualit\xE9 du geste. Chaque formule reprend la pr\xE9c\xE9dente et y ajoute le confort. ", React.createElement("span", {
+  }, "Coup de main, Mains libres ou Mains dans les poches : vous choisissez jusqu'o\xF9 on va, jamais sur la qualit\xE9 du geste. Chaque formule reprend la pr\xE9c\xE9dente et y ajoute du travail en moins pour vous. ", React.createElement("span", {
     className: "ast"
-  }, "*"), "Et oui, c'est ", React.createElement("span", {
-    className: "ast"
-  }, "*"), "Les Bras Cass\xE9s qui portent.")));
+  }, "*"), "Dans les trois, l'assurance et le prix ferme sont inclus.")));
 }
 const COMPARE_ROWS = [{
   label: "Véhicule adapté + équipe dédiée",

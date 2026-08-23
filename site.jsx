@@ -882,7 +882,7 @@ function Footer() {
           </div>
           <div className="footer-bottom">
             <div>© 2026 LBC Déménagement — SAS au capital de 3 000€ · 12 rue d'Italie, 06000 Nice</div>
-            <div className="footer-made">Les Bras Cassés. Le nom est la blague, le travail est sérieux.</div>
+            <div className="footer-made">LBC Déménagement · 12 rue d'Italie, 06000 Nice · Déménageurs professionnels depuis Nice.</div>
           </div>
         </div>
       </footer>

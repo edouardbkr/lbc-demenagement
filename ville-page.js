@@ -53,7 +53,7 @@ function VilleIntro({
     style: {
       color: 'var(--ink)'
     }
-  }, "Standard, Premium ou Luxe"), " \u2014 vous b\xE9n\xE9ficiez de d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, d'une assurance compl\xE8te et d'un devis clair, sans surprise. \xC0 ", c.name, " comme partout sur la C\xF4te d'Azur, le nom est la blague : le travail, lui, est s\xE9rieux."), React.createElement("div", {
+  }, "Standard, Premium ou Luxe"), " \u2014 vous b\xE9n\xE9ficiez de d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, d'une assurance compl\xE8te et d'un devis clair, sans surprise. \xC0 ", c.name, " comme partout sur la C\xF4te d'Azur, l'acc\xE8s est rep\xE9r\xE9 avant le chiffrage, et le prix annonc\xE9 est le prix pay\xE9."), React.createElement("div", {
     className: "hero-ctas",
     style: {
       marginTop: 32

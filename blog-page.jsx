@@ -9,7 +9,7 @@ function BlogHero() {
           <span className="sep">/</span>
           <span>Blog &amp; conseils</span>
         </div>
-        <h1>Le carnet des <em>Bras Cassés.</em></h1>
+        <h1>Le carnet du <em>déménagement.</em></h1>
         <p className="lede">
           Prix, méthode, démarches, astuces locales : tout ce qu'on aurait aimé qu'on nous explique avant notre premier déménagement. <span className="ast">*</span>Écrit par ceux qui portent les cartons.
         </p>

@@ -37,7 +37,7 @@ function About() {
             <div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 01 / Qui sommes-nous</div>
           </div>
           <h2 className="dim-em">
-            Un nom qui fait sourire,<br />
+            Une exigence née<br />
             <em>un travail qui fait dormir tranquille.</em>
           </h2>
         </div>
@@ -45,13 +45,13 @@ function About() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <p className="lead">
-              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. De cette galère est née une promesse&nbsp;: <em>plus jamais ça.</em>
+              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. Meubles abîmés, facture qui double le jour même, personne à qui parler. De cette expérience est née une exigence&nbsp;: <em>plus jamais ça.</em>
             </p>
             <p>
               Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* traite vos affaires comme les siennes. Un devis ferme, du matériel pro, et des gens qui savent ce que «&nbsp;fragile&nbsp;» veut dire.
             </p>
             <p style={{ color: 'var(--ink)' }}>
-              Le nom est la blague. <strong>Le travail est sérieux.</strong> <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
+              Un devis ferme, une équipe formée, une assurance qui couvre vraiment. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
             </p>
 
             <ul className="about-trust reveal-stagger">
@@ -278,7 +278,7 @@ function Gallery() {
         <div className="gallery-head reveal">
           <h3>
             En action.<br />
-            <em>Vrais cartons, vrais clients, vrais sourires.</em>
+            <em>Vrais chantiers, vrais clients.</em>
           </h3>
           <div className="meta">Nos chantiers · Nice & Côte d'Azur →</div>
         </div>

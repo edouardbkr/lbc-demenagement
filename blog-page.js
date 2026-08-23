@@ -11,7 +11,7 @@ function BlogHero() {
     href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
-  }, "/"), React.createElement("span", null, "Blog & conseils")), React.createElement("h1", null, "Le carnet des ", React.createElement("em", null, "Bras Cass\xE9s.")), React.createElement("p", {
+  }, "/"), React.createElement("span", null, "Blog & conseils")), React.createElement("h1", null, "Le carnet du ", React.createElement("em", null, "d\xE9m\xE9nagement.")), React.createElement("p", {
     className: "lede"
   }, "Prix, m\xE9thode, d\xE9marches, astuces locales : tout ce qu'on aurait aim\xE9 qu'on nous explique avant notre premier d\xE9m\xE9nagement. ", React.createElement("span", {
     className: "ast"
