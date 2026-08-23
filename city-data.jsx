@@ -13,6 +13,122 @@ const CITIES = {
      liée du site. Celle-ci se recentre sur ce que l'accueil ne traite pas : le quartier,
      les bureaux, le petit budget, l'étudiant. Ce sont les requêtes que Google associe
      DÉJÀ à cette page, sans qu'elle en parle. */
+  /* ── VAGUE 1 ────────────────────────────────────────────────────────────────────
+     Quatre communes ajoutées le 24 août 2026. Chacune tient sur UNE contrainte que les
+     dix-huit autres n'ont pas : le technopôle et ses mutations pour Valbonne, la vieille
+     ville close pour Vence, la saison pour Saint-Tropez, le village piéton et les domaines
+     gardés pour Mougins. Le texte ne doit jamais rester vrai si on remplace le nom de la
+     commune par une autre : c'est le seul test qui distingue une page utile d'un gabarit
+     décliné, et c'est exactement ce que Google sait détecter. */
+
+  "valbonne-sophia-antipolis": {
+    name: "Valbonne Sophia Antipolis", file: "Demenagement-Valbonne-Sophia-Antipolis",
+    cp: "06560", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Valbonne Sophia Antipolis : mutations, prise de poste au technopôle, facturation entreprise. Devis ferme sous 24h.",
+    intro: "Sophia Antipolis n'est pas un quartier résidentiel comme un autre : c'est un parc d'activités de deux mille hectares où l'on arrive pour un poste, souvent avec une date d'entrée en fonction non négociable. La moitié de nos clients valbonnais déménagent parce que leur employeur les mute, et beaucoup ne sont pas encore sur place quand il faut décider. Cela change tout au déroulé : l'interlocuteur est parfois un service des ressources humaines à Paris ou à l'étranger, la facture part à l'entreprise, et la date de livraison compte davantage que la date de chargement. À côté du technopôle, le village de Valbonne et ses hameaux se déménagent, eux, de façon très classique.",
+    quartiers: ["Sophia Antipolis", "Valbonne village", "Garbejaire", "Les Clausonnes", "Les Bouillides", "Haut-Sartoux", "Font-Neuve", "Peidessale"],
+    specifics: [
+      { t: "Déménagement pris en charge par l'employeur", d: "Devis au nom de la société, bon de commande, facturation séparée et justificatifs pour le service des ressources humaines. Nous traitons directement avec le service mobilité quand le salarié n'est pas encore arrivé." },
+      { t: "Date imposée par la prise de poste", d: "Un premier jour de travail ne se décale pas. Nous partons de cette date et remontons le calendrier, quitte à livrer avant que le salarié n'ait fini son préavis dans son ancien logement." },
+      { t: "Résidences du parc, accès contrôlés", d: "Les résidences de Garbejaire et des Bouillides ont des barrières, des places visiteurs limitées et des règlements d'immeuble. Nous prévenons le syndic et réservons l'accès avant le jour du déménagement." }
+    ],
+    deep: [
+      { t: "Le calendrier part de la prise de poste, pas du bail", p: "Chez un particulier, on cale le déménagement sur la remise des clés. Ici, le point fixe est la date d'entrée en fonction, et tout le reste s'y adapte. Il arrive qu'un salarié prenne son poste au technopôle trois semaines avant que sa famille n'emménage : on charge, on stocke le temps nécessaire, et on livre quand le logement est disponible. Cette souplesse-là se décide au devis, pas la veille, parce qu'elle mobilise un camion et un volume de stockage sur une période précise." },
+      { t: "Facturer une entreprise n'est pas facturer un particulier", p: "Quand la mobilité est prise en charge, l'employeur veut un devis détaillé au nom de la société, un numéro de bon de commande reporté sur la facture et parfois une note distinguant ce qui relève de la prestation et ce qui relève des fournitures. Nous préparons ces pièces dès le devis, avec le montant de l'assurance indiqué noir sur blanc, parce que c'est la ligne que les services de mobilité vérifient en premier. Un dossier incomplet retarde le remboursement du salarié de plusieurs semaines." },
+      { t: "Coordonner à distance, sans chiffrer à l'aveugle", p: "Beaucoup de nos clients n'ont pas encore vu leur futur logement, et certains sont à l'étranger. Nous faisons le repérage de l'adresse d'arrivée à leur place : largeur d'accès, stationnement, ascenseur et dimensions de la cage d'escalier, transmis avec des photos. C'est ce qui distingue une entreprise de déménagement à Valbonne Sophia Antipolis d'un devis fait au téléphone : personne ne découvre le jour de la livraison que le canapé ne passe pas la porte." },
+      { t: "Le village et les hameaux, l'autre Valbonne", p: "À trois kilomètres du parc, le village de Valbonne est un damier de rues étroites du seizième siècle, avec une place centrale interdite aux véhicules les jours de marché. Les maisons de village y ont des escaliers droits et des paliers courts, et le camion se gare aux abords. Rien à voir avec les résidences du technopôle et leurs parkings dimensionnés pour des cadres motorisés. Nous demandons donc systématiquement l'adresse exacte avant de chiffrer : sur cette commune, deux points distants de quelques minutes n'ont pas le même prix." }
+    ],
+    faq: [
+      { q: "Travaillez-vous avec les entreprises de Sophia Antipolis ?", a: "Oui, régulièrement. Devis au nom de la société, bon de commande et facturation séparée. Un déménagement à Valbonne Sophia Antipolis pris en charge par l'employeur se prépare avec le service mobilité, même si le salarié n'est pas encore sur place." },
+      { q: "Pouvez-vous stocker entre le chargement et la livraison ?", a: "Oui. C'est fréquent quand la prise de poste précède la disponibilité du logement. Le volume et la durée se calent au devis, pas au dernier moment." },
+      { q: "Le salarié doit-il être présent le jour du déménagement ?", a: "Non, à condition d'avoir désigné une personne de confiance et de nous avoir remis les clés. Nous transmettons un état des lieux photographique au chargement et à la livraison." },
+      { q: "Faut-il prévenir la résidence à Garbejaire ou aux Bouillides ?", a: "Oui. Barrière, places visiteurs et créneaux d'accès sont réglementés. Nous contactons le syndic une semaine avant pour réserver l'emplacement." },
+      { q: "Déménagez-vous aussi dans le village de Valbonne ?", a: "Bien sûr. Les rues y sont étroites et la place centrale est occupée les jours de marché : le camion stationne aux abords et le portage est plus long qu'au technopôle." },
+      { q: "Le devis peut-il changer si l'entreprise modifie la date ?", a: "Le prix reste ferme. Seul un report très tardif en pleine saison peut affecter la disponibilité, et votre déménageur à Valbonne Sophia Antipolis vous le dit avant, jamais après." }
+    ],
+    nearby: ["antibes", "grasse", "le-cannet", "villeneuve-loubet", "cagnes-sur-mer"]
+  },
+
+  "vence": {
+    name: "Vence", file: "Demenagement-Vence", cp: "06140", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Vence : cité historique fermée aux camions, villas avec dépendances, mobilier ancien. Devis ferme sous 24h.",
+    intro: "Un déménagement à Vence se joue dans deux endroits qui n'ont rien de commun. La cité historique tient dans une enceinte médiévale percée de cinq portes, et aucune n'est franchissable par un camion de déménagement : tout ce qui sort de la vieille ville sort à la main, sur cinquante à deux cents mètres selon la porte utilisée. Autour, la commune s'étale sur les collines en villas avec terrain, dépendances, pool house et garages remplis de trente ans d'affaires. Ce sont deux métiers différents, et le second réserve plus de surprises que le premier : le volume déclaré est presque toujours sous-estimé quand il y a une dépendance.",
+    quartiers: ["Cité historique", "Le Riou", "Les Baous", "La Sine", "Le Grand Jardin", "Passeprest", "Sainte-Colombe", "Les Salles"],
+    specifics: [
+      { t: "Cité historique fermée aux camions", d: "Les cinq portes de l'enceinte médiévale n'admettent aucun véhicule de déménagement. Le camion se poste au plus près et le portage se fait par les ruelles, jusqu'à deux cents mètres selon la porte." },
+      { t: "Villas avec dépendances", d: "Pool house, atelier, cave, garage double : le volume réel dépasse presque toujours l'estimation faite sur la seule surface habitable. Nous comptons les annexes avant de chiffrer." },
+      { t: "Mobilier ancien et pièces lourdes", d: "Armoires provençales, buffets en noyer, tables monastère : des meubles massifs qui se démontent rarement et passent difficilement les portes anciennes. Protection sur mesure et équipe renforcée." }
+    ],
+    deep: [
+      { t: "Sortir un logement de la vieille ville", p: "Les rues de la cité sont larges d'un mètre cinquante à trois mètres et pavées, avec des seuils surélevés et des passages voûtés bas. Un déménagement s'y organise autour de la porte la plus proche : Porte du Peyra, Porte du Signadou ou Porte de l'Orient, chacune donnant sur une possibilité de stationnement différente. Nous repérons ce trajet avant de chiffrer et nous comptons la distance réelle de portage, parce que c'est elle, et non le volume, qui fixe le nombre d'équipiers et la durée de la journée." },
+      { t: "Les dépendances, la vraie surprise du devis", p: "Une villa vençoise de cent quarante mètres carrés annoncés cache souvent un garage double plein, un abri de jardin, une cave et un local technique de piscine. Le mobilier de jardin, l'outillage, les vélos et les cartons stockés depuis l'emménagement précédent représentent facilement dix à quinze mètres cubes supplémentaires. Nous demandons donc à voir toutes les annexes lors de la visite, y compris celles dont le propriétaire dit qu'il n'y a rien dedans. C'est la seule façon de tenir un prix ferme sur ce type de bien." },
+      { t: "Le mobilier ancien, et pourquoi il change la méthode", p: "Vence attire depuis longtemps une clientèle installée, et le mobilier suit : armoires à corniche, secrétaires, commodes en bois massif, parfois des pièces d'atelier héritées. Ces meubles ne se démontent pas comme du mobilier contemporain, leurs assemblages travaillent, et une armoire provençale pèse couramment cent vingt kilos à vide. On les sangle debout, on protège les arêtes et les pieds, et on prévoit le passage par une fenêtre quand l'escalier tourne trop court. C'est plus lent, et c'est prévu au devis." },
+      { t: "Les chemins de colline et le gabarit du camion", p: "Au Riou, aux Baous ou du côté de Passeprest, les villas se rejoignent par des chemins privés en montée, bordés de murets et terminés par un portail de trois mètres. Un porteur de vingt mètres cubes n'y entre pas toujours. Nous repérons le dernier virage avant d'engager un véhicule : c'est ce qu'on attend d'un déménageur à Vence plutôt que d'un transporteur de passage, et cela évite la marche arrière sur cinq cents mètres." }
+    ],
+    faq: [
+      { q: "Le camion peut-il entrer dans la vieille ville de Vence ?", a: "Non. Les portes de l'enceinte médiévale ne laissent pas passer un véhicule de déménagement. Le camion se poste au plus près et le mobilier sort à la main par les ruelles." },
+      { q: "Quelle distance de portage faut-il prévoir dans la cité ?", a: "De cinquante à deux cents mètres selon la porte la plus proche et les possibilités de stationnement. Nous mesurons ce trajet avant de chiffrer." },
+      { q: "Comptez-vous le garage et le pool house dans le volume ?", a: "Oui, systématiquement. Les dépendances représentent souvent dix à quinze mètres cubes qu'une estimation faite sur la surface habitable ignore complètement." },
+      { q: "Comment transportez-vous une armoire provençale ?", a: "Sanglée debout, arêtes et pieds protégés, portée par quatre. Quand l'escalier tourne trop court, nous sortons par une fenêtre plutôt que de forcer un assemblage ancien." },
+      { q: "Vos camions accèdent-ils aux villas des collines ?", a: "Après repérage du dernier virage et du portail. Si le gabarit ne passe pas, nous chargeons en deux rotations avec un utilitaire, ce qui revient moins cher qu'un camion immobilisé." },
+      { q: "Faut-il une autorisation de stationnement à Vence ?", a: "Oui dès que le camion occupe la voie publique, ce qui est presque toujours le cas aux abords de la cité. Toute entreprise de déménagement à Vence doit la demander en mairie : nous nous en chargeons." }
+    ],
+    nearby: ["cagnes-sur-mer", "saint-laurent-du-var", "grasse", "villeneuve-loubet", "nice"]
+  },
+
+  "saint-tropez": {
+    name: "Saint-Tropez", file: "Demenagement-Saint-Tropez", cp: "83990", dept: "Var (83)", region: "cote",
+    lede: "Déménagement à Saint-Tropez : résidences secondaires, interventions hors saison, circulation réglementée l'été. Devis ferme sous 24h.",
+    intro: "À Saint-Tropez, la question n'est pas de savoir comment on déménage mais quand. De juin à septembre, la presqu'île est saturée : la route d'accès est unique et régulièrement à l'arrêt, le stationnement d'un camion au centre relève de l'exploit, et une journée de travail se transforme en journée d'attente. Nous privilégions donc franchement les interventions d'octobre à mai, et nous le disons dès le premier appel même quand ce n'est pas ce que le client veut entendre. L'autre particularité tient au type de bien : beaucoup de résidences secondaires, souvent meublées avec soin, où l'on déménage un intérieur complet sans que le propriétaire soit présent.",
+    quartiers: ["La Ponche", "Les Parcs de Saint-Tropez", "Les Salins", "La Bouillabaisse", "Les Canoubiers", "Le Pinet", "La Moutte", "Saint-Antoine"],
+    specifics: [
+      { t: "Saisonnalité qui commande tout", d: "D'octobre à mai, une journée normale. De juin à septembre, accès saturé et stationnement quasi impossible au centre : nous chiffrons en conséquence et proposons de décaler quand la date n'est pas contrainte." },
+      { t: "Résidences secondaires sans propriétaire", d: "Inventaire photographique au chargement et à la livraison, coordination avec le gardien ou la conciergerie, remise de clés tracée. Le propriétaire suit à distance." },
+      { t: "Distance intégrée au devis, pas ajoutée après", d: "Cent dix kilomètres depuis notre base niçoise : le trajet est chiffré dès le départ. C'est le poste que les devis à distance oublient et qui réapparaît en supplément le jour J." }
+    ],
+    deep: [
+      { t: "Pourquoi nous poussons à déménager hors saison", p: "L'accès à la presqu'île se fait par une route unique, et de la mi-juin à la fin août elle est régulièrement bloquée plusieurs heures. Un camion qui arrive à midi au lieu de huit heures perd la journée, et le portage se fait alors dans une circulation où le moindre arrêt crée un bouchon. Hors saison, le même chantier se traite sans stress, avec un stationnement disponible et une équipe qui rentre le soir. Quand la date est libre, nous conseillons octobre à mai, et cela se voit sur le devis : la même prestation en pleine saison mobilise plus longtemps le camion et l'équipe." },
+      { t: "Déménager une maison dont le propriétaire est absent", p: "Beaucoup de biens tropéziens sont des résidences secondaires. Le propriétaire vit ailleurs, parfois à l'étranger, et confie les clés à un gardien, une conciergerie ou une agence. Nous travaillons alors sur inventaire : chaque pièce est photographiée avant le chargement, les objets fragiles sont listés, et le même relevé est refait à la livraison. Ce n'est pas une formalité. Sur un intérieur meublé avec soin, où le propriétaire ne verra le résultat que des semaines plus tard, c'est la seule façon de lever tout doute sur ce qui est parti dans quel état." },
+      { t: "Les Parcs et les domaines fermés", p: "Le domaine des Parcs fonctionne avec un poste de garde, une liste d'accès déposée à l'avance et des règles de circulation intérieures. On n'y entre pas en annonçant qu'on vient déménager au numéro douze. Une entreprise de déménagement à Saint-Tropez transmet donc les immatriculations et l'identité des équipiers plusieurs jours avant, et respecte les horaires autorisés, qui excluent souvent le début de matinée." },
+      { t: "Le mobilier de bord de mer, et ce qu'il impose", p: "Les intérieurs tropéziens mêlent souvent du mobilier de valeur, des œuvres accrochées et du mobilier d'extérieur volumineux : grandes tables, transats, parasols déportés lestés. Les toiles et objets d'art partent en caisse ou en emballage renforcé, et se déclarent séparément pour l'assurance. Le mobilier de jardin, lui, occupe un volume que personne n'annonce spontanément : un salon d'extérieur complet et deux bains de soleil représentent facilement six mètres cubes. Nous les comptons à la visite." }
+    ],
+    faq: [
+      { q: "Intervenez-vous à Saint-Tropez en plein été ?", a: "Oui, mais nous le déconseillons quand la date est libre. Un déménagement à Saint-Tropez en août dépend d'une route unique, régulièrement bloquée : une journée entière peut se perdre en attente." },
+      { q: "Le trajet depuis Nice est-il facturé en supplément ?", a: "Non. Les cent dix kilomètres sont intégrés au devis dès le départ. Aucun frais de route n'apparaît le jour du déménagement." },
+      { q: "Faut-il que je sois présent le jour du déménagement ?", a: "Non. Nous travaillons couramment avec un gardien ou une conciergerie, sur inventaire photographique au chargement et à la livraison." },
+      { q: "Comment accède-t-on aux Parcs de Saint-Tropez ?", a: "Sur liste déposée à l'avance au poste de garde, avec les immatriculations et l'identité des équipiers, et dans les créneaux horaires autorisés par le domaine." },
+      { q: "Prenez-vous en charge les œuvres d'art ?", a: "Oui, en caisse ou emballage renforcé selon la pièce. Elles se déclarent séparément pour être couvertes à leur valeur réelle." },
+      { q: "Le mobilier de jardin compte-t-il dans le volume ?", a: "Oui, et il pèse plus que prévu : un salon d'extérieur avec bains de soleil atteint facilement six mètres cubes. Votre déménageur à Saint-Tropez doit le compter pendant la visite, pas le matin du chargement." }
+    ],
+    nearby: ["cannes", "mandelieu", "grasse", "antibes", "le-cannet"]
+  },
+
+  "mougins": {
+    name: "Mougins", file: "Demenagement-Mougins", cp: "06250", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Mougins : village piéton, domaines fermés à gardien, villas avec dépendances. Devis ferme sous 24h.",
+    intro: "Un déménagement à Mougins pose deux problèmes distincts, et il faut savoir lequel on traite avant de chiffrer. Le vieux village est un escargot de ruelles pavées interdit à la circulation, où le camion s'arrête au parking et où tout monte à pied par une rampe en colimaçon. Le reste de la commune est un chapelet de domaines résidentiels privés, fermés par des portails, gardés, avec des règlements intérieurs qui fixent les horaires d'intervention et les véhicules admis. Dans le premier cas on négocie avec la pente, dans le second avec une procédure. Les deux se préparent, mais pas du tout de la même façon.",
+    quartiers: ["Mougins village", "Tournamy", "Font de Currault", "Les Bréguières", "Saint-Basile", "Val de Mougins", "La Peyrière", "Mougins-le-Haut"],
+    specifics: [
+      { t: "Vieux village entièrement piéton", d: "Aucun véhicule dans les ruelles du village. Chargement au parking et portage par la rampe en colimaçon, avec une équipe renforcée et un chiffrage à la distance réelle." },
+      { t: "Domaines fermés et gardiennés", d: "Portail, poste de garde, liste d'accès à déposer et horaires imposés par le règlement intérieur. Nous transmettons immatriculations et identités plusieurs jours avant." },
+      { t: "Villas avec piscine et dépendances", d: "Pool house, local technique, garage et abri de jardin s'ajoutent au volume habitable. Nous les comptons à la visite plutôt que de les découvrir le matin du chargement." }
+    ],
+    deep: [
+      { t: "Le village, une spirale qui se monte à pied", p: "Le vieux Mougins s'enroule autour de sa butte en une rampe pavée que les véhicules ne franchissent pas. Depuis le parking, il faut compter entre cent et deux cent cinquante mètres de montée selon la maison, sur des pavés irréguliers et par des passages qui se resserrent à un mètre vingt. Un canapé trois places n'y passe pas horizontalement dans certains angles : il se sort debout, parfois par une fenêtre. Nous montons repérer le trajet et mesurer les points étroits avant d'annoncer un prix, et nous prévoyons deux équipiers de plus qu'ailleurs pour un volume équivalent." },
+      { t: "Entrer dans un domaine privé, ça se prépare", p: "Les domaines résidentiels mouginois ne se visitent pas à l'improviste. Chacun a son poste de garde, sa liste d'accès à déposer à l'avance et son règlement intérieur, qui interdit souvent les manœuvres avant huit heures ou après dix-huit heures et limite le tonnage admis dans les allées. Nous fournissons les immatriculations et l'identité des équipiers plusieurs jours avant, et nous calons la journée sur les créneaux autorisés. Un camion refoulé au portail, c'est une journée perdue pour tout le monde et une pénalité de mobilisation que personne n'a envie de payer." },
+      { t: "Les allées privées et le gabarit réel", p: "Une villa mouginoise se rejoint souvent par une allée goudronnée de trois cents mètres, bordée d'oliviers ou de cyprès, avec un rétrécissement au portail et une aire de retournement dimensionnée pour une berline. Un porteur de vingt mètres cubes qui s'y engage sans repérage se retrouve à reculer sur toute la longueur. Nous mesurons le passage du portail et l'aire de manœuvre avant d'engager le véhicule, et nous prévoyons au besoin une navette en utilitaire entre la maison et le camion resté en bas. Cela se décide au devis, jamais sur place." },
+      { t: "Ce que cachent les dépendances", p: "Sur les villas avec piscine, le volume réel dépasse presque toujours ce que le propriétaire annonce. Le pool house contient du mobilier d'extérieur, le local technique de l'outillage, le garage des vélos et des cartons oubliés : quinze mètres cubes à eux trois, couramment. Une entreprise de déménagement à Mougins qui veut tenir son prix ouvre donc toutes les portes pendant la visite, y compris celles dont on lui assure qu'elles sont vides." }
+    ],
+    faq: [
+      { q: "Le camion peut-il monter dans le vieux village de Mougins ?", a: "Non, les ruelles sont piétonnes. Le chargement se fait au parking et le mobilier monte à pied par la rampe pavée, sur cent à deux cent cinquante mètres." },
+      { q: "Comment sortez-vous un canapé d'une maison de village ?", a: "Debout, et par une fenêtre quand un angle se resserre sous un mètre vingt. Nous repérons les points étroits avant de chiffrer pour ne pas improviser le jour même." },
+      { q: "Que faut-il pour entrer dans un domaine gardé ?", a: "Une liste d'accès déposée à l'avance avec les immatriculations et l'identité des équipiers, et le respect des horaires du règlement intérieur, souvent de huit à dix-huit heures." },
+      { q: "Vos camions passent-ils les allées privées ?", a: "Après mesure du portail et de l'aire de retournement. Si le gabarit ne passe pas, nous faisons la navette en utilitaire depuis le camion resté en bas." },
+      { q: "Le pool house et le garage sont-ils comptés ?", a: "Oui. Ces annexes représentent souvent quinze mètres cubes à elles seules. Nous les ouvrons toutes pendant la visite pour que le prix tienne." },
+      { q: "Peut-on déménager un piano au village ?", a: "Oui, avec un équipement spécifique et une équipe dédiée. La rampe pavée impose un portage lent : votre déménageur à Mougins le chiffre à part et l'annonce avant, jamais le jour J." }
+    ],
+    nearby: ["cannes", "le-cannet", "grasse", "mandelieu", "antibes"]
+  },
   "nice": {
     name: "Nice", file: "Demenagement-Nice", cp: "06000 – 06300", dept: "Alpes-Maritimes (06)", region: "cote",
     h1: <>Déménager <em>quartier par quartier</em> à Nice</>,

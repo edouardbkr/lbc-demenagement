@@ -661,7 +661,8 @@ const COTE_AZUR = [
 ["Déménagement Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Déménagement Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"],
 ["Déménagement Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Déménagement Èze", "Demenagement-Eze"],
 ["Déménagement Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Déménagement Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"],
-["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"], ["Déménagement Beausoleil", "Demenagement-Beausoleil"]];
+["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"], ["Déménagement Beausoleil", "Demenagement-Beausoleil"],
+["Déménagement Valbonne Sophia Antipolis", "Demenagement-Valbonne-Sophia-Antipolis"], ["Déménagement Vence", "Demenagement-Vence"], ["Déménagement Saint-Tropez", "Demenagement-Saint-Tropez"], ["Déménagement Mougins", "Demenagement-Mougins"]];
 
 const FRANCE = [];
 
