@@ -255,6 +255,196 @@ const CITIES = {
       { q: "Le prix est-il ferme malgré les accès variés ?", a: "Oui. Quais, lacets, transbordement éventuel et étages sont intégrés au devis, qui est détaillé et définitif." }
     ],
     nearby: ["cannes", "le-cannet", "grasse"]
+  },
+  /* ── LE CORRIDOR EST, AJOUTÉ LE 24 AOÛT 2026 ──────────────────────────────────────
+     Les pages de commune couvraient Grasse, Mandelieu et Le Cannet : l'ouest, où LBC ne
+     travaille pas et où Prestazur et Maxdem sont installés depuis des années. Le corridor
+     réellement travaillé — Villefranche, Beaulieu, Saint-Jean, Èze, Cap-d'Ail,
+     Roquebrune, Villeneuve-Loubet — n'avait aucune page. Ce sont les communes où l'argent
+     est, où la concurrence est quasi nulle, et où les chantiers se font déjà.
+     Chaque page dit une contrainte d'accès DIFFÉRENTE, parce que c'est vrai et parce que
+     sept pages qui se ressemblent se font traiter en contenu dupliqué. */
+  "villefranche-sur-mer": {
+    name: "Villefranche-sur-Mer", file: "Demenagement-Villefranche-sur-Mer", cp: "06230", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Villefranche-sur-Mer : vieille ville en escaliers, rue Obscure, Darse. Portage maîtrisé, devis ferme sous 24h.",
+    intro: "Villefranche-sur-Mer tient dans un amphithéâtre de maisons ocre qui plongent vers l'une des rades les plus profondes de Méditerranée. Sa vieille ville médiévale ne se déménage pas comme le reste de la Côte : des ruelles larges d'un mètre cinquante, des volées d'escaliers à chaque angle, et la rue Obscure, entièrement couverte depuis le XIIIe siècle. Le camion s'arrête sur le quai, et le reste se fait à la main. On travaille cette commune régulièrement et on chiffre le portage à l'avance, au mètre près, plutôt que de le découvrir le jour J.",
+    quartiers: ["La Vieille Ville", "La Darse", "Le Port de la Santé", "Basse Corniche", "L'Octroi", "Saint-Michel", "La Citadelle", "Pont Saint-Jean", "Les Moulins"],
+    specifics: [
+      { t: "Ruelles et escaliers", d: "Vieille ville inaccessible au camion : portage à la main depuis le quai, monte-meuble quand la façade le permet, et repérage de l'accès avant le devis." },
+      { t: "Stationnement sur le port", d: "Réservation d'emplacement auprès de la mairie sur la Darse et le quai Courbet, où se garer relève autrement de la chance." },
+      { t: "Immeubles anciens sans ascenseur", d: "Escaliers étroits à vis dans le bâti du vieux village : démontage systématique des meubles larges, sanglage et descente à deux." }
+    ],
+    deep: [
+      { t: "La vieille ville, un déménagement à pied", p: "Entre la place du Conseil et la rue du Poilu, aucune adresse n'est accessible en camion. Les ruelles font parfois un mètre cinquante de large et s'interrompent par des marches. Concrètement, le camion se gare au plus près sur le quai et l'équipe fait la navette à la main, parfois sur cent cinquante mètres. Ce portage se chiffre, il ne s'improvise pas : on mesure la distance réelle depuis le point de stationnement avant d'annoncer un prix, et ce prix ne bouge plus." },
+      { t: "La rue Obscure et le bâti médiéval", p: "La rue Obscure est une rue entièrement couverte, la seule de ce type sur la Côte, et les maisons qui la bordent ont des escaliers à vis d'un autre siècle. Un canapé trois places n'y passe pas monté. On démonte, on emballe, on remonte à l'arrivée : c'est plus long, c'est prévu au devis, et c'est la seule façon de ne rien abîmer dans des cages d'escalier classées." },
+      { t: "La Darse et les résidences du port", p: "Autour de la Darse, l'ancien arsenal reconverti, le bâti est plus récent et les accès meilleurs. Le vrai sujet devient le stationnement : les quais sont saturés du printemps à l'automne. On demande l'arrêté de stationnement à la mairie une dizaine de jours avant, ce qui garantit l'emplacement le matin du déménagement au lieu de tourner une heure avec un vingt mètres cubes." },
+      { t: "Villefranche vers Nice, la porte à côté", p: "Beaucoup de déménagements villefranchois se font vers Nice, à sept kilomètres par la Basse Corniche. La distance ne coûte rien, mais le temps de portage, lui, compte. C'est pourquoi un devis honnête sur cette commune se joue sur l'accès et pas sur le kilométrage. On le dit clairement plutôt que de gonfler une ligne de transport qui n'a pas lieu d'être." }
+    ],
+    faq: [
+      { q: "Le camion peut-il monter dans la vieille ville ?", a: "Non, les ruelles ne le permettent pas. Le camion se gare sur le quai et l'équipe porte à la main. La distance de portage est mesurée avant le devis, et elle y figure." },
+      { q: "Comment gérez-vous le stationnement sur le port ?", a: "On demande un arrêté de stationnement à la mairie de Villefranche une dizaine de jours avant, ce qui réserve l'emplacement le jour du déménagement." },
+      { q: "Mes meubles passent-ils dans un escalier de vieille ville ?", a: "Les escaliers à vis imposent souvent un démontage. On le prévoit au devis, on démonte, on protège et on remonte à l'arrivée." },
+      { q: "Utilisez-vous un monte-meuble à Villefranche ?", a: "Quand la façade est accessible et dégagée, oui : c'est plus rapide et plus sûr qu'un portage de cent mètres. Sinon on porte, et c'est chiffré." },
+      { q: "Un Villefranche–Nice coûte-t-il cher ?", a: "Sept kilomètres, le transport ne pèse presque rien. Ce qui compte sur cette commune, c'est le temps d'accès, et on le chiffre honnêtement." },
+      { q: "Le devis bouge-t-il si l'accès est plus dur que prévu ?", a: "Non. On repère l'accès avant de chiffrer, précisément pour que le prix annoncé soit le prix payé." }
+    ],
+    nearby: ["nice", "beaulieu-sur-mer", "saint-jean-cap-ferrat"]
+  },
+  "beaulieu-sur-mer": {
+    name: "Beaulieu-sur-Mer", file: "Demenagement-Beaulieu-sur-Mer", cp: "06310", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Beaulieu-sur-Mer : Petite Afrique, Baie des Fourmis, villas Belle Époque. Devis ferme sous 24h.",
+    intro: "Beaulieu-sur-Mer est la plus plate et la plus abritée des communes du corridor est, ce qui en fait paradoxalement la plus simple à déménager. Le relief y laisse respirer : rues droites, accès camion possible presque partout, immeubles bourgeois avec ascenseur. La difficulté est ailleurs — dans le mobilier. Entre les villas Belle Époque du quartier de la Petite Afrique et les appartements de la Baie des Fourmis, on transporte beaucoup d'ancien, de marqueterie et de tableaux. C'est un déménagement d'emballage et de soin, pas de force.",
+    quartiers: ["La Petite Afrique", "La Baie des Fourmis", "Le Centre", "Le Port de plaisance", "Bel Horizon", "Les Jardins de l'Olivaie", "Le Boulevard Marinoni", "La Gare", "Saint-Michel"],
+    specifics: [
+      { t: "Mobilier ancien et objets de valeur", d: "Emballage renforcé, caisses sur mesure pour les tableaux et les pièces fragiles, assurance à 8 000 € par objet avec franchise à notre charge." },
+      { t: "Copropriétés bourgeoises", d: "Coordination avec le syndic, réservation d'ascenseur, protection complète des parties communes : marbres, moquettes et boiseries d'origine." },
+      { t: "Accès camion favorable", d: "Terrain plat et rues praticables : le vingt mètres cubes se gare au pied de la plupart des adresses, ce qui raccourcit le chantier et allège le devis." }
+    ],
+    deep: [
+      { t: "La Petite Afrique et ses villas", p: "Le quartier doit son nom à un microclimat qui laisse pousser bananiers et citronniers à quelques mètres de la mer. Les villas Belle Époque qui s'y trouvent abritent souvent un mobilier ancien : commodes marquetées, pendules, toiles encadrées. Ces pièces se déménagent en caisses sur mesure, pas en cartons standards. On les recense à l'inventaire, on les emballe séparément, et la déclaration de valeur se fait avant le départ, pas après un incident." },
+      { t: "Les copropriétés de la Baie des Fourmis", p: "Le front de mer aligne des immeubles des années trente aux années soixante-dix, tous en copropriété. Le déroulé y est réglé : accord du syndic, réservation de l'ascenseur sur un créneau, bâchage du hall et protection des paliers. Les parties communes de ces immeubles ont souvent des marbres d'origine qu'une roulette de diable raye en une seconde. On les protège systématiquement, sans qu'il faille le demander." },
+      { t: "Une commune où le camion passe", p: "Après Villefranche et Èze, Beaulieu se déménage presque confortablement. Le relief est doux, les rues sont larges, et l'immense majorité des adresses accepte un vingt mètres cubes au pied de l'immeuble. Cela change tout sur le prix : moins de portage, moins d'heures, moins de matériel. Un déménagement bellilois coûte souvent moins cher qu'un déménagement niçois de volume équivalent, et on le dit plutôt que d'aligner tout le monde sur le même tarif." },
+      { t: "Beaulieu, Monaco et le trajet des actifs", p: "Beaucoup de résidents travaillent à Monaco, à sept minutes en train. Les déménagements se font donc souvent sur un axe court, Beaulieu vers Monaco ou l'inverse, avec les contraintes monégasques d'un côté — autorisation de circulation, créneaux imposés — et la simplicité belliloise de l'autre. On gère les deux bouts du dossier, y compris les formalités côté Principauté, pour que le client n'ait pas à courir après une autorisation la veille." }
+    ],
+    faq: [
+      { q: "Déménagez-vous les villas de la Petite Afrique ?", a: "Oui, régulièrement. Mobilier ancien en caisses sur mesure, tableaux emballés individuellement, et déclaration de valeur établie avant le départ." },
+      { q: "Comment se passe l'accès en copropriété ?", a: "On prévient le syndic, on réserve l'ascenseur sur un créneau, et on bâche le hall et les paliers avant le premier carton." },
+      { q: "Le camion peut-il se garer devant chez moi ?", a: "Sur la majorité des adresses belliloises, oui : le terrain est plat et les rues praticables. On vérifie l'adresse au moment du devis." },
+      { q: "Un Beaulieu–Monaco est-il compliqué ?", a: "Il demande une autorisation de circulation côté monégasque et un créneau horaire. On s'en charge, le client n'a rien à faire." },
+      { q: "Assurez-vous les objets de valeur ?", a: "Oui, à hauteur de 8 000 € par objet, franchise à notre charge. Les pièces concernées sont listées avant le déménagement." },
+      { q: "Pourquoi un déménagement à Beaulieu est-il moins cher qu'ailleurs ?", a: "Parce que l'accès y est bon. Moins de portage et moins d'heures, donc un devis plus léger à volume égal. On répercute la réalité du chantier." }
+    ],
+    nearby: ["villefranche-sur-mer", "saint-jean-cap-ferrat", "eze"]
+  },
+  "saint-jean-cap-ferrat": {
+    name: "Saint-Jean-Cap-Ferrat", file: "Demenagement-Saint-Jean-Cap-Ferrat", cp: "06230", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Saint-Jean-Cap-Ferrat : propriétés, allées privées, mobilier de valeur. Discrétion et devis ferme sous 24h.",
+    intro: "Saint-Jean-Cap-Ferrat est un déménagement de propriété, pas d'appartement. Derrière les portails du chemin du Roy et de l'avenue Denis Séméria, on trouve des allées de cent mètres, des gardiens, des jardins en terrasses et un mobilier dont la valeur dépasse souvent celle du camion. Trois choses comptent ici et nulle part ailleurs : accéder à la porte sans abîmer un jardin, emballer des pièces qui ne se remplacent pas, et rester discret. C'est un chantier de préparation, où la moitié du travail se fait avant le jour J.",
+    quartiers: ["Le Village", "La Pointe Saint-Hospice", "Passable", "Les Fossettes", "Le Chemin du Roy", "L'Avenue Denis Séméria", "Le Port", "La Paloma", "Les Cèdres"],
+    specifics: [
+      { t: "Allées privées et portails", d: "Repérage préalable du gabarit possible : beaucoup d'allées n'acceptent pas un vingt mètres cubes. On prévoit le véhicule relais et les plaques de roulage pour ne pas marquer les graviers." },
+      { t: "Mobilier et œuvres de valeur", d: "Caisses en bois sur mesure, emballage individuel des œuvres, inventaire valorisé et déclaration de valeur signée avant le chargement." },
+      { t: "Discrétion et coordination", d: "Équipe réduite et stable, coordination avec le gardien ou l'intendance, aucun marquage tapageur sur les véhicules d'intervention." }
+    ],
+    deep: [
+      { t: "Accéder à la porte, le vrai sujet du Cap", p: "Sur le Cap-Ferrat, la difficulté n'est presque jamais l'escalier : c'est l'allée. Un portail de deux mètres soixante, un virage entre deux murs, cent mètres de graviers qu'un camion chargé creuse en une manœuvre. On vient repérer avant de chiffrer, on mesure le portail, et on décide alors du gabarit : parfois un douze mètres cubes fait deux voyages là où un vingt ne rentre pas du tout. Les plaques de roulage protègent les allées, et les massifs sont bâchés." },
+      { t: "Ce qu'on transporte ici ne se rachète pas", p: "Toiles, bronzes, mobilier d'ébénisterie, pièces de collection : sur cette commune, l'inventaire vaut souvent plus que tout le reste du chantier. On construit des caisses en bois à la dimension des pièces, on emballe chaque œuvre individuellement, et on établit une déclaration de valeur signée avant le chargement. L'assurance couvre 8 000 € par objet avec la franchise à notre charge, et au-delà on met en place une couverture spécifique plutôt que de faire semblant." },
+      { t: "Les propriétés en terrasses", p: "Beaucoup de villas du Cap descendent vers la mer par paliers successifs, avec des escaliers extérieurs entre chaque niveau et parfois un funiculaire privé. Un déménagement s'y organise du bas vers le haut, avec une équipe positionnée à chaque palier plutôt qu'un aller-retour complet à chaque meuble. C'est un travail d'organisation, et c'est ce qui distingue une journée maîtrisée d'une journée qui déborde." },
+      { t: "La discrétion fait partie de la prestation", p: "Sur le Cap, les propriétaires ne souhaitent pas qu'un déménagement s'affiche. On travaille en équipe réduite et stable, on se coordonne avec le gardien ou l'intendance, et on n'arrive pas avec un camion couvert de publicités. Rien de tout cela ne change le prix : c'est simplement la façon normale de travailler sur cette commune." }
+    ],
+    faq: [
+      { q: "Mon allée est étroite, le camion passe-t-il ?", a: "On vient mesurer avant de chiffrer. Selon le portail et les virages, on adapte le gabarit ou on fait la navette avec un véhicule relais jusqu'à la porte." },
+      { q: "Comment protégez-vous les jardins et les allées ?", a: "Plaques de roulage sous les roues, bâchage des massifs proches et circulation limitée à un seul passage. Les graviers ne sont pas creusés." },
+      { q: "Prenez-vous en charge les œuvres d'art ?", a: "Oui : caisses en bois sur mesure, emballage individuel, inventaire valorisé et déclaration de valeur signée avant le chargement." },
+      { q: "Une villa en terrasses, comment ça s'organise ?", a: "En postant une équipe à chaque palier plutôt qu'en faisant l'aller-retour complet à chaque meuble. C'est plus rapide et beaucoup plus sûr." },
+      { q: "Vos camions sont-ils discrets ?", a: "Oui. Équipe réduite et stable, coordination avec le gardien, et aucun marquage tapageur sur les véhicules." },
+      { q: "L'assurance couvre-t-elle un mobilier de grande valeur ?", a: "8 000 € par objet avec franchise à notre charge, et une couverture spécifique au-delà. On l'établit avant, jamais après." }
+    ],
+    nearby: ["beaulieu-sur-mer", "villefranche-sur-mer", "nice"]
+  },
+  "eze": {
+    name: "Èze", file: "Demenagement-Eze", cp: "06360", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Èze : village perché à 429 m, accès piéton, Moyenne Corniche, Èze-Bord-de-Mer. Devis ferme sous 24h.",
+    intro: "Èze est la commune la plus difficile du corridor, et de loin. Le village médiéval culmine à 429 mètres et se visite exclusivement à pied : aucun véhicule n'y entre, les ruelles sont des escaliers, et la dernière montée se fait sur des marches irrégulières. En contrebas, Èze-Bord-de-Mer se déménage normalement, et entre les deux, les villas de la Moyenne Corniche posent la question du stationnement sur une route où l'on ne s'arrête pas. Trois terrains, trois méthodes. On les traite séparément parce qu'ils n'ont rien à voir.",
+    quartiers: ["Èze Village", "Èze-Bord-de-Mer", "La Moyenne Corniche", "La Grande Corniche", "Le Col d'Èze", "Saint-Laurent d'Èze", "La Basse Corniche", "Les Hauts d'Èze", "La Revère"],
+    specifics: [
+      { t: "Village perché, accès piéton", d: "Aucun véhicule dans le village médiéval : portage intégral depuis le parking, par des escaliers, avec une équipe renforcée et un chiffrage au nombre de marches." },
+      { t: "Stationnement sur corniche", d: "Arrêté de stationnement obligatoire sur la Moyenne et la Grande Corniche, où l'arrêt d'un camion sans autorisation bloque la circulation." },
+      { t: "Villas en restanques", d: "Terrains en terrasses avec escaliers extérieurs : équipe postée par paliers, monte-meuble quand la pente et l'assise le permettent." }
+    ],
+    deep: [
+      { t: "Le village, un déménagement à la main", p: "Aucun camion n'entre dans Èze Village. Le chargement se fait au parking, et tout le reste se porte par des ruelles en escalier, parfois sur plus de deux cents marches. Un déménagement qui prendrait quatre heures ailleurs en prend huit ici, avec deux équipiers de plus. C'est le genre de chantier qu'on refuse de chiffrer à distance : on monte compter les marches et mesurer les passages, puis on annonce un prix qui ne bougera plus. Personne n'aime découvrir un supplément au pied d'un escalier." },
+      { t: "La Moyenne Corniche et ses villas", p: "Entre le village et la mer, la Moyenne Corniche dessert des villas accrochées à la pente, avec des accès privés qui débouchent directement sur une route à double sens sans bas-côté. On ne s'y arrête pas au hasard : l'arrêté de stationnement est indispensable, et le camion se positionne dans le sens qui évite une marche arrière dans un virage. C'est un détail d'organisation qui décide de la sécurité de toute la journée." },
+      { t: "Èze-Bord-de-Mer, l'autre commune", p: "En bas, au niveau de la voie ferrée et de la Basse Corniche, on retrouve des immeubles et des résidences avec des accès normaux, un stationnement possible et des ascenseurs. Un déménagement y ressemble à un déménagement niçois. Beaucoup de clients ignorent que les deux Èze n'ont rien de commun sur le plan pratique : un devis pour le bord de mer et un devis pour le village n'ont pas la même tête, et c'est normal." },
+      { t: "Les restanques et les jardins en paliers", p: "Les villas ézasques sont bâties en restanques, ces terrasses successives soutenues par des murets de pierre sèche. Le mobilier descend ou monte par des escaliers extérieurs souvent étroits et parfois glissants. On poste une équipe par palier, on protège les murets et on n'utilise le monte-meuble que si l'assise est franchement stable. Sur une pente pareille, la précipitation coûte toujours plus cher que la méthode." }
+    ],
+    faq: [
+      { q: "Peut-on déménager dans le village d'Èze ?", a: "Oui, mais entièrement à la main : aucun véhicule n'entre. On charge au parking et on porte par les escaliers, avec une équipe renforcée." },
+      { q: "Comment chiffrez-vous un déménagement au village ?", a: "En venant sur place compter les marches et mesurer les passages. Le prix annoncé après ce repérage est définitif." },
+      { q: "Faut-il une autorisation pour stationner sur la corniche ?", a: "Oui, un arrêté de stationnement. On le demande à la mairie une dizaine de jours avant, sinon l'arrêt d'un camion bloque la route." },
+      { q: "Èze-Bord-de-Mer est-il plus simple ?", a: "Beaucoup plus. Accès normaux, stationnement possible, ascenseurs : cela ressemble à un déménagement niçois classique." },
+      { q: "Utilisez-vous un monte-meuble à Èze ?", a: "Seulement si l'assise est stable et la façade dégagée. Sur des restanques, on privilégie souvent une équipe postée par paliers." },
+      { q: "Le devis peut-il augmenter le jour du déménagement ?", a: "Non. C'est précisément pour cela qu'on repère avant de chiffrer sur cette commune. Le prix annoncé est le prix payé." }
+    ],
+    nearby: ["cap-d-ail", "beaulieu-sur-mer", "monaco"]
+  },
+  "cap-d-ail": {
+    name: "Cap-d'Ail", file: "Demenagement-Cap-d-Ail", cp: "06320", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Cap-d'Ail : résidences en pente, Marquet, frontière monégasque. Devis ferme sous 24h.",
+    intro: "Cap-d'Ail vit collée à Monaco, dont elle est séparée par une simple rue. La commune s'étage sur une pente forte, entre la Basse Corniche et la mer, avec des résidences desservies par des rampes étroites et des parkings souterrains à la hauteur limitée. Le déménagement y pose deux questions particulières : la hauteur sous plafond des sous-sols, qui interdit souvent le camion, et la proximité monégasque, qui impose ses propres règles dès qu'on franchit la frontière. On travaille les deux côtés régulièrement.",
+    quartiers: ["Le Marquet", "Cap Mala", "Saint-Antoine", "La Plage Marquet", "Les Pins", "Le Bas Moulins", "La Gare", "Le Cap", "Les Fleurs"],
+    specifics: [
+      { t: "Parkings souterrains bas", d: "Hauteur limitée à 1,90 m dans beaucoup de résidences : navette avec un utilitaire bas jusqu'au camion garé en surface, plutôt qu'un portage interminable." },
+      { t: "Rampes et pentes fortes", d: "Rampes d'accès raides et virages serrés : gabarit adapté, cales systématiques et manœuvres préparées avant l'arrivée du camion." },
+      { t: "Passage vers Monaco", d: "Autorisation de circulation et créneau horaire côté monégasque, obtenus par nos soins pour les déménagements qui franchissent la frontière." }
+    ],
+    deep: [
+      { t: "Le problème que personne n'anticipe : la hauteur", p: "Beaucoup de résidences de Cap-d'Ail n'ont de place de livraison qu'en sous-sol, avec une hauteur sous plafond de 1,90 m parfois moins. Un camion de déménagement mesure trois mètres. Résultat, l'équipe qui n'a pas vérifié se retrouve à porter sur cent cinquante mètres de rampe. La bonne méthode consiste à garer le camion en surface et à faire la navette avec un utilitaire bas jusqu'à la porte. On pose la question de la hauteur au moment du devis, systématiquement." },
+      { t: "Une commune à flanc de falaise", p: "Cap-d'Ail descend vers la mer par une pente continue, coupée de rampes raides et de virages en épingle. Le gabarit du camion se choisit en fonction du dernier virage, pas de la largeur de la rue principale. On repère l'accès à l'avance, on cale systématiquement les roues sur les pentes, et on prépare les manœuvres avant l'arrivée plutôt que de découvrir un demi-tour impossible avec vingt mètres cubes chargés." },
+      { t: "Monaco est à cent mètres", p: "La frontière passe au milieu du quartier. Un déménagement Cap-d'Ail vers Monaco fait deux kilomètres et demande pourtant une autorisation de circulation, un créneau horaire imposé et parfois une escorte pour les rues étroites de la Condamine. On s'occupe de ces formalités : elles prennent une dizaine de jours et un dossier oublié annule purement et simplement la journée." },
+      { t: "Les résidences du Marquet", p: "Le Marquet aligne des immeubles des années soixante et soixante-dix, en copropriété, avec des ascenseurs souvent étroits et des paliers exigus. On mesure l'ascenseur avant le jour J : un canapé qui n'y entre pas doit passer par la cage d'escalier, ce qui change le temps de chantier et donc le devis. Mieux vaut le savoir une semaine avant que le matin même, le meuble sur le palier." }
+    ],
+    faq: [
+      { q: "Mon parking fait moins de deux mètres de haut, c'est un problème ?", a: "Non, c'est fréquent ici. On gare le camion en surface et on fait la navette avec un utilitaire bas jusqu'à votre porte." },
+      { q: "Les rampes de Cap-d'Ail posent-elles souci ?", a: "On choisit le gabarit en fonction du dernier virage et on prépare les manœuvres à l'avance. Les roues sont calées systématiquement sur les pentes." },
+      { q: "Un Cap-d'Ail–Monaco est-il compliqué ?", a: "Deux kilomètres, mais une autorisation de circulation et un créneau imposé côté monégasque. On s'en charge, comptez une dizaine de jours." },
+      { q: "Mesurez-vous l'ascenseur avant ?", a: "Oui. Un meuble qui n'entre pas dans l'ascenseur change le temps de chantier : autant l'avoir prévu au devis plutôt que de le découvrir sur le palier." },
+      { q: "Intervenez-vous à Cap Mala ?", a: "Oui, comme sur tout Cap-d'Ail. L'accès y descend fortement, on adapte le véhicule et la méthode." },
+      { q: "Le prix change-t-il si l'accès s'avère plus dur ?", a: "Non. La hauteur du parking, la pente et la taille de l'ascenseur sont vues au devis. Le prix annoncé est le prix payé." }
+    ],
+    nearby: ["monaco", "eze", "roquebrune-cap-martin"]
+  },
+  "roquebrune-cap-martin": {
+    name: "Roquebrune-Cap-Martin", file: "Demenagement-Roquebrune-Cap-Martin", cp: "06190", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Roquebrune-Cap-Martin : village médiéval, villas du Cap, Carnolès. Devis ferme sous 24h.",
+    intro: "Roquebrune-Cap-Martin est en réalité trois communes en une. Le village médiéval, accroché sous son donjon carolingien, ne se déménage qu'à pied par des ruelles voûtées. Le Cap Martin aligne des propriétés sous les pins, avec des allées privées et un patrimoine architectural rare — c'est là que Le Corbusier a bâti son Cabanon. Et Carnolès, en bas, ressemble à un quartier urbain de Menton, avec ses immeubles et ses commerces. Trois terrains qui n'ont ni les mêmes accès ni les mêmes prix.",
+    quartiers: ["Le Village", "Le Cap Martin", "Carnolès", "Saint-Roman", "Le Cabanon", "Bon Voyage", "Les Terrasses", "La Gare", "Le Golfe Bleu"],
+    specifics: [
+      { t: "Village médiéval à pied", d: "Ruelles voûtées et escaliers dans le vieux village : portage intégral depuis le parking bas, avec chiffrage au nombre de marches." },
+      { t: "Propriétés du Cap Martin", d: "Allées privées sous les pins, portails de gabarit limité, mobilier de valeur : repérage préalable et véhicule relais quand le camion ne passe pas." },
+      { t: "Carnolès, accès urbains", d: "Immeubles avec ascenseur et stationnement possible : chantier classique, plus rapide, et devis allégé en conséquence." }
+    ],
+    deep: [
+      { t: "Le village sous le donjon", p: "Le vieux Roquebrune s'organise autour du plus ancien donjon de France, et ses ruelles voûtées ne laissent passer ni camion ni monte-meuble. Le chargement se fait au parking bas, et le reste se porte par des escaliers et des passages couverts. Comme à Èze, on monte compter les marches avant de chiffrer : c'est la seule façon d'annoncer un prix qui tienne. Le mobilier des vieilles maisons y est souvent ancien, ce qui ajoute l'emballage au portage." },
+      { t: "Le Cap Martin, entre pins et patrimoine", p: "Le Cap est un ensemble de propriétés bâties sous les pins, desservies par des allées privées et des chemins qu'un vingt mètres cubes n'emprunte pas toujours. On mesure le portail avant de choisir le gabarit, et on protège les allées comme au Cap-Ferrat. Le quartier abrite aussi un patrimoine sensible, du Cabanon de Le Corbusier à la villa E-1027 : sur ces adresses, la prudence n'est pas une option commerciale, c'est une obligation." },
+      { t: "Carnolès, le quartier qui respire", p: "En bas, Carnolès touche Menton et fonctionne comme un quartier urbain : immeubles en copropriété, ascenseurs, rues où l'on peut poser un camion. C'est la partie la plus simple et la moins chère de la commune à déménager. On le dit franchement au moment du devis, plutôt que d'appliquer un tarif uniforme sur trois terrains qui n'ont rien à voir." },
+      { t: "Roquebrune, Monaco et Menton", p: "La commune est coincée entre la Principauté et Menton, et la plupart des déménagements se font vers l'une ou l'autre, sur quelques kilomètres. Vers Monaco, il faut l'autorisation de circulation et le créneau horaire, que l'on obtient. Vers Menton, rien de particulier sinon le stationnement en centre-ville. Dans les deux cas, le transport ne pèse presque rien dans le devis : ce sont les accès qui font le prix." }
+    ],
+    faq: [
+      { q: "Peut-on déménager dans le vieux village ?", a: "Oui, entièrement à pied. On charge au parking bas et on porte par les ruelles voûtées et les escaliers, avec une équipe renforcée." },
+      { q: "Les allées du Cap Martin sont étroites, comment faites-vous ?", a: "On mesure le portail avant de choisir le gabarit, et on fait la navette avec un véhicule relais quand le camion ne passe pas." },
+      { q: "Carnolès est-il plus simple à déménager ?", a: "Nettement. Ascenseurs, stationnement possible, accès urbains : le chantier est plus court et le devis plus léger." },
+      { q: "Un Roquebrune–Monaco demande-t-il des formalités ?", a: "Oui, autorisation de circulation et créneau horaire côté monégasque. On les obtient, comptez une dizaine de jours." },
+      { q: "Protégez-vous les allées et les jardins ?", a: "Plaques de roulage, bâchage des massifs et passage unique. Sur le Cap, les allées sous les pins ne se creusent pas." },
+      { q: "Le devis est-il ferme sur les trois quartiers ?", a: "Oui, et il n'est pas le même : le village, le Cap et Carnolès n'ont ni les mêmes accès ni le même temps de chantier." }
+    ],
+    nearby: ["menton", "monaco", "cap-d-ail"]
+  },
+  "villeneuve-loubet": {
+    name: "Villeneuve-Loubet", file: "Demenagement-Villeneuve-Loubet", cp: "06270", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Villeneuve-Loubet : Marina Baie des Anges, village perché, Vaugrenier. Devis ferme sous 24h.",
+    intro: "Villeneuve-Loubet est la commune la plus contrastée du corridor : d'un côté la Marina Baie des Anges, quatre immeubles en forme de vagues classés au patrimoine du XXe siècle, de l'autre un village médiéval perché autour de son château, et entre les deux des lotissements et des résidences de plain-pied. La Marina, à elle seule, justifie une méthode : ses coursives sont longues, ses parkings bas et ses ascenseurs comptés. On y déménage régulièrement, et on sait par quelle entrée passer.",
+    quartiers: ["La Marina Baie des Anges", "Le Village", "Vaugrenier", "Les Maurettes", "Villeneuve-Loubet Plage", "Les Hauts de Vaugrenier", "L'Hippodrome", "Le Loup", "Saint-Marc"],
+    specifics: [
+      { t: "Marina Baie des Anges", d: "Coursives longues, ascenseurs partagés et parkings bas : réservation d'ascenseur auprès du syndic et chariots longue distance plutôt que des allers-retours à vide." },
+      { t: "Village perché", d: "Ruelles étroites autour du château : stationnement au plus près et portage à la main sur la dernière portion, comme dans tout village médiéval." },
+      { t: "Résidences et lotissements", d: "Vaugrenier, les Maurettes et le bord de mer offrent des accès camion normaux : chantier rapide et devis allégé en conséquence." }
+    ],
+    deep: [
+      { t: "La Marina, un immeuble comme nulle part ailleurs", p: "Les quatre pyramides de la Marina Baie des Anges sont un ouvrage classé, et un déménagement y demande de la méthode. Les coursives sont longues, les ascenseurs sont partagés entre des dizaines d'appartements et les places de livraison sont en sous-sol, à hauteur limitée. On réserve l'ascenseur auprès du syndic sur un créneau, on travaille avec des chariots adaptés aux longues distances intérieures, et on prévoit un utilitaire bas pour le sous-sol. Sans cette préparation, une journée normale double." },
+      { t: "Le village et son château", p: "Perché autour du château médiéval, le vieux Villeneuve a les contraintes classiques d'un village : ruelles étroites, stationnement rare, dernière portion à pied. Rien d'insurmontable comparé à Èze ou Roquebrune, mais assez pour qu'un devis établi au téléphone sans repérage se révèle faux. On regarde l'adresse avant de chiffrer, ici comme ailleurs." },
+      { t: "Vaugrenier et les résidences familiales", p: "L'essentiel des déménagements villeneuvois se fait dans les lotissements et les résidences de Vaugrenier, des Maurettes et du bord de mer. Là, les accès sont bons, le camion se gare au pied, et le chantier ressemble à un déménagement classique de maison ou d'appartement familial. C'est aussi la partie de la commune où les volumes sont les plus importants, avec des maisons entières à charger, cave et garage compris." },
+      { t: "Une commune de passage entre Nice et Antibes", p: "Villeneuve-Loubet est à mi-chemin entre Nice et Antibes, à une vingtaine de minutes de chacune. Les déménagements y sont donc rarement longs en distance, et le transport pèse peu dans le devis. Ce sont l'accès et le volume qui font le prix, et sur cette commune le volume l'emporte souvent : une maison de Vaugrenier avec garage et cave demande plus de camion qu'un studio de la Marina, même si le second est plus compliqué à charger." }
+    ],
+    faq: [
+      { q: "Déménagez-vous à la Marina Baie des Anges ?", a: "Régulièrement. On réserve l'ascenseur auprès du syndic, on utilise des chariots adaptés aux longues coursives et un utilitaire bas pour le sous-sol." },
+      { q: "Le parking de la Marina est bas, comment faites-vous ?", a: "Le camion reste en surface et la navette se fait avec un utilitaire qui passe sous la hauteur limite. On ne porte pas sur toute la rampe." },
+      { q: "Le village perché est-il difficile d'accès ?", a: "Les ruelles autour du château imposent un portage sur la dernière portion. C'est plus simple qu'à Èze, mais cela se repère avant de chiffrer." },
+      { q: "Les maisons de Vaugrenier posent-elles problème ?", a: "Non, les accès y sont bons. Le sujet est plutôt le volume : cave et garage compris, une maison remplit vite un vingt mètres cubes." },
+      { q: "Un Villeneuve-Loubet–Nice coûte-t-il cher ?", a: "Une vingtaine de minutes, le transport pèse peu. Le prix se joue sur le volume et l'accès, pas sur le kilométrage." },
+      { q: "Faut-il prévenir le syndic à l'avance ?", a: "Oui, surtout à la Marina : la réservation d'ascenseur se fait quelques jours avant, sinon le créneau peut être déjà pris." }
+    ],
+    nearby: ["cagnes-sur-mer", "antibes", "nice"]
   }
 };
 

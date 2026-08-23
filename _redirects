@@ -135,3 +135,21 @@
 /Diplomatique.html	/Mutations	301
 /Militaire	/Mutations	301
 /Militaire.html	/Mutations	301
+
+# Corridor est, ajouté le 24 août 2026. Même règle que les autres communes : les URL en
+# minuscules sont celles que Google et les annuaires produisent spontanément, et
+# _redirects de Cloudflare Pages est SENSIBLE À LA CASSE.
+/demenagement-villefranche-sur-mer	/Demenagement-Villefranche-sur-Mer	301
+/demenagement-villefranche-sur-mer.html	/Demenagement-Villefranche-sur-Mer	301
+/demenagement-beaulieu-sur-mer	/Demenagement-Beaulieu-sur-Mer	301
+/demenagement-beaulieu-sur-mer.html	/Demenagement-Beaulieu-sur-Mer	301
+/demenagement-saint-jean-cap-ferrat	/Demenagement-Saint-Jean-Cap-Ferrat	301
+/demenagement-saint-jean-cap-ferrat.html	/Demenagement-Saint-Jean-Cap-Ferrat	301
+/demenagement-eze	/Demenagement-Eze	301
+/demenagement-eze.html	/Demenagement-Eze	301
+/demenagement-cap-d-ail	/Demenagement-Cap-d-Ail	301
+/demenagement-cap-d-ail.html	/Demenagement-Cap-d-Ail	301
+/demenagement-roquebrune-cap-martin	/Demenagement-Roquebrune-Cap-Martin	301
+/demenagement-roquebrune-cap-martin.html	/Demenagement-Roquebrune-Cap-Martin	301
+/demenagement-villeneuve-loubet	/Demenagement-Villeneuve-Loubet	301
+/demenagement-villeneuve-loubet.html	/Demenagement-Villeneuve-Loubet	301

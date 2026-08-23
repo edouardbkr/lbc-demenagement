@@ -131,7 +131,13 @@ const MEGA = {
       ["Nice", "Demenagement-Nice"], ["Cannes", "Demenagement-Cannes"], ["Antibes", "Demenagement-Antibes"],
       ["Monaco", "Demenagement-Monaco"], ["Menton", "Demenagement-Menton"], ["Grasse", "Demenagement-Grasse"],
       ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Le Cannet", "Demenagement-Le-Cannet"],
-      ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Mandelieu", "Demenagement-Mandelieu"]] },
+      ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Mandelieu", "Demenagement-Mandelieu"],
+      /* Le corridor est, ajouté le 24 août 2026 : ce sont les communes réellement
+         travaillées, et elles n'avaient aucune page. Voir city-data.jsx. */
+      ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"],
+      ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Èze", "Demenagement-Eze"],
+      ["Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"],
+      ["Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"]] },
 
     { title: t("Longue distance"), links: [
       ["Nice → Paris", "Demenagement-Nice-Paris"], ["Nice → Lyon", "Demenagement-Nice-Lyon"],
@@ -643,7 +649,11 @@ function QuickQuote({ variant = "light" }) {
 const COTE_AZUR = [
 ["Déménagement Nice", "Demenagement-Nice"], ["Déménagement Cannes", "Demenagement-Cannes"], ["Déménagement Antibes", "Demenagement-Antibes"], ["Déménagement Monaco", "Demenagement-Monaco"],
 ["Déménagement Menton", "Demenagement-Menton"], ["Déménagement Grasse", "Demenagement-Grasse"], ["Déménagement Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Déménagement Le Cannet", "Demenagement-Le-Cannet"],
-["Déménagement Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Déménagement Mandelieu", "Demenagement-Mandelieu"]];
+["Déménagement Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Déménagement Mandelieu", "Demenagement-Mandelieu"],
+["Déménagement Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Déménagement Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"],
+["Déménagement Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Déménagement Èze", "Demenagement-Eze"],
+["Déménagement Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Déménagement Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"],
+["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"]];
 
 const FRANCE = [];
 

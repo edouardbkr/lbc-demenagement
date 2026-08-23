@@ -120,7 +120,7 @@ const MEGA = {
     },
     columns: [{
       title: t("Côte d'Azur"),
-      links: [["Nice", "Demenagement-Nice"], ["Cannes", "Demenagement-Cannes"], ["Antibes", "Demenagement-Antibes"], ["Monaco", "Demenagement-Monaco"], ["Menton", "Demenagement-Menton"], ["Grasse", "Demenagement-Grasse"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Le Cannet", "Demenagement-Le-Cannet"], ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Mandelieu", "Demenagement-Mandelieu"]]
+      links: [["Nice", "Demenagement-Nice"], ["Cannes", "Demenagement-Cannes"], ["Antibes", "Demenagement-Antibes"], ["Monaco", "Demenagement-Monaco"], ["Menton", "Demenagement-Menton"], ["Grasse", "Demenagement-Grasse"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Le Cannet", "Demenagement-Le-Cannet"], ["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Mandelieu", "Demenagement-Mandelieu"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Èze", "Demenagement-Eze"], ["Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"], ["Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"]]
     }, {
       title: t("Longue distance"),
       links: [["Nice → Paris", "Demenagement-Nice-Paris"], ["Nice → Lyon", "Demenagement-Nice-Lyon"], ["Nice → Marseille", "Demenagement-Nice-Marseille"], ["Nice → Toulouse", "Demenagement-Nice-Toulouse"], ["Nice → Bordeaux", "Demenagement-Nice-Bordeaux"]]
@@ -772,7 +772,7 @@ function QuickQuote({
     className: "qq-phone"
   }, "Ou appelez-nous : ", React.createElement("strong", null, "06 15 97 65 77"))));
 }
-const COTE_AZUR = [["Déménagement Nice", "Demenagement-Nice"], ["Déménagement Cannes", "Demenagement-Cannes"], ["Déménagement Antibes", "Demenagement-Antibes"], ["Déménagement Monaco", "Demenagement-Monaco"], ["Déménagement Menton", "Demenagement-Menton"], ["Déménagement Grasse", "Demenagement-Grasse"], ["Déménagement Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Déménagement Le Cannet", "Demenagement-Le-Cannet"], ["Déménagement Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Déménagement Mandelieu", "Demenagement-Mandelieu"]];
+const COTE_AZUR = [["Déménagement Nice", "Demenagement-Nice"], ["Déménagement Cannes", "Demenagement-Cannes"], ["Déménagement Antibes", "Demenagement-Antibes"], ["Déménagement Monaco", "Demenagement-Monaco"], ["Déménagement Menton", "Demenagement-Menton"], ["Déménagement Grasse", "Demenagement-Grasse"], ["Déménagement Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Déménagement Le Cannet", "Demenagement-Le-Cannet"], ["Déménagement Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Déménagement Mandelieu", "Demenagement-Mandelieu"], ["Déménagement Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Déménagement Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"], ["Déménagement Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Déménagement Èze", "Demenagement-Eze"], ["Déménagement Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Déménagement Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"], ["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"]];
 const FRANCE = [];
 const CONSEILS = [{
   label: "Estimer le volume de votre déménagement",
