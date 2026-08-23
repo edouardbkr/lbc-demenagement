@@ -243,14 +243,20 @@ p { margin: 0; }
 @media (min-width: 981px) {
   .hero-photo { display: none; }
   .hero-grid { grid-template-columns: 1fr; }
-  /* Le visuel retiré, le texte restait collé à gauche et laissait la moitié droite de
-     l'écran vide : la page paraissait inachevée. Le bloc est centré, ses éléments avec,
-     et la mesure de ligne reste bornée pour que le titre ne s'étale pas sur toute la
-     largeur — un titre de 120 caractères de large ne se lit pas, il se balaie. */
-  .hero-grid > .reveal { max-width: 68ch; margin-inline: auto; text-align: center; }
-  .hero-grid > .reveal .hero-preuves { align-items: center; }
-  .hero-grid > .reveal .hero-faits { display: inline-flex; text-align: left; }
-  .hero-meta { justify-content: center; }
+  /* ⚠️ LE BLOC EST CENTRÉ DANS LA PAGE, SON CONTENU RESTE ALIGNÉ À GAUCHE.
+     Première tentative ratée le 24 août : `text-align: center` sur le conteneur avait
+     centré le titre, laissé la note Google à gauche, décalé les puces vers la droite et
+     posé le bouton ailleurs encore — chaque élément gardait l'alignement de son propre
+     CSS, et l'ensemble partait dans quatre directions.
+     Un titre et des puces centrés se lisent d'ailleurs mal : l'œil perd le point de
+     départ de chaque ligne. Ce qu'on veut, c'est une colonne de texte alignée à gauche,
+     posée au milieu de la page. `margin-inline: auto` suffit, et rien d'autre. */
+  .hero-grid > .reveal { max-width: 68ch; margin-inline: auto; }
+  /* Les pastilles sont SŒURS de la grille, pas dedans : sans cette règle elles restaient
+     collées au bord gauche de la page pendant que le titre était centré, à deux cent
+     cinquante pixels de décalage. Elles reçoivent la même largeur et le même centrage,
+     pour que tout le hero parte de la même verticale. */
+  .hero-meta { max-width: 68ch; margin-inline: auto; justify-content: flex-start; }
 }
 /* Single-column hero (mobile): title → image → cta → marquee → estimator */
 .hero-grid.hero-single { display: block; }
