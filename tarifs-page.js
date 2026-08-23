@@ -107,8 +107,23 @@ function tarifFourchette(surface, formule, km) {
     km: km
   });
   if (!e) return null;
-  const f = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  const f = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   return f(e.bas) + " – " + f(e.haut) + " €";
+}
+function TarifSecHead({
+  num,
+  titre,
+  em
+}) {
+  return React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " ", num)), React.createElement("h2", {
+    className: "dim-em"
+  }, titre, React.createElement("br", null), React.createElement("em", null, em)));
 }
 function TarifHero() {
   return React.createElement("section", {
@@ -143,66 +158,56 @@ function TarifHero() {
 }
 function TarifFormules() {
   const t3 = f => tarifFourchette("t3", f, 15);
+  const F = [{
+    n: "01",
+    nom: "Standard",
+    prix: t3("standard"),
+    d: "Véhicule adapté et équipe dédiée, chargement et déchargement, assurance incluse à 8 000 € par objet. Vous emballez et démontez, nous portons et transportons."
+  }, {
+    n: "02",
+    nom: "Premium",
+    prix: t3("premium"),
+    d: "Tout ce que comprend Standard, plus l'emballage des objets fragiles, la protection intégrale du mobilier et le démontage-remontage des meubles. Vous faites vos cartons, nous nous occupons du reste. C'est la formule la plus choisie."
+  }, {
+    n: "03",
+    nom: "Luxe",
+    prix: "après visite",
+    d: "Tout ce que comprend Premium, plus l'emballage de vos cartons, le déballage et la mise en place à l'arrivée, et la protection des œuvres d'art et de la vaisselle. Vous ouvrez la porte, et c'est fait."
+  }];
   return React.createElement("section", {
     className: "sec"
   }, React.createElement("div", {
     className: "wrap"
-  }, React.createElement("div", {
-    className: "sec-num"
-  }, React.createElement("span", {
-    className: "asterisk"
-  }, "*"), " 01 / Les trois formules"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Ce que vous d\xE9l\xE9guez, ", React.createElement("em", null, "et ce que \xE7a change au prix."))), React.createElement("p", {
+  }, React.createElement(TarifSecHead, {
+    num: "01 / Les trois formules",
+    titre: "Ce que vous d\xE9l\xE9guez,",
+    em: "et ce que \xE7a change au prix."
+  }), React.createElement("p", {
     className: "lede"
   }, "C'est le premier facteur, avant le volume et avant la distance. Chaque formule reprend la pr\xE9c\xE9dente et y ajoute du travail en moins pour vous. Les montants ci-dessous sont ceux d'un trois-pi\xE8ces en local, pour comparer \xE0 volume \xE9gal."), React.createElement("div", {
-    className: "values-grid reveal-stagger",
+    className: "ap-values reveal-stagger",
     style: {
-      marginTop: 24
+      marginTop: 28
     }
-  }, React.createElement("div", {
-    className: "value"
-  }, React.createElement("div", {
-    className: "value-num"
-  }, "01"), React.createElement("div", {
-    className: "value-body"
-  }, React.createElement("div", {
-    className: "value-title"
-  }, "Standard ", React.createElement("span", {
-    style: {
-      fontWeight: 400,
-      color: "var(--muted)"
-    }
-  }, "\xB7 ", t3("standard") || "sur devis")), React.createElement("p", null, "V\xE9hicule adapt\xE9 et \xE9quipe d\xE9di\xE9e, chargement et d\xE9chargement, assurance incluse \xE0 8 000 \u20AC par objet. ", React.createElement("em", null, "Vous emballez et d\xE9montez, nous portons et transportons.")))), React.createElement("div", {
-    className: "value"
-  }, React.createElement("div", {
-    className: "value-num"
-  }, "02"), React.createElement("div", {
-    className: "value-body"
-  }, React.createElement("div", {
-    className: "value-title"
-  }, "Premium ", React.createElement("span", {
+  }, F.map(f => React.createElement("div", {
+    className: "ap-value",
+    key: f.n
+  }, React.createElement("span", {
+    className: "ap-value-ic",
+    "aria-hidden": "true"
+  }, f.n), React.createElement("div", {
+    className: "ap-value-t"
+  }, f.nom, " ", React.createElement("span", {
     style: {
       fontWeight: 400,
       color: "var(--muted)"
     }
-  }, "\xB7 ", t3("premium") || "sur devis")), React.createElement("p", null, "Tout ce que comprend Standard, plus l'emballage des objets fragiles, la protection int\xE9grale du mobilier et le d\xE9montage-remontage des meubles. ", React.createElement("em", null, "Vous faites vos cartons, nous nous occupons du reste."), " C'est la formule la plus choisie."))), React.createElement("div", {
-    className: "value"
-  }, React.createElement("div", {
-    className: "value-num"
-  }, "03"), React.createElement("div", {
-    className: "value-body"
-  }, React.createElement("div", {
-    className: "value-title"
-  }, "Luxe ", React.createElement("span", {
-    style: {
-      fontWeight: 400,
-      color: "var(--muted)"
-    }
-  }, "\xB7 apr\xE8s visite")), React.createElement("p", null, "Tout ce que comprend Premium, plus l'emballage de vos cartons, le d\xE9ballage et la mise en place \xE0 l'arriv\xE9e, et la protection des \u0153uvres d'art et de la vaisselle. ", React.createElement("em", null, "Vous ouvrez la porte, et c'est fait."))))), React.createElement("p", {
+  }, "\xB7 ", f.prix || "sur devis")), React.createElement("p", {
+    className: "ap-value-d"
+  }, f.d)))), React.createElement("p", {
     className: "lede",
     style: {
-      marginTop: 22
+      marginTop: 26
     }
   }, React.createElement("strong", {
     style: {
@@ -215,32 +220,21 @@ function TarifTableaux() {
     className: "sec"
   }, React.createElement("div", {
     className: "wrap"
-  }, React.createElement("div", {
-    className: "sec-num"
-  }, React.createElement("span", {
-    className: "asterisk"
-  }, "*"), " 02 / Les prix"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Par logement ", React.createElement("em", null, "et par distance."))), React.createElement("p", {
+  }, React.createElement(TarifSecHead, {
+    num: "02 / Les prix",
+    titre: "Par logement",
+    em: "et par distance."
+  }), React.createElement("p", {
     className: "lede"
   }, "Les deux formules chiffrables sont donn\xE9es c\xF4te \xE0 c\xF4te. Ces montants supposent un acc\xE8s neutre : rez-de-chauss\xE9e, camion devant la porte."), TARIF_ZONES.map(z => React.createElement("div", {
     key: z.km,
     style: {
-      marginTop: 30
+      marginTop: 36
     }
   }, React.createElement("h3", {
-    style: {
-      fontSize: 21,
-      fontWeight: 700,
-      margin: "0 0 6px"
-    }
+    className: "tarif-h3"
   }, z.titre), React.createElement("p", {
-    style: {
-      color: "var(--muted)",
-      fontSize: 14.5,
-      margin: "0 0 14px",
-      maxWidth: "68ch"
-    }
+    className: "tarif-intro"
   }, z.intro), React.createElement("div", {
     className: "tarif-tw"
   }, React.createElement("table", {
@@ -281,18 +275,16 @@ function TarifFacteurs() {
     className: "sec"
   }, React.createElement("div", {
     className: "wrap"
-  }, React.createElement("div", {
-    className: "sec-num"
-  }, React.createElement("span", {
-    className: "asterisk"
-  }, "*"), " 03 / Ce qui fait varier le prix"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "\xC0 logement identique, ", React.createElement("em", null, "deux devis peuvent diff\xE9rer de 40 %."))), React.createElement("p", {
+  }, React.createElement(TarifSecHead, {
+    num: "03 / Ce qui fait varier le prix",
+    titre: "\xC0 logement identique,",
+    em: "deux devis peuvent diff\xE9rer de 40 %."
+  }), React.createElement("p", {
     className: "lede"
-  }, "Voici exactement ce qui explique l'\xE9cart, dans l'ordre de son poids r\xE9el."), React.createElement("div", {
+  }, "Voici ce qui explique l'\xE9cart, dans l'ordre de son poids r\xE9el."), React.createElement("div", {
     className: "tarif-tw",
     style: {
-      marginTop: 20
+      marginTop: 26
     }
   }, React.createElement("table", {
     className: "tarif-table"
@@ -302,7 +294,11 @@ function TarifFacteurs() {
     }
   }, "Poids"))), React.createElement("tbody", null, TARIF_FACTEURS.map(f => React.createElement("tr", {
     key: f.t
-  }, React.createElement("td", null, React.createElement("strong", null, f.t)), React.createElement("td", {
+  }, React.createElement("td", {
+    style: {
+      whiteSpace: "nowrap"
+    }
+  }, React.createElement("strong", null, f.t)), React.createElement("td", {
     style: {
       color: "var(--ink-2)"
     }
@@ -320,40 +316,54 @@ function TarifFerme() {
     className: "sec"
   }, React.createElement("div", {
     className: "wrap"
-  }, React.createElement("div", {
-    className: "sec-num"
-  }, React.createElement("span", {
-    className: "asterisk"
-  }, "*"), " 04 / Ce qui ne varie jamais"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Le prix du devis ", React.createElement("em", null, "est le prix final."))), React.createElement("p", {
+  }, React.createElement(TarifSecHead, {
+    num: "04 / Ce qui ne varie jamais",
+    titre: "Le prix du devis",
+    em: "est le prix final."
+  }), React.createElement("p", {
     className: "lede"
   }, "Une fois le devis \xE9tabli, le montant ne bouge plus. Si nous avons sous-estim\xE9 le volume, le nombre d'\xE9tages ou la difficult\xE9 d'acc\xE8s, c'est notre erreur, pas votre facture. Aucun suppl\xE9ment le jour du d\xE9m\xE9nagement."), React.createElement("p", {
     className: "lede"
   }, "C'est la seule ligne de cette page qui n'a pas de fourchette, et c'est celle qui compte le plus.")));
 }
+function TarifFaqItem({
+  item,
+  open,
+  onToggle
+}) {
+  return React.createElement("div", {
+    className: "faq-item" + (open ? " open" : "")
+  }, React.createElement("button", {
+    className: "faq-q",
+    onClick: onToggle,
+    "aria-expanded": open
+  }, React.createElement("span", null, item.q), React.createElement("span", {
+    className: "ico",
+    "aria-hidden": "true"
+  }, "+")), React.createElement("div", {
+    className: "faq-a"
+  }, item.r.map((p, i) => React.createElement("p", {
+    key: i
+  }, p))));
+}
 function TarifFAQ() {
+  const [ouvert, setOuvert] = React.useState(-1);
   return React.createElement("section", {
     className: "sec"
   }, React.createElement("div", {
     className: "wrap"
-  }, React.createElement("div", {
-    className: "sec-num"
-  }, React.createElement("span", {
-    className: "asterisk"
-  }, "*"), " 05 / Questions de prix"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Ce qu'on nous demande ", React.createElement("em", null, "le plus souvent."))), React.createElement("div", {
-    className: "faq-list",
-    style: {
-      marginTop: 20
-    }
-  }, TARIF_FAQ.map((f, i) => React.createElement("details", {
-    className: "faq-item",
-    key: i
-  }, React.createElement("summary", null, f.q), f.r.map((p, j) => React.createElement("p", {
-    key: j
-  }, p)))))));
+  }, React.createElement(TarifSecHead, {
+    num: "05 / Questions de prix",
+    titre: "Ce qu'on nous demande",
+    em: "le plus souvent."
+  }), React.createElement("div", {
+    className: "faq-list reveal"
+  }, TARIF_FAQ.map((f, i) => React.createElement(TarifFaqItem, {
+    key: i,
+    item: f,
+    open: ouvert === i,
+    onToggle: () => setOuvert(ouvert === i ? -1 : i)
+  })))));
 }
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
@@ -361,5 +371,5 @@ function App() {
   }, React.createElement(TarifHero, null), React.createElement(TarifFormules, null), React.createElement(TarifTableaux, null), React.createElement(TarifFacteurs, null), React.createElement(TarifFerme, null), React.createElement(TarifFAQ, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { tarifFourchette, TarifHero, TarifFormules, TarifTableaux, TarifFacteurs, TarifFerme, TarifFAQ, App }); } catch (e) {}
+  try { Object.assign(window, { tarifFourchette, TarifSecHead, TarifHero, TarifFormules, TarifTableaux, TarifFacteurs, TarifFerme, TarifFaqItem, TarifFAQ, App }); } catch (e) {}
 })();

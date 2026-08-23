@@ -76,14 +76,26 @@ const TARIF_FAQ = [
     r: ["Le prix reflète le temps d'équipe, le camion et le matériel nécessaires à votre chantier. Il n'y a pas de marge cachée à récupérer dans une négociation.",
         "En revanche, la formule se discute : passer de Luxe à Premium, ou décaler la date sur un jour moins demandé, fait baisser le devis pour de vraies raisons. Nous préférons ajuster la prestation plutôt que de rogner sur ce qui garantit que rien ne casse."] }];
 
-/** Une fourchette formatée, ou null si le moteur n'est pas chargé. */
+/** Une fourchette formatée, ou null si le moteur n'est pas encore chargé. */
 function tarifFourchette(surface, formule, km) {
   const P = window.LBC_PRICING;
   if (!P || !P.estimer) return null;
   const e = P.estimer({ surface: surface, formule: formule, km: km });
   if (!e) return null;
-  const f = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  const f = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   return f(e.bas) + " – " + f(e.haut) + " €";
+}
+
+/* ⚠️ `.sec-head` EST UNE GRILLE À DEUX COLONNES — 240 px pour le numéro, le reste pour le
+   titre — et elle attend donc DEUX enfants. Le premier jet plaçait le `sec-num` à côté
+   plutôt que dedans : le titre héritait de la colonne de 240 px et s'affichait un mot par
+   ligne, sur toute la hauteur de l'écran. Toujours reprendre cette structure telle quelle. */
+function TarifSecHead({ num, titre, em }) {
+  return (
+    <div className="sec-head reveal">
+      <div><div className="sec-num"><span className="asterisk">*</span> {num}</div></div>
+      <h2 className="dim-em">{titre}<br /><em>{em}</em></h2>
+    </div>);
 }
 
 function TarifHero() {
@@ -103,48 +115,38 @@ function TarifHero() {
 
 function TarifFormules() {
   const t3 = (f) => tarifFourchette("t3", f, 15);
+  const F = [
+    { n: "01", nom: "Standard", prix: t3("standard"),
+      d: "Véhicule adapté et équipe dédiée, chargement et déchargement, assurance incluse à 8 000 € par objet. Vous emballez et démontez, nous portons et transportons." },
+    { n: "02", nom: "Premium", prix: t3("premium"),
+      d: "Tout ce que comprend Standard, plus l'emballage des objets fragiles, la protection intégrale du mobilier et le démontage-remontage des meubles. Vous faites vos cartons, nous nous occupons du reste. C'est la formule la plus choisie." },
+    { n: "03", nom: "Luxe", prix: "après visite",
+      d: "Tout ce que comprend Premium, plus l'emballage de vos cartons, le déballage et la mise en place à l'arrivée, et la protection des œuvres d'art et de la vaisselle. Vous ouvrez la porte, et c'est fait." }];
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> 01 / Les trois formules</div>
-      <div className="sec-head reveal"><h2>Ce que vous déléguez, <em>et ce que ça change au prix.</em></h2></div>
+      <TarifSecHead num="01 / Les trois formules" titre="Ce que vous déléguez," em="et ce que ça change au prix." />
       <p className="lede">C'est le premier facteur, avant le volume et avant la distance. Chaque formule reprend la précédente et y ajoute du travail en moins pour vous. Les montants ci-dessous sont ceux d'un trois-pièces en local, pour comparer à volume égal.</p>
-      <div className="values-grid reveal-stagger" style={{ marginTop: 24 }}>
-        <div className="value">
-          <div className="value-num">01</div>
-          <div className="value-body">
-            <div className="value-title">Standard <span style={{ fontWeight: 400, color: "var(--muted)" }}>· {t3("standard") || "sur devis"}</span></div>
-            <p>Véhicule adapté et équipe dédiée, chargement et déchargement, assurance incluse à 8 000 € par objet. <em>Vous emballez et démontez, nous portons et transportons.</em></p>
-          </div>
-        </div>
-        <div className="value">
-          <div className="value-num">02</div>
-          <div className="value-body">
-            <div className="value-title">Premium <span style={{ fontWeight: 400, color: "var(--muted)" }}>· {t3("premium") || "sur devis"}</span></div>
-            <p>Tout ce que comprend Standard, plus l'emballage des objets fragiles, la protection intégrale du mobilier et le démontage-remontage des meubles. <em>Vous faites vos cartons, nous nous occupons du reste.</em> C'est la formule la plus choisie.</p>
-          </div>
-        </div>
-        <div className="value">
-          <div className="value-num">03</div>
-          <div className="value-body">
-            <div className="value-title">Luxe <span style={{ fontWeight: 400, color: "var(--muted)" }}>· après visite</span></div>
-            <p>Tout ce que comprend Premium, plus l'emballage de vos cartons, le déballage et la mise en place à l'arrivée, et la protection des œuvres d'art et de la vaisselle. <em>Vous ouvrez la porte, et c'est fait.</em></p>
-          </div>
-        </div>
+      <div className="ap-values reveal-stagger" style={{ marginTop: 28 }}>
+        {F.map((f) =>
+          <div className="ap-value" key={f.n}>
+            <span className="ap-value-ic" aria-hidden="true">{f.n}</span>
+            <div className="ap-value-t">{f.nom} <span style={{ fontWeight: 400, color: "var(--muted)" }}>· {f.prix || "sur devis"}</span></div>
+            <p className="ap-value-d">{f.d}</p>
+          </div>)}
       </div>
-      <p className="lede" style={{ marginTop: 22 }}><strong style={{ color: "var(--ink)" }}>Pourquoi Luxe n'a pas de fourchette&nbsp;:</strong> emballer <em>vos</em> cartons ne se devine pas de l'extérieur. Deux trois-pièces du même volume peuvent demander une journée d'écart selon la vaisselle, les livres et les bibelots. Annoncer une fourchette large reviendrait à annoncer un prix qu'on révisera — exactement ce que cette page cherche à éviter. Elle se chiffre après une visite, à domicile ou en visio de dix minutes, et le prix est ferme ensuite.</p>
+      <p className="lede" style={{ marginTop: 26 }}><strong style={{ color: "var(--ink)" }}>Pourquoi Luxe n'a pas de fourchette&nbsp;:</strong> emballer <em>vos</em> cartons ne se devine pas de l'extérieur. Deux trois-pièces du même volume peuvent demander une journée d'écart selon la vaisselle, les livres et les bibelots. Annoncer une fourchette large reviendrait à annoncer un prix qu'on révisera — exactement ce que cette page cherche à éviter. Elle se chiffre après une visite, à domicile ou en visio de dix minutes, et le prix est ferme ensuite.</p>
     </div></section>);
 }
 
 function TarifTableaux() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> 02 / Les prix</div>
-      <div className="sec-head reveal"><h2>Par logement <em>et par distance.</em></h2></div>
+      <TarifSecHead num="02 / Les prix" titre="Par logement" em="et par distance." />
       <p className="lede">Les deux formules chiffrables sont données côte à côte. Ces montants supposent un accès neutre : rez-de-chaussée, camion devant la porte.</p>
       {TARIF_ZONES.map((z) =>
-        <div key={z.km} style={{ marginTop: 30 }}>
-          <h3 style={{ fontSize: 21, fontWeight: 700, margin: "0 0 6px" }}>{z.titre}</h3>
-          <p style={{ color: "var(--muted)", fontSize: 14.5, margin: "0 0 14px", maxWidth: "68ch" }}>{z.intro}</p>
+        <div key={z.km} style={{ marginTop: 36 }}>
+          <h3 className="tarif-h3">{z.titre}</h3>
+          <p className="tarif-intro">{z.intro}</p>
           <div className="tarif-tw">
             <table className="tarif-table">
               <thead><tr>
@@ -176,16 +178,15 @@ function TarifTableaux() {
 function TarifFacteurs() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> 03 / Ce qui fait varier le prix</div>
-      <div className="sec-head reveal"><h2>À logement identique, <em>deux devis peuvent différer de 40 %.</em></h2></div>
-      <p className="lede">Voici exactement ce qui explique l'écart, dans l'ordre de son poids réel.</p>
-      <div className="tarif-tw" style={{ marginTop: 20 }}>
+      <TarifSecHead num="03 / Ce qui fait varier le prix" titre="À logement identique," em="deux devis peuvent différer de 40 %." />
+      <p className="lede">Voici ce qui explique l'écart, dans l'ordre de son poids réel.</p>
+      <div className="tarif-tw" style={{ marginTop: 26 }}>
         <table className="tarif-table">
           <thead><tr><th>Facteur</th><th>Ce que ça change</th><th style={{ textAlign: "right" }}>Poids</th></tr></thead>
           <tbody>
             {TARIF_FACTEURS.map((f) =>
               <tr key={f.t}>
-                <td><strong>{f.t}</strong></td>
+                <td style={{ whiteSpace: "nowrap" }}><strong>{f.t}</strong></td>
                 <td style={{ color: "var(--ink-2)" }}>{f.d}</td>
                 <td style={{ textAlign: "right", color: "var(--accent)", fontWeight: 700, whiteSpace: "nowrap" }}>{f.p}</td>
               </tr>)}
@@ -198,24 +199,34 @@ function TarifFacteurs() {
 function TarifFerme() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> 04 / Ce qui ne varie jamais</div>
-      <div className="sec-head reveal"><h2>Le prix du devis <em>est le prix final.</em></h2></div>
+      <TarifSecHead num="04 / Ce qui ne varie jamais" titre="Le prix du devis" em="est le prix final." />
       <p className="lede">Une fois le devis établi, le montant ne bouge plus. Si nous avons sous-estimé le volume, le nombre d'étages ou la difficulté d'accès, c'est notre erreur, pas votre facture. Aucun supplément le jour du déménagement.</p>
       <p className="lede">C'est la seule ligne de cette page qui n'a pas de fourchette, et c'est celle qui compte le plus.</p>
     </div></section>);
 }
 
+/* La FAQ reprend EXACTEMENT le composant de la page FAQ : un bouton `.faq-q` avec son
+   icône, une réponse `.faq-a` dont la hauteur s'anime. Des <details> natifs n'héritent
+   d'aucun de ces styles et s'affichaient en liste brute, sans mise en forme. */
+function TarifFaqItem({ item, open, onToggle }) {
+  return (
+    <div className={"faq-item" + (open ? " open" : "")}>
+      <button className="faq-q" onClick={onToggle} aria-expanded={open}>
+        <span>{item.q}</span>
+        <span className="ico" aria-hidden="true">+</span>
+      </button>
+      <div className="faq-a">{item.r.map((p, i) => <p key={i}>{p}</p>)}</div>
+    </div>);
+}
+
 function TarifFAQ() {
+  const [ouvert, setOuvert] = React.useState(-1);
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> 05 / Questions de prix</div>
-      <div className="sec-head reveal"><h2>Ce qu'on nous demande <em>le plus souvent.</em></h2></div>
-      <div className="faq-list" style={{ marginTop: 20 }}>
+      <TarifSecHead num="05 / Questions de prix" titre="Ce qu'on nous demande" em="le plus souvent." />
+      <div className="faq-list reveal">
         {TARIF_FAQ.map((f, i) =>
-          <details className="faq-item" key={i}>
-            <summary>{f.q}</summary>
-            {f.r.map((p, j) => <p key={j}>{p}</p>)}
-          </details>)}
+          <TarifFaqItem key={i} item={f} open={ouvert === i} onToggle={() => setOuvert(ouvert === i ? -1 : i)} />)}
       </div>
     </div></section>);
 }

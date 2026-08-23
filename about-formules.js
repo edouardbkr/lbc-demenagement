@@ -257,7 +257,7 @@ function Formule({
     className: tier >= 3 ? "on" : ""
   })), React.createElement("div", {
     className: "formula-level"
-  }, ["Niveau 1 · Économique", "Niveau 2 · Premium", "Niveau 3 · Clé en main"][tier - 1]), React.createElement("div", {
+  }, ["Niveau 1 · Vous emballez", "Niveau 2 · On protège", "Niveau 3 · On fait tout"][tier - 1]), React.createElement("div", {
     className: "formula-name"
   }, name), React.createElement("div", {
     className: "formula-tag"

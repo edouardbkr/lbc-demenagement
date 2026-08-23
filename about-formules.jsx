@@ -134,7 +134,11 @@ function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon, i
         <i className={tier >= 2 ? "on" : ""}></i>
         <i className={tier >= 3 ? "on" : ""}></i>
       </div>
-      <div className="formula-level">{["Niveau 1 · Économique", "Niveau 2 · Premium", "Niveau 3 · Clé en main"][tier - 1]}</div>
+      {/* ⚠️ CE LIBELLÉ NE DOIT PAS RÉPÉTER LE NOM DE LA FORMULE. Il annonçait
+          « Niveau 2 · Premium » juste au-dessus du titre « Premium » : le mot apparaissait
+          deux fois à trois centimètres d'écart, depuis que les formules ont été renommées
+          le 24 août. Le niveau dit ce qu'on délègue, le titre dit comment ça s'appelle. */}
+      <div className="formula-level">{["Niveau 1 · Vous emballez", "Niveau 2 · On protège", "Niveau 3 · On fait tout"][tier - 1]}</div>
       <div className="formula-name">{name}</div>
       <div className="formula-tag">« {tag} »</div>
       {pitch && <p className="formula-pitch">{pitch}</p>}

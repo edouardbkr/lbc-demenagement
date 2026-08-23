@@ -87,42 +87,42 @@ function Values() {
 }
 
 function Testimonials() {
+  /* ⚠️ AVIS GOOGLE RÉELS, RELEVÉS LE 24 AOÛT 2026 VIA L'API PLACES.
+     Ce ne sont pas des témoignages réécrits : le texte est celui que le client a publié,
+     à la ponctuation près. On ne corrige rien, sinon ils sonnent faux — et un visiteur
+     qui va vérifier sur la fiche Google trouverait des mots différents.
+     Les cinq derniers avis sont notés 5 étoiles. Quand la fiche en accumulera d'autres,
+     ils se rafraîchissent ici à la main : l'API ne renvoie que les cinq plus récents. */
   const quotes = [
     {
-      text: "J'ai fait appel à LBC déménagement et j'ai eu une super expérience ! Edouard et Anthony sont très pros et super sympas. Ils ont pris soin de tous les meubles, démonté et même remonté le canapé puis installé la machine à laver ! Tout était bien sécurisé. Une prestation au top, je recommande !",
-      name: "Khalid B.",
-      city: "Avis Google",
-      id: "khalid"
+      text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante.",
+      name: "Mari M.",
+      city: "Avis Google · il y a un mois",
+      id: "mari"
     },
     {
       text: "Une force titanesque et un professionnalisme d'exception. Très bonne adaptation même avec de grosses contraintes : chemin sans route, grosse pente, gros escalier… Merci à vous.",
       name: "Jannick F.",
-      city: "Avis Google",
+      city: "Avis Google · il y a 3 semaines",
       id: "jannick"
     },
     {
-      text: "Edouard et Anthony sont parfaits : ponctuels, disponibles, professionnels et agréables en plus. Je recommande chaudement cette entreprise. Vous ne serez pas déçus.",
-      name: "Michèle A.",
-      city: "Avis Google",
-      id: "michele"
+      text: "Tout simplement génial. Un déménagement, c'est toujours stressant, mais là c'était hyper bien organisé, orchestré, ponctuel, arrangeant. Je recommande fortement, ils seront sûrement prévus pour mon futur déménagement. Un grand merci.",
+      name: "Jonathan D.",
+      city: "Avis Google · il y a 2 semaines",
+      id: "jonathan"
     },
     {
-      text: "Équipe bien managée par M. Edouard, bien équipée (camion, outils de roulage et de protection) et au top, tant au niveau de son professionnalisme (bonne évaluation préalable) que de son dynamisme et sa gentillesse. Je recommande sans hésitation !",
-      name: "Denis E.",
-      city: "Avis Google",
-      id: "denis"
+      text: "Je recommande vivement. Travail soigné, efficacité, qualité et gentillesse, ce qui est appréciable aujourd'hui. Très professionnel.",
+      name: "Karine S.",
+      city: "Avis Google · il y a 2 semaines",
+      id: "karine"
     },
     {
-      text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante.",
-      name: "Mari M.",
-      city: "Avis Google",
-      id: "mari"
-    },
-    {
-      text: "Un service sans faute et exceptionnel à tout point de vue. Une gentillesse qui nous rassure et un professionnalisme qui nous donne confiance. Merci pour votre prestation !",
-      name: "Nanou S.",
-      city: "Avis Google",
-      id: "nanou"
+      text: "Excellente prestation lors de mon déménagement l'an passé. Merci pour votre professionnalisme et votre engagement.",
+      name: "Nathalie P.",
+      city: "Avis Google · il y a 3 semaines",
+      id: "nathalie"
     }
   ];
 
