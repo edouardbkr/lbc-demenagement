@@ -3592,3 +3592,19 @@ label.seg-opt:focus-within,
   color: var(--cream-on-dark);
 }
 
+/* ── LA PAGE TARIFS ──────────────────────────────────────────────────────────────
+   Trois tableaux de prix, qui doivent rester lisibles sur un téléphone tenu à une main.
+   Le conteneur défile horizontalement plutôt que d'écraser les colonnes : un tarif coupé
+   en deux lignes se lit mal, et c'est justement ce qu'on vient chercher sur cette page. */
+.tarif-tw { overflow-x: auto; border: 1px solid var(--rule); border-radius: 12px; background: var(--field); }
+.tarif-table { border-collapse: collapse; width: 100%; min-width: 540px; font-size: 15px; }
+.tarif-table th {
+  text-align: left; font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); padding: 13px 16px;
+  border-bottom: 1px solid var(--rule); white-space: nowrap;
+}
+.tarif-table td { padding: 14px 16px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+.tarif-table tr:last-child td { border-bottom: none; }
+.tarif-sub { color: var(--muted); font-size: 13px; }
+.tarif-prix { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+@media (max-width: 640px) { .tarif-table { font-size: 14px; } .tarif-table td { padding: 12px 13px; } }

@@ -112,6 +112,7 @@ const CURRENT = document.body.getAttribute('data-page') || 'accueil';
 const NAV = [
 { key: 'accueil', label: t('Accueil'), href: '/' },
 { key: 'formules', label: t('Formules'), href: 'Formules' },
+{ key: 'tarifs', label: t('Tarifs'), href: 'Tarifs' },
 { key: 'france', label: t('En France'), mega: 'france' },
 { key: 'international', label: t('International'), mega: 'intl' },
 { key: 'mutation', label: t('Mutation professionnelle'), dropdown: [
@@ -841,6 +842,7 @@ function Footer() {
                       Google ne les avait donc jamais crawlées. Ajoutées ici le 7 août 2026. */}
                   <li><a href="Entreprise">Déménagement d'entreprise</a></li>
                   <li><a href="Archivage">Archivage de documents</a></li>
+                  <li><a href="Tarifs">Prix et tarifs</a></li>
                   <li><a href="Debarras-succession">Débarras & succession</a></li>
                   <li><a href="Demenagement-urgent">Déménagement urgent</a></li>
                   <li><a href="Mutations">Mutation professionnelle</a></li>

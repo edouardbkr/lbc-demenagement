@@ -87,6 +87,10 @@ const NAV = [{
   label: t('Formules'),
   href: 'Formules'
 }, {
+  key: 'tarifs',
+  label: t('Tarifs'),
+  href: 'Tarifs'
+}, {
   key: 'france',
   label: t('En France'),
   mega: 'france'
@@ -995,6 +999,8 @@ function Footer() {
   }, "D\xE9m\xE9nagement d'entreprise")), React.createElement("li", null, React.createElement("a", {
     href: "Archivage"
   }, "Archivage de documents")), React.createElement("li", null, React.createElement("a", {
+    href: "Tarifs"
+  }, "Prix et tarifs")), React.createElement("li", null, React.createElement("a", {
     href: "Debarras-succession"
   }, "D\xE9barras & succession")), React.createElement("li", null, React.createElement("a", {
     href: "Demenagement-urgent"
