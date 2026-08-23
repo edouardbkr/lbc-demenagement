@@ -2,7 +2,7 @@
 (function () {
 const TWEAK_DEFAULTS = {
   "accent": "#D75B3D",
-  "headline": "a",
+  "headline": "c",
   "recommended": "premium",
   "density": "airy"
 };

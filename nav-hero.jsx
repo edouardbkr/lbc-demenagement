@@ -1,5 +1,11 @@
 // nav-hero.jsx — Home hero (Nav/Footer/MascotStamp/MarqueeBar now live in site.jsx)
 
+/* La note Google, relevée sur la fiche LBC DÉMÉNAGEMENT (12 rue d'Italie, 06000 Nice)
+   le 24 août 2026 via l'API Places. À vérifier de temps en temps : une note affichée qui
+   ne correspond plus à la fiche se retourne contre nous, c'est le contraire de l'effet
+   recherché. Un seul endroit à modifier, ici. */
+const AVIS_GOOGLE = { note: "5,0", nombre: 26, lien: "https://maps.google.com/?cid=16541024533175288818" };
+
 function Hero({ headlineVariant }) {
   const headlines = {
     a: {
@@ -26,7 +32,10 @@ function Hero({ headlineVariant }) {
         <span className="asterisk" style={{ fontFamily: "\"DM Sans\"" }}>*</span>
         Les Bras Cassés ? Sûrement pas vos affaires. <span className="scribble">promis.</span>
       </>,
-      l1: "Déménageurs à Nice.",
+      /* Espace insécable entre « à » et « Nice » : sans elle, le titre se coupe en
+         « Déménageur à » / « Nice. » et laisse la préposition orpheline en fin de ligne.
+         Elle passe désormais à la ligne avec le nom de la ville. */
+      l1: "Déménageur\u00A0à\u00A0Nice.",
       l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(34px, 9vw, 76px)" }}>Le prix annoncé est le prix payé.</em></>,
       scribble: null
     }
@@ -82,6 +91,32 @@ function Hero({ headlineVariant }) {
               {h.l1}
               <span className="l2" style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{h.l2}{h.scribble && <span className="scribble">{h.scribble}</span>}</span>
             </h1>
+
+            {/* ── LES PREUVES, AU PREMIER ÉCRAN ────────────────────────────────
+                Le hero n'affichait qu'un bouton : rien qui dise pourquoi faire confiance
+                à ce déménageur plutôt qu'à un autre, alors que c'est exactement ce que
+                le visiteur cherche dans les trois premières secondes.
+                Les trois faits retenus sont VÉRIFIABLES, et c'est ce qui les rend utiles :
+                la note Google est publique, le délai s'engage, et la couverture
+                d'assurance figure au contrat. Rien qui ressemble à un slogan.
+
+                ⚠️ AUCUN BALISAGE AggregateRating ICI. Depuis 2019, Google ignore les avis
+                qu'un site publie sur lui-même, et un tel balisage peut valoir une action
+                manuelle. La note est affichée pour le VISITEUR, avec un lien vers la
+                fiche Google où il peut la vérifier lui-même — c'est ce lien qui lui donne
+                sa valeur, pas une déclaration dans le code. */}
+            <div className="hero-preuves">
+              <a className="hero-note" href={AVIS_GOOGLE.lien} target="_blank" rel="noopener noreferrer"
+                 title="Voir les avis sur Google">
+                <span className="hero-etoiles" aria-hidden="true">★★★★★</span>
+                <span><b>{AVIS_GOOGLE.note}</b> sur Google · {AVIS_GOOGLE.nombre} avis</span>
+              </a>
+              <ul className="hero-faits">
+                <li>Devis ferme sous 24 h</li>
+                <li>Assuré 8 000 € par objet, franchise à notre charge</li>
+                <li>Aucun supplément le jour du déménagement</li>
+              </ul>
+            </div>
 
             <div className="hero-ctas">
               <a href="Formules" className="btn btn-primary hero-cta-link">Trouver ma formule idéale<span className="arrow">→</span></a>

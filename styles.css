@@ -282,6 +282,39 @@ p { margin: 0; }
   .hero-ctas { margin-top: 28px; }
   .hero-photo { aspect-ratio: 16/9; max-height: 420px; }
 }
+/* ── LES PREUVES DU HERO ─────────────────────────────────────────────────────────
+   Trois faits vérifiables sous le titre, là où il n'y avait qu'un bouton. Discret par
+   construction : le titre doit rester ce qu'on lit en premier, les preuves sont ce qu'on
+   lit juste après, sans qu'elles réclament l'attention. */
+.hero-preuves { margin: 18px 0 22px; display: flex; flex-direction: column; gap: 9px; }
+.hero-note {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  text-decoration: none; color: var(--ink); font-size: 14px;
+  padding: 5px 12px 5px 10px; border-radius: 999px;
+  background: rgba(31, 58, 75, 0.05); border: 1px solid var(--rule);
+  transition: background .15s ease;
+}
+.hero-note:hover { background: rgba(31, 58, 75, 0.09); }
+.hero-note b { font-weight: 700; }
+.hero-etoiles { color: #E8A33D; letter-spacing: 1px; font-size: 13px; }
+.hero-faits { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.hero-faits li {
+  position: relative; padding-left: 21px;
+  font-size: 14.5px; line-height: 1.45; color: var(--ink-2);
+}
+/* La coche est dessinée, pas écrite : un caractère « ✓ » change de forme d'une police à
+   l'autre et se lit « check mark » par les lecteurs d'écran, au milieu de la phrase. */
+.hero-faits li::before {
+  content: ""; position: absolute; left: 2px; top: 6px;
+  width: 10px; height: 6px; border-left: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent); transform: rotate(-45deg);
+}
+@media (max-width: 900px) {
+  .hero-preuves { margin: 14px 0 18px; }
+  .hero-faits li { font-size: 13.5px; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-note { transition: none; } }
+
 .hero-meta {
   display: flex;
   align-items: center;

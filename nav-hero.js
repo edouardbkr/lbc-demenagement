@@ -1,5 +1,10 @@
 /* nav-hero.jsx — compilé par build.js, ne pas éditer */
 (function () {
+const AVIS_GOOGLE = {
+  note: "5,0",
+  nombre: 26,
+  lien: "https://maps.google.com/?cid=16541024533175288818"
+};
 function Hero({
   headlineVariant
 }) {
@@ -47,7 +52,7 @@ function Hero({
       }, "*"), "Les Bras Cass\xE9s ? S\xFBrement pas vos affaires. ", React.createElement("span", {
         className: "scribble"
       }, "promis.")),
-      l1: "Déménageurs à Nice.",
+      l1: "Déménageur\u00A0à\u00A0Nice.",
       l2: React.createElement(React.Fragment, null, React.createElement("em", {
         style: {
           opacity: "0.8",
@@ -136,6 +141,19 @@ function Hero({
   }, h.l2, h.scribble && React.createElement("span", {
     className: "scribble"
   }, h.scribble))), React.createElement("div", {
+    className: "hero-preuves"
+  }, React.createElement("a", {
+    className: "hero-note",
+    href: AVIS_GOOGLE.lien,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    title: "Voir les avis sur Google"
+  }, React.createElement("span", {
+    className: "hero-etoiles",
+    "aria-hidden": "true"
+  }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("span", null, React.createElement("b", null, AVIS_GOOGLE.note), " sur Google \xB7 ", AVIS_GOOGLE.nombre, " avis")), React.createElement("ul", {
+    className: "hero-faits"
+  }, React.createElement("li", null, "Devis ferme sous 24 h"), React.createElement("li", null, "Assur\xE9 8 000 \u20AC par objet, franchise \xE0 notre charge"), React.createElement("li", null, "Aucun suppl\xE9ment le jour du d\xE9m\xE9nagement"))), React.createElement("div", {
     className: "hero-ctas"
   }, React.createElement("a", {
     href: "Formules",
