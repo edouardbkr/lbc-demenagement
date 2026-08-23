@@ -70,7 +70,14 @@ function sendToCockpit(all, opts) {
     qty: x[1]
   }));
   const at = window.LBC_ATTRIB ? window.LBC_ATTRIB() : null;
-  const notes = [opts.partiel && all.surface ? "🏠 Logement déclaré : " + all.surface + " (aucun volume : le formulaire n'est pas allé jusqu'à l'inventaire)" : "", all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.demontageLignes || []).length ? "🔧 Démontage déclaré : " + opts.estimation.detail.demontageLignes.map(function (l) {
+  const notes = [opts.partiel && all.surface ? "🏠 Logement déclaré : " + all.surface + " (aucun volume : le formulaire n'est pas allé jusqu'à l'inventaire)" : "", all.details ? "Détails client : " + all.details : "", opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "", opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "", function () {
+    if (!opts.estimation || !opts.estimation.distanceFiable) return "";
+    var nbMeubles = (all.inventaire || []).length;
+    var nbCartons = Number(all.cartons) || 0;
+    if (nbMeubles === 0 && nbCartons > 0) return "🔍 INVENTAIRE MAIGRE : " + nbCartons + " carton" + (nbCartons > 1 ? "s" : "") + " et AUCUN meuble déclaré" + (all.surface ? " pour un " + all.surface : "") + ". La fourchette ci-dessus est calculée là-dessus. À refaire au téléphone, pièce par pièce.";
+    if (nbMeubles > 0 && nbMeubles <= 3 && ["t3", "t4", "maison"].indexOf(all.surface) >= 0) return "🔍 INVENTAIRE MAIGRE : seulement " + nbMeubles + " meuble" + (nbMeubles > 1 ? "s" : "") + " déclaré" + (nbMeubles > 1 ? "s" : "") + " pour un " + all.surface + ". Probablement rempli à moitié : refaire l'inventaire au téléphone.";
+    return "";
+  }(), opts.estimation && opts.estimation.detail && (opts.estimation.detail.demontageLignes || []).length ? "🔧 Démontage déclaré : " + opts.estimation.detail.demontageLignes.map(function (l) {
     return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " " + (l.facture ? "= " + l.montant + " €" : "(compris dans la formule)") + (l.connu ? "" : " ⚠️ tarif non répertorié, à vérifier");
   }).join(" · ") + ". Total facturé " + opts.estimation.detail.demontage + " €, DÉJÀ compris dans la fourchette ci-dessus." : "", opts.estimation && opts.estimation.detail && (opts.estimation.detail.speciauxLignes || []).length ? "🎹 Objets spéciaux : " + opts.estimation.detail.speciauxLignes.map(function (l) {
     return l.label + (l.quantite > 1 ? " ×" + l.quantite : "") + " = " + l.montant + " €";
@@ -97,11 +104,13 @@ function sendToCockpit(all, opts) {
     formulaireType: opts.partiel ? "partiel" : inventaire.length ? "detaille" : "basique",
     volumeEstime: opts.estimation ? opts.estimation.volume : null,
     logementDeclare: all.surface || "",
+    typeLogement: all.type || "",
     estimationBasse: opts.estimation ? opts.estimation.bas : null,
     estimationHaute: opts.estimation ? opts.estimation.haut : null,
     km: opts.estimation ? opts.estimation.km : null,
     rdvDate: opts.rdv ? opts.rdv.date : "",
     rdvHeure: opts.rdv ? opts.rdv.heure : "",
+    rdvImmediat: !!(opts.rdv && opts.rdv.immediat),
     cartons: all.cartons || 0,
     dateSouhaitee: all.date || "",
     flexibilite: all.flex || "",

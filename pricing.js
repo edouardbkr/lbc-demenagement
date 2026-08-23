@@ -384,7 +384,7 @@
   function estimer(o) {
     o = o || {};
     const volInv = volInventaire(o.inventaire, o.cartons);
-    const aInventaire = (o.inventaire || []).length > 0;
+    const aInventaire = (o.inventaire || []).length > 0 || (Number(o.cartons) || 0) > 0;
     const plage = CFG.volumeSurface[o.surface] || null;
     let volBase;
     if (aInventaire) volBase = volInv;else volBase = Math.max(plage ? plage.typique || plage.max : 0, volInv);

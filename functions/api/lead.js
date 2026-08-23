@@ -125,6 +125,123 @@ function construireNotif(p) {
   return { sujet, html };
 }
 
+/* ══════════════════════════════════════════════════════════════════════════════
+   L'ACCUSÉ DE RÉCEPTION DU CLIENT — uniquement quand il a RÉSERVÉ UN CRÉNEAU.
+
+   Posé le 23 août 2026. Jusque-là, le prospect ne recevait jamais rien : toutes les
+   notifications partaient vers Edouard et Anthony. Quelqu'un qui cliquait « rappelez-moi
+   mardi à 18 h » n'avait aucune preuve que son clic avait marché.
+
+   POURQUOI CELUI-LÀ ET PAS LES AUTRES :
+     • il confirme une PROMESSE que le client vient de prendre, et c'est le seul des trois
+       profils où l'absence de message est un vrai trou ;
+     • il est entièrement calculable (date, heure, trajet) : rien à juger, donc rien à
+       se tromper ;
+     • il ne parle pas du prix comme d'un engagement, il ne relance rien ;
+     • et il doit partir en SECONDES. Le pic de demandes est à 22 h : une confirmation qui
+       attend le réveil d'Edouard ne confirme plus rien.
+
+   Il ne part JAMAIS pour un créneau « maintenant » : dans ce cas Edouard appelle tout de
+   suite, et le mail arriverait après le coup de fil.                                     */
+const CLIENT_FROM = "Edouard de LBC Déménagement <contact@lbcdemenagement.com>";
+
+/* L'heure de Paris, pas celle du serveur. Un Worker Cloudflare tourne en UTC : sans cette
+   conversion, « Bonsoir » basculerait à 20 h heure française en été. */
+function heureParis() {
+  try {
+    /* ⚠️ formatToParts, PAS format(). En « fr-FR », `format()` rend « 12 h » — avec l'unité —
+       et Number("12 h") vaut NaN. Le salut serait alors toujours « Bonjour », même à 23 h.
+       Trouvé par le banc le 23 août 2026, avant la première mise en ligne. */
+    const parts = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).formatToParts(new Date());
+    const h = Number((parts.find((x) => x.type === "hour") || {}).value);
+    return Number.isFinite(h) ? (h === 24 ? 0 : h) : 12;   // certains ICU rendent « 24 » à minuit
+  } catch (e) { return 12; }
+}
+/* Bonjour avant 18 h, Bonsoir après. Même règle que le cockpit : un « Bonjour » à 22 h est
+   la signature d'un envoi automatique, et c'est précisément ce qu'on cherche à ne pas être. */
+const salutParis = () => (heureParis() >= 18 ? "Bonsoir" : "Bonjour");
+
+/* « mardi 26 août ». Sans année : le rendez-vous est dans les cinq jours. */
+function dateEnToutesLettres(iso) {
+  if (!/^\d{4}-\d{2}-\d{2}/.test(String(iso || ""))) return "";
+  try {
+    return new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long" })
+      .format(new Date(iso.slice(0, 10) + "T12:00:00Z"));
+  } catch (e) { return iso; }
+}
+const heureLisible = (h) => String(h || "").replace(":", " h ").replace(/ h 00$/, " h");
+
+/* Le mail ne part que si les trois conditions sont réunies. Chacune a sa raison :
+   sans créneau il n'y a rien à confirmer, sans e-mail il n'y a nulle part où écrire, et
+   un créneau « maintenant » se traite au téléphone, pas par écrit. */
+function doitConfirmerCreneau(p) {
+  const c = (p && p.client) || {};
+  if (!p || !p.rdvDate) return false;
+  if (p.rdvImmediat) return false;
+  return /^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(String(c.email || "").trim());
+}
+
+function construireConfirmation(p) {
+  const c = p.client || {};
+  const prenom = (c.prenom || "").trim();
+  const civil = prenom ? " " + prenom : "";
+  const quand = dateEnToutesLettres(p.rdvDate) + (p.rdvHeure ? " à " + heureLisible(p.rdvHeure) : "");
+  const trajet = [(p.depart || {}).ville, (p.arrivee || {}).ville].filter(Boolean).join(" → ");
+  const fourchette = (p.estimationBasse && p.estimationHaute)
+    ? (Number(p.estimationBasse).toLocaleString("fr-FR") + " € et " + Number(p.estimationHaute).toLocaleString("fr-FR") + " €")
+    : "";
+  const sujet = "C'est noté, je vous appelle " + quand;
+
+  const par = (t) => '<p style="margin:0 0 14px">' + t + '</p>';
+  const corps =
+    par(esc(salutParis()) + esc(civil) + ",") +
+    (fourchette
+      /* ⚠️ JAMAIS D'ISO DANS UN MAIL CLIENT. « Votre estimation pour le 2026-09-29 » : c'est
+         lisible par une machine, pas par quelqu'un qui déménage. dateEnToutesLettres existe
+         déjà juste au-dessus, elle n'était simplement pas appelée ici. */
+      ? par("Votre estimation" + (dateEnToutesLettres(p.dateSouhaitee) ? " pour le " + esc(dateEnToutesLettres(p.dateSouhaitee)) : "") +
+            (trajet ? ", " + esc(trajet) : "") + " : entre <strong>" + esc(fourchette) + "</strong> selon la formule.")
+      : par("J'ai bien reçu votre demande" + (trajet ? " pour votre déménagement " + esc(trajet) : "") + ".")) +
+    par("Je vous appelle <strong>" + esc(quand) + "</strong>, comme vous l'avez demandé. Cinq minutes suffisent : on confirme l'étage, l'ascenseur et l'accès camion, et je vous donne le <strong>prix ferme</strong>, celui qui ne bouge plus le jour J.") +
+    par("Un empêchement ? Répondez à ce message, on décale sans problème.") +
+    '<p style="margin:24px 0 0;color:#6B7785">Bien à vous,<br>Edouard</p>';
+
+  const html = '<div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#17262F;font-size:15px;line-height:1.62;max-width:560px">' +
+    corps + '</div>';
+
+  /* ⚠️ TOUJOURS UNE VERSION TEXTE BRUT À CÔTÉ DU HTML.
+     Un message HTML seul, sans alternative texte, est un signal que tous les filtres
+     anti-spam pénalisent : les vrais messages écrits par un humain en ont une, les envois
+     de masse mal outillés n'en ont pas. Elle coûte trois lignes et se dérive du même
+     contenu, donc les deux ne peuvent pas diverger.
+     Elle sert aussi pour de bon : montres connectées, lecteurs d'écran, clients en mode
+     texte, et aperçus de notification. */
+  const texte = html
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>/gi, "\n\n")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+
+  return { sujet, html, texte };
+}
+
+async function envoyerConfirmationClient(env, payload) {
+  if (!doitConfirmerCreneau(payload)) return;
+  const cle = env && env.RESEND_API_KEY;
+  if (!cle) { console.warn("[lead] RESEND_API_KEY absente, confirmation client non envoyée"); return; }
+  try {
+    const { sujet, html, texte } = construireConfirmation(payload);
+    const r = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { "Authorization": "Bearer " + cle, "Content-Type": "application/json" },
+      body: JSON.stringify({ from: CLIENT_FROM, to: [String(payload.client.email).trim()], subject: sujet, html: html, text: texte })
+    });
+    if (!r.ok) console.error("[lead] confirmation client refusée", r.status, await r.text().catch(() => ""));
+  } catch (e) { console.error("[lead] envoi confirmation client", (e && e.message) || e); }
+}
+
 async function envoyerNotif(env, payload) {
   const cle = env && env.RESEND_API_KEY;
   if (!cle) { console.warn("[lead] RESEND_API_KEY absente, notification non envoyée"); return; }
@@ -213,8 +330,15 @@ export async function onRequestPost(context) {
     // La notification part en tâche de fond : le visiteur ne doit pas attendre l'e-mail
     // pour voir son écran de confirmation. waitUntil garantit que l'envoi va au bout
     // même après que la réponse a été renvoyée au navigateur.
-    if (context.waitUntil) context.waitUntil(envoyerNotif(context.env, payload));
-    else await envoyerNotif(context.env, payload);
+    /* Les deux envois partent en tâche de fond, et SÉPARÉMENT : si Resend refuse la
+       confirmation au client, l'alerte interne doit partir quand même, et l'inverse. */
+    if (context.waitUntil) {
+      context.waitUntil(envoyerNotif(context.env, payload));
+      context.waitUntil(envoyerConfirmationClient(context.env, payload));
+    } else {
+      await envoyerNotif(context.env, payload);
+      await envoyerConfirmationClient(context.env, payload);
+    }
     return json({ ok: true });
   } catch (e) {
     const detail = String((e && e.message) || e);

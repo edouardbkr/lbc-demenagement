@@ -645,7 +645,16 @@
   function estimer(o) {
     o = o || {};
     const volInv = volInventaire(o.inventaire, o.cartons);
-    const aInventaire = (o.inventaire || []).length > 0;
+    /* ⚠️ DES CARTONS SEULS SONT UN INVENTAIRE. Corrigé le 22 août 2026.
+       Cette condition ne regardait que la liste des meubles. Un client qui déclarait
+       « 6 cartons et rien d'autre » était donc traité comme quelqu'un qui n'avait RIEN
+       déclaré : on lui appliquait le volume typique de son logement, 12 m³ pour un
+       studio, soit 13 m³ après la marge — vingt fois ses 0,6 m³.
+       Le symptôme qui prouve l'absurdité : ajouter un lit double à ces 6 cartons faisait
+       TOMBER l'estimation de 13 m³ à 3 m³. Plus le client déclarait, moins on comptait.
+       C'est le même défaut que celui du 15 août sur l'autre branche : ce qu'il déclare
+       est ce qu'on retient, et des cartons sont une déclaration. */
+    const aInventaire = (o.inventaire || []).length > 0 || (Number(o.cartons) || 0) > 0;
     const plage = CFG.volumeSurface[o.surface] || null;
 
     // L'inventaire prime dès qu'il existe : c'est la seule donnée qui décrit vraiment le

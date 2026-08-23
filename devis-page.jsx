@@ -94,6 +94,26 @@ function sendToCockpit(all, opts) {
     all.details ? "Détails client : " + all.details : "",
     opts.estimation && !opts.estimation.distanceFiable ? "🚨 DISTANCE NON CALCULÉE : aucun prix n'a été affiché au client. Vérifier le trajet et chiffrer à la main." : "",
     opts.estimation && opts.estimation.distanceFiable ? "⚠️ Fourchette ANNONCÉE au client sur le site : " + opts.estimation.bas + " € – " + opts.estimation.haut + " € (volume retenu " + opts.estimation.volume + " m³, distance ~" + opts.estimation.km + " km). Ne pas chiffrer au-dessus sans l'expliquer." : "",
+    /* L'INVENTAIRE MAIGRE, DIT EN TOUTES LETTRES. Ajouté le 22 août 2026.
+       Un client qui ne coche que des cartons, ou trois meubles pour un T3, produit une
+       estimation honnête mais probablement fausse : il a rempli à moitié. Le prix ferme
+       se joue alors entièrement au téléphone, et c'est la première chose à savoir en
+       ouvrant la fiche. Sans cette ligne, la fourchette annoncée a l'air aussi solide
+       qu'une autre. */
+    (function () {
+      if (!opts.estimation || !opts.estimation.distanceFiable) return "";
+      var nbMeubles = (all.inventaire || []).length;
+      var nbCartons = Number(all.cartons) || 0;
+      if (nbMeubles === 0 && nbCartons > 0)
+        return "🔍 INVENTAIRE MAIGRE : " + nbCartons + " carton" + (nbCartons > 1 ? "s" : "") +
+               " et AUCUN meuble déclaré" + (all.surface ? " pour un " + all.surface : "") +
+               ". La fourchette ci-dessus est calculée là-dessus. À refaire au téléphone, pièce par pièce.";
+      if (nbMeubles > 0 && nbMeubles <= 3 && ["t3", "t4", "maison"].indexOf(all.surface) >= 0)
+        return "🔍 INVENTAIRE MAIGRE : seulement " + nbMeubles + " meuble" + (nbMeubles > 1 ? "s" : "") +
+               " déclaré" + (nbMeubles > 1 ? "s" : "") + " pour un " + all.surface +
+               ". Probablement rempli à moitié : refaire l'inventaire au téléphone.";
+      return "";
+    })(),
     // Le client a demandé « Mains dans les poches » : la fourchette ci-dessus est celle de
     // « Mains libres », et il en a été prévenu à l'écran. Le prix de l'emballage se chiffre
     // après visio. Sans cette note, on risquerait de facturer l'emballage au prix affiché.
@@ -155,12 +175,21 @@ function sendToCockpit(all, opts) {
        Pas d'estimation, pas de volume. Le type de logement part quand même. */
     volumeEstime: opts.estimation ? opts.estimation.volume : null,
     logementDeclare: all.surface || "",
+    /* Le TYPE de logement, à côté de la surface. Il manquait, et c'est l'un des cinq
+       champs sans lesquels le lien « Reprendre mon devis » ne peut pas rouvrir le
+       formulaire à l'étape 2 : le visiteur repartirait du début après avoir cliqué sur
+       un bouton qui promet le contraire. Ajouté le 23 août 2026. */
+    typeLogement: all.type || "",
     // Fourchette annoncée au client + créneau de rappel choisi (repris dans la fiche du cockpit)
     estimationBasse: opts.estimation ? opts.estimation.bas : null,
     estimationHaute: opts.estimation ? opts.estimation.haut : null,
     km: opts.estimation ? opts.estimation.km : null,
     rdvDate: opts.rdv ? opts.rdv.date : "",
     rdvHeure: opts.rdv ? opts.rdv.heure : "",
+    /* « Maintenant » n'est pas un rendez-vous : Edouard appelle dans la foulée, et un mail
+       de confirmation arriverait APRÈS le coup de fil. Le serveur a besoin de le savoir,
+       il ne peut pas le deviner d'une date et d'une heure. */
+    rdvImmediat: !!(opts.rdv && opts.rdv.immediat),
     cartons: all.cartons || 0,
     dateSouhaitee: all.date || "",
     flexibilite: all.flex || "",
