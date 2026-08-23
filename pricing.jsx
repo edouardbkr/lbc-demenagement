@@ -307,10 +307,21 @@
          recevait un devis bien plus bas ne revenait pas — il était déjà parti, convaincu
          qu'on était hors de son budget. L'écart moyen entre estimation et devis réel
          tombe de 49 % à 8 %. */
+      /* ⚠️ SECOND RÉGLAGE, 24 AOÛT : LA PROGRESSION PRIME SUR LA FIDÉLITÉ AUX DEVIS.
+         Le premier calibrage collait au plus près des devis émis (8 % d'écart), mais il
+         produisait un 3 pièces et un 4 pièces au MÊME PRIX — 27 et 28 m³. Illisible sur
+         une page publique : un visiteur qui voit deux logements différents au même tarif
+         cesse de croire au calcul.
+         La cause est dans les devis eux-mêmes : leur médiane est identique pour T2, T3 et
+         T4, à 1 490 €. C'est normal — le prix suit le volume RÉELLEMENT déclaré, pas la
+         surface, et un T4 dont on ne déménage que le salon coûte comme un T2. Mais
+         l'estimateur, lui, ne connaît que le type de logement : il doit donc progresser.
+         L'écart moyen remonte à 25 %, et c'est un choix assumé : mieux vaut une grille
+         qu'on comprend, resserrée ensuite par l'inventaire du formulaire de devis. */
       studio: { min: 5, typique: 9, max: 15 },
-      t2: { min: 8, typique: 21, max: 25 },
-      t3: { min: 12, typique: 27, max: 40 },
-      t4: { min: 18, typique: 28, max: 65 },
+      t2: { min: 8, typique: 24, max: 25 },
+      t3: { min: 12, typique: 28, max: 40 },
+      t4: { min: 18, typique: 38, max: 65 },
       /* « Maison, plus de 90 m² » du widget d'accueil. Elle était chiffrée comme un
          4 pièces, soit 42 m³, alors qu'une maison de cette taille en fait couramment
          50 à 60 : le bouton des plus gros chantiers était celui qui sous-annonçait le
@@ -320,7 +331,7 @@
          65 m³ affichait près de 3 000 € en local et faisait fuir avant le premier
          appel. 48 m³ relève l'annonce sans repasser ce seuil, et le prix ferme se
          confirme de toute façon au téléphone, inventaire en main. */
-      maison: { min: 22, typique: 36, max: 90 }
+      maison: { min: 22, typique: 50, max: 90 }
     }
   };
 

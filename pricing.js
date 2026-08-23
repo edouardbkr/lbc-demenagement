@@ -79,22 +79,22 @@
       },
       t2: {
         min: 8,
-        typique: 21,
+        typique: 24,
         max: 25
       },
       t3: {
         min: 12,
-        typique: 27,
+        typique: 28,
         max: 40
       },
       t4: {
         min: 18,
-        typique: 28,
+        typique: 38,
         max: 65
       },
       maison: {
         min: 22,
-        typique: 36,
+        typique: 50,
         max: 90
       }
     }
