@@ -662,7 +662,8 @@ const COTE_AZUR = [
 ["Déménagement Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Déménagement Èze", "Demenagement-Eze"],
 ["Déménagement Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Déménagement Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"],
 ["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"], ["Déménagement Beausoleil", "Demenagement-Beausoleil"],
-["Déménagement Valbonne Sophia Antipolis", "Demenagement-Valbonne-Sophia-Antipolis"], ["Déménagement Vence", "Demenagement-Vence"], ["Déménagement Saint-Tropez", "Demenagement-Saint-Tropez"], ["Déménagement Mougins", "Demenagement-Mougins"]];
+["Déménagement Valbonne Sophia Antipolis", "Demenagement-Valbonne-Sophia-Antipolis"], ["Déménagement Vence", "Demenagement-Vence"], ["Déménagement Saint-Tropez", "Demenagement-Saint-Tropez"], ["Déménagement Mougins", "Demenagement-Mougins"],
+["Déménagement Saint-Paul-de-Vence", "Demenagement-Saint-Paul-de-Vence"], ["Déménagement Théoule-sur-Mer", "Demenagement-Theoule-sur-Mer"], ["Déménagement Cap d'Antibes", "Demenagement-Cap-d-Antibes"], ["Déménagement Biot", "Demenagement-Biot"], ["Déménagement La Turbie", "Demenagement-La-Turbie"]];
 
 const FRANCE = [];
 

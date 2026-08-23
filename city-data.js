@@ -1,6 +1,271 @@
 /* city-data.jsx — compilé par build.js, ne pas éditer */
 (function () {
 const CITIES = {
+  "saint-paul-de-vence": {
+    name: "Saint-Paul-de-Vence",
+    file: "Demenagement-Saint-Paul-de-Vence",
+    cp: "06570",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement à Saint-Paul-de-Vence : village classé et piéton, transbordement obligatoire, œuvres d'art. Devis ferme sous 24h.",
+    intro: "Saint-Paul-de-Vence est le seul endroit de notre zone où le déménagement se fait en deux véhicules. Le village est classé, entièrement piéton, et l'accès aux remparts passe par une autorisation municipale que l'on demande à l'avance. Notre camion reste au parking public : le mobilier est transbordé dans un utilitaire de faible gabarit, puis porté par les ruelles pavées. Autre particularité, et elle n'est pas anecdotique : la densité de galeries et de collectionneurs fait que les intérieurs contiennent souvent des toiles, des sculptures et des céramiques dont la valeur dépasse celle du reste du mobilier.",
+    quartiers: ["Village intra-muros", "Les Remparts", "Les Gardettes", "Sainte-Claire", "Les Fumerates", "La Colle-Saint-Paul", "Les Espinets", "Le Malvan"],
+    specifics: [{
+      t: "Transbordement obligatoire",
+      d: "Le camion reste au parking public. Le mobilier passe dans un utilitaire court pour approcher les remparts, puis se porte à la main par les ruelles pavées."
+    }, {
+      t: "Autorisation municipale d'accès",
+      d: "Le village classé n'admet aucun véhicule sans laissez-passer. La demande se dépose en mairie avec les immatriculations, plusieurs jours avant l'intervention."
+    }, {
+      t: "Œuvres d'art et pièces de collection",
+      d: "Toiles, sculptures et céramiques partent en caisse sur mesure et se déclarent séparément pour être couvertes à leur valeur réelle, pas au forfait mobilier."
+    }],
+    deep: [{
+      t: "Pourquoi il faut deux véhicules ici",
+      p: "Un porteur de vingt mètres cubes ne s'approche pas des remparts : les abords sont étroits, la voirie est ancienne et l'affluence piétonne interdit les manœuvres longues. Nous stationnons donc le camion au parking public et nous faisons la navette avec un utilitaire de moins de trois mètres cinquante, qui peut approcher la porte du village dans le créneau autorisé. Ce double mouvement rallonge la journée d'environ deux heures sur un volume moyen. C'est prévu au devis, parce qu'une entreprise de déménagement à Saint-Paul-de-Vence qui l'oublie découvre le problème le matin même, avec le camion et le client sur place."
+    }, {
+      t: "L'autorisation, et ce qu'elle n'autorise pas",
+      p: "Le laissez-passer municipal ouvre l'accès à des heures précises, généralement en dehors des pics touristiques, et il ne dispense pas du respect de la circulation piétonne. Concrètement, un déménagement se cale tôt le matin. Nous déposons la demande avec les immatriculations et les dates, et nous confirmons la veille : un véhicule non déclaré est refoulé, et la journée est perdue. Cette contrainte administrative pèse plus lourd sur le planning que le portage lui-même."
+    }, {
+      t: "Les ruelles, les seuils et les angles",
+      p: "Les rues du village sont pavées, en pente douce, larges de deux mètres au mieux, avec des seuils de pierre surélevés et des passages voûtés qui descendent sous deux mètres de hauteur. Une armoire haute ne passe pas debout sous certaines voûtes, et un canapé d'angle se démonte plutôt que de tenter le virage. Nous mesurons le trajet exact entre la porte et le logement avant de chiffrer, en notant les points bas et les angles morts. C'est ce relevé qui détermine le nombre d'équipiers, pas le nombre de mètres carrés."
+    }, {
+      t: "Transporter ce qui vaut plus que le mobilier",
+      p: "Beaucoup de logements saint-paulois contiennent des œuvres, héritage d'une histoire artistique qui dure depuis les années trente. Une toile ne voyage pas emballée comme un miroir : caisse rigide sur mesure, calage sans contact avec la surface peinte, transport à plat ou sur chant selon la technique. Les céramiques et les bronzes partent en caisse individuelle. Ces pièces se déclarent nommément pour être assurées à leur valeur : le plafond de huit mille euros par objet couvre l'essentiel, au-delà on établit une déclaration de valeur spécifique."
+    }],
+    faq: [{
+      q: "Un camion peut-il entrer dans le village de Saint-Paul ?",
+      a: "Non. Le village est classé et piéton. Nous transbordons dans un utilitaire court pour approcher les remparts, puis nous portons à la main par les ruelles."
+    }, {
+      q: "Quelle autorisation faut-il pour un déménagement à Saint-Paul-de-Vence ?",
+      a: "Un laissez-passer municipal, déposé plusieurs jours avant avec les immatriculations. Il fixe des créneaux horaires précis, souvent tôt le matin."
+    }, {
+      q: "Combien de temps ce transbordement ajoute-t-il ?",
+      a: "Environ deux heures sur un volume moyen. C'est intégré au devis dès le départ, jamais ajouté après coup."
+    }, {
+      q: "Comment emballez-vous les tableaux et les sculptures ?",
+      a: "En caisse rigide sur mesure, avec un calage qui ne touche pas la surface peinte. Les bronzes et céramiques partent en caisse individuelle."
+    }, {
+      q: "Les œuvres sont-elles assurées à leur valeur ?",
+      a: "Jusqu'à huit mille euros par objet sans démarche. Au-delà, on établit une déclaration de valeur nominative avant le déménagement."
+    }, {
+      q: "Faut-il éviter certaines périodes ?",
+      a: "L'affluence estivale et les week-ends prolongés compliquent l'accès aux remparts. Un déménageur à Saint-Paul-de-Vence privilégie les matinées de semaine hors saison."
+    }],
+    nearby: ["vence", "cagnes-sur-mer", "villeneuve-loubet", "grasse", "saint-laurent-du-var"]
+  },
+  "theoule-sur-mer": {
+    name: "Théoule-sur-Mer",
+    file: "Demenagement-Theoule-sur-Mer",
+    cp: "06590",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement à Théoule-sur-Mer : villas en escaliers sur l'Estérel, dénivelé, monte-meuble, corniche étroite. Devis ferme sous 24h.",
+    intro: "Un déménagement à Théoule-sur-Mer ne bute ni sur le volume ni sur la distance, mais sur la verticale. Les villas sont bâties dans la roche rouge de l'Estérel, souvent en contrebas de la route, et l'on descend chez soi par un escalier extérieur de trente, cinquante, parfois quatre-vingts marches. Le camion reste en haut, sur une corniche à deux voies sans bas-côté, et tout le mobilier remonte à la main ou par monte-meuble. C'est le seul endroit de notre secteur où nous chiffrons systématiquement au nombre de marches plutôt qu'au nombre de mètres cubes, parce que c'est le dénivelé qui décide de la journée.",
+    quartiers: ["Théoule village", "Miramar", "La Figueirette", "Port-la-Galère", "Le Trayas", "Pointe de l'Aiguille", "Les Terrasses de Théoule", "L'Estérel"],
+    specifics: [{
+      t: "Villas en contrebas de la route",
+      d: "Le mobilier remonte par des escaliers extérieurs taillés dans la roche, de trente à quatre-vingts marches. On chiffre au nombre de marches, relevé sur place."
+    }, {
+      t: "Monte-meuble quand la façade le permet",
+      d: "Sur les villas à flanc, le monte-meuble évite des dizaines de remontées, à condition d'une assise stable pour le camion et d'une façade dégagée. On vérifie les deux avant."
+    }, {
+      t: "Corniche à deux voies sans bas-côté",
+      d: "L'arrêt d'un camion sur la corniche de l'Estérel bloque la circulation. Arrêté de stationnement obligatoire et positionnement du véhicule décidé à l'avance."
+    }],
+    deep: [{
+      t: "Chiffrer en marches, pas en mètres cubes",
+      p: "Sur une villa théoulienne, deux logements de volume identique n'ont pas le même prix : l'un est de plain-pied avec le portail, l'autre se rejoint par soixante marches taillées dans la roche. Un équipier remonte entre huit et douze fois par mètre cube quand il n'y a pas de monte-meuble, et chaque remontée coûte du temps et de la fatigue. Nous venons donc compter les marches, mesurer la largeur de l'escalier et repérer les paliers de repos avant d'annoncer un prix. Ce relevé est la partie la plus utile de la visite."
+    }, {
+      t: "Le monte-meuble, et quand il n'est pas possible",
+      p: "Sur les villas à flanc de roche, le monte-meuble transforme la journée : ce qui demanderait quatre-vingts remontées se fait en une dizaine de rotations. Encore faut-il que le camion trouve une assise stable et de niveau, et que la façade soit dégagée jusqu'à la terrasse ou la fenêtre visée. À Miramar et à Port-la-Galère, la végétation et les avancées de balcon l'interdisent parfois. Nous vérifions ces deux points sur place, et quand le monte-meuble est écarté, nous renforçons l'équipe plutôt que d'allonger la journée."
+    }, {
+      t: "S'arrêter sur la corniche de l'Estérel",
+      p: "La route qui dessert Théoule est une corniche à deux voies, sans bande d'arrêt, avec des virages sans visibilité. Un camion à l'arrêt y crée un bouchon immédiat et un vrai danger. L'arrêté de stationnement se demande en mairie plusieurs jours avant, et le camion se positionne dans le sens qui évite toute marche arrière en courbe. Nous plaçons également un équipier en signalisation pendant les phases de chargement. Ce n'est pas de la précaution excessive : c'est la condition pour travailler ici en sécurité."
+    }, {
+      t: "La roche, l'humidité et le mobilier",
+      p: "Les escaliers extérieurs théouliens sont en pierre ou en béton, souvent bordés de végétation, et ils deviennent glissants après une pluie ou une nuit humide. Nous adaptons alors le rythme et l'équipement, et nous protégeons systématiquement les meubles avec des housses plutôt qu'avec des simples couvertures : un mobilier qui remonte quatre-vingts marches sous un crachin arrive mouillé si personne n'y a pensé. Sur ce type de chantier, un déménageur à Théoule-sur-Mer regarde la météo la veille au même titre que le planning."
+    }],
+    faq: [{
+      q: "Comment chiffrez-vous une villa en contrebas à Théoule ?",
+      a: "Au nombre de marches relevé sur place, pas au volume seul. Deux logements identiques n'ont pas le même prix si l'un se rejoint par soixante marches."
+    }, {
+      q: "Utilisez-vous un monte-meuble à Théoule-sur-Mer ?",
+      a: "Dès que le camion trouve une assise stable et que la façade est dégagée. À Miramar et Port-la-Galère, la végétation l'interdit parfois : on renforce alors l'équipe."
+    }, {
+      q: "Faut-il une autorisation pour stationner sur la corniche ?",
+      a: "Oui, un arrêté municipal demandé plusieurs jours avant : toute entreprise de déménagement à Théoule-sur-Mer doit le faire. Un camion à l'arrêt sur cette route sans bas-côté bloque la circulation."
+    }, {
+      q: "Que se passe-t-il s'il pleut le jour du déménagement ?",
+      a: "Les escaliers de roche deviennent glissants. Nous ralentissons le rythme et housssons le mobilier plutôt que de le couvrir simplement."
+    }, {
+      q: "Intervenez-vous au Trayas et à La Figueirette ?",
+      a: "Oui, sur toute la commune. Ce sont les secteurs où le dénivelé est le plus marqué et où le repérage préalable compte le plus."
+    }, {
+      q: "Le prix peut-il augmenter le jour du déménagement ?",
+      a: "Non. Un déménagement à Théoule-sur-Mer se chiffre après avoir compté les marches sur place : le prix annoncé est alors définitif."
+    }],
+    nearby: ["mandelieu", "cannes", "le-cannet", "grasse", "antibes"]
+  },
+  "cap-d-antibes": {
+    name: "Cap d'Antibes",
+    file: "Demenagement-Cap-d-Antibes",
+    cp: "06160",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement au Cap d'Antibes : propriétés gardiennées, allées privées, mobilier de valeur, discrétion. Devis ferme sous 24h.",
+    intro: "Le Cap d'Antibes se déménage sur rendez-vous, au sens propre. Les propriétés sont closes, beaucoup ont un gardien ou un personnel de maison à demeure, et l'accès se négocie avec eux avant de se négocier avec la voirie. Les allées privées, bordées de pins et de murs anciens, sont dimensionnées pour des voitures et rarement pour un porteur de vingt mètres cubes. Enfin, le contenu impose sa propre méthode : mobilier ancien, tableaux, cave à vin parfois conséquente. Ce sont des chantiers lents, préparés, où l'improvisation coûte immédiatement cher.",
+    quartiers: ["Cap d'Antibes", "La Garoupe", "Le Cap Gros", "La Salis", "Les Ondes", "Le Croûton", "Eden Roc", "La Groupe"],
+    specifics: [{
+      t: "Propriétés closes et gardiennées",
+      d: "Accès négocié avec le gardien ou le personnel de maison, identités et immatriculations transmises avant, horaires convenus. Aucun équipier ne se présente sans être annoncé."
+    }, {
+      t: "Allées privées au gabarit limité",
+      d: "Murs anciens, virages serrés et aire de retournement dimensionnée pour une berline. On mesure avant d'engager le camion, quitte à faire la navette en utilitaire."
+    }, {
+      t: "Cave à vin et mobilier ancien",
+      d: "Les bouteilles voyagent debout, en caisses adaptées, à l'abri de la chaleur. Le mobilier ancien se sangle et se protège aux arêtes, sans démontage forcé."
+    }],
+    deep: [{
+      t: "L'accès se prépare avec les gens de la maison",
+      p: "Sur une propriété du Cap, l'interlocuteur du jour n'est presque jamais le propriétaire : c'est un gardien, une gouvernante ou un régisseur. C'est lui qui ouvre le portail, indique par où passer sans abîmer les massifs et sait à quelle heure le portail automatique se referme. Nous prenons contact avec lui plusieurs jours avant, nous transmettons l'identité des équipiers et les immatriculations, et nous convenons d'un horaire. Une entreprise de déménagement au Cap d'Antibes qui arrive sans avoir fait ce travail reste devant le portail."
+    }, {
+      t: "Le gabarit décide de tout",
+      p: "Les allées du Cap sont bordées de murs de pierre et de pins parasols dont les branches basses descendent à trois mètres cinquante. Un porteur qui s'engage sans mesure peut se retrouver bloqué à mi-parcours, sans aire de retournement, contraint de reculer sur deux cents mètres entre deux murs. Nous mesurons systématiquement la largeur au portail, la hauteur libre sous les arbres et l'espace de manœuvre devant la maison. Quand le compte n'y est pas, le camion reste à l'extérieur et nous faisons la navette avec un utilitaire : plus long, mais sans risque pour le véhicule ni pour la propriété."
+    }, {
+      t: "Une cave à vin ne se déménage pas comme des cartons",
+      p: "Plusieurs propriétés du Cap ont une cave de quelques centaines à quelques milliers de bouteilles. Le vin voyage debout, dans des caisses à alvéoles, et il craint surtout la chaleur et les vibrations. Nous chargeons ces caisses en dernier et les livrons en premier, dans un camion qui ne stationne pas au soleil, et nous conseillons de laisser reposer plusieurs semaines avant d'ouvrir une bouteille. Sur une cave constituée, cette précaution vaut bien plus que le coût du transport."
+    }, {
+      t: "La discrétion fait partie de la prestation",
+      p: "Nos clients du Cap demandent souvent que rien ne s'affiche : pas de camion stationné une journée entière devant le portail, pas d'équipe qui déjeune sur le trottoir, pas de mention de l'adresse. Nous organisons la journée pour que le chargement soit groupé plutôt qu'étalé, et l'équipe est la même du début à la fin, sans intérimaire recruté la veille. Ce n'est pas un supplément de confort, c'est la condition pour travailler durablement sur ce secteur."
+    }],
+    faq: [{
+      q: "Comment accède-t-on à une propriété du Cap d'Antibes ?",
+      a: "Par le gardien ou le personnel de maison, contacté plusieurs jours avant. Nous transmettons l'identité des équipiers et les immatriculations, et nous convenons d'un horaire."
+    }, {
+      q: "Vos camions passent-ils les allées privées ?",
+      a: "Après mesure de la largeur au portail, de la hauteur sous les pins et de l'aire de manœuvre. Sinon nous faisons la navette avec un utilitaire."
+    }, {
+      q: "Déménagez-vous une cave à vin ?",
+      a: "Oui, en caisses à alvéoles, bouteilles debout, chargées en dernier et livrées en premier. Nous conseillons de laisser reposer le vin plusieurs semaines."
+    }, {
+      q: "Assurez-vous les tableaux et le mobilier ancien ?",
+      a: "Jusqu'à huit mille euros par objet, franchise à notre charge. Au-delà, une déclaration de valeur nominative se fait avant le déménagement."
+    }, {
+      q: "Peut-on éviter que le camion reste visible toute la journée ?",
+      a: "Oui. Nous groupons le chargement plutôt que de l'étaler, avec une équipe renforcée. La discrétion est une contrainte d'organisation, pas une option."
+    }, {
+      q: "Travaillez-vous avec des intérimaires ?",
+      a: "Non. Un déménageur au Cap d'Antibes travaille chez des gens qui laissent leur maison ouverte : l'équipe est la même du début à la fin, et elle est connue."
+    }],
+    nearby: ["antibes", "villeneuve-loubet", "le-cannet", "cannes", "cagnes-sur-mer"]
+  },
+  "biot": {
+    name: "Biot",
+    file: "Demenagement-Biot",
+    cp: "06410",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement à Biot : village perché aux ruelles étroites, plaine résidentielle, verrerie et objets fragiles. Devis ferme sous 24h.",
+    intro: "Biot est une commune coupée en deux par un dénivelé, et l'adresse exacte change tout au devis. En haut, le village médiéval s'organise autour de la place des Arcades, avec des rues d'un mètre cinquante, des passages voûtés et des maisons à escalier droit : le camion reste en bas et tout monte à la main. En contrebas, la plaine et les résidences des Bréguières se déménagent normalement, avec un stationnement devant l'immeuble. Une troisième particularité traverse les deux : la tradition verrière et l'artisanat d'art font qu'on y déménage beaucoup de pièces fragiles, souvent non emballables en carton standard.",
+    quartiers: ["Village de Biot", "Place des Arcades", "Les Bréguières", "La Plaine", "Saint-Philippe", "Les Combes", "Les Clausonnes", "Le Val de Pome"],
+    specifics: [{
+      t: "Village médiéval en haut",
+      d: "Ruelles d'un mètre cinquante, passages voûtés bas et escaliers droits. Le camion stationne aux abords et le mobilier monte à la main, sur cinquante à cent cinquante mètres."
+    }, {
+      t: "Plaine résidentielle en bas",
+      d: "Résidences et pavillons avec stationnement devant l'immeuble et ascenseurs. Un déménagement y ressemble à un chantier antibois classique."
+    }, {
+      t: "Verrerie et pièces d'artisanat",
+      d: "Verre soufflé, céramiques et pièces d'atelier ne tiennent pas dans un carton standard : caisses cloisonnées, calage individuel et transport séparé du reste."
+    }],
+    deep: [{
+      t: "Demander l'adresse avant d'annoncer un prix",
+      p: "Sur cette commune plus qu'ailleurs, deux clients qui décrivent le même logement peuvent recevoir des devis très différents. Une maison de village près de la place des Arcades impose un portage de cent mètres par des ruelles en pente, avec un camion resté en contrebas. Un appartement des Bréguières se charge depuis le pied de l'immeuble, avec un ascenseur. Nous refusons donc de chiffrer sur la seule surface : l'adresse précise et la position dans la commune sont les premières questions que nous posons, et elles pèsent plus lourd que le nombre de pièces."
+    }, {
+      t: "Le village, ses voûtes et ses escaliers droits",
+      p: "Les rues du vieux Biot montent en courbe, pavées, avec des passages voûtés dont la hauteur libre descend sous deux mètres. Les maisons ont des escaliers droits et étroits, sans palier intermédiaire, ce qui interdit de tourner une armoire montée. On démonte davantage qu'ailleurs, et l'on sort parfois par la fenêtre les pièces qui ne passent pas l'angle du bas. Nous mesurons ces points avant, en notant la hauteur des voûtes sur le trajet retenu : un meuble haut peut passer par une rue et pas par l'autre."
+    }, {
+      t: "Transporter du verre soufflé",
+      p: "La verrerie biotoise, avec ses bulles caractéristiques, se retrouve dans beaucoup d'intérieurs de la commune, et les ateliers d'art produisent aussi des pièces de grande taille. Un carton standard, même à double cannelure, ne suffit pas : nous utilisons des caisses cloisonnées où chaque pièce est calée individuellement, sans contact entre les objets, et ces caisses voyagent séparément du mobilier lourd. Elles sont chargées en dernier et posées à plat, jamais empilées. C'est plus long à préparer, et c'est ce qui évite d'ouvrir une caisse pleine d'éclats à l'arrivée."
+    }, {
+      t: "La plaine, le technopôle et les volumes de famille",
+      p: "En contrebas, la commune touche Sophia Antipolis et accueille beaucoup de familles installées pour un poste au technopôle. Les logements y sont plus grands, souvent avec garage et cave, et les déménagements se font vers ou depuis d'autres régions. La logistique est simple, les volumes sont importants, et la question principale devient le calendrier plutôt que l'accès. Une entreprise de déménagement à Biot doit donc savoir faire les deux métiers : le portage patient du village et le gros volume longue distance de la plaine."
+    }],
+    faq: [{
+      q: "Le camion peut-il monter dans le village de Biot ?",
+      a: "Non, les ruelles font un mètre cinquante et les voûtes descendent sous deux mètres. Le camion stationne aux abords et le mobilier monte à la main."
+    }, {
+      q: "Pourquoi demandez-vous l'adresse exacte à Biot ?",
+      a: "Parce que le village et la plaine n'ont rien à voir. Cent mètres de portage en pente d'un côté, un ascenseur et un stationnement de l'autre : le prix n'est pas le même."
+    }, {
+      q: "Comment emballez-vous la verrerie de Biot ?",
+      a: "En caisses cloisonnées, chaque pièce calée individuellement et sans contact avec les autres. Ces caisses voyagent à plat, chargées en dernier, jamais empilées."
+    }, {
+      q: "Faut-il démonter les meubles dans le village ?",
+      a: "Plus souvent qu'ailleurs : les escaliers sont droits et sans palier, donc on ne peut pas tourner une armoire montée. Parfois on sort par la fenêtre."
+    }, {
+      q: "Intervenez-vous pour les familles du technopôle ?",
+      a: "Oui, régulièrement. Ce sont des volumes importants avec garage et cave, souvent en longue distance, où la contrainte est le calendrier plutôt que l'accès."
+    }, {
+      q: "Le verre est-il couvert par l'assurance ?",
+      a: "Oui, jusqu'à huit mille euros par objet, franchise à notre charge. Votre déménageur à Biot vous fait déclarer nommément les pièces d'atelier de grande valeur avant le départ."
+    }],
+    nearby: ["antibes", "villeneuve-loubet", "valbonne-sophia-antipolis", "cagnes-sur-mer", "le-cannet"]
+  },
+  "la-turbie": {
+    name: "La Turbie",
+    file: "Demenagement-La-Turbie",
+    cp: "06320",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement à La Turbie : accès par la Grande Corniche, virages serrés, gabarit limité, altitude. Devis ferme sous 24h.",
+    intro: "La Turbie se rejoint par la Grande Corniche, et c'est cette route qui commande tout le reste. Quatre cent cinquante mètres d'altitude, une montée continue depuis le littoral, des virages en épingle et des passages où deux véhicules se croisent difficilement. Un semi-remorque n'y monte pas, et même un porteur de vingt mètres cubes demande un chauffeur qui connaît le tracé. Une fois en haut, le village s'organise autour du Trophée d'Auguste avec des rues étroites, et les villas s'étagent sur des terrains en pente. L'hiver ajoute sa part : à cette altitude, une matinée de gel change la façon de charger.",
+    quartiers: ["Village de La Turbie", "Le Trophée", "La Tête de Chien", "Les Revoires", "Le Mont-Agel", "La Grande Corniche", "Cabrolles", "Sainte-Dévote"],
+    specifics: [{
+      t: "Montée par la Grande Corniche",
+      d: "Virages en épingle et pente continue depuis le littoral. Le gabarit du camion se décide avant, et le chauffeur connaît le tracé : ce n'est pas une route qu'on découvre chargé."
+    }, {
+      t: "Transbordement fréquent",
+      d: "Quand le véhicule adapté à la route ne l'est pas au volume, on charge en deux rotations avec un utilitaire plutôt que d'immobiliser un camion trop grand."
+    }, {
+      t: "Altitude et conditions hivernales",
+      d: "À 450 mètres, le gel matinal est courant de décembre à février. On décale le départ plutôt que de charger sur une chaussée verglacée en pente."
+    }],
+    deep: [{
+      t: "La route décide du camion, pas l'inverse",
+      p: "Ailleurs, on choisit le véhicule selon le volume. Ici, on le choisit selon la Grande Corniche. Les épingles au-dessus de Cap-d'Ail imposent un rayon de braquage que tous les porteurs n'ont pas, et certains passages ne permettent pas de croiser un bus. Nous décidons donc du gabarit avant tout le reste, et le chauffeur affecté connaît le tracé : un déménagement à La Turbie n'est pas une route qu'on découvre avec vingt mètres cubes derrière soi. Quand le volume dépasse ce que la route accepte, nous faisons deux rotations."
+    }, {
+      t: "Le village en haut, autour du Trophée",
+      p: "Le vieux village s'enroule autour du Trophée d'Auguste avec des rues d'un peu plus de deux mètres, en pente, et un stationnement rare. Le camion se place sur l'un des rares emplacements possibles, souvent en contrebas, et le portage se fait sur cinquante à cent mètres en montée. Nous demandons un arrêté de stationnement pour bloquer l'emplacement la veille : sans cela, il est occupé au petit matin, et il n'existe pas de solution de repli à proximité."
+    }, {
+      t: "Les villas en pente et le monte-meuble",
+      p: "Autour du village, les terrains descendent vers le sud avec des vues sur la Principauté, et les villas sont construites en paliers. On retrouve les escaliers extérieurs, les restanques et les accès par des chemins privés parfois plus étroits que la corniche elle-même. Le monte-meuble est utile quand la façade est dégagée, mais l'assise du camion doit être plane, ce qui est rare sur une parcelle en pente. Nous vérifions ce point à la visite, et nous prévoyons sinon une équipe postée par paliers."
+    }, {
+      t: "L'hiver, à quatre cent cinquante mètres",
+      p: "De décembre à février, la Grande Corniche gèle en matinée sur les portions à l'ombre, et une chaussée verglacée en montée n'est pas négociable avec un camion chargé. Nous décalons le départ de deux heures plutôt que de tenter, et nous le disons au client la veille. C'est aussi pour cette raison que nous évitons de programmer un chargement très tôt en plein hiver sur cette commune. Un déménageur à La Turbie qui ignore cette contrainte la découvre une fois, et une seule."
+    }],
+    faq: [{
+      q: "Un gros camion peut-il monter à La Turbie ?",
+      a: "Pas toujours. Les épingles de la Grande Corniche imposent un rayon de braquage limité : une entreprise de déménagement à La Turbie choisit le gabarit selon la route, et fait deux rotations si le volume l'exige."
+    }, {
+      q: "Faut-il un arrêté de stationnement au village ?",
+      a: "Oui. Les emplacements sont rares et occupés dès le matin. Nous bloquons la place la veille, faute de quoi il n'existe aucune solution de repli à proximité."
+    }, {
+      q: "Quelle distance de portage dans le village ?",
+      a: "Cinquante à cent mètres en montée selon la maison, depuis l'emplacement disponible en contrebas. Nous mesurons ce trajet avant de chiffrer."
+    }, {
+      q: "Le monte-meuble est-il possible sur les villas en pente ?",
+      a: "Seulement si le camion trouve une assise plane, ce qui est rare sur une parcelle en paliers. Sinon nous postons une équipe par niveau."
+    }, {
+      q: "Déménagez-vous en hiver à cette altitude ?",
+      a: "Oui, mais nous décalons le départ quand la corniche gèle en matinée. Nous prévenons la veille plutôt que de charger sur une chaussée verglacée en pente."
+    }, {
+      q: "Le prix tient-il compte de la difficulté d'accès ?",
+      a: "Il est chiffré après repérage de la route et du stationnement, et il ne bouge plus ensuite. Aucun supplément d'accès n'apparaît le jour du déménagement."
+    }],
+    nearby: ["cap-d-ail", "monaco", "beausoleil", "roquebrune-cap-martin", "eze"]
+  },
   "valbonne-sophia-antipolis": {
     name: "Valbonne Sophia Antipolis",
     file: "Demenagement-Valbonne-Sophia-Antipolis",
