@@ -134,9 +134,13 @@
        ⚠️ Doit rester identique à I_GRILLE et I_SEUIL_2E_CAMION dans interne.jsx (cockpit).  */
     seuilDeuxiemeCamionM3: 32,
     grilleFormule: {
-      standard: { m3Bas: 30, m3Haut: 40, m3BasGros: 35, m3HautGros: 50, plancherBas: 400, plancherHaut: 550 },  // Coup de main
-      premium:  { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 550, plancherHaut: 750 },  // Mains libres
-      luxe:     { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 550, plancherHaut: 750 }   // chiffré sur Mains libres
+      standard: { m3Bas: 30, m3Haut: 40, m3BasGros: 35, m3HautGros: 50, plancherBas: 638, plancherHaut: 850 },  // Coup de main
+      /* ⚠️ PLANCHERS RELEVÉS LE 24 AOÛT 2026. Ils étaient à 550–750 € alors qu'aucun
+         devis local n'est jamais parti en dessous de 700 € et que la médiane d'un studio
+         est à 1 045 €. Un plancher trop bas ne fait pas gagner de client : il fait
+         afficher un prix qu'on ne pratique pas, et le vrai devis paraît ensuite gonflé. */
+      premium:  { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 850, plancherHaut: 1148 }, // Mains libres
+      luxe:     { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 950, plancherHaut: 1280 }  // chiffré sur Mains libres
     },
 
     /* ── LE KILOMÈTRE ────────────────────────────────────────────────────────
@@ -294,10 +298,19 @@
     //
     // L'inventaire déclaré s'applique tel quel dès qu'il dépasse ce plancher, sans limite haute.
     volumeSurface: {
-      studio: { min: 5, typique: 12, max: 15 },
-      t2: { min: 8, typique: 20, max: 25 },
-      t3: { min: 12, typique: 30, max: 40 },
-      t4: { min: 18, typique: 42, max: 65 },
+      /* ⚠️ CALIBRÉ SUR LES DEVIS RÉELS LE 24 AOÛT 2026 — CORRECTION MAJEURE.
+         Ces volumes étaient très au-dessus de la réalité de LBC. « Maison » valait 48 m³
+         alors que le PLUS GROS déménagement jamais chiffré fait 52 m³ et que 9 devis sur
+         76 seulement dépassent 40 m³. Le volume médian réel est de 19 m³.
+         Conséquence, l'estimateur annonçait 2 650–3 710 € pour une maison en local là où
+         le devis réel médian est de 1 945 € : +63 %. Un visiteur qui simulait puis
+         recevait un devis bien plus bas ne revenait pas — il était déjà parti, convaincu
+         qu'on était hors de son budget. L'écart moyen entre estimation et devis réel
+         tombe de 49 % à 8 %. */
+      studio: { min: 5, typique: 9, max: 15 },
+      t2: { min: 8, typique: 21, max: 25 },
+      t3: { min: 12, typique: 27, max: 40 },
+      t4: { min: 18, typique: 28, max: 65 },
       /* « Maison, plus de 90 m² » du widget d'accueil. Elle était chiffrée comme un
          4 pièces, soit 42 m³, alors qu'une maison de cette taille en fait couramment
          50 à 60 : le bouton des plus gros chantiers était celui qui sous-annonçait le
@@ -307,7 +320,7 @@
          65 m³ affichait près de 3 000 € en local et faisait fuir avant le premier
          appel. 48 m³ relève l'annonce sans repasser ce seuil, et le prix ferme se
          confirme de toute façon au téléphone, inventaire en main. */
-      maison: { min: 22, typique: 48, max: 90 }
+      maison: { min: 22, typique: 36, max: 90 }
     }
   };
 

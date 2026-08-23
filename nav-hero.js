@@ -97,7 +97,7 @@ function Hero({
     className: "pill pill-live"
   }, React.createElement("span", {
     className: "dot"
-  }), "D\xE9m\xE9nagement possible d\xE8s demain"), React.createElement("span", {
+  }), "Devis en 24 h max"), React.createElement("span", {
     className: "pill"
   }, React.createElement("svg", {
     className: "pill-ic",

@@ -26,24 +26,24 @@
         m3Haut: 40,
         m3BasGros: 35,
         m3HautGros: 50,
-        plancherBas: 400,
-        plancherHaut: 550
+        plancherBas: 638,
+        plancherHaut: 850
       },
       premium: {
         m3Bas: 40,
         m3Haut: 60,
         m3BasGros: 50,
         m3HautGros: 70,
-        plancherBas: 550,
-        plancherHaut: 750
+        plancherBas: 850,
+        plancherHaut: 1148
       },
       luxe: {
         m3Bas: 40,
         m3Haut: 60,
         m3BasGros: 50,
         m3HautGros: 70,
-        plancherBas: 550,
-        plancherHaut: 750
+        plancherBas: 950,
+        plancherHaut: 1280
       }
     },
     baseLat: 43.7102,
@@ -74,27 +74,27 @@
     volumeSurface: {
       studio: {
         min: 5,
-        typique: 12,
+        typique: 9,
         max: 15
       },
       t2: {
         min: 8,
-        typique: 20,
+        typique: 21,
         max: 25
       },
       t3: {
         min: 12,
-        typique: 30,
+        typique: 27,
         max: 40
       },
       t4: {
         min: 18,
-        typique: 42,
+        typique: 28,
         max: 65
       },
       maison: {
         min: 22,
-        typique: 48,
+        typique: 36,
         max: 90
       }
     }

@@ -243,7 +243,14 @@ p { margin: 0; }
 @media (min-width: 981px) {
   .hero-photo { display: none; }
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-grid > .reveal { max-width: 62ch; }
+  /* Le visuel retiré, le texte restait collé à gauche et laissait la moitié droite de
+     l'écran vide : la page paraissait inachevée. Le bloc est centré, ses éléments avec,
+     et la mesure de ligne reste bornée pour que le titre ne s'étale pas sur toute la
+     largeur — un titre de 120 caractères de large ne se lit pas, il se balaie. */
+  .hero-grid > .reveal { max-width: 68ch; margin-inline: auto; text-align: center; }
+  .hero-grid > .reveal .hero-preuves { align-items: center; }
+  .hero-grid > .reveal .hero-faits { display: inline-flex; text-align: left; }
+  .hero-meta { justify-content: center; }
 }
 /* Single-column hero (mobile): title → image → cta → marquee → estimator */
 .hero-grid.hero-single { display: block; }
