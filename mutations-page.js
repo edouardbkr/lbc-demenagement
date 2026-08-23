@@ -218,19 +218,13 @@ function MutIntro() {
       color: 'var(--ink-2)',
       lineHeight: 1.5
     }
-  }, "Aussi pour les ", React.createElement("a", {
-    href: "Militaire",
+  }, "Aussi bien pour une ", React.createElement("a", {
+    href: "Entreprise",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
     }
-  }, "militaires"), " et le ", React.createElement("a", {
-    href: "Diplomatique",
-    style: {
-      color: 'var(--accent)',
-      fontWeight: 600
-    }
-  }, "personnel diplomatique"), "."))))));
+  }, "mutation d'entreprise"), " que pour un d\xE9m\xE9nagement de particulier."))))));
 }
 function MutSteps() {
   return React.createElement("section", {

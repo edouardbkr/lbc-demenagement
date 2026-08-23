@@ -116,7 +116,6 @@ const NAV = [
 { key: 'international', label: t('International'), mega: 'intl' },
 { key: 'mutation', label: t('Mutation professionnelle'), dropdown: [
   { label: t("Je suis un salarié"), href: "Mutations" },
-  { label: t("Je suis un militaire"), href: "Militaire" },
   { label: t("Je suis une entreprise"), href: "Entreprise" }] },
 { key: 'apropos', label: t('À propos'), href: 'Apropos' }];
 
@@ -826,8 +825,6 @@ function Footer() {
                   <li><a href="Entreprise">Déménagement d'entreprise</a></li>
                   <li><a href="Archivage">Archivage de documents</a></li>
                   <li><a href="Mutations">Mutation professionnelle</a></li>
-                  <li><a href="Militaire">Déménagement militaire</a></li>
-                  <li><a href="Diplomatique">Déménagement diplomatique</a></li>
                 </ul>
               </div>
               <div className="footer-col">

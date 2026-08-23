@@ -410,19 +410,13 @@ function EntFeats() {
       fontSize: 15,
       color: 'var(--ink-2)'
     }
-  }, "Besoin de reloger un collaborateur ? Voir aussi nos pages ", React.createElement("a", {
+  }, "Besoin de reloger un collaborateur ? Voir aussi notre page ", React.createElement("a", {
     href: "Mutations",
     style: {
       color: 'var(--accent)',
       fontWeight: 600
     }
-  }, "Mutations professionnelles"), " et ", React.createElement("a", {
-    href: "Militaire",
-    style: {
-      color: 'var(--accent)',
-      fontWeight: 600
-    }
-  }, "D\xE9m\xE9nagement militaire"), ".")));
+  }, "Mutations professionnelles"), ".")));
 }
 function EntCTA() {
   return React.createElement("section", {

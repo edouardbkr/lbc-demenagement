@@ -89,8 +89,8 @@
 /demenagement-saint-laurent-du-var.html	/Demenagement-Saint-Laurent-du-Var	301
 /devis	/Devis	301
 /devis.html	/Devis	301
-/diplomatique	/Diplomatique	301
-/diplomatique.html	/Diplomatique	301
+/diplomatique	/Mutations	301
+/diplomatique.html	/Mutations	301
 /entreprise	/Entreprise	301
 /entreprise.html	/Entreprise	301
 /faq	/FAQ	301
@@ -99,8 +99,8 @@
 /formules.html	/Formules	301
 /mentions-legales	/Mentions-legales	301
 /mentions-legales.html	/Mentions-legales	301
-/militaire	/Militaire	301
-/militaire.html	/Militaire	301
+/militaire	/Mutations	301
+/militaire.html	/Mutations	301
 /mutations	/Mutations	301
 /mutations.html	/Mutations	301
 /quartiers	/Quartiers	301
@@ -119,3 +119,19 @@
 /Reservation.html	/Contact	301
 /reservation	/Contact	301
 /reservation.html	/Contact	301
+
+# ⚠️ DÉMÉNAGEMENT MILITAIRE ET DIPLOMATIQUE, RETIRÉS LE 24 AOÛT 2026.
+# C'est le terrain d'AGS et de Grospiron : agréments, procédures douanières et franchises
+# spécifiques. Annoncer un service qu'on ne peut pas honorer coûte plus cher que le dossier
+# perdu — une demande sérieuse arrive, on ne sait pas la traiter, et la réputation trinque.
+# Mesuré avant suppression, sur 90 jours : Diplomatique 33 impressions et ZÉRO clic,
+# Militaire 12 impressions et ZÉRO clic. Aucune valeur perdue.
+# Les deux adresses partent sur Mutations, la page la plus proche : un militaire ou un
+# diplomate qui déménage, c'est d'abord une mutation professionnelle.
+#
+# ⚠️ ET LES VARIANTES EN MINUSCULES POINTAIENT DÉJÀ VERS CES PAGES. Les laisser telles
+# quelles aurait fait /diplomatique → /Diplomatique → 404, une redirection vers le vide.
+/Diplomatique	/Mutations	301
+/Diplomatique.html	/Mutations	301
+/Militaire	/Mutations	301
+/Militaire.html	/Mutations	301

@@ -82,7 +82,7 @@ function MutIntro() {
                 <div><strong style={{ color: 'var(--ink)' }}>Zone</strong> · Nice, Côte d'Azur et toute la France</div>
               </div>
               <div style={{ marginTop: 18, paddingTop: 16, borderTop: '1px solid var(--rule)', fontSize: 13.5, color: 'var(--ink-2)', lineHeight: 1.5 }}>
-                Aussi pour les <a href="Militaire" style={{ color: 'var(--accent)', fontWeight: 600 }}>militaires</a> et le <a href="Diplomatique" style={{ color: 'var(--accent)', fontWeight: 600 }}>personnel diplomatique</a>.
+                Aussi bien pour une <a href="Entreprise" style={{ color: 'var(--accent)', fontWeight: 600 }}>mutation d'entreprise</a> que pour un déménagement de particulier.
               </div>
             </div>
           </div>

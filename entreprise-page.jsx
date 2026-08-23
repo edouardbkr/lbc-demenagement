@@ -204,7 +204,7 @@ function EntFeats() {
           )}
         </div>
         <div className="reveal" style={{ marginTop: 36, fontSize: 15, color: 'var(--ink-2)' }}>
-          Besoin de reloger un collaborateur ? Voir aussi nos pages <a href="Mutations" style={{ color: 'var(--accent)', fontWeight: 600 }}>Mutations professionnelles</a> et <a href="Militaire" style={{ color: 'var(--accent)', fontWeight: 600 }}>Déménagement militaire</a>.
+          Besoin de reloger un collaborateur ? Voir aussi notre page <a href="Mutations" style={{ color: 'var(--accent)', fontWeight: 600 }}>Mutations professionnelles</a>.
         </div>
       </div>
     </section>);

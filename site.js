@@ -101,9 +101,6 @@ const NAV = [{
     label: t("Je suis un salarié"),
     href: "Mutations"
   }, {
-    label: t("Je suis un militaire"),
-    href: "Militaire"
-  }, {
     label: t("Je suis une entreprise"),
     href: "Entreprise"
   }]
@@ -999,11 +996,7 @@ function Footer() {
     href: "Archivage"
   }, "Archivage de documents")), React.createElement("li", null, React.createElement("a", {
     href: "Mutations"
-  }, "Mutation professionnelle")), React.createElement("li", null, React.createElement("a", {
-    href: "Militaire"
-  }, "D\xE9m\xE9nagement militaire")), React.createElement("li", null, React.createElement("a", {
-    href: "Diplomatique"
-  }, "D\xE9m\xE9nagement diplomatique")))), React.createElement("div", {
+  }, "Mutation professionnelle")))), React.createElement("div", {
     className: "footer-col"
   }, React.createElement("h4", null, "Le site"), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
     href: "/"
