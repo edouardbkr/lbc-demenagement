@@ -920,4 +920,72 @@ function useScrollReveal() {
   }, []);
 }
 
-Object.assign(window, { Logo, Nav, MarqueeBar, MascotStamp, RoadDivider, QuickQuote, AddressField, FooterSEO, Footer,  useScrollReveal });
+/* ── LA PREUVE, SUR LES PAGES D'ATTERRISSAGE ─────────────────────────────────────
+   Quelqu'un qui arrive par Google sur « déménagement Monaco » ne verra jamais l'accueil.
+   Or c'est là que vivaient les deux seules choses qui font décider : la note Google et
+   le montant de l'assurance. Les dix-huit pages villes n'avaient ni l'une ni l'autre.
+   Mesuré le 24 août 2026 : 18 pages sur 18 sans avis, 15 sur 18 sans le chiffre.
+
+   Le montant est écrit EN DUR, pas « assurance complète ». C'est la seule ligne de cette
+   page qu'un concurrent ne peut pas recopier sans s'engager, et c'est précisément pour ça
+   qu'aucun des trois ne l'affiche.
+
+   Ce composant vit dans site.jsx parce que c'est le seul fichier que TOUTES les pages
+   chargent : les pages villes ne chargent ni nav-hero.js ni trust-testimonials.js, donc
+   AVIS_GOOGLE et Testimonials ne leur sont pas accessibles. ⚠️ Chaque fichier est isolé
+   au build : ce qui n'est pas passé à Object.assign(window, …) en bas n'existe pas ailleurs. */
+const AVIS_VILLE = { note: "5,0", nombre: 26, lien: "https://maps.google.com/?cid=16541024533175288818" };
+
+/* Extraits des avis Google réels relevés le 24 août 2026. Texte du client, non réécrit :
+   un visiteur qui va vérifier sur la fiche doit retrouver les mêmes mots. La version
+   longue de ces avis est dans trust-testimonials.jsx, pour l'accueil. */
+const AVIS_EXTRAITS = [
+  { t: "L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin.", n: "Mari M." },
+  { t: "Très bonne adaptation même avec de grosses contraintes : chemin sans route, grosse pente, gros escalier…", n: "Jannick F." },
+  { t: "Un déménagement, c'est toujours stressant, mais là c'était hyper bien organisé, orchestré, ponctuel, arrangeant.", n: "Jonathan D." }];
+
+function PreuveVille({ ville }) {
+  return (
+    <section className="sec"><div className="wrap">
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Nos engagements{ville ? " à " + ville : ""}</div></div>
+        <h2 className="dim-em">Trois choses écrites,<br /><em>pas trois promesses.</em></h2>
+      </div>
+
+      <div className="ap-values reveal-stagger" style={{ marginTop: 8 }}>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Chaque objet assuré jusqu'à 8 000 €</h3>
+          <p className="ap-value-d">Le montant est écrit sur votre devis, objet par objet. Et la franchise est à notre charge : si nous cassons, vous ne payez rien, pas même une participation. C'est valable dans les trois formules, sans option à cocher.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Le prix du devis est le prix final</h3>
+          <p className="ap-value-d">Aucun supplément le jour J. Ni pour l'étage, ni pour la distance de portage, ni pour un carton de plus. Ce qui est chiffré est ce qui est facturé.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Un créneau d'arrivée à l'heure près</h3>
+          <p className="ap-value-d">Pas une demi-journée d'attente. Vous savez à quelle heure le camion se présente, et nous nous y tenons.</p>
+        </div>
+      </div>
+
+      <div className="reveal" style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--rule)" }}>
+        <a href={AVIS_VILLE.lien} target="_blank" rel="noopener noreferrer"
+           style={{ display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none",
+                    color: "var(--ink)", fontFamily: "var(--serif)", fontSize: 21, fontWeight: 600 }}>
+          <span style={{ color: "var(--accent)", letterSpacing: 2 }}>★★★★★</span>
+          <span><b>{AVIS_VILLE.note}</b> sur Google · {AVIS_VILLE.nombre} avis</span>
+          <span style={{ color: "var(--accent)" }}>→</span>
+        </a>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 26, marginTop: 24 }}>
+          {AVIS_EXTRAITS.map((a, i) =>
+            <blockquote key={i} style={{ margin: 0 }}>
+              <p style={{ fontFamily: "var(--serif)", fontStyle: "italic", fontSize: 17,
+                          lineHeight: 1.55, color: "var(--ink-2)", margin: 0 }}>« {a.t} »</p>
+              <cite style={{ display: "block", marginTop: 10, fontStyle: "normal", fontSize: 13,
+                             letterSpacing: ".06em", textTransform: "uppercase", color: "var(--muted)" }}>{a.n}</cite>
+            </blockquote>)}
+        </div>
+      </div>
+    </div></section>);
+}
+
+Object.assign(window, { PreuveVille, AVIS_VILLE, AVIS_EXTRAITS, Logo, Nav, MarqueeBar, MascotStamp, RoadDivider, QuickQuote, AddressField, FooterSEO, Footer,  useScrollReveal });

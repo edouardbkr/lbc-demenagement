@@ -242,7 +242,7 @@ function NiceQuartiers() {
 function NiceQuand() {
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="09 / Le calendrier" titre="Quand déménager," em="et quand s'y prendre." />
+      <NiceSecHead num="10 / Le calendrier" titre="Quand déménager," em="et quand s'y prendre." />
       <div className="ap-values reveal-stagger" style={{ marginTop: 24 }}>
         <div className="ap-value">
           <h3 className="ap-value-t">Les dates qui partent en premier</h3>
@@ -359,6 +359,26 @@ function NiceAides() {
     </div></section>);
 }
 
+function NiceLimitrophes() {
+  const V = ["saint-laurent-du-var","cagnes-sur-mer","villefranche-sur-mer","beaulieu-sur-mer","saint-jean-cap-ferrat"];
+  if (typeof CITIES === "undefined") return null;   // city-data.js absent : on n'affiche rien plutôt que de planter
+  const items = V.map((s) => CITIES[s]).filter(Boolean);
+  if (!items.length) return null;
+  return (
+    <section className="sec"><div className="wrap">
+      <NiceSecHead num="08 / Autour de Nice" titre="Les communes" em="limitrophes." />
+      <p className="lede">Un déménagement niçois déborde souvent sur la commune d'à côté. Sur ces cinq-là, nous sommes sur place en moins de vingt minutes depuis notre base.</p>
+      <div className="seo-cities reveal" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", marginTop: 24 }}>
+        {items.map((n, i) =>
+          <a key={i} href={n.file} style={{ fontFamily: "var(--serif)", fontSize: 21, fontWeight: 600,
+            color: "var(--ink)", padding: "18px 0", borderBottom: "1px solid var(--rule)",
+            display: "flex", justifyContent: "space-between", alignItems: "center", textDecoration: "none" }}>
+            <span>Déménagement {n.name}</span><span style={{ color: "var(--accent)" }}>→</span>
+          </a>)}
+      </div>
+    </div></section>);
+}
+
 function NiceDepuisNice() {
   const T = [
     { v: "Paris", url: "Demenagement-Nice-Paris", d: "930 km, deux jours de camion" },
@@ -371,7 +391,7 @@ function NiceDepuisNice() {
     { v: "Antibes", url: "Demenagement-Antibes", d: "25 km" }];
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="08 / Au départ de Nice" titre="Nos trajets" em="les plus fréquents." />
+      <NiceSecHead num="09 / Au départ de Nice" titre="Nos trajets" em="les plus fréquents." />
       <p className="lede">Le local représente la moitié de notre activité, la longue distance l'autre moitié. Sur ces trajets, ce n'est plus l'escalier qui fait le prix mais le nombre de jours pendant lesquels le camion est mobilisé.</p>
       <div className="ap-values reveal-stagger" style={{ marginTop: 26 }}>
         {T.map((t) =>
@@ -397,7 +417,7 @@ function NiceFAQ() {
   const [ouvert, setOuvert] = React.useState(-1);
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="10 / Questions fréquentes" titre="Ce qu'on nous demande" em="sur Nice." />
+      <NiceSecHead num="11 / Questions fréquentes" titre="Ce qu'on nous demande" em="sur Nice." />
       <div className="faq-list reveal">
         {NICE_FAQ.map((f, i) =>
           <NiceFaqItem key={i} item={f} open={ouvert === i} onToggle={() => setOuvert(ouvert === i ? -1 : i)} />)}
@@ -418,6 +438,8 @@ function App() {
         <NiceEncombrants />
         <NiceCartons />
         <NiceAides />
+        <PreuveVille ville="Nice" />
+        <NiceLimitrophes />
         <NiceDepuisNice />
         <NiceQuand />
         <NiceFAQ />

@@ -399,6 +399,8 @@ function App() {
     c: c
   }), React.createElement(VilleFormules, {
     c: c
+  }), React.createElement(PreuveVille, {
+    ville: c.name
   }), React.createElement(VilleNearby, {
     c: c
   }), React.createElement(VilleFaq, {

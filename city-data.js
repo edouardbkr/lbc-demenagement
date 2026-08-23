@@ -51,7 +51,7 @@ const CITIES = {
       q: "Le devis peut-il changer le jour du déménagement ?",
       a: "Non. Le prix annoncé est le prix payé. On chiffre à partir du volume et des accès réels (étage, ascenseur, distance de portage), et c'est écrit noir sur blanc."
     }],
-    nearby: ["cagnes-sur-mer", "saint-laurent-du-var", "cannes", "monaco"]
+    nearby: ["saint-laurent-du-var", "cagnes-sur-mer", "villefranche-sur-mer", "beaulieu-sur-mer", "saint-jean-cap-ferrat"]
   },
   "cannes": {
     name: "Cannes",
@@ -101,7 +101,7 @@ const CITIES = {
       q: "Un déménagement Cannes vers Nice ou Paris, vous le faites ?",
       a: "Bien sûr : local sur tout le bassin cannois, et longue distance vers Nice, Paris, Lyon ou l'international, avec une seule équipe du départ à l'arrivée."
     }],
-    nearby: ["mandelieu", "le-cannet", "antibes", "grasse"]
+    nearby: ["le-cannet", "mandelieu", "antibes", "grasse"]
   },
   "antibes": {
     name: "Antibes",
@@ -151,7 +151,7 @@ const CITIES = {
       q: "Le devis est-il ferme à Antibes ?",
       a: "Oui, prix ferme. On chiffre selon le volume et les accès réels de votre adresse, sans supplément surprise le jour du déménagement."
     }],
-    nearby: ["cannes", "cagnes-sur-mer", "nice"]
+    nearby: ["villeneuve-loubet", "le-cannet", "cannes", "cagnes-sur-mer"]
   },
   "monaco": {
     name: "Monaco",
@@ -204,7 +204,7 @@ const CITIES = {
       q: "Le devis tient-il compte des contraintes monégasques ?",
       a: "Oui : créneaux, ascenseurs, distance de portage, stationnement. Tout est intégré au devis, qui est ferme et détaillé, sans supplément le jour du déménagement."
     }],
-    nearby: ["menton", "nice"]
+    nearby: ["cap-d-ail", "beausoleil", "roquebrune-cap-martin", "menton", "eze"]
   },
   "menton": {
     name: "Menton",
@@ -254,7 +254,7 @@ const CITIES = {
       q: "Le prix est-il ferme malgré les accès difficiles ?",
       a: "Oui. Les escaliers, le portage, le monte-meuble éventuel et la frontière sont intégrés au devis. Le prix annoncé est le prix payé."
     }],
-    nearby: ["monaco", "nice"]
+    nearby: ["roquebrune-cap-martin", "monaco", "beausoleil"]
   },
   "grasse": {
     name: "Grasse",
@@ -304,7 +304,7 @@ const CITIES = {
       q: "Un déménagement Grasse vers la côte ou plus loin, c'est possible ?",
       a: "Bien sûr : local vers Cannes, Nice et tout le bassin, ou longue distance partout en France et à l'international, avec la même équipe du départ à l'arrivée."
     }],
-    nearby: ["cannes", "le-cannet", "mandelieu"]
+    nearby: ["le-cannet", "cannes", "mandelieu"]
   },
   "cagnes-sur-mer": {
     name: "Cagnes-sur-Mer",
@@ -357,7 +357,7 @@ const CITIES = {
       q: "Proposez-vous un garde-meuble près de Cagnes ?",
       a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
     }],
-    nearby: ["saint-laurent-du-var", "nice", "antibes"]
+    nearby: ["saint-laurent-du-var", "villeneuve-loubet", "nice", "antibes"]
   },
   "le-cannet": {
     name: "Le Cannet",
@@ -410,7 +410,7 @@ const CITIES = {
       q: "Le devis est-il ferme malgré les pentes et les accès ?",
       a: "Oui. Le gabarit du camion, le transbordement éventuel et le portage sont intégrés au devis. Le prix annoncé est le prix payé."
     }],
-    nearby: ["cannes", "mandelieu", "grasse"]
+    nearby: ["cannes", "mandelieu", "grasse", "antibes"]
   },
   "saint-laurent-du-var": {
     name: "Saint-Laurent-du-Var",
@@ -463,7 +463,7 @@ const CITIES = {
       q: "Le devis est-il ferme ?",
       a: "Oui, prix ferme. On chiffre selon le volume et les accès réels, sans supplément surprise le jour du déménagement."
     }],
-    nearby: ["nice", "cagnes-sur-mer", "cannes"]
+    nearby: ["cagnes-sur-mer", "nice", "villeneuve-loubet"]
   },
   "mandelieu": {
     name: "Mandelieu-la-Napoule",
@@ -566,7 +566,7 @@ const CITIES = {
       q: "Le prix change-t-il si le portage s'avère plus long ?",
       a: "Non. Les marches sont comptées et la hauteur relevée avant le chiffrage. Le prix annoncé est le prix payé."
     }],
-    nearby: ["monaco", "roquebrune-cap-martin", "cap-d-ail"]
+    nearby: ["monaco", "cap-d-ail", "roquebrune-cap-martin", "eze", "menton"]
   },
   "villefranche-sur-mer": {
     name: "Villefranche-sur-Mer",
@@ -619,7 +619,7 @@ const CITIES = {
       q: "Le devis bouge-t-il si l'accès est plus dur que prévu ?",
       a: "Non. On repère l'accès avant de chiffrer, précisément pour que le prix annoncé soit le prix payé."
     }],
-    nearby: ["nice", "beaulieu-sur-mer", "saint-jean-cap-ferrat"]
+    nearby: ["beaulieu-sur-mer", "saint-jean-cap-ferrat", "nice", "eze"]
   },
   "beaulieu-sur-mer": {
     name: "Beaulieu-sur-Mer",
@@ -672,7 +672,7 @@ const CITIES = {
       q: "Pourquoi un déménagement à Beaulieu est-il moins cher qu'ailleurs ?",
       a: "Parce que l'accès y est bon. Moins de portage et moins d'heures, donc un devis plus léger à volume égal. On répercute la réalité du chantier."
     }],
-    nearby: ["villefranche-sur-mer", "saint-jean-cap-ferrat", "eze"]
+    nearby: ["saint-jean-cap-ferrat", "villefranche-sur-mer", "eze", "nice"]
   },
   "saint-jean-cap-ferrat": {
     name: "Saint-Jean-Cap-Ferrat",
@@ -725,7 +725,7 @@ const CITIES = {
       q: "L'assurance couvre-t-elle un mobilier de grande valeur ?",
       a: "8 000 € par objet avec franchise à notre charge, et une couverture spécifique au-delà. On l'établit avant, jamais après."
     }],
-    nearby: ["beaulieu-sur-mer", "villefranche-sur-mer", "nice"]
+    nearby: ["beaulieu-sur-mer", "villefranche-sur-mer", "eze", "nice"]
   },
   "eze": {
     name: "Èze",
@@ -778,7 +778,7 @@ const CITIES = {
       q: "Le devis peut-il augmenter le jour du déménagement ?",
       a: "Non. C'est précisément pour cela qu'on repère avant de chiffrer sur cette commune. Le prix annoncé est le prix payé."
     }],
-    nearby: ["cap-d-ail", "beaulieu-sur-mer", "monaco"]
+    nearby: ["villefranche-sur-mer", "cap-d-ail", "beaulieu-sur-mer", "monaco", "beausoleil", "saint-jean-cap-ferrat"]
   },
   "cap-d-ail": {
     name: "Cap-d'Ail",
@@ -831,7 +831,7 @@ const CITIES = {
       q: "Le prix change-t-il si l'accès s'avère plus dur ?",
       a: "Non. La hauteur du parking, la pente et la taille de l'ascenseur sont vues au devis. Le prix annoncé est le prix payé."
     }],
-    nearby: ["monaco", "eze", "roquebrune-cap-martin"]
+    nearby: ["monaco", "beausoleil", "eze", "roquebrune-cap-martin"]
   },
   "roquebrune-cap-martin": {
     name: "Roquebrune-Cap-Martin",
@@ -884,7 +884,7 @@ const CITIES = {
       q: "Le devis est-il ferme sur les trois quartiers ?",
       a: "Oui, et il n'est pas le même : le village, le Cap et Carnolès n'ont ni les mêmes accès ni le même temps de chantier."
     }],
-    nearby: ["menton", "monaco", "cap-d-ail"]
+    nearby: ["menton", "monaco", "beausoleil", "cap-d-ail"]
   },
   "villeneuve-loubet": {
     name: "Villeneuve-Loubet",
@@ -937,7 +937,7 @@ const CITIES = {
       q: "Faut-il prévenir le syndic à l'avance ?",
       a: "Oui, surtout à la Marina : la réservation d'ascenseur se fait quelques jours avant, sinon le créneau peut être déjà pris."
     }],
-    nearby: ["cagnes-sur-mer", "antibes", "nice"]
+    nearby: ["cagnes-sur-mer", "antibes", "saint-laurent-du-var"]
   }
 };
 function getCity(slug) {

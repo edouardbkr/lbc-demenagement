@@ -199,6 +199,7 @@ function App() {
         <QMethode q={q} />
         <QFaq q={q} />
         <QProches q={q} />
+        <PreuveVille ville={q ? q.nom : ""} />
         <QBandeau q={q} />
       </main>
       <Footer />

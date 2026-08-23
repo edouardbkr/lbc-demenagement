@@ -417,7 +417,7 @@ function NiceQuand() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "09 / Le calendrier",
+    num: "10 / Le calendrier",
     titre: "Quand d\xE9m\xE9nager,",
     em: "et quand s'y prendre."
   }), React.createElement("div", {
@@ -606,6 +606,48 @@ function NiceAides() {
     }
   }, "Nous ne montons pas ces dossiers \xE0 votre place, mais nous fournissons toujours un devis d\xE9taill\xE9 et une facture nominative \u2014 c'est la pi\xE8ce que tous ces organismes r\xE9clament, et celle qui manque le plus souvent. Renseignez-vous aupr\xE8s de votre CAF, de votre employeur ou du D\xE9partement : les conditions changent r\xE9guli\xE8rement.")));
 }
+function NiceLimitrophes() {
+  const V = ["saint-laurent-du-var", "cagnes-sur-mer", "villefranche-sur-mer", "beaulieu-sur-mer", "saint-jean-cap-ferrat"];
+  if (typeof CITIES === "undefined") return null;
+  const items = V.map(s => CITIES[s]).filter(Boolean);
+  if (!items.length) return null;
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement(NiceSecHead, {
+    num: "08 / Autour de Nice",
+    titre: "Les communes",
+    em: "limitrophes."
+  }), React.createElement("p", {
+    className: "lede"
+  }, "Un d\xE9m\xE9nagement ni\xE7ois d\xE9borde souvent sur la commune d'\xE0 c\xF4t\xE9. Sur ces cinq-l\xE0, nous sommes sur place en moins de vingt minutes depuis notre base."), React.createElement("div", {
+    className: "seo-cities reveal",
+    style: {
+      gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+      marginTop: 24
+    }
+  }, items.map((n, i) => React.createElement("a", {
+    key: i,
+    href: n.file,
+    style: {
+      fontFamily: "var(--serif)",
+      fontSize: 21,
+      fontWeight: 600,
+      color: "var(--ink)",
+      padding: "18px 0",
+      borderBottom: "1px solid var(--rule)",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      textDecoration: "none"
+    }
+  }, React.createElement("span", null, "D\xE9m\xE9nagement ", n.name), React.createElement("span", {
+    style: {
+      color: "var(--accent)"
+    }
+  }, "\u2192"))))));
+}
 function NiceDepuisNice() {
   const T = [{
     v: "Paris",
@@ -645,7 +687,7 @@ function NiceDepuisNice() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "08 / Au d\xE9part de Nice",
+    num: "09 / Au d\xE9part de Nice",
     titre: "Nos trajets",
     em: "les plus fr\xE9quents."
   }), React.createElement("p", {
@@ -697,7 +739,7 @@ function NiceFAQ() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "10 / Questions fr\xE9quentes",
+    num: "11 / Questions fr\xE9quentes",
     titre: "Ce qu'on nous demande",
     em: "sur Nice."
   }), React.createElement("div", {
@@ -712,8 +754,10 @@ function NiceFAQ() {
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
     id: "contenu"
-  }, React.createElement(NiceHero, null), React.createElement(NicePrix, null), React.createElement(NiceCas, null), React.createElement(NiceStationnement, null), React.createElement(NiceQuartiers, null), React.createElement(NiceEncombrants, null), React.createElement(NiceCartons, null), React.createElement(NiceAides, null), React.createElement(NiceDepuisNice, null), React.createElement(NiceQuand, null), React.createElement(NiceFAQ, null)), React.createElement(Footer, null));
+  }, React.createElement(NiceHero, null), React.createElement(NicePrix, null), React.createElement(NiceCas, null), React.createElement(NiceStationnement, null), React.createElement(NiceQuartiers, null), React.createElement(NiceEncombrants, null), React.createElement(NiceCartons, null), React.createElement(NiceAides, null), React.createElement(PreuveVille, {
+    ville: "Nice"
+  }), React.createElement(NiceLimitrophes, null), React.createElement(NiceDepuisNice, null), React.createElement(NiceQuand, null), React.createElement(NiceFAQ, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { NiceHero, NiceSecHead, NicePrix, NiceCas, NiceStationnement, NiceQuartiers, NiceQuand, NiceEncombrants, NiceCartons, NiceAides, NiceDepuisNice, NiceFaqItem, NiceFAQ, App }); } catch (e) {}
+  try { Object.assign(window, { NiceHero, NiceSecHead, NicePrix, NiceCas, NiceStationnement, NiceQuartiers, NiceQuand, NiceEncombrants, NiceCartons, NiceAides, NiceLimitrophes, NiceDepuisNice, NiceFaqItem, NiceFAQ, App }); } catch (e) {}
 })();

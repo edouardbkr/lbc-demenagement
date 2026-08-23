@@ -1088,7 +1088,126 @@ function useScrollReveal() {
     };
   }, []);
 }
+const AVIS_VILLE = {
+  note: "5,0",
+  nombre: 26,
+  lien: "https://maps.google.com/?cid=16541024533175288818"
+};
+const AVIS_EXTRAITS = [{
+  t: "L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin.",
+  n: "Mari M."
+}, {
+  t: "Très bonne adaptation même avec de grosses contraintes : chemin sans route, grosse pente, gros escalier…",
+  n: "Jannick F."
+}, {
+  t: "Un déménagement, c'est toujours stressant, mais là c'était hyper bien organisé, orchestré, ponctuel, arrangeant.",
+  n: "Jonathan D."
+}];
+function PreuveVille({
+  ville
+}) {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " Nos engagements", ville ? " à " + ville : "")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Trois choses \xE9crites,", React.createElement("br", null), React.createElement("em", null, "pas trois promesses."))), React.createElement("div", {
+    className: "ap-values reveal-stagger",
+    style: {
+      marginTop: 8
+    }
+  }, React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Chaque objet assur\xE9 jusqu'\xE0 8 000 \u20AC"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Le montant est \xE9crit sur votre devis, objet par objet. Et la franchise est \xE0 notre charge : si nous cassons, vous ne payez rien, pas m\xEAme une participation. C'est valable dans les trois formules, sans option \xE0 cocher.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Le prix du devis est le prix final"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Aucun suppl\xE9ment le jour J. Ni pour l'\xE9tage, ni pour la distance de portage, ni pour un carton de plus. Ce qui est chiffr\xE9 est ce qui est factur\xE9.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Un cr\xE9neau d'arriv\xE9e \xE0 l'heure pr\xE8s"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Pas une demi-journ\xE9e d'attente. Vous savez \xE0 quelle heure le camion se pr\xE9sente, et nous nous y tenons."))), React.createElement("div", {
+    className: "reveal",
+    style: {
+      marginTop: 40,
+      paddingTop: 32,
+      borderTop: "1px solid var(--rule)"
+    }
+  }, React.createElement("a", {
+    href: AVIS_VILLE.lien,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 10,
+      textDecoration: "none",
+      color: "var(--ink)",
+      fontFamily: "var(--serif)",
+      fontSize: 21,
+      fontWeight: 600
+    }
+  }, React.createElement("span", {
+    style: {
+      color: "var(--accent)",
+      letterSpacing: 2
+    }
+  }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("span", null, React.createElement("b", null, AVIS_VILLE.note), " sur Google \xB7 ", AVIS_VILLE.nombre, " avis"), React.createElement("span", {
+    style: {
+      color: "var(--accent)"
+    }
+  }, "\u2192")), React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))",
+      gap: 26,
+      marginTop: 24
+    }
+  }, AVIS_EXTRAITS.map((a, i) => React.createElement("blockquote", {
+    key: i,
+    style: {
+      margin: 0
+    }
+  }, React.createElement("p", {
+    style: {
+      fontFamily: "var(--serif)",
+      fontStyle: "italic",
+      fontSize: 17,
+      lineHeight: 1.55,
+      color: "var(--ink-2)",
+      margin: 0
+    }
+  }, "\xAB ", a.t, " \xBB"), React.createElement("cite", {
+    style: {
+      display: "block",
+      marginTop: 10,
+      fontStyle: "normal",
+      fontSize: 13,
+      letterSpacing: ".06em",
+      textTransform: "uppercase",
+      color: "var(--muted)"
+    }
+  }, a.n)))))));
+}
 Object.assign(window, {
+  PreuveVille,
+  AVIS_VILLE,
+  AVIS_EXTRAITS,
   Logo,
   Nav,
   MarqueeBar,
@@ -1100,5 +1219,5 @@ Object.assign(window, {
   Footer,
   useScrollReveal
 });
-  try { Object.assign(window, { Logo, MegaPanel, Nav, MarqueeBar, RoadDivider, MascotStamp, qqSendToCockpit, AddressField, QuickQuote, FooterSEO, FloatWhatsApp, useLiveliness, Footer, useScrollReveal }); } catch (e) {}
+  try { Object.assign(window, { Logo, MegaPanel, Nav, MarqueeBar, RoadDivider, MascotStamp, qqSendToCockpit, AddressField, QuickQuote, FooterSEO, FloatWhatsApp, useLiveliness, Footer, useScrollReveal, PreuveVille }); } catch (e) {}
 })();

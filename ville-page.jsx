@@ -233,6 +233,7 @@ function App() {
         <VilleSpecifics c={c} />
         <VilleDeep c={c} />
         <VilleFormules c={c} />
+        <PreuveVille ville={c.name} />
         <VilleNearby c={c} />
         <VilleFaq c={c} />
         <VilleQuoteBand c={c} />

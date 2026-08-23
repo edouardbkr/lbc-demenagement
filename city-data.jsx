@@ -42,7 +42,7 @@ const CITIES = {
       { q: "Faites-vous les déménagements longue distance au départ de Nice ?", a: "Oui, c'est une grande partie de notre activité : Nice → Paris, Lyon, Marseille, mais aussi l'international vers la Suisse, l'Italie ou l'Espagne, avec la même équipe du départ à l'arrivée." },
       { q: "Le devis peut-il changer le jour du déménagement ?", a: "Non. Le prix annoncé est le prix payé. On chiffre à partir du volume et des accès réels (étage, ascenseur, distance de portage), et c'est écrit noir sur blanc." }
     ],
-    nearby: ["cagnes-sur-mer", "saint-laurent-du-var", "cannes", "monaco"]
+    nearby: ["saint-laurent-du-var", "cagnes-sur-mer", "villefranche-sur-mer", "beaulieu-sur-mer", "saint-jean-cap-ferrat"]
   },
   "cannes": {
     name: "Cannes", file: "Demenagement-Cannes", cp: "06400", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -67,7 +67,7 @@ const CITIES = {
       { q: "Déménagez-vous les villas de La Californie ?", a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Luxe." },
       { q: "Un déménagement Cannes vers Nice ou Paris, vous le faites ?", a: "Bien sûr : local sur tout le bassin cannois, et longue distance vers Nice, Paris, Lyon ou l'international, avec une seule équipe du départ à l'arrivée." }
     ],
-    nearby: ["mandelieu", "le-cannet", "antibes", "grasse"]
+    nearby: ["le-cannet", "mandelieu", "antibes", "grasse"]
   },
   "antibes": {
     name: "Antibes", file: "Demenagement-Antibes", cp: "06600", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -92,7 +92,7 @@ const CITIES = {
       { q: "Faites-vous les déménagements internationaux depuis Antibes ?", a: "Oui, fréquemment : vers l'Italie, la Suisse, l'Espagne et au-delà. Inventaire, logistique et formalités gérés de bout en bout." },
       { q: "Le devis est-il ferme à Antibes ?", a: "Oui, prix ferme. On chiffre selon le volume et les accès réels de votre adresse, sans supplément surprise le jour du déménagement." }
     ],
-    nearby: ["cannes", "cagnes-sur-mer", "nice"]
+    nearby: ["villeneuve-loubet", "le-cannet", "cannes", "cagnes-sur-mer"]
   },
   "monaco": {
     name: "Monaco", file: "Demenagement-Monaco", cp: "98000", dept: "Principauté de Monaco", region: "cote",
@@ -118,7 +118,7 @@ const CITIES = {
       { q: "Intervenez-vous pour les studios et petits volumes à Monaco ?", a: "Bien sûr. Frontaliers et actifs déménagent aussi des studios : on gère tous les volumes, avec la même rigueur sur les accès et les créneaux." },
       { q: "Le devis tient-il compte des contraintes monégasques ?", a: "Oui : créneaux, ascenseurs, distance de portage, stationnement. Tout est intégré au devis, qui est ferme et détaillé, sans supplément le jour du déménagement." }
     ],
-    nearby: ["menton", "nice"]
+    nearby: ["cap-d-ail", "beausoleil", "roquebrune-cap-martin", "menton", "eze"]
   },
   "menton": {
     name: "Menton", file: "Demenagement-Menton", cp: "06500", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -143,7 +143,7 @@ const CITIES = {
       { q: "Faites-vous les petits déménagements et les retraités ?", a: "Bien sûr. Beaucoup de nos clients mentonnais déménagent un appartement ou une partie de leur mobilier : on prend le temps, on emballe avec soin et on coordonne avec la famille à distance si besoin." },
       { q: "Le prix est-il ferme malgré les accès difficiles ?", a: "Oui. Les escaliers, le portage, le monte-meuble éventuel et la frontière sont intégrés au devis. Le prix annoncé est le prix payé." }
     ],
-    nearby: ["monaco", "nice"]
+    nearby: ["roquebrune-cap-martin", "monaco", "beausoleil"]
   },
   "grasse": {
     name: "Grasse", file: "Demenagement-Grasse", cp: "06130", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -168,7 +168,7 @@ const CITIES = {
       { q: "Déménagez-vous les villas avec terrain en pente ?", a: "Oui. Jardins, restanques, accès en lacets et portails sont pris en compte dès le devis, avec transbordement par petit véhicule quand c'est nécessaire." },
       { q: "Un déménagement Grasse vers la côte ou plus loin, c'est possible ?", a: "Bien sûr : local vers Cannes, Nice et tout le bassin, ou longue distance partout en France et à l'international, avec la même équipe du départ à l'arrivée." }
     ],
-    nearby: ["cannes", "le-cannet", "mandelieu"]
+    nearby: ["le-cannet", "cannes", "mandelieu"]
   },
   "cagnes-sur-mer": {
     name: "Cagnes-sur-Mer", file: "Demenagement-Cagnes-sur-Mer", cp: "06800", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -194,7 +194,7 @@ const CITIES = {
       { q: "Faites-vous les petits volumes et les studios ?", a: "Bien sûr. La proximité de notre base rend même les petites surfaces rapides et économiques à déménager." },
       { q: "Proposez-vous un garde-meuble près de Cagnes ?", a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour." }
     ],
-    nearby: ["saint-laurent-du-var", "nice", "antibes"]
+    nearby: ["saint-laurent-du-var", "villeneuve-loubet", "nice", "antibes"]
   },
   "le-cannet": {
     name: "Le Cannet", file: "Demenagement-Le-Cannet", cp: "06110", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -220,7 +220,7 @@ const CITIES = {
       { q: "Faites-vous les petits volumes au Cannet ?", a: "Bien sûr. La proximité de Cannes et de Nice rend les petites surfaces rapides et économiques à déménager." },
       { q: "Le devis est-il ferme malgré les pentes et les accès ?", a: "Oui. Le gabarit du camion, le transbordement éventuel et le portage sont intégrés au devis. Le prix annoncé est le prix payé." }
     ],
-    nearby: ["cannes", "mandelieu", "grasse"]
+    nearby: ["cannes", "mandelieu", "grasse", "antibes"]
   },
   "saint-laurent-du-var": {
     name: "Saint-Laurent-du-Var", file: "Demenagement-Saint-Laurent-du-Var", cp: "06700", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -246,7 +246,7 @@ const CITIES = {
       { q: "Un déménagement Saint-Laurent vers une autre ville, possible ?", a: "Oui : local sur toute la métropole, et longue distance partout en France ou à l'international, avec la même équipe du départ à l'arrivée." },
       { q: "Le devis est-il ferme ?", a: "Oui, prix ferme. On chiffre selon le volume et les accès réels, sans supplément surprise le jour du déménagement." }
     ],
-    nearby: ["nice", "cagnes-sur-mer", "cannes"]
+    nearby: ["cagnes-sur-mer", "nice", "villeneuve-loubet"]
   },
   "mandelieu": {
     name: "Mandelieu-la-Napoule", file: "Demenagement-Mandelieu", cp: "06210", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -305,7 +305,7 @@ const CITIES = {
       { q: "Le monte-meuble est-il souvent nécessaire ?", a: "Sur les immeubles hauts avec cage étroite, c'est souvent la solution la plus rapide et la plus sûre. Il est alors chiffré dès le devis initial." },
       { q: "Le prix change-t-il si le portage s'avère plus long ?", a: "Non. Les marches sont comptées et la hauteur relevée avant le chiffrage. Le prix annoncé est le prix payé." }
     ],
-    nearby: ["monaco", "roquebrune-cap-martin", "cap-d-ail"]
+    nearby: ["monaco", "cap-d-ail", "roquebrune-cap-martin", "eze", "menton"]
   },
   "villefranche-sur-mer": {
     name: "Villefranche-sur-Mer", file: "Demenagement-Villefranche-sur-Mer", cp: "06230", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -331,7 +331,7 @@ const CITIES = {
       { q: "Un Villefranche–Nice coûte-t-il cher ?", a: "Sept kilomètres, le transport ne pèse presque rien. Ce qui compte sur cette commune, c'est le temps d'accès, et on le chiffre honnêtement." },
       { q: "Le devis bouge-t-il si l'accès est plus dur que prévu ?", a: "Non. On repère l'accès avant de chiffrer, précisément pour que le prix annoncé soit le prix payé." }
     ],
-    nearby: ["nice", "beaulieu-sur-mer", "saint-jean-cap-ferrat"]
+    nearby: ["beaulieu-sur-mer", "saint-jean-cap-ferrat", "nice", "eze"]
   },
   "beaulieu-sur-mer": {
     name: "Beaulieu-sur-Mer", file: "Demenagement-Beaulieu-sur-Mer", cp: "06310", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -357,7 +357,7 @@ const CITIES = {
       { q: "Assurez-vous les objets de valeur ?", a: "Oui, à hauteur de 8 000 € par objet, franchise à notre charge. Les pièces concernées sont listées avant le déménagement." },
       { q: "Pourquoi un déménagement à Beaulieu est-il moins cher qu'ailleurs ?", a: "Parce que l'accès y est bon. Moins de portage et moins d'heures, donc un devis plus léger à volume égal. On répercute la réalité du chantier." }
     ],
-    nearby: ["villefranche-sur-mer", "saint-jean-cap-ferrat", "eze"]
+    nearby: ["saint-jean-cap-ferrat", "villefranche-sur-mer", "eze", "nice"]
   },
   "saint-jean-cap-ferrat": {
     name: "Saint-Jean-Cap-Ferrat", file: "Demenagement-Saint-Jean-Cap-Ferrat", cp: "06230", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -383,7 +383,7 @@ const CITIES = {
       { q: "Vos camions sont-ils discrets ?", a: "Oui. Équipe réduite et stable, coordination avec le gardien, et aucun marquage tapageur sur les véhicules." },
       { q: "L'assurance couvre-t-elle un mobilier de grande valeur ?", a: "8 000 € par objet avec franchise à notre charge, et une couverture spécifique au-delà. On l'établit avant, jamais après." }
     ],
-    nearby: ["beaulieu-sur-mer", "villefranche-sur-mer", "nice"]
+    nearby: ["beaulieu-sur-mer", "villefranche-sur-mer", "eze", "nice"]
   },
   "eze": {
     name: "Èze", file: "Demenagement-Eze", cp: "06360", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -409,7 +409,7 @@ const CITIES = {
       { q: "Utilisez-vous un monte-meuble à Èze ?", a: "Seulement si l'assise est stable et la façade dégagée. Sur des restanques, on privilégie souvent une équipe postée par paliers." },
       { q: "Le devis peut-il augmenter le jour du déménagement ?", a: "Non. C'est précisément pour cela qu'on repère avant de chiffrer sur cette commune. Le prix annoncé est le prix payé." }
     ],
-    nearby: ["cap-d-ail", "beaulieu-sur-mer", "monaco"]
+    nearby: ["villefranche-sur-mer", "cap-d-ail", "beaulieu-sur-mer", "monaco", "beausoleil", "saint-jean-cap-ferrat"]
   },
   "cap-d-ail": {
     name: "Cap-d'Ail", file: "Demenagement-Cap-d-Ail", cp: "06320", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -435,7 +435,7 @@ const CITIES = {
       { q: "Intervenez-vous à Cap Mala ?", a: "Oui, comme sur tout Cap-d'Ail. L'accès y descend fortement, on adapte le véhicule et la méthode." },
       { q: "Le prix change-t-il si l'accès s'avère plus dur ?", a: "Non. La hauteur du parking, la pente et la taille de l'ascenseur sont vues au devis. Le prix annoncé est le prix payé." }
     ],
-    nearby: ["monaco", "eze", "roquebrune-cap-martin"]
+    nearby: ["monaco", "beausoleil", "eze", "roquebrune-cap-martin"]
   },
   "roquebrune-cap-martin": {
     name: "Roquebrune-Cap-Martin", file: "Demenagement-Roquebrune-Cap-Martin", cp: "06190", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -461,7 +461,7 @@ const CITIES = {
       { q: "Protégez-vous les allées et les jardins ?", a: "Plaques de roulage, bâchage des massifs et passage unique. Sur le Cap, les allées sous les pins ne se creusent pas." },
       { q: "Le devis est-il ferme sur les trois quartiers ?", a: "Oui, et il n'est pas le même : le village, le Cap et Carnolès n'ont ni les mêmes accès ni le même temps de chantier." }
     ],
-    nearby: ["menton", "monaco", "cap-d-ail"]
+    nearby: ["menton", "monaco", "beausoleil", "cap-d-ail"]
   },
   "villeneuve-loubet": {
     name: "Villeneuve-Loubet", file: "Demenagement-Villeneuve-Loubet", cp: "06270", dept: "Alpes-Maritimes (06)", region: "cote",
@@ -487,7 +487,7 @@ const CITIES = {
       { q: "Un Villeneuve-Loubet–Nice coûte-t-il cher ?", a: "Une vingtaine de minutes, le transport pèse peu. Le prix se joue sur le volume et l'accès, pas sur le kilométrage." },
       { q: "Faut-il prévenir le syndic à l'avance ?", a: "Oui, surtout à la Marina : la réservation d'ascenseur se fait quelques jours avant, sinon le créneau peut être déjà pris." }
     ],
-    nearby: ["cagnes-sur-mer", "antibes", "nice"]
+    nearby: ["cagnes-sur-mer", "antibes", "saint-laurent-du-var"]
   }
 };
 

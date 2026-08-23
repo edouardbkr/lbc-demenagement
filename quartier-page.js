@@ -343,6 +343,8 @@ function App() {
     q: q
   }), React.createElement(QProches, {
     q: q
+  }), React.createElement(PreuveVille, {
+    ville: q ? q.nom : ""
   }), React.createElement(QBandeau, {
     q: q
   })), React.createElement(Footer, null));
