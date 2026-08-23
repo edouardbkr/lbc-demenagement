@@ -1,6 +1,222 @@
 /* city-data.jsx — compilé par build.js, ne pas éditer */
 (function () {
 const CITIES = {
+  "arriere-pays-nicois": {
+    prep: "dans",
+    name: "l'arrière-pays niçois",
+    file: "Demenagement-Arriere-Pays-Nicois",
+    cp: "06390",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement dans l'arrière-pays niçois : routes de montagne, transbordement, repérage préalable. Levens, Contes, Peille. Devis ferme sous 24h.",
+    intro: "Derrière Nice, la montagne commence tout de suite. À vingt minutes du littoral, on roule déjà sur des routes départementales à une voie et demie, avec des murets d'un côté, du vide de l'autre, et des virages où un porteur de vingt mètres cubes ne passe pas. C'est la contrainte commune à Levens, Contes, Tourrette-Levens, Aspremont, Falicon, Coaraze, Peille, Lucéram, Berre-les-Alpes et Drap : ce n'est jamais le logement qui pose problème, c'est le dernier kilomètre pour l'atteindre. Nous traitons ces communes ensemble parce qu'elles imposent exactement la même méthode, et cette méthode commence par aller voir la route avant de promettre un prix.",
+    quartiers: ["Levens", "Contes", "Tourrette-Levens", "Aspremont", "Falicon", "Coaraze", "Peille", "Lucéram", "Berre-les-Alpes", "Drap"],
+    specifics: [{
+      t: "Repérage de la route, systématique",
+      d: "Nous montons voir le tracé avant de chiffrer : largeur utile, rayon des virages, hauteur des branches et possibilité de retournement. Aucun devis d'arrière-pays ne se fait au téléphone."
+    }, {
+      t: "Transbordement quand le camion ne passe pas",
+      d: "Le porteur reste au dernier point accessible et un utilitaire fait la navette. C'est plus long, c'est chiffré, et c'est annoncé au devis plutôt que découvert dans une épingle."
+    }, {
+      t: "Aucun supplément le jour J",
+      d: "La difficulté d'accès est intégrée au prix après repérage. C'est la contrepartie du déplacement préalable : ce qui est annoncé ne bouge plus."
+    }],
+    deep: [{
+      t: "Pourquoi nous montons voir avant de chiffrer",
+      p: "Sur ces communes, la donnée qui décide du prix n'est ni la surface ni l'étage : c'est le dernier kilomètre. Une maison de Coaraze peut se rejoindre par une route large et bien tracée, et sa voisine par un chemin communal de deux mètres soixante terminé en cul-de-sac. Impossible de le savoir depuis un plan. Nous montons donc relever le tracé, la largeur utile, le rayon des épingles, la hauteur des branches et l'existence d'une aire de retournement. Ce déplacement coûte une demi-journée et il évite l'erreur qui coûte, elle, une journée entière : un camion engagé qui doit redescendre en marche arrière."
+    }, {
+      t: "Le transbordement, comment ça se passe vraiment",
+      p: "Quand la route refuse le porteur, nous le laissons au dernier point accessible, souvent la place du village ou un élargissement, et nous faisons la navette avec un utilitaire de vingt mètres cubes. Sur un déménagement de trois pièces, cela représente trois à cinq rotations et environ deux heures de plus. Nous préférons cette solution à la location d'un véhicule plus petit pour toute la journée, parce que le gros du trajet, entre l'arrière-pays et la côte, se fait alors dans un seul camion et non en trois voyages. Le calcul se fait au devis, avec le client."
+    }, {
+      t: "Ce que la montagne change à la journée de travail",
+      p: "Une équipe qui monte à Lucéram ou à Peille part plus tôt et rentre plus tard : la route n'est pas rapide et elle fatigue le chauffeur. Nous dimensionnons donc l'équipe pour finir dans la journée plutôt que de tabler sur des heures supplémentaires, et nous évitons de programmer deux chantiers d'arrière-pays le même jour. En hiver, le gel matinal sur les portions à l'ombre décale le départ. Une entreprise de déménagement dans l'arrière-pays niçois qui applique ses horaires de littoral se trompe systématiquement de deux heures."
+    }, {
+      t: "Les maisons de village et les caves voûtées",
+      p: "Dans les villages perchés, l'habitat est ancien : escaliers étroits sans palier, seuils surélevés, et très souvent une cave voûtée en sous-sol, accessible par un escalier tournant. Ces caves contiennent du vin, de l'outillage, des conserves, et parfois du mobilier stocké depuis des décennies. Elles se vident lentement, à la main, et elles représentent un volume que personne n'annonce spontanément. Nous ouvrons systématiquement ce sous-sol pendant la visite : c'est là que se cache l'écart entre le volume estimé et le volume réel."
+    }],
+    faq: [{
+      q: "Quelles communes couvre cette page ?",
+      a: "Levens, Contes, Tourrette-Levens, Aspremont, Falicon, Coaraze, Peille, Lucéram, Berre-les-Alpes et Drap, et plus largement les villages accessibles par les routes de montagne au nord de Nice."
+    }, {
+      q: "Pourquoi ne pas faire une page par village ?",
+      a: "Parce que la contrainte est identique partout : la route. Écrire dix pages en changeant le nom du village n'apporterait rien au lecteur et serait sanctionné par Google."
+    }, {
+      q: "Venez-vous vraiment repérer la route avant ?",
+      a: "Oui, systématiquement. Un déménagement dans l'arrière-pays niçois ne se chiffre pas au téléphone : on relève la largeur utile, les épingles et l'aire de retournement."
+    }, {
+      q: "Que se passe-t-il si le camion ne peut pas monter ?",
+      a: "Il reste au dernier point accessible et un utilitaire fait la navette. Comptez trois à cinq rotations et deux heures de plus sur un trois-pièces, chiffrées au devis."
+    }, {
+      q: "La difficulté d'accès est-elle facturée en supplément ?",
+      a: "Non. Elle est intégrée au prix après le repérage. C'est la raison même de ce déplacement préalable : le montant annoncé ne bouge plus."
+    }, {
+      q: "Déménagez-vous les caves voûtées des maisons de village ?",
+      a: "Oui, et votre déménageur dans l'arrière-pays niçois les ouvre pendant la visite : c'est presque toujours là que se trouve l'écart entre le volume annoncé et le volume réel."
+    }],
+    nearby: ["nice", "menton", "vence", "cagnes-sur-mer", "saint-laurent-du-var"]
+  },
+  "vallee-du-var": {
+    prep: "dans",
+    name: "la vallée du Var",
+    file: "Demenagement-Vallee-du-Var",
+    cp: "06510",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement dans la vallée du Var : Carros, Saint-Jeannet, La Gaude, Gattières. Villas avec sous-sol, zones d'activité. Devis ferme sous 24h.",
+    intro: "La vallée du Var est la partie facile d'accès de notre secteur, et c'est justement ce qui la définit. La voie rapide dessert Carros, Le Broc, Gattières, Saint-Jeannet, La Gaude, Colomars et Castagniers sans jamais imposer de route étroite, et le camion se gare presque toujours devant la maison. La difficulté est ailleurs : l'habitat est dispersé, très majoritairement pavillonnaire, avec des sous-sols aménagés et des garages doubles qui doublent le volume annoncé. Et le secteur concentre les zones d'activité du département, ce qui en fait notre principal terrain de déménagements d'entreprise.",
+    quartiers: ["Carros", "Le Broc", "Gattières", "Saint-Jeannet", "La Gaude", "Colomars", "Castagniers", "Carros-le-Neuf"],
+    specifics: [{
+      t: "Accès routier confortable",
+      d: "La voie rapide dessert toute la vallée et le stationnement se trouve devant la maison. Ni portage long ni transbordement : la journée s'organise autour du volume."
+    }, {
+      t: "Sous-sols et garages doubles",
+      d: "Le pavillonnaire de la vallée cache un sous-sol aménagé et un garage double dans la majorité des cas. Comptés à la visite, ils ajoutent souvent dix à vingt mètres cubes."
+    }, {
+      t: "Zones d'activité et déménagement d'entreprise",
+      d: "Carros et Le Broc concentrent les locaux professionnels du secteur. Intervention hors horaires d'ouverture, mobilier de bureau et informatique traités à part."
+    }],
+    deep: [{
+      t: "Le volume, seul vrai sujet de la vallée",
+      p: "Ici, pas de ruelle piétonne ni de corniche : le camion se gare devant le portail et l'équipe travaille de plain-pied. Toute la question devient donc le cubage, et c'est là que les estimations dérapent. Une villa de la Gaude annoncée à cent trente mètres carrés habitables cache régulièrement un sous-sol complet, un garage double et un abri de jardin. Le calcul fait sur la surface habitable sous-estime alors de quinze à vingt mètres cubes, soit une demi-journée de travail et parfois un camion de plus. Nous descendons donc systématiquement au sous-sol pendant la visite."
+    }, {
+      t: "Les zones d'activité, un autre métier",
+      p: "Carros et Le Broc regroupent l'essentiel des locaux professionnels du secteur. Un déménagement d'entreprise ne se traite pas comme un logement : il se fait souvent le week-end ou en soirée pour ne pas interrompre l'activité, le mobilier de bureau se démonte en série, et le matériel informatique voyage séparément, étiqueté poste par poste pour être remis en service dès le lundi. Nous établissons un plan d'implantation avec le client avant le déménagement, de façon que chaque carton arrive dans le bon bureau plutôt que dans un couloir."
+    }, {
+      t: "L'habitat dispersé et le temps de trajet",
+      p: "La vallée s'étire sur une vingtaine de kilomètres et les maisons sont éloignées les unes des autres, souvent au bout de chemins privés goudronnés. La conséquence est logistique : on ne peut pas enchaîner deux chantiers dans la même journée comme sur le littoral, parce que le temps de trajet entre deux adresses de la vallée dépasse celui d'un aller-retour Nice-Cannes. Nous en tenons compte au planning plutôt que de rogner sur le temps passé chez le client. C'est ce qui permet de tenir un créneau d'arrivée à l'heure près."
+    }, {
+      t: "Les déménagements vers et depuis la vallée",
+      p: "Beaucoup de nos clients de la vallée arrivent de Nice ou de la Côte pour un premier achat, avec plus de surface pour le même budget. Le déménagement se fait donc souvent depuis un appartement niçois en étage vers une maison de plain-pied : difficulté au départ, facilité à l'arrivée. Le devis reflète cette asymétrie, et le camion se dimensionne sur le point le plus contraint. Une entreprise de déménagement dans la vallée du Var travaille en réalité autant sur le littoral que dans la vallée elle-même."
+    }],
+    faq: [{
+      q: "Quelles communes couvre cette page ?",
+      a: "Carros, Le Broc, Gattières, Saint-Jeannet, La Gaude, Colomars et Castagniers, soit la vallée du Var au nord de Saint-Laurent-du-Var."
+    }, {
+      q: "L'accès est-il difficile dans la vallée du Var ?",
+      a: "Non, c'est le secteur le plus confortable de notre zone : voie rapide, stationnement devant la maison, travail de plain-pied. La difficulté est le volume, pas le chemin."
+    }, {
+      q: "Comptez-vous le sous-sol et le garage ?",
+      a: "Oui, systématiquement, et nous y descendons pendant la visite. Ils ajoutent souvent quinze à vingt mètres cubes qu'une estimation sur la surface habitable ignore."
+    }, {
+      q: "Déménagez-vous les entreprises de Carros ?",
+      a: "Oui. Un déménagement dans la vallée du Var pour un professionnel se fait le week-end ou en soirée, avec un plan d'implantation établi à l'avance."
+    }, {
+      q: "Comment traitez-vous le matériel informatique ?",
+      a: "Séparément du mobilier, étiqueté poste par poste, pour que chaque machine retrouve son bureau et que l'activité reprenne dès la réouverture."
+    }, {
+      q: "Faites-vous les déménagements depuis Nice vers la vallée ?",
+      a: "C'est même notre trajet le plus courant : appartement en étage au départ, maison de plain-pied à l'arrivée. Votre déménageur dans la vallée du Var dimensionne le camion sur le point le plus contraint."
+    }],
+    nearby: ["saint-laurent-du-var", "nice", "cagnes-sur-mer", "vence", "villeneuve-loubet"]
+  },
+  "pays-de-grasse": {
+    prep: "dans",
+    name: "le pays de Grasse",
+    file: "Demenagement-Pays-de-Grasse",
+    cp: "06650",
+    dept: "Alpes-Maritimes (06)",
+    region: "cote",
+    lede: "Déménagement dans le pays de Grasse : Le Rouret, Opio, Roquefort-les-Pins, Châteauneuf. Villas avec terrain, portage depuis le portail. Devis ferme sous 24h.",
+    intro: "Entre Grasse et la mer s'étend un plateau de villas avec terrain : Le Rouret, Opio, Roquefort-les-Pins, Châteauneuf-Grasse et Peymeinade. On y déménage des maisons de plain-pied, ce qui est une bonne nouvelle pour la manutention, mais on les rejoint par des allées privées de cent à trois cents mètres, et le camion ne va pas toujours jusqu'à la porte. La distance entre le point où le véhicule s'arrête et l'entrée de la maison est ici le facteur numéro un du devis, avant le volume et avant tout le reste. C'est un secteur confortable à travailler à condition d'avoir mesuré cette distance avant.",
+    quartiers: ["Le Rouret", "Opio", "Roquefort-les-Pins", "Châteauneuf-Grasse", "Peymeinade", "Le Val d'Opio", "Notre-Dame", "Les Ferrages"],
+    specifics: [{
+      t: "Portage depuis le portail",
+      d: "Les allées privées font cent à trois cents mètres. Quand le camion ne peut pas remonter, tout se porte depuis le portail : c'est cette distance qui fixe l'équipe et la durée."
+    }, {
+      t: "Maisons de plain-pied",
+      d: "Peu d'étages, peu d'escaliers : la manutention est nettement moins pénible qu'en immeuble. À volume égal, la journée est plus courte qu'à Nice ou à Monaco."
+    }, {
+      t: "Terrains, dépendances et mobilier d'extérieur",
+      d: "Abri de jardin, atelier, local piscine et salon d'extérieur s'ajoutent au volume. Sur une villa avec terrain, ils représentent régulièrement dix à quinze mètres cubes."
+    }],
+    deep: [{
+      t: "La distance portail-maison, avant tout le reste",
+      p: "Sur ce plateau, la question n'est jamais l'escalier mais le nombre de mètres à parcourir les bras chargés. Une allée de deux cents mètres transforme chaque aller-retour en quatre minutes de marche, et sur un volume de trente mètres cubes cela représente plusieurs heures cumulées. Nous mesurons donc systématiquement cette distance, et nous vérifions si le revêtement permet d'utiliser un chariot : sur du gravier, il est inutilisable, sur de l'enrobé il divise le temps par deux. Ce détail-là, invisible sur une photo, décide de la taille de l'équipe."
+    }, {
+      t: "Faire monter le camion, ou pas",
+      p: "Beaucoup d'allées du pays de Grasse sont goudronnées et assez larges, mais elles se terminent devant la maison sans aire de retournement, et redescendre trois cents mètres en marche arrière entre deux haies n'est pas raisonnable. Nous mesurons la largeur, la hauteur libre sous les arbres et l'espace de manœuvre. Quand le compte n'y est pas, le camion reste au portail et nous faisons la navette avec un utilitaire. Une entreprise de déménagement dans le pays de Grasse qui s'engage sans mesurer immobilise son véhicule et perd la journée."
+    }, {
+      t: "Le plain-pied, un vrai avantage à ne pas gâcher",
+      p: "Contrairement au littoral, on déménage ici sans escalier, sans ascenseur trop petit et sans cage tournante. À volume égal, la journée est plus courte et l'équipe moins usée. C'est ce qui permet, sur ces communes, de proposer des prix inférieurs à ceux d'un troisième étage niçois pour le même mobilier. Encore faut-il ne pas perdre le bénéfice dans le portage : d'où l'attention portée à l'allée, qui est le seul poste capable d'annuler l'avantage du plain-pied."
+    }, {
+      t: "Ce qu'il y a dans le jardin",
+      p: "Une villa avec terrain, c'est un abri de jardin, souvent un atelier, un local technique de piscine et un salon d'extérieur complet. Additionnés, ces éléments dépassent régulièrement douze mètres cubes, soit un tiers de camion que personne ne mentionne au téléphone. Le mobilier de jardin en résine ou en teck est volumineux et se démonte mal, les outils se conditionnent en caisses, et le barbecue maçonné reste sur place. Nous faisons le tour du terrain pendant la visite, pas seulement de la maison."
+    }],
+    faq: [{
+      q: "Quelles communes couvre cette page ?",
+      a: "Le Rouret, Opio, Roquefort-les-Pins, Châteauneuf-Grasse et Peymeinade, sur le plateau entre Grasse et le littoral."
+    }, {
+      q: "Pourquoi mesurez-vous l'allée avant de chiffrer ?",
+      a: "Parce qu'elle fait cent à trois cents mètres et que c'est le premier poste du devis. Une allée en gravier interdit le chariot et double le temps de portage."
+    }, {
+      q: "Le camion monte-t-il jusqu'à la maison ?",
+      a: "Après mesure de la largeur, de la hauteur sous les arbres et de l'aire de retournement. Sans espace de manœuvre, il reste au portail et nous faisons la navette."
+    }, {
+      q: "Un déménagement dans le pays de Grasse coûte-t-il moins cher ?",
+      a: "Souvent oui, à volume égal, parce que le plain-pied évite l'escalier. Sauf si une longue allée annule cet avantage : c'est pour cela qu'on la mesure."
+    }, {
+      q: "Le mobilier de jardin est-il compté ?",
+      a: "Oui, et il pèse lourd : abri, atelier, local piscine et salon d'extérieur dépassent régulièrement douze mètres cubes à eux seuls."
+    }, {
+      q: "Faites-vous le tour du terrain pendant la visite ?",
+      a: "Systématiquement. Votre déménageur dans le pays de Grasse doit ouvrir l'abri de jardin et le local technique, pas seulement visiter la maison."
+    }],
+    nearby: ["grasse", "valbonne-sophia-antipolis", "le-cannet", "cannes", "vence"]
+  },
+  "golfe-de-saint-tropez": {
+    prep: "dans",
+    name: "le golfe de Saint-Tropez",
+    file: "Demenagement-Golfe-de-Saint-Tropez",
+    cp: "83120",
+    dept: "Var (83)",
+    region: "cote",
+    lede: "Déménagement dans le golfe de Saint-Tropez : Sainte-Maxime, Grimaud, Cogolin, Gassin, Ramatuelle. Hors saison, conciergeries. Devis ferme sous 24h.",
+    intro: "Autour de Saint-Tropez, le golfe forme un ensemble cohérent : Sainte-Maxime, Grimaud, Cogolin, Gassin et Ramatuelle partagent la même contrainte de calendrier. De juin à septembre, la circulation autour du golfe s'effondre, et une intervention qui prend six heures en octobre peut en prendre dix en août. S'y ajoute une réalité de terrain : beaucoup de biens sont des résidences secondaires confiées à une conciergerie ou à un gardien, et le propriétaire n'est presque jamais présent le jour du déménagement. Nous organisons donc ces chantiers autour de deux choses, la saison et l'interlocuteur sur place.",
+    quartiers: ["Sainte-Maxime", "Grimaud", "Port-Grimaud", "Cogolin", "Gassin", "Ramatuelle", "La Croix-Valmer", "Les Marines de Cogolin"],
+    specifics: [{
+      t: "Le calendrier avant le devis",
+      d: "D'octobre à mai, une journée normale. De juin à septembre, la circulation du golfe allonge tout : nous proposons systématiquement de décaler quand la date n'est pas contrainte."
+    }, {
+      t: "Conciergeries et gardiens",
+      d: "Le propriétaire est rarement présent. Nous travaillons avec la conciergerie ou le gardien, sur inventaire photographique au chargement comme à la livraison."
+    }, {
+      t: "Distance depuis Nice intégrée",
+      d: "Cent vingt à cent quarante kilomètres selon la commune, chiffrés dès le devis. Aucun frais de route n'apparaît le jour du déménagement."
+    }],
+    deep: [{
+      t: "Pourquoi la saison commande le prix ici",
+      p: "Le tour du golfe se fait par une route littorale unique, et de la mi-juin à la fin août elle sature aux heures ouvrables. Un camion qui met une heure à rejoindre Ramatuelle depuis Sainte-Maxime en octobre peut en mettre trois en plein mois d'août. Cela ne change pas la quantité de travail, cela change la durée de mobilisation du camion et de l'équipe, et c'est ce qui se facture. Quand la date est libre, nous conseillons franchement l'automne ou le printemps, et l'écart se voit sur le devis. Quand elle ne l'est pas, nous partons plus tôt et nous le disons."
+    }, {
+      t: "Travailler avec une conciergerie",
+      p: "Sur ce secteur, l'interlocuteur du jour est très souvent une conciergerie ou un gardien qui détient les clés et connaît la maison mieux que son propriétaire. Nous prenons contact en amont pour convenir de l'accès, des horaires et de l'état des lieux. Chaque pièce est photographiée avant le chargement et le même relevé est refait à la livraison, puis transmis au propriétaire. Sur un bien que celui-ci ne reverra peut-être pas avant plusieurs mois, ce dossier photographique vaut mieux que n'importe quelle déclaration."
+    }, {
+      t: "Les domaines fermés et les ports résidentiels",
+      p: "Port-Grimaud et les Marines de Cogolin fonctionnent comme des ensembles clos, avec des règles de circulation intérieures, des accès contrôlés et parfois un portage depuis un quai plutôt que depuis une rue. À Ramatuelle et Gassin, plusieurs domaines privés imposent une liste d'accès déposée à l'avance. Nous transmettons immatriculations et identités plusieurs jours avant, et nous calons la journée sur les créneaux autorisés. Une entreprise de déménagement dans le golfe de Saint-Tropez passe autant de temps sur cette préparation que sur le chargement lui-même."
+    }, {
+      t: "Le mobilier des résidences secondaires",
+      p: "Ces maisons sont meublées pour la belle saison : mobilier d'extérieur en teck, grandes tables, transats, parasols lestés, et à l'intérieur un ameublement souvent choisi avec soin. Le volume extérieur surprend toujours, et il se dégrade vite s'il est mal protégé. Nous housssons systématiquement plutôt que de couvrir, et nous chargeons ce mobilier en premier pour qu'il ne subisse pas le poids du reste. Les pièces de valeur et les œuvres se déclarent séparément avant le départ."
+    }],
+    faq: [{
+      q: "Quelles communes couvre cette page ?",
+      a: "Sainte-Maxime, Grimaud, Port-Grimaud, Cogolin, Gassin, Ramatuelle et La Croix-Valmer, soit le pourtour du golfe hors Saint-Tropez, qui a sa page."
+    }, {
+      q: "Faut-il éviter l'été pour un déménagement dans le golfe de Saint-Tropez ?",
+      a: "Quand la date est libre, oui. La route littorale sature de mi-juin à fin août et un trajet d'une heure peut en prendre trois, ce qui allonge la mobilisation."
+    }, {
+      q: "Le trajet depuis Nice est-il facturé à part ?",
+      a: "Non. Les cent vingt à cent quarante kilomètres sont intégrés au devis dès le départ, sans frais de route ajouté le jour du déménagement."
+    }, {
+      q: "Pouvez-vous travailler avec ma conciergerie ?",
+      a: "Oui, c'est le cas le plus fréquent ici. Nous convenons de l'accès et des horaires en amont, et nous faisons un état des lieux photographique au chargement et à la livraison."
+    }, {
+      q: "Comment accède-t-on à Port-Grimaud ou aux Marines de Cogolin ?",
+      a: "Par les règles de circulation interne de l'ensemble, avec parfois un portage depuis un quai. Nous déposons la demande d'accès plusieurs jours avant."
+    }, {
+      q: "Le mobilier de jardin est-il compté dans le volume ?",
+      a: "Oui, et il surprend toujours : teck, grandes tables, transats et parasols lestés. Votre déménageur dans le golfe de Saint-Tropez le housse et le charge en premier."
+    }],
+    nearby: ["saint-tropez", "cannes", "mandelieu", "grasse", "theoule-sur-mer"]
+  },
   "saint-paul-de-vence": {
     name: "Saint-Paul-de-Vence",
     file: "Demenagement-Saint-Paul-de-Vence",

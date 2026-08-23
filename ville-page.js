@@ -18,7 +18,7 @@ function VilleHero({
     href: "Zones"
   }, "Zones desservies"), React.createElement("span", {
     className: "sep"
-  }, "/"), React.createElement("span", null, c.eyebrow || c.name)), React.createElement("h1", null, c.h1 || React.createElement(React.Fragment, null, "D\xE9m\xE9nagement \xE0 ", React.createElement("em", null, c.name))), React.createElement("p", {
+  }, "/"), React.createElement("span", null, c.eyebrow || c.name)), React.createElement("h1", null, c.h1 || React.createElement(React.Fragment, null, "D\xE9m\xE9nagement ", c.prep || "à", " ", React.createElement("em", null, c.name))), React.createElement("p", {
     className: "lede",
     style: {
       padding: "10px"
@@ -139,7 +139,7 @@ function VilleSpecifics({
     className: "asterisk"
   }, "*"), " Notre expertise locale")), React.createElement("h2", {
     className: "dim-em"
-  }, "D\xE9m\xE9nager \xE0 ", c.name, ",", React.createElement("br", null), React.createElement("em", null, "on conna\xEEt le terrain."))), React.createElement("div", {
+  }, "D\xE9m\xE9nager ", c.prep || "à", " ", c.name, ",", React.createElement("br", null), React.createElement("em", null, "on conna\xEEt le terrain."))), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       gridTemplateColumns: 'repeat(' + (c.specifics.length + 1) + ', 1fr)'
@@ -192,7 +192,7 @@ function VilleFormules({
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Nos formules \xE0 ", c.name)), React.createElement("h2", {
+  }, "*"), " Nos formules ", c.prep || "à", " ", c.name)), React.createElement("h2", {
     className: "dim-em"
   }, "Trois formules,", React.createElement("br", null), React.createElement("em", null, "vous choisissez jusqu'o\xF9 on va."))), React.createElement("div", {
     className: "blog-grid reveal-stagger",
@@ -323,7 +323,7 @@ function VilleFaq({
     className: "asterisk"
   }, "*"), " Questions fr\xE9quentes")), React.createElement("h2", {
     className: "dim-em"
-  }, "D\xE9m\xE9nager \xE0 ", c.name, ",", React.createElement("br", null), React.createElement("em", null, "vos questions, nos r\xE9ponses."))), React.createElement("div", {
+  }, "D\xE9m\xE9nager ", c.prep || "à", " ", c.name, ",", React.createElement("br", null), React.createElement("em", null, "vos questions, nos r\xE9ponses."))), React.createElement("div", {
     className: "faq-list reveal",
     style: {
       maxWidth: 820
@@ -363,7 +363,7 @@ function VilleQuoteBand({
       marginBottom: 12,
       textAlign: 'center'
     }
-  }, "Un d\xE9m\xE9nagement \xE0 ", c.name, " ? ", React.createElement("span", {
+  }, "Un d\xE9m\xE9nagement ", c.prep || "à", " ", c.name, " ? ", React.createElement("span", {
     className: "scribble",
     style: {
       fontFamily: 'var(--script)',
