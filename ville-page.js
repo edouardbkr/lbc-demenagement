@@ -18,7 +18,7 @@ function VilleHero({
     href: "Zones"
   }, "Zones desservies"), React.createElement("span", {
     className: "sep"
-  }, "/"), React.createElement("span", null, c.name)), React.createElement("h1", null, "D\xE9m\xE9nagement \xE0 ", React.createElement("em", null, c.name)), React.createElement("p", {
+  }, "/"), React.createElement("span", null, c.eyebrow || c.name)), React.createElement("h1", null, c.h1 || React.createElement(React.Fragment, null, "D\xE9m\xE9nagement \xE0 ", React.createElement("em", null, c.name))), React.createElement("p", {
     className: "lede",
     style: {
       padding: "10px"
@@ -86,17 +86,20 @@ function VilleIntro({
       gap: 10,
       marginTop: 8
     }
-  }, c.quartiers.map((q, i) => React.createElement("span", {
-    key: i,
-    style: {
-      fontFamily: 'var(--sans)',
-      fontSize: 14,
-      fontWeight: 600,
-      border: '1px solid var(--rule-strong)',
-      padding: '8px 14px',
-      color: 'var(--ink-2)'
-    }
-  }, q))), React.createElement("div", {
+  }, c.quartiers.map((q, i) => {
+    const page = (window.QUARTIERS_PAGES || {})[q];
+    return page ? React.createElement("a", {
+      key: i,
+      href: page,
+      style: {
+        color: 'var(--accent)',
+        fontWeight: 600,
+        textDecoration: 'none'
+      }
+    }, q) : React.createElement("span", {
+      key: i
+    }, q);
+  })), React.createElement("div", {
     style: {
       marginTop: 24,
       paddingTop: 20,

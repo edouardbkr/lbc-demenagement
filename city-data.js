@@ -7,9 +7,11 @@ const CITIES = {
     cp: "06000 – 06300",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
-    lede: "Déménagement à Nice par des déménageurs nés ici : du Vieux-Nice à Cimiez, on connaît chaque rue. Devis gratuit sous 24h, prix ferme.",
+    h1: React.createElement(React.Fragment, null, "D\xE9m\xE9nager ", React.createElement("em", null, "quartier par quartier"), " \xE0 Nice"),
+    eyebrow: "Les 10 quartiers de Nice",
+    lede: "Déménager dans les quartiers de Nice : Vieux-Nice piéton, Mont Boron en lacets, Cimiez et ses immeubles anciens. Accès repérés avant le devis, prix ferme.",
     intro: "On est des déménageurs niçois, pas une enseigne nationale qui sous-traite au plus offrant. On a grandi entre la Promenade et les collines, et on connaît Nice rue par rue : les ruelles piétonnes du Vieux-Nice où le camion ne rentre pas, les immeubles bourgeois du Carré d'Or, les résidences perchées de Cimiez et de Gairaut, les tours de l'Arénas et de la plaine du Var. Chaque secteur a ses contraintes d'accès, de stationnement et d'étage : on les anticipe dès le devis, pour qu'il n'y ait aucune mauvaise surprise le jour J.",
-    quartiers: ["Vieux-Nice", "Carré d'Or", "Cimiez", "Libération", "Le Port", "Riquier", "Nice Nord", "Fabron", "Magnan", "L'Ariane", "Gambetta", "Saint-Roch", "Gairaut", "Las Planas", "Saint-Isidore"],
+    quartiers: ["Vieux-Nice", "Carré d'Or", "Cimiez", "Libération", "Le Port", "Riquier", "Mont Boron", "Nice Nord", "Fabron", "Magnan", "L'Ariane", "Gambetta", "Saint-Roch", "Gairaut", "Las Planas", "Saint-Isidore"],
     specifics: [{
       t: "Stationnement maîtrisé",
       d: "On dépose la demande d'autorisation auprès de la Ville de Nice et on connaît les créneaux des zones piétonnes du centre, pour réserver l'emplacement au plus près de votre porte."
@@ -941,9 +943,19 @@ const CITIES = {
 function getCity(slug) {
   return CITIES[slug] || CITIES["nice"];
 }
+const QUARTIERS_PAGES = {
+  "Vieux-Nice": "Demenagement-Vieux-Nice",
+  "Cimiez": "Demenagement-Cimiez-Nice",
+  "Carré d'Or": "Demenagement-Carre-d-Or-Nice",
+  "Libération": "Demenagement-Liberation-Nice",
+  "Le Port": "Demenagement-Port-Nice",
+  "Riquier": "Demenagement-Riquier-Nice",
+  "Mont Boron": "Demenagement-Mont-Boron-Nice"
+};
 Object.assign(window, {
   CITIES,
-  getCity
+  getCity,
+  QUARTIERS_PAGES
 });
   try { Object.assign(window, { getCity }); } catch (e) {}
 })();

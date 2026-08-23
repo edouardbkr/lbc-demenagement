@@ -47,8 +47,6 @@
 /demenagement-cannes.html	/Demenagement-Cannes	301
 /demenagement-grasse	/Demenagement-Grasse	301
 /demenagement-grasse.html	/Demenagement-Grasse	301
-/demenagement-la-rochelle	/Demenagement-La-Rochelle	301
-/demenagement-la-rochelle.html	/Demenagement-La-Rochelle	301
 /demenagement-le-cannet	/Demenagement-Le-Cannet	301
 /demenagement-le-cannet.html	/Demenagement-Le-Cannet	301
 /demenagement-mandelieu	/Demenagement-Mandelieu	301
@@ -165,3 +163,17 @@
 /tarifs.html	/Tarifs	301
 /prix	/Tarifs	301
 /prix-demenagement	/Tarifs	301
+
+# ⚠️ LA ROCHELLE RETIRÉE LE 24 AOÛT 2026.
+# Neuf cents kilomètres de Nice : ce n'est pas le marché de LBC, et le référencement le
+# disait déjà. Mesuré avant suppression, sur 90 jours : 156 impressions sur la page ville
+# et 23 sur l'article, ZÉRO clic pour les deux, positions entre 68 et 90. Un déménageur
+# rochelais tient ces requêtes chez lui, et rien ne renversera ça depuis Nice.
+# Le coût de ces pages n'était pas leur écriture : c'était de diluer l'autorité du domaine
+# sur un terrain qu'on ne gagnera jamais, au détriment des pages niçoises.
+/Demenagement-La-Rochelle	/Zones	301
+/Demenagement-La-Rochelle.html	/Zones	301
+/demenagement-la-rochelle	/Zones	301
+/demenagement-la-rochelle.html	/Zones	301
+/Article-demenagement-la-rochelle-guide	/Blog	301
+/article-demenagement-la-rochelle-guide	/Blog	301

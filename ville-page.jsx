@@ -10,9 +10,12 @@ function VilleHero({ c }) {
           <span className="sep">/</span>
           <a href="Zones">Zones desservies</a>
           <span className="sep">/</span>
-          <span>{c.name}</span>
+          <span>{c.eyebrow || c.name}</span>
         </div>
-        <h1>Déménagement à <em>{c.name}</em></h1>
+        {/* Une commune peut porter son propre H1 : Nice le fait, parce que l'accueil
+            vise déjà « déménageur à Nice » et que deux pages sur le même mot-clé se
+            concurrencent. Voir le commentaire en tête de city-data.jsx. */}
+        <h1>{c.h1 || <>Déménagement à <em>{c.name}</em></>}</h1>
         <p className="lede" style={{ padding: "10px" }}>{c.lede}</p>
         <div className="devis-hero-form">
           <QuickQuote variant="dark" />
@@ -41,13 +44,18 @@ function VilleIntro({ c }) {
           <div className="reveal">
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
               <h4 style={{ color: 'var(--ink)' }}>Quartiers desservis à {c.name}</h4>
+              {/* ⚠️ SUR NICE, LES QUARTIERS SONT DES LIENS, PAS DU TEXTE. Sept d'entre eux
+                  ont leur propre page, et c'est ce maillage qui les fait remonter : une
+                  page profonde sans lien depuis une page plus forte reste invisible.
+                  Ailleurs, les quartiers ne sont que des noms, et le texte suffit. */}
+
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 8 }}>
-                {c.quartiers.map((q, i) =>
-                <span key={i} style={{
-                  fontFamily: 'var(--sans)', fontSize: 14, fontWeight: 600,
-                  border: '1px solid var(--rule-strong)', padding: '8px 14px', color: 'var(--ink-2)'
-                }}>{q}</span>
-                )}
+                {c.quartiers.map((q, i) => {
+                  const page = (window.QUARTIERS_PAGES || {})[q];
+                  return page
+                    ? <a key={i} href={page} style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>{q}</a>
+                    : <span key={i}>{q}</span>;
+                })}
               </div>
               <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid var(--rule)', display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14, color: 'var(--ink-2)' }}>
                 <div><strong style={{ color: 'var(--ink)' }}>Code postal</strong> · {c.cp}</div>
