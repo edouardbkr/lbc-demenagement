@@ -67,31 +67,11 @@ const NICE_FACTEURS = [
   { t: "La formule choisie", d: "Standard, Premium ou Luxe. C'est le seul facteur que vous décidez entièrement, et l'écart entre les deux premières est d'environ 30 %." },
   { t: "La période", d: "Fins de mois, samedis et été partent en premier. Une date en milieu de mois et en semaine se réserve plus facilement, et l'équipe est moins contrainte." }];
 
-const NICE_FAQ = [
-  { q: "Quel est le prix d'un déménagement à Nice ?",
-    r: ["Cela dépend d'abord de la formule. Pour un studio en local, comptez 640 à 850 € en Standard et 850 à 1 150 € en Premium. Pour un trois-pièces, 930 à 1 240 € en Standard et 1 240 à 1 860 € en Premium. Pour une maison, 1 930 à 2 750 € et 2 750 à 3 850 €.",
-        "Ces montants supposent un accès neutre. Un troisième étage sans ascenseur dans le Vieux-Nice et un rez-de-chaussée à Fabron, à volume identique, n'ont pas le même prix — et c'est l'étage, pas le quartier, qui fait la différence."] },
-  { q: "Faut-il une autorisation pour garer le camion à Nice ?",
-    r: ["Oui, dès que vous occupez le domaine public, ce qui est le cas presque partout dans Nice. Trois régimes existent selon ce que vous occupez, avec des délais et des services différents : 5 jours ouvrés pour une place de stationnement, 7 pour une voie de circulation ou une zone piétonne.",
-        "Nous nous en chargeons pour vous. La signalisation réglementaire, en revanche, n'est pas fournie par la Ville : elle se loue auprès d'un professionnel et se pose la veille."] },
-  { q: "Peut-on déménager dans le Vieux-Nice ?",
-    r: ["Oui, mais pas librement. Le quartier est en zone piétonne à accès contrôlé par bornes escamotables. Il faut l'autorisation, demandée sept jours ouvrés à l'avance, et il faut appeler le centre de sécurité le jour même pour faire abaisser la borne.",
-        "Un camion qui se présente sans cette double démarche repart. C'est la première cause de journée perdue dans ce quartier."] },
-  { q: "Combien de temps dure un déménagement dans Nice ?",
-    r: ["Une demi-journée pour un studio ou un deux-pièces avec ascenseur. Une journée pleine pour un trois ou quatre-pièces. Une maison avec cave et garage peut demander deux jours.",
-        "Ce qui allonge une journée à Nice, ce n'est jamais la distance : c'est l'escalier, le portage et le stationnement."] },
-  { q: "Quand faut-il s'y prendre pour réserver ?",
-    r: ["Deux à trois semaines en période normale, quatre à six pour une fin de mois entre juin et septembre. Les samedis de fin août sont les dates les plus demandées de l'année.",
-        "L'autorisation de stationnement, elle, ne se demande qu'à cinq ou sept jours : c'est nous qui la déposons, une fois la date bloquée."] },
-  { q: "Où trouver des cartons à Nice ?",
-    r: ["Nous les livrons avec les formules Premium et Luxe. En Standard, ils sont vendus à prix coûtant et livrés avant le déménagement.",
-        "Les commerces de quartier en donnent souvent, mais attention : un carton de supermarché a déjà servi, il est rarement assez solide pour des livres ou de la vaisselle, et il cède au portage. C'est la fausse économie la plus courante."] },
-  { q: "Que faire des meubles dont on ne veut plus ?",
-    r: ["La Métropole Nice Côte d'Azur assure le ramassage des encombrants sur rendez-vous, et plusieurs déchetteries sont accessibles aux particuliers sur présentation d'un justificatif de domicile.",
-        "Nous pouvons aussi vider le logement entièrement : c'est notre prestation de débarras, chiffrée à part et souvent combinée au déménagement le même jour."] },
-  { q: "Intervenez-vous en dehors de Nice ?",
-    r: ["Oui, sur toute la Côte d'Azur et dans toute la France. Notre corridor habituel va de Villeneuve-Loubet à Menton, en passant par Villefranche, Beaulieu, Saint-Jean-Cap-Ferrat, Èze, Cap-d'Ail, Beausoleil et Roquebrune.",
-        "Les longues distances au départ de Nice représentent une grande partie de notre activité : Paris, Lyon, Marseille, Toulouse, Bordeaux."] }];
+/* Les questions vivent dans city-data.jsx, avec celles des autres communes : c'est de là
+   que gen-villes-seo.js tire le balisage FAQPage. Une seule source, sinon le balisage
+   annonce à Google des questions que la page n'affiche pas — le rich snippet trompeur. */
+const NICE_FAQ = ((typeof CITIES !== "undefined" && CITIES.nice && CITIES.nice.faq) || [])
+  .map((f) => ({ q: f.q, r: [f.a] }));
 
 function NiceHero() {
   return (

@@ -36,20 +36,29 @@ const CITIES = {
       p: "Le vrai casse-tête niçois, c'est le stationnement. Zones piétonnes du Vieux-Nice, places rares du centre, voies à circulation réglementée : on dépose pour vous la demande d'occupation du domaine public auprès de la Ville de Nice et on réserve l'emplacement camion devant l'immeuble. Quand l'escalier ne passe pas, on installe un monte-meuble. Résultat : pas d'amende, pas d'heure perdue à tourner pour se garer."
     }],
     faq: [{
-      q: "Intervenez-vous dans le Vieux-Nice piéton ?",
-      a: "Oui. On réserve l'emplacement au plus près de la zone piétonne, on gère le portage dans les ruelles, et on installe un monte-meuble quand l'escalier ne passe pas. C'est notre quotidien."
+      q: "Quel est le prix d'un déménagement à Nice ?",
+      a: "Cela dépend d'abord de la formule. Pour un studio en local, comptez 640 à 850 € en Standard et 850 à 1 150 € en Premium. Pour un trois-pièces, 930 à 1 240 € en Standard et 1 240 à 1 860 € en Premium. Pour une maison, 1 930 à 2 750 € et 2 750 à 3 850 €. Ces montants supposent un accès neutre. Un troisième étage sans ascenseur dans le Vieux-Nice et un rez-de-chaussée à Fabron, à volume identique, n'ont pas le même prix — et c'est l'étage, pas le quartier, qui fait la différence."
     }, {
-      q: "Gérez-vous le stationnement et les autorisations à Nice ?",
-      a: "Oui, on s'occupe de la demande d'autorisation de stationnement auprès de la Ville de Nice, créneaux de zones piétonnes compris, pour que le camion soit au plus près de votre porte."
+      q: "Faut-il une autorisation pour garer le camion à Nice ?",
+      a: "Oui, dès que vous occupez le domaine public, ce qui est le cas presque partout dans Nice. Trois régimes existent selon ce que vous occupez, avec des délais et des services différents : 5 jours ouvrés pour une place de stationnement, 7 pour une voie de circulation ou une zone piétonne. Nous nous en chargeons pour vous. La signalisation réglementaire, en revanche, n'est pas fournie par la Ville : elle se loue auprès d'un professionnel et se pose la veille."
     }, {
-      q: "Un déménagement dans Nice prend combien de temps ?",
-      a: "Pour un studio ou un deux-pièces, souvent une demi-journée. Pour un appartement familial ou une villa, une journée complète. On vous donne une estimation réaliste dès le devis."
+      q: "Peut-on déménager dans le Vieux-Nice ?",
+      a: "Oui, mais pas librement. Le quartier est en zone piétonne à accès contrôlé par bornes escamotables. Il faut l'autorisation, demandée sept jours ouvrés à l'avance, et il faut appeler le centre de sécurité le jour même pour faire abaisser la borne. Un camion qui se présente sans cette double démarche repart. C'est la première cause de journée perdue dans ce quartier."
     }, {
-      q: "Faites-vous les déménagements longue distance au départ de Nice ?",
-      a: "Oui, c'est une grande partie de notre activité : Nice → Paris, Lyon, Marseille, mais aussi l'international vers la Suisse, l'Italie ou l'Espagne, avec la même équipe du départ à l'arrivée."
+      q: "Combien de temps dure un déménagement dans Nice ?",
+      a: "Une demi-journée pour un studio ou un deux-pièces avec ascenseur. Une journée pleine pour un trois ou quatre-pièces. Une maison avec cave et garage peut demander deux jours. Ce qui allonge une journée à Nice, ce n'est jamais la distance : c'est l'escalier, le portage et le stationnement."
     }, {
-      q: "Le devis peut-il changer le jour du déménagement ?",
-      a: "Non. Le prix annoncé est le prix payé. On chiffre à partir du volume et des accès réels (étage, ascenseur, distance de portage), et c'est écrit noir sur blanc."
+      q: "Quand faut-il s'y prendre pour réserver ?",
+      a: "Deux à trois semaines en période normale, quatre à six pour une fin de mois entre juin et septembre. Les samedis de fin août sont les dates les plus demandées de l'année. L'autorisation de stationnement, elle, ne se demande qu'à cinq ou sept jours : c'est nous qui la déposons, une fois la date bloquée."
+    }, {
+      q: "Où trouver des cartons à Nice ?",
+      a: "Nous les livrons avec les formules Premium et Luxe. En Standard, ils sont vendus à prix coûtant et livrés avant le déménagement. Les commerces de quartier en donnent souvent, mais attention : un carton de supermarché a déjà servi, il est rarement assez solide pour des livres ou de la vaisselle, et il cède au portage. C'est la fausse économie la plus courante."
+    }, {
+      q: "Que faire des meubles dont on ne veut plus ?",
+      a: "La Métropole Nice Côte d'Azur assure le ramassage des encombrants sur rendez-vous, et plusieurs déchetteries sont accessibles aux particuliers sur présentation d'un justificatif de domicile. Nous pouvons aussi vider le logement entièrement : c'est notre prestation de débarras, chiffrée à part et souvent combinée au déménagement le même jour."
+    }, {
+      q: "Intervenez-vous en dehors de Nice ?",
+      a: "Oui, sur toute la Côte d'Azur et dans toute la France. Notre corridor habituel va de Villeneuve-Loubet à Menton, en passant par Villefranche, Beaulieu, Saint-Jean-Cap-Ferrat, Èze, Cap-d'Ail, Beausoleil et Roquebrune. Les longues distances au départ de Nice représentent une grande partie de notre activité : Paris, Lyon, Marseille, Toulouse, Bordeaux."
     }],
     nearby: ["saint-laurent-du-var", "cagnes-sur-mer", "villefranche-sur-mer", "beaulieu-sur-mer", "saint-jean-cap-ferrat"]
   },
@@ -254,7 +263,7 @@ const CITIES = {
       q: "Le prix est-il ferme malgré les accès difficiles ?",
       a: "Oui. Les escaliers, le portage, le monte-meuble éventuel et la frontière sont intégrés au devis. Le prix annoncé est le prix payé."
     }],
-    nearby: ["roquebrune-cap-martin", "monaco", "beausoleil"]
+    nearby: ["roquebrune-cap-martin", "monaco", "beausoleil", "nice"]
   },
   "grasse": {
     name: "Grasse",
@@ -304,7 +313,7 @@ const CITIES = {
       q: "Un déménagement Grasse vers la côte ou plus loin, c'est possible ?",
       a: "Bien sûr : local vers Cannes, Nice et tout le bassin, ou longue distance partout en France et à l'international, avec la même équipe du départ à l'arrivée."
     }],
-    nearby: ["le-cannet", "cannes", "mandelieu"]
+    nearby: ["le-cannet", "cannes", "mandelieu", "antibes"]
   },
   "cagnes-sur-mer": {
     name: "Cagnes-sur-Mer",
@@ -463,7 +472,7 @@ const CITIES = {
       q: "Le devis est-il ferme ?",
       a: "Oui, prix ferme. On chiffre selon le volume et les accès réels, sans supplément surprise le jour du déménagement."
     }],
-    nearby: ["cagnes-sur-mer", "nice", "villeneuve-loubet"]
+    nearby: ["cagnes-sur-mer", "nice", "villeneuve-loubet", "antibes"]
   },
   "mandelieu": {
     name: "Mandelieu-la-Napoule",
@@ -513,7 +522,7 @@ const CITIES = {
       q: "Le prix est-il ferme malgré les accès variés ?",
       a: "Oui. Quais, lacets, transbordement éventuel et étages sont intégrés au devis, qui est détaillé et définitif."
     }],
-    nearby: ["cannes", "le-cannet", "grasse"]
+    nearby: ["cannes", "le-cannet", "grasse", "antibes"]
   },
   "beausoleil": {
     name: "Beausoleil",
@@ -937,7 +946,7 @@ const CITIES = {
       q: "Faut-il prévenir le syndic à l'avance ?",
       a: "Oui, surtout à la Marina : la réservation d'ascenseur se fait quelques jours avant, sinon le créneau peut être déjà pris."
     }],
-    nearby: ["cagnes-sur-mer", "antibes", "saint-laurent-du-var"]
+    nearby: ["cagnes-sur-mer", "antibes", "saint-laurent-du-var", "nice"]
   }
 };
 function getCity(slug) {

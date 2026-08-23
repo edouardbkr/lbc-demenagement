@@ -223,7 +223,9 @@ function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-ville');
   const c = getCity(slug);
-  React.useEffect(() => {document.title = "Déménagement " + c.name + " — Devis gratuit 24h · LBC Déménagement";}, [c]);
+  // Le <title> vient du HTML, pose par gen-villes-seo.js. Il etait reecrit ici au
+  // chargement par une formule generique identique sur les dix-huit pages, et comme
+  // Google execute le JavaScript, c'est celle-la qu'il indexait.
   return (
     <React.Fragment>
       <Nav />
