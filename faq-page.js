@@ -11,7 +11,7 @@ const FAQS = [{
 }, {
   cat: "Devis & prix",
   q: "Comment fixez-vous le prix ?",
-  a: "Sur trois critères objectifs : le volume à déménager (en m³), la distance entre les deux adresses, et la formule choisie (Coup de main, Mains libres ou Mains dans les poches). S'ajoutent les contraintes d'accès : étage, ascenseur, distance de portage, autorisation de stationnement. Le devis détaille chaque ligne — vous savez exactement ce que vous payez."
+  a: "Sur trois critères objectifs : le volume à déménager (en m³), la distance entre les deux adresses, et la formule choisie (Standard, Premium ou Luxe). S'ajoutent les contraintes d'accès : étage, ascenseur, distance de portage, autorisation de stationnement. Le devis détaille chaque ligne — vous savez exactement ce que vous payez."
 }, {
   cat: "Devis & prix",
   q: "Le prix annoncé peut-il changer le jour J ?",
@@ -35,23 +35,23 @@ const FAQS = [{
 }, {
   cat: "Nos formules",
   q: "Quelles sont vos formules ?",
-  a: "Trois, du plus autonome au tout compris : Coup de main (l'essentiel), Mains libres (le confort, la plus demandée) et Mains dans les poches (le clé en main de A à Z). Chacune reprend la précédente et ajoute du service."
+  a: "Trois, du plus autonome au tout compris : Standard (l'essentiel), Premium (le confort, la plus demandée) et Luxe (le clé en main de A à Z). Chacune reprend la précédente et ajoute du service."
 }, {
   cat: "Nos formules",
-  q: "Que comprend la formule Coup de main ?",
+  q: "Que comprend la formule Standard ?",
   a: "L'essentiel bien fait : transport avec véhicule adapté, chargement et déchargement par notre équipe, déménagement local ou longue distance, et assurance incluse. Vous préparez vos cartons, on gère le muscle, la route et la casse."
 }, {
   cat: "Nos formules",
-  q: "Que comprend la formule Mains libres ?",
-  a: "Tout le Coup de main, plus : emballage des objets fragiles par notre équipe, protection intégrale du mobilier (couvertures, housses, film), démontage et remontage des meubles, et manutention sécurisée. C'est notre formule la plus choisie."
+  q: "Que comprend la formule Premium ?",
+  a: "Tout le Standard, plus : emballage des objets fragiles par notre équipe, protection intégrale du mobilier (couvertures, housses, film), démontage et remontage des meubles, et manutention sécurisée. C'est notre formule la plus choisie."
 }, {
   cat: "Nos formules",
-  q: "Que comprend la formule Mains dans les poches ?",
-  a: "Le grand jeu : tout Mains libres, plus l'emballage de la totalité de vos cartons (objets fragiles compris), le déballage et la mise en place à l'arrivée, et une protection spécifique des objets précieux, œuvres d'art et vaisselle. Vous arrivez les mains dans les poches."
+  q: "Que comprend la formule Luxe ?",
+  a: "Le grand jeu : tout Premium, plus l'emballage de la totalité de vos cartons (objets fragiles compris), le déballage et la mise en place à l'arrivée, et une protection spécifique des objets précieux, œuvres d'art et vaisselle. Vous arrivez les Luxe."
 }, {
   cat: "Nos formules",
   q: "Quelle formule choisir ?",
-  a: "Dans le doute, prenez Mains libres : c'est le meilleur rapport confort/prix pour la plupart des déménagements. On ajuste ensemble au moment du devis selon votre temps disponible et votre budget."
+  a: "Dans le doute, prenez Premium : c'est le meilleur rapport confort/prix pour la plupart des déménagements. On ajuste ensemble au moment du devis selon votre temps disponible et votre budget."
 }, {
   cat: "Nos formules",
   q: "Puis-je changer de formule après le devis ?",
@@ -75,7 +75,7 @@ const FAQS = [{
 }, {
   cat: "Le jour J",
   q: "Démontez-vous les meubles ?",
-  a: "Oui, dès la formule Mains libres : démontage au départ, remontage à l'arrivée. Lit, armoire, dressing, table — on s'occupe de tout, revissé comme il faut. La visserie est repérée et conservée pièce par pièce."
+  a: "Oui, dès la formule Premium : démontage au départ, remontage à l'arrivée. Lit, armoire, dressing, table — on s'occupe de tout, revissé comme il faut. La visserie est repérée et conservée pièce par pièce."
 }, {
   cat: "Le jour J",
   q: "Et s'il pleut le jour J ?",
@@ -87,7 +87,7 @@ const FAQS = [{
 }, {
   cat: "Emballage & objets spéciaux",
   q: "Dois-je emballer moi-même mes cartons ?",
-  a: "Cela dépend de la formule. En Coup de main et Mains libres, vous préparez vos cartons (on protège le mobilier et on démonte). En Mains dans les poches, notre équipe emballe absolument tout pour vous, objets fragiles compris."
+  a: "Cela dépend de la formule. En Standard et Premium, vous préparez vos cartons (on protège le mobilier et on démonte). En Luxe, notre équipe emballe absolument tout pour vous, objets fragiles compris."
 }, {
   cat: "Emballage & objets spéciaux",
   q: "Fournissez-vous les cartons et le matériel ?",
@@ -107,7 +107,7 @@ const FAQS = [{
 }, {
   cat: "Emballage & objets spéciaux",
   q: "Gérez-vous les œuvres d'art et la vaisselle précieuse ?",
-  a: "Oui, avec un emballage renforcé sur mesure (caisses, mousse, coins de protection) et une assurance valeur déclarée pour les pièces de grande valeur. C'est inclus en formule Mains dans les poches."
+  a: "Oui, avec un emballage renforcé sur mesure (caisses, mousse, coins de protection) et une assurance valeur déclarée pour les pièces de grande valeur. C'est inclus en formule Luxe."
 }, {
   cat: "Emballage & objets spéciaux",
   q: "Transportez-vous les plantes et l'électroménager ?",

@@ -96,7 +96,7 @@
 
        LE BARÈME RETENU, DONNÉ PAR EDOUARD
 
-       Coup de main  35 à 50 €/m³      Mains libres  50 à 70 €/m³
+       Standard  35 à 50 €/m³      Premium  50 à 70 €/m³
 
        LA FOURCHETTE EST LA GRILLE — précision d'Edouard du 6 août 2026
 
@@ -108,14 +108,14 @@
        LE PLANCHER, ET POURQUOI IL EST INDISPENSABLE
 
        Appliquée telle quelle, la règle donnerait 6 × 50 = 300 € pour un studio en
-       Mains libres. Une demi-journée à deux ne se vend pas 300 €. En dessous d'une
+       Premium. Une demi-journée à deux ne se vend pas 300 €. En dessous d'une
        douzaine de m³, c'est donc le plancher qui prend le relais.
 
        Ces quatre nombres recoupent TOUS les repères donnés par Edouard :
-         6 m³ Mains libres  → 550 €  (le prix qu'il a lui-même facturé à Axel)
-        12 m³ Mains libres  → 600 à 840 €, milieu 720 €  (il annonçait 700 €)
-        20 m³ Coup de main  → 700 à 1 000 €, milieu 850 €  (il annonçait 800-900 €)
-        40 m³ Mains libres  → à partir de 2 000 €  (il annonçait 2 000 € minimum)  */
+         6 m³ Premium  → 550 €  (le prix qu'il a lui-même facturé à Axel)
+        12 m³ Premium  → 600 à 840 €, milieu 720 €  (il annonçait 700 €)
+        20 m³ Standard  → 700 à 1 000 €, milieu 850 €  (il annonçait 800-900 €)
+        40 m³ Premium  → à partir de 2 000 €  (il annonçait 2 000 € minimum)  */
     /* ── BAISSE DU 9 AOÛT 2026, DÉCIDÉE PAR EDOUARD ──────────────────────────
        Le marché ne suit plus sur les volumes moyens : un 30 m³ à 155 km sortait à
        1 530 € alors qu'il fallait viser 1 300 à 1 600 €. On baisse donc le tarif au m³,
@@ -134,13 +134,13 @@
        ⚠️ Doit rester identique à I_GRILLE et I_SEUIL_2E_CAMION dans interne.jsx (cockpit).  */
     seuilDeuxiemeCamionM3: 32,
     grilleFormule: {
-      standard: { m3Bas: 30, m3Haut: 40, m3BasGros: 35, m3HautGros: 50, plancherBas: 638, plancherHaut: 850 },  // Coup de main
+      standard: { m3Bas: 30, m3Haut: 40, m3BasGros: 35, m3HautGros: 50, plancherBas: 638, plancherHaut: 850 },  // Standard
       /* ⚠️ PLANCHERS RELEVÉS LE 24 AOÛT 2026. Ils étaient à 550–750 € alors qu'aucun
          devis local n'est jamais parti en dessous de 700 € et que la médiane d'un studio
          est à 1 045 €. Un plancher trop bas ne fait pas gagner de client : il fait
          afficher un prix qu'on ne pratique pas, et le vrai devis paraît ensuite gonflé. */
-      premium:  { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 850, plancherHaut: 1148 }, // Mains libres
-      luxe:     { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 950, plancherHaut: 1280 }  // chiffré sur Mains libres
+      premium:  { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 850, plancherHaut: 1148 }, // Premium
+      luxe:     { m3Bas: 40, m3Haut: 60, m3BasGros: 50, m3HautGros: 70, plancherBas: 950, plancherHaut: 1280 }  // chiffré sur Premium
     },
 
     /* ── LE KILOMÈTRE ────────────────────────────────────────────────────────
@@ -395,7 +395,7 @@
      l'arrivée. Si le client ne veut que le démontage, compter 40 % (le remontage est
      la partie longue).
 
-     `courant: true` = compris dans la formule « Mains libres », qui annonce le
+     `courant: true` = compris dans la formule « Premium », qui annonce le
      démontage/remontage du mobilier courant. `false` = facturé en plus dans TOUTES
      les formules, parce que ce sont des chantiers à part entière : un dressing sur
      mesure, c'est 3 h 30 à deux, on ne peut pas l'offrir sans le savoir.
@@ -428,7 +428,7 @@
   ];
   const DEMONTAGE_DEFAUT = 80;
 
-  // Tarif d'un meuble à démonter, et s'il est compris dans « Mains libres ».
+  // Tarif d'un meuble à démonter, et s'il est compris dans « Premium ».
   function tarifDemontage(label) {
     const s = String(label || '').toLowerCase();
     for (let i = 0; i < DEMONTAGE_TARIF.length; i++) {
@@ -441,12 +441,12 @@
   //   o.demontage = { "Lit coffre": 1, "Dressing à portes coulissantes": 2, … }
   //   formule     = celle retenue pour l'estimation (voir formuleEstimee)
   //
-  // « Coup de main » ne comprend aucun démontage : tout est facturé. « Mains libres »
+  // « Standard » ne comprend aucun démontage : tout est facturé. « Premium »
   // comprend le mobilier courant : seuls les postes lourds s'ajoutent.
   function supplementDemontage(demontage, formule) {
     const lignes = [];
     let total = 0;
-    const toutFacture = (formule === 'standard');   // site 'standard' = Coup de main
+    const toutFacture = (formule === 'standard');   // site 'standard' = Standard
     Object.keys(demontage || {}).forEach((label) => {
       const q = Number(demontage[label]) || 0;
       if (q <= 0) return;
@@ -724,10 +724,10 @@
     // urbaine minimale que zéro kilomètre de carburant.
     const km = distanceFiable ? Math.max(3, Math.round(o.km)) : CFG.kmParDefaut;
 
-    // « Mains dans les poches » (luxe) N'EST PAS ESTIMABLE automatiquement. Son prix
+    // « Luxe » (luxe) N'EST PAS ESTIMABLE automatiquement. Son prix
     // dépend entièrement de ce qu'il y a à emballer — vaisselle, fragiles, nombre réel
     // de cartons — et personne ne peut le savoir sans l'avoir vu. On estime donc sur
-    // la formule juste en dessous, « Mains libres », et on le DIT au client, plutôt
+    // la formule juste en dessous, « Premium », et on le DIT au client, plutôt
     // que d'annoncer un chiffre qu'il faudrait renier après la visite.
     // Celui qui affiche ce résultat doit reprendre `visioRequise` et l'expliquer.
     const formuleEstimee = (o.formule === 'luxe') ? 'premium' : o.formule;
@@ -809,8 +809,8 @@
       // false = la distance n'a pas pu être calculée. Celui qui affiche ce résultat DOIT
       // masquer le prix dans ce cas, et proposer un rappel plutôt qu'un chiffre inventé.
       distanceFiable,
-      // true = le client a demandé « Mains dans les poches », mais la fourchette
-      // ci-dessus est celle de « Mains libres ». À NE JAMAIS afficher sans l'expliquer :
+      // true = le client a demandé « Luxe », mais la fourchette
+      // ci-dessus est celle de « Premium ». À NE JAMAIS afficher sans l'expliquer :
       // le prix de l'emballage se chiffre après une visio ou des photos.
       visioRequise,
       formuleEstimee,

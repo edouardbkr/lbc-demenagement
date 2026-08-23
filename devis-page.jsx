@@ -8,7 +8,7 @@ const { useState, useEffect, useRef } = React;
 
 // Cockpit LBC : le site ne parle JAMAIS à Supabase directement depuis le navigateur (bloqué par les
 // bloqueurs de pub → leads perdus). Tout passe par /api/lead, une fonction sur notre propre domaine.
-// Formules site → clés app (libellés identiques côté app : Coup de main / Mains libres / Mains dans les poches)
+// Formules site → clés app (libellés identiques côté app : Standard / Premium / Luxe)
 const FORMULE_TO_APP = { standard: "eco", premium: "standard", luxe: "premium" };
 /* ⚠️ TABLE RETIRÉE LE 15 AOÛT 2026, NE PAS LA RÉTABLIR.
    Elle traduisait un type de logement en volume à l'étape 1. Ce volume n'était pas celui
@@ -114,8 +114,8 @@ function sendToCockpit(all, opts) {
                ". Probablement rempli à moitié : refaire l'inventaire au téléphone.";
       return "";
     })(),
-    // Le client a demandé « Mains dans les poches » : la fourchette ci-dessus est celle de
-    // « Mains libres », et il en a été prévenu à l'écran. Le prix de l'emballage se chiffre
+    // Le client a demandé « Luxe » : la fourchette ci-dessus est celle de
+    // « Premium », et il en a été prévenu à l'écran. Le prix de l'emballage se chiffre
     // après visio. Sans cette note, on risquerait de facturer l'emballage au prix affiché.
     // Le détail du démontage, ligne par ligne, avec ce qui a été facturé et ce qui est
     // compris dans la formule. Sans ce détail, impossible de savoir en reprenant la fiche
@@ -337,7 +337,7 @@ function etapeInitiale(PRE) {
   return (PRE.etape === "2" && complet) ? 1 : 0;
 }
 const SURFACE_LABEL = { studio: "Studio (< 30 m²)", t2: "2 pièces (30–50 m²)", t3: "3 pièces (50–80 m²)", t4: "4 pièces + (80 m² +)" };
-const FORMULE_LABEL = { standard: "Coup de main", premium: "Mains libres", luxe: "Mains dans les poches" };
+const FORMULE_LABEL = { standard: "Standard", premium: "Premium", luxe: "Luxe" };
 
 // Detailed access block per address (étage, ascenseur, portage, accès camion)
 const ETAGE_OPTS = ["RDC", "1", "2", "3", "4", "5", "6", "7+"];
@@ -676,7 +676,7 @@ function DevisForm() {
     scrollToForm();
   };
   /* ⚠️ LE RAPPEL DOIT ÊTRE VISIBLE SANS FAIRE DÉFILER.
-     Il était placé APRÈS le prix et après la note « Mains dans les poches ». Sur mobile,
+     Il était placé APRÈS le prix et après la note « Luxe ». Sur mobile,
      le prospect voyait son prix puis un paragraphe d'explications, et devait faire défiler
      pour trouver le bouton. Or c'est à la seconde où il découvre son prix qu'il est le
      plus chaud : chaque geste supplémentaire lui laisse le temps d'aller voir ailleurs.
@@ -690,7 +690,7 @@ function DevisForm() {
   const blocPrix = estim && estim.distanceFiable ? (
     <div className="ds-price">
       <span className="ds-price-label">
-        {estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"}
+        {estim.visioRequise ? "Votre déménagement, formule Premium" : "Votre déménagement"}
       </span>
       <div className="ds-price-range">
         <span>{estim.bas.toLocaleString("fr-FR")}<span className="cur">€</span></span>
@@ -755,16 +755,16 @@ function DevisForm() {
                       grille des créneaux. Le prix arrive à la seconde où le prospect hésite
                       entre « appelez-moi maintenant » et « je choisis une heure ». */}
                   {blocRappel}
-                  {/* « Mains dans les poches » n'est pas estimable en ligne : le prix dépend
+                  {/* « Luxe » n'est pas estimable en ligne : le prix dépend
                       de ce qu'il y a à emballer, et l'annoncer au jugé revient à le renier
                       après la visite. On le dit franchement, juste en dessous. Un client
                       prévenu accepte la visio ; un client qui découvre l'écart s'en va. */}
                   {estim && estim.distanceFiable && estim.visioRequise ?
                   <div className="ds-note-visio">
                     <p>
-                      <strong>Vous avez choisi Mains dans les poches</strong>, où nous faisons
+                      <strong>Vous avez choisi Luxe</strong>, où nous faisons
                       aussi tous vos cartons. Le montant ci-dessus est celui de la formule{" "}
-                      <strong>Mains libres</strong>&nbsp;: il ne comprend pas encore l'emballage.
+                      <strong>Premium</strong>&nbsp;: il ne comprend pas encore l'emballage.
                     </p>
                     <p>
                       Ce chiffrage-là dépend entièrement de ce que vous avez à emballer, et nous
@@ -877,19 +877,19 @@ function DevisForm() {
                     <label>Formule souhaitée</label>
                     <div className="formule-cards">
                       <FormuleOption
-                      value="standard" name="Coup de main" tag="L'essentiel, bien fait."
+                      value="standard" name="Standard" tag="L'essentiel, bien fait."
                       items={["Transport & véhicule adapté", "Chargement & déchargement par l'équipe", "Déménagement local ou longue distance", "Assurance incluse"]}
                       selected={data.formule === 'standard'} onSelect={(v) => set('formule', v)} />
                       <FormuleOption
-                      value="premium" name="Mains libres" badge="Le plus demandé" tag="Le confort, sans le stress."
+                      value="premium" name="Premium" badge="Le plus demandé" tag="Le confort, sans le stress."
                       items={["Protection intégrale du mobilier", "Démontage & remontage des meubles", "Emballage des objets fragiles", "Assurance incluse"]}
                       selected={data.formule === 'premium'} onSelect={(v) => set('formule', v)} />
                       <FormuleOption
-                      value="luxe" name="Mains dans les poches" tag="Clé en main, de A à Z."
+                      value="luxe" name="Luxe" tag="Clé en main, de A à Z."
                       items={["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"]}
                       selected={data.formule === 'luxe'} onSelect={(v) => set('formule', v)} />
                     </div>
-                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Mains libres</strong>. On ajuste ensemble au moment du devis. <a href="Formules" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
+                    <span className="hint" style={{ marginTop: 12 }}>Pas certain ? Prenez <strong>Premium</strong>. On ajuste ensemble au moment du devis. <a href="Formules" target="_blank" rel="noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>Comparatif détaillé →</a></span>
                     <span className="hint" style={{ marginTop: 8 }}>💳 Bon à savoir : votre <strong>déménagement est payable en 3× sans frais</strong> avec Klarna, au moment de la prestation et seulement si vous le souhaitez. <strong>Le devis, lui, est 100&nbsp;% gratuit</strong>, sans engagement ni carte bancaire.</span>
                   </div>
                   <div className="lf full">

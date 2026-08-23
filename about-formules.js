@@ -257,7 +257,7 @@ function Formule({
     className: tier >= 3 ? "on" : ""
   })), React.createElement("div", {
     className: "formula-level"
-  }, ["Niveau 1 · Économique", "Niveau 2 · Confort", "Niveau 3 · Clé en main"][tier - 1]), React.createElement("div", {
+  }, ["Niveau 1 · Économique", "Niveau 2 · Premium", "Niveau 3 · Clé en main"][tier - 1]), React.createElement("div", {
     className: "formula-name"
   }, name), React.createElement("div", {
     className: "formula-tag"
@@ -294,7 +294,7 @@ function Formules({
   const tiers = [{
     key: "standard",
     tier: 1,
-    name: "Coup de main",
+    name: "Standard",
     tag: "L'essentiel, bien fait.",
     pitch: "Vous gérez vos cartons, on gère le muscle, la route et la casse. Le déménagement sans superflu, fait dans les règles.",
     ideal: "les petits budgets et celles et ceux qui aiment mettre la main à la pâte.",
@@ -303,22 +303,22 @@ function Formules({
   }, {
     key: "premium",
     tier: 2,
-    name: "Mains libres",
+    name: "Premium",
     tag: "Le confort, sans le stress.",
     pitch: "Notre formule la plus demandée. On protège, on démonte, on remonte — vous n'avez plus qu'à ouvrir la porte.",
     ideal: "un déménagement serein, sans vous fatiguer ni rien casser.",
     icon: React.createElement(IconShield, null),
-    inherits: "Coup de main",
+    inherits: "Standard",
     items: ["Emballage des objets fragiles par notre équipe", "Protection intégrale du mobilier (couvertures, housses, film)", "Démontage et remontage des meubles", "Manutention soignée et sécurisée"]
   }, {
     key: "luxe",
     tier: 3,
-    name: "Mains dans les poches",
+    name: "Luxe",
     tag: "Vous ne touchez à rien. On s'occupe de tout.",
-    pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous arrivez les mains dans les poches.",
+    pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous arrivez les Luxe.",
     ideal: "les agendas chargés et les biens précieux ou volumineux.",
     icon: React.createElement(IconDiamond, null),
-    inherits: "Mains libres",
+    inherits: "Premium",
     items: ["Emballage de tous vos cartons, objets fragiles compris", "Déballage complet et mise en place à l'arrivée", "Protection spécifique des objets précieux, œuvres d'art, vaisselle", "Service clé en main de A à Z"]
   }];
   React.useEffect(() => {

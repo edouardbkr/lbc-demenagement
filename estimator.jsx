@@ -22,9 +22,9 @@ const EST_DIST = [
 { key: "national", label: "National", sub: "Toute la France", km: 750 }];
 
 const EST_FORM = [
-{ key: "standard", label: "Coup de main" },
-{ key: "premium", label: "Mains libres" },
-{ key: "luxe", label: "Mains dans les poches" }];
+{ key: "standard", label: "Standard" },
+{ key: "premium", label: "Premium" },
+{ key: "luxe", label: "Luxe" }];
 
 // Rolling number that eases toward its target
 function RollingNum({ value }) {
@@ -70,7 +70,7 @@ function Estimator() {
     window.LBC_PRICING.estimer({ surface: surface, formule: form, km: d.km }) : null;
   const low = est ? est.bas : 0;
   const high = est ? est.haut : 0;
-  /* « Mains dans les poches » affichait EXACTEMENT la même fourchette que « Mains
+  /* « Luxe » affichait EXACTEMENT la même fourchette que « Mains
      libres » : la grille la chiffre sur celle-ci, parce que l'emballage complet ne se
      devine pas sans voir le logement. Le visiteur, lui, cliquait sur la formule la plus
      chère, ne voyait pas le prix bouger d'un euro, et en concluait soit que l'emballage

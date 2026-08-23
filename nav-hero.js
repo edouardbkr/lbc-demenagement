@@ -149,7 +149,7 @@ function Hero({
     "aria-hidden": "true"
   }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("span", null, React.createElement("b", null, AVIS_GOOGLE.note), " sur Google \xB7 ", AVIS_GOOGLE.nombre, " avis")), React.createElement("ul", {
     className: "hero-faits"
-  }, React.createElement("li", null, "Assur\xE9 8 000 \u20AC par objet \u2014 franchise \xE0 notre charge"), React.createElement("li", null, "Aucun suppl\xE9ment le jour J, jamais"), React.createElement("li", null, "Cr\xE9neau d'arriv\xE9e pr\xE9cis, pas une demi-journ\xE9e d'attente"))), React.createElement("div", {
+  }, React.createElement("li", null, "Chaque objet assur\xE9 jusqu'\xE0 8 000 \u20AC, la franchise, c'est pour nous"), React.createElement("li", null, "Le prix du devis est le prix final. Aucun suppl\xE9ment le jour J"), React.createElement("li", null, "Un cr\xE9neau d'arriv\xE9e \xE0 l'heure pr\xE8s, pas une demi-journ\xE9e"))), React.createElement("div", {
     className: "hero-ctas"
   }, React.createElement("a", {
     href: "Formules",

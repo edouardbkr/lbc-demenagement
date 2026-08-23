@@ -94,7 +94,7 @@ const CITIES = {
       a: "Oui, avec portage, véhicule relais et monte-meuble adaptés aux ruelles en escaliers du vieux Cannes. C'est chiffré dès le devis."
     }, {
       q: "Déménagez-vous les villas de La Californie ?",
-      a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Mains dans les poches."
+      a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Luxe."
     }, {
       q: "Un déménagement Cannes vers Nice ou Paris, vous le faites ?",
       a: "Bien sûr : local sur tout le bassin cannois, et longue distance vers Nice, Paris, Lyon ou l'international, avec une seule équipe du départ à l'arrivée."
@@ -115,7 +115,7 @@ const CITIES = {
       d: "Portage optimisé et stationnement réservé dans les ruelles du Vieil Antibes et autour du marché Provençal, avec monte-meuble quand l'accès l'exige."
     }, {
       t: "Villas du Cap",
-      d: "Mobilier de valeur, œuvres d'art, grands volumes : protection spécifique sur mesure et assurance renforcée en formule Mains dans les poches."
+      d: "Mobilier de valeur, œuvres d'art, grands volumes : protection spécifique sur mesure et assurance renforcée en formule Luxe."
     }, {
       t: "Saison à Juan-les-Pins",
       d: "On évite les pics estivaux du front de mer et de la pinède pour un déménagement fluide, sans rester coincé dans la circulation balnéaire."

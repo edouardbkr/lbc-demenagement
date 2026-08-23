@@ -134,7 +134,7 @@ function Formule({ tier, name, tag, pitch, items, inherits, recommended, icon, i
         <i className={tier >= 2 ? "on" : ""}></i>
         <i className={tier >= 3 ? "on" : ""}></i>
       </div>
-      <div className="formula-level">{["Niveau 1 · Économique", "Niveau 2 · Confort", "Niveau 3 · Clé en main"][tier - 1]}</div>
+      <div className="formula-level">{["Niveau 1 · Économique", "Niveau 2 · Premium", "Niveau 3 · Clé en main"][tier - 1]}</div>
       <div className="formula-name">{name}</div>
       <div className="formula-tag">« {tag} »</div>
       {pitch && <p className="formula-pitch">{pitch}</p>}
@@ -165,7 +165,7 @@ function Formules({ recommendedTier }) {
   {
     key: "standard",
     tier: 1,
-    name: "Coup de main",
+    name: "Standard",
     tag: "L'essentiel, bien fait.",
     pitch: "Vous gérez vos cartons, on gère le muscle, la route et la casse. Le déménagement sans superflu, fait dans les règles.",
     ideal: "les petits budgets et celles et ceux qui aiment mettre la main à la pâte.",
@@ -180,12 +180,12 @@ function Formules({ recommendedTier }) {
   {
     key: "premium",
     tier: 2,
-    name: "Mains libres",
+    name: "Premium",
     tag: "Le confort, sans le stress.",
     pitch: "Notre formule la plus demandée. On protège, on démonte, on remonte — vous n'avez plus qu'à ouvrir la porte.",
     ideal: "un déménagement serein, sans vous fatiguer ni rien casser.",
     icon: <IconShield />,
-    inherits: "Coup de main",
+    inherits: "Standard",
     items: [
     "Emballage des objets fragiles par notre équipe",
     "Protection intégrale du mobilier (couvertures, housses, film)",
@@ -196,12 +196,12 @@ function Formules({ recommendedTier }) {
   {
     key: "luxe",
     tier: 3,
-    name: "Mains dans les poches",
+    name: "Luxe",
     tag: "Vous ne touchez à rien. On s'occupe de tout.",
-    pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous arrivez les mains dans les poches.",
+    pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous arrivez les Luxe.",
     ideal: "les agendas chargés et les biens précieux ou volumineux.",
     icon: <IconDiamond />,
-    inherits: "Mains libres",
+    inherits: "Premium",
     items: [
     "Emballage de tous vos cartons, objets fragiles compris",
     "Déballage complet et mise en place à l'arrivée",

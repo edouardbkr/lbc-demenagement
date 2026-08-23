@@ -180,7 +180,7 @@ const ARTICLES = [
           <li><strong>La livraison et l'installation à Paris</strong> : une demi-journée à une journée (déchargement, remontage, mise en place).</li>
         </ul>
         <h3>Les scénarios selon la formule</h3>
-        <p>En formule <a href="Formules">Coup de main</a>, où vous gérez vos cartons, le déménagement se concentre souvent sur <strong>2 jours</strong> : chargement le jour 1, route et livraison le lendemain. En <strong>Mains libres</strong> ou <strong>Mains dans les poches</strong>, où l'on emballe et déballe, comptez plutôt <strong>2 à 3 jours</strong> au total, emballage et installation compris. En <a href="Demenagement-Nice-Paris">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire.</p>
+        <p>En formule <a href="Formules">Standard</a>, où vous gérez vos cartons, le déménagement se concentre souvent sur <strong>2 jours</strong> : chargement le jour 1, route et livraison le lendemain. En <strong>Premium</strong> ou <strong>Luxe</strong>, où l'on emballe et déballe, comptez plutôt <strong>2 à 3 jours</strong> au total, emballage et installation compris. En <a href="Demenagement-Nice-Paris">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire.</p>
 
         <h2>Camion dédié ou groupage : la différence qui change tout</h2>
         <p>C'est le point que beaucoup découvrent trop tard. Deux modèles s'opposent :</p>
@@ -197,7 +197,7 @@ const ARTICLES = [
         <p>Plutôt qu'un prix unique, retenez les leviers qui font monter ou baisser la facture. C'est exactement ce que chiffre votre devis :</p>
         <ul>
           <li><strong>Le volume</strong> en m³ : c'est le premier facteur. Trier et alléger avant de partir fait mécaniquement baisser le coût.</li>
-          <li><strong>La formule</strong> : du simple transport (Coup de main) au clé en main avec emballage et déballage complets (Mains dans les poches).</li>
+          <li><strong>La formule</strong> : du simple transport (Standard) au clé en main avec emballage et déballage complets (Luxe).</li>
           <li><strong>Les accès</strong> aux deux adresses : étage, présence et taille de l'ascenseur, distance de portage, monte-meuble éventuel.</li>
           <li><strong>La saison et la date</strong> : juin à septembre, fins de mois et week-ends sont plus demandés, donc plus tendus.</li>
           <li><strong>Les options</strong> : garde-meuble relais, démontage/remontage, emballage des fragiles, assurance en valeur déclarée.</li>
@@ -239,7 +239,7 @@ const ARTICLES = [
         <h3>Mes affaires sont-elles assurées sur les 930 km ?</h3>
         <p>Oui, une assurance est incluse dans chaque formule, du chargement à la livraison. Pour les objets de valeur, on propose une couverture en valeur déclarée.</p>
         <h3>Et si je déménage juste un studio ?</h3>
-        <p>Le trajet reste possible et chiffré au plus juste selon votre petit volume. La formule Coup de main est souvent la plus adaptée pour un studio.</p>
+        <p>Le trajet reste possible et chiffré au plus juste selon votre petit volume. La formule Standard est souvent la plus adaptée pour un studio.</p>
 
         <p>Pour passer à l'action, consultez la page <a href="Demenagement-Nice-Paris">déménagement Nice → Paris</a>, lisez notre <a href="Article-demenagement-nice-paris-reussir">guide complet pour réussir son Nice-Paris</a>, et demandez votre <a href="Devis">devis gratuit sous 24h</a> : on s'occupe de tout, du premier carton niçois à la dernière étagère parisienne.</p>
       </React.Fragment>
@@ -276,9 +276,9 @@ const ARTICLES = [
         <h2>Choisir la bonne formule pour un Nice-Paris</h2>
         <p>Sur un trajet aussi long, le choix de la formule change tout, en confort comme en budget :</p>
         <ul>
-          <li><strong>Coup de main</strong> — vous emballez vos cartons, on gère le muscle, le transport et le déchargement. Le plus économique, idéal pour les petits budgets et les studios.</li>
-          <li><strong>Mains libres</strong> — on protège, on emballe les fragiles, on démonte et on remonte. Le bon compromis pour un déménagement serein sans se fatiguer.</li>
-          <li><strong>Mains dans les poches</strong> — on s'occupe de tout, de l'emballage de la dernière assiette au remontage à l'arrivée. Pour les agendas chargés et les biens précieux.</li>
+          <li><strong>Standard</strong> — vous emballez vos cartons, on gère le muscle, le transport et le déchargement. Le plus économique, idéal pour les petits budgets et les studios.</li>
+          <li><strong>Premium</strong> — on protège, on emballe les fragiles, on démonte et on remonte. Le bon compromis pour un déménagement serein sans se fatiguer.</li>
+          <li><strong>Luxe</strong> — on s'occupe de tout, de l'emballage de la dernière assiette au remontage à l'arrivée. Pour les agendas chargés et les biens précieux.</li>
         </ul>
         <p>Le détail et le comparatif sont sur la page <a href="Formules">nos formules</a>.</p>
 
@@ -294,7 +294,7 @@ const ARTICLES = [
           <li><strong>Les écrans et l'électronique</strong> dans leur boîte d'origine si possible, sinon bien protégés et signalés « fragile ».</li>
           <li><strong>Étiquetez chaque carton par pièce de destination</strong> et notez son contenu : le déchargement à Paris en sera transformé.</li>
         </ul>
-        <p>En formule <a href="Formules">Mains libres ou Mains dans les poches</a>, l'équipe s'occupe de tout l'emballage, avec un matériel professionnel.</p>
+        <p>En formule <a href="Formules">Premium ou Luxe</a>, l'équipe s'occupe de tout l'emballage, avec un matériel professionnel.</p>
         <blockquote>Sur un long trajet, la qualité du chargement compte autant que la conduite. Entre Nice et Paris, rien ne doit bouger dans le camion.</blockquote>
 
         <h2>Démontage, remontage et protection des meubles</h2>
@@ -402,7 +402,7 @@ const ARTICLES = [
         <h2>À chaque profil sa formule</h2>
         <p>La Rochelle voit déménager des profils très variés, et chacun a sa solution :</p>
         <ul>
-          <li><strong>Étudiants</strong> — un studio aux Minimes se gère vite et à petit budget en formule <a href="Formules">Coup de main</a>, surtout à la rentrée.</li>
+          <li><strong>Étudiants</strong> — un studio aux Minimes se gère vite et à petit budget en formule <a href="Formules">Standard</a>, surtout à la rentrée.</li>
           <li><strong>Familles</strong> — une maison rochelaise en pierre demande plutôt une formule complète, avec démontage, protection et remontage.</li>
           <li><strong>Plaisanciers et résidences secondaires</strong> — déménagements partiels, mises en garde-meuble saisonnières, coordination à distance.</li>
           <li><strong>Retraités</strong> — emballage soigné du mobilier ancien, accompagnement à chaque étape.</li>
@@ -525,7 +525,7 @@ const ARTICLES = [
         <ul>
           <li><strong>Triez avant</strong> — les meubles fatigués ne valent pas le transport, donnez ou vendez.</li>
           <li><strong>Regroupez</strong> — si un ami déménage la même semaine, mutualiser le déplacement peut tout changer.</li>
-          <li><strong>Choisissez la bonne formule</strong> — en <a href="Formules">Coup de main</a>, vous emballez et on porte et transporte. Pour les meubles encombrants ou un étage sans ascenseur, on s'occupe du muscle.</li>
+          <li><strong>Choisissez la bonne formule</strong> — en <a href="Formules">Standard</a>, vous emballez et on porte et transporte. Pour les meubles encombrants ou un étage sans ascenseur, on s'occupe du muscle.</li>
         </ul>
 
         <h2>Garde-meuble entre deux années</h2>

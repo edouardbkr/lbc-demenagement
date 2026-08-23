@@ -113,7 +113,7 @@ function LRIntro() {
     style: {
       color: 'var(--ink)'
     }
-  }, "Coup de main, Mains libres ou Mains dans les poches"), " \u2014 vous b\xE9n\xE9ficiez de d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, d'une assurance compl\xE8te et d'un devis clair et d\xE9finitif. Chaque \xE9tape est \xE9crite au devis, et ce devis ne bouge plus."), React.createElement("div", {
+  }, "Standard, Premium ou Luxe"), " \u2014 vous b\xE9n\xE9ficiez de d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, d'une assurance compl\xE8te et d'un devis clair et d\xE9finitif. Chaque \xE9tape est \xE9crite au devis, et ce devis ne bouge plus."), React.createElement("div", {
     className: "hero-ctas",
     style: {
       marginTop: 32

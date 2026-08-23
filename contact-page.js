@@ -243,7 +243,7 @@ function ContactForm() {
   }, React.createElement("option", {
     value: "",
     disabled: true
-  }, "Choisir\u2026"), React.createElement("option", null, "Coup de main"), React.createElement("option", null, "Mains libres"), React.createElement("option", null, "Mains dans les poches"), React.createElement("option", null, "Entreprise / bureaux"))), React.createElement("div", {
+  }, "Choisir\u2026"), React.createElement("option", null, "Standard"), React.createElement("option", null, "Premium"), React.createElement("option", null, "Luxe"), React.createElement("option", null, "Entreprise / bureaux"))), React.createElement("div", {
     className: "lf full"
   }, React.createElement("label", {
     htmlFor: "c-message"

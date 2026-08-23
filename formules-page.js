@@ -13,7 +13,7 @@ function FormulesHero() {
     className: "sep"
   }, "/"), React.createElement("span", null, "Nos formules")), React.createElement("h1", null, "Trois formules, ", React.createElement("em", null, "une seule exigence.")), React.createElement("p", {
     className: "lede"
-  }, "Coup de main, Mains libres ou Mains dans les poches : vous choisissez jusqu'o\xF9 on va, jamais sur la qualit\xE9 du geste. Chaque formule reprend la pr\xE9c\xE9dente et y ajoute du travail en moins pour vous. ", React.createElement("span", {
+  }, "Standard, Premium ou Luxe : vous choisissez jusqu'o\xF9 on va, jamais sur la qualit\xE9 du geste. Chaque formule reprend la pr\xE9c\xE9dente et y ajoute du travail en moins pour vous. ", React.createElement("span", {
     className: "ast"
   }, "*"), "Dans les trois, l'assurance et le prix ferme sont inclus.")));
 }
@@ -125,15 +125,15 @@ function Compare() {
     style: {
       textAlign: 'center'
     }
-  }, "Coup de main"), React.createElement("th", {
+  }, "Standard"), React.createElement("th", {
     style: {
       textAlign: 'center'
     }
-  }, "Mains libres"), React.createElement("th", {
+  }, "Premium"), React.createElement("th", {
     style: {
       textAlign: 'center'
     }
-  }, "Mains dans les poches"))), React.createElement("tbody", null, COMPARE_ROWS.map((r, i) => React.createElement("tr", {
+  }, "Luxe"))), React.createElement("tbody", null, COMPARE_ROWS.map((r, i) => React.createElement("tr", {
     key: i
   }, React.createElement("td", null, r.label), React.createElement("td", {
     style: {
@@ -271,19 +271,19 @@ const FINDER_NEEDS = [{
 }];
 const FINDER_RESULT = [{
   key: "standard",
-  name: "Coup de main",
+  name: "Standard",
   tag: "L'essentiel, bien fait.",
   desc: "Vous gérez les cartons, on s'occupe du muscle, de la route et de la casse."
 }, {
   key: "premium",
-  name: "Mains libres",
+  name: "Premium",
   tag: "Le confort, sans le stress.",
   desc: "Emballage des fragiles, protection intégrale, démontage et remontage compris."
 }, {
   key: "luxe",
-  name: "Mains dans les poches",
+  name: "Luxe",
   tag: "Clé en main, de A à Z.",
-  desc: "On emballe tout, on déballe, on installe. Vous arrivez les mains dans les poches."
+  desc: "On emballe tout, on déballe, on installe. Vous arrivez les Luxe."
 }];
 function FormulaFinder() {
   const [sel, setSel] = React.useState([]);

@@ -170,13 +170,13 @@ function VilleFormules({
   c
 }) {
   const tiers = [{
-    n: "Coup de main",
+    n: "Standard",
     tag: "L'essentiel, bien fait."
   }, {
-    n: "Mains libres",
+    n: "Premium",
     tag: "Le confort, sans le stress."
   }, {
-    n: "Mains dans les poches",
+    n: "Luxe",
     tag: "On s'occupe de tout."
   }];
   return React.createElement("section", {

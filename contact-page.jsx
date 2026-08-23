@@ -205,9 +205,9 @@ function ContactForm() {
           <label htmlFor="c-type">Type de déménagement</label>
           <select id="c-type" name="type" defaultValue={presetType}>
             <option value="" disabled>Choisir…</option>
-            <option>Coup de main</option>
-            <option>Mains libres</option>
-            <option>Mains dans les poches</option>
+            <option>Standard</option>
+            <option>Premium</option>
+            <option>Luxe</option>
             <option>Entreprise / bureaux</option>
           </select>
         </div>

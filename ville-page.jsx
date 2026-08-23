@@ -91,9 +91,9 @@ function VilleSpecifics({ c }) {
 
 function VilleFormules({ c }) {
   const tiers = [
-  { n: "Coup de main", tag: "L'essentiel, bien fait." },
-  { n: "Mains libres", tag: "Le confort, sans le stress." },
-  { n: "Mains dans les poches", tag: "On s'occupe de tout." }];
+  { n: "Standard", tag: "L'essentiel, bien fait." },
+  { n: "Premium", tag: "Le confort, sans le stress." },
+  { n: "Luxe", tag: "On s'occupe de tout." }];
 
   return (
     <section className="sec">

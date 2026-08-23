@@ -63,7 +63,7 @@ function LRIntro() {
           <div className="about-copy reveal">
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur à La Rochelle</div>
             <p className="lead">La Rochelle, ses trois tours, son Vieux-Port et ses arcades médiévales, est une ville maritime au charme unique et aux accès parfois exigeants. Centre historique piéton et pavé, immeubles anciens sans ascenseur, plus grand port de plaisance d'Europe aux Minimes, et un pont vers les îles de Ré et d'Oléron : chaque secteur a ses contraintes, qu'on connaît et qu'on anticipe. On y déménage particuliers, étudiants, plaisanciers et entreprises, du studio au bord de l'eau à la maison rochelaise en pierre de taille.</p>
-            <p>Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Coup de main, Mains libres ou Mains dans les poches</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair et définitif. Chaque étape est écrite au devis, et ce devis ne bouge plus.</p>
+            <p>Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair et définitif. Chaque étape est écrite au devis, et ce devis ne bouge plus.</p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis" className="btn btn-primary">Devis gratuit à La Rochelle<span className="arrow">→</span></a>
               <a href="Formules" className="btn btn-ghost">Voir les formules</a>

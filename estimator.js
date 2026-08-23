@@ -40,13 +40,13 @@ const EST_DIST = [{
 }];
 const EST_FORM = [{
   key: "standard",
-  label: "Coup de main"
+  label: "Standard"
 }, {
   key: "premium",
-  label: "Mains libres"
+  label: "Premium"
 }, {
   key: "luxe",
-  label: "Mains dans les poches"
+  label: "Luxe"
 }];
 function RollingNum({
   value

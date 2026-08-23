@@ -335,9 +335,9 @@ const SURFACE_LABEL = {
   t4: "4 pièces + (80 m² +)"
 };
 const FORMULE_LABEL = {
-  standard: "Coup de main",
-  premium: "Mains libres",
-  luxe: "Mains dans les poches"
+  standard: "Standard",
+  premium: "Premium",
+  luxe: "Luxe"
 };
 const ETAGE_OPTS = ["RDC", "1", "2", "3", "4", "5", "6", "7+"];
 const ASC_OPTS = [{
@@ -702,7 +702,7 @@ function DevisForm() {
     className: "ds-price"
   }, React.createElement("span", {
     className: "ds-price-label"
-  }, estim.visioRequise ? "Votre déménagement, formule Mains libres" : "Votre déménagement"), React.createElement("div", {
+  }, estim.visioRequise ? "Votre déménagement, formule Premium" : "Votre déménagement"), React.createElement("div", {
     className: "ds-price-range"
   }, React.createElement("span", null, estim.bas.toLocaleString("fr-FR"), React.createElement("span", {
     className: "cur"
@@ -792,7 +792,7 @@ function DevisForm() {
     className: "n"
   }, "2"), "Votre rappel")), blocRappel, estim && estim.distanceFiable && estim.visioRequise ? React.createElement("div", {
     className: "ds-note-visio"
-  }, React.createElement("p", null, React.createElement("strong", null, "Vous avez choisi Mains dans les poches"), ", o\xF9 nous faisons aussi tous vos cartons. Le montant ci-dessus est celui de la formule", " ", React.createElement("strong", null, "Mains libres"), "\xA0: il ne comprend pas encore l'emballage."), React.createElement("p", null, "Ce chiffrage-l\xE0 d\xE9pend enti\xE8rement de ce que vous avez \xE0 emballer, et nous ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.", React.createElement("strong", null, " Quelques photos ou 15 minutes en visio"), " nous suffisent pour voir la vaisselle, les fragiles et le volume r\xE9el de cartons, et vous repartez avec un ", React.createElement("strong", null, "prix ferme"), ".")) : null), React.createElement("div", {
+  }, React.createElement("p", null, React.createElement("strong", null, "Vous avez choisi Luxe"), ", o\xF9 nous faisons aussi tous vos cartons. Le montant ci-dessus est celui de la formule", " ", React.createElement("strong", null, "Premium"), "\xA0: il ne comprend pas encore l'emballage."), React.createElement("p", null, "Ce chiffrage-l\xE0 d\xE9pend enti\xE8rement de ce que vous avez \xE0 emballer, et nous ne voulons pas vous annoncer un prix que nous devrions corriger ensuite.", React.createElement("strong", null, " Quelques photos ou 15 minutes en visio"), " nous suffisent pour voir la vaisselle, les fragiles et le volume r\xE9el de cartons, et vous repartez avec un ", React.createElement("strong", null, "prix ferme"), ".")) : null), React.createElement("div", {
     className: "ds-actions"
   }, React.createElement("a", {
     className: "btn btn-wa",
@@ -1012,14 +1012,14 @@ function DevisForm() {
     className: "formule-cards"
   }, React.createElement(FormuleOption, {
     value: "standard",
-    name: "Coup de main",
+    name: "Standard",
     tag: "L'essentiel, bien fait.",
     items: ["Transport & véhicule adapté", "Chargement & déchargement par l'équipe", "Déménagement local ou longue distance", "Assurance incluse"],
     selected: data.formule === 'standard',
     onSelect: v => set('formule', v)
   }), React.createElement(FormuleOption, {
     value: "premium",
-    name: "Mains libres",
+    name: "Premium",
     badge: "Le plus demand\xE9",
     tag: "Le confort, sans le stress.",
     items: ["Protection intégrale du mobilier", "Démontage & remontage des meubles", "Emballage des objets fragiles", "Assurance incluse"],
@@ -1027,7 +1027,7 @@ function DevisForm() {
     onSelect: v => set('formule', v)
   }), React.createElement(FormuleOption, {
     value: "luxe",
-    name: "Mains dans les poches",
+    name: "Luxe",
     tag: "Cl\xE9 en main, de A \xE0 Z.",
     items: ["Emballage de tous vos cartons", "Déballage & installation à l'arrivée", "Objets précieux & œuvres d'art protégés", "Assurance incluse"],
     selected: data.formule === 'luxe',
@@ -1037,7 +1037,7 @@ function DevisForm() {
     style: {
       marginTop: 12
     }
-  }, "Pas certain ? Prenez ", React.createElement("strong", null, "Mains libres"), ". On ajuste ensemble au moment du devis. ", React.createElement("a", {
+  }, "Pas certain ? Prenez ", React.createElement("strong", null, "Premium"), ". On ajuste ensemble au moment du devis. ", React.createElement("a", {
     href: "Formules",
     target: "_blank",
     rel: "noopener",

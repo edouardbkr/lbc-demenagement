@@ -150,9 +150,9 @@ function Hero({ headlineVariant }) {
                   celui que personne n'annonce dans le secteur — c'est pour ça qu'il est
                   là. Un déménageur qui dit « entre 8 h et 13 h » vous prend la matinée. */}
               <ul className="hero-faits">
-                <li>Assuré 8 000 € par objet — franchise à notre charge</li>
-                <li>Aucun supplément le jour J, jamais</li>
-                <li>Créneau d'arrivée précis, pas une demi-journée d'attente</li>
+                <li>Chaque objet assuré jusqu'à 8 000 €, la franchise, c'est pour nous</li>
+                <li>Le prix du devis est le prix final. Aucun supplément le jour J</li>
+                <li>Un créneau d'arrivée à l'heure près, pas une demi-journée</li>
               </ul>
             </div>
 

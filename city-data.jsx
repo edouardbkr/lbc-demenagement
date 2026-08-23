@@ -47,7 +47,7 @@ const CITIES = {
       { q: "Peut-on déménager à Cannes pendant le Festival ?", a: "C'est possible mais déconseillé : circulation et stationnement saturés sur tout le centre. On préfère caler une date hors événement pour vous faire gagner des heures et éviter les amendes." },
       { q: "Gérez-vous les immeubles avec syndic sur la Croisette ?", a: "Oui, on coordonne en amont avec gardiens et syndics : réservation d'ascenseur, créneaux imposés, badges et protection des parties communes. Tout est calé avant le jour J." },
       { q: "Intervenez-vous dans le Suquet et ses ruelles ?", a: "Oui, avec portage, véhicule relais et monte-meuble adaptés aux ruelles en escaliers du vieux Cannes. C'est chiffré dès le devis." },
-      { q: "Déménagez-vous les villas de La Californie ?", a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Mains dans les poches." },
+      { q: "Déménagez-vous les villas de La Californie ?", a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Luxe." },
       { q: "Un déménagement Cannes vers Nice ou Paris, vous le faites ?", a: "Bien sûr : local sur tout le bassin cannois, et longue distance vers Nice, Paris, Lyon ou l'international, avec une seule équipe du départ à l'arrivée." }
     ],
     nearby: ["mandelieu", "le-cannet", "antibes", "grasse"]
@@ -59,7 +59,7 @@ const CITIES = {
     quartiers: ["Vieil Antibes", "Cap d'Antibes", "Juan-les-Pins", "La Fontonne", "Les Semboules", "La Salis", "Port Vauban", "Les Combes", "La Croix-Rouge", "Le Ponteil", "Les Trois Moulins"],
     specifics: [
       { t: "Vieille ville piétonne", d: "Portage optimisé et stationnement réservé dans les ruelles du Vieil Antibes et autour du marché Provençal, avec monte-meuble quand l'accès l'exige." },
-      { t: "Villas du Cap", d: "Mobilier de valeur, œuvres d'art, grands volumes : protection spécifique sur mesure et assurance renforcée en formule Mains dans les poches." },
+      { t: "Villas du Cap", d: "Mobilier de valeur, œuvres d'art, grands volumes : protection spécifique sur mesure et assurance renforcée en formule Luxe." },
       { t: "Saison à Juan-les-Pins", d: "On évite les pics estivaux du front de mer et de la pinède pour un déménagement fluide, sans rester coincé dans la circulation balnéaire." }
     ],
     deep: [

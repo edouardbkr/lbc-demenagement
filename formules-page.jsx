@@ -11,7 +11,7 @@ function FormulesHero() {
         </div>
         <h1>Trois formules, <em>une seule exigence.</em></h1>
         <p className="lede">
-          Coup de main, Mains libres ou Mains dans les poches : vous choisissez jusqu'où on va, jamais sur la qualité du geste. Chaque formule reprend la précédente et y ajoute du travail en moins pour vous. <span className="ast">*</span>Dans les trois, l'assurance et le prix ferme sont inclus.
+          Standard, Premium ou Luxe : vous choisissez jusqu'où on va, jamais sur la qualité du geste. Chaque formule reprend la précédente et y ajoute du travail en moins pour vous. <span className="ast">*</span>Dans les trois, l'assurance et le prix ferme sont inclus.
         </p>
       </div>
     </section>);
@@ -52,9 +52,9 @@ function Compare() {
             <thead>
               <tr>
                 <th style={{ width: '46%' }}>Prestation</th>
-                <th style={{ textAlign: 'center' }}>Coup de main</th>
-                <th style={{ textAlign: 'center' }}>Mains libres</th>
-                <th style={{ textAlign: 'center' }}>Mains dans les poches</th>
+                <th style={{ textAlign: 'center' }}>Standard</th>
+                <th style={{ textAlign: 'center' }}>Premium</th>
+                <th style={{ textAlign: 'center' }}>Luxe</th>
               </tr>
             </thead>
             <tbody>
@@ -132,9 +132,9 @@ const FINDER_NEEDS = [
 { label: "Clé en main, je ne touche à rien", tier: 2 }];
 
 const FINDER_RESULT = [
-{ key: "standard", name: "Coup de main", tag: "L'essentiel, bien fait.", desc: "Vous gérez les cartons, on s'occupe du muscle, de la route et de la casse." },
-{ key: "premium", name: "Mains libres", tag: "Le confort, sans le stress.", desc: "Emballage des fragiles, protection intégrale, démontage et remontage compris." },
-{ key: "luxe", name: "Mains dans les poches", tag: "Clé en main, de A à Z.", desc: "On emballe tout, on déballe, on installe. Vous arrivez les mains dans les poches." }];
+{ key: "standard", name: "Standard", tag: "L'essentiel, bien fait.", desc: "Vous gérez les cartons, on s'occupe du muscle, de la route et de la casse." },
+{ key: "premium", name: "Premium", tag: "Le confort, sans le stress.", desc: "Emballage des fragiles, protection intégrale, démontage et remontage compris." },
+{ key: "luxe", name: "Luxe", tag: "Clé en main, de A à Z.", desc: "On emballe tout, on déballe, on installe. Vous arrivez les Luxe." }];
 
 
 function FormulaFinder() {
