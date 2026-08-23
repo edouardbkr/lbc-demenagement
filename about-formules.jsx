@@ -36,9 +36,13 @@ function About() {
           <div>
             <div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 01 / Qui sommes-nous</div>
           </div>
+          {/* ⚠️ CES DEUX LIGNES SONT UNE SEULE PHRASE, elles se changent ensemble.
+              Le 24 août, seule la première a été réécrite et le titre est devenu
+              « Une exigence née / un travail qui fait dormir tranquille » — une phrase
+              sans verbe et sans sens, restée en ligne sur la page d'accueil. */}
           <h2 className="dim-em">
-            Une exigence née<br />
-            <em>un travail qui fait dormir tranquille.</em>
+            Vos meubles, vos souvenirs,<br />
+            <em>traités comme les nôtres.</em>
           </h2>
         </div>
 
@@ -51,7 +55,7 @@ function About() {
               Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* traite vos affaires comme les siennes. Un devis ferme, du matériel pro, et des gens qui savent ce que «&nbsp;fragile&nbsp;» veut dire.
             </p>
             <p style={{ color: 'var(--ink)' }}>
-              Un devis ferme, une équipe formée, une assurance qui couvre vraiment. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
+              Aujourd'hui, ce sont toujours eux qui forment les équipes, et toujours la même règle : le prix annoncé est le prix payé. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
             </p>
 
             <ul className="about-trust reveal-stagger">

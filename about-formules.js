@@ -43,7 +43,7 @@ function About() {
     className: "asterisk"
   }, "*"), " 01 / Qui sommes-nous")), React.createElement("h2", {
     className: "dim-em"
-  }, "Une exigence n\xE9e", React.createElement("br", null), React.createElement("em", null, "un travail qui fait dormir tranquille."))), React.createElement("div", {
+  }, "Vos meubles, vos souvenirs,", React.createElement("br", null), React.createElement("em", null, "trait\xE9s comme les n\xF4tres."))), React.createElement("div", {
     className: "about-grid"
   }, React.createElement("div", {
     className: "about-copy reveal"
@@ -61,7 +61,7 @@ function About() {
     style: {
       color: 'var(--ink)'
     }
-  }, "Un devis ferme, une \xE9quipe form\xE9e, une assurance qui couvre vraiment. ", React.createElement("a", {
+  }, "Aujourd'hui, ce sont toujours eux qui forment les \xE9quipes, et toujours la m\xEAme r\xE8gle : le prix annonc\xE9 est le prix pay\xE9. ", React.createElement("a", {
     href: "Apropos",
     style: {
       color: 'var(--accent)',
