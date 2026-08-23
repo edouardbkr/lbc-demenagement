@@ -834,6 +834,8 @@ function Footer() {
                       Google ne les avait donc jamais crawlées. Ajoutées ici le 7 août 2026. */}
                   <li><a href="Entreprise">Déménagement d'entreprise</a></li>
                   <li><a href="Archivage">Archivage de documents</a></li>
+                  <li><a href="Debarras-succession">Débarras & succession</a></li>
+                  <li><a href="Demenagement-urgent">Déménagement urgent</a></li>
                   <li><a href="Mutations">Mutation professionnelle</a></li>
                 </ul>
               </div>

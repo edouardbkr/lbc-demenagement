@@ -995,6 +995,10 @@ function Footer() {
   }, "D\xE9m\xE9nagement d'entreprise")), React.createElement("li", null, React.createElement("a", {
     href: "Archivage"
   }, "Archivage de documents")), React.createElement("li", null, React.createElement("a", {
+    href: "Debarras-succession"
+  }, "D\xE9barras & succession")), React.createElement("li", null, React.createElement("a", {
+    href: "Demenagement-urgent"
+  }, "D\xE9m\xE9nagement urgent")), React.createElement("li", null, React.createElement("a", {
     href: "Mutations"
   }, "Mutation professionnelle")))), React.createElement("div", {
     className: "footer-col"

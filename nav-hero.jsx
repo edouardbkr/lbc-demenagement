@@ -122,10 +122,14 @@ function Hero({ headlineVariant }) {
               {/* L'ASSURANCE EN PREMIER. C'est la réponse au premier motif de
                   mécontentement du secteur, la casse : elle pèse plus lourd qu'un délai
                   de devis, et c'est elle qu'on veut lire en premier. */}
+              {/* Trois engagements, dans l'ordre des peurs du client : la casse d'abord,
+                  le supplément ensuite, l'attente enfin. Le créneau d'arrivée précis est
+                  celui que personne n'annonce dans le secteur — c'est pour ça qu'il est
+                  là. Un déménageur qui dit « entre 8 h et 13 h » vous prend la matinée. */}
               <ul className="hero-faits">
-                <li>Assuré 8 000 € par objet, franchise à notre charge</li>
-                <li>Devis ferme sous 24 h</li>
-                <li>Aucun supplément le jour du déménagement</li>
+                <li>Assuré 8 000 € par objet — franchise à notre charge</li>
+                <li>Aucun supplément le jour J, jamais</li>
+                <li>Créneau d'arrivée précis, pas une demi-journée d'attente</li>
               </ul>
             </div>
 
