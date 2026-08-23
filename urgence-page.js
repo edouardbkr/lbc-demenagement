@@ -219,7 +219,15 @@ function UrgFAQ() {
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
     id: "contenu"
-  }, React.createElement(UrgHero, null), React.createElement(UrgSteps, null), React.createElement(UrgCas, null), React.createElement(UrgQuoi, null), React.createElement(UrgFAQ, null)), React.createElement(Footer, null));
+  }, React.createElement(UrgHero, null), React.createElement(UrgSteps, null), React.createElement(UrgCas, null), React.createElement(UrgQuoi, null), React.createElement(UrgFAQ, null), React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "devis-hero-form"
+  }, React.createElement(QuickQuote, {
+    variant: "dark"
+  }))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { UrgHero, UrgSteps, UrgCas, UrgQuoi, UrgFAQ, App }); } catch (e) {}

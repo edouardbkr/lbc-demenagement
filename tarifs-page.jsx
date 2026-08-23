@@ -242,6 +242,9 @@ function App() {
         <TarifFacteurs />
         <TarifFerme />
         <TarifFAQ />
+        <section className="sec"><div className="wrap">
+          <div className="devis-hero-form"><QuickQuote variant="dark" /></div>
+        </div></section>
       </main>
       <Footer />
     </React.Fragment>);

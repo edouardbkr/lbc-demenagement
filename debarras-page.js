@@ -221,7 +221,15 @@ function DebFAQ() {
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
     id: "contenu"
-  }, React.createElement(DebHero, null), React.createElement(DebSteps, null), React.createElement(DebCas, null), React.createElement(DebNotaire, null), React.createElement(DebFAQ, null)), React.createElement(Footer, null));
+  }, React.createElement(DebHero, null), React.createElement(DebSteps, null), React.createElement(DebCas, null), React.createElement(DebNotaire, null), React.createElement(DebFAQ, null), React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "devis-hero-form"
+  }, React.createElement(QuickQuote, {
+    variant: "dark"
+  }))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { DebHero, DebSteps, DebCas, DebNotaire, DebFAQ, App }); } catch (e) {}

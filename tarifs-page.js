@@ -368,7 +368,15 @@ function TarifFAQ() {
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
     id: "contenu"
-  }, React.createElement(TarifHero, null), React.createElement(TarifFormules, null), React.createElement(TarifTableaux, null), React.createElement(TarifFacteurs, null), React.createElement(TarifFerme, null), React.createElement(TarifFAQ, null)), React.createElement(Footer, null));
+  }, React.createElement(TarifHero, null), React.createElement(TarifFormules, null), React.createElement(TarifTableaux, null), React.createElement(TarifFacteurs, null), React.createElement(TarifFerme, null), React.createElement(TarifFAQ, null), React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "devis-hero-form"
+  }, React.createElement(QuickQuote, {
+    variant: "dark"
+  }))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { tarifFourchette, TarifSecHead, TarifHero, TarifFormules, TarifTableaux, TarifFacteurs, TarifFerme, TarifFaqItem, TarifFAQ, App }); } catch (e) {}

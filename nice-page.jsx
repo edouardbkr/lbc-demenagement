@@ -101,9 +101,9 @@ function NiceHero() {
         <h1>Déménager <em className="dim-em">quartier par quartier</em> à Nice</h1>
         <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J.</p>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
-          <a href="Devis" className="btn btn-primary">Devis gratuit sous 24 h<span className="arrow">→</span></a>
           <a href="tel:+33615976577" className="btn btn-ghost">06 15 97 65 77</a>
         </div>
+        <div className="devis-hero-form" style={{ marginTop: 22 }}><QuickQuote variant="dark" /></div>
       </div>
     </section>);
 }

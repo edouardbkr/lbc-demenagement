@@ -149,14 +149,16 @@ function NiceHero() {
       marginTop: 18
     }
   }, React.createElement("a", {
-    href: "Devis",
-    className: "btn btn-primary"
-  }, "Devis gratuit sous 24 h", React.createElement("span", {
-    className: "arrow"
-  }, "\u2192")), React.createElement("a", {
     href: "tel:+33615976577",
     className: "btn btn-ghost"
-  }, "06 15 97 65 77"))));
+  }, "06 15 97 65 77")), React.createElement("div", {
+    className: "devis-hero-form",
+    style: {
+      marginTop: 22
+    }
+  }, React.createElement(QuickQuote, {
+    variant: "dark"
+  }))));
 }
 function NiceSecHead({
   num,

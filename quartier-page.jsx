@@ -201,6 +201,9 @@ function App() {
         <QProches q={q} />
         <PreuveVille ville={q ? q.nom : ""} />
         <QBandeau q={q} />
+        <section className="sec"><div className="wrap">
+          <div className="devis-hero-form"><QuickQuote variant="dark" /></div>
+        </div></section>
       </main>
       <Footer />
     </React.Fragment>);

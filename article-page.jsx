@@ -131,6 +131,9 @@ function App() {
         <ArticleHero a={a} />
         <ArticleBody a={a} />
         <MoreArticles current={a} />
+        <section className="sec"><div className="wrap">
+          <div className="devis-hero-form"><QuickQuote variant="dark" /></div>
+        </div></section>
       </main>
       <Footer />
     </React.Fragment>
