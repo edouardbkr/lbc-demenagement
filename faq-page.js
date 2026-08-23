@@ -7,7 +7,7 @@ const FAQ_CATS = ["Devis & prix", "Nos formules", "Le jour J", "Emballage & obje
 const FAQS = [{
   cat: "Devis & prix",
   q: "Le devis est-il vraiment gratuit ?",
-  a: "Oui, totalement gratuit et sans engagement. Vous décrivez votre déménagement, on revient sous 24h avec un prix clair et définitif. Aucune carte bancaire, aucun numéro surtaxé, aucune relance commerciale agressive."
+  a: "Oui, totalement gratuit et sans engagement. Vous décrivez votre déménagement, on revient sous 24h avec un prix clair et définitif. Aucune carte bancaire, aucun numéro surtaxé. On revient vers vous si vous ne répondez pas, mais jamais plus de trois fois, et on s'arrête au premier « non »."
 }, {
   cat: "Devis & prix",
   q: "Comment fixez-vous le prix ?",

@@ -154,39 +154,82 @@ const QUARTIERS = {
     }],
     proches: ["cimiez", "riquier"]
   },
+  "mont-boron": {
+    nom: "Mont Boron",
+    url: "Demenagement-Mont-Boron-Nice",
+    titre: "Déménagement Mont Boron Nice : pentes et monte-meuble · LBC",
+    description: "Déménager au Mont Boron : routes en lacets, villas en surplomb, monte-meuble presque systématique. La méthode adaptée à chaque accès.",
+    accroche: "Le quartier où le monte-meuble n'est pas une option, c'est la méthode.",
+    intro: "Le Mont Boron domine la rade de Villefranche et le port de Nice depuis ses lacets. On y trouve des villas en surplomb, des résidences accrochées à la pente et quelques immeubles anciens dont la cage d'escalier n'a jamais été pensée pour un canapé d'angle. C'est le quartier niçois où la question de l'accès prime sur toutes les autres : la distance jusqu'au centre-ville est dérisoire, mais les dix derniers mètres décident de la journée. On y travaille régulièrement et on y arrive équipé, plutôt que d'improviser au pied de la façade.",
+    aot: "renforce",
+    contraintes: [{
+      t: "Routes en lacets",
+      d: "Le boulevard Maurice Maeterlinck et les chemins qui s'y greffent enchaînent les virages serrés. Le gabarit du camion se décide sur le dernier virage, pas sur la largeur de la voie principale."
+    }, {
+      t: "Villas en surplomb",
+      d: "Beaucoup de propriétés sont en contrebas ou au-dessus de la route, avec des escaliers extérieurs. Le monte-meuble depuis la chaussée est souvent la seule méthode raisonnable."
+    }, {
+      t: "Stationnement sur voie étroite",
+      d: "Une autorisation d'occupation est indispensable : un camion à l'arrêt sur ces routes bloque la circulation dans les deux sens, sans possibilité de contournement."
+    }, {
+      t: "Immeubles anciens sans ascenseur adapté",
+      d: "Cages d'escalier étroites et paliers exigus dans le bâti ancien : démontage des meubles larges, ou passage par la façade."
+    }],
+    methode: ["Repérage de l'accès avant le devis : dernier virage, pente, hauteur de façade et point de pose du monte-meuble.", "Autorisation d'occupation de la voie demandée au moins 5 jours ouvrés avant, avec la signalisation réglementaire louée et posée.", "Monte-meuble prévu au devis quand la façade est exploitable, plutôt qu'ajouté en supplément le jour du déménagement.", "Équipe renforcée sur les villas en terrasses, postée par paliers plutôt qu'en aller-retour complet."],
+    faq: [{
+      q: "Le monte-meuble est-il vraiment nécessaire au Mont Boron ?",
+      a: "Souvent, oui. Entre les villas en surplomb et les cages d'escalier anciennes, c'est fréquemment la seule méthode sûre. Il figure alors au devis initial, jamais en supplément de dernière minute."
+    }, {
+      q: "Un camion peut-il monter jusqu'à chez moi ?",
+      a: "Cela dépend du dernier virage, pas de la route principale. On vient mesurer avant de chiffrer et on adapte le gabarit, quitte à faire deux voyages avec un véhicule plus maniable."
+    }, {
+      q: "Faut-il une autorisation pour stationner ?",
+      a: "Indispensable : sur ces voies étroites, un camion à l'arrêt bloque les deux sens. Comptez cinq jours ouvrés pour l'obtenir, et la signalisation est à louer."
+    }, {
+      q: "Le prix est-il plus élevé qu'ailleurs à Nice ?",
+      a: "À volume égal, oui : le monte-meuble, l'équipe renforcée et le temps d'accès se paient. Tout est chiffré à l'avance, et le prix annoncé reste le prix payé."
+    }],
+    proches: ["le-port", "riquier"]
+  },
   "riquier": {
     nom: "Riquier",
     url: "Demenagement-Riquier-Nice",
-    titre: "Déménagement Riquier Nice : rues étroites · LBC",
-    description: "Déménager à Riquier : quartier dense de l'est niçois, rues étroites, immeubles sans ascenseur. Contraintes réelles et démarche de stationnement.",
-    accroche: "Le quartier populaire de l'est niçois, dense et pratique, à condition de bien caler l'accès.",
-    intro: "Riquier, à l'est du port, est un quartier résidentiel dense et bien desservi. Les logements y sont souvent plus abordables qu'en centre-ville, ce qui en fait un point de chute fréquent pour les premiers emménagements et les familles. Les contraintes de déménagement y sont moins spectaculaires que dans le Vieux-Nice, mais bien réelles : rues étroites, immeubles anciens de plusieurs étages, et stationnement rare.",
+    titre: "Déménagement Riquier Nice : ateliers, caves et rues étroites · LBC",
+    description: "Déménager à Riquier : ateliers d'artisans, caves voûtées, immeubles ouvriers sans ascenseur. Les contraintes réelles de l'est niçois.",
+    accroche: "Le quartier où l'on déménage autant d'ateliers que d'appartements.",
+    intro: "Riquier s'est construit autour du port de commerce et de la gare de marchandises, et cela se voit encore dans ce qu'on y déménage. À côté des appartements du bâti ouvrier, on y charge des ateliers d'artisans, des établis, des machines-outils, des stocks de matériaux. C'est le quartier de Nice où un déménagement pèse le plus lourd au mètre cube, et où la question n'est presque jamais le volume mais le poids et la forme des objets. Les caves voûtées du quartier, elles, réservent souvent la vraie surprise du chantier.",
     aot: "standard",
     contraintes: [{
-      t: "Rues étroites et à sens unique",
-      d: "Le gabarit du camion se choisit en fonction de la rue. Sur certains axes, un porteur standard passe difficilement et la manœuvre de stationnement demande de la place."
+      t: "Ateliers, établis et machines",
+      d: "Objets lourds, encombrants et souvent à démonter : on prévoit le matériel de levage et l'équipe en conséquence, plutôt que de découvrir une machine de 300 kg le matin même."
     }, {
-      t: "Immeubles sans ascenseur",
-      d: "Beaucoup d'immeubles anciens de trois à cinq étages sans ascenseur. Le portage devient le poste principal du chantier, et il se chiffre précisément."
+      t: "Caves voûtées et sous-sols",
+      d: "Le bâti ouvrier de Riquier cache des caves basses de plafond, à escalier tournant. Vider une cave y prend souvent plus longtemps que vider l'appartement au-dessus."
     }, {
-      t: "Stationnement rare",
-      d: "Peu de places disponibles, très demandées. La réservation en amont est ce qui évite de porter les meubles sur cinquante mètres."
+      t: "Rues à sens unique et gabarit",
+      d: "Autour de l'avenue Denis Séméria et des rues du bas quartier, un porteur standard ne passe pas partout. Le gabarit se décide sur l'adresse, pas sur le quartier."
     }, {
-      t: "Proximité du port et de la voie ferrée",
-      d: "Certaines rues subissent des restrictions de circulation liées aux accès portuaires. L'adresse exacte détermine l'itinéraire du camion."
+      t: "Accès portuaires réglementés",
+      d: "Certaines voies proches du port subissent des restrictions horaires liées au trafic de marchandises : l'adresse exacte détermine le créneau possible."
     }],
-    methode: ["Repérage de la rue et choix du gabarit adapté avant de fixer le devis.", "Réservation d'emplacement au plus près de l'entrée, demandée au moins 5 jours ouvrés avant.", "Chiffrage explicite du portage : étages, ascenseur, distance de portage depuis le camion.", "Démontage des meubles volumineux quand la cage d'escalier ne permet pas le passage monté."],
+    methode: ["Inventaire spécifique des objets lourds : établi, machines, stock, avec leur poids et leurs points de préhension.", "Visite de la cave au moment du devis, systématiquement : c'est là que se cache le temps de chantier.", "Repérage de la rue et choix du gabarit avant de fixer le prix, en tenant compte des restrictions portuaires.", "Réservation d'emplacement au plus près de l'entrée, demandée au moins 5 jours ouvrés avant."],
     faq: [{
-      q: "Le portage à l'étage coûte-t-il plus cher ?",
-      a: "Oui, et c'est normal : c'est du temps et de la main-d'œuvre. Ce qui n'est pas normal, c'est de le découvrir le jour J. Chez nous, le nombre d'étages et la présence d'ascenseur sont dans le devis, et le prix ne bouge pas ensuite."
+      q: "Déménagez-vous un atelier d'artisan ?",
+      a: "Oui, c'est courant à Riquier. Établis, machines-outils et stocks sont inventoriés avec leur poids, et le matériel de levage est prévu au devis."
     }, {
-      q: "Que faire si aucune place n'est libre devant chez moi ?",
-      a: "C'est exactement ce que règle l'autorisation d'occupation temporaire : la Ville réserve l'emplacement, la signalisation est posée à l'avance, et la place est libre à votre arrivée. Sans cette démarche, on porte sur la distance disponible."
+      q: "Ma cave est basse et l'escalier tourne, c'est un problème ?",
+      a: "C'est la contrainte classique du quartier. On la regarde au moment du devis : vider une cave voûtée prend souvent plus de temps que l'appartement."
     }, {
-      q: "Un monte-meuble est-il possible à Riquier ?",
-      a: "Dans une partie du quartier oui, à condition d'avoir le recul nécessaire au sol pour déployer l'appareil. Dans les rues les plus étroites, on privilégie le démontage et le portage."
+      q: "Un camion peut-il accéder à ma rue ?",
+      a: "Cela dépend de la rue, pas du quartier. Certaines voies du bas Riquier n'acceptent qu'un gabarit réduit, et on adapte."
+    }, {
+      q: "Les restrictions du port peuvent-elles bloquer le déménagement ?",
+      a: "Elles imposent surtout des créneaux. On vérifie l'adresse à l'avance et on cale l'horaire en conséquence."
+    }, {
+      q: "Le poids des objets change-t-il le prix ?",
+      a: "Il change le matériel et l'équipe nécessaires, donc oui. Tout est chiffré avant : le prix annoncé reste le prix payé."
     }],
-    proches: ["le-port", "liberation"]
+    proches: ["le-port", "mont-boron"]
   },
   "le-port": {
     nom: "Le Port",

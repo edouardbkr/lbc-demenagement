@@ -98,7 +98,7 @@ function Values() {
     num: "③",
     icon: "clock",
     title: "Un devis clair sous 24h",
-    body: "Estimation en ligne ou visite gratuite, puis un prix détaillé ligne par ligne dans la journée ouvrée. Sans engagement, sans relance commerciale."
+    body: "Estimation en ligne ou visite gratuite, puis un prix détaillé ligne par ligne dans la journée ouvrée. Sans engagement. On relance si vous ne répondez pas, sans jamais insister au-delà du raisonnable."
   }, {
     num: "④",
     icon: "tag",

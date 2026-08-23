@@ -264,6 +264,32 @@ const CITIES = {
      est, où la concurrence est quasi nulle, et où les chantiers se font déjà.
      Chaque page dit une contrainte d'accès DIFFÉRENTE, parce que c'est vrai et parce que
      sept pages qui se ressemblent se font traiter en contenu dupliqué. */
+  "beausoleil": {
+    name: "Beausoleil", file: "Demenagement-Beausoleil", cp: "06240", dept: "Alpes-Maritimes (06)", region: "cote",
+    lede: "Déménagement à Beausoleil : rues en escalier, immeubles hauts, frontière monégasque. Devis ferme sous 24h.",
+    intro: "Beausoleil est la commune la plus verticale du département. Elle monte derrière Monaco sur une pente si forte que plusieurs de ses rues sont des escaliers, et que la ville a installé des ascenseurs publics pour relier les niveaux. Le bâti est dense, haut, souvent construit dans les années vingt, avec des cages d'escalier étroites et des ascenseurs minuscules quand il y en a. C'est un déménagement de verticalité pure : ici, ce ne sont ni la distance ni le volume qui font le prix, c'est le nombre de mètres à gravir entre le camion et la porte.",
+    quartiers: ["Le Centre", "Moneghetti", "Le Tenao", "La Riviera", "Les Jardins", "Le Bas Moulins", "Saint-Antoine", "L'Escalier de l'Impératrice", "Le Boulevard de la République"],
+    specifics: [
+      { t: "Rues en escalier", d: "Plusieurs voies ne sont accessibles qu'à pied : portage depuis le point de stationnement le plus proche, mesuré en nombre de marches avant le devis." },
+      { t: "Immeubles hauts, ascenseurs étroits", d: "Bâti des années vingt : cages d'escalier resserrées et ascenseurs de faible capacité. Démontage systématique des meubles larges, monte-meuble quand la façade le permet." },
+      { t: "Frontière monégasque", d: "Beaucoup de trajets se font vers Monaco, à deux pas : autorisation de circulation et créneau horaire obtenus par nos soins." }
+    ],
+    deep: [
+      { t: "Une ville qui se monte à pied", p: "Beausoleil est bâtie sur une pente qui dépasse par endroits vingt pour cent, et plusieurs de ses rues sont littéralement des escaliers, à commencer par l'escalier de l'Impératrice. Un camion ne s'en approche pas. La méthode consiste à trouver le point de stationnement le plus haut accessible, puis à porter — et ce portage se compte en marches, pas en mètres. On monte le mesurer avant de chiffrer, parce qu'une centaine de marches de plus, c'est une demi-journée d'écart." },
+      { t: "Les ascenseurs publics, un atout méconnu", p: "La ville a installé des ascenseurs publics pour relier ses niveaux, et ils changent parfois complètement l'organisation d'un déménagement : au lieu de porter par un escalier de cinquante marches, on fait transiter les cartons par l'ascenseur et on gagne des heures. Encore faut-il connaître leurs emplacements, leurs dimensions et leurs horaires. C'est le genre de détail qui ne s'invente pas depuis un bureau." },
+      { t: "Le bâti des années vingt", p: "Beausoleil s'est construite avec Monaco, dans les années vingt, et son bâti en garde les proportions : immeubles hauts, cages d'escalier étroites, ascenseurs ajoutés après coup et donc minuscules. Un canapé trois places ou une armoire deux portes n'y entrent pas montés. On démonte, on protège, on remonte — et quand la façade est dégagée, le monte-meuble règle la question en deux heures au lieu de six." },
+      { t: "Beausoleil et Monaco, deux pas et deux réglementations", p: "La frontière passe au bas de la commune, et une grande partie des déménagements bellisoleillois se fait vers la Principauté ou depuis elle. Deux cents mètres de trajet, mais une autorisation de circulation, un créneau horaire imposé et parfois une escorte dans les rues étroites. On s'occupe du dossier monégasque : il demande une dizaine de jours, et son absence annule purement et simplement la journée." }
+    ],
+    faq: [
+      { q: "Ma rue est un escalier, pouvez-vous déménager ?", a: "Oui. On se gare au point accessible le plus proche et on porte. Le nombre de marches est compté avant le devis, et il y figure." },
+      { q: "Utilisez-vous les ascenseurs publics de la ville ?", a: "Quand ils desservent le bon niveau et acceptent le volume, oui : ils font gagner des heures par rapport à un portage d'escalier." },
+      { q: "Mon ascenseur est très petit, comment faites-vous ?", a: "On le mesure avant. Les meubles qui n'y entrent pas passent par la cage d'escalier après démontage, ou par la façade au monte-meuble." },
+      { q: "Un Beausoleil–Monaco est-il compliqué ?", a: "Deux cents mètres, mais une autorisation de circulation et un créneau imposé côté monégasque. On les obtient, comptez une dizaine de jours." },
+      { q: "Le monte-meuble est-il souvent nécessaire ?", a: "Sur les immeubles hauts avec cage étroite, c'est souvent la solution la plus rapide et la plus sûre. Il est alors chiffré dès le devis initial." },
+      { q: "Le prix change-t-il si le portage s'avère plus long ?", a: "Non. Les marches sont comptées et la hauteur relevée avant le chiffrage. Le prix annoncé est le prix payé." }
+    ],
+    nearby: ["monaco", "roquebrune-cap-martin", "cap-d-ail"]
+  },
   "villefranche-sur-mer": {
     name: "Villefranche-sur-Mer", file: "Demenagement-Villefranche-sur-Mer", cp: "06230", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Villefranche-sur-Mer : vieille ville en escaliers, rue Obscure, Darse. Portage maîtrisé, devis ferme sous 24h.",

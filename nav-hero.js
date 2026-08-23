@@ -44,12 +44,12 @@ function Hero({
       scribble: "pour de vrai."
     },
     c: {
-      accroche: React.createElement(React.Fragment, null, React.createElement("span", {
-        className: "asterisk",
+      accroche: null,
+      sousTitre: React.createElement(React.Fragment, null, "Le nom est la blague. ", React.createElement("strong", {
         style: {
-          fontFamily: "\"DM Sans\""
+          fontWeight: 600
         }
-      }, "*"), "Les Bras Cass\xE9s ? S\xFBrement pas vos affaires. ", React.createElement("span", {
+      }, "Le travail est s\xE9rieux."), " ", React.createElement("span", {
         className: "scribble"
       }, "promis.")),
       l1: "Déménageur\u00A0à\u00A0Nice.",
@@ -140,7 +140,9 @@ function Hero({
     }
   }, h.l2, h.scribble && React.createElement("span", {
     className: "scribble"
-  }, h.scribble))), React.createElement("div", {
+  }, h.scribble))), h.sousTitre && React.createElement("p", {
+    className: "hero-sous"
+  }, h.sousTitre), React.createElement("div", {
     className: "hero-preuves"
   }, React.createElement("a", {
     className: "hero-note",
@@ -153,7 +155,7 @@ function Hero({
     "aria-hidden": "true"
   }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("span", null, React.createElement("b", null, AVIS_GOOGLE.note), " sur Google \xB7 ", AVIS_GOOGLE.nombre, " avis")), React.createElement("ul", {
     className: "hero-faits"
-  }, React.createElement("li", null, "Devis ferme sous 24 h"), React.createElement("li", null, "Assur\xE9 8 000 \u20AC par objet, franchise \xE0 notre charge"), React.createElement("li", null, "Aucun suppl\xE9ment le jour du d\xE9m\xE9nagement"))), React.createElement("div", {
+  }, React.createElement("li", null, "Assur\xE9 8 000 \u20AC par objet, franchise \xE0 notre charge"), React.createElement("li", null, "Devis ferme sous 24 h"), React.createElement("li", null, "Aucun suppl\xE9ment le jour du d\xE9m\xE9nagement"))), React.createElement("div", {
     className: "hero-ctas"
   }, React.createElement("a", {
     href: "Formules",

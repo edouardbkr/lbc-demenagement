@@ -53,7 +53,7 @@ function Values() {
   const values = [
     { num: "①", icon: "team", title: "Des pros qui prennent soin de tout", body: "Une équipe expérimentée, encadrée par les fondateurs Edouard et Anthony : impliquée du premier au dernier carton. Vos affaires sont entre de bonnes mains." },
     { num: "②", icon: "map", title: "De Nice à toute la France", body: "Au quotidien sur la Côte d'Azur, Nice, Cannes, Antibes, Monaco… et sur les longues distances partout en France, jusqu'à l'international." },
-    { num: "③", icon: "clock", title: "Un devis clair sous 24h", body: "Estimation en ligne ou visite gratuite, puis un prix détaillé ligne par ligne dans la journée ouvrée. Sans engagement, sans relance commerciale." },
+    { num: "③", icon: "clock", title: "Un devis clair sous 24h", body: "Estimation en ligne ou visite gratuite, puis un prix détaillé ligne par ligne dans la journée ouvrée. Sans engagement. On relance si vous ne répondez pas, sans jamais insister au-delà du raisonnable." },
     { num: "④", icon: "tag", title: "Le prix annoncé est le prix payé", body: "Aucun supplément le jour J, aucun frais caché. On chiffre juste dès le départ. C'est écrit noir sur blanc, et on ne casse jamais notre parole." },
     { num: "⑤", icon: "calendar", title: "À l'heure, pas à la demi-journée", body: "Un créneau d'arrivée précis, annoncé à l'avance, et on vous prévient si la route bouge. Votre journée démarre quand on l'a dit, pas deux heures plus tard." }
   ];

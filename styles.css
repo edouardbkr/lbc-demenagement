@@ -282,6 +282,14 @@ p { margin: 0; }
   .hero-ctas { margin-top: 28px; }
   .hero-photo { aspect-ratio: 16/9; max-height: 420px; }
 }
+/* La formule sous le titre : elle a du caractère, mais elle ne doit jamais voler la
+   vedette au H1 ni se lire avant lui. */
+.hero-sous {
+  margin: 14px 0 0; font-family: "Newsreader", Georgia, serif;
+  font-size: clamp(17px, 2.2vw, 21px); line-height: 1.4; color: var(--ink-2);
+}
+.hero-sous .scribble { margin-left: 6px; }
+
 /* ── LES PREUVES DU HERO ─────────────────────────────────────────────────────────
    Trois faits vérifiables sous le titre, là où il n'y avait qu'un bouton. Discret par
    construction : le titre doit rester ce qu'on lit en premier, les preuves sont ce qu'on

@@ -28,10 +28,17 @@ function Hero({ headlineVariant }) {
     //   « Déménageurs à Nice. » / « Vos affaires arrivent comme elles sont parties. »
     //   « Déménager à Nice, » / « sans mauvaise surprise le jour J. »
     c: {
-      accroche: <>
-        <span className="asterisk" style={{ fontFamily: "\"DM Sans\"" }}>*</span>
-        Les Bras Cassés ? Sûrement pas vos affaires. <span className="scribble">promis.</span>
-      </>,
+      /* ⚠️ LA VANNE NE PEUT PAS ÊTRE LA PREMIÈRE CHOSE QU'ON LIT.
+         « Les Bras Cassés ? Sûrement pas vos affaires » demande de savoir déjà comment
+         s'appelle la boîte : un visiteur venu de Google ne le sait pas. Il lisait donc une
+         négation et le mot « cassé » dans les deux premières secondes — précisément sa
+         peur, et un cerveau qui lit « pas de casse » retient « casse ». L'astérisque
+         n'arrangeait rien : elle annonçait une note de bas de page qui n'existait pas.
+         La formule passe sous le titre et à l'AFFIRMATIVE. À ce moment-là le lecteur a vu
+         le logo, il sait que la boîte s'appelle LBC, et le jeu de mots fait son effet
+         sans jamais prononcer le mot qu'on cherche à chasser de son esprit. */
+      accroche: null,
+      sousTitre: <>Le nom est la blague. <strong style={{ fontWeight: 600 }}>Le travail est sérieux.</strong> <span className="scribble">promis.</span></>,
       /* Espace insécable entre « à » et « Nice » : sans elle, le titre se coupe en
          « Déménageur à » / « Nice. » et laisse la préposition orpheline en fin de ligne.
          Elle passe désormais à la ligne avec le nom de la ville. */
@@ -91,6 +98,7 @@ function Hero({ headlineVariant }) {
               {h.l1}
               <span className="l2" style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{h.l2}{h.scribble && <span className="scribble">{h.scribble}</span>}</span>
             </h1>
+            {h.sousTitre && <p className="hero-sous">{h.sousTitre}</p>}
 
             {/* ── LES PREUVES, AU PREMIER ÉCRAN ────────────────────────────────
                 Le hero n'affichait qu'un bouton : rien qui dise pourquoi faire confiance
@@ -111,9 +119,12 @@ function Hero({ headlineVariant }) {
                 <span className="hero-etoiles" aria-hidden="true">★★★★★</span>
                 <span><b>{AVIS_GOOGLE.note}</b> sur Google · {AVIS_GOOGLE.nombre} avis</span>
               </a>
+              {/* L'ASSURANCE EN PREMIER. C'est la réponse au premier motif de
+                  mécontentement du secteur, la casse : elle pèse plus lourd qu'un délai
+                  de devis, et c'est elle qu'on veut lire en premier. */}
               <ul className="hero-faits">
-                <li>Devis ferme sous 24 h</li>
                 <li>Assuré 8 000 € par objet, franchise à notre charge</li>
+                <li>Devis ferme sous 24 h</li>
                 <li>Aucun supplément le jour du déménagement</li>
               </ul>
             </div>

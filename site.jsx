@@ -137,7 +137,7 @@ const MEGA = {
       ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"],
       ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Èze", "Demenagement-Eze"],
       ["Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"],
-      ["Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"]] },
+      ["Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"], ["Beausoleil", "Demenagement-Beausoleil"]] },
 
     { title: t("Longue distance"), links: [
       ["Nice → Paris", "Demenagement-Nice-Paris"], ["Nice → Lyon", "Demenagement-Nice-Lyon"],
@@ -653,7 +653,7 @@ const COTE_AZUR = [
 ["Déménagement Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Déménagement Beaulieu-sur-Mer", "Demenagement-Beaulieu-sur-Mer"],
 ["Déménagement Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Déménagement Èze", "Demenagement-Eze"],
 ["Déménagement Cap-d'Ail", "Demenagement-Cap-d-Ail"], ["Déménagement Roquebrune-Cap-Martin", "Demenagement-Roquebrune-Cap-Martin"],
-["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"]];
+["Déménagement Villeneuve-Loubet", "Demenagement-Villeneuve-Loubet"], ["Déménagement Beausoleil", "Demenagement-Beausoleil"]];
 
 const FRANCE = [];
 
