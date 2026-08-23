@@ -15,7 +15,7 @@ function VilleHero({ c }) {
         {/* Une commune peut porter son propre H1 : Nice le fait, parce que l'accueil
             vise déjà « déménageur à Nice » et que deux pages sur le même mot-clé se
             concurrencent. Voir le commentaire en tête de city-data.jsx. */}
-        <h1>{c.h1 || <>Déménagement {c.prep || "à"} <em>{c.name}</em></>}</h1>
+        <h1>{c.h1 || <>Déménagement <em>{c.avecPrep || ((c.prep || "à") + " " + c.name)}</em></>}</h1>
         <p className="lede" style={{ padding: "10px" }}>{c.lede}</p>
         <div className="devis-hero-form">
           <QuickQuote variant="dark" />
@@ -76,7 +76,7 @@ function VilleSpecifics({ c }) {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Notre expertise locale</div></div>
-          <h2 className="dim-em">Déménager {c.prep || "à"} {c.name},<br /><em>on connaît le terrain.</em></h2>
+          <h2 className="dim-em">Déménager {c.avecPrep || ((c.prep || "à") + " " + c.name)},<br /><em>on connaît le terrain.</em></h2>
         </div>
         <div className="values-grid reveal-stagger" style={{ gridTemplateColumns: 'repeat(' + (c.specifics.length + 1) + ', 1fr)' }}>
           {c.specifics.map((s, i) =>
@@ -107,9 +107,10 @@ function VilleFormules({ c }) {
     <section className="sec">
       <div className="wrap">
         <div className="sec-head reveal">
-          <div><div className="sec-num"><span className="asterisk">*</span> Nos formules {c.prep || "à"} {c.name}</div></div>
+          <div><div className="sec-num"><span className="asterisk">*</span> Nos formules {c.avecPrep || ((c.prep || "à") + " " + c.name)}</div></div>
           <h2 className="dim-em">Trois formules,<br /><em>vous choisissez jusqu'où on va.</em></h2>
         </div>
+        <p className="lede" style={{ marginBottom: 26 }}>La grille est la même partout : votre déménageur {c.avecPrep || ((c.prep || "à") + " " + c.name)} applique le tarif qu'il applique à Nice, sans majoration de secteur. Seuls l'accès et le volume font varier le prix.</p>
         <div className="blog-grid reveal-stagger" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
           {tiers.map((t, i) =>
           <a key={i} href="Formules" className="article-card" style={{ padding: 0 }}>
@@ -137,6 +138,7 @@ function VilleNearby({ c }) {
           <div><div className="sec-num"><span className="asterisk">*</span> À proximité</div></div>
           <h2 className="dim-em">On déménage aussi<br /><em>dans les environs.</em></h2>
         </div>
+        <p className="lede" style={{ marginBottom: 22 }}>Un déménagement {c.avecPrep || ((c.prep || "à") + " " + c.name)} finit souvent dans la commune d'à côté, ou en part. Vous cherchez une entreprise de déménagement {c.avecPrep || ((c.prep || "à") + " " + c.name)} qui couvre aussi les alentours : c'est la même équipe, le même camion et le même prix ferme.</p>
         <div className="seo-cities reveal" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))' }}>
           {items.map((n, i) =>
           <a key={i} href={n.file} style={{
@@ -184,7 +186,7 @@ function VilleFaq({ c }) {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Questions fréquentes</div></div>
-          <h2 className="dim-em">Déménager {c.prep || "à"} {c.name},<br /><em>vos questions, nos réponses.</em></h2>
+          <h2 className="dim-em">Déménager {c.avecPrep || ((c.prep || "à") + " " + c.name)},<br /><em>vos questions, nos réponses.</em></h2>
         </div>
         <div className="faq-list reveal" style={{ maxWidth: 820 }}>
           {c.faq.map((f, i) =>
@@ -207,7 +209,7 @@ function VilleQuoteBand({ c }) {
       <div className="wrap">
         <div className="reveal" style={{ maxWidth: 1100, margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'var(--serif)', fontWeight: 600, fontSize: 'clamp(34px,4vw,58px)', color: 'var(--cream-on-dark)', letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
-            Un déménagement {c.prep || "à"} {c.name} ? <span className="scribble" style={{ fontFamily: 'var(--script)', color: 'var(--accent)', display: 'inline-block', transform: 'rotate(-3deg)' }}>Chiffrons-le.</span>
+            Un déménagement {c.avecPrep || ((c.prep || "à") + " " + c.name)} ? <span className="scribble" style={{ fontFamily: 'var(--script)', color: 'var(--accent)', display: 'inline-block', transform: 'rotate(-3deg)' }}>Chiffrons-le.</span>
           </h2>
           <p style={{ textAlign: 'center', color: 'rgba(242,232,207,0.7)', marginBottom: 36, fontSize: 17 }}>
             Deux adresses, une surface — réponse gratuite sous 24h.

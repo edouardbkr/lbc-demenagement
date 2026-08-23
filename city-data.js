@@ -797,7 +797,7 @@ const CITIES = {
       q: "Intervenez-vous dans le Suquet et ses ruelles ?",
       a: "Oui, avec portage, véhicule relais et monte-meuble adaptés aux ruelles en escaliers du vieux Cannes. C'est chiffré dès le devis."
     }, {
-      q: "Déménagez-vous les villas de La Californie ?",
+      q: "Déménagez-vous les villas de La Californie, sur les hauteurs ?",
       a: "Oui. Accès en hauteur, jardins, mobilier de valeur : on adapte le camion, on protège tout et on propose une assurance renforcée en formule Luxe."
     }, {
       q: "Un déménagement Cannes vers Nice ou Paris, vous le faites ?",
@@ -812,7 +812,7 @@ const CITIES = {
     dept: "Alpes-Maritimes (06)",
     region: "cote",
     lede: "Déménagement à Antibes et Juan-les-Pins : du Vieil Antibes au Cap, de Port Vauban à la Fontonne. Devis gratuit sous 24h.",
-    intro: "Antibes, c'est trois communes en une : la vieille ville fortifiée aux ruelles piétonnes, le Cap et ses villas d'exception, et Juan-les-Pins, station balnéaire saturée l'été. On adapte le camion, le portage et le planning à chacun de ces mondes. On gère aussi les accès particuliers d'Antibes : les abords de Port Vauban, le plus grand port de plaisance d'Europe, les résidences fermées de la Fontonne et des Semboules, et le mobilier de valeur fréquent au Cap d'Antibes.",
+    intro: "La commune, c'est trois villes en une : la vieille ville fortifiée aux ruelles piétonnes, le Cap et ses villas d'exception, et Juan-les-Pins, station balnéaire saturée l'été. On adapte le camion, le portage et le planning à chacun de ces mondes. On gère aussi les accès particuliers d'Antibes : les abords de Port Vauban, le plus grand port de plaisance d'Europe, les résidences fermées de la Fontonne et des Semboules, et le mobilier de valeur fréquent au Cap d'Antibes.",
     quartiers: ["Vieil Antibes", "Cap d'Antibes", "Juan-les-Pins", "La Fontonne", "Les Semboules", "La Salis", "Port Vauban", "Les Combes", "La Croix-Rouge", "Le Ponteil", "Les Trois Moulins"],
     specifics: [{
       t: "Vieille ville piétonne",
@@ -826,10 +826,10 @@ const CITIES = {
     }],
     deep: [{
       t: "Une commune aux mille visages",
-      p: "Entre les remparts du Vieil Antibes, les ruelles autour du marché Provençal, le bord de mer de la Salis et du Ponteil, les villas du Cap et l'animation estivale de Juan-les-Pins, Antibes change de logique tous les kilomètres. Le déménageur qui ne connaît pas la commune se fait piéger par les accès. Nous, on sait quel secteur impose le portage, lequel demande un monte-meuble et lequel sature en été. On planifie en conséquence."
+      p: "Entre les remparts du Vieil Antibes, les ruelles autour du marché Provençal, le bord de mer de la Salis et du Ponteil, les villas du Cap et l'animation estivale de Juan-les-Pins, la ville change de logique tous les kilomètres. Le déménageur qui ne connaît pas la commune se fait piéger par les accès. Nous, on sait quel secteur impose le portage, lequel demande un monte-meuble et lequel sature en été. On planifie en conséquence."
     }, {
-      t: "Le Cap d'Antibes, le standard du soin",
-      p: "Le Cap, c'est l'un des secteurs résidentiels les plus prestigieux de la Côte. Villas d'exception, mobilier ancien, œuvres d'art, pianos, caves : nos clients y attendent un soin irréprochable. On déploie un emballage sur mesure, une protection renforcée et une assurance en valeur déclarée. Équipe expérimentée, pas d'intérimaire recruté la veille : sur ce type de bien, on ne laisse rien au hasard."
+      t: "Le Cap, le standard du soin",
+      p: "C'est l'un des secteurs résidentiels les plus prestigieux de la Côte. Villas d'exception, mobilier ancien, œuvres d'art, pianos, caves : nos clients y attendent un soin irréprochable. On déploie un emballage sur mesure, une protection renforcée et une assurance en valeur déclarée. Équipe expérimentée, pas d'intérimaire recruté la veille : sur ce type de bien, on ne laisse rien au hasard."
     }, {
       t: "Plaisanciers, expats et résidences secondaires",
       p: "Beaucoup de nos clients antibois sont des plaisanciers de Port Vauban, des cadres internationaux ou des propriétaires de résidences secondaires. Ça implique des déménagements souvent partiels, des mises en garde-meuble saisonnières, des départs vers l'étranger et des coordinations à distance. On est rodés à ces scénarios : ouverture et fermeture de saison, stockage relais, déménagements internationaux organisés de bout en bout."
@@ -838,10 +838,10 @@ const CITIES = {
       p: "Juan-les-Pins l'été, c'est la pinède, les festivals de jazz, les plages et une circulation qui se bloque. Déménager en plein mois d'août sur le front de mer, c'est s'exposer à des heures perdues. On privilégie les créneaux hors affluence, tôt le matin ou hors saison, et on réserve le stationnement à l'avance. Le déménagement va deux fois plus vite et personne ne s'énerve."
     }],
     faq: [{
-      q: "Déménagez-vous les villas du Cap d'Antibes ?",
+      q: "Déménagez-vous les villas du Cap ?",
       a: "Oui, avec un soin particulier pour le mobilier de valeur : protection sur mesure, emballage renforcé et assurance en valeur déclarée pour les œuvres d'art et les objets précieux."
     }, {
-      q: "Et la vieille ville d'Antibes, accessible au camion ?",
+      q: "Et la vieille ville, accessible au camion ?",
       a: "Rarement jusqu'à la porte. On stationne au plus près dans les ruelles, on gère le portage et on installe un monte-meuble quand l'escalier l'exige."
     }, {
       q: "Intervenez-vous à Juan-les-Pins en été ?",
@@ -979,10 +979,10 @@ const CITIES = {
     }],
     deep: [{
       t: "Le défi du vieux Grasse",
-      p: "Le centre historique de Grasse est un labyrinthe médiéval en forte pente où le camion ne s'aventure tout simplement pas. Ici, le déménagement se gagne à l'organisation : on stationne au plus près, on porte sur des distances parfois longues, et on déploie un monte-meuble dès que la configuration l'exige. Tout est repéré et anticipé en amont, parce qu'à Grasse, le mauvais réflexe c'est de découvrir l'accès le jour J."
+      p: "Le centre historique est un labyrinthe médiéval en forte pente où le camion ne s'aventure tout simplement pas. Ici, le déménagement se gagne à l'organisation : on stationne au plus près, on porte sur des distances parfois longues, et on déploie un monte-meuble dès que la configuration l'exige. Tout est repéré et anticipé en amont, parce qu'à Grasse, le mauvais réflexe c'est de découvrir l'accès le jour J."
     }, {
       t: "Entre ville et campagne",
-      p: "Au-delà du centre, Grasse est l'une des communes les plus étendues du département. Magagnosc, Plascassier, Saint-Antoine, les Aspres : un arrière-pays de mas, de bastides et de villas perdues au bout de chemins étroits, derrière des portails, sur des terrains en restanques. Nos chauffeurs connaissent ces accès en lacets et adaptent le véhicule, quitte à transborder avec un utilitaire plus petit pour atteindre la porte."
+      p: "Au-delà du centre, c'est l'une des communes les plus étendues du département. Magagnosc, Plascassier, Saint-Antoine, les Aspres : un arrière-pays de mas, de bastides et de villas perdues au bout de chemins étroits, derrière des portails, sur des terrains en restanques. Nos chauffeurs connaissent ces accès en lacets et adaptent le véhicule, quitte à transborder avec un utilitaire plus petit pour atteindre la porte."
     }, {
       t: "Une ville de mutations professionnelles",
       p: "Capitale mondiale du parfum, Grasse vit au rythme de son industrie : parfumeurs, laboratoires, saisonniers de la fleur. On y croise régulièrement des déménagements liés à une mutation ou à une prise de poste, avec devis conforme à transmettre à un employeur. On gère ces dossiers proprement, facture en règle comprise, en plus des déménagements de particuliers classiques."
@@ -1062,13 +1062,14 @@ const CITIES = {
     nearby: ["saint-laurent-du-var", "villeneuve-loubet", "nice", "antibes"]
   },
   "le-cannet": {
+    avecPrep: "au Cannet",
     name: "Le Cannet",
     file: "Demenagement-Le-Cannet",
     cp: "06110",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
     lede: "Déménagement au Cannet : Rocheville, vieux village cher à Bonnard, hauteurs de Cannes. Rues en pente maîtrisées, devis gratuit sous 24h.",
-    intro: "Le Cannet domine Cannes depuis ses collines. La ville mêle trois ambiances : le vieux village pittoresque et perché, cher au peintre Bonnard, le quartier vivant et commerçant de Rocheville, et des résidences modernes étagées à flanc de colline. Sa particularité de déménagement, ce sont ses rues en pente et ses virages serrés, qui imposent souvent un camion bien dimensionné ou un transbordement. On connaît ces hauteurs cannettanes et on adapte le matériel à chaque accès.",
+    intro: "La ville domine Cannes depuis ses collines. La ville mêle trois ambiances : le vieux village pittoresque et perché, cher au peintre Bonnard, le quartier vivant et commerçant de Rocheville, et des résidences modernes étagées à flanc de colline. Sa particularité de déménagement, ce sont ses rues en pente et ses virages serrés, qui imposent souvent un camion bien dimensionné ou un transbordement. On connaît ces hauteurs cannettanes et on adapte le matériel à chaque accès.",
     quartiers: ["Rocheville", "Le Vieux Cannet", "Les Tourrades", "La Croix des Gardes", "L'Aubarède", "Le Cannet Centre", "Garibondy", "Cheval Blanc", "Les Mûriers"],
     specifics: [{
       t: "Hauteurs et pentes",
@@ -1078,26 +1079,26 @@ const CITIES = {
       d: "Déménagements Le Cannet → Cannes réglés en une demi-journée : les deux villes se touchent, le coût de déplacement reste réduit."
     }, {
       t: "Vieux village",
-      d: "Portage et stationnement maîtrisés dans les ruelles pittoresques du Cannet historique, où le camion ne passe pas toujours."
+      d: "Portage et stationnement maîtrisés dans les ruelles pittoresques du vieux village, où le camion ne passe pas toujours."
     }],
     deep: [{
       t: "Une ville en balcon sur Cannes",
-      p: "Le Cannet, c'est Cannes vue d'en haut. Ses quartiers s'étagent à flanc de colline, entre rues pentues, virages serrés et résidences perchées. Le bon réflexe, c'est de choisir le gabarit de camion adapté et, quand l'accès se resserre vraiment, de faire la navette avec un véhicule plus maniable jusqu'à la porte. On repère l'adresse en amont pour ne pas se retrouver bloqué dans une montée trop étroite le jour du déménagement."
+      p: "C'est Cannes vue d'en haut. Ses quartiers s'étagent à flanc de colline, entre rues pentues, virages serrés et résidences perchées. Le bon réflexe, c'est de choisir le gabarit de camion adapté et, quand l'accès se resserre vraiment, de faire la navette avec un véhicule plus maniable jusqu'à la porte. On repère l'adresse en amont pour ne pas se retrouver bloqué dans une montée trop étroite le jour du déménagement."
     }, {
       t: "Le vieux village de Bonnard",
       p: "Le Cannet historique a séduit Pierre Bonnard, qui y a peint la lumière pendant des années. Ses ruelles pittoresques, en pente et étroites, ne se déménagent pas au camion : portage, véhicule relais et stationnement réservé au plus près. Le mobilier des vieilles maisons y est parfois ancien et délicat, on l'emballe et le protège avec attention. Un déménagement de patience et de méthode, pas de force brute."
     }, {
       t: "Rocheville, le cœur qui bat",
-      p: "Rocheville est le quartier vivant du Cannet : commerces, marché, vie de quartier, immeubles résidentiels. C'est là qu'on déménage le plus de familles et de retraités, souvent en copropriété. On coordonne avec les syndics, on réserve l'ascenseur, on protège les parties communes et on gère le stationnement sur des rues parfois passantes. Du déménagement urbain classique, qu'on connaît par cœur."
+      p: "Rocheville en est le quartier vivant : commerces, marché, vie de quartier, immeubles résidentiels. C'est là qu'on déménage le plus de familles et de retraités, souvent en copropriété. On coordonne avec les syndics, on réserve l'ascenseur, on protège les parties communes et on gère le stationnement sur des rues parfois passantes. Du déménagement urbain classique, qu'on connaît par cœur."
     }, {
-      t: "Le Cannet–Cannes, le déménagement de proximité",
-      p: "La plupart des déménagements cannettans restent locaux, vers Cannes ou les communes voisines, à quelques minutes seulement. Résultat : des interventions rapides, souvent bouclées dans la demi-journée, et un coût de déplacement contenu. Pour un studio comme pour une villa, la proximité joue en votre faveur, et on la répercute sur un devis honnête, sans gonfler le kilométrage."
+      t: "Vers Cannes, le déménagement de proximité",
+      p: "La plupart des déménagements d'ici restent locaux, vers Cannes ou les communes voisines, à quelques minutes seulement. Résultat : des interventions rapides, souvent bouclées dans la demi-journée, et un coût de déplacement contenu. Pour un studio comme pour une villa, la proximité joue en votre faveur, et on la répercute sur un devis honnête, sans gonfler le kilométrage."
     }],
     faq: [{
-      q: "Les rues en pente du Cannet posent-elles problème ?",
+      q: "Les rues en pente posent-elles problème ?",
       a: "Non, nos chauffeurs y sont habitués. On adapte le gabarit du camion et, si l'accès se resserre, on transborde avec un véhicule plus petit jusqu'à la porte."
     }, {
-      q: "Un Le Cannet–Cannes, ça prend combien de temps ?",
+      q: "Un Cannet–Cannes, ça prend combien de temps ?",
       a: "Souvent une demi-journée pour un volume courant : les deux villes se touchent, le déplacement est minime."
     }, {
       q: "Intervenez-vous dans le vieux village du Cannet ?",
@@ -1435,8 +1436,8 @@ const CITIES = {
     cp: "06360",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
-    lede: "Déménagement à Èze : village perché à 429 m, accès piéton, Moyenne Corniche, Èze-Bord-de-Mer. Devis ferme sous 24h.",
-    intro: "Èze est la commune la plus difficile du corridor, et de loin. Le village médiéval culmine à 429 mètres et se visite exclusivement à pied : aucun véhicule n'y entre, les ruelles sont des escaliers, et la dernière montée se fait sur des marches irrégulières. En contrebas, Èze-Bord-de-Mer se déménage normalement, et entre les deux, les villas de la Moyenne Corniche posent la question du stationnement sur une route où l'on ne s'arrête pas. Trois terrains, trois méthodes. On les traite séparément parce qu'ils n'ont rien à voir.",
+    lede: "Déménagement à Èze : village perché à 429 m, accès piéton, Moyenne Corniche, bord de mer. Devis ferme sous 24h.",
+    intro: "C'est la commune la plus difficile du corridor, et de loin. Le village médiéval culmine à 429 mètres et se visite exclusivement à pied : aucun véhicule n'y entre, les ruelles sont des escaliers, et la dernière montée se fait sur des marches irrégulières. En contrebas, le bord de mer se déménage normalement, et entre les deux, les villas de la Moyenne Corniche posent la question du stationnement sur une route où l'on ne s'arrête pas. Trois terrains, trois méthodes. On les traite séparément parce qu'ils n'ont rien à voir.",
     quartiers: ["Èze Village", "Èze-Bord-de-Mer", "La Moyenne Corniche", "La Grande Corniche", "Le Col d'Èze", "Saint-Laurent d'Èze", "La Basse Corniche", "Les Hauts d'Èze", "La Revère"],
     specifics: [{
       t: "Village perché, accès piéton",
@@ -1450,16 +1451,16 @@ const CITIES = {
     }],
     deep: [{
       t: "Le village, un déménagement à la main",
-      p: "Aucun camion n'entre dans Èze Village. Le chargement se fait au parking, et tout le reste se porte par des ruelles en escalier, parfois sur plus de deux cents marches. Un déménagement qui prendrait quatre heures ailleurs en prend huit ici, avec deux équipiers de plus. C'est le genre de chantier qu'on refuse de chiffrer à distance : on monte compter les marches et mesurer les passages, puis on annonce un prix qui ne bougera plus. Personne n'aime découvrir un supplément au pied d'un escalier."
+      p: "Aucun camion n'entre dans le village. Le chargement se fait au parking, et tout le reste se porte par des ruelles en escalier, parfois sur plus de deux cents marches. Un déménagement qui prendrait quatre heures ailleurs en prend huit ici, avec deux équipiers de plus. C'est le genre de chantier qu'on refuse de chiffrer à distance : on monte compter les marches et mesurer les passages, puis on annonce un prix qui ne bougera plus. Personne n'aime découvrir un supplément au pied d'un escalier."
     }, {
       t: "La Moyenne Corniche et ses villas",
       p: "Entre le village et la mer, la Moyenne Corniche dessert des villas accrochées à la pente, avec des accès privés qui débouchent directement sur une route à double sens sans bas-côté. On ne s'y arrête pas au hasard : l'arrêté de stationnement est indispensable, et le camion se positionne dans le sens qui évite une marche arrière dans un virage. C'est un détail d'organisation qui décide de la sécurité de toute la journée."
     }, {
-      t: "Èze-Bord-de-Mer, l'autre commune",
-      p: "En bas, au niveau de la voie ferrée et de la Basse Corniche, on retrouve des immeubles et des résidences avec des accès normaux, un stationnement possible et des ascenseurs. Un déménagement y ressemble à un déménagement niçois. Beaucoup de clients ignorent que les deux Èze n'ont rien de commun sur le plan pratique : un devis pour le bord de mer et un devis pour le village n'ont pas la même tête, et c'est normal."
+      t: "Le bord de mer, l'autre commune",
+      p: "En bas, au niveau de la voie ferrée et de la Basse Corniche, on retrouve des immeubles et des résidences avec des accès normaux, un stationnement possible et des ascenseurs. Un déménagement y ressemble à un déménagement niçois. Beaucoup de clients ignorent que les deux moitiés de la commune n'ont rien de commun sur le plan pratique : un devis pour le bord de mer et un devis pour le village n'ont pas la même tête, et c'est normal."
     }, {
       t: "Les restanques et les jardins en paliers",
-      p: "Les villas ézasques sont bâties en restanques, ces terrasses successives soutenues par des murets de pierre sèche. Le mobilier descend ou monte par des escaliers extérieurs souvent étroits et parfois glissants. On poste une équipe par palier, on protège les murets et on n'utilise le monte-meuble que si l'assise est franchement stable. Sur une pente pareille, la précipitation coûte toujours plus cher que la méthode."
+      p: "Les villas d'ici sont bâties en restanques, ces terrasses successives soutenues par des murets de pierre sèche. Le mobilier descend ou monte par des escaliers extérieurs souvent étroits et parfois glissants. On poste une équipe par palier, on protège les murets et on n'utilise le monte-meuble que si l'assise est franchement stable. Sur une pente pareille, la précipitation coûte toujours plus cher que la méthode."
     }],
     faq: [{
       q: "Peut-on déménager dans le village d'Èze ?",

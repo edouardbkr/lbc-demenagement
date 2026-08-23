@@ -18,7 +18,7 @@ function VilleHero({
     href: "Zones"
   }, "Zones desservies"), React.createElement("span", {
     className: "sep"
-  }, "/"), React.createElement("span", null, c.eyebrow || c.name)), React.createElement("h1", null, c.h1 || React.createElement(React.Fragment, null, "D\xE9m\xE9nagement ", c.prep || "à", " ", React.createElement("em", null, c.name))), React.createElement("p", {
+  }, "/"), React.createElement("span", null, c.eyebrow || c.name)), React.createElement("h1", null, c.h1 || React.createElement(React.Fragment, null, "D\xE9m\xE9nagement ", React.createElement("em", null, c.avecPrep || (c.prep || "à") + " " + c.name))), React.createElement("p", {
     className: "lede",
     style: {
       padding: "10px"
@@ -139,7 +139,7 @@ function VilleSpecifics({
     className: "asterisk"
   }, "*"), " Notre expertise locale")), React.createElement("h2", {
     className: "dim-em"
-  }, "D\xE9m\xE9nager ", c.prep || "à", " ", c.name, ",", React.createElement("br", null), React.createElement("em", null, "on conna\xEEt le terrain."))), React.createElement("div", {
+  }, "D\xE9m\xE9nager ", c.avecPrep || (c.prep || "à") + " " + c.name, ",", React.createElement("br", null), React.createElement("em", null, "on conna\xEEt le terrain."))), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       gridTemplateColumns: 'repeat(' + (c.specifics.length + 1) + ', 1fr)'
@@ -192,9 +192,14 @@ function VilleFormules({
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Nos formules ", c.prep || "à", " ", c.name)), React.createElement("h2", {
+  }, "*"), " Nos formules ", c.avecPrep || (c.prep || "à") + " " + c.name)), React.createElement("h2", {
     className: "dim-em"
-  }, "Trois formules,", React.createElement("br", null), React.createElement("em", null, "vous choisissez jusqu'o\xF9 on va."))), React.createElement("div", {
+  }, "Trois formules,", React.createElement("br", null), React.createElement("em", null, "vous choisissez jusqu'o\xF9 on va."))), React.createElement("p", {
+    className: "lede",
+    style: {
+      marginBottom: 26
+    }
+  }, "La grille est la m\xEAme partout : votre d\xE9m\xE9nageur ", c.avecPrep || (c.prep || "à") + " " + c.name, " applique le tarif qu'il applique \xE0 Nice, sans majoration de secteur. Seuls l'acc\xE8s et le volume font varier le prix."), React.createElement("div", {
     className: "blog-grid reveal-stagger",
     style: {
       gridTemplateColumns: 'repeat(3,1fr)'
@@ -244,7 +249,12 @@ function VilleNearby({
     className: "asterisk"
   }, "*"), " \xC0 proximit\xE9")), React.createElement("h2", {
     className: "dim-em"
-  }, "On d\xE9m\xE9nage aussi", React.createElement("br", null), React.createElement("em", null, "dans les environs."))), React.createElement("div", {
+  }, "On d\xE9m\xE9nage aussi", React.createElement("br", null), React.createElement("em", null, "dans les environs."))), React.createElement("p", {
+    className: "lede",
+    style: {
+      marginBottom: 22
+    }
+  }, "Un d\xE9m\xE9nagement ", c.avecPrep || (c.prep || "à") + " " + c.name, " finit souvent dans la commune d'\xE0 c\xF4t\xE9, ou en part. Vous cherchez une entreprise de d\xE9m\xE9nagement ", c.avecPrep || (c.prep || "à") + " " + c.name, " qui couvre aussi les alentours : c'est la m\xEAme \xE9quipe, le m\xEAme camion et le m\xEAme prix ferme."), React.createElement("div", {
     className: "seo-cities reveal",
     style: {
       gridTemplateColumns: 'repeat(auto-fit,minmax(220px,1fr))'
@@ -323,7 +333,7 @@ function VilleFaq({
     className: "asterisk"
   }, "*"), " Questions fr\xE9quentes")), React.createElement("h2", {
     className: "dim-em"
-  }, "D\xE9m\xE9nager ", c.prep || "à", " ", c.name, ",", React.createElement("br", null), React.createElement("em", null, "vos questions, nos r\xE9ponses."))), React.createElement("div", {
+  }, "D\xE9m\xE9nager ", c.avecPrep || (c.prep || "à") + " " + c.name, ",", React.createElement("br", null), React.createElement("em", null, "vos questions, nos r\xE9ponses."))), React.createElement("div", {
     className: "faq-list reveal",
     style: {
       maxWidth: 820
@@ -363,7 +373,7 @@ function VilleQuoteBand({
       marginBottom: 12,
       textAlign: 'center'
     }
-  }, "Un d\xE9m\xE9nagement ", c.prep || "à", " ", c.name, " ? ", React.createElement("span", {
+  }, "Un d\xE9m\xE9nagement ", c.avecPrep || (c.prep || "à") + " " + c.name, " ? ", React.createElement("span", {
     className: "scribble",
     style: {
       fontFamily: 'var(--script)',
