@@ -13,9 +13,14 @@ function About() {
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
     if (sobre || reseauFaible) return;
 
+    /* ⚠️ MÊME RÈGLE QUE LE HERO : plus de vidéo sur ordinateur, décision du 24 août 2026.
+       La version desktop pèse 5,4 Mo pour une section qu'on traverse en défilant. Avec les
+       13,5 Mo du hero, c'était près de 19 Mo servis à chaque visite sur grand écran, là où
+       l'image d'aperçu suffit. Sur mobile la vidéo reste : 0,6 Mo, et c'est là qu'elle
+       occupe vraiment l'écran. */
     const petitEcran = window.matchMedia("(max-width: 900px)").matches;
-    const fichier = petitEcran ? "assets/about-video-mobile.mp4" : "assets/about-video.mp4";
-    const lancer = () => setSource(fichier);
+    if (!petitEcran) return;
+    const lancer = () => setSource("assets/about-video-mobile.mp4");
     if (document.readyState === "complete") setTimeout(lancer, 400);
     else window.addEventListener("load", () => setTimeout(lancer, 400), { once: true });
   }, []);

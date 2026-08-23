@@ -10,8 +10,8 @@ function About() {
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
     if (sobre || reseauFaible) return;
     const petitEcran = window.matchMedia("(max-width: 900px)").matches;
-    const fichier = petitEcran ? "assets/about-video-mobile.mp4" : "assets/about-video.mp4";
-    const lancer = () => setSource(fichier);
+    if (!petitEcran) return;
+    const lancer = () => setSource("assets/about-video-mobile.mp4");
     if (document.readyState === "complete") setTimeout(lancer, 400);else window.addEventListener("load", () => setTimeout(lancer, 400), {
       once: true
     });

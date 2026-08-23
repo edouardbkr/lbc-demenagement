@@ -457,9 +457,9 @@ function MascotStamp() {
     className: "mascot-stamp-aside left"
   }, React.createElement("span", {
     className: "mascot-stamp-kicker"
-  }, "D\xE9m\xE9nageurs ni\xE7ois"), React.createElement("span", {
+  }, "Une seule \xE9quipe"), React.createElement("span", {
     className: "mascot-stamp-line"
-  }, "Le nom est la blague.")), React.createElement("div", {
+  }, "Les m\xEAmes du premier carton au dernier.")), React.createElement("div", {
     className: "mascot-stamp-circle"
   }, React.createElement("img", {
     src: "assets/lbc-mascot-sm.png",
@@ -472,9 +472,9 @@ function MascotStamp() {
     className: "mascot-stamp-aside right"
   }, React.createElement("span", {
     className: "mascot-stamp-kicker"
-  }, "Nice \xB7 PACA \xB7 France"), React.createElement("span", {
+  }, "Un seul interlocuteur"), React.createElement("span", {
     className: "mascot-stamp-line"
-  }, "Le travail est s\xE9rieux."))));
+  }, "Celui qui chiffre est celui qui suit."))));
 }
 const qqVilleFrom = addr => {
   if (!addr) return "";

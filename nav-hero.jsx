@@ -37,8 +37,12 @@ function Hero({ headlineVariant }) {
          La formule passe sous le titre et à l'AFFIRMATIVE. À ce moment-là le lecteur a vu
          le logo, il sait que la boîte s'appelle LBC, et le jeu de mots fait son effet
          sans jamais prononcer le mot qu'on cherche à chasser de son esprit. */
+      /* Le sous-titre a été retiré le 24 août : trois lignes avant les preuves, c'est une
+         de trop. Le H1 dit qui on est et ce qu'on promet, les puces le démontrent, et la
+         formule sur le nom vit déjà plus bas dans la page. Le mécanisme de sousTitre est
+         conservé pour pouvoir remettre une ligne le jour où elle apporte quelque chose. */
       accroche: null,
-      sousTitre: <>Le nom est la blague. <strong style={{ fontWeight: 600 }}>Le travail est sérieux.</strong> <span className="scribble">promis.</span></>,
+      sousTitre: null,
       /* Espace insécable entre « à » et « Nice » : sans elle, le titre se coupe en
          « Déménageur à » / « Nice. » et laisse la préposition orpheline en fin de ligne.
          Elle passe désormais à la ligne avec le nom de la ville. */
@@ -72,9 +76,15 @@ function Hero({ headlineVariant }) {
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
     if (sobre || reseauFaible) return;
 
+    /* ⚠️ LA VIDÉO NE SE CHARGE PLUS QUE SUR MOBILE — décision d'Edouard, 24 août 2026.
+       C'est l'inverse de l'usage, et c'est justifié ici : la version desktop pèse 13,5 Mo
+       pour une zone que le visiteur d'ordinateur regarde à peine, pendant que la version
+       mobile n'en pèse que 1,3. Sur grand écran, l'image d'aperçu de 58 Ko fait le même
+       travail. Le premier écran s'affiche donc plus vite là où la page est la plus lourde,
+       et la vidéo reste là où elle occupe vraiment l'attention. */
     const petitEcran = window.matchMedia("(max-width: 900px)").matches;
-    const fichier = petitEcran ? "assets/hero-video-mobile.mp4" : "assets/hero-video.mp4";
-    const lancer = () => setSource(fichier);
+    if (!petitEcran) return;
+    const lancer = () => setSource("assets/hero-video-mobile.mp4");
     if (document.readyState === "complete") setTimeout(lancer, 200);
     else window.addEventListener("load", () => setTimeout(lancer, 200), { once: true });
   }, []);
@@ -87,7 +97,12 @@ function Hero({ headlineVariant }) {
     <section className="hero" id="top" style={{ paddingTop: "16px" }}>
       <div className="wrap" style={{ paddingTop: "20px" }}>
         <div className="hero-meta reveal">
-          <span className="pill pill-live"><span className="dot"></span>Déménageurs à Nice</span>
+          {/* « Déménageurs à Nice » répétait mot pour mot le H1 situé trois centimètres
+              plus bas. L'adresse, elle, ajoute quelque chose : elle ancre l'entreprise
+              dans une rue réelle, ce qui rassure le visiteur et sert le référencement
+              local — le nom, l'adresse et le téléphone doivent être écrits partout de la
+              même façon, ici comme sur la fiche Google et dans les annuaires. */}
+          <span className="pill pill-live"><span className="dot"></span>Basés au 12 rue d'Italie, Nice</span>
           <span className="pill"><svg className="pill-ic" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>PACA · Toute la France</span>
         </div>
 

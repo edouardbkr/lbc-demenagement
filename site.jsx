@@ -375,16 +375,23 @@ function MascotStamp() {
   return (
     <div className="wrap">
       <div className="mascot-stamp">
+        {/* ⚠️ « Le nom est la blague / Le travail est sérieux » a été retiré le 24 août.
+            La formule apparaissait déjà deux fois ailleurs sur le site, et elle ramenait
+            l'attention sur le nom au lieu de dire quelque chose d'utile.
+            Ce qui la remplace n'est écrit nulle part ailleurs et se vérifie : la même
+            équipe du début à la fin, et un seul interlocuteur. C'est précisément ce que
+            les grosses enseignes ne peuvent pas promettre, elles qui sous-traitent le
+            chantier à des équipes qu'on découvre le matin même. */}
         <div className="mascot-stamp-aside left">
-          <span className="mascot-stamp-kicker">Déménageurs niçois</span>
-          <span className="mascot-stamp-line">Le nom est la blague.</span>
+          <span className="mascot-stamp-kicker">Une seule équipe</span>
+          <span className="mascot-stamp-line">Les mêmes du premier carton au dernier.</span>
         </div>
         <div className="mascot-stamp-circle">
           <img src="assets/lbc-mascot-sm.png" alt="Mascotte LBC Déménagement" loading="lazy" decoding="async" width="560" height="560" />
         </div>
         <div className="mascot-stamp-aside right">
-          <span className="mascot-stamp-kicker">Nice · PACA · France</span>
-          <span className="mascot-stamp-line">Le travail est sérieux.</span>
+          <span className="mascot-stamp-kicker">Un seul interlocuteur</span>
+          <span className="mascot-stamp-line">Celui qui chiffre est celui qui suit.</span>
         </div>
       </div>
     </div>);

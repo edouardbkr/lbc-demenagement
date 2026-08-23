@@ -45,13 +45,7 @@ function Hero({
     },
     c: {
       accroche: null,
-      sousTitre: React.createElement(React.Fragment, null, "Le nom est la blague. ", React.createElement("strong", {
-        style: {
-          fontWeight: 600
-        }
-      }, "Le travail est s\xE9rieux."), " ", React.createElement("span", {
-        className: "scribble"
-      }, "promis.")),
+      sousTitre: null,
       l1: "Déménageur\u00A0à\u00A0Nice.",
       l2: React.createElement(React.Fragment, null, React.createElement("em", {
         style: {
@@ -72,8 +66,8 @@ function Hero({
     const reseauFaible = co.saveData === true || /2g/.test(co.effectiveType || "");
     if (sobre || reseauFaible) return;
     const petitEcran = window.matchMedia("(max-width: 900px)").matches;
-    const fichier = petitEcran ? "assets/hero-video-mobile.mp4" : "assets/hero-video.mp4";
-    const lancer = () => setSource(fichier);
+    if (!petitEcran) return;
+    const lancer = () => setSource("assets/hero-video-mobile.mp4");
     if (document.readyState === "complete") setTimeout(lancer, 200);else window.addEventListener("load", () => setTimeout(lancer, 200), {
       once: true
     });
@@ -103,7 +97,7 @@ function Hero({
     className: "pill pill-live"
   }, React.createElement("span", {
     className: "dot"
-  }), "D\xE9m\xE9nageurs \xE0 Nice"), React.createElement("span", {
+  }), "Bas\xE9s au 12 rue d'Italie, Nice"), React.createElement("span", {
     className: "pill"
   }, React.createElement("svg", {
     className: "pill-ic",
