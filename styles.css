@@ -231,6 +231,20 @@ p { margin: 0; }
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; }
 }
+/* ⚠️ PAS DE VISUEL DANS LE HERO SUR ORDINATEUR — décision d'Edouard, 24 août 2026.
+   La vidéo desktop avait déjà été retirée du chargement (13,5 Mo pour une zone qu'on
+   regarde à peine), mais l'image d'aperçu continuait d'occuper la moitié droite de
+   l'écran. Sur grand écran, le titre, la note Google, les trois engagements et le bouton
+   se suffisent : ce qui compte au premier regard, c'est ce qu'on promet, pas une photo de
+   canapé emballé. La colonne disparaît donc entièrement et le hero passe en pleine
+   largeur, avec une mesure de ligne bornée pour que le texte reste lisible.
+   Sur mobile, le visuel reste : l'écran est vertical, il occupe sa place naturellement
+   sous le titre, et c'est là que la vidéo tourne encore. */
+@media (min-width: 981px) {
+  .hero-photo { display: none; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid > .reveal { max-width: 62ch; }
+}
 /* Single-column hero (mobile): title → image → cta → marquee → estimator */
 .hero-grid.hero-single { display: block; }
 .hero-single > .reveal { max-width: 720px; margin: 0 auto; }

@@ -53,7 +53,7 @@ function Hero({
           fontFamily: "Newsreader",
           fontSize: "clamp(34px, 9vw, 76px)"
         }
-      }, "Le prix annonc\xE9 est le prix pay\xE9.")),
+      }, "Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9.")),
       scribble: null
     }
   };
@@ -97,7 +97,7 @@ function Hero({
     className: "pill pill-live"
   }, React.createElement("span", {
     className: "dot"
-  }), "Bas\xE9s au 12 rue d'Italie, Nice"), React.createElement("span", {
+  }), "D\xE9m\xE9nagement possible d\xE8s demain"), React.createElement("span", {
     className: "pill"
   }, React.createElement("svg", {
     className: "pill-ic",

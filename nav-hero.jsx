@@ -47,7 +47,10 @@ function Hero({ headlineVariant }) {
          « Déménageur à » / « Nice. » et laisse la préposition orpheline en fin de ligne.
          Elle passe désormais à la ligne avec le nom de la ville. */
       l1: "Déménageur\u00A0à\u00A0Nice.",
-      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(34px, 9vw, 76px)" }}>Le prix annoncé est le prix payé.</em></>,
+      /* Insécable entre « le » et « prix » : sans elle, la ligne se coupait en
+         « Le prix annoncé est le » / « prix payé. » et laissait l'article orphelin,
+         le même défaut que « Déménageur à / Nice » corrigé plus haut. */
+      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(34px, 9vw, 76px)" }}>{"Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9."}</em></>,
       scribble: null
     }
   };
@@ -97,12 +100,17 @@ function Hero({ headlineVariant }) {
     <section className="hero" id="top" style={{ paddingTop: "16px" }}>
       <div className="wrap" style={{ paddingTop: "20px" }}>
         <div className="hero-meta reveal">
-          {/* « Déménageurs à Nice » répétait mot pour mot le H1 situé trois centimètres
-              plus bas. L'adresse, elle, ajoute quelque chose : elle ancre l'entreprise
-              dans une rue réelle, ce qui rassure le visiteur et sert le référencement
-              local — le nom, l'adresse et le téléphone doivent être écrits partout de la
-              même façon, ici comme sur la fiche Google et dans les annuaires. */}
-          <span className="pill pill-live"><span className="dot"></span>Basés au 12 rue d'Italie, Nice</span>
+          {/* La pastille disait « Déménageurs à Nice », mot pour mot le H1 situé trois
+              centimètres plus bas. Elle porte désormais le seul avantage qu'une petite
+              structure a sur une grosse enseigne, et qu'aucun concurrent du département
+              n'affiche : la disponibilité immédiate. Prestazur et Maxdem ont des plannings
+              faits trois semaines à l'avance.
+              ⚠️ « POSSIBLE », ET PAS « GARANTI ». La page Déménagement urgent dit
+              exactement la même chose et pose la même limite — cela dépend qu'un camion
+              soit libre à la date demandée. Les deux formulations doivent rester
+              cohérentes : promettre ici ce qu'on nuance là-bas, c'est se faire prendre en
+              défaut par le premier visiteur qui lit les deux pages. */}
+          <span className="pill pill-live"><span className="dot"></span>Déménagement possible dès demain</span>
           <span className="pill"><svg className="pill-ic" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>PACA · Toute la France</span>
         </div>
 
