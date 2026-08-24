@@ -218,6 +218,253 @@ function DebNotaire() {
     className: "arrow"
   }, "\u2192")))));
 }
+const DEB_PRIX = [{
+  l: "Studio ou T1",
+  v: "12 à 20 m³",
+  p: "450 – 750 €",
+  d: "Un logement meublé sans cave. La moitié du prix part en déchetterie."
+}, {
+  l: "Deux pièces",
+  v: "20 à 35 m³",
+  p: "600 – 1 200 €",
+  d: "Le cas le plus courant. Cave ou grenier en plus : comptez le haut de la fourchette."
+}, {
+  l: "Trois pièces",
+  v: "35 à 50 m³",
+  p: "1 100 – 1 900 €",
+  d: "Souvent deux jours d'équipe quand il n'y a pas d'ascenseur."
+}, {
+  l: "Maison",
+  v: "50 à 90 m³",
+  p: "1 800 – 3 200 €",
+  d: "Garage, cave, grenier et jardin compris. C'est le tri qui prend le temps, pas le portage."
+}];
+const DEB_FACTEURS = [{
+  t: "Le volume, pas la surface",
+  d: "Un deux-pièces vidé en trente ans d'occupation contient plus qu'une maison meublée l'an dernier. C'est ce qu'il y a dedans qui compte, et c'est pour ça qu'on vient voir."
+}, {
+  t: "L'étage et l'ascenseur",
+  d: "Un troisième sans ascenseur double le temps de portage. À Nice, entre le Vieux-Nice et les immeubles anciens de Libération, c'est la règle plutôt que l'exception."
+}, {
+  t: "Ce qui part en filière spéciale",
+  d: "Peinture, solvants, batteries, gros électroménager : chaque filière a son point de dépôt et son tarif. C'est chiffré à part, jamais fondu dans un forfait."
+}, {
+  t: "Ce qui se revend",
+  d: "Mobilier ancien, électroménager récent, outillage : la valeur de revente vient en déduction. Rarement de quoi couvrir le chantier, parfois de quoi l'alléger sérieusement."
+}];
+function DebPrix() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " Ce que \xE7a co\xFBte")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Les prix, ", React.createElement("em", null, "avant m\xEAme de nous appeler."))), React.createElement("p", {
+    className: "lede"
+  }, "Personne n'affiche ses prix sur ce m\xE9tier, et c'est bien le probl\xE8me : on appelle trois entreprises pour d\xE9couvrir trois fourchettes incomparables. Voici les n\xF4tres, tir\xE9es des chantiers que nous avons r\xE9ellement faits."), React.createElement("div", {
+    className: "tarif-tw",
+    style: {
+      marginTop: 26
+    }
+  }, React.createElement("table", {
+    className: "tarif-table"
+  }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "Logement"), React.createElement("th", null, "Volume"), React.createElement("th", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Fourchette"))), React.createElement("tbody", null, DEB_PRIX.map(r => React.createElement("tr", {
+    key: r.l
+  }, React.createElement("td", null, React.createElement("strong", null, r.l), React.createElement("div", {
+    className: "tarif-sub"
+  }, r.d)), React.createElement("td", {
+    className: "tarif-sub",
+    style: {
+      whiteSpace: "nowrap"
+    }
+  }, r.v), React.createElement("td", {
+    className: "tarif-prix",
+    style: {
+      textAlign: "right",
+      whiteSpace: "nowrap"
+    }
+  }, r.p)))))), React.createElement("p", {
+    className: "lede",
+    style: {
+      marginTop: 20
+    }
+  }, "Ces montants supposent un acc\xE8s normal et un logement \xE0 vider enti\xE8rement. Le devis est ferme apr\xE8s visite : ", React.createElement("strong", {
+    style: {
+      color: "var(--ink)"
+    }
+  }, "on ne facture jamais un suppl\xE9ment parce que la cave \xE9tait plus pleine que pr\xE9vu"), ". C'est le sens m\xEAme du d\xE9placement pr\xE9alable."), React.createElement("h3", {
+    className: "tarif-h3",
+    style: {
+      marginTop: 40
+    }
+  }, "Ce qui fait varier le prix"), React.createElement("div", {
+    className: "values-grid reveal-stagger"
+  }, DEB_FACTEURS.map((x, i) => React.createElement("div", {
+    className: "value",
+    key: i
+  }, React.createElement("div", {
+    className: "value-num"
+  }, String(i + 1).padStart(2, "0")), React.createElement("div", {
+    className: "value-body"
+  }, React.createElement("div", {
+    className: "value-title"
+  }, x.t), React.createElement("p", null, x.d)))))));
+}
+function DebSuccession() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " Vider avant le partage")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Ce qu'on a le droit de jeter, ", React.createElement("em", null, "et quand."))), React.createElement("p", {
+    className: "lede"
+  }, "C'est la question qui bloque le plus de familles, et celle sur laquelle on trouve le moins de r\xE9ponses claires. Voici ce que nous voyons faire, tous les mois, dans les successions que nous vidons."), React.createElement("div", {
+    className: "ap-values reveal-stagger",
+    style: {
+      marginTop: 26
+    }
+  }, React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Avant l'acceptation de la succession"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Tant que personne n'a accept\xE9, vider le logement peut \xEAtre compris comme un acte d'h\xE9ritier, avec les dettes qui vont avec. Un notaire vous le dira mieux que nous, mais dans les faits, la plupart des familles attendent ce feu vert avant de nous appeler.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Quand il y a plusieurs h\xE9ritiers"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Le d\xE9barras suppose l'accord de tous. C'est l\xE0 que l'\xE9tat des lieux photographique devient utile : chacun voit ce qui se trouvait dans le logement et ce qui en est sorti, sans avoir \xE0 se croire sur parole.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Le logement est en location"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Le bail continue apr\xE8s le d\xE9c\xE8s et le loyer court. C'est ce qui met la pression : chaque mois de retard co\xFBte un loyer entier. Dites-le nous au premier appel, c'est ce qui d\xE9cide de l'ordre dans lequel on cale les chantiers.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Les papiers, jamais jet\xE9s"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Relev\xE9s bancaires, contrats d'assurance-vie, titres de propri\xE9t\xE9, livrets : tout ce qui ressemble \xE0 un document est mis de c\xF4t\xE9 dans un carton identifi\xE9. Une succession se r\xE8gle avec ces papiers-l\xE0, et ils r\xE9apparaissent souvent au fond d'un tiroir.")))));
+}
+function DebDechets() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " Faire soi-m\xEAme")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Ce que vous pouvez \xE9vacuer ", React.createElement("em", null, "sans nous."))), React.createElement("p", {
+    className: "lede"
+  }, "Autant le dire : une partie du travail peut se faire seul, et cela r\xE9duit d'autant le devis. Voici ce qui existe \xE0 Nice et ce que \xE7a vaut vraiment."), React.createElement("div", {
+    className: "ap-values reveal-stagger",
+    style: {
+      marginTop: 26
+    }
+  }, React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Le ramassage des encombrants"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "La M\xE9tropole Nice C\xF4te d'Azur l'assure sur rendez-vous, gratuitement, pour les particuliers. Vous sortez les meubles la veille au soir. Comptez plusieurs jours de d\xE9lai, et un volume limit\xE9 par passage : c'est utile pour cinq meubles, pas pour vider un appartement.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "La d\xE9chetterie"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Plusieurs d\xE9chetteries m\xE9tropolitaines accueillent les particuliers sur justificatif de domicile. Il faut un v\xE9hicule, du temps, et accepter de faire plusieurs voyages. Gravats, peinture et \xE9lectrom\xE9nager y ont chacun leur fili\xE8re.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Le don"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Emma\xFCs et les ressourceries locales r\xE9cup\xE8rent le mobilier en bon \xE9tat, parfois \xE0 domicile. C'est la meilleure destination pour ce qui peut resservir, mais elles refusent ce qui est ab\xEEm\xE9 \u2014 et dans une succession, l'essentiel l'est.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "O\xF9 \xE7a coince"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Le piano, l'armoire du couloir, la cave vo\xFBt\xE9e, le grenier sans escalier fixe. C'est presque toujours l\xE0 que les familles s'arr\xEAtent apr\xE8s un week-end d'essai, et c'est pour \xE7a qu'on nous appelle le lundi."))), React.createElement("p", {
+    className: "lede",
+    style: {
+      marginTop: 22
+    }
+  }, React.createElement("strong", {
+    style: {
+      color: "var(--ink)"
+    }
+  }, "Notre conseil, sinc\xE8rement :"), " triez les papiers et les objets personnels vous-m\xEAme, personne ne peut le faire \xE0 votre place. Le reste \u2014 le volume, le poids, les escaliers \u2014 c'est notre m\xE9tier, et vous y passeriez trois week-ends.")));
+}
+function DebDelais() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " Le calendrier")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Combien de temps ", React.createElement("em", null, "\xE7a prend vraiment."))), React.createElement("div", {
+    className: "ap-values reveal-stagger",
+    style: {
+      marginTop: 24
+    }
+  }, React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "De l'appel \xE0 la visite"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "48 \xE0 72 heures. La visite dure trente \xE0 quarante-cinq minutes, cave et grenier ouverts, et le devis part le soir m\xEAme.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "De l'accord au chantier"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Souvent dans la semaine. Quand un d\xE9lai de bail ou une date de vente serre, dites-le : c'est ce qui d\xE9cide de l'ordre de passage.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Le chantier lui-m\xEAme"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Une demi-journ\xE9e pour un studio, une journ\xE9e pour un deux ou trois-pi\xE8ces, deux jours pour une maison avec d\xE9pendances.")), React.createElement("div", {
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, "Le dossier remis"), React.createElement("p", {
+    className: "ap-value-d"
+  }, "Le soir m\xEAme : \xE9tat des lieux photographique avant et apr\xE8s, justificatifs de d\xE9p\xF4t, facture d\xE9taill\xE9e par poste.")))));
+}
 function DebFAQ() {
   return React.createElement("section", {
     className: "sec"
@@ -260,7 +507,7 @@ function FaqOuvrable({
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
     id: "contenu"
-  }, React.createElement(DebHero, null), React.createElement(DebSteps, null), React.createElement(DebCas, null), React.createElement(DebNotaire, null), React.createElement(DebFAQ, null), React.createElement("section", {
+  }, React.createElement(DebHero, null), React.createElement(DebSteps, null), React.createElement(DebCas, null), React.createElement(DebPrix, null), React.createElement(DebSuccession, null), React.createElement(DebDechets, null), React.createElement(DebDelais, null), React.createElement(DebNotaire, null), React.createElement(DebFAQ, null), React.createElement("section", {
     className: "sec"
   }, React.createElement("div", {
     className: "wrap"
@@ -269,5 +516,5 @@ function App() {
   }, React.createElement(QuickQuote, null))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { DebHero, DebSteps, DebCas, DebNotaire, DebFAQ, FaqOuvrable, App }); } catch (e) {}
+  try { Object.assign(window, { DebHero, DebSteps, DebCas, DebNotaire, DebPrix, DebSuccession, DebDechets, DebDelais, DebFAQ, FaqOuvrable, App }); } catch (e) {}
 })();

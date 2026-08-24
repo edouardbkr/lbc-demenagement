@@ -124,6 +124,149 @@ function DebNotaire() {
     </div></section>);
 }
 
+/* ── LES SECTIONS DE FOND ────────────────────────────────────────────────────────
+   La page tenait en 1 500 mots face à des entreprises de débarras installées depuis vingt
+   ans. Elle disait ce qu'on fait, jamais ce que la personne en face doit savoir : combien
+   ça coûte selon ce qu'elle a, ce qu'elle a le droit de jeter dans une succession, ce que
+   la mairie de Nice ramasse gratuitement, et quel délai elle a devant elle.
+
+   Ce sont exactement les questions qu'on tape dans Google à ce moment-là, et celles
+   qu'aucun concurrent local ne traite : ils publient trois paragraphes et un formulaire. */
+
+const DEB_PRIX = [
+  { l: "Studio ou T1", v: "12 à 20 m³", p: "450 – 750 €", d: "Un logement meublé sans cave. La moitié du prix part en déchetterie." },
+  { l: "Deux pièces",  v: "20 à 35 m³", p: "600 – 1 200 €", d: "Le cas le plus courant. Cave ou grenier en plus : comptez le haut de la fourchette." },
+  { l: "Trois pièces", v: "35 à 50 m³", p: "1 100 – 1 900 €", d: "Souvent deux jours d'équipe quand il n'y a pas d'ascenseur." },
+  { l: "Maison",       v: "50 à 90 m³", p: "1 800 – 3 200 €", d: "Garage, cave, grenier et jardin compris. C'est le tri qui prend le temps, pas le portage." },
+];
+
+const DEB_FACTEURS = [
+  { t: "Le volume, pas la surface", d: "Un deux-pièces vidé en trente ans d'occupation contient plus qu'une maison meublée l'an dernier. C'est ce qu'il y a dedans qui compte, et c'est pour ça qu'on vient voir." },
+  { t: "L'étage et l'ascenseur", d: "Un troisième sans ascenseur double le temps de portage. À Nice, entre le Vieux-Nice et les immeubles anciens de Libération, c'est la règle plutôt que l'exception." },
+  { t: "Ce qui part en filière spéciale", d: "Peinture, solvants, batteries, gros électroménager : chaque filière a son point de dépôt et son tarif. C'est chiffré à part, jamais fondu dans un forfait." },
+  { t: "Ce qui se revend", d: "Mobilier ancien, électroménager récent, outillage : la valeur de revente vient en déduction. Rarement de quoi couvrir le chantier, parfois de quoi l'alléger sérieusement." },
+];
+
+function DebPrix() {
+  return (
+    <section className="sec"><div className="wrap">
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Ce que ça coûte</div></div>
+        <h2 className="dim-em">Les prix, <em>avant même de nous appeler.</em></h2>
+      </div>
+      <p className="lede">Personne n'affiche ses prix sur ce métier, et c'est bien le problème : on appelle trois entreprises pour découvrir trois fourchettes incomparables. Voici les nôtres, tirées des chantiers que nous avons réellement faits.</p>
+      <div className="tarif-tw" style={{ marginTop: 26 }}>
+        <table className="tarif-table">
+          <thead><tr><th>Logement</th><th>Volume</th><th style={{ textAlign: "right" }}>Fourchette</th></tr></thead>
+          <tbody>{DEB_PRIX.map((r) => (
+            <tr key={r.l}>
+              <td><strong>{r.l}</strong><div className="tarif-sub">{r.d}</div></td>
+              <td className="tarif-sub" style={{ whiteSpace: "nowrap" }}>{r.v}</td>
+              <td className="tarif-prix" style={{ textAlign: "right", whiteSpace: "nowrap" }}>{r.p}</td>
+            </tr>))}
+          </tbody>
+        </table>
+      </div>
+      <p className="lede" style={{ marginTop: 20 }}>Ces montants supposent un accès normal et un logement à vider entièrement. Le devis est ferme après visite : <strong style={{ color: "var(--ink)" }}>on ne facture jamais un supplément parce que la cave était plus pleine que prévu</strong>. C'est le sens même du déplacement préalable.</p>
+
+      <h3 className="tarif-h3" style={{ marginTop: 40 }}>Ce qui fait varier le prix</h3>
+      <div className="values-grid reveal-stagger">
+        {DEB_FACTEURS.map((x, i) => (
+          <div className="value" key={i}>
+            <div className="value-num">{String(i + 1).padStart(2, "0")}</div>
+            <div className="value-body"><div className="value-title">{x.t}</div><p>{x.d}</p></div>
+          </div>))}
+      </div>
+    </div></section>);
+}
+
+function DebSuccession() {
+  return (
+    <section className="sec"><div className="wrap">
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Vider avant le partage</div></div>
+        <h2 className="dim-em">Ce qu'on a le droit de jeter, <em>et quand.</em></h2>
+      </div>
+      <p className="lede">C'est la question qui bloque le plus de familles, et celle sur laquelle on trouve le moins de réponses claires. Voici ce que nous voyons faire, tous les mois, dans les successions que nous vidons.</p>
+      <div className="ap-values reveal-stagger" style={{ marginTop: 26 }}>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Avant l'acceptation de la succession</h3>
+          <p className="ap-value-d">Tant que personne n'a accepté, vider le logement peut être compris comme un acte d'héritier, avec les dettes qui vont avec. Un notaire vous le dira mieux que nous, mais dans les faits, la plupart des familles attendent ce feu vert avant de nous appeler.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Quand il y a plusieurs héritiers</h3>
+          <p className="ap-value-d">Le débarras suppose l'accord de tous. C'est là que l'état des lieux photographique devient utile : chacun voit ce qui se trouvait dans le logement et ce qui en est sorti, sans avoir à se croire sur parole.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Le logement est en location</h3>
+          <p className="ap-value-d">Le bail continue après le décès et le loyer court. C'est ce qui met la pression : chaque mois de retard coûte un loyer entier. Dites-le nous au premier appel, c'est ce qui décide de l'ordre dans lequel on cale les chantiers.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Les papiers, jamais jetés</h3>
+          <p className="ap-value-d">Relevés bancaires, contrats d'assurance-vie, titres de propriété, livrets : tout ce qui ressemble à un document est mis de côté dans un carton identifié. Une succession se règle avec ces papiers-là, et ils réapparaissent souvent au fond d'un tiroir.</p>
+        </div>
+      </div>
+    </div></section>);
+}
+
+function DebDechets() {
+  return (
+    <section className="sec"><div className="wrap">
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Faire soi-même</div></div>
+        <h2 className="dim-em">Ce que vous pouvez évacuer <em>sans nous.</em></h2>
+      </div>
+      <p className="lede">Autant le dire : une partie du travail peut se faire seul, et cela réduit d'autant le devis. Voici ce qui existe à Nice et ce que ça vaut vraiment.</p>
+      <div className="ap-values reveal-stagger" style={{ marginTop: 26 }}>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Le ramassage des encombrants</h3>
+          <p className="ap-value-d">La Métropole Nice Côte d'Azur l'assure sur rendez-vous, gratuitement, pour les particuliers. Vous sortez les meubles la veille au soir. Comptez plusieurs jours de délai, et un volume limité par passage : c'est utile pour cinq meubles, pas pour vider un appartement.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">La déchetterie</h3>
+          <p className="ap-value-d">Plusieurs déchetteries métropolitaines accueillent les particuliers sur justificatif de domicile. Il faut un véhicule, du temps, et accepter de faire plusieurs voyages. Gravats, peinture et électroménager y ont chacun leur filière.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Le don</h3>
+          <p className="ap-value-d">Emmaüs et les ressourceries locales récupèrent le mobilier en bon état, parfois à domicile. C'est la meilleure destination pour ce qui peut resservir, mais elles refusent ce qui est abîmé — et dans une succession, l'essentiel l'est.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Où ça coince</h3>
+          <p className="ap-value-d">Le piano, l'armoire du couloir, la cave voûtée, le grenier sans escalier fixe. C'est presque toujours là que les familles s'arrêtent après un week-end d'essai, et c'est pour ça qu'on nous appelle le lundi.</p>
+        </div>
+      </div>
+      <p className="lede" style={{ marginTop: 22 }}><strong style={{ color: "var(--ink)" }}>Notre conseil, sincèrement :</strong> triez les papiers et les objets personnels vous-même, personne ne peut le faire à votre place. Le reste — le volume, le poids, les escaliers — c'est notre métier, et vous y passeriez trois week-ends.</p>
+    </div></section>);
+}
+
+function DebDelais() {
+  return (
+    <section className="sec"><div className="wrap">
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Le calendrier</div></div>
+        <h2 className="dim-em">Combien de temps <em>ça prend vraiment.</em></h2>
+      </div>
+      <div className="ap-values reveal-stagger" style={{ marginTop: 24 }}>
+        <div className="ap-value">
+          <h3 className="ap-value-t">De l'appel à la visite</h3>
+          <p className="ap-value-d">48 à 72 heures. La visite dure trente à quarante-cinq minutes, cave et grenier ouverts, et le devis part le soir même.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">De l'accord au chantier</h3>
+          <p className="ap-value-d">Souvent dans la semaine. Quand un délai de bail ou une date de vente serre, dites-le : c'est ce qui décide de l'ordre de passage.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Le chantier lui-même</h3>
+          <p className="ap-value-d">Une demi-journée pour un studio, une journée pour un deux ou trois-pièces, deux jours pour une maison avec dépendances.</p>
+        </div>
+        <div className="ap-value">
+          <h3 className="ap-value-t">Le dossier remis</h3>
+          <p className="ap-value-d">Le soir même : état des lieux photographique avant et après, justificatifs de dépôt, facture détaillée par poste.</p>
+        </div>
+      </div>
+    </div></section>);
+}
+
 function DebFAQ() {
   return (
     <section className="sec"><div className="wrap">
@@ -159,6 +302,10 @@ function App() {
         <DebHero />
         <DebSteps />
         <DebCas />
+        <DebPrix />
+        <DebSuccession />
+        <DebDechets />
+        <DebDelais />
         <DebNotaire />
         <DebFAQ />
         <section className="sec"><div className="wrap">

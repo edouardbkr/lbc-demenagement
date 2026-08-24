@@ -943,9 +943,9 @@ const AVIS_VILLE = { note: "5,0", nombre: 26, lien: "https://maps.google.com/?ci
    un visiteur qui va vérifier sur la fiche doit retrouver les mêmes mots. La version
    longue de ces avis est dans trust-testimonials.jsx, pour l'accueil. */
 const AVIS_EXTRAITS = [
-  { t: "L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin.", n: "Mari M." },
-  { t: "Très bonne adaptation même avec de grosses contraintes : chemin sans route, grosse pente, gros escalier…", n: "Jannick F." },
-  { t: "Un déménagement, c'est toujours stressant, mais là c'était hyper bien organisé, orchestré, ponctuel, arrangeant.", n: "Jonathan D." }];
+  { t: "Tous simplement génial un déménagement c’est toujours stressant. Mais la C’était hyper bien organisé orchestré ponctuelle, arrangeant je recommande fortement il…", n: "Jonathan D." },
+  { t: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!", n: "Karine S." },
+  { t: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et…", n: "Mari M." }];
 
 function PreuveVille({ ville }) {
   return (

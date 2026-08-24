@@ -142,30 +142,30 @@ function Values() {
 }
 function Testimonials() {
   const quotes = [{
-    text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante.",
-    name: "Mari M.",
-    city: "Avis Google · il y a un mois",
-    id: "mari"
-  }, {
-    text: "Une force titanesque et un professionnalisme d'exception. Très bonne adaptation même avec de grosses contraintes : chemin sans route, grosse pente, gros escalier… Merci à vous.",
-    name: "Jannick F.",
-    city: "Avis Google · il y a 3 semaines",
-    id: "jannick"
-  }, {
-    text: "Tout simplement génial. Un déménagement, c'est toujours stressant, mais là c'était hyper bien organisé, orchestré, ponctuel, arrangeant. Je recommande fortement, ils seront sûrement prévus pour mon futur déménagement. Un grand merci.",
+    text: "Tous simplement génial un déménagement c’est toujours stressant. Mais la C’était hyper bien organisé orchestré ponctuelle, arrangeant je recommande fortement il seront sûrement prévu pour mon futur déménagement. Un grand merci",
     name: "Jonathan D.",
-    city: "Avis Google · il y a 2 semaines",
-    id: "jonathan"
+    city: "Avis Google · il y a 3 semaines",
+    id: "g0"
   }, {
-    text: "Je recommande vivement. Travail soigné, efficacité, qualité et gentillesse, ce qui est appréciable aujourd'hui. Très professionnel.",
+    text: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!",
     name: "Karine S.",
-    city: "Avis Google · il y a 2 semaines",
-    id: "karine"
+    city: "Avis Google · il y a 3 semaines",
+    id: "g1"
   }, {
-    text: "Excellente prestation lors de mon déménagement l'an passé. Merci pour votre professionnalisme et votre engagement.",
+    text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante. Un grand merci pour votre sérieux et votre efficacité. Je recommande cette entreprise sans hésitation !",
+    name: "Mari M.",
+    city: "Avis Google · il y a 6 semaines",
+    id: "g2"
+  }, {
+    text: "Excellente prestation lors de mon déménagement l'an passé, merci pour votre professionnalisme et votre engagement !!!",
     name: "Nathalie P.",
     city: "Avis Google · il y a 3 semaines",
-    id: "nathalie"
+    id: "g3"
+  }, {
+    text: "Une force titanesque et un professionnalisme d'exception. Très bonne adaptation même avec grosses contraintes : chemin sans route, grosse pente, gros escalier... Merci à vous 🙏",
+    name: "Jannick F.",
+    city: "Avis Google · il y a 3 semaines",
+    id: "g4"
   }];
   const pinRef = React.useRef(null);
   const stickyRef = React.useRef(null);
