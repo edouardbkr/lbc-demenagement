@@ -202,7 +202,7 @@ function App() {
         <PreuveVille ville={q ? "à " + q.nom : ""} />
         <QBandeau q={q} />
         <section className="sec"><div className="wrap">
-          <div className="devis-hero-form"><QuickQuote variant="dark" /></div>
+          <div className="devis-hero-form"><QuickQuote /></div>
         </div></section>
       </main>
       <Footer />

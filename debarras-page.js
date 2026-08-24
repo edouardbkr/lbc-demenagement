@@ -266,9 +266,7 @@ function App() {
     className: "wrap"
   }, React.createElement("div", {
     className: "devis-hero-form"
-  }, React.createElement(QuickQuote, {
-    variant: "dark"
-  }))))), React.createElement(Footer, null));
+  }, React.createElement(QuickQuote, null))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { DebHero, DebSteps, DebCas, DebNotaire, DebFAQ, FaqOuvrable, App }); } catch (e) {}
