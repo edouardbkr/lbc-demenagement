@@ -134,7 +134,7 @@ const FINDER_NEEDS = [
 const FINDER_RESULT = [
 { key: "standard", name: "Standard", tag: "L'essentiel, bien fait.", desc: "Vous gérez les cartons, on s'occupe du muscle, de la route et de la casse." },
 { key: "premium", name: "Premium", tag: "Le confort, sans le stress.", desc: "Emballage des fragiles, protection intégrale, démontage et remontage compris." },
-{ key: "luxe", name: "Luxe", tag: "Clé en main, de A à Z.", desc: "On emballe tout, on déballe, on installe. Vous arrivez les Luxe." }];
+{ key: "luxe", name: "Luxe", tag: "Clé en main, de A à Z.", desc: "On emballe tout, on déballe, on installe. Vous n'avez qu'à ouvrir la porte." }];
 
 
 function FormulaFinder() {

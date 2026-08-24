@@ -283,7 +283,7 @@ const FINDER_RESULT = [{
   key: "luxe",
   name: "Luxe",
   tag: "Clé en main, de A à Z.",
-  desc: "On emballe tout, on déballe, on installe. Vous arrivez les Luxe."
+  desc: "On emballe tout, on déballe, on installe. Vous n'avez qu'à ouvrir la porte."
 }];
 function FormulaFinder() {
   const [sel, setSel] = React.useState([]);

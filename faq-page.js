@@ -47,7 +47,7 @@ const FAQS = [{
 }, {
   cat: "Nos formules",
   q: "Que comprend la formule Luxe ?",
-  a: "Le grand jeu : tout Premium, plus l'emballage de la totalité de vos cartons (objets fragiles compris), le déballage et la mise en place à l'arrivée, et une protection spécifique des objets précieux, œuvres d'art et vaisselle. Vous arrivez les Luxe."
+  a: "Le grand jeu : tout Premium, plus l'emballage de la totalité de vos cartons (objets fragiles compris), le déballage et la mise en place à l'arrivée, et une protection spécifique des objets précieux, œuvres d'art et vaisselle. Vous n'avez qu'à ouvrir la porte."
 }, {
   cat: "Nos formules",
   q: "Quelle formule choisir ?",

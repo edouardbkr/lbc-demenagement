@@ -315,7 +315,7 @@ function Formules({
     tier: 3,
     name: "Luxe",
     tag: "Vous ne touchez à rien. On s'occupe de tout.",
-    pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous arrivez les Luxe.",
+    pitch: "Le grand jeu. On emballe jusqu'à la dernière assiette et on installe tout à l'arrivée. Vous n'avez qu'à ouvrir la porte.",
     ideal: "les agendas chargés et les biens précieux ou volumineux.",
     icon: React.createElement(IconDiamond, null),
     inherits: "Premium",

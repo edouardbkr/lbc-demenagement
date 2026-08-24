@@ -745,7 +745,7 @@ const CITIES = {
       a: "Deux à trois semaines en période normale, quatre à six pour une fin de mois entre juin et septembre. Les samedis de fin août sont les dates les plus demandées de l'année. L'autorisation de stationnement, elle, ne se demande qu'à cinq ou sept jours : c'est nous qui la déposons, une fois la date bloquée."
     }, {
       q: "Où trouver des cartons à Nice ?",
-      a: "Nous les livrons avec les formules Premium et Luxe. En Standard, ils sont vendus à prix coûtant et livrés avant le déménagement. Les commerces de quartier en donnent souvent, mais attention : un carton de supermarché a déjà servi, il est rarement assez solide pour des livres ou de la vaisselle, et il cède au portage. C'est la fausse économie la plus courante."
+      a: "Nous les vendons à prix coûtant et les livrons avant le déménagement, quelle que soit la formule. Seule la formule Luxe comprend l'emballage : nous faisons alors vos cartons à votre place. Les commerces de quartier en donnent souvent, mais attention : un carton de supermarché a déjà servi, il est rarement assez solide pour des livres ou de la vaisselle, et il cède au portage. C'est la fausse économie la plus courante."
     }, {
       q: "Que faire des meubles dont on ne veut plus ?",
       a: "La Métropole Nice Côte d'Azur assure le ramassage des encombrants sur rendez-vous, et plusieurs déchetteries sont accessibles aux particuliers sur présentation d'un justificatif de domicile. Nous pouvons aussi vider le logement entièrement : c'est notre prestation de débarras, chiffrée à part et souvent combinée au déménagement le même jour."
