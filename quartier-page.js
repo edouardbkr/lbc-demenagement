@@ -344,7 +344,7 @@ function App() {
   }), React.createElement(QProches, {
     q: q
   }), React.createElement(PreuveVille, {
-    ville: q ? q.nom : ""
+    ville: q ? "à " + q.nom : ""
   }), React.createElement(QBandeau, {
     q: q
   }), React.createElement("section", {

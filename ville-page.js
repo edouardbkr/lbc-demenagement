@@ -47,7 +47,7 @@ function VilleIntro({
     }
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Votre d\xE9m\xE9nageur \xE0 ", c.name), React.createElement("p", {
+  }, "*"), " Votre d\xE9m\xE9nageur ", c.avecPrep || (c.prep || "à") + " " + c.name), React.createElement("p", {
     className: "lead"
   }, c.intro), React.createElement("p", null, "Quelle que soit la formule \u2014 ", React.createElement("strong", {
     style: {
@@ -61,7 +61,7 @@ function VilleIntro({
   }, React.createElement("a", {
     href: "Devis",
     className: "btn btn-primary"
-  }, "Devis gratuit \xE0 ", c.name, React.createElement("span", {
+  }, "Devis gratuit ", c.avecPrep || (c.prep || "à") + " " + c.name, React.createElement("span", {
     className: "arrow"
   }, "\u2192")), React.createElement("a", {
     href: "Formules",
@@ -79,7 +79,7 @@ function VilleIntro({
     style: {
       color: 'var(--ink)'
     }
-  }, "Quartiers desservis \xE0 ", c.name), React.createElement("div", {
+  }, "Quartiers desservis ", c.avecPrep || (c.prep || "à") + " " + c.name), React.createElement("div", {
     style: {
       display: 'flex',
       flexWrap: 'wrap',
@@ -167,7 +167,7 @@ function VilleSpecifics({
     }
   }, "R\xE9ponse sous 24h"), React.createElement("div", {
     className: "value-body"
-  }, "Gratuit, sans engagement, avec la formule conseill\xE9e pour votre volume \xE0 ", c.name, ".")))));
+  }, "Gratuit, sans engagement, avec la formule conseill\xE9e pour votre volume ", c.avecPrep || (c.prep || "à") + " " + c.name, ".")))));
 }
 function VilleFormules({
   c
@@ -407,7 +407,7 @@ function App() {
   }), React.createElement(VilleFormules, {
     c: c
   }), React.createElement(PreuveVille, {
-    ville: c.name
+    ville: c.avecPrep || (c.prep || "à") + " " + c.name
   }), React.createElement(VilleNearby, {
     c: c
   }), React.createElement(VilleFaq, {

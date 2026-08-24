@@ -31,19 +31,19 @@ function VilleIntro({ c }) {
       <div className="wrap">
         <div className="about-grid">
           <div className="about-copy reveal">
-            <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur à {c.name}</div>
+            <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur {c.avecPrep || ((c.prep || "à") + " " + c.name)}</div>
             <p className="lead">{c.intro}</p>
             <p>
               Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair, sans surprise. À {c.name} comme partout sur la Côte d'Azur, l'accès est repéré avant le chiffrage, et le prix annoncé est le prix payé.
             </p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
-              <a href="Devis" className="btn btn-primary">Devis gratuit à {c.name}<span className="arrow">→</span></a>
+              <a href="Devis" className="btn btn-primary">Devis gratuit {c.avecPrep || ((c.prep || "à") + " " + c.name)}<span className="arrow">→</span></a>
               <a href="Formules" className="btn btn-ghost">Voir les formules</a>
             </div>
           </div>
           <div className="reveal">
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
-              <h4 style={{ color: 'var(--ink)' }}>Quartiers desservis à {c.name}</h4>
+              <h4 style={{ color: 'var(--ink)' }}>Quartiers desservis {c.avecPrep || ((c.prep || "à") + " " + c.name)}</h4>
               {/* ⚠️ SUR NICE, LES QUARTIERS SONT DES LIENS, PAS DU TEXTE. Sept d'entre eux
                   ont leur propre page, et c'est ce maillage qui les fait remonter : une
                   page profonde sans lien depuis une page plus forte reste invisible.
@@ -89,7 +89,7 @@ function VilleSpecifics({ c }) {
           <div className="value">
             <div className="value-num">★ DEVIS</div>
             <div className="value-title" style={{ marginTop: 8 }}>Réponse sous 24h</div>
-            <div className="value-body">Gratuit, sans engagement, avec la formule conseillée pour votre volume à {c.name}.</div>
+            <div className="value-body">Gratuit, sans engagement, avec la formule conseillée pour votre volume {c.avecPrep || ((c.prep || "à") + " " + c.name)}.</div>
           </div>
         </div>
       </div>
@@ -237,7 +237,7 @@ function App() {
         <VilleSpecifics c={c} />
         <VilleDeep c={c} />
         <VilleFormules c={c} />
-        <PreuveVille ville={c.name} />
+        <PreuveVille ville={c.avecPrep || ((c.prep || "à") + " " + c.name)} />
         <VilleNearby c={c} />
         <VilleFaq c={c} />
         <VilleQuoteBand c={c} />

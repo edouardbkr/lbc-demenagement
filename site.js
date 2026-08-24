@@ -1116,7 +1116,7 @@ function PreuveVille({
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Nos engagements", ville ? " à " + ville : "")), React.createElement("h2", {
+  }, "*"), " Nos engagements", ville ? " " + ville : "")), React.createElement("h2", {
     className: "dim-em"
   }, "Trois choses \xE9crites,", React.createElement("br", null), React.createElement("em", null, "pas trois promesses."))), React.createElement("div", {
     className: "ap-values reveal-stagger",

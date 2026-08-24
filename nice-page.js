@@ -736,7 +736,7 @@ function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
     id: "contenu"
   }, React.createElement(NiceHero, null), React.createElement(NicePrix, null), React.createElement(NiceCas, null), React.createElement(NiceStationnement, null), React.createElement(NiceQuartiers, null), React.createElement(NiceEncombrants, null), React.createElement(NiceCartons, null), React.createElement(NiceAides, null), React.createElement(PreuveVille, {
-    ville: "Nice"
+    ville: "\xE0 Nice"
   }), React.createElement(NiceLimitrophes, null), React.createElement(NiceDepuisNice, null), React.createElement(NiceQuand, null), React.createElement(NiceFAQ, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));

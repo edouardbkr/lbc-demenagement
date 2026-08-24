@@ -199,7 +199,7 @@ function App() {
         <QMethode q={q} />
         <QFaq q={q} />
         <QProches q={q} />
-        <PreuveVille ville={q ? q.nom : ""} />
+        <PreuveVille ville={q ? "à " + q.nom : ""} />
         <QBandeau q={q} />
         <section className="sec"><div className="wrap">
           <div className="devis-hero-form"><QuickQuote variant="dark" /></div>

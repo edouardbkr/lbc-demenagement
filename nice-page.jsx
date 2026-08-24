@@ -418,7 +418,7 @@ function App() {
         <NiceEncombrants />
         <NiceCartons />
         <NiceAides />
-        <PreuveVille ville="Nice" />
+        <PreuveVille ville="à Nice" />
         <NiceLimitrophes />
         <NiceDepuisNice />
         <NiceQuand />

@@ -951,7 +951,7 @@ function PreuveVille({ ville }) {
   return (
     <section className="sec"><div className="wrap">
       <div className="sec-head reveal">
-        <div><div className="sec-num"><span className="asterisk">*</span> Nos engagements{ville ? " à " + ville : ""}</div></div>
+        <div><div className="sec-num"><span className="asterisk">*</span> Nos engagements{ville ? " " + ville : ""}</div></div>
         <h2 className="dim-em">Trois choses écrites,<br /><em>pas trois promesses.</em></h2>
       </div>
 
