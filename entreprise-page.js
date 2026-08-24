@@ -135,7 +135,7 @@ function EntHero() {
     href: "/"
   }, "Accueil"), React.createElement("span", {
     className: "sep"
-  }, "/"), React.createElement("span", null, "D\xE9m\xE9nagement d'entreprise")), React.createElement("h1", null, "D\xE9m\xE9nager vos bureaux ", React.createElement("em", null, "sans mettre l'activit\xE9 en pause.")), React.createElement("p", {
+  }, "/"), React.createElement("span", null, "D\xE9m\xE9nagement d'entreprise")), React.createElement("h1", null, "D\xE9m\xE9nager vos bureaux \xE0 Nice ", React.createElement("em", null, "sans mettre l'activit\xE9 en pause.")), React.createElement("p", {
     className: "lede"
   }, "Transfert de bureaux, de commerce ou de cabinet : on planifie, on ex\xE9cute hors heures ouvr\xE9es, et on rouvre vos postes pr\xEAts \xE0 l'emploi. ", React.createElement("span", {
     className: "ast"

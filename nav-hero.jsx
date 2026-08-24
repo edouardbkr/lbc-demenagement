@@ -150,7 +150,12 @@ function Hero({ headlineVariant }) {
                   celui que personne n'annonce dans le secteur — c'est pour ça qu'il est
                   là. Un déménageur qui dit « entre 8 h et 13 h » vous prend la matinée. */}
               <ul className="hero-faits">
-                <li>Chaque objet assuré jusqu'à 8 000 €, la franchise, c'est pour nous</li>
+                {/* Le montant et le mot « franchise » ont quitté le hero le 24 août : trois
+                    lignes qui doivent se lire en une seconde ne supportent pas un chiffre à
+                    interpréter ni un terme d'assureur. La promesse se dit en clair ici, et le
+                    montant reste écrit là où il engage vraiment — le devis, et le bloc
+                    « Nos engagements » des pages villes, où Edouard l'a explicitement voulu. */}
+                <li>Si on casse quelque chose, on remplace. Sans frais pour vous</li>
                 <li>Le prix du devis est le prix final. Aucun supplément le jour J</li>
                 <li>Un créneau d'arrivée à l'heure près, pas une demi-journée</li>
               </ul>

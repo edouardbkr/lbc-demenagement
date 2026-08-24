@@ -51,7 +51,7 @@ function EntHero() {
           <span className="sep">/</span>
           <span>Déménagement d'entreprise</span>
         </div>
-        <h1>Déménager vos bureaux <em>sans mettre l'activité en pause.</em></h1>
+        <h1>Déménager vos bureaux à Nice <em>sans mettre l'activité en pause.</em></h1>
         <p className="lede">
           Transfert de bureaux, de commerce ou de cabinet : on planifie, on exécute hors heures ouvrées, et on rouvre vos postes prêts à l'emploi. <span className="ast">*</span>Un seul interlocuteur, du devis à la reprise.
         </p>

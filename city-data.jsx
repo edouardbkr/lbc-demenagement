@@ -371,7 +371,7 @@ const CITIES = {
 
   "mougins": {
     name: "Mougins", file: "Demenagement-Mougins", cp: "06250", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Mougins : village piéton, domaines fermés à gardien, villas avec dépendances. Devis ferme sous 24h.",
+    lede: "Déménagement à Mougins : village piéton, domaines fermés à gardien, villas avec dépendances. Accès repéré avant le devis, prix ferme sous 24 h.",
     intro: "Un déménagement à Mougins pose deux problèmes distincts, et il faut savoir lequel on traite avant de chiffrer. Le vieux village est un escargot de ruelles pavées interdit à la circulation, où le camion s'arrête au parking et où tout monte à pied par une rampe en colimaçon. Le reste de la commune est un chapelet de domaines résidentiels privés, fermés par des portails, gardés, avec des règlements intérieurs qui fixent les horaires d'intervention et les véhicules admis. Dans le premier cas on négocie avec la pente, dans le second avec une procédure. Les deux se préparent, mais pas du tout de la même façon.",
     quartiers: ["Mougins village", "Tournamy", "Font de Currault", "Les Bréguières", "Saint-Basile", "Val de Mougins", "La Peyrière", "Mougins-le-Haut"],
     specifics: [
@@ -676,7 +676,7 @@ const CITIES = {
      sept pages qui se ressemblent se font traiter en contenu dupliqué. */
   "beausoleil": {
     name: "Beausoleil", file: "Demenagement-Beausoleil", cp: "06240", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Beausoleil : rues en escalier, immeubles hauts, frontière monégasque. Devis ferme sous 24h.",
+    lede: "Déménagement à Beausoleil : rues en escalier, immeubles hauts, frontière monégasque. Portage et stationnement gérés. Devis ferme sous 24 h.",
     intro: "Beausoleil est la commune la plus verticale du département. Elle monte derrière Monaco sur une pente si forte que plusieurs de ses rues sont des escaliers, et que la ville a installé des ascenseurs publics pour relier les niveaux. Le bâti est dense, haut, souvent construit dans les années vingt, avec des cages d'escalier étroites et des ascenseurs minuscules quand il y en a. C'est un déménagement de verticalité pure : ici, ce ne sont ni la distance ni le volume qui font le prix, c'est le nombre de mètres à gravir entre le camion et la porte.",
     quartiers: ["Le Centre", "Moneghetti", "Le Tenao", "La Riviera", "Les Jardins", "Le Bas Moulins", "Saint-Antoine", "L'Escalier de l'Impératrice", "Le Boulevard de la République"],
     specifics: [
@@ -728,7 +728,7 @@ const CITIES = {
   },
   "beaulieu-sur-mer": {
     name: "Beaulieu-sur-Mer", file: "Demenagement-Beaulieu-sur-Mer", cp: "06310", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Beaulieu-sur-Mer : Petite Afrique, Baie des Fourmis, villas Belle Époque. Devis ferme sous 24h.",
+    lede: "Déménagement à Beaulieu-sur-Mer : Petite Afrique, Baie des Fourmis, villas Belle Époque. Accès repéré avant le devis, prix ferme sous 24 h.",
     intro: "Beaulieu-sur-Mer est la plus plate et la plus abritée des communes du corridor est, ce qui en fait paradoxalement la plus simple à déménager. Le relief y laisse respirer : rues droites, accès camion possible presque partout, immeubles bourgeois avec ascenseur. La difficulté est ailleurs — dans le mobilier. Entre les villas Belle Époque du quartier de la Petite Afrique et les appartements de la Baie des Fourmis, on transporte beaucoup d'ancien, de marqueterie et de tableaux. C'est un déménagement d'emballage et de soin, pas de force.",
     quartiers: ["La Petite Afrique", "La Baie des Fourmis", "Le Centre", "Le Port de plaisance", "Bel Horizon", "Les Jardins de l'Olivaie", "Le Boulevard Marinoni", "La Gare", "Saint-Michel"],
     specifics: [
@@ -780,7 +780,7 @@ const CITIES = {
   },
   "eze": {
     name: "Èze", file: "Demenagement-Eze", cp: "06360", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Èze : village perché à 429 m, accès piéton, Moyenne Corniche, bord de mer. Devis ferme sous 24h.",
+    lede: "Déménagement à Èze : village perché à 429 m, accès piéton, Moyenne Corniche, bord de mer. Chiffré après repérage, prix ferme sous 24 h.",
     intro: "C'est la commune la plus difficile du corridor, et de loin. Le village médiéval culmine à 429 mètres et se visite exclusivement à pied : aucun véhicule n'y entre, les ruelles sont des escaliers, et la dernière montée se fait sur des marches irrégulières. En contrebas, le bord de mer se déménage normalement, et entre les deux, les villas de la Moyenne Corniche posent la question du stationnement sur une route où l'on ne s'arrête pas. Trois terrains, trois méthodes. On les traite séparément parce qu'ils n'ont rien à voir.",
     quartiers: ["Èze Village", "Èze-Bord-de-Mer", "La Moyenne Corniche", "La Grande Corniche", "Le Col d'Èze", "Saint-Laurent d'Èze", "La Basse Corniche", "Les Hauts d'Èze", "La Revère"],
     specifics: [
@@ -806,7 +806,7 @@ const CITIES = {
   },
   "cap-d-ail": {
     name: "Cap-d'Ail", file: "Demenagement-Cap-d-Ail", cp: "06320", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Cap-d'Ail : résidences en pente, Marquet, frontière monégasque. Devis ferme sous 24h.",
+    lede: "Déménagement à Cap-d'Ail : résidences en pente, Marquet, frontière monégasque. Accès repéré avant le chiffrage, devis ferme sous 24 h.",
     intro: "Cap-d'Ail vit collée à Monaco, dont elle est séparée par une simple rue. La commune s'étage sur une pente forte, entre la Basse Corniche et la mer, avec des résidences desservies par des rampes étroites et des parkings souterrains à la hauteur limitée. Le déménagement y pose deux questions particulières : la hauteur sous plafond des sous-sols, qui interdit souvent le camion, et la proximité monégasque, qui impose ses propres règles dès qu'on franchit la frontière. On travaille les deux côtés régulièrement.",
     quartiers: ["Le Marquet", "Cap Mala", "Saint-Antoine", "La Plage Marquet", "Les Pins", "Le Bas Moulins", "La Gare", "Le Cap", "Les Fleurs"],
     specifics: [
@@ -832,7 +832,7 @@ const CITIES = {
   },
   "roquebrune-cap-martin": {
     name: "Roquebrune-Cap-Martin", file: "Demenagement-Roquebrune-Cap-Martin", cp: "06190", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Roquebrune-Cap-Martin : village médiéval, villas du Cap, Carnolès. Devis ferme sous 24h.",
+    lede: "Déménagement à Roquebrune-Cap-Martin : village médiéval, villas du Cap, Carnolès. Accès repéré avant le chiffrage, devis ferme sous 24 h.",
     intro: "Roquebrune-Cap-Martin est en réalité trois communes en une. Le village médiéval, accroché sous son donjon carolingien, ne se déménage qu'à pied par des ruelles voûtées. Le Cap Martin aligne des propriétés sous les pins, avec des allées privées et un patrimoine architectural rare — c'est là que Le Corbusier a bâti son Cabanon. Et Carnolès, en bas, ressemble à un quartier urbain de Menton, avec ses immeubles et ses commerces. Trois terrains qui n'ont ni les mêmes accès ni les mêmes prix.",
     quartiers: ["Le Village", "Le Cap Martin", "Carnolès", "Saint-Roman", "Le Cabanon", "Bon Voyage", "Les Terrasses", "La Gare", "Le Golfe Bleu"],
     specifics: [
@@ -858,7 +858,7 @@ const CITIES = {
   },
   "villeneuve-loubet": {
     name: "Villeneuve-Loubet", file: "Demenagement-Villeneuve-Loubet", cp: "06270", dept: "Alpes-Maritimes (06)", region: "cote",
-    lede: "Déménagement à Villeneuve-Loubet : Marina Baie des Anges, village perché, Vaugrenier. Devis ferme sous 24h.",
+    lede: "Déménagement à Villeneuve-Loubet : Marina Baie des Anges, village perché, Vaugrenier. Accès repéré avant le devis, prix ferme sous 24 h.",
     intro: "Villeneuve-Loubet est la commune la plus contrastée du corridor : d'un côté la Marina Baie des Anges, quatre immeubles en forme de vagues classés au patrimoine du XXe siècle, de l'autre un village médiéval perché autour de son château, et entre les deux des lotissements et des résidences de plain-pied. La Marina, à elle seule, justifie une méthode : ses coursives sont longues, ses parkings bas et ses ascenseurs comptés. On y déménage régulièrement, et on sait par quelle entrée passer.",
     quartiers: ["La Marina Baie des Anges", "Le Village", "Vaugrenier", "Les Maurettes", "Villeneuve-Loubet Plage", "Les Hauts de Vaugrenier", "L'Hippodrome", "Le Loup", "Saint-Marc"],
     specifics: [
