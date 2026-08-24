@@ -34,7 +34,7 @@ function VilleIntro({ c }) {
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Votre déménageur {c.avecPrep || ((c.prep || "à") + " " + c.name)}</div>
             <p className="lead">{c.intro}</p>
             <p>
-              Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair, sans surprise. À {c.name} comme partout sur la Côte d'Azur, l'accès est repéré avant le chiffrage, et le prix annoncé est le prix payé.
+              Quelle que soit la formule — <strong style={{ color: 'var(--ink)' }}>Standard, Premium ou Luxe</strong> — vous bénéficiez de déménageurs expérimentés et soigneux, d'une assurance complète et d'un devis clair, sans surprise. {(() => { const f = c.avecPrep || ((c.prep || "à") + " " + c.name); return f.charAt(0).toUpperCase() + f.slice(1); })()} comme partout sur la Côte d'Azur, l'accès est repéré avant le chiffrage, et le prix annoncé est le prix payé.
             </p>
             <div className="hero-ctas" style={{ marginTop: 32 }}>
               <a href="Devis" className="btn btn-primary">Devis gratuit {c.avecPrep || ((c.prep || "à") + " " + c.name)}<span className="arrow">→</span></a>
@@ -49,12 +49,16 @@ function VilleIntro({ c }) {
                   page profonde sans lien depuis une page plus forte reste invisible.
                   Ailleurs, les quartiers ne sont que des noms, et le texte suffit. */}
 
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 8 }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'baseline', gap: '8px 0', marginTop: 8 }}>
                 {c.quartiers.map((q, i) => {
                   const page = (window.QUARTIERS_PAGES || {})[q];
-                  return page
-                    ? <a key={i} href={page} style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>{q}</a>
-                    : <span key={i}>{q}</span>;
+                  return (
+                    <React.Fragment key={i}>
+                      {i > 0 && <span aria-hidden="true" style={{ color: 'var(--muted)', opacity: .55, padding: '0 9px' }}>·</span>}
+                      {page
+                        ? <a href={page} style={{ color: 'var(--accent)', fontWeight: 600, textDecoration: 'none' }}>{q}</a>
+                        : <span>{q}</span>}
+                    </React.Fragment>);
                 })}
               </div>
               <div style={{ marginTop: 24, paddingTop: 20, borderTop: '1px solid var(--rule)', display: 'flex', flexDirection: 'column', gap: 10, fontSize: 14, color: 'var(--ink-2)' }}>

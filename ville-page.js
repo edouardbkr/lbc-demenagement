@@ -53,7 +53,10 @@ function VilleIntro({
     style: {
       color: 'var(--ink)'
     }
-  }, "Standard, Premium ou Luxe"), " \u2014 vous b\xE9n\xE9ficiez de d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, d'une assurance compl\xE8te et d'un devis clair, sans surprise. \xC0 ", c.name, " comme partout sur la C\xF4te d'Azur, l'acc\xE8s est rep\xE9r\xE9 avant le chiffrage, et le prix annonc\xE9 est le prix pay\xE9."), React.createElement("div", {
+  }, "Standard, Premium ou Luxe"), " \u2014 vous b\xE9n\xE9ficiez de d\xE9m\xE9nageurs exp\xE9riment\xE9s et soigneux, d'une assurance compl\xE8te et d'un devis clair, sans surprise. ", (() => {
+    const f = c.avecPrep || (c.prep || "à") + " " + c.name;
+    return f.charAt(0).toUpperCase() + f.slice(1);
+  })(), " comme partout sur la C\xF4te d'Azur, l'acc\xE8s est rep\xE9r\xE9 avant le chiffrage, et le prix annonc\xE9 est le prix pay\xE9."), React.createElement("div", {
     className: "hero-ctas",
     style: {
       marginTop: 32
@@ -83,22 +86,29 @@ function VilleIntro({
     style: {
       display: 'flex',
       flexWrap: 'wrap',
-      gap: 10,
+      alignItems: 'baseline',
+      gap: '8px 0',
       marginTop: 8
     }
   }, c.quartiers.map((q, i) => {
     const page = (window.QUARTIERS_PAGES || {})[q];
-    return page ? React.createElement("a", {
-      key: i,
+    return React.createElement(React.Fragment, {
+      key: i
+    }, i > 0 && React.createElement("span", {
+      "aria-hidden": "true",
+      style: {
+        color: 'var(--muted)',
+        opacity: .55,
+        padding: '0 9px'
+      }
+    }, "\xB7"), page ? React.createElement("a", {
       href: page,
       style: {
         color: 'var(--accent)',
         fontWeight: 600,
         textDecoration: 'none'
       }
-    }, q) : React.createElement("span", {
-      key: i
-    }, q);
+    }, q) : React.createElement("span", null, q));
   })), React.createElement("div", {
     style: {
       marginTop: 24,

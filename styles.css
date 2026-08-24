@@ -3614,3 +3614,34 @@ label.seg-opt:focus-within,
 .tarif-sub { color: var(--muted); font-size: 13px; }
 .tarif-prix { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
 @media (max-width: 640px) { .tarif-table { font-size: 14px; } .tarif-table td { padding: 12px 13px; } }
+
+/* ── Débordement horizontal sur mobile ───────────────────────────────────────────
+   Un élément de grille a `min-width: auto` par défaut : il refuse de devenir plus étroit
+   que son contenu le plus large. Passer la grille en une colonne ne suffit donc pas — la
+   colonne reste large comme son plus long mot insécable. Mesuré le 24 août 2026 sur un
+   écran de 390 px : .about-copy s'étendait jusqu'à 427 px, et le texte sortait de l'écran.
+
+   Ce sont les noms longs qui l'ont déclenché : « Devis gratuit à Saint-Jean-Cap-Ferrat »
+   et « Votre déménageur dans la vallée du Var » ne se coupent pas tout seuls, d'autant que
+   les traits d'union des noms composés sont traités comme des liaisons insécables.
+
+   On corrige la cause plutôt que chaque bloc : tout enfant de grille peut rétrécir, et les
+   longs libellés ont le droit de passer à la ligne. */
+.about-grid > *,
+.ent-split > *,
+.cta-grid > *,
+.contact-grid > *,
+.formules-grid > *,
+.testimonials-grid > * { min-width: 0; }
+
+.about-copy .sec-num,
+.aside-card h4,
+.about-copy .btn,
+.hero-ctas .btn { overflow-wrap: break-word; }
+
+@media (max-width: 640px) {
+  /* Un libellé de bouton plus long que l'écran doit se replier, pas déborder. */
+  .btn { white-space: normal; text-align: center; max-width: 100%; }
+  .hero-ctas { flex-wrap: wrap; }
+  .hero-ctas .btn { width: 100%; }
+}
