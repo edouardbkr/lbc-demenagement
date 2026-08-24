@@ -765,7 +765,7 @@ function QuickQuote({
     "aria-hidden": "true"
   }, "\u2192"), React.createElement("span", {
     className: "qq-submit-label"
-  }, "\xC9tape suivante"))), React.createElement("div", {
+  }, "Je d\xE9m\xE9nage"))), React.createElement("div", {
     className: "qq-note" + (variant === "dark" ? " on-dark" : "")
   }, React.createElement("span", null, React.createElement("span", {
     className: "chk"
@@ -1124,9 +1124,9 @@ function PreuveVille({
     className: "ap-value"
   }, React.createElement("h3", {
     className: "ap-value-t"
-  }, "Chaque objet assur\xE9 jusqu'\xE0 8 000 \u20AC"), React.createElement("p", {
+  }, "Assurance incluse"), React.createElement("p", {
     className: "ap-value-d"
-  }, "Le montant est \xE9crit sur votre devis, objet par objet. Et la franchise est \xE0 notre charge : si nous cassons, vous ne payez rien, pas m\xEAme une participation. C'est valable dans les trois formules, sans option \xE0 cocher.")), React.createElement("div", {
+  }, "Jusqu'\xE0 8 000 \u20AC par objet, dans les trois formules. Le d\xE9tail figure sur votre devis.")), React.createElement("div", {
     className: "ap-value"
   }, React.createElement("h3", {
     className: "ap-value-t"

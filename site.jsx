@@ -641,7 +641,7 @@ function QuickQuote({ variant = "light" }) {
         </div>
         <button type="submit" className="qq-submit qq-a-btn">
           <span className="qq-submit-arrow" aria-hidden="true">→</span>
-          <span className="qq-submit-label">Étape suivante</span>
+          <span className="qq-submit-label">Je déménage</span>
         </button>
       </form>
       <div className={"qq-note" + (variant === "dark" ? " on-dark" : "")}>
@@ -957,8 +957,8 @@ function PreuveVille({ ville }) {
 
       <div className="ap-values reveal-stagger" style={{ marginTop: 8 }}>
         <div className="ap-value">
-          <h3 className="ap-value-t">Chaque objet assuré jusqu'à 8 000 €</h3>
-          <p className="ap-value-d">Le montant est écrit sur votre devis, objet par objet. Et la franchise est à notre charge : si nous cassons, vous ne payez rien, pas même une participation. C'est valable dans les trois formules, sans option à cocher.</p>
+          <h3 className="ap-value-t">Assurance incluse</h3>
+          <p className="ap-value-d">Jusqu'à 8 000 € par objet, dans les trois formules. Le détail figure sur votre devis.</p>
         </div>
         <div className="ap-value">
           <h3 className="ap-value-t">Le prix du devis est le prix final</h3>

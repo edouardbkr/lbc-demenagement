@@ -3645,3 +3645,8 @@ label.seg-opt:focus-within,
   .hero-ctas { flex-wrap: wrap; }
   .hero-ctas .btn { width: 100%; }
 }
+
+/* Deux paragraphes d'introduction qui se suivent se retrouvaient collés : « .lede » n'a
+   pas de marge basse, parce qu'il est presque toujours seul. Dès qu'il y en a deux, la
+   séparation manque et le texte se lit comme un bloc unique. */
+.lede + .lede { margin-top: 18px; }

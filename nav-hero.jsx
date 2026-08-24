@@ -155,7 +155,7 @@ function Hero({ headlineVariant }) {
                     interpréter ni un terme d'assureur. La promesse se dit en clair ici, et le
                     montant reste écrit là où il engage vraiment — le devis, et le bloc
                     « Nos engagements » des pages villes, où Edouard l'a explicitement voulu. */}
-                <li>Si on casse quelque chose, on remplace. Sans frais pour vous</li>
+                <li>Vos meubles assurés du chargement à la livraison, dans les trois formules</li>
                 <li>Le prix du devis est le prix final. Aucun supplément le jour J</li>
                 <li>Un créneau d'arrivée à l'heure près, pas une demi-journée</li>
               </ul>

@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>attente</title><style>html,body{margin:0}iframe{width:320px;height:2400px;border:0}</style></head>
+<body><iframe id="f" src="Demenagement-Nice.html"></iframe>
+<script>
+document.getElementById('f').addEventListener('load', function () {
+  setTimeout(function () {
+    var d = this.contentDocument, W = d.documentElement.clientWidth, out = [];
+    d.querySelectorAll('body *').forEach(function (e) {
+      var r = e.getBoundingClientRect();
+      if (r.width === 0 || r.height === 0) return;
+      if (e.classList && e.classList.contains('hp-field')) return;  // piège anti-spam, hors écran exprès
+      if (r.right < 0 || r.left > W * 3) return;                    // masqué à dessein
+      if (r.right <= W + 1 && r.left >= -1) return;
+      // Un élément large DANS un conteneur qui défile n'est pas un bug : c'est la façon
+      // correcte de présenter un tableau ou un carrousel sur mobile. On ne signale que ce
+      // qui déborde de l'écran sans qu'aucun ancêtre ne l'ait prévu.
+      var a = e.parentElement, contenu = false;
+      while (a && a !== d.body) {
+        var ov = this.contentWindow.getComputedStyle(a);
+        if (ov.overflowX === 'auto' || ov.overflowX === 'scroll' || ov.overflowX === 'hidden' ||
+            ov.overflow === 'auto' || ov.overflow === 'scroll' || ov.overflow === 'hidden') { contenu = true; break; }
+        a = a.parentElement;
+      }
+      if (contenu) return;
+      var p = e.parentElement, dedans = false;
+      while (p && p !== d.body) {                                   // on ne garde que le plus haut fautif
+        var pr = p.getBoundingClientRect();
+        if (pr.right > W + 1 || pr.left < -1) { dedans = true; break; }
+        p = p.parentElement;
+      }
+      if (dedans) return;
+      var cl = e.className && e.className.baseVal !== undefined ? e.className.baseVal : e.className;
+      out.push(e.tagName + (cl ? '.' + String(cl).trim().split(/\s+/).join('.') : '') +
+               ' [' + Math.round(r.left) + '>' + Math.round(r.right) + '] ' +
+               (e.textContent || '').trim().slice(0, 28));
+    });
+    document.title = 'MESURE|' + W + '|' + d.documentElement.scrollWidth + '|' + out.length +
+                     '|' + out.slice(0, 12).join(' ;; ');
+  }.bind(this), 1500);
+});
+</script></body></html>

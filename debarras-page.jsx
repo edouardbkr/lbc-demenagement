@@ -30,12 +30,36 @@ const DEB_CAS = [
 { t: "Encombrants isolés", d: "Un canapé, un piano, un frigo américain. On se déplace pour une pièce unique, sans exiger un chantier complet.", icon: <DB><rect x="3" y="8" width="18" height="9" rx="1" /><path d="M6 17v2M18 17v2M3 12h18" /></DB> }];
 
 const DEB_FAQ = [
-{ q: "Combien coûte un débarras d'appartement ?", a: "Cela dépend du volume et de l'étage, comme un déménagement. Un T2 encombré se situe généralement entre 600 et 1 200 €, une maison avec cave et grenier au-delà. Le devis est ferme après visite : on ne facture jamais un supplément parce que la cave était plus pleine que prévu." },
-{ q: "Rachetez-vous le mobilier ?", a: "Quand des pièces ont une valeur de revente, elles viennent en déduction du devis. C'est rare de couvrir tout le chantier, mais cela allège la note et c'est toujours dit avant, jamais découvert après." },
-{ q: "Intervenez-vous pour un notaire ou un mandataire ?", a: "Oui, régulièrement. On fournit un état des lieux photographique avant et après, les justificatifs de dépôt en déchetterie et une facture détaillée par poste, ce qui est ce dont un dossier de succession a besoin." },
-{ q: "Que faites-vous des affaires personnelles trouvées ?", a: "Papiers, photos, bijoux, courrier : tout ce qui a un caractère personnel est mis de côté et remis à la famille, jamais jeté. C'est la règle, même quand la consigne est de tout vider." },
-{ q: "En combien de temps pouvez-vous intervenir ?", a: "Sous 48 à 72 h pour la visite, et souvent dans la semaine pour le chantier. En cas de délai de bail serré, dites-le : on décale ce qui peut l'être." },
-{ q: "Le logement est-il nettoyé après ?", a: "Il est rendu vide et balayé, prêt pour un état des lieux. Un nettoyage complet de fin de chantier peut être ajouté au devis si le bien doit être visité tout de suite." }];
+{ q: "Combien coûte un débarras d'appartement à Nice ?",
+  a: ["Comme un déménagement : le volume et l'étage font le prix, pas la surface. Un deux-pièces encombré se situe généralement entre 600 et 1 200 €, une maison avec cave et grenier au-delà.",
+      "Le devis est ferme après visite. On ne facture jamais un supplément parce que la cave était plus pleine que prévu : c'est précisément pour ça qu'on vient voir avant de chiffrer."] },
+{ q: "Faut-il être présent pendant le débarras ?",
+  a: ["Non. Beaucoup de nos clients habitent loin, et c'est souvent le cas dans une succession. Nous travaillons avec les clés remises par un notaire, un syndic ou un voisin de confiance.",
+      "Chaque pièce est photographiée avant et après. Vous recevez le relevé complet le soir même."] },
+{ q: "Rachetez-vous le mobilier ?",
+  a: ["Quand des pièces ont une valeur de revente réelle — mobilier ancien, électroménager récent, outillage — elles viennent en déduction du devis.",
+      "Il est rare que cela couvre tout le chantier, et nous le disons avant plutôt que de le laisser espérer. Un intérieur des années soixante-dix complet ne vaut presque rien à la revente, même en bon état."] },
+{ q: "Que faites-vous des affaires personnelles trouvées ?",
+  a: ["Papiers, photos, courrier, bijoux, livrets bancaires : tout ce qui a un caractère personnel est mis de côté dans un carton identifié et vous est remis. Jamais jeté.",
+      "C'est la règle même quand la consigne est de tout vider — les familles retrouvent souvent dans ce carton des choses qu'elles cherchaient depuis des semaines."] },
+{ q: "Intervenez-vous pour un notaire ou un mandataire de justice ?",
+  a: ["Oui, régulièrement. Le dossier qu'on remet comprend l'état des lieux photographique avant et après, les justificatifs de dépôt en déchetterie et une facture détaillée par poste.",
+      "Ce sont les trois pièces qu'un dossier de succession réclame, et celles qui manquent le plus souvent quand le débarras a été fait à la va-vite."] },
+{ q: "En combien de temps pouvez-vous intervenir ?",
+  a: ["48 à 72 heures pour la visite, et souvent dans la semaine pour le chantier lui-même.",
+      "Si vous avez un délai de bail ou une date de vente serrée, dites-le au premier appel : c'est ce qui décide de l'ordre dans lequel on cale les chantiers."] },
+{ q: "Le logement est-il nettoyé après le débarras ?",
+  a: ["Il est rendu vide et balayé, prêt pour un état des lieux. Les traces au sol laissées par les meubles restent visibles, c'est normal.",
+      "Un nettoyage complet de fin de chantier — sols, sanitaires, vitres — s'ajoute au devis si le bien doit être visité ou reloué tout de suite."] },
+{ q: "Que deviennent les objets dont personne ne veut ?",
+  a: ["Ce qui peut resservir part vers une association locale ou une ressourcerie ; le reste va en déchetterie, trié par filière : encombrants, électroménager, gravats, produits chimiques.",
+      "Nous conservons les justificatifs de dépôt et vous les remettons avec la facture."] },
+{ q: "Videz-vous aussi les caves, garages et greniers ?",
+  a: ["Oui, et c'est même souvent l'essentiel du volume. Une cave voûtée niçoise ou un grenier de villa contiennent régulièrement plus que l'appartement lui-même.",
+      "Nous les ouvrons pendant la visite : c'est là que se joue l'écart entre le volume estimé et le volume réel."] },
+{ q: "Le débarras peut-il se faire le même jour qu'un déménagement ?",
+  a: ["Oui, et c'est souvent le plus simple : on charge ce qui part avec vous, on vide le reste, et le logement est rendu dans la journée.",
+      "Cela évite de rouvrir le bien une seconde fois et de payer deux déplacements."] }];
 
 function DebHero() {
   return (
@@ -55,8 +79,10 @@ function DebHero() {
 function DebSteps() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Comment ça se passe</div>
-      <div className="sec-head reveal"><h2>Quatre étapes, <em>et un prix qui ne bouge pas.</em></h2></div>
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Comment ça se passe</div></div>
+        <h2 className="dim-em">Quatre étapes, <em>et un prix qui ne bouge pas.</em></h2>
+      </div>
       <div className="values-grid reveal-stagger">{DEB_STEPS.map((s) =>
         <div className="value" key={s.n}>
           <div className="value-num">{s.n}</div>
@@ -69,8 +95,10 @@ function DebSteps() {
 function DebCas() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Les situations qu'on traite</div>
-      <div className="sec-head reveal"><h2>Chaque débarras <em>a son histoire.</em></h2></div>
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Les situations qu'on traite</div></div>
+        <h2 className="dim-em">Chaque débarras <em>a son histoire.</em></h2>
+      </div>
       <div className="ap-values reveal-stagger">{DEB_CAS.map((f) =>
         <div className="ap-value" key={f.t}>
           <span className="ap-value-ic">{f.icon}</span>
@@ -84,8 +112,10 @@ function DebCas() {
 function DebNotaire() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Vous êtes notaire, mandataire ou syndic</div>
-      <div className="sec-head reveal"><h2>Un dossier propre, <em>pas seulement un logement vide.</em></h2></div>
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Vous êtes notaire, mandataire ou syndic</div></div>
+        <h2 className="dim-em">Un dossier propre, <em>pas seulement un logement vide.</em></h2>
+      </div>
       <p className="lede">Ce qui vous manque dans un débarras, ce n'est pas la main-d'œuvre, c'est la traçabilité. On fournit systématiquement l'état des lieux photographique avant et après, les justificatifs de dépôt en déchetterie et une facture détaillée par poste. De quoi joindre au dossier de succession sans avoir à rappeler qui que ce soit.</p>
       <p className="lede">En indivision, les photos règlent la plupart des désaccords avant qu'ils ne commencent : chaque héritier voit ce qui se trouvait dans le logement et ce qui en est sorti. Et si un héritier veut récupérer une pièce précise, elle est mise de côté et non enlevée.</p>
       <div style={{ marginTop: 18 }}>
@@ -97,15 +127,28 @@ function DebNotaire() {
 function DebFAQ() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Questions fréquentes</div>
-      <div className="sec-head reveal"><h2>Ce qu'on nous demande <em>le plus souvent.</em></h2></div>
-      <div className="faq-list">{DEB_FAQ.map((f, i) =>
-        <details className="faq-item" key={i}>
-          <summary>{f.q}</summary>
-          <p>{f.a}</p>
-        </details>)}
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Questions fréquentes</div></div>
+        <h2 className="dim-em">Ce qu'on nous demande <em>le plus souvent.</em></h2>
       </div>
+      <FaqOuvrable items={DEB_FAQ} />
     </div></section>);
+}
+
+function FaqOuvrable({ items }) {
+  const [ouvert, setOuvert] = React.useState(-1);
+  return (
+    <div className="faq-list reveal">
+      {items.map((f, i) => (
+        <div className={"faq-item" + (ouvert === i ? " open" : "")} key={i}>
+          <button className="faq-q" onClick={() => setOuvert(ouvert === i ? -1 : i)} aria-expanded={ouvert === i}>
+            <span>{f.q}</span><span className="ico" aria-hidden="true">+</span>
+          </button>
+          <div className="faq-a">{Array.isArray(f.a) ? f.a.map((p, k) => <p key={k}>{p}</p>) : <p>{f.a}</p>}</div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function App() {

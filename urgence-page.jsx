@@ -31,12 +31,35 @@ const URG_CAS = [
 { t: "Sinistre, dégât des eaux, incendie", d: "Un logement à vider en urgence pour laisser travailler les artisans. Mise en garde-meuble le temps des travaux, puis retour.", icon: <UI><path d="M3 7l9-4 9 4v10l-9 4-9-4z" /><path d="M3 7l9 4 9-4M12 11v10" /></UI> }];
 
 const URG_FAQ = [
-{ q: "Pouvez-vous vraiment déménager en 24 h ?", a: "Souvent oui, sur la Côte d'Azur et pour un volume courant. Cela dépend d'une seule chose : qu'un camion et une équipe soient libres à cette date. On vous le dit dans l'heure qui suit votre appel, pas après trois jours de réflexion." },
-{ q: "Un déménagement urgent coûte-t-il plus cher ?", a: "Pas de majoration automatique. Ce qui peut coûter plus cher, c'est l'emballage complet sur place quand rien n'est prêt, ou un samedi. C'est chiffré et annoncé avant, jamais ajouté après." },
-{ q: "Et si je n'ai rien emballé ?", a: "C'est le cas le plus fréquent dans l'urgence, et c'est prévu. L'équipe arrive avec le matériel et emballe sur place. Comptez une demi-journée de plus pour un T3." },
-{ q: "Comment faites-vous un devis sans visite ?", a: "Par téléphone et photos. Vous filmez chaque pièce, la cave et le garage, on chiffre dans l'heure. Le prix est ferme : si on s'est trompé sur le volume, c'est notre problème, pas le vôtre." },
-{ q: "Intervenez-vous le week-end ou un jour férié ?", a: "Oui quand c'est possible. Le samedi est courant, le dimanche et les jours fériés dépendent de la disponibilité de l'équipe et se majorent, ce qui vous est dit avant de réserver." },
-{ q: "Que se passe-t-il si vous ne pouvez pas ?", a: "On vous le dit tout de suite. Dans l'urgence, une réponse claire en dix minutes vaut mieux qu'un espoir entretenu pendant deux jours : vous avez encore le temps d'appeler quelqu'un d'autre." }];
+{ q: "Pouvez-vous vraiment déménager en 24 h ?",
+  a: ["Souvent oui, sur la Côte d'Azur et pour un volume courant. Cela dépend d'une seule chose : qu'un camion et une équipe soient libres à cette date.",
+      "On vous le dit dans l'heure qui suit votre appel, pas après trois jours de réflexion. Dans l'urgence, une réponse rapide vaut plus qu'une réponse parfaite."] },
+{ q: "Un déménagement urgent coûte-t-il plus cher ?",
+  a: ["Il n'y a pas de majoration automatique parce que c'est urgent. Ce qui peut coûter plus cher, c'est l'emballage complet sur place quand rien n'est prêt, ou un samedi.",
+      "C'est chiffré et annoncé avant de réserver, jamais ajouté après."] },
+{ q: "Et si je n'ai rien emballé ?",
+  a: ["C'est le cas le plus fréquent dans l'urgence, et c'est prévu. L'équipe arrive avec les cartons, le papier bulle et les housses, et emballe sur place.",
+      "Comptez une demi-journée de plus pour un trois-pièces. Concentrez-vous sur les papiers et les objets de valeur : le reste, on s'en charge."] },
+{ q: "Comment faites-vous un devis sans visite ?",
+  a: ["Par téléphone et par photos. Vous filmez chaque pièce, la cave et le garage, on chiffre dans l'heure qui suit.",
+      "Le prix est ferme. Si nous nous sommes trompés sur le volume à partir de vos images, c'est notre problème, pas le vôtre."] },
+{ q: "Intervenez-vous le week-end ou un jour férié ?",
+  a: ["Le samedi est courant. Le dimanche et les jours fériés dépendent de la disponibilité de l'équipe et se majorent, ce qui vous est dit avant de réserver."] },
+{ q: "Que se passe-t-il si vous ne pouvez pas ?",
+  a: ["On vous le dit tout de suite. Dans l'urgence, une réponse claire en dix minutes vaut mieux qu'un espoir entretenu pendant deux jours : vous avez encore le temps d'appeler quelqu'un d'autre.",
+      "Quand nous le pouvons, nous indiquons un confrère susceptible d'être libre."] },
+{ q: "Faut-il une autorisation de stationnement dans l'urgence ?",
+  a: ["À Nice, elle se demande cinq à sept jours ouvrés à l'avance selon ce que le camion occupe. Sur un déménagement à 48 heures, ce délai n'est pas tenable.",
+      "On se rabat alors sur une place libre au plus près, quitte à porter plus loin. C'est une contrainte réelle de l'urgence, et elle est chiffrée dans le devis."] },
+{ q: "Pouvez-vous stocker mes affaires si mon logement n'est pas prêt ?",
+  a: ["Oui. C'est fréquent quand il faut libérer un bien vite sans avoir encore les clés du suivant.",
+      "Nous chargeons, nous stockons le temps nécessaire, et nous livrons quand vous êtes prêt. Le volume et la durée se calent au devis."] },
+{ q: "Que faire si mon déménageur m'a fait faux bond ?",
+  a: ["Appelez-nous en disant tout de suite la date et le volume : ce sont les deux informations qui décident si c'est possible.",
+      "Nous reprenons régulièrement des chantiers abandonnés la veille. Gardez le devis et les échanges du prestataire défaillant, ils vous serviront pour vous faire rembourser."] },
+{ q: "Combien de temps à l'avance faut-il appeler ?",
+  a: ["Le plus tôt possible, même sans certitude sur la date. Un créneau bloqué se libère facilement, un créneau introuvable ne s'invente pas.",
+      "En pratique, nous traitons des demandes à 24 heures toute l'année, mais elles passent plus difficilement les fins de mois de juin à septembre."] }];
 
 function UrgHero() {
   return (
@@ -56,8 +79,10 @@ function UrgHero() {
 function UrgSteps() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Comment ça se passe</div>
-      <div className="sec-head reveal"><h2>De l'appel au camion, <em>en quatre étapes.</em></h2></div>
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Comment ça se passe</div></div>
+        <h2 className="dim-em">De l'appel au camion, <em>en quatre étapes.</em></h2>
+      </div>
       <div className="values-grid reveal-stagger">{URG_STEPS.map((s) =>
         <div className="value" key={s.n}>
           <div className="value-num">{s.n}</div>
@@ -70,8 +95,10 @@ function UrgSteps() {
 function UrgCas() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Les situations qu'on traite</div>
-      <div className="sec-head reveal"><h2>Les urgences <em>qu'on voit passer.</em></h2></div>
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Les situations qu'on traite</div></div>
+        <h2 className="dim-em">Les urgences <em>qu'on voit passer.</em></h2>
+      </div>
       <div className="ap-values reveal-stagger">{URG_CAS.map((f) =>
         <div className="ap-value" key={f.t}>
           <span className="ap-value-ic">{f.icon}</span>
@@ -85,8 +112,10 @@ function UrgCas() {
 function UrgQuoi() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Ce qu'on ne promet pas</div>
-      <div className="sec-head reveal"><h2>Un déménageur honnête <em>dit aussi non.</em></h2></div>
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Ce qu'on ne promet pas</div></div>
+        <h2 className="dim-em">Un déménageur honnête <em>dit aussi non.</em></h2>
+      </div>
       <p className="lede">Tout ne se fait pas en vingt-quatre heures, et prétendre le contraire ne rend service à personne. Une longue distance vers Brest ou Lille demande au minimum deux à trois jours : il faut caler le camion sur l'aller comme sur le retour. Un volume de plus de quarante mètres cubes avec monte-meuble ne se monte pas du jour au lendemain. Et un déménagement international ne se traite jamais dans l'urgence, à cause des formalités douanières.</p>
       <p className="lede">Dans ces cas-là, on vous le dit à l'appel. Vous perdez dix minutes au lieu de deux jours, et vous gardez le temps d'appeler quelqu'un d'autre. C'est aussi pour ça qu'on refuse de majorer un tarif « parce que c'est urgent » : si on prend le chantier, c'est qu'on peut le faire correctement.</p>
       <div style={{ marginTop: 18 }}>
@@ -98,15 +127,28 @@ function UrgQuoi() {
 function UrgFAQ() {
   return (
     <section className="sec"><div className="wrap">
-      <div className="sec-num"><span className="asterisk">*</span> Questions fréquentes</div>
-      <div className="sec-head reveal"><h2>Ce qu'on nous demande <em>le plus souvent.</em></h2></div>
-      <div className="faq-list">{URG_FAQ.map((f, i) =>
-        <details className="faq-item" key={i}>
-          <summary>{f.q}</summary>
-          <p>{f.a}</p>
-        </details>)}
+      <div className="sec-head reveal">
+        <div><div className="sec-num"><span className="asterisk">*</span> Questions fréquentes</div></div>
+        <h2 className="dim-em">Ce qu'on nous demande <em>le plus souvent.</em></h2>
       </div>
+      <FaqOuvrable items={URG_FAQ} />
     </div></section>);
+}
+
+function FaqOuvrable({ items }) {
+  const [ouvert, setOuvert] = React.useState(-1);
+  return (
+    <div className="faq-list reveal">
+      {items.map((f, i) => (
+        <div className={"faq-item" + (ouvert === i ? " open" : "")} key={i}>
+          <button className="faq-q" onClick={() => setOuvert(ouvert === i ? -1 : i)} aria-expanded={ouvert === i}>
+            <span>{f.q}</span><span className="ico" aria-hidden="true">+</span>
+          </button>
+          <div className="faq-a">{Array.isArray(f.a) ? f.a.map((p, k) => <p key={k}>{p}</p>) : <p>{f.a}</p>}</div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function App() {

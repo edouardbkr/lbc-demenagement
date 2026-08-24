@@ -77,23 +77,35 @@ const DEB_CAS = [{
   }))
 }];
 const DEB_FAQ = [{
-  q: "Combien coûte un débarras d'appartement ?",
-  a: "Cela dépend du volume et de l'étage, comme un déménagement. Un T2 encombré se situe généralement entre 600 et 1 200 €, une maison avec cave et grenier au-delà. Le devis est ferme après visite : on ne facture jamais un supplément parce que la cave était plus pleine que prévu."
+  q: "Combien coûte un débarras d'appartement à Nice ?",
+  a: ["Comme un déménagement : le volume et l'étage font le prix, pas la surface. Un deux-pièces encombré se situe généralement entre 600 et 1 200 €, une maison avec cave et grenier au-delà.", "Le devis est ferme après visite. On ne facture jamais un supplément parce que la cave était plus pleine que prévu : c'est précisément pour ça qu'on vient voir avant de chiffrer."]
+}, {
+  q: "Faut-il être présent pendant le débarras ?",
+  a: ["Non. Beaucoup de nos clients habitent loin, et c'est souvent le cas dans une succession. Nous travaillons avec les clés remises par un notaire, un syndic ou un voisin de confiance.", "Chaque pièce est photographiée avant et après. Vous recevez le relevé complet le soir même."]
 }, {
   q: "Rachetez-vous le mobilier ?",
-  a: "Quand des pièces ont une valeur de revente, elles viennent en déduction du devis. C'est rare de couvrir tout le chantier, mais cela allège la note et c'est toujours dit avant, jamais découvert après."
-}, {
-  q: "Intervenez-vous pour un notaire ou un mandataire ?",
-  a: "Oui, régulièrement. On fournit un état des lieux photographique avant et après, les justificatifs de dépôt en déchetterie et une facture détaillée par poste, ce qui est ce dont un dossier de succession a besoin."
+  a: ["Quand des pièces ont une valeur de revente réelle — mobilier ancien, électroménager récent, outillage — elles viennent en déduction du devis.", "Il est rare que cela couvre tout le chantier, et nous le disons avant plutôt que de le laisser espérer. Un intérieur des années soixante-dix complet ne vaut presque rien à la revente, même en bon état."]
 }, {
   q: "Que faites-vous des affaires personnelles trouvées ?",
-  a: "Papiers, photos, bijoux, courrier : tout ce qui a un caractère personnel est mis de côté et remis à la famille, jamais jeté. C'est la règle, même quand la consigne est de tout vider."
+  a: ["Papiers, photos, courrier, bijoux, livrets bancaires : tout ce qui a un caractère personnel est mis de côté dans un carton identifié et vous est remis. Jamais jeté.", "C'est la règle même quand la consigne est de tout vider — les familles retrouvent souvent dans ce carton des choses qu'elles cherchaient depuis des semaines."]
+}, {
+  q: "Intervenez-vous pour un notaire ou un mandataire de justice ?",
+  a: ["Oui, régulièrement. Le dossier qu'on remet comprend l'état des lieux photographique avant et après, les justificatifs de dépôt en déchetterie et une facture détaillée par poste.", "Ce sont les trois pièces qu'un dossier de succession réclame, et celles qui manquent le plus souvent quand le débarras a été fait à la va-vite."]
 }, {
   q: "En combien de temps pouvez-vous intervenir ?",
-  a: "Sous 48 à 72 h pour la visite, et souvent dans la semaine pour le chantier. En cas de délai de bail serré, dites-le : on décale ce qui peut l'être."
+  a: ["48 à 72 heures pour la visite, et souvent dans la semaine pour le chantier lui-même.", "Si vous avez un délai de bail ou une date de vente serrée, dites-le au premier appel : c'est ce qui décide de l'ordre dans lequel on cale les chantiers."]
 }, {
-  q: "Le logement est-il nettoyé après ?",
-  a: "Il est rendu vide et balayé, prêt pour un état des lieux. Un nettoyage complet de fin de chantier peut être ajouté au devis si le bien doit être visité tout de suite."
+  q: "Le logement est-il nettoyé après le débarras ?",
+  a: ["Il est rendu vide et balayé, prêt pour un état des lieux. Les traces au sol laissées par les meubles restent visibles, c'est normal.", "Un nettoyage complet de fin de chantier — sols, sanitaires, vitres — s'ajoute au devis si le bien doit être visité ou reloué tout de suite."]
+}, {
+  q: "Que deviennent les objets dont personne ne veut ?",
+  a: ["Ce qui peut resservir part vers une association locale ou une ressourcerie ; le reste va en déchetterie, trié par filière : encombrants, électroménager, gravats, produits chimiques.", "Nous conservons les justificatifs de dépôt et vous les remettons avec la facture."]
+}, {
+  q: "Videz-vous aussi les caves, garages et greniers ?",
+  a: ["Oui, et c'est même souvent l'essentiel du volume. Une cave voûtée niçoise ou un grenier de villa contiennent régulièrement plus que l'appartement lui-même.", "Nous les ouvrons pendant la visite : c'est là que se joue l'écart entre le volume estimé et le volume réel."]
+}, {
+  q: "Le débarras peut-il se faire le même jour qu'un déménagement ?",
+  a: ["Oui, et c'est souvent le plus simple : on charge ce qui part avec vous, on vide le reste, et le logement est rendu dans la journée.", "Cela évite de rouvrir le bien une seconde fois et de payer deux déplacements."]
 }];
 function DebHero() {
   return React.createElement("section", {
@@ -132,12 +144,14 @@ function DebSteps() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Comment \xE7a se passe"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Quatre \xE9tapes, ", React.createElement("em", null, "et un prix qui ne bouge pas."))), React.createElement("div", {
+  }, "*"), " Comment \xE7a se passe")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Quatre \xE9tapes, ", React.createElement("em", null, "et un prix qui ne bouge pas."))), React.createElement("div", {
     className: "values-grid reveal-stagger"
   }, DEB_STEPS.map(s => React.createElement("div", {
     className: "value",
@@ -156,12 +170,14 @@ function DebCas() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Les situations qu'on traite"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Chaque d\xE9barras ", React.createElement("em", null, "a son histoire."))), React.createElement("div", {
+  }, "*"), " Les situations qu'on traite")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Chaque d\xE9barras ", React.createElement("em", null, "a son histoire."))), React.createElement("div", {
     className: "ap-values reveal-stagger"
   }, DEB_CAS.map(f => React.createElement("div", {
     className: "ap-value",
@@ -180,12 +196,14 @@ function DebNotaire() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Vous \xEAtes notaire, mandataire ou syndic"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Un dossier propre, ", React.createElement("em", null, "pas seulement un logement vide."))), React.createElement("p", {
+  }, "*"), " Vous \xEAtes notaire, mandataire ou syndic")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Un dossier propre, ", React.createElement("em", null, "pas seulement un logement vide."))), React.createElement("p", {
     className: "lede"
   }, "Ce qui vous manque dans un d\xE9barras, ce n'est pas la main-d'\u0153uvre, c'est la tra\xE7abilit\xE9. On fournit syst\xE9matiquement l'\xE9tat des lieux photographique avant et apr\xE8s, les justificatifs de d\xE9p\xF4t en d\xE9chetterie et une facture d\xE9taill\xE9e par poste. De quoi joindre au dossier de succession sans avoir \xE0 rappeler qui que ce soit."), React.createElement("p", {
     className: "lede"
@@ -206,17 +224,38 @@ function DebFAQ() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " Questions fr\xE9quentes"), React.createElement("div", {
-    className: "sec-head reveal"
-  }, React.createElement("h2", null, "Ce qu'on nous demande ", React.createElement("em", null, "le plus souvent."))), React.createElement("div", {
-    className: "faq-list"
-  }, DEB_FAQ.map((f, i) => React.createElement("details", {
-    className: "faq-item",
+  }, "*"), " Questions fr\xE9quentes")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Ce qu'on nous demande ", React.createElement("em", null, "le plus souvent."))), React.createElement(FaqOuvrable, {
+    items: DEB_FAQ
+  })));
+}
+function FaqOuvrable({
+  items
+}) {
+  const [ouvert, setOuvert] = React.useState(-1);
+  return React.createElement("div", {
+    className: "faq-list reveal"
+  }, items.map((f, i) => React.createElement("div", {
+    className: "faq-item" + (ouvert === i ? " open" : ""),
     key: i
-  }, React.createElement("summary", null, f.q), React.createElement("p", null, f.a))))));
+  }, React.createElement("button", {
+    className: "faq-q",
+    onClick: () => setOuvert(ouvert === i ? -1 : i),
+    "aria-expanded": ouvert === i
+  }, React.createElement("span", null, f.q), React.createElement("span", {
+    className: "ico",
+    "aria-hidden": "true"
+  }, "+")), React.createElement("div", {
+    className: "faq-a"
+  }, Array.isArray(f.a) ? f.a.map((p, k) => React.createElement("p", {
+    key: k
+  }, p)) : React.createElement("p", null, f.a)))));
 }
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
@@ -232,5 +271,5 @@ function App() {
   }))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { DebHero, DebSteps, DebCas, DebNotaire, DebFAQ, App }); } catch (e) {}
+  try { Object.assign(window, { DebHero, DebSteps, DebCas, DebNotaire, DebFAQ, FaqOuvrable, App }); } catch (e) {}
 })();
