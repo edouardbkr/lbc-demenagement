@@ -398,7 +398,7 @@ function NiceQuand() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "10 / Le calendrier",
+    num: "12 / Le calendrier",
     titre: "Quand d\xE9m\xE9nager,",
     em: "et quand s'y prendre."
   }), React.createElement("div", {
@@ -587,6 +587,44 @@ function NiceAides() {
     }
   }, "Nous ne montons pas ces dossiers \xE0 votre place, mais nous fournissons toujours un devis d\xE9taill\xE9 et une facture nominative \u2014 c'est la pi\xE8ce que tous ces organismes r\xE9clament, et celle qui manque le plus souvent. Renseignez-vous aupr\xE8s de votre CAF, de votre employeur ou du D\xE9partement : les conditions changent r\xE9guli\xE8rement.")));
 }
+function NicePreparer() {
+  const P = [{
+    t: "Prévenir le syndic",
+    d: "Réservation de l'ascenseur, protection des parties communes, créneau autorisé. Dans les copropriétés niçoises, un ascenseur non réservé se retrouve occupé le matin même, et la journée démarre par une heure d'attente."
+  }, {
+    t: "Mesurer les accès, aux deux adresses",
+    d: "Largeur de l'escalier, dimensions intérieures de l'ascenseur, hauteur du porche. C'est la mesure du porche qui décide du gabarit du camion, et personne n'y pense avant de le voir bloqué devant."
+  }, {
+    t: "Signaler les meubles volumineux au devis",
+    d: "Piano, coffre-fort, armoire à corniche, canapé d'angle non démontable. C'est ce qui déclenche le monte-meuble, et un monte-meuble se réserve, il ne se trouve pas le matin."
+  }, {
+    t: "Anticiper le stationnement des deux côtés",
+    d: "L'autorisation se demande pour l'adresse de départ ET celle d'arrivée si elle est aussi à Nice. Deux demandes, deux délais, et c'est le plus long qui commande la date."
+  }];
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement(NiceSecHead, {
+    num: "09 / Avant le jour J",
+    titre: "Les quatre choses",
+    em: "\xE0 pr\xE9parer."
+  }), React.createElement("p", {
+    className: "lede"
+  }, "Elles ne prennent pas dix minutes chacune, et ce sont pourtant elles qui font qu'une journ\xE9e se d\xE9roule comme pr\xE9vu ou qu'elle d\xE9marre avec une heure de retard."), React.createElement("div", {
+    className: "ap-values reveal-stagger",
+    style: {
+      marginTop: 26
+    }
+  }, P.map((x, i) => React.createElement("div", {
+    className: "ap-value",
+    key: i
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, x.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, x.d))))));
+}
 function NiceLimitrophes() {
   const V = ["saint-laurent-du-var", "cagnes-sur-mer", "villefranche-sur-mer", "beaulieu-sur-mer", "saint-jean-cap-ferrat"];
   if (typeof CITIES === "undefined") return null;
@@ -597,7 +635,7 @@ function NiceLimitrophes() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "08 / Autour de Nice",
+    num: "10 / Autour de Nice",
     titre: "Les communes",
     em: "limitrophes."
   }), React.createElement("p", {
@@ -668,7 +706,7 @@ function NiceDepuisNice() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "09 / Au d\xE9part de Nice",
+    num: "11 / Au d\xE9part de Nice",
     titre: "Nos trajets",
     em: "les plus fr\xE9quents."
   }), React.createElement("p", {
@@ -720,7 +758,7 @@ function NiceFAQ() {
   }, React.createElement("div", {
     className: "wrap"
   }, React.createElement(NiceSecHead, {
-    num: "11 / Questions fr\xE9quentes",
+    num: "13 / Questions fr\xE9quentes",
     titre: "Ce qu'on nous demande",
     em: "sur Nice."
   }), React.createElement("div", {
@@ -737,8 +775,8 @@ function App() {
     id: "contenu"
   }, React.createElement(NiceHero, null), React.createElement(NicePrix, null), React.createElement(NiceCas, null), React.createElement(NiceStationnement, null), React.createElement(NiceQuartiers, null), React.createElement(NiceEncombrants, null), React.createElement(NiceCartons, null), React.createElement(NiceAides, null), React.createElement(PreuveVille, {
     ville: "\xE0 Nice"
-  }), React.createElement(NiceLimitrophes, null), React.createElement(NiceDepuisNice, null), React.createElement(NiceQuand, null), React.createElement(NiceFAQ, null)), React.createElement(Footer, null));
+  }), React.createElement(NicePreparer, null), React.createElement(NiceLimitrophes, null), React.createElement(NiceDepuisNice, null), React.createElement(NiceQuand, null), React.createElement(NiceFAQ, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { NiceHero, NiceSecHead, NicePrix, NiceCas, NiceStationnement, NiceQuartiers, NiceQuand, NiceEncombrants, NiceCartons, NiceAides, NiceLimitrophes, NiceDepuisNice, NiceFaqItem, NiceFAQ, App }); } catch (e) {}
+  try { Object.assign(window, { NiceHero, NiceSecHead, NicePrix, NiceCas, NiceStationnement, NiceQuartiers, NiceQuand, NiceEncombrants, NiceCartons, NiceAides, NicePreparer, NiceLimitrophes, NiceDepuisNice, NiceFaqItem, NiceFAQ, App }); } catch (e) {}
 })();

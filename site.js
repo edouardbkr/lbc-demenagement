@@ -797,9 +797,6 @@ const CONSEILS = [{
   label: "Déménagement étudiant à Nice",
   href: "Article-demenagement-etudiant-nice"
 }, {
-  label: "Déménager à Nice : stationnement & autorisations",
-  href: "Article-demenager-nice"
-}, {
   label: "Bien choisir sa société de déménagement",
   href: "Article-choisir-demenageur"
 }];

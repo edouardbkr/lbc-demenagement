@@ -19,26 +19,6 @@ const ARTICLES = [{
     href: "Checklist"
   }, "checklist de d\xE9m\xE9nagement"), " vous \xE9vite les oublis classiques."))
 }, {
-  slug: "demenager-nice",
-  seoTitle: "Déménager à Nice : stationnement et autorisations · LBC",
-  image: "assets/blog/stationnement-demenagement-vieux-nice.jpg",
-  imageAlt: "Camion de déménagement stationné dans une rue du Vieux-Nice devant une aire de livraison",
-  cat: "Côte d'Azur",
-  title: "Déménager à Nice : stationnement, autorisations et bons réflexes par quartier",
-  date: "9 avril 2026",
-  read: "9 min",
-  excerpt: "Vieux-Nice, Cimiez, Carré d'Or, le Port : chaque quartier a ses contraintes d'accès et de stationnement. Le guide complet pour ne pas finir avec un camion bloqué et une amende.",
-  thumb: "Ruelle du Vieux-Nice",
-  body: () => React.createElement(React.Fragment, null, React.createElement("p", {
-    className: "lead-p"
-  }, "D\xE9m\xE9nager \xE0 Nice, ce n'est pas d\xE9m\xE9nager n'importe o\xF9. Entre les ruelles pi\xE9tonnes du Vieux-Nice, les immeubles haussmanniens du Carr\xE9 d'Or et les hauteurs en lacets de Cimiez, le ", React.createElement("strong", null, "d\xE9m\xE9nagement \xE0 Nice"), " se pr\xE9pare quartier par quartier. Voici comment \xE9viter l'amende, le camion bloqu\xE9 et les cartons port\xE9s sur cent m\xE8tres."), React.createElement("h2", null, "L'autorisation de stationnement, l'\xE9tape qu'on oublie"), React.createElement("p", null, "Pour r\xE9server l'emplacement du camion devant chez vous, il faut une ", React.createElement("strong", null, "autorisation d'occupation du domaine public"), ", \xE0 demander \xE0 la Ville de Nice, id\xE9alement deux \xE0 trois semaines \xE0 l'avance. Sans elle, vous risquez de ne trouver aucune place le jour J, de porter vos affaires sur une longue distance, voire de bloquer la circulation et d'\xE9coper d'une amende. Un d\xE9m\xE9nageur local s\xE9rieux fait cette d\xE9marche pour vous : c'est un r\xE9flexe, pas une option."), React.createElement("h2", null, "Le d\xE9m\xE9nagement, quartier par quartier"), React.createElement("p", null, "Nice n'est pas une ville homog\xE8ne, c'est une mosa\xEFque de quartiers aux contraintes tr\xE8s diff\xE9rentes :"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Vieux-Nice"), " \u2014 zones pi\xE9tonnes, ruelles inaccessibles au camion, cr\xE9neaux horaires stricts. Portage, v\xE9hicule relais et emplacement r\xE9serv\xE9 en contrebas."), React.createElement("li", null, React.createElement("strong", null, "Carr\xE9 d'Or & centre"), " \u2014 immeubles haussmanniens, rues \xE9troites, double file interdite, ascenseurs souvent exigus. Le monte-meuble par la fa\xE7ade est fr\xE9quent."), React.createElement("li", null, React.createElement("strong", null, "Cimiez, Gairaut, Fabron"), " \u2014 acc\xE8s en pente et en lacets, villas et r\xE9sidences en hauteur. Camion bien dimensionn\xE9, parfois transbordement."), React.createElement("li", null, React.createElement("strong", null, "Le Port & Riquier"), " \u2014 colocations et appartements pris\xE9s, acc\xE8s parfois \xE9troits, stationnement tendu."), React.createElement("li", null, React.createElement("strong", null, "Lib\xE9ration, Gambetta, Nice Nord"), " \u2014 immeubles r\xE9sidentiels, plus simples d'acc\xE8s, mais stationnement \xE0 anticiper aux heures de pointe.")), React.createElement("blockquote", null, "Un bon d\xE9m\xE9nageur ni\xE7ois conna\xEEt d\xE9j\xE0 ces contraintes, et fait les d\xE9marches administratives \xE0 votre place. C'est tout l'int\xE9r\xEAt de choisir local."), React.createElement("h2", null, "Quand d\xE9m\xE9nager \xE0 Nice (et quand \xE9viter)"), React.createElement("p", null, "Le calendrier compte autant que le quartier. \xC9vitez les semaines du ", React.createElement("strong", null, "Carnaval de Nice"), " et des grands \xE9v\xE9nements, qui saturent le centre et le bord de mer. Les fins de mois et les samedis, surtout entre juin et septembre, partent vite : r\xE9servez t\xF4t. En \xE9t\xE9, anticipez la chaleur pour les objets sensibles (bougies, \xE9lectronique, vinyles) et chargez de pr\xE9f\xE9rence le matin."), React.createElement("h2", null, "Les bons r\xE9flexes avant le jour J"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Pr\xE9venez le syndic"), " de l'immeuble (r\xE9servation d'ascenseur, protection des parties communes)."), React.createElement("li", null, React.createElement("strong", null, "Mesurez les acc\xE8s"), " : largeur d'escalier, dimensions de l'ascenseur, hauteur de porche."), React.createElement("li", null, React.createElement("strong", null, "Signalez les meubles volumineux"), " d\xE8s le devis, pour pr\xE9voir le monte-meuble si besoin."), React.createElement("li", null, React.createElement("strong", null, "Anticipez le stationnement"), " \xE0 l'ancienne ET \xE0 la nouvelle adresse.")), React.createElement("h2", null, "Local, longue distance ou garde-meuble"), React.createElement("p", null, "Que vous bougiez d'un quartier \xE0 l'autre, que vous quittiez Nice pour ", React.createElement("a", {
-    href: "Demenagement-Nice-Paris"
-  }, "Paris"), " ou l'\xE9tranger, ou que vous ayez besoin d'un garde-meuble entre deux logements, la pr\xE9paration reste la m\xEAme : anticiper les acc\xE8s et les autorisations. D\xE9couvrez le d\xE9tail de nos services sur la page ", React.createElement("a", {
-    href: "Demenagement-Nice"
-  }, "d\xE9m\xE9nagement \xE0 Nice"), ", ou demandez directement un ", React.createElement("a", {
-    href: "Devis"
-  }, "devis gratuit sous 24h"), ". Un d\xE9m\xE9nagement r\xE9ussi \xE0 Nice, c'est 80 % de pr\xE9paration et 20 % de muscles."))
-}, {
   slug: "choisir-demenageur",
   seoTitle: "Choisir son déménageur : 7 signaux à vérifier · LBC",
   image: "assets/blog/choisir-demenageur-devis-7-signaux.jpg",
@@ -60,14 +40,14 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), " pour comparer en toute connaissance de cause."))
 }, {
   slug: "demenagement-nice-paris-prix-delais",
-  seoTitle: "Déménagement Nice-Paris : délais et prix 2026 · LBC",
+  seoTitle: "Combien coûte un déménagement Nice-Paris ? Prix 2026 · LBC",
   image: "assets/blog/demenagement-nice-paris-930-km-trajet.jpg",
   imageAlt: "Trajet de déménagement Nice-Paris : 930 km par les autoroutes A8, A7 et A6, environ 9 heures de route",
   cat: "Longue distance",
-  title: "Déménagement Nice → Paris : délais et organisation en 2026",
+  title: "Combien coûte un déménagement de Nice vers Paris ?",
   date: "26 mai 2026",
   read: "13 min",
-  excerpt: "En combien de temps se fait un Nice-Paris, ce qui fait varier le coût, et comment éviter les pièges des 930 km qui séparent la Côte d'Azur de la capitale.",
+  excerpt: "Ce qui fait le prix sur 930 km : le volume, le nombre de jours de camion, la période. Les fourchettes réelles et ce qui les fait bouger.",
   thumb: "Carte Nice–Paris · ruban d'autoroute",
   body: () => React.createElement(React.Fragment, null, React.createElement("p", {
     className: "lead-p"
@@ -92,14 +72,14 @@ const ARTICLES = [{
   }, "devis gratuit sous 24h"), " : on s'occupe de tout, du premier carton ni\xE7ois \xE0 la derni\xE8re \xE9tag\xE8re parisienne."))
 }, {
   slug: "demenagement-nice-paris-reussir",
-  seoTitle: "Réussir son déménagement Nice-Paris : le guide · LBC",
+  seoTitle: "Déménagement longue distance : la checklist 8 semaines · LBC",
   image: "assets/blog/demenagement-nice-paris-retroplanning-8-semaines.jpg",
-  imageAlt: "Rétroplanning d'un déménagement Nice-Paris en 8 semaines, du tri des affaires à la livraison",
+  imageAlt: "Rétroplanning d'un déménagement longue distance en 8 semaines, du tri des affaires à la livraison",
   cat: "Longue distance",
-  title: "Réussir son déménagement Nice-Paris : le guide complet pas-à-pas",
+  title: "Préparer un déménagement longue distance : la checklist des 8 semaines",
   date: "24 mai 2026",
   read: "14 min",
-  excerpt: "Rétroplanning sur 8 semaines, cartons, formalités, jour J des deux côtés : la méthode pas-à-pas pour quitter la Côte d'Azur et s'installer à Paris sans stress.",
+  excerpt: "Rétroplanning sur 8 semaines, cartons, formalités, jour J des deux côtés : la méthode pour un déménagement à plusieurs centaines de kilomètres.",
   thumb: "Cartons étiquetés · départ vers le nord",
   body: () => React.createElement(React.Fragment, null, React.createElement("p", {
     className: "lead-p"

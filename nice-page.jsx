@@ -222,7 +222,7 @@ function NiceQuartiers() {
 function NiceQuand() {
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="10 / Le calendrier" titre="Quand déménager," em="et quand s'y prendre." />
+      <NiceSecHead num="12 / Le calendrier" titre="Quand déménager," em="et quand s'y prendre." />
       <div className="ap-values reveal-stagger" style={{ marginTop: 24 }}>
         <div className="ap-value">
           <h3 className="ap-value-t">Les dates qui partent en premier</h3>
@@ -339,6 +339,26 @@ function NiceAides() {
     </div></section>);
 }
 
+function NicePreparer() {
+  const P = [
+    { t: "Prévenir le syndic", d: "Réservation de l'ascenseur, protection des parties communes, créneau autorisé. Dans les copropriétés niçoises, un ascenseur non réservé se retrouve occupé le matin même, et la journée démarre par une heure d'attente." },
+    { t: "Mesurer les accès, aux deux adresses", d: "Largeur de l'escalier, dimensions intérieures de l'ascenseur, hauteur du porche. C'est la mesure du porche qui décide du gabarit du camion, et personne n'y pense avant de le voir bloqué devant." },
+    { t: "Signaler les meubles volumineux au devis", d: "Piano, coffre-fort, armoire à corniche, canapé d'angle non démontable. C'est ce qui déclenche le monte-meuble, et un monte-meuble se réserve, il ne se trouve pas le matin." },
+    { t: "Anticiper le stationnement des deux côtés", d: "L'autorisation se demande pour l'adresse de départ ET celle d'arrivée si elle est aussi à Nice. Deux demandes, deux délais, et c'est le plus long qui commande la date." }];
+  return (
+    <section className="sec"><div className="wrap">
+      <NiceSecHead num="09 / Avant le jour J" titre="Les quatre choses" em="à préparer." />
+      <p className="lede">Elles ne prennent pas dix minutes chacune, et ce sont pourtant elles qui font qu'une journée se déroule comme prévu ou qu'elle démarre avec une heure de retard.</p>
+      <div className="ap-values reveal-stagger" style={{ marginTop: 26 }}>
+        {P.map((x, i) =>
+          <div className="ap-value" key={i}>
+            <h3 className="ap-value-t">{x.t}</h3>
+            <p className="ap-value-d">{x.d}</p>
+          </div>)}
+      </div>
+    </div></section>);
+}
+
 function NiceLimitrophes() {
   const V = ["saint-laurent-du-var","cagnes-sur-mer","villefranche-sur-mer","beaulieu-sur-mer","saint-jean-cap-ferrat"];
   if (typeof CITIES === "undefined") return null;   // city-data.js absent : on n'affiche rien plutôt que de planter
@@ -346,7 +366,7 @@ function NiceLimitrophes() {
   if (!items.length) return null;
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="08 / Autour de Nice" titre="Les communes" em="limitrophes." />
+      <NiceSecHead num="10 / Autour de Nice" titre="Les communes" em="limitrophes." />
       <p className="lede">Un déménagement niçois déborde souvent sur la commune d'à côté. Sur ces cinq-là, nous sommes sur place en moins de vingt minutes depuis notre base.</p>
       <div className="seo-cities reveal" style={{ gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", marginTop: 24 }}>
         {items.map((n, i) =>
@@ -371,7 +391,7 @@ function NiceDepuisNice() {
     { v: "Antibes", url: "Demenagement-Antibes", d: "25 km" }];
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="09 / Au départ de Nice" titre="Nos trajets" em="les plus fréquents." />
+      <NiceSecHead num="11 / Au départ de Nice" titre="Nos trajets" em="les plus fréquents." />
       <p className="lede">Le local représente la moitié de notre activité, la longue distance l'autre moitié. Sur ces trajets, ce n'est plus l'escalier qui fait le prix mais le nombre de jours pendant lesquels le camion est mobilisé.</p>
       <div className="ap-values reveal-stagger" style={{ marginTop: 26 }}>
         {T.map((t) =>
@@ -397,7 +417,7 @@ function NiceFAQ() {
   const [ouvert, setOuvert] = React.useState(-1);
   return (
     <section className="sec"><div className="wrap">
-      <NiceSecHead num="11 / Questions fréquentes" titre="Ce qu'on nous demande" em="sur Nice." />
+      <NiceSecHead num="13 / Questions fréquentes" titre="Ce qu'on nous demande" em="sur Nice." />
       <div className="faq-list reveal">
         {NICE_FAQ.map((f, i) =>
           <NiceFaqItem key={i} item={f} open={ouvert === i} onToggle={() => setOuvert(ouvert === i ? -1 : i)} />)}
@@ -419,6 +439,7 @@ function App() {
         <NiceCartons />
         <NiceAides />
         <PreuveVille ville="à Nice" />
+        <NicePreparer />
         <NiceLimitrophes />
         <NiceDepuisNice />
         <NiceQuand />

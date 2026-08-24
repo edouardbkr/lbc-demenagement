@@ -675,7 +675,7 @@ const CONSEILS = [
 { label: "Déménagement international depuis Nice", href: "Article-demenagement-international-depuis-nice" },
 { label: "Villes aux démarches spéciales", href: "Article-villes-demarches-speciales-demenagement" },
 { label: "Déménagement étudiant à Nice", href: "Article-demenagement-etudiant-nice" },
-{ label: "Déménager à Nice : stationnement & autorisations", href: "Article-demenager-nice" },
+
 { label: "Bien choisir sa société de déménagement", href: "Article-choisir-demenageur" }];
 
 

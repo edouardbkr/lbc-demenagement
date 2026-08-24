@@ -55,51 +55,7 @@ const ARTICLES = [
       </React.Fragment>
     )
   },
-  {
-    slug: "demenager-nice",
-    seoTitle: "Déménager à Nice : stationnement et autorisations · LBC",
-    image: "assets/blog/stationnement-demenagement-vieux-nice.jpg",
-    imageAlt: "Camion de déménagement stationné dans une rue du Vieux-Nice devant une aire de livraison",
-    cat: "Côte d'Azur",
-    title: "Déménager à Nice : stationnement, autorisations et bons réflexes par quartier",
-    date: "9 avril 2026",
-    read: "9 min",
-    excerpt: "Vieux-Nice, Cimiez, Carré d'Or, le Port : chaque quartier a ses contraintes d'accès et de stationnement. Le guide complet pour ne pas finir avec un camion bloqué et une amende.",
-    thumb: "Ruelle du Vieux-Nice",
-    body: () => (
-      <React.Fragment>
-        <p className="lead-p">Déménager à Nice, ce n'est pas déménager n'importe où. Entre les ruelles piétonnes du Vieux-Nice, les immeubles haussmanniens du Carré d'Or et les hauteurs en lacets de Cimiez, le <strong>déménagement à Nice</strong> se prépare quartier par quartier. Voici comment éviter l'amende, le camion bloqué et les cartons portés sur cent mètres.</p>
-
-        <h2>L'autorisation de stationnement, l'étape qu'on oublie</h2>
-        <p>Pour réserver l'emplacement du camion devant chez vous, il faut une <strong>autorisation d'occupation du domaine public</strong>, à demander à la Ville de Nice, idéalement deux à trois semaines à l'avance. Sans elle, vous risquez de ne trouver aucune place le jour J, de porter vos affaires sur une longue distance, voire de bloquer la circulation et d'écoper d'une amende. Un déménageur local sérieux fait cette démarche pour vous : c'est un réflexe, pas une option.</p>
-
-        <h2>Le déménagement, quartier par quartier</h2>
-        <p>Nice n'est pas une ville homogène, c'est une mosaïque de quartiers aux contraintes très différentes :</p>
-        <ul>
-          <li><strong>Vieux-Nice</strong> — zones piétonnes, ruelles inaccessibles au camion, créneaux horaires stricts. Portage, véhicule relais et emplacement réservé en contrebas.</li>
-          <li><strong>Carré d'Or &amp; centre</strong> — immeubles haussmanniens, rues étroites, double file interdite, ascenseurs souvent exigus. Le monte-meuble par la façade est fréquent.</li>
-          <li><strong>Cimiez, Gairaut, Fabron</strong> — accès en pente et en lacets, villas et résidences en hauteur. Camion bien dimensionné, parfois transbordement.</li>
-          <li><strong>Le Port &amp; Riquier</strong> — colocations et appartements prisés, accès parfois étroits, stationnement tendu.</li>
-          <li><strong>Libération, Gambetta, Nice Nord</strong> — immeubles résidentiels, plus simples d'accès, mais stationnement à anticiper aux heures de pointe.</li>
-        </ul>
-        <blockquote>Un bon déménageur niçois connaît déjà ces contraintes, et fait les démarches administratives à votre place. C'est tout l'intérêt de choisir local.</blockquote>
-
-        <h2>Quand déménager à Nice (et quand éviter)</h2>
-        <p>Le calendrier compte autant que le quartier. Évitez les semaines du <strong>Carnaval de Nice</strong> et des grands événements, qui saturent le centre et le bord de mer. Les fins de mois et les samedis, surtout entre juin et septembre, partent vite : réservez tôt. En été, anticipez la chaleur pour les objets sensibles (bougies, électronique, vinyles) et chargez de préférence le matin.</p>
-
-        <h2>Les bons réflexes avant le jour J</h2>
-        <ul>
-          <li><strong>Prévenez le syndic</strong> de l'immeuble (réservation d'ascenseur, protection des parties communes).</li>
-          <li><strong>Mesurez les accès</strong> : largeur d'escalier, dimensions de l'ascenseur, hauteur de porche.</li>
-          <li><strong>Signalez les meubles volumineux</strong> dès le devis, pour prévoir le monte-meuble si besoin.</li>
-          <li><strong>Anticipez le stationnement</strong> à l'ancienne ET à la nouvelle adresse.</li>
-        </ul>
-
-        <h2>Local, longue distance ou garde-meuble</h2>
-        <p>Que vous bougiez d'un quartier à l'autre, que vous quittiez Nice pour <a href="Demenagement-Nice-Paris">Paris</a> ou l'étranger, ou que vous ayez besoin d'un garde-meuble entre deux logements, la préparation reste la même : anticiper les accès et les autorisations. Découvrez le détail de nos services sur la page <a href="Demenagement-Nice">déménagement à Nice</a>, ou demandez directement un <a href="Devis">devis gratuit sous 24h</a>. Un déménagement réussi à Nice, c'est 80 % de préparation et 20 % de muscles.</p>
-      </React.Fragment>
-    )
-  },
+  
   {
     slug: "choisir-demenageur",
     seoTitle: "Choisir son déménageur : 7 signaux à vérifier · LBC",
@@ -153,14 +109,14 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-nice-paris-prix-delais",
-    seoTitle: "Déménagement Nice-Paris : délais et prix 2026 · LBC",
+    seoTitle: "Combien coûte un déménagement Nice-Paris ? Prix 2026 · LBC",
     image: "assets/blog/demenagement-nice-paris-930-km-trajet.jpg",
     imageAlt: "Trajet de déménagement Nice-Paris : 930 km par les autoroutes A8, A7 et A6, environ 9 heures de route",
     cat: "Longue distance",
-    title: "Déménagement Nice → Paris : délais et organisation en 2026",
+    title: "Combien coûte un déménagement de Nice vers Paris ?",
     date: "26 mai 2026",
     read: "13 min",
-    excerpt: "En combien de temps se fait un Nice-Paris, ce qui fait varier le coût, et comment éviter les pièges des 930 km qui séparent la Côte d'Azur de la capitale.",
+    excerpt: "Ce qui fait le prix sur 930 km : le volume, le nombre de jours de camion, la période. Les fourchettes réelles et ce qui les fait bouger.",
     thumb: "Carte Nice–Paris · ruban d'autoroute",
     body: () => (
       <React.Fragment>
@@ -247,14 +203,14 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-nice-paris-reussir",
-    seoTitle: "Réussir son déménagement Nice-Paris : le guide · LBC",
+    seoTitle: "Déménagement longue distance : la checklist 8 semaines · LBC",
     image: "assets/blog/demenagement-nice-paris-retroplanning-8-semaines.jpg",
-    imageAlt: "Rétroplanning d'un déménagement Nice-Paris en 8 semaines, du tri des affaires à la livraison",
+    imageAlt: "Rétroplanning d'un déménagement longue distance en 8 semaines, du tri des affaires à la livraison",
     cat: "Longue distance",
-    title: "Réussir son déménagement Nice-Paris : le guide complet pas-à-pas",
+    title: "Préparer un déménagement longue distance : la checklist des 8 semaines",
     date: "24 mai 2026",
     read: "14 min",
-    excerpt: "Rétroplanning sur 8 semaines, cartons, formalités, jour J des deux côtés : la méthode pas-à-pas pour quitter la Côte d'Azur et s'installer à Paris sans stress.",
+    excerpt: "Rétroplanning sur 8 semaines, cartons, formalités, jour J des deux côtés : la méthode pour un déménagement à plusieurs centaines de kilomètres.",
     thumb: "Cartons étiquetés · départ vers le nord",
     body: () => (
       <React.Fragment>

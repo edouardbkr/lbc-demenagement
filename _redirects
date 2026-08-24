@@ -177,3 +177,9 @@
 /demenagement-la-rochelle.html	/Zones	301
 /Article-demenagement-la-rochelle-guide	/Blog	301
 /article-demenagement-la-rochelle-guide	/Blog	301
+
+# L'article « Déménager à Nice » disait le stationnement et les quartiers, exactement ce que
+# la page Nice traite depuis sa refonte, et en trois fois plus long. Les deux se disputaient
+# la requête : l'article sortait en position 19, la page de service en 38. On redirige vers
+# la page pour lui rendre le signal au lieu de le laisser se partager.
+/Article-demenager-nice	/Demenagement-Nice	301
