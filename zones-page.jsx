@@ -18,6 +18,44 @@ function ZonesHero() {
   );
 }
 
+
+/* La section « Et partout en France » filtrait CITIES sur region === "france".
+   Aucune ville ne porte cette region : le H2 s'affichait au-dessus d'une grille
+   vide, en production. Elle liste desormais les trajets longue distance, qui
+   existent bel et bien et qui gagnent au passage un lien depuis cette page. */
+function RouteColumns({ title, sub, pays, exclure }) {
+  const R = window.ROUTES || {};
+  const liste = Object.keys(R).map((k) => R[k])
+    .filter((r) => (pays ? r.pays === pays : r.pays !== exclure))
+    .sort((a, b) => (a.km || 0) - (b.km || 0));
+  if (!liste.length) return null;
+  return (
+    <section className="sec" style={{ background: 'var(--paper-2)' }}>
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num"><span className="asterisk">*</span> {sub}</div></div>
+          <h2 className="dim-em">{title}</h2>
+        </div>
+        <p className="lead" style={{ maxWidth: 820, marginBottom: 26 }}>
+          Sur ces distances, nous travaillons en camion dédié : une seule équipe du chargement
+          à la livraison, aucun transbordement en plateforme, et une date d'arrivée ferme.
+          C'est ce qui sépare un déménagement d'un groupage, où vos cartons attendent que le
+          camion se remplisse avec ceux des autres.
+        </p>
+        <div className="seo-cities reveal" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(260px,1fr))', gap: '0 32px' }}>
+          {liste.map((r, i) => (
+            <a key={i} href={r.file} style={{
+              fontFamily: 'var(--serif)', fontSize: 24, fontWeight: 600, color: 'var(--ink)',
+              textDecoration: 'none', display: 'block', padding: '10px 0', borderBottom: '1px solid var(--rule)'
+            }}>Nice → {r.to}
+              <span style={{ fontFamily: '"DM Sans"', fontSize: 13, fontWeight: 500, opacity: 0.6, marginLeft: 10 }}>
+                {r.km} km · {r.duree}</span>
+            </a>))}
+        </div>
+      </div>
+    </section>);
+}
+
 function CityColumns({ title, sub, region }) {
   const list = Object.keys(CITIES).map(s => CITIES[s]).filter(c => c.region === region);
   return (
@@ -70,7 +108,8 @@ function App() {
       <main>
         <ZonesHero />
         <CityColumns region="cote" sub="Côte d'Azur · PACA" title={<>24 villes de la Riviera,<br /><em>une équipe qui connaît le terrain.</em></>} />
-        <CityColumns region="france" sub="Longue distance" title={<>Et partout en France,<br /><em>au départ de Nice.</em></>} />
+        <RouteColumns pays="France" sub="Longue distance" title={<>Et partout en France,<br /><em>au départ de Nice.</em></>} />
+        <RouteColumns exclure="France" sub="International" title={<>Et au-delà des frontières,<br /><em>en camion dédié.</em></>} />
         <QuoteBand />
       </main>
       <Footer />

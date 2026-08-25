@@ -149,6 +149,11 @@ function QProches({ q }) {
           <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 06 / À côté</div></div>
           <h2 className="dim-em">Les quartiers <em>voisins.</em></h2>
         </div>
+        {/* La section n'affichait que des boutons : onze mots sous un H2, ce que
+            l'audit signale comme section vide. Chaque quartier explique desormais
+            ce qui change quand on passe chez son voisin, avec ses propres mots. */}
+        {detail(q) && detail(q).voisins &&
+          <p className="lead" style={{ maxWidth: 780, marginBottom: 22 }}>{detail(q).voisins}</p>}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 14 }}>
           {autres.map((a, i) =>
             <a key={i} href={a.url} className="btn btn-ghost">Déménagement {a.nom}<span className="arrow">→</span></a>

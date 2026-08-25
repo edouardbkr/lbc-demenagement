@@ -477,7 +477,7 @@ const ROUTES = {
       p: "Barcelone est l'une des villes les plus attractives d'Europe pour les actifs, les créatifs et les télétravailleurs. Nos Nice–Barcelone mêlent installations professionnelles, changements de vie et expatriations. Pour une mutation, on remet un devis conforme et une facture en règle. Du studio meublé à l'appartement familial, on dimensionne l'équipe au volume, et l'inventaire détaillé facilite votre installation administrative côté espagnol."
     }, {
       t: "Un trajet côtier fluide",
-      p: "À ≈ 660 km le long de la Méditerranée par la frontière de Le Perthus, Barcelone est une destination internationale relativement proche et un trajet agréable et direct. Camion dédié et plombé, une seule équipe du chargement à la livraison, mobilier protégé sur toute la route. Pas de groupage ni de transbordement, et un garde-meuble relais possible si votre logement barcelonais n'est pas prêt à temps."
+      p: "À ≈ 660 km le long de la Méditerranée par la frontière du Perthus, Barcelone est une destination internationale relativement proche et un trajet agréable et direct. Camion dédié et plombé, une seule équipe du chargement à la livraison, mobilier protégé sur toute la route. Pas de groupage ni de transbordement, et un garde-meuble relais possible si votre logement barcelonais n'est pas prêt à temps."
     }],
     faq: [{
       q: "Y a-t-il des formalités douanières pour l'Espagne ?",

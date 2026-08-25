@@ -263,7 +263,13 @@ function QProches({
     className: "asterisk"
   }, "*"), " 06 / \xC0 c\xF4t\xE9")), React.createElement("h2", {
     className: "dim-em"
-  }, "Les quartiers ", React.createElement("em", null, "voisins."))), React.createElement("div", {
+  }, "Les quartiers ", React.createElement("em", null, "voisins."))), detail(q) && detail(q).voisins && React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 780,
+      marginBottom: 22
+    }
+  }, detail(q).voisins), React.createElement("div", {
     style: {
       display: 'flex',
       flexWrap: 'wrap',

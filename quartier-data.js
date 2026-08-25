@@ -279,6 +279,7 @@ function listeQuartiers() {
 }
 const QUARTIER_DETAIL = {
   "vieux-nice": {
+    voisins: "On passe souvent du Vieux-Nice au Port ou à Libération sans changer de ville, mais en changeant complètement de contraintes : ce qui se porte à la main ici se charge parfois au camion trois cents mètres plus loin. Quand votre déménagement relie deux de ces quartiers, nous calons les deux autorisations et les deux créneaux sur la même journée.",
     prep: "dans le Vieux-Nice",
     histoire: "Le Vieux-Nice s'est construit avant la voiture, et cela se voit encore chaque jour. Le tracé des rues remonte à l'époque où l'on circulait à pied et où les marchandises arrivaient à dos de mulet. Les immeubles ont été montés serrés, souvent surélevés d'un ou deux niveaux au fil des siècles, avec des escaliers qui n'ont jamais été prévus pour faire passer un canapé d'angle. Ce n'est pas un quartier difficile par accident : il est difficile par construction, et un déménageur qui découvre cela le jour J a déjà perdu sa journée.",
     bati: "L'immeuble typique du Vieux-Nice fait quatre à six niveaux sans ascenseur. La cage d'escalier est en colimaçon ou à volées courtes, avec un jour central trop étroit pour hisser quoi que ce soit à la corde. Les marches sont souvent en pierre, usées et creusées au milieu, ce qui rend le portage d'un objet lourd nettement moins sûr qu'il n'y paraît. Les paliers sont exigus et les portes d'appartement fréquemment plus basses que la norme actuelle : une armoire moderne de deux mètres dix ne franchit pas toujours l'huisserie. Les plafonds, en revanche, sont hauts, ce qui explique la présence de meubles anciens de grande taille qu'il faut démonter pour sortir.",
@@ -323,6 +324,7 @@ const QUARTIER_DETAIL = {
     }]
   },
   "carre-d-or": {
+    voisins: "Un départ du Carré d'Or vers le Vieux-Nice ou Libération change de logique en cours de route : monte-meuble d'un côté, portage ou report de stationnement de l'autre. Nous relevons les deux adresses avant le devis, parce que la difficulté du jour se joue autant à l'arrivée qu'au départ.",
     prep: "au Carré d'Or",
     histoire: "Le Carré d'Or a été bâti d'un seul mouvement, entre la fin du dix-neuvième siècle et l'entre-deux-guerres, pour loger une clientèle aisée qui passait l'hiver à Nice. Les immeubles ont été conçus pour impressionner depuis la rue et pour être desservis par du personnel : escalier de service à l'arrière, ascenseur d'agrément installé plus tard dans la cage, souvent au chausse-pied. Cette logique d'origine explique la contrainte principale d'aujourd'hui, un ascenseur trop petit dans un immeuble par ailleurs cossu.",
     bati: "L'immeuble type compte cinq à sept niveaux, avec des plafonds de trois mètres et plus. La cage d'escalier est large et soignée, souvent en marbre ou en pierre claire, avec une rampe en fer forgé qui ne supporte aucun choc. L'ascenseur a fréquemment été ajouté dans le vide central : cabine étroite, portes battantes manuelles, charge limitée à deux ou trois personnes. Il accepte des cartons, rarement un meuble. Les appartements ont des parquets d'origine, parfois en point de Hongrie, et des moulures que le moindre coup de diable marque durablement.",
@@ -367,6 +369,7 @@ const QUARTIER_DETAIL = {
     }]
   },
   "cimiez": {
+    voisins: "Descendre de Cimiez vers Libération ou le centre, c'est troquer une contrainte de pente contre une contrainte de circulation. Les deux se préparent, mais pas de la même façon, et le même camion ne convient pas toujours aux deux adresses.",
     prep: "à Cimiez",
     histoire: "Cimiez est né du tourisme d'hiver de la Belle Époque, quand les grands hôtels de villégiature ont été construits sur la colline pour une clientèle qui fuyait les brumes du nord. Ces palaces ont été reconvertis en appartements dans la seconde moitié du vingtième siècle, souvent en découpant de très grands volumes. On y trouve donc aujourd'hui des logements atypiques dans des bâtiments qui n'ont jamais été pensés comme des immeubles d'habitation ordinaires, avec des circulations généreuses mais des accès véhicules restés modestes.",
     bati: "Le parc de Cimiez mélange d'anciens hôtels reconvertis, des immeubles de standing des années soixante et des villas avec jardin. Les appartements issus de reconversions ont des surfaces importantes, des plafonds très hauts et parfois des pièces en enfilade sans couloir de dégagement, ce qui complique la sortie des meubles longs. Les résidences des années soixante disposent d'ascenseurs corrects mais de halls étroits. Les villas, elles, posent la question de l'allée : longueur, pente et portail conditionnent tout le chantier.",
@@ -411,6 +414,7 @@ const QUARTIER_DETAIL = {
     }]
   },
   "liberation": {
+    voisins: "Libération est un carrefour : on y arrive de Cimiez, on en part vers le Vieux-Nice ou Riquier. Sur ces trajets courts, l'erreur classique est de croire qu'une adresse proche est une adresse facile. Nous traitons chaque bout comme un chantier à part entière.",
     prep: "à Libération",
     histoire: "Libération s'est développé autour de sa gare et de son marché, ce qui en a fait un quartier de vie plutôt qu'un quartier de villégiature. Le bâti s'est étoffé par vagues successives, des immeubles de rapport de l'entre-deux-guerres aux constructions des années cinquante et soixante. L'arrivée du tramway a redessiné la circulation de l'avenue et modifié durablement les conditions de stationnement. C'est un quartier où l'on déménage beaucoup, parce qu'on y entre et qu'on en sort au rythme des familles.",
     bati: "L'immeuble courant de Libération fait quatre à sept niveaux. Ceux d'avant-guerre ont des cages d'escalier correctes mais souvent aucun ascenseur, ou un ascenseur ajouté tardivement et de petite capacité. Les constructions des années cinquante et soixante offrent des ascenseurs plus fonctionnels et des halls plus larges, mais des paliers étroits et des portes standard. Les appartements sont majoritairement des deux et trois-pièces familiaux, avec des balcons qui servent souvent de réserve et qu'on oublie de vider avant le jour J.",
@@ -455,6 +459,7 @@ const QUARTIER_DETAIL = {
     }]
   },
   "mont-boron": {
+    voisins: "Entre Mont Boron et le Port, il y a deux kilomètres et une différence totale de méthode : lacets et navette d'un côté, créneau matinal et affluence de l'autre. Un déménagement qui relie les deux demande deux organisations dans la même journée.",
     prep: "au Mont Boron",
     histoire: "Mont Boron a été loti à flanc de colline pour la vue, et toute son organisation en découle. Les voies ont été tracées en lacets pour rattraper le dénivelé, les parcelles étagées les unes au-dessus des autres, et les maisons implantées le plus près possible du panorama, c'est-à-dire souvent le plus loin possible de la route. Ce qui fait la valeur du quartier fait aussi sa difficulté logistique : on y accède par des voies étroites et sinueuses, et l'on y termine fréquemment à pied.",
     bati: "Le quartier est dominé par les villas et les petites résidences de standing. Les surfaces sont importantes, les volumes à déménager souvent supérieurs à trente mètres cubes, avec du mobilier de qualité et parfois des pièces lourdes comme des pianos ou du mobilier de jardin en pierre. Beaucoup de maisons sont desservies par un escalier extérieur privatif entre le portail et la porte d'entrée, ce qui ajoute une manutention que personne ne compte spontanément.",
@@ -499,6 +504,7 @@ const QUARTIER_DETAIL = {
     }]
   },
   "riquier": {
+    voisins: "Riquier touche le Port et le Vieux-Nice, et pourtant rien ne s'y passe pareil : ici la question est l'étage sans ascenseur, là ce sont les horaires d'accès. Nous adaptons l'équipe et le véhicule à chaque extrémité du trajet.",
     prep: "à Riquier",
     histoire: "Riquier est un faubourg né autour de la gare et des activités qui l'accompagnaient, ateliers, entrepôts et logements ouvriers. Le bâti y est resté modeste et dense, avec des immeubles de rapport construits au plus près de la voie ferrée. Le quartier s'est transformé sans être reconstruit : on y trouve encore beaucoup d'immeubles anciens sans ascenseur, à côté d'opérations récentes. Cette juxtaposition fait que deux adresses distantes de cent mètres n'ont pas du tout les mêmes contraintes.",
     bati: "L'immeuble ancien de Riquier fait trois à cinq niveaux, sans ascenseur dans une large majorité des cas. Les cages d'escalier sont étroites, les paliers réduits, et les appartements souvent traversants avec des couloirs longs qui compliquent la sortie des meubles rigides. Les caves sont fréquentes et fréquemment pleines. Les constructions récentes du secteur offrent au contraire ascenseur et parking, ce qui change radicalement la durée du chantier.",
@@ -543,6 +549,7 @@ const QUARTIER_DETAIL = {
     }]
   },
   "le-port": {
+    voisins: "Du Port, on rejoint le Vieux-Nice à pied et Mont Boron en dix minutes de route. Ces courtes distances trompent : le créneau matinal du quai ne se combine pas avec les lacets de la colline sans y avoir réfléchi la veille.",
     prep: "au Port",
     histoire: "Le quartier du port s'est organisé autour du bassin Lympia, creusé au dix-huitième siècle pour donner à Nice un abri qui lui manquait. Les immeubles qui l'entourent ont été construits face à l'eau, en gradins sur les pentes qui descendent vers le quai, avec des façades colorées devenues l'image du secteur. L'activité portuaire, la plaisance et la restauration cohabitent sur un espace contraint, et cette cohabitation détermine à quelle heure un déménagement peut commencer.",
     bati: "Les immeubles du pourtour du bassin sont anciens, de quatre à six niveaux, souvent sans ascenseur ou avec une cabine ajoutée de faible capacité. Les rez-de-chaussée sont fréquemment occupés par des commerces et des restaurants, ce qui signifie des livraisons, des terrasses et des horaires à respecter. Les appartements ont des vues recherchées et des accès étroits, la combinaison classique du front de mer historique.",
