@@ -400,6 +400,16 @@ p { margin: 0; }
   line-height: 0.98;
   max-width: 13ch;
 }
+/* Le H1 de l'accueil est passé à deux lignes le 25 août : il ouvre désormais sur
+   « Entreprise de déménagement à Nice », la formulation réellement tapée (309
+   impressions sur Nice contre 62 pour « déménageur », et l'accueil ne captait
+   aucune impression sur Nice). Deux lignes à 100 px poussaient le bouton d'appel
+   sous la ligne de flottaison des portables 13 pouces. La taille baisse ici, et
+   sur l'accueil seulement : les autres pages gardent un H1 d'une seule ligne,
+   qui n'a pas ce défaut, et doivent garder leur pleine échelle. */
+@media (min-width: 981px) {
+  body[data-page="accueil"] .hero h1 { font-size: clamp(48px, 6vw, 104px); }
+}
 .hero h1 .l2 {
   display: block;
   font-style: italic;

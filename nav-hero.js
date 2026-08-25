@@ -46,12 +46,12 @@ function Hero({
     c: {
       accroche: null,
       sousTitre: null,
-      l1: "Déménageur\u00A0à\u00A0Nice.",
+      l1: "Entreprise de déménagement\u00A0à\u00A0Nice.",
       l2: React.createElement(React.Fragment, null, React.createElement("em", {
         style: {
           opacity: "0.8",
           fontFamily: "Newsreader",
-          fontSize: "clamp(34px, 9vw, 76px)"
+          fontSize: "clamp(32px, 7vw, 64px)"
         }
       }, "Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9.")),
       scribble: null
