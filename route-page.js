@@ -594,6 +594,129 @@ function RouteMap({
     className: "route-map-sep"
   }, "\xB7"), React.createElement("span", null, "Un camion d\xE9di\xE9, une seule \xE9quipe")))));
 }
+const rfond = r => (window.ROUTE_FOND || {})[r && r.slug] || null;
+function RBloc({
+  num,
+  kicker,
+  t1,
+  t2,
+  children
+}) {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " ", num, " / ", kicker)), React.createElement("h2", {
+    className: "dim-em"
+  }, t1, " ", React.createElement("em", null, t2))), children));
+}
+function RContexte({
+  r
+}) {
+  const f = rfond(r);
+  if (!f) return null;
+  return React.createElement(RBloc, {
+    num: "05",
+    kicker: "Le trajet",
+    t1: f.titreContexte[0],
+    t2: f.titreContexte[1]
+  }, React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820
+    }
+  }, f.contexte));
+}
+function RSections({
+  r
+}) {
+  const f = rfond(r);
+  if (!f || !f.sections) return null;
+  return React.createElement(React.Fragment, null, f.sections.map((sec, i) => React.createElement(RBloc, {
+    key: i,
+    num: String(6 + i).padStart(2, '0'),
+    kicker: "\xC0 l'arriv\xE9e",
+    t1: sec.t,
+    t2: ""
+  }, React.createElement("p", {
+    style: {
+      maxWidth: 820,
+      lineHeight: 1.78
+    }
+  }, sec.d))));
+}
+function REtapes({
+  r
+}) {
+  const f = rfond(r);
+  if (!f || !f.etapes) return null;
+  return React.createElement(RBloc, {
+    num: "10",
+    kicker: "Le d\xE9roul\xE9",
+    t1: f.titreEtapes[0],
+    t2: f.titreEtapes[1]
+  }, React.createElement("ol", {
+    style: {
+      maxWidth: 840,
+      listStyle: 'none',
+      padding: 0,
+      margin: 0
+    }
+  }, f.etapes.map((e, i) => React.createElement("li", {
+    key: i,
+    style: {
+      display: 'flex',
+      gap: 20,
+      alignItems: 'baseline',
+      padding: '14px 0',
+      borderTop: i ? '1px solid var(--rule)' : 'none'
+    }
+  }, React.createElement("span", {
+    style: {
+      fontFamily: '"DM Sans"',
+      fontWeight: 700,
+      minWidth: 78,
+      whiteSpace: 'nowrap'
+    }
+  }, e.h), React.createElement("span", {
+    style: {
+      lineHeight: 1.7
+    }
+  }, e.t)))));
+}
+function RErreurs({
+  r
+}) {
+  const f = rfond(r);
+  if (!f || !f.erreurs) return null;
+  return React.createElement(RBloc, {
+    num: "11",
+    kicker: "\xC0 \xE9viter",
+    t1: f.titreErreurs[0],
+    t2: f.titreErreurs[1]
+  }, React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, f.erreurs.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d)))));
+}
 function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-route');
@@ -611,6 +734,14 @@ function App() {
     r: r
   }), React.createElement(RPoints, {
     r: r
+  }), React.createElement(RContexte, {
+    r: r
+  }), React.createElement(RSections, {
+    r: r
+  }), React.createElement(REtapes, {
+    r: r
+  }), React.createElement(RErreurs, {
+    r: r
   }), React.createElement(RProcess, null), React.createElement(RFaq, {
     r: r
   }), React.createElement(RCTA, {
@@ -618,5 +749,5 @@ function App() {
   })), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { RHero, RIntro, RDeep, RPoints, RProcess, RFaq, RCTA, RouteMap, App }); } catch (e) {}
+  try { Object.assign(window, { RHero, RIntro, RDeep, RPoints, RProcess, RFaq, RCTA, RouteMap, RBloc, RContexte, RSections, REtapes, RErreurs, App }); } catch (e) {}
 })();

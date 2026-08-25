@@ -302,7 +302,11 @@ const ROUTES = {
 };
 
 function getRoute(slug) {
-  return ROUTES[slug] || ROUTES["nice-paris"];
+  /* Le slug voyage avec l'objet, sinon impossible de retrouver le contenu de fond
+     dans ROUTE_FOND. Meme defaut que getCity et getQuartier, corrige les trois fois
+     le meme jour : les sections s'ecrivaient et ne s'affichaient jamais, sans erreur. */
+  const cle = ROUTES[slug] ? slug : Object.keys(ROUTES)[0];
+  return Object.assign({ slug: cle }, ROUTES[cle]);
 }
 
 Object.assign(window, { ROUTES, getRoute });

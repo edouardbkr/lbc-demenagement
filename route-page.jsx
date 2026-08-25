@@ -284,6 +284,71 @@ function RouteMap({ r }) {
 
 }
 
+
+/* ── Contenu de fond, alimente par route-fond.jsx. Une destination sans entree
+   garde sa page courte plutot que d'afficher des titres vides. */
+const rfond = (r) => (window.ROUTE_FOND || {})[r && r.slug] || null;
+
+function RBloc({ num, kicker, t1, t2, children }) {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> {num} / {kicker}</div></div>
+          <h2 className="dim-em">{t1} <em>{t2}</em></h2>
+        </div>
+        {children}
+      </div>
+    </section>);
+}
+
+function RContexte({ r }) {
+  const f = rfond(r); if (!f) return null;
+  return (
+    <RBloc num="05" kicker="Le trajet" t1={f.titreContexte[0]} t2={f.titreContexte[1]}>
+      <p className="lead" style={{ maxWidth: 820 }}>{f.contexte}</p>
+    </RBloc>);
+}
+
+function RSections({ r }) {
+  const f = rfond(r); if (!f || !f.sections) return null;
+  return (
+    <React.Fragment>
+      {f.sections.map((sec, i) => (
+        <RBloc key={i} num={String(6 + i).padStart(2, '0')} kicker="À l'arrivée" t1={sec.t} t2="">
+          <p style={{ maxWidth: 820, lineHeight: 1.78 }}>{sec.d}</p>
+        </RBloc>))}
+    </React.Fragment>);
+}
+
+function REtapes({ r }) {
+  const f = rfond(r); if (!f || !f.etapes) return null;
+  return (
+    <RBloc num="10" kicker="Le déroulé" t1={f.titreEtapes[0]} t2={f.titreEtapes[1]}>
+      <ol style={{ maxWidth: 840, listStyle: 'none', padding: 0, margin: 0 }}>
+        {f.etapes.map((e, i) => (
+          <li key={i} style={{ display: 'flex', gap: 20, alignItems: 'baseline', padding: '14px 0', borderTop: i ? '1px solid var(--rule)' : 'none' }}>
+            <span style={{ fontFamily: '"DM Sans"', fontWeight: 700, minWidth: 78, whiteSpace: 'nowrap' }}>{e.h}</span>
+            <span style={{ lineHeight: 1.7 }}>{e.t}</span>
+          </li>))}
+      </ol>
+    </RBloc>);
+}
+
+function RErreurs({ r }) {
+  const f = rfond(r); if (!f || !f.erreurs) return null;
+  return (
+    <RBloc num="11" kicker="À éviter" t1={f.titreErreurs[0]} t2={f.titreErreurs[1]}>
+      <div className="about-grid" style={{ marginTop: 8 }}>
+        {f.erreurs.map((e, i) => (
+          <div key={i} className="ap-value">
+            <h3 className="ap-value-t">{e.t}</h3>
+            <p className="ap-value-d">{e.d}</p>
+          </div>))}
+      </div>
+    </RBloc>);
+}
+
 function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-route');
@@ -298,6 +363,10 @@ function App() {
         <RIntro r={r} />
         <RDeep r={r} />
         <RPoints r={r} />
+        <RContexte r={r} />
+        <RSections r={r} />
+        <REtapes r={r} />
+        <RErreurs r={r} />
         <RProcess />
         <RFaq r={r} />
         <RCTA r={r} />

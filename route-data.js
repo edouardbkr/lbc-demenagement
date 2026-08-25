@@ -648,7 +648,10 @@ const ROUTES = {
   }
 };
 function getRoute(slug) {
-  return ROUTES[slug] || ROUTES["nice-paris"];
+  const cle = ROUTES[slug] ? slug : Object.keys(ROUTES)[0];
+  return Object.assign({
+    slug: cle
+  }, ROUTES[cle]);
 }
 Object.assign(window, {
   ROUTES,
