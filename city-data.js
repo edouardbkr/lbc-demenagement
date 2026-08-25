@@ -1647,7 +1647,10 @@ const CITIES = {
   }
 };
 function getCity(slug) {
-  return CITIES[slug] || CITIES["nice"];
+  const cle = CITIES[slug] ? slug : "nice";
+  return Object.assign({
+    slug: cle
+  }, CITIES[cle]);
 }
 const QUARTIERS_PAGES = {
   "Vieux-Nice": "Demenagement-Vieux-Nice",

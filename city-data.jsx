@@ -887,7 +887,12 @@ const CITIES = {
 };
 
 function getCity(slug) {
-  return CITIES[slug] || CITIES["nice"];
+  /* Le slug voyage avec l'objet. Sans lui, impossible de retrouver le contenu de
+     fond dans VILLE_FOND, qui est indexe par slug : les sections s'ecrivaient et
+     ne s'affichaient pas, sans aucune erreur visible. Meme defaut que getQuartier,
+     corrige le meme jour. */
+  const cle = CITIES[slug] ? slug : "nice";
+  return Object.assign({ slug: cle }, CITIES[cle]);
 }
 
 /* Les quartiers de Nice qui ont leur propre page. Le nom doit être écrit EXACTEMENT

@@ -225,6 +225,90 @@ function VilleQuoteBand({ c }) {
 
 }
 
+
+/* ── Contenu de fond, alimente par ville-fond.jsx.
+   Chaque commune n'affiche que ses propres sections : une commune sans entree
+   garde sa page courte plutot que d'afficher des titres vides. Le detail du
+   pourquoi et la regle anti-cannibalisation sont en tete de ville-fond.jsx. */
+const fond = (c) => (window.VILLE_FOND || {})[c && c.slug] || null;
+
+function VilleContexte({ c }) {
+  const f = fond(c); if (!f) return null;
+  const ou = c.avecPrep || ((c.prep || "à") + " " + c.name);
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 05 / Le terrain</div></div>
+          {/* Le titre vient des donnees : un H2 identique d'une commune a l'autre
+              recreerait le squelette partage qui a produit 28 % de recouvrement
+              sur les quartiers. Chaque commune ecrit le sien. */}
+          <h2 className="dim-em">{f.titreContexte ? f.titreContexte[0] : "Ce qui rend un déménagement"} <em>{f.titreContexte ? f.titreContexte[1] : (ou + " particulier.")}</em></h2>
+        </div>
+        <p className="lead" style={{ maxWidth: 820 }}>{f.contexte}</p>
+      </div>
+    </section>);
+}
+
+function VilleSections({ c }) {
+  const f = fond(c); if (!f || !f.sections) return null;
+  return (
+    <React.Fragment>
+      {f.sections.map((sec, i) => (
+        <section className="sec" key={i}>
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}>
+                <span className="asterisk">*</span> {String(6 + i).padStart(2, '0')} / Sur place</div></div>
+              <h2 className="dim-em">{sec.t}</h2>
+            </div>
+            <p style={{ maxWidth: 820, lineHeight: 1.78 }}>{sec.d}</p>
+          </div>
+        </section>))}
+    </React.Fragment>);
+}
+
+function VilleJour({ c }) {
+  const f = fond(c); if (!f || !f.jour) return null;
+  const ou = c.avecPrep || ((c.prep || "à") + " " + c.name);
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 10 / Le jour J</div></div>
+          <h2 className="dim-em">{f.titreJour ? f.titreJour[0] : ("Une journée " + ou + ",")} <em>{f.titreJour ? f.titreJour[1] : "heure par heure."}</em></h2>
+        </div>
+        <ol style={{ maxWidth: 840, listStyle: 'none', padding: 0, margin: 0 }}>
+          {f.jour.map((e, i) => (
+            <li key={i} style={{ display: 'flex', gap: 20, alignItems: 'baseline', padding: '14px 0', borderTop: i ? '1px solid var(--rule)' : 'none' }}>
+              <span style={{ fontFamily: '"DM Sans"', fontWeight: 700, minWidth: 74, whiteSpace: 'nowrap' }}>{e.h}</span>
+              <span style={{ lineHeight: 1.7 }}>{e.t}</span>
+            </li>))}
+        </ol>
+      </div>
+    </section>);
+}
+
+function VilleErreurs({ c }) {
+  const f = fond(c); if (!f || !f.erreurs) return null;
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 11 / À éviter</div></div>
+          <h2 className="dim-em">{f.titreErreurs ? f.titreErreurs[0] : "Les trois erreurs qui coûtent"} <em>{f.titreErreurs ? f.titreErreurs[1] : "une journée entière."}</em></h2>
+        </div>
+        <div className="about-grid" style={{ marginTop: 8 }}>
+          {f.erreurs.map((e, i) => (
+            <div key={i} className="ap-value">
+              <h3 className="ap-value-t">{e.t}</h3>
+              <p className="ap-value-d">{e.d}</p>
+            </div>))}
+        </div>
+      </div>
+    </section>);
+}
+
 function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-ville');
@@ -240,6 +324,10 @@ function App() {
         <VilleIntro c={c} />
         <VilleSpecifics c={c} />
         <VilleDeep c={c} />
+        <VilleContexte c={c} />
+        <VilleSections c={c} />
+        <VilleJour c={c} />
+        <VilleErreurs c={c} />
         <VilleFormules c={c} />
         <PreuveVille ville={c.avecPrep || ((c.prep || "à") + " " + c.name)} />
         <VilleNearby c={c} />

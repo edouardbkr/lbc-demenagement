@@ -402,6 +402,147 @@ function VilleQuoteBand({
     variant: "dark"
   }))));
 }
+const fond = c => (window.VILLE_FOND || {})[c && c.slug] || null;
+function VilleContexte({
+  c
+}) {
+  const f = fond(c);
+  if (!f) return null;
+  const ou = c.avecPrep || (c.prep || "à") + " " + c.name;
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 05 / Le terrain")), React.createElement("h2", {
+    className: "dim-em"
+  }, f.titreContexte ? f.titreContexte[0] : "Ce qui rend un déménagement", " ", React.createElement("em", null, f.titreContexte ? f.titreContexte[1] : ou + " particulier."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820
+    }
+  }, f.contexte)));
+}
+function VilleSections({
+  c
+}) {
+  const f = fond(c);
+  if (!f || !f.sections) return null;
+  return React.createElement(React.Fragment, null, f.sections.map((sec, i) => React.createElement("section", {
+    className: "sec",
+    key: i
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " ", String(6 + i).padStart(2, '0'), " / Sur place")), React.createElement("h2", {
+    className: "dim-em"
+  }, sec.t)), React.createElement("p", {
+    style: {
+      maxWidth: 820,
+      lineHeight: 1.78
+    }
+  }, sec.d)))));
+}
+function VilleJour({
+  c
+}) {
+  const f = fond(c);
+  if (!f || !f.jour) return null;
+  const ou = c.avecPrep || (c.prep || "à") + " " + c.name;
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 10 / Le jour J")), React.createElement("h2", {
+    className: "dim-em"
+  }, f.titreJour ? f.titreJour[0] : "Une journée " + ou + ",", " ", React.createElement("em", null, f.titreJour ? f.titreJour[1] : "heure par heure."))), React.createElement("ol", {
+    style: {
+      maxWidth: 840,
+      listStyle: 'none',
+      padding: 0,
+      margin: 0
+    }
+  }, f.jour.map((e, i) => React.createElement("li", {
+    key: i,
+    style: {
+      display: 'flex',
+      gap: 20,
+      alignItems: 'baseline',
+      padding: '14px 0',
+      borderTop: i ? '1px solid var(--rule)' : 'none'
+    }
+  }, React.createElement("span", {
+    style: {
+      fontFamily: '"DM Sans"',
+      fontWeight: 700,
+      minWidth: 74,
+      whiteSpace: 'nowrap'
+    }
+  }, e.h), React.createElement("span", {
+    style: {
+      lineHeight: 1.7
+    }
+  }, e.t))))));
+}
+function VilleErreurs({
+  c
+}) {
+  const f = fond(c);
+  if (!f || !f.erreurs) return null;
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 11 / \xC0 \xE9viter")), React.createElement("h2", {
+    className: "dim-em"
+  }, f.titreErreurs ? f.titreErreurs[0] : "Les trois erreurs qui coûtent", " ", React.createElement("em", null, f.titreErreurs ? f.titreErreurs[1] : "une journée entière."))), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, f.erreurs.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
 function App() {
   useScrollReveal();
   const slug = document.body.getAttribute('data-ville');
@@ -413,6 +554,14 @@ function App() {
   }), React.createElement(VilleSpecifics, {
     c: c
   }), React.createElement(VilleDeep, {
+    c: c
+  }), React.createElement(VilleContexte, {
+    c: c
+  }), React.createElement(VilleSections, {
+    c: c
+  }), React.createElement(VilleJour, {
+    c: c
+  }), React.createElement(VilleErreurs, {
     c: c
   }), React.createElement(VilleFormules, {
     c: c
@@ -427,5 +576,5 @@ function App() {
   })), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { VilleHero, VilleIntro, VilleSpecifics, VilleFormules, VilleNearby, VilleDeep, VilleFaq, VilleQuoteBand, App }); } catch (e) {}
+  try { Object.assign(window, { VilleHero, VilleIntro, VilleSpecifics, VilleFormules, VilleNearby, VilleDeep, VilleFaq, VilleQuoteBand, VilleContexte, VilleSections, VilleJour, VilleErreurs, App }); } catch (e) {}
 })();
