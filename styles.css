@@ -421,7 +421,7 @@ p { margin: 0; }
    suivait la largeur de l'ecran pendant que le H1 suivait ses propres paliers : les
    deux se croisaient, et sous 560 px le sous-titre passait a 50 px sous un titre a
    33 px. En em, le rapport reste le meme partout et la hierarchie tient seule. */
-.hero h1 .l2 em { font-size: 0.66em; line-height: 1.06; }
+.hero h1 .l2 em { font-size: 0.70em; line-height: 1.06; }
 .hero h1 .scribble {
   font-family: var(--script);
   font-style: normal;
@@ -3103,7 +3103,10 @@ body.density-compact .gallery { padding: clamp(40px, 6vw, 80px) 0; }
   .hero h1 { font-size: 33px !important; line-height: 1.02; max-width: none; letter-spacing: -0.03em; }
   .hero h1 .asterisk { font-size: 0.7em; vertical-align: 0.12em; margin-right: 0.04em; }
   .hero h1 .l2 { display: block; margin-top: 0.18em; }
-  .hero h1 .l2 em { line-height: 0.98; letter-spacing: -0.02em; }
+  /* Le H1 mobile est fixe a 33 px, bien plus bas que l'echelle du bureau. Au meme
+     ratio le sous-titre y devenait minuscule : il garde donc sa propre proportion,
+     plus genereuse, tout en restant sous le titre. */
+  .hero h1 .l2 em { font-size: 0.82em; line-height: 0.98; letter-spacing: -0.02em; }
   .hero h1 .scribble { font-size: 26px !important; transform: rotate(-4deg) translateY(-0.08em); margin-left: 0.18em; }
   .hero-sub { font-size: 16.5px !important; margin-top: 26px !important; max-width: 42ch; }
 
