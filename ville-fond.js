@@ -1,6 +1,216 @@
 /* ville-fond.jsx — compilé par build.js, ne pas éditer */
 (function () {
 const VILLE_FOND = {
+  "beausoleil": {
+    titreContexte: ["La ville qui loge Monte-Carlo,", "et qui monte de rue en rue."],
+    titreJour: ["Une journée à Beausoleil,", "sur un immeuble à deux entrées."],
+    titreErreurs: ["Ce qu'on découvre trop tard", "dans un immeuble à flanc de pente."],
+    contexte: "Beausoleil prolonge Monte-Carlo côté français, sur un versant si raide que certains immeubles ont une entrée dans une rue et une autre trois étages plus haut dans la rue suivante. C'est une ville de locataires, largement peuplée de gens qui travaillent en Principauté, avec une rotation de baux importante et un parc collectif dense. Ici, on déménage souvent, et rarement de plain-pied.",
+    sections: [{
+      t: "Un parc locatif qui tourne vite",
+      d: "Beausoleil loge une grande partie des salariés qui travaillent à Monaco, avec des baux qui se succèdent au rythme des contrats. Cela signifie des déménagements fréquents, souvent programmés à la journée près entre un départ et une arrivée, et parfois deux chantiers dans le même immeuble le même jour. Nous travaillons couramment avec les agences locales sur ces rotations, avec un état des lieux photographique à chaque bout. Quand le calendrier est serré, nous proposons un stockage court de quelques jours plutôt que de forcer un enchaînement qui ne tiendra pas."
+    }, {
+      t: "Le syndic et les immeubles à deux niveaux d'entrée",
+      d: "La particularité du bâti beausolois est qu'un même immeuble dessert parfois deux rues à des altitudes différentes. Savoir par quelle entrée passer change tout : le nombre d'étages à monter, la possibilité de stationner, la distance de portage. Le règlement de copropriété fixe par ailleurs les créneaux et impose la protection des communs. Nous appelons le syndic ou le gardien avant le jour J pour trancher ces deux points, et nous relevons l'entrée réellement utilisable plutôt que celle qui figure sur l'adresse postale."
+    }, {
+      t: "Le monte-meuble, quand la rue le permet",
+      d: "Sur des façades qui donnent directement sur une rue en pente, la pose d'un monte-meuble demande une emprise au sol que toutes les voies n'offrent pas, et un angle compatible avec les balcons et les câbles. Quand c'est possible, c'est souvent la solution la plus rapide et la moins risquée pour les volumineux. Nous vérifions la faisabilité au relevé et nous annonçons le coût dans le devis. Quand ce n'est pas possible, nous le disons aussi, et nous chiffrons le portage en conséquence."
+    }, {
+      t: "La frontière, à cent mètres et pourtant réelle",
+      d: "Beaucoup de nos chantiers beausolois relient la commune à la Principauté, parfois d'une rue à l'autre. La proximité ne supprime pas les formalités : liste de contenu, justificatifs, valeurs déclarées. Nous préparons ces documents à l'avance. La circulation aux abords de la frontière est par ailleurs très dense aux heures de bureau, et le même trajet peut prendre dix minutes ou quarante selon l'heure à laquelle on l'engage."
+    }],
+    jour: [{
+      h: "7 h 00",
+      t: "Positionnement à l'entrée réellement utilisable de l'immeuble, repérée au relevé."
+    }, {
+      h: "7 h 30",
+      t: "Protection des communs, réservation d'ascenseur activée, ou montage du monte-meuble si la rue le permet."
+    }, {
+      h: "11 h 30",
+      t: "Chargement des volumineux par la façade ou par l'escalier, selon la méthode retenue."
+    }, {
+      h: "14 h 00",
+      t: "Passage vers la Principauté avec les documents préparés, ou livraison sur place."
+    }],
+    erreurs: [{
+      t: "Se fier à l'adresse postale pour l'accès",
+      d: "Un immeuble beausolois dessert parfois deux rues à trois étages d'écart. Se tromper d'entrée ajoute une volée d'escaliers à chaque rotation."
+    }, {
+      t: "Enchaîner deux baux sans marge",
+      d: "Quand le départ et l'arrivée tombent le même jour, le moindre retard fait tout basculer. Un stockage de deux jours coûte moins qu'une journée perdue."
+    }, {
+      t: "Traverser vers Monaco à l'heure de pointe",
+      d: "Cent mètres à vol d'oiseau peuvent devenir quarante minutes de circulation. L'heure du passage se choisit, elle ne se subit pas."
+    }]
+  },
+  "la-turbie": {
+    titreContexte: ["Un village d'altitude", "au-dessus de la Principauté."],
+    titreJour: ["Une journée à La Turbie,", "et la montée se prépare."],
+    titreErreurs: ["Ce que le dénivelé", "fait payer aux imprudents."],
+    contexte: "La Turbie domine Monaco depuis près de cinq cents mètres d'altitude, sur la grande corniche. On y accède par une route de montagne, et le village lui-même s'organise autour de son Trophée d'Auguste en ruelles médiévales étroites. C'est une commune où deux paramètres décident de tout : la capacité du véhicule à monter, et la météo du jour.",
+    sections: [{
+      t: "La montée par la grande corniche",
+      d: "L'accès se fait par des routes de montagne aux virages serrés, avec des portions où le croisement de deux véhicules larges est délicat. Un porteur de vingt mètres cubes monte, mais pas jusqu'à toutes les adresses, et la question décisive reste toujours la même : où fera-t-il demi-tour. Nous repérons l'itinéraire complet avant d'engager le chantier, montée et descente. Le trajet depuis Nice prend nettement plus longtemps que ne l'indique une carte, et cette différence doit figurer dans le planning de la journée plutôt que d'être découverte le matin."
+    }, {
+      t: "L'altitude et le temps qu'il fait",
+      d: "À cinq cents mètres, les conditions ne sont pas celles du littoral. Le vent y est plus fort, la température plus basse, et en hiver le sol peut être glissant tôt le matin alors que Nice est au sec. Ces conditions influent sur la sécurité du portage et sur l'adhérence d'un véhicule chargé en descente. Nous consultons les prévisions avant de confirmer une date d'hiver, et nous préférons décaler d'une journée plutôt que d'engager un camion chargé sur une route verglacée."
+    }, {
+      t: "Le village médiéval et ses ruelles",
+      d: "Autour du Trophée, le vieux village est fait de ruelles étroites et de passages où aucun véhicule de déménagement ne circule. Le portage y est manuel, sur des pavés irréguliers et parfois en pente. Les maisons anciennes ont des escaliers étroits et des portes basses qui n'acceptent pas tous les meubles montés. Nous relevons le parcours et les ouvertures avant le devis, et nous prévoyons le démontage quand il est nécessaire, plutôt que de le décider devant la porte."
+    }, {
+      t: "Les axes et le tonnage",
+      d: "Au-delà du gabarit, certains accès imposent des limitations de tonnage ou de hauteur qu'il faut connaître avant de charger. Un camion trop lourd pour une voie d'accès privative est un camion qui ne passe pas, et l'on ne s'en aperçoit pas depuis Nice. Nous vérifions ces limites au relevé et nous choisissons le véhicule en conséquence, quitte à faire deux rotations avec un utilitaire plutôt qu'une seule avec un porteur qui ne montera jamais."
+    }],
+    jour: [{
+      h: "7 h 00",
+      t: "Départ anticipé de Nice, la montée par la corniche prend plus longtemps qu'une carte ne l'indique."
+    }, {
+      h: "8 h 00",
+      t: "Positionnement au plus près du village, repérage confirmé de l'aire de demi-tour."
+    }, {
+      h: "11 h 30",
+      t: "Portage manuel dans les ruelles, avec démontage des meubles qui ne franchissent pas les ouvertures."
+    }, {
+      h: "15 h 00",
+      t: "Descente à vide par l'itinéraire repéré, sans manœuvre improvisée."
+    }],
+    erreurs: [{
+      t: "Envoyer un porteur sans avoir vu la route",
+      d: "Certains accès ne se remontent pas et ne se redescendent pas en marche arrière. Un camion bloqué dans un virage mobilise une dépanneuse et perd la journée."
+    }, {
+      t: "Ignorer la météo d'altitude",
+      d: "Il peut faire sec à Nice et glissant à La Turbie le même matin. Cinq cents mètres de dénivelé, ce n'est pas un détail."
+    }, {
+      t: "Prévoir le même temps de trajet qu'en plaine",
+      d: "La montée double facilement la durée annoncée par un calculateur d'itinéraire. Le planning doit l'intégrer."
+    }]
+  },
+  "roquebrune-cap-martin": {
+    titreContexte: ["Un village médiéval en haut,", "un cap résidentiel en bas."],
+    titreJour: ["Une journée à Roquebrune,", "selon qu'on monte ou qu'on descend."],
+    titreErreurs: ["Deux communes, deux méthodes,", "et l'erreur de les confondre."],
+    contexte: "Roquebrune-Cap-Martin superpose deux réalités qui n'ont presque rien en commun. En haut, un village médiéval accroché à son rocher, avec ses passages voûtés et ses escaliers. En bas, le Cap-Martin, quartier résidentiel de villas closes et de propriétés en bord de mer. Un devis établi sans savoir de laquelle des deux il s'agit ne veut rien dire.",
+    sections: [{
+      t: "Le village perché et ses passages voûtés",
+      d: "Le vieux village de Roquebrune est l'un des mieux conservés de la région, et cette conservation est exactement ce qui le rend difficile. Les rues sont des calades étroites, certaines couvertes, avec des marches irrégulières et des portes basses. Aucun véhicule n'y accède au-delà des abords. Tout se porte à la main, sur des parcours qui se comptent en marches et en virages. Nous relevons ce parcours avant le devis, et nous identifions les meubles qui devront être démontés pour franchir une ouverture ancienne."
+    }, {
+      t: "Le Cap-Martin et ses propriétés closes",
+      d: "En contrebas, le Cap-Martin est un quartier de villas et de propriétés souvent gardées, avec des allées privées et des portails. L'accès s'y prépare avec le gardien ou le personnel de maison : identités des équipiers transmises à l'avance, créneau convenu, cheminement autorisé sur la propriété. Les allées sont dimensionnées pour des voitures et rarement pour un porteur, ce qui impose de vérifier la largeur, la hauteur sous la végétation et surtout la possibilité de faire demi-tour."
+    }, {
+      t: "Un patrimoine sensible sur les deux niveaux",
+      d: "La commune abrite un patrimoine architectural reconnu, du village médiéval jusqu'aux réalisations modernes du bord de mer. Cela se traduit par des contraintes concrètes : ce qu'on peut installer sur l'espace public, comment on protège un seuil ancien, où l'on peut poser une emprise. Nous vérifions ces points au relevé, et nous protégeons systématiquement les points de passage. Sur du bâti classé ou remarquable, une éraflure ne se répare pas comme sur une cloison récente."
+    }, {
+      t: "Beaucoup de résidences secondaires",
+      d: "Une part notable des logements du Cap-Martin n'est pas occupée à l'année. Nous travaillons alors avec un mandataire, une agence ou un gardien, sur instructions écrites : qui ouvre, qui signe l'inventaire, qui reçoit le compte rendu photographique. Cette organisation se cale avant le chantier et pas pendant. L'état des lieux photographique complet est transmis au propriétaire le jour même, quel que soit le fuseau horaire où il se trouve."
+    }],
+    jour: [{
+      h: "7 h 30",
+      t: "Choix du véhicule selon le niveau concerné, village ou Cap-Martin, décidé au relevé."
+    }, {
+      h: "8 h 00",
+      t: "Présentation au gardien pour le Cap-Martin, ou mise en place du parcours de portage au village."
+    }, {
+      h: "11 h 30",
+      t: "Portage manuel sous les passages voûtés, ou chargement sur allée privée selon l'adresse."
+    }, {
+      h: "15 h 00",
+      t: "Inventaire photographié et transmis, état des lieux de sortie signé."
+    }],
+    erreurs: [{
+      t: "Traiter la commune comme un ensemble",
+      d: "Village médiéval et Cap-Martin n'ont ni le même accès, ni la même méthode, ni le même prix. L'adresse exacte est la première question."
+    }, {
+      t: "Croire qu'une allée privée accueille un porteur",
+      d: "Elle est dimensionnée pour une voiture, bordée de murs anciens, et l'aire de retournement manque souvent. Cela se mesure avant."
+    }, {
+      t: "Forcer un meuble dans une ouverture ancienne",
+      d: "Les portes du vieux village sont basses et les encadrements fragiles. Le démontage se décide au relevé, pas dans l'escalier."
+    }]
+  },
+  "saint-paul-de-vence": {
+    titreContexte: ["Un village classé et piéton,", "où le camion reste hors les murs."],
+    titreJour: ["Une journée à Saint-Paul,", "tout se porte, sans exception."],
+    titreErreurs: ["Ce qu'aucun devis à distance", "ne peut deviner ici."],
+    contexte: "Saint-Paul-de-Vence est un village classé, entièrement piéton à l'intérieur de ses remparts, et l'un des plus visités de France. Aucun véhicule de déménagement n'entre dans les murs. Tout se porte, sur des calades en pente, entre des maisons anciennes aux ouvertures étroites, au milieu d'une fréquentation touristique qui ne s'interrompt pratiquement jamais. C'est le chantier le plus exigeant que nous traitons.",
+    sections: [{
+      t: "Le camion s'arrête aux remparts",
+      d: "L'accès à l'intérieur du village est réservé et strictement encadré. Concrètement, le porteur stationne à l'extérieur, sur un emplacement obtenu à l'avance, et l'intégralité du mobilier fait le trajet à la main ou avec du matériel de roulage adapté aux pavés. Ce portage peut représenter plusieurs centaines de mètres, en pente, avec des marches. C'est lui qui détermine le nombre d'équipiers et la durée de la journée, très largement avant le volume à déplacer. Un devis qui ne l'a pas mesuré sur place est un devis faux."
+    }, {
+      t: "Un village classé, donc des règles",
+      d: "Le statut du village impose des contraintes précises sur ce qu'on peut installer, où et quand. Un monte-meuble n'est pas envisageable à l'intérieur des murs, et l'occupation de l'espace public aux abords se demande. Le bâti est ancien et protégé : seuils de pierre, encadrements sculptés, sols irréguliers. Nous protégeons systématiquement chaque point de contact, et nous adaptons la méthode au bâti plutôt que l'inverse. Sur ce type de patrimoine, une dégradation ne se répare pas, elle se constate."
+    }, {
+      t: "Des œuvres, très souvent",
+      d: "Saint-Paul est un village d'artistes et de galeries, et il est fréquent que le mobilier à déplacer s'accompagne de tableaux, de sculptures ou de pièces de collection. Ces objets se traitent à l'unité : caisse sur mesure quand la valeur ou la fragilité l'exige, protection des cadres et des arêtes, transport séparé, valeur déclarée au contrat. L'inventaire contradictoire est photographié et signé avant le chargement, ce qui est la seule base sérieuse en cas de discussion."
+    }, {
+      t: "La rupture de charge, organisée à l'avance",
+      d: "Entre le porteur garé à l'extérieur et la porte à l'intérieur des murs, il y a une chaîne complète à organiser : point de dépose, matériel de roulage, rotations, équipiers positionnés. Cette organisation se prépare la veille et se met en place avant l'arrivée des premiers visiteurs. Nous engageons systématiquement ces chantiers très tôt le matin, parce qu'en milieu de journée la fréquentation du village rend le portage à la fois lent et risqué."
+    }],
+    jour: [{
+      h: "6 h 30",
+      t: "Positionnement du porteur sur l'emplacement obtenu, avant l'arrivée des visiteurs."
+    }, {
+      h: "7 h 00",
+      t: "Mise en place de la chaîne de portage et protection des seuils et des encadrements anciens."
+    }, {
+      h: "10 h 30",
+      t: "Rotations manuelles terminées avant la montée de la fréquentation touristique."
+    }, {
+      h: "14 h 00",
+      t: "Livraison à l'adresse d'arrivée, avec inventaire des pièces de valeur signé."
+    }],
+    erreurs: [{
+      t: "Demander un devis sans visite",
+      d: "La distance de portage et le nombre de marches décident du prix. Aucun formulaire en ligne ne peut les connaître, et l'écart avec la réalité est considérable."
+    }, {
+      t: "Espérer un accès véhicule aux remparts",
+      d: "Le village est piéton et le restera. Le portage intégral n'est pas une contrainte négociable, c'est le cadre."
+    }, {
+      t: "Commencer en milieu de matinée",
+      d: "La fréquentation rend le portage lent et risqué. Un chantier engagé à six heures trente se termine, un chantier engagé à dix heures s'enlise."
+    }]
+  },
+  "vence": {
+    titreContexte: ["Une cité historique", "entourée de villas et de collines."],
+    titreJour: ["Une journée à Vence,", "de la cité aux hauteurs."],
+    titreErreurs: ["Trois choses à vérifier", "avant de charger à Vence."],
+    contexte: "Vence s'organise autour d'une cité historique compacte, ceinte de ses anciens remparts, elle-même entourée de quartiers de villas qui montent vers les Baous. C'est la porte de l'arrière-pays, avec une population installée de longue date et un patrimoine qui va de la vieille ville médiévale à la chapelle décorée par Matisse. Deux mondes coexistent : la cité, où l'on porte, et les collines, où l'on roule.",
+    sections: [{
+      t: "La cité historique, compacte et fermée",
+      d: "Le centre ancien de Vence tient dans un périmètre réduit, desservi par des rues étroites dont plusieurs sont piétonnes ou soumises à horaires. Les immeubles y sont anciens, sans ascenseur, avec des cages d'escalier resserrées et des portes qui n'ont pas les dimensions actuelles. Le portage y est la règle, et le stationnement se demande sur les emplacements praticables en périphérie de la cité. Nous relevons le parcours complet avant le devis, parce que la distance entre la place obtenue et la porte détermine la durée du chantier."
+    }, {
+      t: "Un patrimoine à ne pas abîmer",
+      d: "La vieille ville et ses abords relèvent d'un cadre protégé, et le bâti ancien impose sa prudence : seuils de pierre, encadrements, escaliers usés, murs anciens. Nous protégeons chaque point de contact et nous adaptons la méthode au bâti. Sur l'espace public, l'installation d'une emprise ou d'un matériel se demande et n'est pas accordée partout. Ces points se vérifient au relevé, ce qui évite de découvrir un refus le matin du déménagement."
+    }, {
+      t: "Du mobilier ancien, très fréquent ici",
+      d: "Vence compte beaucoup de foyers installés depuis longtemps, avec du mobilier ancien, parfois de famille, souvent monté sur place. Ces meubles ne se traitent pas comme du mobilier contemporain : démontage raisonné plutôt que forcé, sanglage, protection des placages et des arêtes, aucun glissement au sol. Certains ne franchiront pas une porte ancienne en un seul morceau, et il vaut mieux le savoir au relevé qu'au troisième étage."
+    }, {
+      t: "Accompagner un changement de vie",
+      d: "Une part de nos interventions vençoises accompagne un départ vers un logement plus petit ou une résidence, avec le tri que cela suppose. Ces chantiers demandent du temps et de la patience, et souvent une coordination avec la famille. Ce qui ne rentre pas est stocké, donné ou évacué selon votre décision, jamais selon la nôtre. Nous prévoyons le temps réel que ce travail demande plutôt que de le comprimer dans une demi-journée."
+    }],
+    jour: [{
+      h: "8 h 00",
+      t: "Positionnement sur l'emplacement obtenu en périphérie de la cité, ou dans l'allée pour les villas."
+    }, {
+      h: "8 h 30",
+      t: "Protection des seuils, des encadrements et de la cage d'escalier dans le bâti ancien."
+    }, {
+      h: "11 h 30",
+      t: "Démontage raisonné du mobilier ancien, sanglage et protection avant portage."
+    }, {
+      h: "15 h 00",
+      t: "Livraison, remontage, et mise en garde-meuble de ce qui ne rentre pas dans le nouveau logement."
+    }],
+    erreurs: [{
+      t: "Confondre la cité et les collines",
+      d: "Dans la vieille ville on porte, dans les quartiers de villas on roule jusqu'à la porte. Le prix et la durée n'ont rien à voir."
+    }, {
+      t: "Forcer un meuble ancien",
+      d: "Un buffet monté sur place ne sort pas toujours entier. Le démontage se décide au relevé, avec les outils qu'il faut."
+    }, {
+      t: "Comprimer un départ en résidence",
+      d: "Le tri demande plus de temps que le transport. Le prévoir évite de décider dans la précipitation ce qu'on garde d'une vie."
+    }]
+  },
   "beaulieu-sur-mer": {
     titreContexte: ["Une commune minuscule et plate,", "coincée entre falaise et voie ferrée."],
     titreJour: ["Une journée à Beaulieu,", "au rythme d'une petite ville."],
