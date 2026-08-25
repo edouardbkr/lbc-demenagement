@@ -1093,7 +1093,7 @@ function DevisForm() {
     className: "devis-aside"
   }, React.createElement("div", {
     className: "aside-card"
-  }, React.createElement("h4", null, "Ce que vous obtenez"), React.createElement("ul", null, React.createElement("li", null, "Votre fourchette de prix imm\xE9diatement"), React.createElement("li", null, "Le rappel \xE0 l'heure que vous choisissez"), React.createElement("li", null, "La formule conseill\xE9e pour votre volume"), React.createElement("li", null, "Un interlocuteur unique, joignable 24/7"), React.createElement("li", null, "Aucun engagement, aucune carte bancaire"))), React.createElement("div", {
+  }, React.createElement("h3", null, "Ce que vous obtenez"), React.createElement("ul", null, React.createElement("li", null, "Votre fourchette de prix imm\xE9diatement"), React.createElement("li", null, "Le rappel \xE0 l'heure que vous choisissez"), React.createElement("li", null, "La formule conseill\xE9e pour votre volume"), React.createElement("li", null, "Un interlocuteur unique, joignable 24/7"), React.createElement("li", null, "Aucun engagement, aucune carte bancaire"))), React.createElement("div", {
     className: "aside-rating"
   }, React.createElement("div", {
     className: "big"

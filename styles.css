@@ -2569,7 +2569,11 @@ body.density-compact .gallery { padding: clamp(40px, 6vw, 80px) 0; }
 .contact-thanks a { color: var(--accent); font-weight: 600; }
 .devis-aside { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 100px; }
 .aside-card { background: var(--ink-deep); color: var(--cream-on-dark); padding: 32px; }
-.aside-card h4 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin-bottom: 16px; }
+/* La carte « en bref » etait titree en h4 alors qu'elle est la premiere section
+   sous le H1 sur cinq gabarits, et la seconde sur deux autres : la hierarchie
+   sautait de H1 a H4 sur 50 pages. Les balises passent en h2 ou h3 selon leur
+   place reelle, et le style les suit toutes les trois pour que rien ne bouge. */
+.aside-card h2, .aside-card h3, .aside-card h4 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin-bottom: 16px; }
 .aside-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
 .aside-card li { display: flex; gap: 12px; font-size: 15px; color: rgba(242,232,207,0.85); line-height: 1.4; }
 .aside-card li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
@@ -3653,6 +3657,8 @@ label.seg-opt:focus-within,
 .testimonials-grid > * { min-width: 0; }
 
 .about-copy .sec-num,
+.aside-card h2,
+.aside-card h3,
 .aside-card h4,
 .about-copy .btn,
 .hero-ctas .btn { overflow-wrap: break-word; }

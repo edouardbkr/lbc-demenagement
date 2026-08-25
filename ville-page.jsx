@@ -43,7 +43,7 @@ function VilleIntro({ c }) {
           </div>
           <div className="reveal">
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
-              <h4 style={{ color: 'var(--ink)' }}>Quartiers desservis {c.avecPrep || ((c.prep || "à") + " " + c.name)}</h4>
+              <h2 style={{ color: 'var(--ink)' }}>Quartiers desservis {c.avecPrep || ((c.prep || "à") + " " + c.name)}</h2>
               {/* ⚠️ SUR NICE, LES QUARTIERS SONT DES LIENS, PAS DU TEXTE. Sept d'entre eux
                   ont leur propre page, et c'est ce maillage qui les fait remonter : une
                   page profonde sans lien depuis une page plus forte reste invisible.

@@ -116,7 +116,7 @@ function RIntro({
       color: 'var(--ink)',
       border: '1px solid var(--rule)'
     }
-  }, React.createElement("h4", {
+  }, React.createElement("h3", {
     style: {
       color: 'var(--ink)'
     }

@@ -189,7 +189,7 @@ function EntIntro() {
       color: 'var(--ink)',
       border: '1px solid var(--rule)'
     }
-  }, React.createElement("h4", {
+  }, React.createElement("h2", {
     style: {
       color: 'var(--ink)'
     }

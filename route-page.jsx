@@ -49,7 +49,7 @@ function RIntro({ r }) {
           </div>
           <div className="reveal">
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
-              <h4 style={{ color: 'var(--ink)' }}>{r.from} → {r.to} en bref</h4>
+              <h3 style={{ color: 'var(--ink)' }}>{r.from} → {r.to} en bref</h3>
               <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'var(--ink-2)' }}>
                 <div><strong style={{ color: 'var(--ink)' }}>Distance</strong> · {r.km}</div>
                 <div><strong style={{ color: 'var(--ink)' }}>Durée de route</strong> · {r.duree}</div>

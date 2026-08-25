@@ -917,7 +917,7 @@ function DevisForm() {
 
           <aside className="devis-aside">
             <div className="aside-card">
-              <h4>Ce que vous obtenez</h4>
+              <h3>Ce que vous obtenez</h3>
               <ul>
                 <li>Votre fourchette de prix immédiatement</li>
                 <li>Le rappel à l'heure que vous choisissez</li>

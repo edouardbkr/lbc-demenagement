@@ -55,7 +55,7 @@ function QVieuxNice() {
           </div>
           <div className="reveal">
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
-              <h4 style={{ color: 'var(--ink)' }}>Vieux-Nice · ce qu'on anticipe</h4>
+              <h2 style={{ color: 'var(--ink)' }}>Vieux-Nice · ce qu'on anticipe</h2>
               <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 14, fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.5 }}>
                 <div><strong style={{ color: 'var(--ink)' }}>Ruelles piétonnes</strong> — emplacement réservé au plus près, portage maîtrisé.</div>
                 <div><strong style={{ color: 'var(--ink)' }}>Étages sans ascenseur</strong> — monte-meuble par la fenêtre quand il le faut.</div>

@@ -76,7 +76,7 @@ function EntIntro() {
           </div>
           <div className="reveal">
             <div className="aside-card" style={{ background: 'var(--paper-2)', color: 'var(--ink)', border: '1px solid var(--rule)' }}>
-              <h4 style={{ color: 'var(--ink)' }}>L'essentiel d'un transfert pro</h4>
+              <h2 style={{ color: 'var(--ink)' }}>L'essentiel d'un transfert pro</h2>
               <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 12, fontSize: 15, color: 'var(--ink-2)' }}>
                 <div><strong style={{ color: 'var(--ink)' }}>Chef de projet</strong> · un interlocuteur unique</div>
                 <div><strong style={{ color: 'var(--ink)' }}>Hors heures</strong> · soir, week-end, jours fériés</div>
