@@ -1,6 +1,216 @@
 /* ville-fond.jsx — compilé par build.js, ne pas éditer */
 (function () {
 const VILLE_FOND = {
+  "beaulieu-sur-mer": {
+    titreContexte: ["Une commune minuscule et plate,", "coincée entre falaise et voie ferrée."],
+    titreJour: ["Une journée à Beaulieu,", "au rythme d'une petite ville."],
+    titreErreurs: ["Ce qu'on oublie", "dans une commune qu'on croit facile."],
+    contexte: "Beaulieu-sur-Mer tient sur moins d'un kilomètre carré, entre la falaise qui la surplombe, la voie ferrée qui la traverse et son port. C'est l'une des rares communes de la corniche où l'on déménage à plat, ce qui la fait passer pour facile. Elle ne l'est pas tout à fait : l'espace y est si compté que le stationnement d'un camion se prépare, et la population y est âgée, ce qui change souvent la nature du chantier.",
+    sections: [{
+      t: "Le syndic, presque toujours dans la boucle",
+      d: "Beaulieu est une commune d'immeubles, avec un parc collectif dense où le règlement de copropriété encadre les déménagements de manière précise. Créneau horaire, réservation de l'ascenseur, protection obligatoire des parties communes, attestation d'assurance et parfois dépôt de garantie. Nous prenons contact avec le syndic ou le gardien dès que la date est arrêtée, et nous transmettons les pièces sans attendre qu'on nous les demande. Dans une commune où presque toutes les adresses relèvent d'une copropriété, cette étape n'est pas une option : c'est la condition pour commencer à l'heure."
+    }, {
+      t: "Beaucoup de départs en résidence",
+      d: "La population de Beaulieu est nettement plus âgée que la moyenne régionale, et une part importante de nos interventions accompagne une entrée en résidence ou un rapprochement familial. Ces chantiers demandent du temps : le volume se réduit fortement, chaque objet appelle une décision, et la famille est souvent loin. Nous travaillons au rythme de la personne, nous stockons ce qui doit l'être et nous évacuons le reste selon vos consignes. Nous ne pressons jamais ces déménagements, parce que les presser, c'est les rater."
+    }, {
+      t: "Le port et ses contraintes d'accès",
+      d: "Le port de plaisance structure une partie de la vie locale et amène ses propres demandes : logements compacts, calendriers liés aux contrats, matériel de bateau à déplacer. L'accès aux abords du quai est réglementé et le stationnement y est encore plus tendu qu'ailleurs dans la commune. Ces chantiers sont souvent de petit volume mais très contraints en horaires, et ils demandent d'avoir obtenu les accès la veille plutôt que de les négocier le matin."
+    }, {
+      t: "La météo, à ne pas négliger ici",
+      d: "Coincée entre mer et falaise, Beaulieu reçoit des épisodes de vent et de pluie qui rendent le portage extérieur délicat, particulièrement à l'automne. Un mobilier qui prend l'eau entre le camion et la porte est un mobilier abîmé. Nous protégeons systématiquement le parcours extérieur quand le temps l'exige, avec housses et chemins de circulation, et nous décalons plutôt que de charger sous une averse quand la date le permet."
+    }],
+    jour: [{
+      h: "8 h 00",
+      t: "Présentation au gardien, remise de l'attestation, activation de la réservation d'ascenseur."
+    }, {
+      h: "8 h 30",
+      t: "État des lieux des parties communes, protection du hall et du parcours extérieur si le temps l'impose."
+    }, {
+      h: "11 h 30",
+      t: "Chargement, avec un rythme adapté quand le déménagement accompagne une entrée en résidence."
+    }, {
+      h: "14 h 30",
+      t: "Livraison, installation selon le plan convenu, état des lieux de sortie signé."
+    }],
+    erreurs: [{
+      t: "Croire qu'une commune plate est une commune simple",
+      d: "L'espace y est si compté que sans emplacement réservé, le camion ne trouve pas de place. Le relief n'est pas la seule contrainte possible."
+    }, {
+      t: "Prévoir une demi-journée pour une entrée en résidence",
+      d: "Le tri prend plus de temps que le transport. Sous-estimer ce temps, c'est finir dans la précipitation le jour où il ne le faudrait pas."
+    }, {
+      t: "Charger sous la pluie sans protection",
+      d: "Entre le camion et la porte, quelques mètres suffisent à tremper un matelas ou à gondoler un plateau. Les housses se sortent avant, pas après."
+    }]
+  },
+  "villefranche-sur-mer": {
+    titreContexte: ["Une rade magnifique", "et des ruelles où le camion n'entre pas."],
+    titreJour: ["Une journée à Villefranche,", "en rupture de charge."],
+    titreErreurs: ["Trois certitudes fausses", "sur une commune en escalier."],
+    contexte: "Villefranche-sur-Mer descend en gradins vers l'une des plus belles rades de la Méditerranée, et c'est précisément ce qui la rend difficile à déménager. La vieille ville est un enchevêtrement de ruelles étroites, de passages voûtés et d'escaliers où aucun véhicule de déménagement ne circule. Ici, la question n'est jamais le volume : c'est la distance entre le point où le camion s'arrête et votre porte.",
+    sections: [{
+      t: "Une ville qui se monte à pied",
+      d: "Le cœur historique est desservi par des venelles et des escaliers, dont la fameuse rue couverte qui traverse le quartier sous les maisons. Ces passages sont étroits, sombres, et parfois trop bas pour une armoire debout. On y travaille exclusivement à la main, avec des charges fractionnées et un matériel de portage adapté aux marches. Le parcours se relève avant le devis, marche par marche, parce que quatre-vingts marches et deux virages serrés ne se devinent pas depuis une photo satellite et changent complètement la durée du chantier."
+    }, {
+      t: "La rupture de charge, méthode obligatoire",
+      d: "Le principe de tout déménagement villefranchois est le même : un porteur stationné sur un emplacement praticable en contrebas ou en surplomb, et un petit utilitaire ou du portage manuel pour faire la navette jusqu'à la porte. Cette double manutention prend du temps et mobilise plus d'équipiers. Elle figure explicitement au devis, avec le nombre de rotations estimé. Un devis villefranchois qui ne mentionne pas la rupture de charge n'a pas été fait sur place."
+    }, {
+      t: "Le port de la Santé et la darse",
+      d: "La commune vit avec son port et l'ancienne darse militaire. Les abords sont contraints, le stationnement rare, et l'accès à certaines zones est réglementé. Les logements du bord de rade sont souvent anciens, compacts, avec des escaliers étroits. Nous préparons les accès et les autorisations la veille, et nous engageons le chantier tôt, avant que l'activité du port et la fréquentation touristique ne referment les quelques espaces disponibles."
+    }, {
+      t: "L'autorisation, sans laquelle rien ne commence",
+      d: "Le nombre d'emplacements où un véhicule de déménagement peut réellement stationner à Villefranche est très limité. L'autorisation de voirie n'est donc pas un confort mais le point de départ du chantier. Nous la déposons dès la date arrêtée, avec la longueur du véhicule et la plage horaire, et nous posons les panneaux la veille. Sans emplacement garanti, l'équipe passe la matinée à chercher une place et vous payez ce temps-là."
+    }],
+    jour: [{
+      h: "7 h 00",
+      t: "Prise de l'emplacement réservé en contrebas ou en surplomb, avant l'arrivée des visiteurs."
+    }, {
+      h: "7 h 30",
+      t: "Mise en place du parcours de portage, protection des marches et des passages voûtés."
+    }, {
+      h: "11 h 00",
+      t: "Rotations en navette entre le point de rupture de charge et le porteur."
+    }, {
+      h: "14 h 30",
+      t: "Regroupement dans le porteur, puis livraison à l'adresse d'arrivée."
+    }],
+    erreurs: [{
+      t: "Croire qu'un utilitaire s'approche de la porte",
+      d: "Une grande partie de la vieille ville est inaccessible aux véhicules. Le portage n'est pas une exception ici, c'est la règle."
+    }, {
+      t: "Estimer le chantier au volume",
+      d: "Ce qui fixe la durée, c'est le nombre de marches et de rotations, pas les mètres cubes. Deux adresses au même volume peuvent différer du simple au double."
+    }, {
+      t: "Réserver l'emplacement au dernier moment",
+      d: "Les places praticables se comptent sur les doigts d'une main. Sans arrêté obtenu à l'avance, la journée commence par une heure de recherche."
+    }]
+  },
+  "eze": {
+    titreContexte: ["Trois Èze superposées,", "du bord de mer au nid d'aigle."],
+    titreJour: ["Une journée à Èze,", "et l'altitude décide de tout."],
+    titreErreurs: ["Ce que la carte ne montre pas", "sur une commune verticale."],
+    contexte: "Èze n'est pas une commune, c'est trois niveaux empilés sur quatre cents mètres de dénivelé. Èze-bord-de-mer en bas, la moyenne corniche au milieu, et le village médiéval perché tout en haut. Entre les deux extrémités, il y a une route en lacets et une différence de méthode totale. Le nom de la commune sur un devis ne veut donc rien dire : c'est l'altitude de l'adresse qui compte.",
+    sections: [{
+      t: "Le village perché, où rien ne roule",
+      d: "Èze-Village est un village médiéval entièrement piéton, organisé en calades et en escaliers autour de son rocher. Aucun véhicule n'y accède au-delà de l'entrée. Tout se porte, sur des passages étroits, en pente, souvent avec des marches irrégulières. C'est le cas de figure le plus exigeant de toute la Côte d'Azur, et il demande une équipe étoffée et du matériel adapté aux pavés. Nous relevons le parcours complet avant le devis, et nous disons franchement quand un meuble ne pourra pas sortir en un seul morceau."
+    }, {
+      t: "Les corniches, et le gabarit qu'elles imposent",
+      d: "La moyenne et la grande corniche desservent la commune par des routes étroites et sinueuses, avec des virages en épingle où un porteur de vingt mètres cubes ne passe pas partout. Certains accès privatifs sont encore plus contraints. Nous repérons l'itinéraire complet, montée et descente, avant d'engager le véhicule. Quand le gabarit ne convient pas, la navette en utilitaire est la seule solution, et elle est chiffrée dès le devis plutôt qu'ajoutée le jour même."
+    }, {
+      t: "Un patrimoine et un bâti protégés",
+      d: "Le village et ses abords relèvent d'un cadre protégé qui limite ce qu'on peut installer sur l'espace public. Un monte-meuble n'est pas posable, une emprise au sol se demande, et le bâti ancien impose sa prudence : encadrements de pierre, seuils usés, murs anciens. Nous protégeons systématiquement les points de passage, et nous adaptons la méthode plutôt que de forcer un meuble dans une ouverture qui n'a pas été conçue pour lui."
+    }, {
+      t: "La saison, qui referme les accès",
+      d: "Èze-Village est l'un des sites les plus visités de la région. En haute saison, l'affluence sature les abords et rend le stationnement d'un véhicule utilitaire quasiment impossible en journée. Le créneau utile se situe très tôt le matin, avant l'ouverture des commerces et l'arrivée des cars. Nous vous le disons dès le devis : à Èze, l'heure de début n'est pas un détail d'organisation, c'est ce qui détermine si la journée tient ou non."
+    }],
+    jour: [{
+      h: "6 h 30",
+      t: "Montée par la corniche avec le véhicule au gabarit relevé, avant l'affluence touristique."
+    }, {
+      h: "7 h 00",
+      t: "Positionnement à l'entrée du village, mise en place du parcours de portage sur les calades."
+    }, {
+      h: "11 h 00",
+      t: "Portage manuel par rotations, avec protection des seuils et des encadrements anciens."
+    }, {
+      h: "14 h 30",
+      t: "Descente à vide par l'itinéraire repéré, puis livraison à l'adresse d'arrivée."
+    }],
+    erreurs: [{
+      t: "Donner l'adresse sans préciser le niveau",
+      d: "Bord de mer, moyenne corniche et village n'ont rien en commun. Le même volume peut varier du simple au triple selon l'altitude."
+    }, {
+      t: "Compter sur un accès véhicule au village",
+      d: "Èze-Village est piéton. Tout se porte, sans exception, et cela se prévoit dès le devis."
+    }, {
+      t: "Déménager en milieu de journée l'été",
+      d: "L'affluence rend le stationnement impossible. Un départ à six heures trente n'est pas du zèle, c'est la condition pour finir."
+    }]
+  },
+  "saint-jean-cap-ferrat": {
+    titreContexte: ["Une presqu'île de propriétés closes,", "où l'accès se négocie avant la date."],
+    titreJour: ["Une journée au Cap-Ferrat,", "annoncée longtemps à l'avance."],
+    titreErreurs: ["Ce qui fait échouer un chantier", "derrière un portail fermé."],
+    contexte: "Saint-Jean-Cap-Ferrat est une presqu'île résidentielle où la majorité des propriétés sont closes, gardées, et souvent occupées par des propriétaires qui n'y résident pas à l'année. Le déménagement s'y prépare comme un rendez-vous : avec des noms d'équipiers transmis à l'avance, des créneaux convenus, et une discrétion qui fait partie du service autant que la manutention.",
+    sections: [{
+      t: "Le gardien avant le camion",
+      d: "Sur le Cap-Ferrat, l'interlocuteur du jour J n'est pas toujours le propriétaire mais le gardien ou le personnel de maison. C'est avec lui que se règlent l'heure d'arrivée, l'ouverture du portail, le cheminement autorisé sur la propriété et l'usage éventuel d'un accès de service. Nous transmettons plusieurs jours à l'avance l'identité des équipiers et les immatriculations des véhicules, parce que c'est ce qu'on nous demande et que l'oublier signifie rester dehors. Aucun de nos équipiers ne se présente sans avoir été annoncé."
+    }, {
+      t: "Des œuvres et du mobilier de valeur",
+      d: "Les propriétés de la presqu'île abritent fréquemment des tableaux, des sculptures, du mobilier d'époque. Ce contenu se traite à l'unité : caisse sur mesure quand c'est nécessaire, protection des arêtes et des cadres, transport séparé du reste, valeur déclarée au contrat. Nous établissons un inventaire contradictoire avant chargement, photos à l'appui, signé des deux côtés. C'est la seule base sérieuse pour établir dans quel état une pièce est partie, et cela protège autant le propriétaire que nous."
+    }, {
+      t: "Le propriétaire qui n'est pas sur place",
+      d: "Beaucoup de ces logements sont des résidences secondaires. Nous travaillons alors avec un mandataire, une agence ou le gardien, sur la base d'instructions écrites : qui ouvre, qui signe l'inventaire, qui reçoit les photos et le compte rendu. Cette organisation se cale avant le chantier, jamais pendant. Un état des lieux photographique complet est transmis le jour même au propriétaire, où qu'il se trouve."
+    }, {
+      t: "Des échanges à distance et souvent en anglais",
+      d: "Une part notable des propriétaires de la presqu'île ne réside pas en France et ne parle pas français. Les échanges se font par écrit, sur des fuseaux horaires décalés, avec des délais de réponse qui allongent la préparation. Nous en tenons compte dans le calendrier : ce qui se règle en un appel avec un client local demande ici une semaine d'allers-retours. Anticiper cela évite de bloquer une date qu'on ne pourra pas confirmer."
+    }],
+    jour: [{
+      h: "8 h 00",
+      t: "Présentation au gardien avec la liste d'équipiers et les immatriculations transmises plusieurs jours avant."
+    }, {
+      h: "8 h 30",
+      t: "Reconnaissance du cheminement autorisé sur la propriété, protection des accès et des sols."
+    }, {
+      h: "11 h 30",
+      t: "Traitement des pièces de valeur à l'unité, inventaire contradictoire photographié et signé."
+    }, {
+      h: "15 h 00",
+      t: "État des lieux de sortie, compte rendu et photos transmis au propriétaire le jour même."
+    }],
+    erreurs: [{
+      t: "Se présenter sans avoir été annoncé",
+      d: "Sur une propriété gardée, une équipe non annoncée reste au portail. La liste des noms et des immatriculations se transmet plusieurs jours avant."
+    }, {
+      t: "Compter les œuvres dans le volume global",
+      d: "Un tableau ou une sculpture demande un traitement individuel qui n'a rien à voir avec des mètres cubes. Le signaler au relevé évite d'improviser."
+    }, {
+      t: "Organiser à distance sans instructions écrites",
+      d: "Qui ouvre, qui signe, qui reçoit le compte rendu. Sans réponse écrite, la journée commence par une heure d'appels."
+    }]
+  },
+  "cap-d-ail": {
+    titreContexte: ["Une commune verticale", "adossée à la Principauté."],
+    titreJour: ["Une journée à Cap-d'Ail,", "entre escaliers et façade."],
+    titreErreurs: ["Trois erreurs", "qui coûtent cher sur une pente."],
+    contexte: "Cap-d'Ail est une commune en pente continue, prise entre la mer et la falaise, adossée à Monaco dont elle prolonge le tissu urbain. Presque rien n'y est plat. Les adresses se rejoignent souvent par des escaliers publics, et beaucoup d'immeubles ont leur entrée à un niveau et leurs fenêtres sur un autre. C'est une commune où le monte-meuble n'est pas un luxe mais parfois la seule solution.",
+    sections: [{
+      t: "Une ville d'escaliers publics",
+      d: "Le tissu de Cap-d'Ail est traversé de volées d'escaliers qui relient les rues entre elles, et un nombre significatif d'adresses ne sont accessibles que par ces cheminements. Le portage s'y compte en marches, avec des paliers de repos et une équipe dimensionnée en conséquence. Nous relevons le parcours complet avant le devis, du point de stationnement possible jusqu'à la porte. Une adresse à trente mètres du camion peut représenter soixante marches, et c'est cela, pas le volume, qui détermine la durée de la journée."
+    }, {
+      t: "La frontière monégasque, à quelques mètres",
+      d: "Beaucoup de nos chantiers à Cap-d'Ail relient la commune à la Principauté, parfois sur quelques centaines de mètres. La proximité ne supprime pas les formalités : liste de contenu, justificatifs, valeurs déclarées. Nous préparons ces documents en amont, et nous tenons compte de la circulation aux abords de la frontière, particulièrement dense aux heures de bureau. Un trajet de dix minutes peut en prendre quarante au mauvais moment de la journée."
+    }, {
+      t: "Le monte-meuble, souvent la seule issue",
+      d: "Quand l'escalier est trop étroit ou le nombre de marches trop élevé, le passage par la façade devient la solution la plus sûre et souvent la moins chère en temps. Encore faut-il qu'il soit posable : il exige une emprise au sol dégagée, un angle compatible avec les balcons et les câbles, et une autorisation d'occupation du domaine public. Ces trois conditions se vérifient au relevé. Nous vous disons avant le devis si le monte-meuble est envisageable, et ce qu'il coûte."
+    }, {
+      t: "La rupture de charge sur les voies étroites",
+      d: "Les rues qui desservent les hauteurs de la commune sont étroites et en pente, et le croisement y est souvent impossible. Un porteur ne monte pas partout. Nous organisons alors le chantier autour d'un point de rupture de charge, avec une navette en utilitaire entre le camion et la porte. Cette organisation allonge la journée et se chiffre à l'avance, plutôt que d'être découverte sur place au moment où il est trop tard pour s'adapter."
+    }],
+    jour: [{
+      h: "7 h 00",
+      t: "Positionnement du porteur sur le point de rupture de charge repéré, calage sur la pente."
+    }, {
+      h: "7 h 30",
+      t: "Montage du monte-meuble si la façade et l'emprise le permettent, sinon mise en place du parcours d'escalier."
+    }, {
+      h: "11 h 30",
+      t: "Rotations en navette ou passage par la façade selon la méthode retenue au relevé."
+    }, {
+      h: "14 h 30",
+      t: "Passage de frontière avec les documents préparés, si le trajet rejoint la Principauté."
+    }],
+    erreurs: [{
+      t: "Mesurer la distance à vol d'oiseau",
+      d: "Trente mètres sur une carte peuvent être soixante marches sur le terrain. Seul le parcours réel, relevé sur place, donne la durée du chantier."
+    }, {
+      t: "Supposer que le monte-meuble sera posable",
+      d: "Il faut une emprise dégagée, un angle libre et une autorisation. Les trois se vérifient avant, jamais le matin du déménagement."
+    }, {
+      t: "Traverser vers Monaco sans papiers",
+      d: "La frontière est à quelques centaines de mètres et les formalités restent entières. La liste de contenu se prépare la veille."
+    }]
+  },
   "saint-laurent-du-var": {
     titreContexte: ["Une commune coupée en deux", "par la voie rapide et le fleuve."],
     titreJour: ["Une journée à Saint-Laurent,", "entre zone commerciale et pavillons."],
