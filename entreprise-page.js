@@ -458,10 +458,283 @@ function EntCTA() {
     variant: "dark"
   }))));
 }
+const PRO_PLAN = [{
+  j: "J-90",
+  t: "Décision et périmètre",
+  d: "Surface cible arrêtée, date souhaitée posée, budget cadré. C'est le moment où l'on visite vos locaux actuels et futurs, où l'on chiffre le volume réel et où l'on identifie les points durs : monte-charge, quai, ascenseur, créneaux d'immeuble, matériel sensible."
+}, {
+  j: "J-60",
+  t: "Bail, préavis et notifications",
+  d: "Le préavis du bail commercial part, la date est verrouillée avec les deux syndics ou bailleurs. On liste les organismes à prévenir et on prépare le plan d'implantation des postes dans les nouveaux locaux."
+}, {
+  j: "J-45",
+  t: "Télécoms et informatique",
+  d: "C'est le délai qu'il ne faut jamais rogner. Le raccordement d'une ligne professionnelle et le portage des numéros se commandent longtemps à l'avance. Une entreprise qui emménage sans lien montant travaille au partage de connexion mobile pendant des semaines."
+}, {
+  j: "J-30",
+  t: "Tri, archives et mobilier",
+  d: "On sépare ce qui part, ce qui se stocke et ce qui se jette. Les archives sont inventoriées et scellées. Le mobilier qui ne sera pas repris est identifié pour reprise ou évacuation, ce qui évite de payer le transport d'un bien destiné à la benne."
+}, {
+  j: "J-15",
+  t: "Étiquetage et plan de salle",
+  d: "Chaque poste reçoit son étiquette, au nom du service et de la personne. Le plan d'implantation est affiché dans les nouveaux locaux. C'est ce document qui permet à l'équipe de poser chaque carton au bon endroit sans poser de question."
+}, {
+  j: "J-7",
+  t: "Confirmation et logistique",
+  d: "Autorisations de voirie obtenues, monte-meuble réservé si nécessaire, ascenseurs bloqués aux deux adresses, badges et codes d'accès transmis. Les collaborateurs reçoivent la consigne de vider leurs affaires personnelles."
+}, {
+  j: "Jour J",
+  t: "Transfert hors activité",
+  d: "Le soir, le week-end ou un jour férié selon ce qui coûte le moins à votre activité. Démontage, transport, remontage, rebranchement. Un chef de projet reste joignable du début à la fin, et c'est le même que celui du devis."
+}, {
+  j: "J+1",
+  t: "Reprise et levée des réserves",
+  d: "Vos équipes se rassoient devant des postes qui fonctionnent. Nous restons disponibles pour les ajustements de la première semaine : un bureau à déplacer, une cloison à reprendre, un carton égaré."
+}];
+const PRO_METIERS = [{
+  t: "Cabinet d'avocats et notariat",
+  d: "Les dossiers clients relèvent du secret professionnel. Les cartons sont scellés, numérotés et suivis, et personne d'autre que vous ne les ouvre. La bibliothèque juridique se transporte à plat, pas debout : c'est ce qui abîme le moins les reliures."
+}, {
+  t: "Cabinet médical et paramédical",
+  d: "Dossiers patients sous clé, matériel d'imagerie et de stérilisation transporté selon les prescriptions du fabricant, table d'examen démontée dans l'ordre. On planifie souvent en deux temps pour ne pas interrompre les consultations."
+}, {
+  t: "Restaurant et métiers de bouche",
+  d: "Chambre froide, piano de cuisson, hotte, mobilier de salle. Le matériel froid se déplace vide et se remet en température avant remise en service. L'intervention se cale entre deux services ou sur le jour de fermeture."
+}, {
+  t: "Commerce et boutique",
+  d: "Le stock d'abord, l'agencement ensuite, la vitrine en dernier. L'objectif est une réouverture le lendemain matin, pas dans trois jours. Les portants et gondoles se démontent et se remontent identiques."
+}, {
+  t: "Agence et bureaux d'études",
+  d: "Plateaux de postes, traceurs grand format, échantillothèques et matériauthèques. Le format des plans et des maquettes impose des contenants sur mesure que l'on prépare à l'avance."
+}, {
+  t: "Atelier et petite production",
+  d: "Machines-outils, établis, stock de matière première. Le calage et l'élingage sont la partie sensible, et le poids réel se vérifie avant, jamais au moment de soulever."
+}, {
+  t: "Laboratoire et matériel sensible",
+  d: "Instruments calibrés, réfrigérateurs de conservation, consommables. On transporte selon les consignes du constructeur et l'on documente la chaîne, parce qu'un appareil déréglé coûte plus cher qu'un déménagement."
+}, {
+  t: "Association et organisme public",
+  d: "Marchés publics, procédure de commande, facturation conforme et pièces justificatives. Nous fournissons les documents attendus sans qu'il faille les réclamer trois fois."
+}];
+const PRO_LEGAL = [{
+  t: "Le bail commercial et son préavis",
+  d: "La durée du préavis et la forme de la notification dépendent de votre bail. C'est le premier document à relire, avant même de choisir une date : un préavis mal calé décale tout le reste et se paie en loyers doubles."
+}, {
+  t: "L'information des salariés",
+  d: "Un changement de lieu de travail se prépare avec les équipes, et selon la distance et votre organisation il peut relever d'une procédure d'information ou de consultation. Traité tôt, c'est un sujet réglé ; traité tard, c'est un conflit."
+}, {
+  t: "Le changement d'adresse officiel",
+  d: "Greffe, INSEE, services fiscaux, organismes sociaux, banque, assurances, clients et fournisseurs. La liste est plus longue qu'il n'y paraît et certains délais sont contraints. Nous vous remettons la liste, vous gardez la main sur les démarches."
+}, {
+  t: "L'assurance des locaux",
+  d: "La couverture du nouveau site doit être active au jour de la livraison, pas à la date d'entrée dans les lieux. Entre les deux, il y a parfois une semaine où votre matériel dort dans des locaux non assurés."
+}];
+const PRO_IT = [{
+  t: "Le lien montant, à commander en premier",
+  d: "Fibre professionnelle ou lien dédié, le raccordement se compte en semaines et parfois en mois quand des travaux de génie civil sont nécessaires. C'est le seul poste qui peut vous immobiliser malgré un déménagement parfait."
+}, {
+  t: "Le portage des numéros",
+  d: "Conserver vos numéros fixes demande une demande de portabilité, avec son propre délai. Perdre le numéro affiché sur vos cartes et sur votre fiche Google, c'est perdre des appels pendant des mois."
+}, {
+  t: "Les postes et les serveurs",
+  d: "Chaque poste est étiqueté au nom de son utilisateur, photographié branché avant démontage, et rebranché à l'identique. Les baies et serveurs voyagent calés, dans leur position de service quand le constructeur l'exige."
+}, {
+  t: "La sauvegarde avant le départ",
+  d: "Une sauvegarde complète et vérifiée avant le démontage, c'est la seule assurance réelle contre l'incident de transport. Nous le rappelons systématiquement, même quand ce n'est pas notre périmètre."
+}];
+function EntPlan() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 05 / Le r\xE9troplanning")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Trois mois avant, ", React.createElement("em", null, "et pas trois semaines."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820,
+      marginBottom: 28
+    }
+  }, "La plupart des transferts qui se passent mal n'ont pas \xE9t\xE9 mal ex\xE9cut\xE9s : ils ont \xE9t\xE9 lanc\xE9s trop tard. Voici le calendrier que nous appliquons, avec le poste qui ne se rattrape jamais quand on le rogne, le raccordement t\xE9l\xE9com."), React.createElement("ol", {
+    style: {
+      maxWidth: 860,
+      listStyle: 'none',
+      padding: 0,
+      margin: 0
+    }
+  }, PRO_PLAN.map((e, i) => React.createElement("li", {
+    key: i,
+    style: {
+      display: 'flex',
+      gap: 22,
+      alignItems: 'baseline',
+      padding: '16px 0',
+      borderTop: i ? '1px solid var(--rule)' : 'none'
+    }
+  }, React.createElement("span", {
+    style: {
+      fontFamily: '"DM Sans"',
+      fontWeight: 700,
+      minWidth: 66,
+      whiteSpace: 'nowrap'
+    }
+  }, e.j), React.createElement("span", null, React.createElement("strong", {
+    style: {
+      display: 'block',
+      marginBottom: 4
+    }
+  }, e.t), React.createElement("span", {
+    style: {
+      lineHeight: 1.72
+    }
+  }, e.d)))))));
+}
+function EntMetiers() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 06 / Par m\xE9tier")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Un cabinet m\xE9dical ne se d\xE9m\xE9nage pas ", React.createElement("em", null, "comme une boutique."))), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, PRO_METIERS.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
+function EntLegal() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 07 / Les obligations")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Ce qu'un transfert vous impose, ", React.createElement("em", null, "au-del\xE0 des cartons."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820,
+      marginBottom: 26
+    }
+  }, "Nous ne sommes ni votre avocat ni votre expert-comptable, et nous ne pr\xE9tendons pas l'\xEAtre. Mais nous voyons ces quatre sujets tomber en retard \xE0 chaque transfert, et les signaler t\xF4t fait partie du travail."), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, PRO_LEGAL.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
+function EntIT() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 08 / Continuit\xE9")), React.createElement("h2", {
+    className: "dim-em"
+  }, "L'informatique et les lignes, ", React.createElement("em", null, "le seul vrai risque d'arr\xEAt."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820,
+      marginBottom: 26
+    }
+  }, "Un meuble ab\xEEm\xE9 se remplace. Une entreprise sans connexion ni t\xE9l\xE9phone pendant trois semaines perd des clients qu'elle ne retrouvera pas. C'est le poste sur lequel nous insistons le plus, m\xEAme quand une partie ne rel\xE8ve pas de nous."), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, PRO_IT.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
+function EntBudget() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 09 / Le budget")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Comment se construit un devis ", React.createElement("em", null, "de transfert professionnel."))), React.createElement("div", {
+    style: {
+      maxWidth: 820,
+      lineHeight: 1.78
+    }
+  }, React.createElement("p", null, "Un devis d'entreprise ne se calcule pas au m\xE8tre cube comme un d\xE9m\xE9nagement de particulier. Trois \xE9l\xE9ments p\xE8sent davantage : le nombre de postes \xE0 traiter, la fen\xEAtre d'intervention impos\xE9e, et le degr\xE9 de d\xE9montage et de remontage attendu. Un plateau de quarante postes transf\xE9r\xE9 un samedi co\xFBte plus qu'un volume \xE9quivalent de mobilier domestique d\xE9plac\xE9 un mardi, parce qu'il mobilise plus d'\xE9quipiers sur une dur\xE9e contrainte."), React.createElement("p", {
+    style: {
+      marginTop: 16
+    }
+  }, "Ce qui fait monter la note, dans l'ordre : l'intervention hors heures ouvr\xE9es, le d\xE9montage-remontage de cloisons et de mobilier sur mesure, le traitement individuel de l'informatique, et l'absence de monte-charge ou de quai \xE0 l'une des deux adresses. Ce qui la fait baisser : un tri s\xE9rieux en amont, un plan d'implantation valid\xE9, et une date choisie hors des pics de fin de mois."), React.createElement("p", {
+    style: {
+      marginTop: 16
+    }
+  }, "Nous chiffrons apr\xE8s visite des deux sites, jamais sur description t\xE9l\xE9phonique. Le devis d\xE9taille chaque poste, il est ferme, et il ne bouge pas le jour J. La facturation est conforme, la TVA r\xE9cup\xE9rable dans les conditions habituelles, et les pi\xE8ces justificatives sont fournies sans qu'il faille les demander."))));
+}
 function App() {
   useScrollReveal();
-  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(EntHero, null), React.createElement(EntIntro, null), React.createElement(EntProcess, null), React.createElement(EntTypes, null), React.createElement(EntFeats, null), React.createElement(EntDeep, null), React.createElement(EntFaq, null), React.createElement(EntCTA, null)), React.createElement(Footer, null));
+  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(EntHero, null), React.createElement(EntIntro, null), React.createElement(EntProcess, null), React.createElement(EntPlan, null), React.createElement(EntTypes, null), React.createElement(EntMetiers, null), React.createElement(EntLegal, null), React.createElement(EntIT, null), React.createElement(EntBudget, null), React.createElement(EntFeats, null), React.createElement(EntDeep, null), React.createElement(EntFaq, null), React.createElement(EntCTA, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { EntHero, EntIntro, EntDeep, EntFaq, EntProcess, EntTypes, EntFeats, EntCTA, App }); } catch (e) {}
+  try { Object.assign(window, { EntHero, EntIntro, EntDeep, EntFaq, EntProcess, EntTypes, EntFeats, EntCTA, EntPlan, EntMetiers, EntLegal, EntIT, EntBudget, App }); } catch (e) {}
 })();

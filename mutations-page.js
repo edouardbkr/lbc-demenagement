@@ -430,10 +430,257 @@ function MutCTA() {
     variant: "dark"
   }))));
 }
+const MUT_AIDES = [{
+  t: "La prise en charge par l'employeur",
+  d: "C'est la première source, et la plus souvent sous-utilisée. Beaucoup de conventions collectives et d'accords d'entreprise prévoient une participation aux frais de déménagement en cas de mobilité demandée par l'employeur. Demandez l'accord applicable avant de négocier : on obtient rarement plus que ce qui est écrit, mais on obtient souvent moins que ce qui est prévu, faute de l'avoir lu."
+}, {
+  t: "Les dispositifs d'Action Logement",
+  d: "Le Mobili-Pass et l'aide à la mobilité s'adressent aux salariés du secteur privé qui déménagent pour raison professionnelle. Les conditions portent sur la distance, la nature du changement de poste et la taille de l'entreprise. La demande se fait dans une fenêtre de temps limitée autour de la prise de poste : hors délai, le dossier est refusé même si vous remplissez tout le reste."
+}, {
+  t: "Le devis, pièce centrale du dossier",
+  d: "Presque tous les dispositifs exigent un devis détaillé d'une entreprise déclarée, avec numéro de SIRET et attestation d'assurance. Un devis manuscrit ou une estimation par SMS ne passe pas. C'est la raison pour laquelle nous éditons systématiquement un document complet, même quand le client ne l'a pas demandé."
+}, {
+  t: "La facture, pièce finale",
+  d: "Le remboursement intervient sur facture acquittée, pas sur devis. Gardez le justificatif de paiement avec la facture : c'est le couple des deux documents qui déclenche le versement, et son absence est le motif de blocage le plus fréquent."
+}];
+const MUT_FISCAL = [{
+  t: "Ce que l'employeur verse",
+  d: "Une prise en charge de frais de déménagement liée à une mobilité professionnelle n'a pas le même traitement qu'une prime de salaire. La distinction tient à la nature de la dépense et à la justification apportée. Concrètement, cela vaut la peine de demander à votre service paie sous quelle forme la somme sera versée, avant d'accepter."
+}, {
+  t: "Ce que vous avancez",
+  d: "Quand vous payez d'abord et vous faites rembourser ensuite, la trésorerie est à votre charge pendant plusieurs semaines. Nous pouvons échelonner le règlement pour que l'avance ne pèse pas sur un seul mois, à condition d'en parler au moment du devis."
+}, {
+  t: "Les frais annexes qui comptent",
+  d: "Le déménagement lui-même n'est pas le seul poste : garde-meuble entre deux logements, double loyer sur la période de transition, frais d'agence, résiliation anticipée. Certains dispositifs les couvrent, d'autres non. La liste des frais couverts se lit avant de signer, pas après."
+}, {
+  t: "Le justificatif de mutation",
+  d: "Attestation de l'employeur, avenant au contrat ou arrêté d'affectation selon votre statut. C'est la pièce qui prouve le motif professionnel et sans laquelle aucun dossier n'avance. Demandez-la dès l'annonce, elle met parfois des semaines à arriver."
+}];
+const MUT_STATUTS = [{
+  t: "Fonction publique d'État",
+  d: "Un changement de résidence administrative peut ouvrir droit à une indemnité, avec des conditions tenant à la distance, à la durée passée dans le poste précédent et au caractère subi ou demandé de la mutation. La demande obéit à un calendrier strict à compter de l'installation."
+}, {
+  t: "Militaires et gendarmerie",
+  d: "Les mutations sont fréquentes et le cadre de prise en charge est spécifique, avec ses propres formulaires et ses propres délais. Nous avons l'habitude des pièces attendues et nous les fournissons dans le format demandé, ce qui évite les allers-retours."
+}, {
+  t: "Hospitalière et territoriale",
+  d: "Les règles diffèrent de la fonction publique d'État et dépendent souvent de l'établissement ou de la collectivité. Le service des ressources humaines reste la source à interroger en premier."
+}, {
+  t: "Secteur privé sans accord",
+  d: "Quand aucun accord ne prévoit rien, tout se négocie. Un devis chiffré et détaillé, présenté tôt, obtient bien plus qu'une demande formulée en ordre de grandeur. C'est le seul levier réel dont vous disposez."
+}];
+const MUT_CALENDRIER = [{
+  j: "L'annonce",
+  t: "Réclamer l'attestation",
+  d: "Dès que la mutation est actée, demandez l'attestation ou l'arrêté. C'est la pièce qui débloque tout le reste et celle qui arrive le plus lentement."
+}, {
+  j: "Semaine 1",
+  t: "Lire l'accord applicable",
+  d: "Convention collective, accord d'entreprise, statut. Vous saurez alors ce à quoi vous avez droit sans négocier, et où commence la négociation."
+}, {
+  j: "Semaine 2",
+  t: "Faire établir le devis",
+  d: "Un devis détaillé, avec SIRET et attestation d'assurance. Il sert au dossier d'aide et à la négociation avec l'employeur. Nous nous déplaçons pour le chiffrer, ce qui le rend opposable."
+}, {
+  j: "Semaine 3",
+  t: "Déposer les demandes",
+  d: "Dispositifs d'aide et demande de prise en charge employeur, en parallèle et pas l'un après l'autre. Les fenêtres de dépôt sont courtes et ne se rattrapent pas."
+}, {
+  j: "Semaine 4",
+  t: "Verrouiller la date",
+  d: "Une fois le financement cadré, la date se réserve. Les fins de mois et les samedis partent en premier, et une mutation ne se décale pas."
+}, {
+  j: "Après",
+  t: "Envoyer la facture acquittée",
+  d: "Facture et preuve de paiement ensemble. C'est ce couple de documents qui déclenche le versement."
+}];
+function MutAides() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 06 / Le financement")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Qui paie quoi, ", React.createElement("em", null, "et \xE0 quelles conditions."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820,
+      marginBottom: 26
+    }
+  }, "Nous ne citons volontairement aucun montant : les bar\xE8mes changent d'une ann\xE9e \xE0 l'autre et une page qui reste en ligne finit par mentir. Ce qui ne change pas, c'est la logique des dispositifs et la liste des pi\xE8ces qui bloquent un dossier."), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, MUT_AIDES.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
+function MutFiscal() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 07 / L'argent")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Ce que vous avancez, ", React.createElement("em", null, "ce qu'on vous rembourse."))), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, MUT_FISCAL.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
+function MutStatuts() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 08 / Selon votre statut")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Un militaire et un cadre du priv\xE9 ", React.createElement("em", null, "ne montent pas le m\xEAme dossier."))), React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, MUT_STATUTS.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d))))));
+}
+function MutCalendrier() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 09 / Dans quel ordre")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Le dossier avant la date, ", React.createElement("em", null, "et la date avant les cartons."))), React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 820,
+      marginBottom: 28
+    }
+  }, "L'erreur la plus co\xFBteuse est de r\xE9server le d\xE9m\xE9nagement avant d'avoir cadr\xE9 le financement. On se retrouve alors \xE0 payer seul ce qui aurait \xE9t\xE9 pris en charge, faute d'avoir d\xE9pos\xE9 une demande dans les d\xE9lais."), React.createElement("ol", {
+    style: {
+      maxWidth: 860,
+      listStyle: 'none',
+      padding: 0,
+      margin: 0
+    }
+  }, MUT_CALENDRIER.map((e, i) => React.createElement("li", {
+    key: i,
+    style: {
+      display: 'flex',
+      gap: 22,
+      alignItems: 'baseline',
+      padding: '16px 0',
+      borderTop: i ? '1px solid var(--rule)' : 'none'
+    }
+  }, React.createElement("span", {
+    style: {
+      fontFamily: '"DM Sans"',
+      fontWeight: 700,
+      minWidth: 92,
+      whiteSpace: 'nowrap'
+    }
+  }, e.j), React.createElement("span", null, React.createElement("strong", {
+    style: {
+      display: 'block',
+      marginBottom: 4
+    }
+  }, e.t), React.createElement("span", {
+    style: {
+      lineHeight: 1.72
+    }
+  }, e.d)))))));
+}
+function MutTransition() {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 10 / L'entre-deux")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Quand le nouveau logement ", React.createElement("em", null, "n'est pas pr\xEAt."))), React.createElement("div", {
+    style: {
+      maxWidth: 820,
+      lineHeight: 1.78
+    }
+  }, React.createElement("p", null, "C'est la situation la plus fr\xE9quente des mutations : la prise de poste tombe avant la remise des cl\xE9s. Vous devez lib\xE9rer l'ancien logement \xE0 une date, et vous ne pouvez entrer dans le nouveau que deux semaines plus tard. Entre les deux, vos affaires doivent bien dormir quelque part."), React.createElement("p", {
+    style: {
+      marginTop: 16
+    }
+  }, "Nous prenons en charge cette p\xE9riode avec un garde-meuble relais : votre mobilier est charg\xE9, inventori\xE9, stock\xE9 en caisses scell\xE9es, puis livr\xE9 \xE0 la date que vous fixez. Vous ne payez pas deux d\xE9m\xE9nagements, parce que le mobilier reste dans les m\xEAmes caisses du d\xE9part \xE0 l'arriv\xE9e. C'est aussi ce qui limite la casse, chaque manipulation suppl\xE9mentaire \xE9tant une occasion de plus d'ab\xEEmer quelque chose."), React.createElement("p", {
+    style: {
+      marginTop: 16
+    }
+  }, "Pensez \xE0 v\xE9rifier si votre dispositif d'aide couvre le stockage et le double loyer de cette p\xE9riode. Certains le font, d'autres s'arr\xEAtent au transport. Cela se lit avant de choisir la date de r\xE9siliation de votre ancien bail, pas apr\xE8s."))));
+}
 function App() {
   useScrollReveal();
-  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(MutHero, null), React.createElement(MutIntro, null), React.createElement(MutSteps, null), React.createElement(MutPrise, null), React.createElement(MutDeep, null), React.createElement(MutFeats, null), React.createElement(MutFaq, null), React.createElement(MutCTA, null)), React.createElement(Footer, null));
+  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(MutHero, null), React.createElement(MutIntro, null), React.createElement(MutSteps, null), React.createElement(MutPrise, null), React.createElement(MutDeep, null), React.createElement(MutAides, null), React.createElement(MutFiscal, null), React.createElement(MutStatuts, null), React.createElement(MutCalendrier, null), React.createElement(MutTransition, null), React.createElement(MutFeats, null), React.createElement(MutFaq, null), React.createElement(MutCTA, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { MutHero, MutIntro, MutSteps, MutPrise, MutDeep, MutFeats, MutFaq, MutCTA, App }); } catch (e) {}
+  try { Object.assign(window, { MutHero, MutIntro, MutSteps, MutPrise, MutDeep, MutFeats, MutFaq, MutCTA, MutAides, MutFiscal, MutStatuts, MutCalendrier, MutTransition, App }); } catch (e) {}
 })();

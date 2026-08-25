@@ -221,6 +221,177 @@ function MutCTA() {
 
 }
 
+
+/* ══════════════════════════════════════════════════════════════════════════════
+   Contenu de fond ajoute le 25 aout 2026.
+
+   FRONTIERE AVEC LA PAGE ENTREPRISE, a ne jamais franchir :
+     Entreprise = l'ENTREPRISE demenage ses locaux. Retroplanning du transfert,
+                  bail commercial, informatique, budget du chantier.
+     Mutations  = un SALARIE demenage, et son employeur finance tout ou partie.
+                  Aides, dossier, justificatifs, fiscalite de la prise en charge,
+                  double logement, specificites du public et des militaires.
+
+   Aucun sujet ne passe d'une page a l'autre. Si une section pouvait vivre sur
+   les deux, c'est qu'elle est mal ecrite.
+
+   ⚠️ PRUDENCE FACTUELLE. Les dispositifs d'aide et leurs baremes changent. On
+   nomme les dispositifs et on decrit la logique, on ne cite AUCUN montant ni
+   aucun plafond : un chiffre perime sur une page qui reste en ligne des annees
+   est pire que pas de chiffre du tout.
+   ══════════════════════════════════════════════════════════════════════════════ */
+
+const MUT_AIDES = [
+  { t: "La prise en charge par l'employeur", d: "C'est la première source, et la plus souvent sous-utilisée. Beaucoup de conventions collectives et d'accords d'entreprise prévoient une participation aux frais de déménagement en cas de mobilité demandée par l'employeur. Demandez l'accord applicable avant de négocier : on obtient rarement plus que ce qui est écrit, mais on obtient souvent moins que ce qui est prévu, faute de l'avoir lu." },
+  { t: "Les dispositifs d'Action Logement", d: "Le Mobili-Pass et l'aide à la mobilité s'adressent aux salariés du secteur privé qui déménagent pour raison professionnelle. Les conditions portent sur la distance, la nature du changement de poste et la taille de l'entreprise. La demande se fait dans une fenêtre de temps limitée autour de la prise de poste : hors délai, le dossier est refusé même si vous remplissez tout le reste." },
+  { t: "Le devis, pièce centrale du dossier", d: "Presque tous les dispositifs exigent un devis détaillé d'une entreprise déclarée, avec numéro de SIRET et attestation d'assurance. Un devis manuscrit ou une estimation par SMS ne passe pas. C'est la raison pour laquelle nous éditons systématiquement un document complet, même quand le client ne l'a pas demandé." },
+  { t: "La facture, pièce finale", d: "Le remboursement intervient sur facture acquittée, pas sur devis. Gardez le justificatif de paiement avec la facture : c'est le couple des deux documents qui déclenche le versement, et son absence est le motif de blocage le plus fréquent." }
+];
+
+const MUT_FISCAL = [
+  { t: "Ce que l'employeur verse", d: "Une prise en charge de frais de déménagement liée à une mobilité professionnelle n'a pas le même traitement qu'une prime de salaire. La distinction tient à la nature de la dépense et à la justification apportée. Concrètement, cela vaut la peine de demander à votre service paie sous quelle forme la somme sera versée, avant d'accepter." },
+  { t: "Ce que vous avancez", d: "Quand vous payez d'abord et vous faites rembourser ensuite, la trésorerie est à votre charge pendant plusieurs semaines. Nous pouvons échelonner le règlement pour que l'avance ne pèse pas sur un seul mois, à condition d'en parler au moment du devis." },
+  { t: "Les frais annexes qui comptent", d: "Le déménagement lui-même n'est pas le seul poste : garde-meuble entre deux logements, double loyer sur la période de transition, frais d'agence, résiliation anticipée. Certains dispositifs les couvrent, d'autres non. La liste des frais couverts se lit avant de signer, pas après." },
+  { t: "Le justificatif de mutation", d: "Attestation de l'employeur, avenant au contrat ou arrêté d'affectation selon votre statut. C'est la pièce qui prouve le motif professionnel et sans laquelle aucun dossier n'avance. Demandez-la dès l'annonce, elle met parfois des semaines à arriver." }
+];
+
+const MUT_STATUTS = [
+  { t: "Fonction publique d'État", d: "Un changement de résidence administrative peut ouvrir droit à une indemnité, avec des conditions tenant à la distance, à la durée passée dans le poste précédent et au caractère subi ou demandé de la mutation. La demande obéit à un calendrier strict à compter de l'installation." },
+  { t: "Militaires et gendarmerie", d: "Les mutations sont fréquentes et le cadre de prise en charge est spécifique, avec ses propres formulaires et ses propres délais. Nous avons l'habitude des pièces attendues et nous les fournissons dans le format demandé, ce qui évite les allers-retours." },
+  { t: "Hospitalière et territoriale", d: "Les règles diffèrent de la fonction publique d'État et dépendent souvent de l'établissement ou de la collectivité. Le service des ressources humaines reste la source à interroger en premier." },
+  { t: "Secteur privé sans accord", d: "Quand aucun accord ne prévoit rien, tout se négocie. Un devis chiffré et détaillé, présenté tôt, obtient bien plus qu'une demande formulée en ordre de grandeur. C'est le seul levier réel dont vous disposez." }
+];
+
+const MUT_CALENDRIER = [
+  { j: "L'annonce", t: "Réclamer l'attestation", d: "Dès que la mutation est actée, demandez l'attestation ou l'arrêté. C'est la pièce qui débloque tout le reste et celle qui arrive le plus lentement." },
+  { j: "Semaine 1", t: "Lire l'accord applicable", d: "Convention collective, accord d'entreprise, statut. Vous saurez alors ce à quoi vous avez droit sans négocier, et où commence la négociation." },
+  { j: "Semaine 2", t: "Faire établir le devis", d: "Un devis détaillé, avec SIRET et attestation d'assurance. Il sert au dossier d'aide et à la négociation avec l'employeur. Nous nous déplaçons pour le chiffrer, ce qui le rend opposable." },
+  { j: "Semaine 3", t: "Déposer les demandes", d: "Dispositifs d'aide et demande de prise en charge employeur, en parallèle et pas l'un après l'autre. Les fenêtres de dépôt sont courtes et ne se rattrapent pas." },
+  { j: "Semaine 4", t: "Verrouiller la date", d: "Une fois le financement cadré, la date se réserve. Les fins de mois et les samedis partent en premier, et une mutation ne se décale pas." },
+  { j: "Après", t: "Envoyer la facture acquittée", d: "Facture et preuve de paiement ensemble. C'est ce couple de documents qui déclenche le versement." }
+];
+
+function MutAides() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 06 / Le financement</div></div>
+          <h2 className="dim-em">Qui paie quoi, <em>et à quelles conditions.</em></h2>
+        </div>
+        <p className="lead" style={{ maxWidth: 820, marginBottom: 26 }}>
+          Nous ne citons volontairement aucun montant : les barèmes changent d'une année à
+          l'autre et une page qui reste en ligne finit par mentir. Ce qui ne change pas, c'est
+          la logique des dispositifs et la liste des pièces qui bloquent un dossier.
+        </p>
+        <div className="about-grid" style={{ marginTop: 8 }}>
+          {MUT_AIDES.map((e, i) => (
+            <div key={i} className="ap-value">
+              <h3 className="ap-value-t">{e.t}</h3>
+              <p className="ap-value-d">{e.d}</p>
+            </div>))}
+        </div>
+      </div>
+    </section>);
+}
+
+function MutFiscal() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 07 / L'argent</div></div>
+          <h2 className="dim-em">Ce que vous avancez, <em>ce qu'on vous rembourse.</em></h2>
+        </div>
+        <div className="about-grid" style={{ marginTop: 8 }}>
+          {MUT_FISCAL.map((e, i) => (
+            <div key={i} className="ap-value">
+              <h3 className="ap-value-t">{e.t}</h3>
+              <p className="ap-value-d">{e.d}</p>
+            </div>))}
+        </div>
+      </div>
+    </section>);
+}
+
+function MutStatuts() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 08 / Selon votre statut</div></div>
+          <h2 className="dim-em">Un militaire et un cadre du privé <em>ne montent pas le même dossier.</em></h2>
+        </div>
+        <div className="about-grid" style={{ marginTop: 8 }}>
+          {MUT_STATUTS.map((e, i) => (
+            <div key={i} className="ap-value">
+              <h3 className="ap-value-t">{e.t}</h3>
+              <p className="ap-value-d">{e.d}</p>
+            </div>))}
+        </div>
+      </div>
+    </section>);
+}
+
+function MutCalendrier() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 09 / Dans quel ordre</div></div>
+          <h2 className="dim-em">Le dossier avant la date, <em>et la date avant les cartons.</em></h2>
+        </div>
+        <p className="lead" style={{ maxWidth: 820, marginBottom: 28 }}>
+          L'erreur la plus coûteuse est de réserver le déménagement avant d'avoir cadré le
+          financement. On se retrouve alors à payer seul ce qui aurait été pris en charge,
+          faute d'avoir déposé une demande dans les délais.
+        </p>
+        <ol style={{ maxWidth: 860, listStyle: 'none', padding: 0, margin: 0 }}>
+          {MUT_CALENDRIER.map((e, i) => (
+            <li key={i} style={{ display: 'flex', gap: 22, alignItems: 'baseline', padding: '16px 0', borderTop: i ? '1px solid var(--rule)' : 'none' }}>
+              <span style={{ fontFamily: '"DM Sans"', fontWeight: 700, minWidth: 92, whiteSpace: 'nowrap' }}>{e.j}</span>
+              <span>
+                <strong style={{ display: 'block', marginBottom: 4 }}>{e.t}</strong>
+                <span style={{ lineHeight: 1.72 }}>{e.d}</span>
+              </span>
+            </li>))}
+        </ol>
+      </div>
+    </section>);
+}
+
+function MutTransition() {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 10 / L'entre-deux</div></div>
+          <h2 className="dim-em">Quand le nouveau logement <em>n'est pas prêt.</em></h2>
+        </div>
+        <div style={{ maxWidth: 820, lineHeight: 1.78 }}>
+          <p>
+            C'est la situation la plus fréquente des mutations : la prise de poste tombe avant
+            la remise des clés. Vous devez libérer l'ancien logement à une date, et vous ne
+            pouvez entrer dans le nouveau que deux semaines plus tard. Entre les deux, vos
+            affaires doivent bien dormir quelque part.
+          </p>
+          <p style={{ marginTop: 16 }}>
+            Nous prenons en charge cette période avec un garde-meuble relais : votre mobilier
+            est chargé, inventorié, stocké en caisses scellées, puis livré à la date que vous
+            fixez. Vous ne payez pas deux déménagements, parce que le mobilier reste dans les
+            mêmes caisses du départ à l'arrivée. C'est aussi ce qui limite la casse, chaque
+            manipulation supplémentaire étant une occasion de plus d'abîmer quelque chose.
+          </p>
+          <p style={{ marginTop: 16 }}>
+            Pensez à vérifier si votre dispositif d'aide couvre le stockage et le double loyer
+            de cette période. Certains le font, d'autres s'arrêtent au transport. Cela se lit
+            avant de choisir la date de résiliation de votre ancien bail, pas après.
+          </p>
+        </div>
+      </div>
+    </section>);
+}
+
 function App() {
   useScrollReveal();
   return (
@@ -232,6 +403,11 @@ function App() {
         <MutSteps />
         <MutPrise />
         <MutDeep />
+        <MutAides />
+        <MutFiscal />
+        <MutStatuts />
+        <MutCalendrier />
+        <MutTransition />
         <MutFeats />
         <MutFaq />
         <MutCTA />
