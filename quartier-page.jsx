@@ -84,7 +84,7 @@ function QStationnement({ q }) {
           compétent et le délai dépendent de ce que vous occupez.
         </p>
         <div style={{ marginTop: 22, padding: '20px 22px', borderRadius: 14, background: 'rgba(215,91,61,0.10)', border: '1px solid rgba(215,91,61,0.25)', maxWidth: 780 }}>
-          <div style={{ fontWeight: 700, marginBottom: 6 }}>Cas le plus courant à {q.nom}</div>
+          <div style={{ fontWeight: 700, marginBottom: 6 }}>Cas le plus courant {dansLe(q)}</div>
           <p style={{ margin: '0 0 10px' }}>{a.libelle}</p>
           <p style={{ margin: 0 }}>
             <strong>Délai minimum : {a.delai}</strong> avant la date du déménagement.<br />
@@ -106,7 +106,7 @@ function QMethode({ q }) {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> 04 / Notre méthode ici</div></div>
-          <h2 className="dim-em">Comment on s'y prend <em>à {q.nom}.</em></h2>
+          <h2 className="dim-em">Comment on s'y prend <em>{dansLe(q)}.</em></h2>
         </div>
         <ol style={{ maxWidth: 780, lineHeight: 1.75, paddingLeft: 20 }}>
           {q.methode.map((m, i) => <li key={i} style={{ marginBottom: 10 }}>{m}</li>)}
@@ -171,7 +171,7 @@ function QBandeau({ q }) {
     <section className="sec">
       <div className="wrap">
         <div style={{ padding: '34px 30px', borderRadius: 18, background: 'rgba(215,91,61,0.10)', border: '1px solid rgba(215,91,61,0.25)', textAlign: 'center' }}>
-          <h2 style={{ margin: '0 0 10px' }}>Un déménagement à {q.nom} ?</h2>
+          <h2 style={{ margin: '0 0 10px' }}>Un déménagement {dansLe(q)} ?</h2>
           <p style={{ margin: '0 0 20px', opacity: 0.88, maxWidth: 620, marginLeft: 'auto', marginRight: 'auto' }}>
             On repère l'accès, on dépose la demande de stationnement pour vous, et on vous donne
             un prix ferme sous 24 heures. Gratuit et sans engagement.
@@ -185,6 +185,89 @@ function QBandeau({ q }) {
     </section>);
 }
 
+
+/* ── Les sections de fond, alimentees par QUARTIER_DETAIL.
+   Elles n'apparaissent que si le quartier a son entree : un quartier ajoute plus
+   tard sans contenu de fond garde la page courte plutot que d'afficher des vides. */
+const detail = (q) => (window.QUARTIER_DETAIL || {})[q && q.slug] || null;
+/* « a Le Carre d'Or » et « a Le Port » etaient ecrits tels quels : la preposition
+   vit desormais dans les donnees, une par quartier. */
+const dansLe = (q) => { const d = detail(q); return (d && d.prep) || ('à ' + (q ? q.nom : '')); };
+
+function QTexte({ num, kicker, titre, em, children }) {
+  return (
+    <section className="sec">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num" style={{ fontFamily: "\"DM Sans\"" }}><span className="asterisk">*</span> {num} / {kicker}</div></div>
+          <h2 className="dim-em">{titre} <em>{em}</em></h2>
+        </div>
+        {children}
+      </div>
+    </section>);
+}
+
+function QHistoire({ q }) {
+  const d = detail(q); if (!d) return null;
+  return (
+    <QTexte num="02" kicker="Pourquoi c'est comme ça" titre="Le quartier ne s'est pas construit" em="par hasard.">
+      <p className="lead" style={{ maxWidth: 780 }}>{d.histoire}</p>
+    </QTexte>);
+}
+
+function QBati({ q }) {
+  const d = detail(q); if (!d) return null;
+  return (
+    <QTexte num="03" kicker="Les immeubles" titre="Ce que vous allez trouver" em={'dans les cages d’escalier.'}>
+      <p className="lead" style={{ maxWidth: 780 }}>{d.bati}</p>
+    </QTexte>);
+}
+
+function QAcces({ q }) {
+  const d = detail(q); if (!d) return null;
+  return (
+    <QTexte num="05" kicker="Accès et circulation" titre="Par où le camion arrive," em="et jusqu'où il va.">
+      <p className="lead" style={{ maxWidth: 780 }}>{d.acces}</p>
+      <p style={{ maxWidth: 780, marginTop: 18, lineHeight: 1.75 }}>{d.stationnement}</p>
+    </QTexte>);
+}
+
+function QJourJ({ q }) {
+  const d = detail(q); if (!d || !d.jourJ) return null;
+  return (
+    <QTexte num="07" kicker="Le jour J" titre={'Une journée ' + dansLe(q) + ','} em="heure par heure.">
+      <ol style={{ maxWidth: 820, listStyle: 'none', padding: 0, margin: 0 }}>
+        {d.jourJ.map((e, i) => (
+          <li key={i} style={{ display: 'flex', gap: 20, alignItems: 'baseline', padding: '14px 0', borderTop: i ? '1px solid var(--rule)' : 'none' }}>
+            <span style={{ fontFamily: '"DM Sans"', fontWeight: 700, minWidth: 74, whiteSpace: 'nowrap' }}>{e.h}</span>
+            <span style={{ lineHeight: 1.7 }}>{e.t}</span>
+          </li>))}
+      </ol>
+    </QTexte>);
+}
+
+function QPieges({ q }) {
+  const d = detail(q); if (!d || !d.pieges) return null;
+  return (
+    <QTexte num="09" kicker="À ne pas faire" titre="Les erreurs qui coûtent" em="une journée.">
+      <div className="about-grid" style={{ marginTop: 8 }}>
+        {d.pieges.map((e, i) => (
+          <div key={i} className="ap-value">
+            <h3 className="ap-value-t">{e.t}</h3>
+            <p className="ap-value-d">{e.d}</p>
+          </div>))}
+      </div>
+    </QTexte>);
+}
+
+function QCout({ q }) {
+  const d = detail(q); if (!d) return null;
+  return (
+    <QTexte num="10" kicker="Le prix" titre="Ce qui fait monter la note" em="ici, et pas ailleurs.">
+      <p className="lead" style={{ maxWidth: 780 }}>{d.cout}</p>
+    </QTexte>);
+}
+
 function App() {
   useScrollReveal();
   const q = getQuartier(slugQuartier());
@@ -194,12 +277,18 @@ function App() {
       <main>
         <QHero q={q} />
         <QIntro q={q} />
+        <QHistoire q={q} />
+        <QBati q={q} />
         <QContraintes q={q} />
+        <QAcces q={q} />
         <QStationnement q={q} />
+        <QJourJ q={q} />
         <QMethode q={q} />
+        <QPieges q={q} />
+        <QCout q={q} />
         <QFaq q={q} />
         <QProches q={q} />
-        <PreuveVille ville={q ? "à " + q.nom : ""} />
+        <PreuveVille ville={q ? dansLe(q) : ""} />
         <QBandeau q={q} />
         <section className="sec"><div className="wrap">
           <div className="devis-hero-form"><QuickQuote /></div>

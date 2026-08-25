@@ -267,15 +267,329 @@ const QUARTIERS = {
   }
 };
 function getQuartier(slug) {
-  return QUARTIERS[slug] || QUARTIERS["vieux-nice"];
+  const cle = QUARTIERS[slug] ? slug : "vieux-nice";
+  return Object.assign({
+    slug: cle
+  }, QUARTIERS[cle]);
 }
 function listeQuartiers() {
   return Object.keys(QUARTIERS).map(k => Object.assign({
     slug: k
   }, QUARTIERS[k]));
 }
+const QUARTIER_DETAIL = {
+  "vieux-nice": {
+    prep: "dans le Vieux-Nice",
+    histoire: "Le Vieux-Nice s'est construit avant la voiture, et cela se voit encore chaque jour. Le tracé des rues remonte à l'époque où l'on circulait à pied et où les marchandises arrivaient à dos de mulet. Les immeubles ont été montés serrés, souvent surélevés d'un ou deux niveaux au fil des siècles, avec des escaliers qui n'ont jamais été prévus pour faire passer un canapé d'angle. Ce n'est pas un quartier difficile par accident : il est difficile par construction, et un déménageur qui découvre cela le jour J a déjà perdu sa journée.",
+    bati: "L'immeuble typique du Vieux-Nice fait quatre à six niveaux sans ascenseur. La cage d'escalier est en colimaçon ou à volées courtes, avec un jour central trop étroit pour hisser quoi que ce soit à la corde. Les marches sont souvent en pierre, usées et creusées au milieu, ce qui rend le portage d'un objet lourd nettement moins sûr qu'il n'y paraît. Les paliers sont exigus et les portes d'appartement fréquemment plus basses que la norme actuelle : une armoire moderne de deux mètres dix ne franchit pas toujours l'huisserie. Les plafonds, en revanche, sont hauts, ce qui explique la présence de meubles anciens de grande taille qu'il faut démonter pour sortir.",
+    acces: "La quasi-totalité du secteur est en zone piétonne réglementée. L'accès des véhicules utilitaires est possible mais encadré par des plages horaires, généralement le matin tôt, et les bornes escamotables commandent l'entrée de plusieurs axes. Concrètement, on ne se gare pas devant la porte : on obtient un créneau, on entre, on décharge, on ressort. Les rues du cœur historique font souvent moins de trois mètres de large utile, ce qui exclut le porteur de vingt mètres cubes. On travaille en navette avec un utilitaire de douze mètres cubes maximum, parfois moins.",
+    stationnement: "L'autorisation de voirie ne suffit pas ici : il faut aussi que le créneau demandé tombe dans la plage d'accès autorisée au secteur piéton. Nous déposons la demande en amont, en précisant l'adresse exacte et la longueur de véhicule, et nous récupérons les arrêtés avant le jour J. Sans cet enchaînement, le camion attend à l'entrée de la zone pendant que le compteur tourne. Nous posons les panneaux la veille quand la réglementation l'exige, pour que l'emplacement soit libre à l'heure prévue.",
+    jourJ: [{
+      h: "7 h 00",
+      t: "Arrivée en bordure de zone piétonne, transfert du matériel de protection à pied. Pose des protections de cage d'escalier et des angles de marches."
+    }, {
+      h: "7 h 30",
+      t: "Entrée de l'utilitaire sur le créneau autorisé. Chargement par rotations courtes, un équipier reste en permanence au véhicule."
+    }, {
+      h: "11 h 00",
+      t: "Sortie de la zone avant la fin de plage horaire. Regroupement dans le porteur stationné hors secteur."
+    }, {
+      h: "14 h 00",
+      t: "Livraison à l'adresse d'arrivée, remontage et calage. Dépose des protections et état des lieux des communs."
+    }],
+    pieges: [{
+      t: "Croire que la zone piétonne est un détail administratif",
+      d: "C'est la contrainte qui commande tout le reste : le gabarit du véhicule, l'heure de début, le nombre de rotations et donc le prix. Un devis qui ne la mentionne pas n'a pas été fait sur place."
+    }, {
+      t: "Compter sur l'escalier sans l'avoir mesuré",
+      d: "Le jour central est presque toujours trop étroit pour hisser. Si un meuble ne passe pas par les volées, il ne passera pas du tout, et il faudra le démonter ou le laisser."
+    }, {
+      t: "Oublier la hauteur des portes",
+      d: "Les huisseries anciennes sont basses. Une armoire montée d'usine ne se démonte pas toujours : ça se vérifie avant, pas devant la porte."
+    }],
+    cout: "Ce qui fait monter le prix dans le Vieux-Nice, ce n'est ni la distance ni le volume, c'est le nombre de rotations et les étages sans ascenseur. Un même trois-pièces coûte sensiblement plus cher ici que dans un immeuble récent avec parking, parce qu'il mobilise davantage d'équipiers pendant plus longtemps. Nous chiffrons ce surcoût dans le devis, une fois, et il ne bouge plus. Ce que nous ne faisons pas, c'est annoncer un tarif de plaine puis ajouter des suppléments d'étage le jour même.",
+    faqPlus: [{
+      q: "Peut-on déménager dans le Vieux-Nice sans autorisation ?",
+      a: "Non, pas sérieusement. Même quand un stationnement semble libre, il n'est pas garanti à l'heure où vous en avez besoin, et l'accès à la zone piétonne reste soumis à des plages horaires. L'autorisation coûte peu et fait gagner des heures."
+    }, {
+      q: "Que se passe-t-il si un meuble ne passe pas dans l'escalier ?",
+      a: "Nous l'avons repéré au relevé, avant le devis, et nous avons prévu la solution : démontage, sortie par la fenêtre quand la rue le permet, ou remplacement de l'itinéraire. La mauvaise surprise le jour J vient toujours d'un devis fait au téléphone."
+    }, {
+      q: "Le monte-meuble est-il utilisable ici ?",
+      a: "Rarement. Il faut une emprise au sol devant la façade que les ruelles n'offrent presque jamais, et une autorisation d'occupation. Quand c'est possible nous le disons, sinon nous portons."
+    }, {
+      q: "Combien de temps prévoir ?",
+      a: "Comptez une journée entière pour un deux ou trois-pièces, contre une demi-journée dans un immeuble avec ascenseur et parking. La différence tient entièrement aux rotations et au portage."
+    }]
+  },
+  "carre-d-or": {
+    prep: "au Carré d'Or",
+    histoire: "Le Carré d'Or a été bâti d'un seul mouvement, entre la fin du dix-neuvième siècle et l'entre-deux-guerres, pour loger une clientèle aisée qui passait l'hiver à Nice. Les immeubles ont été conçus pour impressionner depuis la rue et pour être desservis par du personnel : escalier de service à l'arrière, ascenseur d'agrément installé plus tard dans la cage, souvent au chausse-pied. Cette logique d'origine explique la contrainte principale d'aujourd'hui, un ascenseur trop petit dans un immeuble par ailleurs cossu.",
+    bati: "L'immeuble type compte cinq à sept niveaux, avec des plafonds de trois mètres et plus. La cage d'escalier est large et soignée, souvent en marbre ou en pierre claire, avec une rampe en fer forgé qui ne supporte aucun choc. L'ascenseur a fréquemment été ajouté dans le vide central : cabine étroite, portes battantes manuelles, charge limitée à deux ou trois personnes. Il accepte des cartons, rarement un meuble. Les appartements ont des parquets d'origine, parfois en point de Hongrie, et des moulures que le moindre coup de diable marque durablement.",
+    acces: "Les rues du secteur sont larges mais la circulation y est dense toute la journée, et le stationnement en surface presque toujours saturé. La proximité de la Promenade des Anglais et de la place Masséna ajoute des flux touristiques qui ne s'interrompent pas. L'enjeu n'est pas de faire passer le camion, il passe : c'est de lui garantir une place devant l'entrée pendant plusieurs heures, ce qui ne s'improvise pas.",
+    stationnement: "Nous demandons systématiquement un emplacement réservé sur la longueur nécessaire, y compris quand le client pense que « ça devrait aller ». Un porteur stationné en double file dans ce secteur bloque la rue en quelques minutes et finit déplacé. L'arrêté est affiché la veille par les panneaux réglementaires, ce qui laisse le temps aux véhicules garés de partir. C'est cette anticipation qui permet de commencer à l'heure annoncée.",
+    jourJ: [{
+      h: "8 h 00",
+      t: "Mise en place de l'emplacement réservé, protection intégrale de la cage d'escalier, du sol et de la rampe."
+    }, {
+      h: "8 h 30",
+      t: "Montage du monte-meuble quand la façade et le trottoir le permettent, sinon organisation du portage par l'escalier."
+    }, {
+      h: "12 h 00",
+      t: "Sortie des volumineux par le monte-meuble, cartons et petits meubles par l'ascenseur en parallèle."
+    }, {
+      h: "15 h 00",
+      t: "Livraison, remontage, repose des protections retirées et vérification des communs avec le gardien."
+    }],
+    pieges: [{
+      t: "Se fier à l'ascenseur",
+      d: "Une cabine de quatre-vingts centimètres de large avec portes battantes ne prend ni un canapé, ni un matelas en cent-soixante, ni une armoire. Elle sert aux cartons, et c'est déjà utile."
+    }, {
+      t: "Négliger la protection des communs",
+      d: "Marbre, moulures et rampe en fer forgé se rayent en une seconde et se réparent en semaines. Le syndic retient la caution, et il a raison."
+    }, {
+      t: "Découvrir le monte-meuble le jour J",
+      d: "Il exige une emprise sur le trottoir, une autorisation d'occupation du domaine public et un angle de pose compatible avec les balcons. Cela se prépare avant, pas devant l'immeuble."
+    }],
+    cout: "Ici, le prix se joue sur le monte-meuble et sur la protection. Le monte-meuble représente une ligne identifiée dans le devis, et nous préférons l'annoncer que le découvrir. La protection des parties communes n'est pas une option facturée à part : elle fait partie du travail, parce qu'un immeuble du Carré d'Or ne se traverse pas comme un parking. Le devis intègre ces deux réalités dès le départ.",
+    faqPlus: [{
+      q: "Comment savoir si le monte-meuble est possible chez moi ?",
+      a: "Il faut trois choses : une largeur de trottoir suffisante, une façade dégagée face à la fenêtre ou au balcon visé, et l'autorisation d'occupation. Nous vérifions les trois au relevé et nous vous le disons avant le devis."
+    }, {
+      q: "Faut-il prévenir le syndic ?",
+      a: "Oui, et nous le faisons volontiers avec vous. Beaucoup de règlements imposent un créneau, exigent la protection des communs et prévoient un état des lieux avant et après. Un syndic prévenu est un allié, un syndic surpris est un problème."
+    }, {
+      q: "Mes parquets anciens risquent-ils quelque chose ?",
+      a: "Pas si l'on travaille correctement. Chemins de protection sur tout le parcours, patins sous les pieds de meubles, aucun déplacement en glissant. Nous faisons l'état des lieux avec vous à l'arrivée comme au départ."
+    }, {
+      q: "Le déménagement est-il plus long dans ce quartier ?",
+      a: "Souvent oui, à cause de l'ascenseur inutilisable pour les volumineux. C'est précisément ce que le monte-meuble compense quand il est posable."
+    }]
+  },
+  "cimiez": {
+    prep: "à Cimiez",
+    histoire: "Cimiez est né du tourisme d'hiver de la Belle Époque, quand les grands hôtels de villégiature ont été construits sur la colline pour une clientèle qui fuyait les brumes du nord. Ces palaces ont été reconvertis en appartements dans la seconde moitié du vingtième siècle, souvent en découpant de très grands volumes. On y trouve donc aujourd'hui des logements atypiques dans des bâtiments qui n'ont jamais été pensés comme des immeubles d'habitation ordinaires, avec des circulations généreuses mais des accès véhicules restés modestes.",
+    bati: "Le parc de Cimiez mélange d'anciens hôtels reconvertis, des immeubles de standing des années soixante et des villas avec jardin. Les appartements issus de reconversions ont des surfaces importantes, des plafonds très hauts et parfois des pièces en enfilade sans couloir de dégagement, ce qui complique la sortie des meubles longs. Les résidences des années soixante disposent d'ascenseurs corrects mais de halls étroits. Les villas, elles, posent la question de l'allée : longueur, pente et portail conditionnent tout le chantier.",
+    acces: "La colline se monte, et c'est la donnée principale. Les voies qui desservent Cimiez sont en pente continue, avec des virages serrés et des portions où deux véhicules ne se croisent pas. Un porteur y monte, mais il faut avoir vérifié l'aire de retournement à l'arrivée, sans quoi la manœuvre de sortie devient un problème à elle seule. Les abords des musées et des arènes connaissent des pics de fréquentation qui rendent certains créneaux inutilisables.",
+    stationnement: "Devant les résidences, l'espace disponible est souvent une contre-allée ou un renfoncement qui n'accueille pas un véhicule long. Nous mesurons l'emplacement réel au relevé, pas sur une vue aérienne, et nous demandons la réservation adaptée. Pour les villas, l'accès se joue au portail : largeur, hauteur libre sous les arbres et pente d'attaque déterminent si le camion entre ou si l'on fait la navette.",
+    jourJ: [{
+      h: "8 h 00",
+      t: "Montée du porteur, positionnement et calage sur la pente. Repérage définitif de l'aire de manœuvre de sortie."
+    }, {
+      h: "8 h 30",
+      t: "Protection du hall et de l'ascenseur, ou du parcours extérieur pour les villas avec jardin."
+    }, {
+      h: "12 h 00",
+      t: "Traitement des volumes atypiques issus des grandes pièces : meubles longs, éléments démontés pièce par pièce."
+    }, {
+      h: "15 h 00",
+      t: "Livraison, remontage et vérification du calage avant redescente à vide."
+    }],
+    pieges: [{
+      t: "Sous-estimer la pente",
+      d: "Charger et décharger sur une déclivité change la manutention et la sécurité. Un diable qui part tout seul dans une allée en pente, c'est un meuble détruit et parfois pire."
+    }, {
+      t: "Oublier l'aire de retournement",
+      d: "Monter est facile, redescendre en marche arrière sur trois cents mètres ne l'est pas. On vérifie la sortie avant d'engager le véhicule."
+    }, {
+      t: "Traiter un ancien hôtel comme un immeuble ordinaire",
+      d: "Les volumes reconvertis abritent des meubles hors norme, montés sur place et parfois impossibles à sortir en un seul morceau."
+    }],
+    cout: "À Cimiez, le prix dépend surtout du volume réel, généralement plus élevé qu'ailleurs à surface égale, et de l'accessibilité du point de chargement. Une villa avec allée praticable coûte moins qu'un appartement de reconversion au troisième sans ascenseur adapté. Nous chiffrons après relevé sur place, parce qu'aucun formulaire en ligne ne devine la pente d'une allée ni la largeur d'un portail.",
+    faqPlus: [{
+      q: "Le camion peut-il monter jusqu'à ma villa ?",
+      a: "Souvent oui, mais cela se vérifie : largeur du portail, hauteur libre sous la végétation, pente d'attaque et surtout possibilité de faire demi-tour. Quand ce n'est pas possible, nous organisons une navette en utilitaire."
+    }, {
+      q: "J'ai des meubles très grands venus de l'ancien appartement, passeront-ils ?",
+      a: "C'est la question typique de Cimiez. Nous mesurons les meubles et les ouvertures au relevé. Certains ont été montés sur place et devront être démontés, ce qui se prévoit et se chiffre à l'avance."
+    }, {
+      q: "Y a-t-il des périodes à éviter ?",
+      a: "Les abords des musées et des arènes sont chargés lors des événements. Nous consultons le calendrier avant de fixer la date, et nous décalons d'une journée plutôt que de perdre trois heures."
+    }, {
+      q: "Mon jardin peut-il être abîmé ?",
+      a: "Nous posons des plaques de répartition quand le sol est meuble et nous évitons de faire rouler un véhicule chargé sur une pelouse détrempée. Cela fait partie du repérage."
+    }]
+  },
+  "liberation": {
+    prep: "à Libération",
+    histoire: "Libération s'est développé autour de sa gare et de son marché, ce qui en a fait un quartier de vie plutôt qu'un quartier de villégiature. Le bâti s'est étoffé par vagues successives, des immeubles de rapport de l'entre-deux-guerres aux constructions des années cinquante et soixante. L'arrivée du tramway a redessiné la circulation de l'avenue et modifié durablement les conditions de stationnement. C'est un quartier où l'on déménage beaucoup, parce qu'on y entre et qu'on en sort au rythme des familles.",
+    bati: "L'immeuble courant de Libération fait quatre à sept niveaux. Ceux d'avant-guerre ont des cages d'escalier correctes mais souvent aucun ascenseur, ou un ascenseur ajouté tardivement et de petite capacité. Les constructions des années cinquante et soixante offrent des ascenseurs plus fonctionnels et des halls plus larges, mais des paliers étroits et des portes standard. Les appartements sont majoritairement des deux et trois-pièces familiaux, avec des balcons qui servent souvent de réserve et qu'on oublie de vider avant le jour J.",
+    acces: "L'avenue est structurée par la ligne de tramway, ce qui interdit l'arrêt sur une bonne partie du linéaire et déporte les possibilités de stationnement sur les rues adjacentes. Les jours de marché, la circulation et les emplacements disponibles changent complètement du matin au début d'après-midi. Un déménagement mal calé sur ce rythme perd deux heures avant d'avoir commencé.",
+    stationnement: "Nous choisissons l'emplacement en fonction du jour de la semaine, pas seulement de l'adresse. Les rues perpendiculaires offrent des possibilités que l'avenue n'a plus, au prix de quelques mètres de portage supplémentaires qui sont largement rentables. La demande d'autorisation précise la rue de report quand l'adresse elle-même est inexploitable, ce qui évite de découvrir le problème sur place.",
+    jourJ: [{
+      h: "7 h 30",
+      t: "Positionnement sur l'emplacement réservé, choisi hors de l'emprise du tramway et hors zone de marché."
+    }, {
+      h: "8 h 00",
+      t: "Protection des communs, vérification de l'ascenseur et de sa charge admissible."
+    }, {
+      h: "11 h 30",
+      t: "Chargement des volumineux avant le pic de circulation de la mi-journée."
+    }, {
+      h: "14 h 30",
+      t: "Livraison et remontage, avec évacuation du contenu des balcons trop souvent oublié."
+    }],
+    pieges: [{
+      t: "Ignorer le jour de marché",
+      d: "Les conditions d'accès et de stationnement ne sont pas les mêmes le matin d'un jour de marché et un mardi après-midi. La date se choisit en connaissance de cause."
+    }, {
+      t: "Oublier le balcon et la cave",
+      d: "Ce sont les deux réserves du quartier. Elles ne figurent presque jamais dans l'estimation initiale et représentent parfois trois mètres cubes."
+    }, {
+      t: "Croire que l'avenue est accessible",
+      d: "L'emprise du tramway interdit l'arrêt sur une grande partie du linéaire. Le report en rue adjacente n'est pas un pis-aller, c'est la solution normale."
+    }],
+    cout: "Libération est l'un des quartiers de Nice où le rapport volume-prix est le plus favorable, à condition d'avoir bien calé la date et l'emplacement. Le surcoût vient presque toujours de deux sources : un étage sans ascenseur et un volume sous-estimé parce que balcon et cave n'ont pas été comptés. Notre relevé les inclut systématiquement, ce qui explique que notre estimation soit parfois plus élevée au départ, et exacte à l'arrivée.",
+    faqPlus: [{
+      q: "Peut-on déménager un jour de marché ?",
+      a: "Oui, mais en adaptant l'heure et l'emplacement. Nous préférons commencer tôt et charger avant l'affluence, ou décaler l'après-midi. Ce qui coûte cher, c'est de ne pas y avoir pensé."
+    }, {
+      q: "Le tramway pose-t-il un problème ?",
+      a: "Il interdit l'arrêt sur son emprise, donc il déplace le point de chargement, souvent de quelques dizaines de mètres. C'est une contrainte de portage, pas un obstacle."
+    }, {
+      q: "Ma cave compte-t-elle dans le volume ?",
+      a: "Oui, et c'est l'oubli numéro un du quartier. Une cave pleine représente couramment deux à trois mètres cubes, soit une différence réelle sur le devis et sur la durée."
+    }, {
+      q: "Combien de temps pour un trois-pièces ?",
+      a: "Une demi-journée à une journée selon l'étage et la présence d'un ascenseur. Sans ascenseur au quatrième, comptez la journée."
+    }]
+  },
+  "mont-boron": {
+    prep: "au Mont Boron",
+    histoire: "Mont Boron a été loti à flanc de colline pour la vue, et toute son organisation en découle. Les voies ont été tracées en lacets pour rattraper le dénivelé, les parcelles étagées les unes au-dessus des autres, et les maisons implantées le plus près possible du panorama, c'est-à-dire souvent le plus loin possible de la route. Ce qui fait la valeur du quartier fait aussi sa difficulté logistique : on y accède par des voies étroites et sinueuses, et l'on y termine fréquemment à pied.",
+    bati: "Le quartier est dominé par les villas et les petites résidences de standing. Les surfaces sont importantes, les volumes à déménager souvent supérieurs à trente mètres cubes, avec du mobilier de qualité et parfois des pièces lourdes comme des pianos ou du mobilier de jardin en pierre. Beaucoup de maisons sont desservies par un escalier extérieur privatif entre le portail et la porte d'entrée, ce qui ajoute une manutention que personne ne compte spontanément.",
+    acces: "Les voies de Mont Boron sont étroites, en pente et en lacets, avec des portions où le croisement est impossible. Un porteur de vingt mètres cubes y monte dans certains cas, mais pas partout, et la question décisive reste le demi-tour. Nous repérons l'itinéraire complet, montée et descente, avant d'engager quoi que ce soit. Quand le gabarit ne passe pas, nous travaillons en navette avec un utilitaire, ce qui allonge la journée et doit figurer au devis.",
+    stationnement: "Il n'y a souvent rien à réserver au sens classique : la question n'est pas de trouver une place mais de disposer d'un point d'arrêt sûr sur une voie en pente, sans bloquer la circulation ni les riverains. Nous calons le véhicule, nous signalons, et nous limitons la durée d'immobilisation en organisant les rotations. Prévenir les voisins directs fait partie du travail et évite les tensions.",
+    jourJ: [{
+      h: "7 h 30",
+      t: "Reconnaissance de l'itinéraire, montée du véhicule adapté au gabarit relevé, calage sur la pente."
+    }, {
+      h: "8 h 00",
+      t: "Mise en place du parcours entre le portail et la porte, protection de l'escalier extérieur."
+    }, {
+      h: "12 h 00",
+      t: "Traitement des pièces lourdes et volumineuses, à plusieurs équipiers, avec matériel de roulage adapté."
+    }, {
+      h: "16 h 00",
+      t: "Descente à vide par l'itinéraire repéré, sans manœuvre improvisée."
+    }],
+    pieges: [{
+      t: "Envoyer un porteur sans avoir vu la route",
+      d: "Certaines voies ne se remontent pas et ne se redescendent pas en marche arrière. Un camion coincé dans un lacet mobilise une dépanneuse et fait perdre la journée."
+    }, {
+      t: "Oublier l'escalier privatif",
+      d: "Entre le portail et la porte, il y a parfois vingt marches. C'est une manutention entière que les devis rapides ignorent systématiquement."
+    }, {
+      t: "Sous-estimer le volume",
+      d: "Les maisons de Mont Boron dépassent souvent trente mètres cubes, garage et extérieur compris. Une estimation par téléphone se trompe presque toujours à la baisse."
+    }],
+    cout: "Le prix à Mont Boron se construit sur trois éléments : le volume réel, le gabarit de véhicule que la voirie autorise, et la distance de portage entre le point d'arrêt et la porte. Ces trois éléments ne se devinent pas, ils se mesurent. C'est pourquoi nous nous déplaçons systématiquement avant de chiffrer, et pourquoi le prix annoncé après visite ne bouge plus.",
+    faqPlus: [{
+      q: "Un camion peut-il vraiment monter chez moi ?",
+      a: "Cela dépend de la voie et de la possibilité de faire demi-tour. Nous faisons la reconnaissance avant le devis. Quand le porteur ne passe pas, la navette en utilitaire est la solution, et son coût est annoncé à l'avance."
+    }, {
+      q: "J'ai un piano, est-ce un problème ?",
+      a: "C'est une prestation spécifique, avec un matériel et un nombre d'équipiers adaptés. Elle se prépare et se chiffre séparément. Ce qu'il ne faut pas faire, c'est l'annoncer le matin même."
+    }, {
+      q: "Le mobilier de jardin compte-t-il ?",
+      a: "Oui, et il pèse lourd dans les deux sens du terme. Tables en pierre, bacs plantés et salons de teck représentent plusieurs mètres cubes que nous intégrons au relevé."
+    }, {
+      q: "Faut-il prévenir les voisins ?",
+      a: "Nous le recommandons et nous le faisons quand vous nous le demandez. Sur des voies où le croisement est impossible, une immobilisation non annoncée crée un conflit en dix minutes."
+    }]
+  },
+  "riquier": {
+    prep: "à Riquier",
+    histoire: "Riquier est un faubourg né autour de la gare et des activités qui l'accompagnaient, ateliers, entrepôts et logements ouvriers. Le bâti y est resté modeste et dense, avec des immeubles de rapport construits au plus près de la voie ferrée. Le quartier s'est transformé sans être reconstruit : on y trouve encore beaucoup d'immeubles anciens sans ascenseur, à côté d'opérations récentes. Cette juxtaposition fait que deux adresses distantes de cent mètres n'ont pas du tout les mêmes contraintes.",
+    bati: "L'immeuble ancien de Riquier fait trois à cinq niveaux, sans ascenseur dans une large majorité des cas. Les cages d'escalier sont étroites, les paliers réduits, et les appartements souvent traversants avec des couloirs longs qui compliquent la sortie des meubles rigides. Les caves sont fréquentes et fréquemment pleines. Les constructions récentes du secteur offrent au contraire ascenseur et parking, ce qui change radicalement la durée du chantier.",
+    acces: "Les rues sont étroites et le stationnement résidentiel très tendu, avec une pression supplémentaire liée à la proximité de la gare. Les axes principaux supportent un trafic de transit qui rend l'arrêt prolongé difficile aux heures de pointe. La marge de manœuvre se trouve tôt le matin, avant que le quartier ne se remplisse.",
+    stationnement: "L'autorisation est ici particulièrement rentable, parce que la probabilité de trouver spontanément une place devant l'immeuble est faible. Nous demandons une longueur réservée suffisante et nous posons les panneaux la veille. Quand la rue est trop étroite pour immobiliser un porteur sans bloquer la circulation, nous prévoyons le report sur une rue voisine et nous en tenons compte dans le temps de portage.",
+    jourJ: [{
+      h: "7 h 00",
+      t: "Prise de l'emplacement réservé avant l'arrivée du trafic de la gare."
+    }, {
+      h: "7 h 30",
+      t: "Protection de la cage d'escalier, souvent étroite, et repérage du passage des meubles longs dans le couloir."
+    }, {
+      h: "11 h 00",
+      t: "Descente des étages sans ascenseur, en rotations organisées pour limiter la fatigue et les chocs."
+    }, {
+      h: "14 h 00",
+      t: "Livraison, puis vidage de la cave si elle a été comptée au relevé."
+    }],
+    pieges: [{
+      t: "Confondre deux adresses voisines",
+      d: "Un immeuble récent avec ascenseur et parking et un immeuble ancien au quatrième sans ascenseur ne se déménagent pas au même prix, même dans la même rue."
+    }, {
+      t: "Laisser la cave pour la fin",
+      d: "Elle est presque toujours plus pleine que prévu, et la traiter en dernier avec une équipe fatiguée est la meilleure façon de casser quelque chose."
+    }, {
+      t: "Commencer trop tard",
+      d: "La pression de stationnement monte avec la journée. Un départ à sept heures vaut deux heures gagnées sur un départ à neuf heures."
+    }],
+    cout: "À Riquier, l'écart de prix entre deux logements de même surface tient à un seul facteur : l'étage et la présence d'un ascenseur. Un troisième sans ascenseur mobilise plus d'heures d'équipe qu'un cinquième avec ascenseur. Nous le disons clairement au devis plutôt que de l'ajouter après coup, et nous proposons souvent de commencer plus tôt pour réduire la durée totale.",
+    faqPlus: [{
+      q: "Mon immeuble n'a pas d'ascenseur, cela change-t-il beaucoup le prix ?",
+      a: "Oui, c'est le premier facteur du quartier. Le nombre d'étages détermine directement le nombre d'heures d'équipe. Nous le chiffrons au relevé, une fois, et il n'y a pas de supplément le jour J."
+    }, {
+      q: "Faut-il vraiment demander une autorisation ici ?",
+      a: "Plus qu'ailleurs. Le stationnement résidentiel est saturé et la proximité de la gare ajoute du passage. Sans emplacement réservé, le camion tourne."
+    }, {
+      q: "Ma cave est-elle incluse ?",
+      a: "Uniquement si elle a été vue et mesurée au relevé. Nous la comptons systématiquement dans ce quartier, parce qu'elle y est presque toujours pleine."
+    }, {
+      q: "Peut-on déménager en fin de journée ?",
+      a: "C'est possible mais rarement optimal. Le trafic et la pression de stationnement sont au plus haut. Nous conseillons de commencer tôt."
+    }]
+  },
+  "le-port": {
+    prep: "au Port",
+    histoire: "Le quartier du port s'est organisé autour du bassin Lympia, creusé au dix-huitième siècle pour donner à Nice un abri qui lui manquait. Les immeubles qui l'entourent ont été construits face à l'eau, en gradins sur les pentes qui descendent vers le quai, avec des façades colorées devenues l'image du secteur. L'activité portuaire, la plaisance et la restauration cohabitent sur un espace contraint, et cette cohabitation détermine à quelle heure un déménagement peut commencer.",
+    bati: "Les immeubles du pourtour du bassin sont anciens, de quatre à six niveaux, souvent sans ascenseur ou avec une cabine ajoutée de faible capacité. Les rez-de-chaussée sont fréquemment occupés par des commerces et des restaurants, ce qui signifie des livraisons, des terrasses et des horaires à respecter. Les appartements ont des vues recherchées et des accès étroits, la combinaison classique du front de mer historique.",
+    acces: "Le pourtour du bassin supporte un trafic constant, auquel s'ajoutent les manœuvres liées à la plaisance et les rotations de livraison des restaurants. Les quais ne sont pas des zones de stationnement libre. Les rues qui montent depuis le port sont en pente et étroites, ce qui limite le gabarit. Le créneau utile se situe tôt le matin, avant l'ouverture des terrasses et les livraisons.",
+    stationnement: "Nous demandons l'emplacement en tenant compte des terrasses et des zones de livraison existantes, qui ne se déplacent pas. Sur les quais, la réservation doit être précise et la durée maîtrisée. Dans les rues en pente qui desservent le quartier, le calage du véhicule et la sécurisation du parcours priment sur la proximité immédiate de la porte.",
+    jourJ: [{
+      h: "6 h 30",
+      t: "Prise de position avant l'ouverture des commerces et les premières livraisons du quai."
+    }, {
+      h: "7 h 00",
+      t: "Protection du parcours et de la cage d'escalier, coordination avec les commerces du rez-de-chaussée si nécessaire."
+    }, {
+      h: "10 h 30",
+      t: "Fin du chargement des volumineux avant l'affluence de la mi-journée sur le pourtour du bassin."
+    }, {
+      h: "14 h 00",
+      t: "Livraison et remontage à l'adresse d'arrivée."
+    }],
+    pieges: [{
+      t: "Arriver après l'ouverture des terrasses",
+      d: "L'espace disponible sur le pourtour se réduit fortement en milieu de matinée. Ce qui était faisable à sept heures ne l'est plus à dix."
+    }, {
+      t: "Ignorer les livraisons des restaurants",
+      d: "Elles occupent les mêmes espaces aux mêmes heures. Se coordonner évite d'attendre son tour pendant une heure."
+    }, {
+      t: "Sous-estimer la pente des rues montantes",
+      d: "Elles limitent le gabarit et imposent parfois la navette. Cela se vérifie au relevé, pas le matin même."
+    }],
+    cout: "Le facteur de prix dominant au port est l'heure de départ. Un chantier engagé à six heures trente se déroule en continu, un chantier engagé à neuf heures subit l'affluence et s'allonge. À cela s'ajoutent les étages sans ascenseur, fréquents dans le bâti ancien du pourtour. Nous construisons le devis sur ces deux réalités, et nous proposons systématiquement le créneau matinal.",
+    faqPlus: [{
+      q: "Pourquoi commencer si tôt ?",
+      a: "Parce que le pourtour du bassin se remplit vite : terrasses, livraisons et circulation. Une heure gagnée le matin en vaut deux en milieu de journée."
+    }, {
+      q: "Peut-on stationner sur le quai ?",
+      a: "Pas librement. Cela se demande, avec une durée précise, et cela s'organise autour des zones de livraison existantes qui, elles, ne bougent pas."
+    }, {
+      q: "J'habite dans une rue qui monte depuis le port, est-ce un problème ?",
+      a: "C'est une contrainte de gabarit. Selon la largeur, nous montons avec le porteur ou nous organisons une navette. Le repérage tranche, pas l'estimation à distance."
+    }, {
+      q: "Le commerce en bas de mon immeuble peut-il bloquer le déménagement ?",
+      a: "Rarement, si l'on se coordonne. Nous prévenons les commerces concernés en amont, ce qui règle la question avant qu'elle ne se pose."
+    }]
+  }
+};
 Object.assign(window, {
   QUARTIERS,
+  QUARTIER_DETAIL,
   AOT,
   getQuartier,
   listeQuartiers

@@ -144,7 +144,7 @@ function QStationnement({
       fontWeight: 700,
       marginBottom: 6
     }
-  }, "Cas le plus courant \xE0 ", q.nom), React.createElement("p", {
+  }, "Cas le plus courant ", dansLe(q)), React.createElement("p", {
     style: {
       margin: '0 0 10px'
     }
@@ -178,7 +178,7 @@ function QMethode({
     className: "asterisk"
   }, "*"), " 04 / Notre m\xE9thode ici")), React.createElement("h2", {
     className: "dim-em"
-  }, "Comment on s'y prend ", React.createElement("em", null, "\xE0 ", q.nom, "."))), React.createElement("ol", {
+  }, "Comment on s'y prend ", React.createElement("em", null, dansLe(q), "."))), React.createElement("ol", {
     style: {
       maxWidth: 780,
       lineHeight: 1.75,
@@ -301,7 +301,7 @@ function QBandeau({
     style: {
       margin: '0 0 10px'
     }
-  }, "Un d\xE9m\xE9nagement \xE0 ", q.nom, " ?"), React.createElement("p", {
+  }, "Un d\xE9m\xE9nagement ", dansLe(q), " ?"), React.createElement("p", {
     style: {
       margin: '0 0 20px',
       opacity: 0.88,
@@ -326,6 +326,172 @@ function QBandeau({
     className: "btn btn-ghost"
   }, "06 15 97 65 77")))));
 }
+const detail = q => (window.QUARTIER_DETAIL || {})[q && q.slug] || null;
+const dansLe = q => {
+  const d = detail(q);
+  return d && d.prep || 'à ' + (q ? q.nom : '');
+};
+function QTexte({
+  num,
+  kicker,
+  titre,
+  em,
+  children
+}) {
+  return React.createElement("section", {
+    className: "sec"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num",
+    style: {
+      fontFamily: "\"DM Sans\""
+    }
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " ", num, " / ", kicker)), React.createElement("h2", {
+    className: "dim-em"
+  }, titre, " ", React.createElement("em", null, em))), children));
+}
+function QHistoire({
+  q
+}) {
+  const d = detail(q);
+  if (!d) return null;
+  return React.createElement(QTexte, {
+    num: "02",
+    kicker: "Pourquoi c'est comme \xE7a",
+    titre: "Le quartier ne s'est pas construit",
+    em: "par hasard."
+  }, React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 780
+    }
+  }, d.histoire));
+}
+function QBati({
+  q
+}) {
+  const d = detail(q);
+  if (!d) return null;
+  return React.createElement(QTexte, {
+    num: "03",
+    kicker: "Les immeubles",
+    titre: "Ce que vous allez trouver",
+    em: 'dans les cages d’escalier.'
+  }, React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 780
+    }
+  }, d.bati));
+}
+function QAcces({
+  q
+}) {
+  const d = detail(q);
+  if (!d) return null;
+  return React.createElement(QTexte, {
+    num: "05",
+    kicker: "Acc\xE8s et circulation",
+    titre: "Par o\xF9 le camion arrive,",
+    em: "et jusqu'o\xF9 il va."
+  }, React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 780
+    }
+  }, d.acces), React.createElement("p", {
+    style: {
+      maxWidth: 780,
+      marginTop: 18,
+      lineHeight: 1.75
+    }
+  }, d.stationnement));
+}
+function QJourJ({
+  q
+}) {
+  const d = detail(q);
+  if (!d || !d.jourJ) return null;
+  return React.createElement(QTexte, {
+    num: "07",
+    kicker: "Le jour J",
+    titre: 'Une journée ' + dansLe(q) + ',',
+    em: "heure par heure."
+  }, React.createElement("ol", {
+    style: {
+      maxWidth: 820,
+      listStyle: 'none',
+      padding: 0,
+      margin: 0
+    }
+  }, d.jourJ.map((e, i) => React.createElement("li", {
+    key: i,
+    style: {
+      display: 'flex',
+      gap: 20,
+      alignItems: 'baseline',
+      padding: '14px 0',
+      borderTop: i ? '1px solid var(--rule)' : 'none'
+    }
+  }, React.createElement("span", {
+    style: {
+      fontFamily: '"DM Sans"',
+      fontWeight: 700,
+      minWidth: 74,
+      whiteSpace: 'nowrap'
+    }
+  }, e.h), React.createElement("span", {
+    style: {
+      lineHeight: 1.7
+    }
+  }, e.t)))));
+}
+function QPieges({
+  q
+}) {
+  const d = detail(q);
+  if (!d || !d.pieges) return null;
+  return React.createElement(QTexte, {
+    num: "09",
+    kicker: "\xC0 ne pas faire",
+    titre: "Les erreurs qui co\xFBtent",
+    em: "une journ\xE9e."
+  }, React.createElement("div", {
+    className: "about-grid",
+    style: {
+      marginTop: 8
+    }
+  }, d.pieges.map((e, i) => React.createElement("div", {
+    key: i,
+    className: "ap-value"
+  }, React.createElement("h3", {
+    className: "ap-value-t"
+  }, e.t), React.createElement("p", {
+    className: "ap-value-d"
+  }, e.d)))));
+}
+function QCout({
+  q
+}) {
+  const d = detail(q);
+  if (!d) return null;
+  return React.createElement(QTexte, {
+    num: "10",
+    kicker: "Le prix",
+    titre: "Ce qui fait monter la note",
+    em: "ici, et pas ailleurs."
+  }, React.createElement("p", {
+    className: "lead",
+    style: {
+      maxWidth: 780
+    }
+  }, d.cout));
+}
 function App() {
   useScrollReveal();
   const q = getQuartier(slugQuartier());
@@ -333,18 +499,30 @@ function App() {
     q: q
   }), React.createElement(QIntro, {
     q: q
+  }), React.createElement(QHistoire, {
+    q: q
+  }), React.createElement(QBati, {
+    q: q
   }), React.createElement(QContraintes, {
+    q: q
+  }), React.createElement(QAcces, {
     q: q
   }), React.createElement(QStationnement, {
     q: q
+  }), React.createElement(QJourJ, {
+    q: q
   }), React.createElement(QMethode, {
+    q: q
+  }), React.createElement(QPieges, {
+    q: q
+  }), React.createElement(QCout, {
     q: q
   }), React.createElement(QFaq, {
     q: q
   }), React.createElement(QProches, {
     q: q
   }), React.createElement(PreuveVille, {
-    ville: q ? "à " + q.nom : ""
+    ville: q ? dansLe(q) : ""
   }), React.createElement(QBandeau, {
     q: q
   }), React.createElement("section", {
@@ -356,5 +534,5 @@ function App() {
   }, React.createElement(QuickQuote, null))))), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { slugQuartier, QHero, QIntro, QContraintes, QStationnement, QMethode, QFaq, QProches, QBandeau, App }); } catch (e) {}
+  try { Object.assign(window, { slugQuartier, QHero, QIntro, QContraintes, QStationnement, QMethode, QFaq, QProches, QBandeau, QTexte, QHistoire, QBati, QAcces, QJourJ, QPieges, QCout, App }); } catch (e) {}
 })();
