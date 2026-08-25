@@ -144,6 +144,7 @@ const CITIES = {
 
   "saint-paul-de-vence": {
     name: "Saint-Paul-de-Vence", file: "Demenagement-Saint-Paul-de-Vence",
+    titre: "Entreprise de déménagement à Saint-Paul-de-Vence · village classé",
     cp: "06570", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement à Saint-Paul-de-Vence : village classé et piéton, transbordement obligatoire, œuvres d'art. Devis ferme sous 24h.",
     intro: "Saint-Paul-de-Vence est le seul endroit de notre zone où le déménagement se fait en deux véhicules. Le village est classé, entièrement piéton, et l'accès aux remparts passe par une autorisation municipale que l'on demande à l'avance. Notre camion reste au parking public : le mobilier est transbordé dans un utilitaire de faible gabarit, puis porté par les ruelles pavées. Autre particularité, et elle n'est pas anecdotique : la densité de galeries et de collectionneurs fait que les intérieurs contiennent souvent des toiles, des sculptures et des céramiques dont la valeur dépasse celle du reste du mobilier.",
@@ -199,7 +200,8 @@ const CITIES = {
   },
 
   "cap-d-antibes": {
-    name: "Cap d'Antibes", file: "Demenagement-Cap-d-Antibes",
+    name: "Cap d'Antibes", file: "Demenagement-Cap-d-Antibes", avecPrep: "au Cap d'Antibes",
+    titre: "Entreprise de déménagement au Cap d'Antibes · propriétés gardées",
     cp: "06160", dept: "Alpes-Maritimes (06)", region: "cote",
     lede: "Déménagement au Cap d'Antibes : propriétés gardiennées, allées privées, mobilier de valeur, discrétion. Devis ferme sous 24h.",
     intro: "Le Cap d'Antibes se déménage sur rendez-vous, au sens propre. Les propriétés sont closes, beaucoup ont un gardien ou un personnel de maison à demeure, et l'accès se négocie avec eux avant de se négocier avec la voirie. Les allées privées, bordées de pins et de murs anciens, sont dimensionnées pour des voitures et rarement pour un porteur de vingt mètres cubes. Enfin, le contenu impose sa propre méthode : mobilier ancien, tableaux, cave à vin parfois conséquente. Ce sont des chantiers lents, préparés, où l'improvisation coûte immédiatement cher.",
