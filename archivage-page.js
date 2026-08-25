@@ -239,7 +239,9 @@ function ArcCTA() {
 }
 function App() {
   useScrollReveal();
-  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(ArcHero, null), React.createElement(ArcSteps, null), React.createElement(ArcFeats, null), React.createElement(ArcWho, null), React.createElement(ArcCTA, null)), React.createElement(Footer, null));
+  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(ArcHero, null), React.createElement(ArcSteps, null), React.createElement(ArcFeats, null), React.createElement(ArcWho, null), React.createElement(ArcCTA, null), React.createElement(FondPage, {
+    cle: "archivage"
+  })), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { ArcHero, ArcSteps, ArcFeats, ArcWho, ArcCTA, App }); } catch (e) {}

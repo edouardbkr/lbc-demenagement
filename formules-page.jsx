@@ -204,6 +204,7 @@ function App() {
         <Compare />
         <Process />
         <QuoteBand />
+        <FondPage cle="formules" />
       </main>
       <Footer />
     </React.Fragment>);

@@ -378,7 +378,9 @@ function App() {
   useScrollReveal();
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(FormulesHero, null), React.createElement(Formules, {
     recommendedTier: "premium"
-  }), React.createElement(FormulaFinder, null), React.createElement(Compare, null), React.createElement(Process, null), React.createElement(QuoteBand, null)), React.createElement(Footer, null));
+  }), React.createElement(FormulaFinder, null), React.createElement(Compare, null), React.createElement(Process, null), React.createElement(QuoteBand, null), React.createElement(FondPage, {
+    cle: "formules"
+  })), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { FormulesHero, Mark, Compare, Process, QuoteBand, FormulaFinder, App }); } catch (e) {}

@@ -164,6 +164,7 @@ function App() {
         <section className="sec"><div className="wrap">
           <div className="devis-hero-form"><QuickQuote /></div>
         </div></section>
+        <FondPage cle="urgence" />
       </main>
       <Footer />
     </React.Fragment>);

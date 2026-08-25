@@ -164,7 +164,9 @@ function App() {
     className: "wrap"
   }, React.createElement("div", {
     className: "devis-hero-form"
-  }, React.createElement(QuickQuote, null))))), React.createElement(Footer, null));
+  }, React.createElement(QuickQuote, null)))), React.createElement(FondPage, {
+    cle: "checklist"
+  })), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { ChecklistHero, Checklist, App }); } catch (e) {}

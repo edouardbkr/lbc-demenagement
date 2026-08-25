@@ -137,6 +137,7 @@ function App() {
         <ArcFeats />
         <ArcWho />
         <ArcCTA />
+        <FondPage cle="archivage" />
       </main>
       <Footer />
     </React.Fragment>);

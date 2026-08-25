@@ -992,6 +992,7 @@ function App() {
         <DevisHero />
         <DevisForm />
         <Testimonials />
+        <FondPage cle="devis" />
       </main>
       <Footer />
     </React.Fragment>);

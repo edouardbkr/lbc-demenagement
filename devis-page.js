@@ -1188,7 +1188,9 @@ function Testimonials() {
 }
 function App() {
   useScrollReveal();
-  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(DevisHero, null), React.createElement(DevisForm, null), React.createElement(Testimonials, null)), React.createElement(Footer, null));
+  return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", null, React.createElement(DevisHero, null), React.createElement(DevisForm, null), React.createElement(Testimonials, null), React.createElement(FondPage, {
+    cle: "devis"
+  })), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
   try { Object.assign(window, { sendToCockpit, DevisHero, Stepper, Choice, FormuleOption, getPrefill, etapeInitiale, SegSelect, AccessBlock, DevisForm, Testimonials, App }); } catch (e) {}
