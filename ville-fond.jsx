@@ -23,6 +23,126 @@
 
 const VILLE_FOND = {
 
+  "saint-laurent-du-var": {
+    titreContexte: ["Une commune coupée en deux", "par la voie rapide et le fleuve."],
+    titreJour: ["Une journée à Saint-Laurent,", "entre zone commerciale et pavillons."],
+    titreErreurs: ["Ce qui transforme un déménagement simple", "en journée compliquée."],
+    contexte: "Saint-Laurent-du-Var est l'une des rares communes de la Côte où l'on déménage sans grande difficulté topographique. Pas de village perché, pas de corniche, pas de ruelle médiévale. Sa difficulté est ailleurs : la commune est traversée par des axes très circulants, structurée par l'une des plus grandes zones commerciales de la région, et son parc de logements va du pavillon des années soixante à la résidence récente avec parking. Le devis se joue sur l'accès et sur le trafic, pas sur le relief.",
+    sections: [
+      { t: "Une zone commerciale qui dicte les horaires", d: "La concentration de commerces autour de Cap 3000 et des axes qui la desservent génère un trafic considérable, avec des pointes en fin de semaine et en période de soldes ou de fêtes. Un déménagement engagé un samedi après-midi dans ce secteur avance au pas. Nous préférons systématiquement les créneaux de début de matinée en semaine, et nous vous le disons franchement quand la date que vous proposez va coûter deux heures de circulation. Pour les transferts de commerces eux-mêmes, l'intervention se cale hors heures d'ouverture, avec un accès livraison négocié avec la galerie ou le bailleur." },
+      { t: "Les axes, la vraie contrainte locale", d: "La commune est coupée par des voies rapides et bordée par le fleuve, ce qui limite le nombre de franchissements possibles. Un itinéraire mal choisi peut ajouter vingt minutes à chaque rotation, et il y en a plusieurs dans une journée. Nous repérons l'itinéraire d'approche et de sortie avant le chantier, en tenant compte de la hauteur sous les ouvrages, qui interdit certains passages aux porteurs. Le trajet le plus court sur une carte n'est presque jamais le plus rapide ici." },
+      { t: "Un parc de logements très hétérogène", d: "On trouve à Saint-Laurent des pavillons individuels des années soixante et soixante-dix, des immeubles collectifs de la même époque souvent sans ascenseur ou avec un ascenseur d'origine, et des résidences récentes avec parking souterrain. Ces trois cas n'ont ni le même accès, ni le même temps de chargement, ni le même prix. Le parking souterrain notamment impose une hauteur limitée qui exclut le porteur et oblige à charger à l'extérieur, ce que beaucoup de devis à distance oublient de prévoir." },
+      { t: "Le stockage, souvent nécessaire ici", d: "Beaucoup de nos clients laurentins passent d'un pavillon à un appartement, ou l'inverse, avec un décalage de dates. Nous proposons un garde-meuble relais : le mobilier est chargé, inventorié, stocké en caisses scellées, puis livré à la date de votre choix. Le volume reste dans les mêmes contenants du départ à l'arrivée, ce qui évite de payer deux manutentions complètes et limite les risques de casse liés aux manipulations supplémentaires." }
+    ],
+    jour: [
+      { h: "7 h 00", t: "Approche par l'itinéraire repéré, avant la montée du trafic sur les axes principaux." },
+      { h: "7 h 30", t: "Positionnement du véhicule, à l'extérieur si le parking souterrain limite la hauteur." },
+      { h: "11 h 30", t: "Chargement terminé avant les pointes de circulation de la mi-journée." },
+      { h: "14 h 00", t: "Livraison, ou mise en garde-meuble relais si les dates ne se recouvrent pas." }
+    ],
+    erreurs: [
+      { t: "Déménager un samedi près de la zone commerciale", d: "Le trafic y transforme chaque rotation en épreuve. Un mardi matin coûte moins cher et se termine plus tôt, à prestation identique." },
+      { t: "Compter sur le parking souterrain", d: "La hauteur libre y exclut presque toujours le porteur. Le chargement se fait dehors, avec une distance de portage qui doit figurer au devis." },
+      { t: "Choisir l'itinéraire le plus court", d: "Les franchissements sont peu nombreux et les hauteurs sous ouvrage limitées. Le trajet se repère avant, sinon chaque rotation perd vingt minutes." }
+    ]
+  },
+
+  "cagnes-sur-mer": {
+    titreContexte: ["Trois communes en une,", "et trois façons de déménager."],
+    titreJour: ["Une journée cagnoise,", "de la plage au village médiéval."],
+    titreErreurs: ["Les trois pièges", "d'une commune à trois visages."],
+    contexte: "Cagnes-sur-Mer n'est pas une ville, c'est trois. Le bord de mer et le Cros-de-Cagnes, denses et plats. Le centre, résidentiel et commerçant. Et le Haut-de-Cagnes, village médiéval perché, ceint de ruelles où aucun camion n'entre. Donner un prix sans savoir laquelle des trois est concernée n'a aucun sens, et pourtant c'est ce que font la plupart des devis obtenus en ligne.",
+    sections: [
+      { t: "Le Haut-de-Cagnes, où le camion reste en bas", d: "Le village médiéval s'organise autour de calades, de passages voûtés et d'escaliers. Les rues y sont souvent trop étroites pour un véhicule utilitaire, et certaines sections sont purement piétonnes. Le principe est simple : on stationne au plus près sur les emplacements praticables, et le reste se fait à la main ou avec du matériel de roulage adapté aux pavés. Le portage se compte en marches et en dénivelé, pas en mètres. C'est ce paramètre, et lui seul, qui détermine le nombre d'équipiers et la durée de la journée." },
+      { t: "Un patrimoine qui impose ses règles", d: "Le château et les abords du vieux village relèvent d'un cadre protégé, avec des contraintes sur ce qu'on peut installer et où. Un monte-meuble n'est pas posable partout, et l'emprise au sol devant une façade ancienne se demande. Nous vérifions ces points au relevé plutôt que de le découvrir sur place. Le bâti lui-même impose sa prudence : murs anciens, encadrements de pierre, marches usées. Une protection systématique des angles et des seuils fait partie du travail, pas des options." },
+      { t: "Le gabarit, question numéro un", d: "Entre le bord de mer accessible à un porteur de vingt mètres cubes et les ruelles du Haut-de-Cagnes où passe à peine un petit utilitaire, l'écart de méthode est total. Nous mesurons la largeur utile, la hauteur des passages voûtés et l'aire de retournement avant de choisir le véhicule. Quand le porteur ne monte pas, nous organisons une navette, et son coût figure au devis dès le départ. Envoyer un camion trop grand n'est pas une erreur d'appréciation, c'est une journée perdue." },
+      { t: "Les rotations de location saisonnière", d: "Le bord de mer cagnois compte beaucoup de logements loués à la saison. Entre deux locataires, il faut parfois vider, stocker et réinstaller dans une fenêtre courte. Nous étiquetons par pièce, nous conservons l'inventaire d'un passage à l'autre, et nous replaçons le mobilier à l'identique. C'est un travail répétitif où la mémoire du chantier précédent fait gagner un temps considérable, à condition de l'avoir consignée." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Choix du véhicule selon le secteur relevé, porteur en bas de ville, utilitaire pour le village." },
+      { h: "8 h 00", t: "Protection des seuils et des encadrements anciens si l'adresse est dans le vieux village." },
+      { h: "11 h 00", t: "Rotations à la main sur les calades, avec matériel de roulage adapté aux pavés." },
+      { h: "14 h 30", t: "Livraison et remontage, ou mise en garde-meuble entre deux locations." }
+    ],
+    erreurs: [
+      { t: "Demander un prix sans dire quel Cagnes", d: "Bord de mer, centre et Haut-de-Cagnes n'ont rien en commun. Le même volume peut varier du simple au double selon le secteur." },
+      { t: "Croire qu'un utilitaire monte partout", d: "Certaines ruelles du village sont piétonnes et d'autres trop étroites. Le relevé tranche, l'estimation à distance se trompe." },
+      { t: "Négliger la protection du bâti ancien", d: "Encadrements de pierre et marches usées ne se réparent pas. La protection systématique coûte quelques minutes, son absence coûte un litige." }
+    ]
+  },
+
+  "grasse": {
+    titreContexte: ["La ville des parfums", "et son centre médiéval vertical."],
+    titreJour: ["Une journée grassoise,", "entre vieille ville et quartiers étalés."],
+    titreErreurs: ["Ce qu'on découvre trop tard", "dans une ville en escalier."],
+    contexte: "Grasse est une ville haute, construite en amphithéâtre sur son versant, avec un centre médiéval extrêmement dense et des quartiers résidentiels étalés sur plusieurs kilomètres autour. Le contraste est brutal : on peut y déménager une villa avec allée privée le matin et un troisième étage sans ascenseur au bout d'une ruelle en pente l'après-midi. Le mot Grasse sur un devis ne dit donc rien tant qu'on n'a pas l'adresse exacte.",
+    sections: [
+      { t: "Le centre ancien, dense et vertical", d: "La vieille ville de Grasse est un tissu médiéval serré, avec des rues en pente, des escaliers et des immeubles hauts sans ascenseur. Beaucoup d'adresses ne sont pas accessibles en véhicule, ou seulement par un utilitaire de petit gabarit sur un créneau horaire. Le portage y est la norme et se compte en volées de marches. Nous relevons le parcours complet avant le devis, du point de stationnement possible jusqu'à la porte, parce que c'est ce parcours qui fixe la durée et donc le prix. Aucun formulaire en ligne ne peut deviner soixante marches." },
+      { t: "Un patrimoine bâti à protéger", d: "Le centre historique comporte du bâti ancien et des secteurs protégés, avec les contraintes qui vont avec : ce qu'on peut installer sur la voie publique, où l'on peut poser un monte-meuble, comment on protège un seuil ou un encadrement. Nous vérifions ces points en amont. Les cages d'escalier anciennes demandent par ailleurs une protection soignée : rampes, murs, marches. Ce n'est pas du zèle, c'est ce qui évite une retenue sur caution ou un litige avec le propriétaire." },
+      { t: "Les commerces et l'activité du parfum", d: "Grasse vit de son industrie et de son commerce, et nous intervenons régulièrement pour des boutiques, des ateliers et des locaux professionnels du secteur. L'enjeu est toujours le même : limiter la fermeture. Nous chargeons le stock d'abord, l'agencement ensuite, et nous intervenons hors heures d'ouverture quand la rue le permet. Pour les locaux qui manipulent des produits sensibles, nous adaptons le conditionnement et l'ordre de chargement aux consignes que vous nous donnez." },
+      { t: "Un parc immobilier très contrasté", d: "Entre les immeubles anciens du centre, les résidences des années soixante-dix des quartiers intermédiaires et les villas des hauteurs, Grasse offre presque tous les cas de figure. Chacun a sa contrainte dominante : l'escalier pour le centre, l'ascenseur d'origine pour les résidences, l'allée et le portail pour les villas. Nous nous déplaçons systématiquement avant de chiffrer, parce qu'une même surface peut demander trois équipiers ou six selon l'adresse." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Positionnement au plus près du point de portage, souvent hors du centre ancien." },
+      { h: "8 h 00", t: "Protection de la cage d'escalier, des rampes et des seuils dans le bâti ancien." },
+      { h: "11 h 30", t: "Rotations organisées pour limiter la fatigue sur les volées de marches." },
+      { h: "14 h 30", t: "Livraison et remontage, état des lieux des parties communes aux deux adresses." }
+    ],
+    erreurs: [
+      { t: "Donner une adresse sans préciser l'étage", d: "Dans le centre grassois, l'étage sans ascenseur est le premier facteur de durée, bien avant le volume. C'est ce qui fait varier le devis du simple au double." },
+      { t: "Croire que le camion s'approche", d: "Beaucoup de ruelles du centre sont inaccessibles ou soumises à créneau. Le point de stationnement réel se repère avant, pas le matin même." },
+      { t: "Oublier la cave ou le grenier", d: "Le bâti ancien grassois en comporte souvent, et ils sont rarement vides. Non comptés au relevé, ils ajoutent des heures imprévues." }
+    ]
+  },
+
+  "le-cannet": {
+    titreContexte: ["Un balcon au-dessus de Cannes,", "et tout se joue sur la pente."],
+    titreJour: ["Une journée au Cannet,", "d'un niveau à l'autre."],
+    titreErreurs: ["Trois oublis fréquents", "sur une commune étagée."],
+    contexte: "Le Cannet occupe le versant qui domine Cannes, et cette position commande tout. La commune s'étage du bas, presque continu avec Cannes, jusqu'aux hauteurs résidentielles et au vieux village. On y déménage rarement à plat : il y a presque toujours une pente, un escalier extérieur ou un accès en contrebas, et c'est cela qu'un devis sérieux doit avoir mesuré.",
+    sections: [
+      { t: "Des copropriétés nombreuses et réglementées", d: "Le parc cannettan est largement collectif, avec beaucoup de résidences des années soixante à quatre-vingt-dix disposant d'un règlement précis. Réservation d'ascenseur, créneau horaire, protection des parties communes et attestation d'assurance sont demandées presque systématiquement. Nous contactons le syndic ou le gardien dès l'acceptation du devis et nous fournissons les pièces sans attendre qu'on nous les réclame. C'est la différence entre une équipe qui commence à huit heures et une équipe qui attend dans la rue." },
+      { t: "Un parc immobilier de plusieurs époques", d: "On trouve au Cannet des immeubles anciens dans le vieux village, un parc collectif abondant des décennies soixante à quatre-vingt-dix, et des résidences récentes. Les ascenseurs d'origine des immeubles les plus anciens sont souvent trop petits pour un canapé ou une armoire montée : ils servent aux cartons, pas au mobilier. Nous mesurons la cabine et la porte au relevé, et nous décidons alors entre portage et monte-meuble, plutôt que de l'improviser." },
+      { t: "Accompagner les départs en résidence", d: "Une part significative de nos interventions cannettanes concerne des personnes âgées quittant un appartement occupé longtemps pour une structure adaptée, avec une réduction de surface importante. Ce travail se fait au rythme de la personne, avec le tri qu'il suppose et souvent la famille au téléphone. Ce qui ne rentre pas est stocké, donné ou évacué selon votre décision. Nous ne bousculons pas ces chantiers, et nous prévoyons le temps qu'ils demandent réellement." },
+      { t: "Le gabarit sur des voies en pente", d: "Les rues qui montent vers le vieux village et les hauteurs sont étroites, sinueuses, et le stationnement y est difficile. Un porteur ne monte pas partout, et surtout ne redescend pas partout. Nous repérons l'itinéraire complet, y compris la sortie, et nous calons le véhicule sur la déclivité. Quand le gabarit ne passe pas, la navette en utilitaire est la solution, et son surcoût est annoncé au devis, jamais ajouté après." }
+    ],
+    jour: [
+      { h: "8 h 00", t: "Présentation au gardien, activation de la réservation d'ascenseur, remise de l'attestation d'assurance." },
+      { h: "8 h 30", t: "Protection des parties communes et de la cabine d'ascenseur, état des lieux d'entrée." },
+      { h: "12 h 00", t: "Portage ou monte-meuble pour les volumineux, selon la mesure faite au relevé." },
+      { h: "15 h 00", t: "Livraison, remontage et vérification des communs avec le gardien avant départ." }
+    ],
+    erreurs: [
+      { t: "Se fier à l'ascenseur sans l'avoir mesuré", d: "Les cabines d'origine acceptent les cartons et refusent le mobilier. Le découvrir le matin ajoute une demi-journée de portage non prévue." },
+      { t: "Oublier de prévenir le syndic", d: "Créneau imposé, attestation à fournir, communs à protéger. Trois exigences qui se règlent en amont ou bloquent l'accès." },
+      { t: "Ignorer la pente à la sortie", d: "Monter est simple, redescendre chargé sur une voie étroite ne l'est pas. L'itinéraire de sortie se repère au même titre que celui d'approche." }
+    ]
+  },
+
+  "villeneuve-loubet": {
+    titreContexte: ["Une marina, un village, des collines,", "et trois logiques d'accès."],
+    titreJour: ["Une journée à Villeneuve-Loubet,", "entre résidence fermée et village."],
+    titreErreurs: ["Ce qui bloque un camion", "devant une résidence fermée."],
+    contexte: "Villeneuve-Loubet réunit sur un même territoire une marina emblématique, un village perché autour de son château, et des quartiers de collines pavillonnaires. Trois mondes, trois modes d'accès, et une constante : la plupart des adresses de bord de mer se trouvent dans des ensembles fermés dont l'accès se prépare avant le jour J, jamais devant le portail.",
+    sections: [
+      { t: "Les grands ensembles du bord de mer", d: "La Marina Baie des Anges et les résidences voisines forment des ensembles fermés avec gardien, parkings dédiés et circulations internes. On n'y accède pas librement : il faut un créneau, parfois un badge, et la connaissance du cheminement interne jusqu'à l'entrée de l'immeuble concerné. Nous prenons contact avec le gardien ou la régie dès l'acceptation du devis pour obtenir ces éléments. La distance entre le point de stationnement autorisé et la porte peut atteindre plusieurs dizaines de mètres, ce qui doit figurer au devis, sous peine d'une mauvaise surprise pour tout le monde." },
+      { t: "Le syndic, interlocuteur incontournable", d: "Dans ces copropriétés, le règlement encadre précisément les déménagements : jours et heures autorisés, protection des parties communes, ascenseur à réserver, parfois dépôt de garantie. Un état des lieux des communs avant et après est fréquemment demandé. Nous fournissons attestation d'assurance et liste des équipiers sans qu'on ait à les réclamer, et nous réalisons l'état des lieux contradictoire. C'est ce qui protège votre caution autant que notre réputation." },
+      { t: "Le port et les logements de plaisance", d: "La proximité du port amène une clientèle spécifique, avec des logements souvent compacts, des calendriers dictés par les contrats et parfois du mobilier ou du matériel de bateau à transporter. L'accès aux zones portuaires est réglementé et se prépare la veille. Ces chantiers sont généralement de faible volume mais de forte contrainte horaire, et ils demandent une équipe qui ne découvre pas les lieux le matin même." },
+      { t: "La saison, qui change tout au bord de mer", d: "L'été, les axes littoraux et les abords des résidences de bord de mer sont saturés, et les créneaux d'accès autorisés se réduisent. Un déménagement estival n'est pas impossible, il est plus lent, et cela doit se voir au planning. Nous vous indiquons les périodes où le même chantier prendra une heure de plus, et nous proposons systématiquement un départ matinal, seul moyen fiable de tenir la journée annoncée." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Présentation au gardien avec la liste des équipiers transmise la veille, récupération du badge d'accès." },
+      { h: "8 h 00", t: "État des lieux contradictoire des parties communes, réservation d'ascenseur activée, protections posées." },
+      { h: "11 h 30", t: "Chargement avec portage sur la circulation interne jusqu'au point de stationnement autorisé." },
+      { h: "14 h 30", t: "Livraison, remontage, état des lieux de sortie signé avec le gardien." }
+    ],
+    erreurs: [
+      { t: "Arriver sans avoir prévenu le gardien", d: "Dans un ensemble fermé, l'accès sans créneau validé est refusé. Le camion attend, et la journée se termine avant d'avoir commencé." },
+      { t: "Sous-estimer la distance de portage interne", d: "Entre le stationnement autorisé et la porte, il y a parfois cinquante mètres et deux circulations. Cela se mesure au relevé et se chiffre." },
+      { t: "Déménager en plein été sans le prévoir", d: "Les accès se restreignent et les axes saturent. Ce n'est pas rédhibitoire, mais un départ à sept heures trente devient indispensable." }
+    ]
+  },
+
   "monaco": {
     titreContexte: ["Deux kilomètres carrés", "qui ne se traversent pas comme une ville."],
     titreJour: ["Une journée en Principauté,", "de la conciergerie à la frontière."],
