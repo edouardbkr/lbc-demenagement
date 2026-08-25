@@ -23,6 +23,253 @@
 
 const VILLE_FOND = {
 
+  /* ⚠️ FRONTIERE VILLE / SECTEUR, la plus exposee du site.
+     Saint-Tropez et Golfe-de-Saint-Tropez etaient a 28 % de recouvrement, de meme
+     que Grasse et Pays-de-Grasse. Une page secteur ne parle JAMAIS de la commune
+     qui possede deja sa propre page : elle couvre les communes voisines, nommement,
+     et renvoie vers la page dediee pour le reste. La ville, elle, ne parle jamais
+     du secteur. Toute phrase qui enfreint cette regle recree la cannibalisation. */
+
+  "saint-tropez": {
+    titreContexte: ["Une presqu'île qui double de population,", "et se referme l'été."],
+    titreJour: ["Une journée à Saint-Tropez,", "hors saison si possible."],
+    titreErreurs: ["Les trois erreurs", "d'un déménagement tropézien."],
+    contexte: "Saint-Tropez vit deux vies. Neuf mois par an, c'est un village de cinq mille habitants où l'on déménage sans difficulté particulière. Trois mois par an, la population est multipliée par plusieurs et la presqu'île se sature au point que traverser le village peut prendre une heure. La question centrale d'un déménagement tropézien n'est donc pas comment, mais quand.",
+    sections: [
+      { t: "La saison, qui ferme la presqu'île", d: "De juin à septembre, les accès à la presqu'île sont saturés et le stationnement d'un véhicule long dans le village devient quasiment impossible en journée. Un déménagement engagé en pleine saison à onze heures ne se termine pas dans la journée. Nous privilégions très largement les mois creux, et lorsque la date d'été est imposée, nous engageons le chantier au lever du jour, avant la remontée du trafic. Nous vous disons franchement, au moment du devis, ce qu'une date d'août coûtera de plus en temps : c'est une information, pas un argument commercial." },
+      { t: "Le port et les logements de marins", d: "Le port structure une part de la demande locale : équipages, personnels de yachts, saisonniers logés sur place le temps d'un contrat. Ces déménagements sont de petit volume mais très contraints en calendrier, avec des départs parfois décidés en quelques jours. L'accès aux zones portuaires est réglementé et se prépare la veille. Nous avons l'habitude de ces chantiers courts et pressés, où un jour de retard peut coûter un embarquement." },
+      { t: "Des propriétaires souvent étrangers", d: "Une part notable des logements appartient à des propriétaires qui ne résident pas en France. Les échanges se font par écrit, souvent en anglais, sur des fuseaux décalés, avec des délais qui allongent la préparation. Nous cadrons par écrit qui ouvre, qui signe l'inventaire et qui reçoit le compte rendu photographique, avant de bloquer une date. Sur la presqu'île en saison, une date bloquée puis annulée est une date perdue pour tout le monde." },
+      { t: "Vider une maison de famille", d: "Les successions représentent une part réelle de notre activité tropézienne, sur des maisons parfois détenues depuis plusieurs générations. Il s'agit alors de séparer ce que la famille conserve, ce qui peut être repris et ce qui part. Nous établissons un inventaire, nous respectons les délais fixés par le notaire, et nous rendons le logement propre. Ces chantiers se déroulent dans des moments difficiles, souvent avec des héritiers dispersés : nous nous adaptons à leur rythme et à leurs décisions." }
+    ],
+    jour: [
+      { h: "6 h 30", t: "Entrée dans le village avant la montée du trafic, positionnement sur l'emplacement obtenu." },
+      { h: "7 h 00", t: "Protection du parcours, coordination avec le port si l'adresse en dépend." },
+      { h: "10 h 30", t: "Chargement des volumineux terminé avant la saturation de la mi-journée." },
+      { h: "14 h 00", t: "Sortie de la presqu'île, puis livraison à l'adresse d'arrivée." }
+    ],
+    erreurs: [
+      { t: "Choisir une date d'août sans le mesurer", d: "La presqu'île sature et le même chantier prend une journée de plus. Décaler à septembre change tout, quand c'est possible." },
+      { t: "Commencer en milieu de matinée", d: "À dix heures en saison, on ne circule plus. Le créneau utile se situe au lever du jour, sans exception." },
+      { t: "Bloquer une date avant d'avoir les instructions écrites", d: "Avec un propriétaire à l'étranger, une date non confirmée est une date perdue pour tout le monde." }
+    ]
+  },
+
+  "golfe-de-saint-tropez": {
+    titreContexte: ["Sainte-Maxime, Grimaud, Cogolin,", "le golfe sans la presqu'île."],
+    titreJour: ["Une journée dans le golfe,", "et le contournement se prépare."],
+    titreErreurs: ["Ce qui piège", "sur les routes du golfe."],
+    contexte: "Cette page couvre les communes du golfe autour de la baie : Sainte-Maxime, Grimaud et Port Grimaud, Cogolin, Ramatuelle, La Croix-Valmer, Gassin. Elle ne traite pas de Saint-Tropez, qui a sa propre page et ses propres contraintes. Ce qui réunit ces communes, c'est un réseau routier unique qui contourne la baie, et une économie de la location saisonnière qui rythme l'année.",
+    sections: [
+      { t: "Un réseau routier qui contourne la baie", d: "La géographie du golfe impose de longs contournements : ce qui se voit d'une rive à l'autre demande parfois quarante minutes de route. En saison, les axes qui desservent Sainte-Maxime, Cogolin et Grimaud connaissent des ralentissements considérables, et le moindre incident bloque tout, faute d'itinéraire alternatif. Nous calculons les temps de trajet sur la réalité de la période concernée et non sur une estimation théorique, et nous engageons les chantiers tôt. Une rotation supplémentaire mal calée coûte ici une heure, pas dix minutes." },
+      { t: "La location saisonnière, moteur du secteur", d: "Une grande partie du parc immobilier du golfe est louée à la semaine ou au mois. Entre deux locataires, il faut parfois vider, stocker puis réinstaller dans une fenêtre de quelques heures. Nous étiquetons par pièce, nous conservons l'inventaire d'un passage au suivant, et nous replaçons le mobilier à l'identique. C'est un travail de logistique répétitive où la mémoire du passage précédent fait gagner un temps considérable, à condition de l'avoir consignée. Ces rotations se planifient plusieurs semaines à l'avance sur la haute saison." },
+      { t: "Le garde-meuble, presque toujours nécessaire", d: "Entre une vente, une saison de location et une nouvelle installation, les dates ne se recouvrent presque jamais dans ce secteur. Nous stockons le mobilier en caisses scellées et inventoriées, puis nous livrons à la date que vous fixez. Le contenu reste dans les mêmes contenants du départ à l'arrivée, ce qui évite une manutention complète supplémentaire. Sur des communes où l'on ne peut pas toujours accéder au logement quand on veut, cette souplesse vaut mieux qu'un calendrier tendu à l'extrême." },
+      { t: "Beaucoup de propriétaires absents", d: "Comme ailleurs sur le littoral varois, une part importante des logements du golfe n'est pas occupée à l'année. Nous travaillons avec un mandataire, une agence ou un gardien, sur instructions écrites définies avant le chantier : qui ouvre, qui signe l'inventaire, qui reçoit les photos. L'état des lieux photographique est transmis le jour même. Sur ces communes éloignées de notre base, une visite blanche pour un portail fermé coûte une demi-journée à tout le monde." }
+    ],
+    jour: [
+      { h: "6 h 30", t: "Départ anticipé, le contournement de la baie prend plus longtemps que ne l'indique une carte." },
+      { h: "8 h 30", t: "Récupération des clés auprès du mandataire ou de l'agence, état des lieux photographique." },
+      { h: "12 h 00", t: "Chargement et étiquetage par pièce, inventaire conservé pour la rotation suivante." },
+      { h: "15 h 00", t: "Livraison ou mise en garde-meuble, compte rendu transmis au propriétaire." }
+    ],
+    erreurs: [
+      { t: "Calculer le trajet à vol d'oiseau", d: "Le golfe se contourne. Deux communes qui se font face demandent quarante minutes de route, et davantage en saison." },
+      { t: "Planifier une rotation de location au dernier moment", d: "Les fenêtres entre deux locataires sont courtes et les créneaux d'été se réservent des semaines à l'avance." },
+      { t: "Venir sans instructions écrites", d: "Sur un secteur éloigné, un portail fermé signifie une demi-journée perdue en aller-retour, pas dix minutes d'attente." }
+    ]
+  },
+
+  "pays-de-grasse": {
+    titreContexte: ["Peymeinade, Cabris, Saint-Vallier,", "l'arrière-pays sans la ville."],
+    titreJour: ["Une journée dans le pays de Grasse,", "entre collines et hameaux."],
+    titreErreurs: ["Ce qu'on sous-estime", "en montant vers l'arrière-pays."],
+    contexte: "Cette page couvre les communes autour de Grasse : Peymeinade, Cabris, Saint-Vallier-de-Thiey, Le Tignet, Spéracèdes, Saint-Cézaire. Elle ne traite pas de Grasse elle-même, qui a sa propre page. Ce qui caractérise ces communes, c'est un habitat majoritairement individuel, dispersé en hameaux, à une altitude où les conditions ne sont plus celles du littoral.",
+    sections: [
+      { t: "Un habitat pavillonnaire dispersé", d: "Contrairement au littoral, l'arrière-pays grassois est fait de maisons individuelles, souvent sur terrain, réparties en hameaux et le long de routes de campagne. Les volumes à déménager y sont donc nettement supérieurs à ceux d'un appartement de bord de mer : garage, cave, atelier, abri de jardin et mobilier d'extérieur s'ajoutent au logement lui-même. Une estimation faite sur la seule surface habitable se trompe systématiquement à la baisse. Nous nous déplaçons pour relever l'ensemble, dépendances comprises, parce que c'est là que se joue l'écart entre le devis et la réalité." },
+      { t: "L'altitude et les saisons", d: "En montant vers Saint-Vallier ou Saint-Cézaire, on gagne plusieurs centaines de mètres et l'on change de climat. L'hiver, le sol peut être gelé le matin alors que la côte est au sec, et les épisodes pluvieux d'automne rendent les accès en terre impraticables pour un véhicule chargé. Nous vérifions les prévisions avant de confirmer une date sensible, et nous prévoyons des plaques de répartition quand l'accès se fait sur un sol meuble. Un camion embourbé dans une allée non stabilisée immobilise la journée." },
+      { t: "Les familles et le calendrier scolaire", d: "Ces communes attirent des familles qui viennent chercher de l'espace, et leurs déménagements se calent presque toujours sur la rentrée scolaire. La demande se concentre donc sur quelques semaines d'été, avec des samedis qui partent en premier. Nous conseillons de réserver dès que la date de remise des clés est connue, plutôt que d'attendre d'avoir tout organisé : sur cette période, la disponibilité pèse autant que le prix dans le choix final." },
+      { t: "Ce qui ne part pas avec vous", d: "Une maison avec dépendances contient toujours des choses qui ne suivront pas : mobilier de jardin fatigué, outillage, matériaux stockés depuis des années. Chaque commune a ses propres règles de dépôt en déchetterie et ses conditions d'accès pour les particuliers comme pour les professionnels. Nous vous indiquons ce que nous pouvons évacuer et ce qui relève d'un dépôt de votre part, avant le jour J. C'est une question qui se règle mal le matin du déménagement, avec un camion à charger." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Montée avec le véhicule adapté, vérification de l'état du sol d'accès sur la propriété." },
+      { h: "8 h 00", t: "Pose des plaques de répartition si le terrain est meuble, protection du parcours." },
+      { h: "12 h 00", t: "Chargement du logement, puis des dépendances relevées au devis : garage, cave, abri, extérieur." },
+      { h: "15 h 30", t: "Livraison, remontage, et évacuation de ce qui a été convenu à l'avance." }
+    ],
+    erreurs: [
+      { t: "Estimer le volume sur la surface habitable", d: "Garage, cave, atelier et extérieur représentent souvent un tiers du volume réel. Non comptés, ils font exploser la journée." },
+      { t: "Ignorer l'altitude en hiver", d: "Il peut geler à Saint-Vallier alors qu'il fait doux à Cannes. Le sol et la route ne sont pas les mêmes." },
+      { t: "Décider des encombrants le jour même", d: "Ce qui ne part pas doit être traité avant. Chaque commune a ses règles, et cela ne se règle pas avec un camion à charger." }
+    ]
+  },
+
+  "arriere-pays-nicois": {
+    titreContexte: ["Levens, Aspremont, Tourrette,", "et des routes qui montent."],
+    titreJour: ["Une journée dans l'arrière-pays,", "où le trajet compte double."],
+    titreErreurs: ["Ce que l'altitude", "ajoute à une journée."],
+    contexte: "Cette page couvre les villages perchés au nord de Nice : Levens, Aspremont, Tourrette-Levens, Colomars, Castagniers, Saint-Blaise, Falicon. Ce sont des communes de quelques milliers d'habitants, accrochées à des crêtes ou à des versants, desservies par des routes de montagne. La distance à Nice y est courte à vol d'oiseau et longue en temps réel, et c'est le premier paramètre de tout devis.",
+    sections: [
+      { t: "Des villages accrochés en altitude", d: "Ces communes culminent entre trois cents et sept cents mètres, sur des crêtes ou des versants. Les cœurs de village sont souvent médiévaux, avec des ruelles étroites, des escaliers et des places exiguës où un camion ne manœuvre pas. Autour, l'habitat est dispersé en restanques et en maisons individuelles desservies par des chemins privés. Nous relevons l'adresse exacte et son accès réel avant de chiffrer, parce que d'un village à l'autre, et même d'un quartier à l'autre, les contraintes n'ont rien de commun." },
+      { t: "Des routes en lacets, et le temps qu'elles coûtent", d: "L'accès se fait par des routes de montagne étroites, en lacets, avec des passages où le croisement est délicat et des ponts anciens qui limitent le tonnage. Un trajet que la carte annonce en vingt minutes en demande souvent quarante avec un véhicule chargé. Nous parcourons l'itinéraire complet avant le chantier et nous vérifions surtout la possibilité de faire demi-tour : monter est presque toujours possible, redescendre en marche arrière ne l'est jamais." },
+      { t: "Le débarras, très fréquent ici", d: "Les maisons de l'arrière-pays sont souvent occupées depuis longtemps, avec des caves, des greniers et des remises accumulés sur des décennies. Une part importante de nos interventions consiste autant à vider qu'à déménager. Nous séparons ce qui part, ce qui se donne et ce qui s'évacue, en tenant compte des règles de dépôt propres à chaque commune, qui ne sont pas celles du littoral. Cette part du travail se chiffre au relevé, sinon elle déborde toujours." },
+      { t: "Le stockage, quand les dates ne collent pas", d: "Beaucoup de ces déménagements accompagnent une vente ou une succession, avec des calendriers qui ne se recouvrent pas. Nous proposons un garde-meuble relais en plaine : le mobilier est chargé, inventorié, stocké en caisses scellées, puis livré à la date choisie. Cela évite d'immobiliser une maison invendue et de payer deux manutentions complètes. Sur des communes éloignées, cette souplesse évite aussi de multiplier les montées à vide." }
+    ],
+    jour: [
+      { h: "7 h 00", t: "Départ anticipé de Nice, la montée demande le double du temps annoncé par un calculateur." },
+      { h: "8 h 00", t: "Positionnement au plus près, aire de demi-tour confirmée avant d'engager le véhicule." },
+      { h: "12 h 00", t: "Chargement du logement puis des dépendances, tri du débarras selon ce qui a été convenu." },
+      { h: "16 h 00", t: "Descente à vide par l'itinéraire repéré, ou mise en garde-meuble relais en plaine." }
+    ],
+    erreurs: [
+      { t: "Se fier au temps de trajet annoncé", d: "Vingt minutes sur une carte, quarante avec un camion chargé. Sur une journée à plusieurs rotations, l'écart devient une demi-journée." },
+      { t: "Monter sans avoir vérifié le demi-tour", d: "L'accès est rarement le problème, la sortie l'est souvent. Un camion coincé mobilise une dépanneuse en montagne." },
+      { t: "Découvrir la cave et le grenier le jour J", d: "Dans ces maisons anciennes, ils contiennent des décennies d'accumulation. Non relevés, ils ajoutent une journée entière." }
+    ]
+  },
+
+  "vallee-du-var": {
+    titreContexte: ["Carros, Saint-Martin, La Gaude,", "la plaine et ses zones d'activité."],
+    titreJour: ["Une journée dans la vallée,", "entre plateau et pavillon."],
+    titreErreurs: ["Trois oublis fréquents", "dans la basse vallée."],
+    contexte: "Cette page couvre les communes de la vallée du Var au nord de Nice : Carros et son plateau industriel, Saint-Martin-du-Var, La Gaude, Gattières, Le Broc, Bonson. C'est un secteur mixte, avec l'une des plus importantes zones d'activité du département d'un côté et de l'habitat pavillonnaire de l'autre, desservi par un axe unique qui remonte la vallée.",
+    sections: [
+      { t: "Le plateau de Carros et ses entreprises", d: "La zone industrielle de Carros concentre des centaines d'entreprises, de l'atelier au site de production. Les transferts y sont de nature industrielle : machines, stocks, racks, établis, avec des questions de poids, d'élingage et de calage qui n'ont rien à voir avec du mobilier de bureau. Le poids réel se vérifie avant, jamais au moment de soulever. Nous intervenons hors production quand c'est possible, et nous établissons un plan de charge écrit lorsque des machines lourdes sont concernées." },
+      { t: "Les bureaux et les locaux mixtes", d: "À côté de la production, le secteur compte beaucoup de locaux mixtes associant bureaux, atelier et stockage. Le transfert se traite alors en deux temps : la partie administrative avec étiquetage par poste et plan d'implantation, la partie atelier avec sa logique propre. Nous distinguons les deux dans le devis comme dans l'exécution, parce que les mélanger produit invariablement des cartons de bureau posés au milieu d'un atelier et l'inverse." },
+      { t: "Un axe unique qui remonte la vallée", d: "La vallée est desservie par un axe principal qui supporte à la fois le trafic pendulaire et les poids lourds de la zone d'activité. Aux heures de pointe, il sature, et il n'existe pas d'itinéraire alternatif crédible. Nous calons les chantiers en dehors de ces créneaux, en partant tôt, et nous tenons compte de la hauteur sous les ouvrages qui interdit certains passages aux porteurs. Le trajet le plus direct n'est pas toujours le trajet praticable." },
+      { t: "L'habitat pavillonnaire des coteaux", d: "Sur les versants de La Gaude, Gattières ou Le Broc, on trouve des maisons individuelles avec terrain, desservies par des chemins parfois étroits et en pente. Les volumes y sont supérieurs à ceux d'un appartement, dépendances et extérieur compris, et l'accès demande souvent de vérifier la largeur du portail et la possibilité de manœuvrer. Ces deux points, le volume réel et l'accès, se relèvent sur place et nulle part ailleurs." }
+    ],
+    jour: [
+      { h: "6 h 30", t: "Remontée de la vallée avant la saturation de l'axe principal, hauteur sous ouvrage vérifiée." },
+      { h: "7 h 30", t: "Positionnement sur quai pour les locaux professionnels, ou dans l'allée pour un pavillon." },
+      { h: "12 h 00", t: "Traitement séparé de la partie bureaux et de la partie atelier, selon le plan de charge établi." },
+      { h: "16 h 00", t: "Livraison, remontage, et redescente hors des heures de pointe." }
+    ],
+    erreurs: [
+      { t: "Mélanger bureaux et atelier dans un même lot", d: "Ce sont deux logiques différentes. Les confondre garantit de retrouver les cartons administratifs au milieu des machines." },
+      { t: "Remonter la vallée aux heures de pointe", d: "L'axe est unique et sature. Il n'y a pas d'alternative, seulement une heure de départ à choisir." },
+      { t: "Estimer un pavillon sur sa surface habitable", d: "Garage, terrasse et abri de jardin ajoutent régulièrement un tiers du volume. Cela se relève sur place." }
+    ]
+  },
+
+  "mougins": {
+    titreContexte: ["Un vieux village en spirale,", "et des domaines cachés dans les pins."],
+    titreJour: ["Une journée à Mougins,", "entre village et propriété boisée."],
+    titreErreurs: ["Ce qui rallonge une journée", "sans que personne l'ait vu venir."],
+    contexte: "Mougins est double. Le vieux village s'enroule en spirale au sommet de sa colline, piéton, classé, avec des ruelles où l'on ne circule pas. Autour, des domaines résidentiels boisés, des propriétés en retrait de la route, souvent occupées par des propriétaires étrangers qui n'y vivent pas toute l'année. Deux façons de travailler, et une constante : rien ne s'improvise ici.",
+    sections: [
+      { t: "Le vieux village, protégé et piéton", d: "Le cœur historique de Mougins est classé et interdit à la circulation. Le camion s'arrête aux abords, et le mobilier fait le reste du trajet à la main, sur des calades en pente qui s'enroulent autour de la colline. Les maisons y sont anciennes, avec des escaliers étroits et des ouvertures qui n'ont pas les dimensions actuelles. Nous relevons le parcours et les cotes de passage avant le devis. Sur ce type de village, la distance de portage compte davantage que le volume, et c'est elle qui fixe le nombre d'équipiers." },
+      { t: "Du mobilier ancien, souvent monté sur place", d: "Les maisons de village comme les propriétés des environs abritent fréquemment du mobilier ancien, parfois assemblé dans la pièce où il se trouve. Un buffet, une armoire ou une bibliothèque de cette nature ne sort pas entière d'une porte ancienne. Le démontage se décide au relevé, avec les outils adaptés, en respectant les assemblages d'origine. Nous ne forçons jamais un meuble : quand il ne passe pas, on le démonte proprement ou on trouve un autre chemin, mais on ne l'abîme pas pour gagner un quart d'heure." },
+      { t: "Des propriétaires souvent à l'étranger", d: "Une part importante des propriétés mouginoises appartient à des résidents étrangers, présents une partie de l'année seulement. Les échanges se font par écrit, en anglais souvent, sur des fuseaux horaires décalés, avec des délais de réponse qui allongent la préparation. Nous cadrons par écrit qui ouvre, qui signe l'inventaire et qui reçoit le compte rendu photographique. Cette organisation prend une semaine là où un client local règle tout en un appel : mieux vaut l'anticiper que de bloquer une date qu'on ne pourra pas confirmer." },
+      { t: "Le garde-meuble, souvent nécessaire", d: "Entre une vente, des travaux et une nouvelle installation, il s'écoule fréquemment plusieurs semaines à Mougins. Nous stockons alors le mobilier en caisses scellées et inventoriées, dans des conditions adaptées au mobilier ancien, et nous le livrons à la date que vous fixez. Le contenu reste dans les mêmes contenants du départ à l'arrivée, ce qui évite une manutention complète supplémentaire et limite d'autant les risques de casse." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Positionnement aux abords du village, ou dans l'allée pour une propriété, selon l'adresse relevée." },
+      { h: "8 h 00", t: "Protection des seuils et des encadrements anciens, mise en place du parcours de portage." },
+      { h: "11 h 30", t: "Démontage raisonné du mobilier ancien, sanglage et protection avant transport." },
+      { h: "15 h 00", t: "Livraison, ou mise en garde-meuble avec inventaire transmis au propriétaire absent." }
+    ],
+    erreurs: [
+      { t: "Croire qu'on approche du vieux village en camion", d: "Le cœur est piéton et classé. Tout se porte, sur des calades en pente, et cela se chiffre au relevé." },
+      { t: "Démonter un meuble ancien dans l'urgence", d: "Les assemblages d'origine ne pardonnent pas la précipitation. Le démontage se prépare, il ne s'improvise pas au troisième étage." },
+      { t: "Organiser à distance sans écrit", d: "Avec un propriétaire à l'étranger, chaque question non tranchée coûte vingt-quatre heures. Tout se cale par écrit avant." }
+    ]
+  },
+
+  "biot": {
+    titreContexte: ["Un village de verriers en haut,", "une technopole dans la plaine."],
+    titreJour: ["Une journée à Biot,", "du village à la zone d'activité."],
+    titreErreurs: ["Trois choses qu'un devis biotois", "doit avoir vérifiées."],
+    contexte: "Biot tient sur deux niveaux qui ne se ressemblent pas. En haut, un village d'artisans verriers, médiéval, avec ses ruelles étroites et ses places en pente. En bas, la plaine, ses zones d'activité et la proximité immédiate de la technopole. On peut y déménager un atelier le matin et un plateau de bureaux l'après-midi, et ce ne sera pas le même métier.",
+    sections: [
+      { t: "Le village médiéval et ses places en pente", d: "Le vieux Biot s'organise autour de places et de ruelles où l'accès véhicule est limité, parfois soumis à horaires, souvent impossible au-delà d'un certain gabarit. Les maisons sont anciennes, hautes et étroites, avec des escaliers resserrés. Le portage y est la norme et se compte en marches et en pente. Nous relevons le parcours du point de stationnement praticable jusqu'à la porte, parce que c'est cette distance et non le volume qui décide de la durée de la journée." },
+      { t: "Le verre, et tout ce qui se casse", d: "Biot est une commune de verriers, et il n'est pas rare d'y déménager des pièces de verre soufflé, des vitrines, des collections. Ces objets se traitent à l'unité : calage individuel, séparateurs, caisses rigides, transport à part du mobilier lourd. Nous établissons un inventaire photographié avant le chargement et nous déclarons la valeur au contrat. Ce n'est pas une précaution de principe : une pièce de verre cassée ne se répare pas, et il faut savoir dans quel état elle est partie." },
+      { t: "La plaine et les zones d'activité", d: "En contrebas, Biot touche des zones d'activité et la technopole voisine. Les transferts y sont d'une tout autre nature : plateaux de bureaux, ateliers, stocks, avec des quais de livraison quand on a de la chance et des parkings partagés quand on n'en a pas. L'intervention se cale hors heures ouvrées pour limiter l'arrêt d'activité, et le plan d'implantation se valide avant le jour J. C'est un travail de logistique autant que de manutention." },
+      { t: "Le gabarit, à trancher avant de partir", d: "Entre les ruelles du village et les voies larges de la plaine, l'écart de contrainte est total. Envoyer un porteur au village est une erreur qui coûte la journée, envoyer un petit utilitaire dans la plaine multiplie les rotations inutilement. Nous choisissons le véhicule après relevé de l'adresse exacte, en vérifiant la largeur utile, la hauteur des passages et l'aire de retournement. Ce choix est la première décision du chantier, pas la dernière." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Choix et positionnement du véhicule selon le niveau, village ou plaine, décidé au relevé." },
+      { h: "8 h 00", t: "Protection du parcours et préparation des contenants rigides pour les pièces fragiles." },
+      { h: "11 h 30", t: "Portage manuel sur les places en pente du village, ou chargement sur quai dans la plaine." },
+      { h: "15 h 00", t: "Livraison, remontage et vérification de l'inventaire des pièces fragiles." }
+    ],
+    erreurs: [
+      { t: "Ne pas préciser village ou plaine", d: "Ce sont deux chantiers différents, avec deux véhicules et deux durées. L'adresse exacte est la première question à poser." },
+      { t: "Mettre le verre avec le reste", d: "Une pièce soufflée ne voyage pas dans un carton de vaisselle. Le calage individuel se prépare, il ne s'invente pas au chargement." },
+      { t: "Traiter un transfert de bureaux comme un déménagement", d: "L'enjeu n'est pas le mobilier mais le nombre d'heures d'activité perdues. L'intervention se cale hors heures ouvrées." }
+    ]
+  },
+
+  "cap-d-antibes": {
+    titreContexte: ["Une presqu'île de propriétés closes,", "où le chantier se prépare longtemps."],
+    titreJour: ["Une journée au Cap d'Antibes,", "lente et préparée."],
+    titreErreurs: ["Ce qui coûte cher", "quand on improvise sur le Cap."],
+    contexte: "Le Cap d'Antibes se déménage sur rendez-vous, au sens propre. Les propriétés sont closes, beaucoup ont un gardien à demeure, et l'accès se négocie avec lui avant de se négocier avec la voirie. Les allées privées sont dimensionnées pour des voitures. Et le contenu impose sa propre méthode : mobilier ancien, cave à vin, parfois un piano. Ce sont des chantiers lents, où l'improvisation coûte immédiatement cher.",
+    sections: [
+      { t: "Le gardien décide de l'heure d'arrivée", d: "Sur le Cap, l'interlocuteur du jour J est souvent le gardien ou le personnel de maison plutôt que le propriétaire. C'est avec lui que se conviennent l'horaire, l'ouverture du portail, le cheminement autorisé et l'usage éventuel d'un accès de service. Nous transmettons l'identité des équipiers et les immatriculations plusieurs jours avant, parce que c'est ce qu'on nous demande et que l'omettre signifie attendre dehors. Aucun de nos équipiers ne se présente sans avoir été annoncé, et la discrétion fait partie de la prestation autant que la manutention." },
+      { t: "La cave à vin, un chantier dans le chantier", d: "Beaucoup de propriétés du Cap disposent d'une cave conséquente. Les bouteilles voyagent debout, en caisses adaptées, à l'abri de la chaleur et des vibrations, avec un inventaire tenu bouteille par bouteille quand la valeur le justifie. Le transport se fait à température maîtrisée sur les trajets longs. Ce poste se chiffre séparément parce qu'il demande du matériel spécifique et du temps : compter une cave dans un volume global, c'est garantir de la traiter mal." },
+      { t: "Le piano et les instruments", d: "Un piano n'est pas un meuble lourd, c'est une prestation à part. Le passage se mesure avant, l'instrument se sangle et se déplace avec un matériel dédié et le nombre d'équipiers nécessaire, jamais moins. L'hygrométrie et la température comptent sur la durée du transport, et un accordage après installation est à prévoir. Nous annonçons cette prestation et son coût au devis, plutôt que de la découvrir le matin dans un salon." },
+      { t: "Du mobilier ancien et des allées étroites", d: "Les propriétés du Cap abritent du mobilier ancien, souvent volumineux, parfois monté sur place. Il se démonte de façon raisonnée, se sangle, se protège aux arêtes, et ne se force jamais. À cela s'ajoute la contrainte d'accès : les allées privées, bordées de pins et de murs anciens, sont dimensionnées pour des berlines et rarement pour un porteur de vingt mètres cubes. On mesure avant d'engager le camion, quitte à faire la navette en utilitaire." }
+    ],
+    jour: [
+      { h: "8 h 00", t: "Présentation au gardien avec la liste d'équipiers transmise plusieurs jours avant." },
+      { h: "8 h 30", t: "Reconnaissance de l'allée et du cheminement autorisé, protection des accès et des sols." },
+      { h: "11 h 30", t: "Traitement de la cave et des pièces de valeur à l'unité, inventaire signé." },
+      { h: "15 h 30", t: "Chargement du mobilier ancien démonté et sanglé, puis livraison." }
+    ],
+    erreurs: [
+      { t: "Arriver sans avoir été annoncé", d: "Sur une propriété gardée, une équipe inconnue reste au portail. Les noms et immatriculations se transmettent plusieurs jours avant." },
+      { t: "Compter la cave dans le volume global", d: "Les bouteilles demandent un matériel et un temps spécifiques. Les traiter comme des cartons, c'est les abîmer." },
+      { t: "Annoncer le piano le matin même", d: "C'est une prestation dédiée, avec son matériel et ses équipiers. Non prévue, elle décale toute la journée." }
+    ]
+  },
+
+  "valbonne-sophia-antipolis": {
+    titreContexte: ["La technopole,", "et des déménagements qui se répètent."],
+    titreJour: ["Une journée à Sophia,", "hors heures ouvrées."],
+    titreErreurs: ["Ce qui fait perdre", "une journée de production."],
+    contexte: "Valbonne Sophia Antipolis n'est pas une commune résidentielle comme les autres. C'est le premier parc technologique d'Europe, avec des sièges, des plateaux de bureaux, et une population de cadres qui arrivent et repartent au rythme des contrats. On y déménage beaucoup, souvent pour raison professionnelle, et presque toujours avec une contrainte de calendrier qui ne se négocie pas.",
+    sections: [
+      { t: "Les plateaux et les sièges d'entreprise", d: "Le parc concentre des entreprises dont les locaux vont du petit bureau au plateau de plusieurs centaines de postes. Un transfert de cette nature ne se gère pas au mètre cube mais au poste de travail : chaque emplacement est étiqueté au nom du service et de la personne, un plan d'implantation est validé avant, et l'équipe pose chaque carton à sa place sans avoir à demander. L'intervention se cale le soir, le week-end ou un jour férié, parce que le coût réel d'un transfert de bureaux n'est pas le déménagement, c'est l'activité arrêtée." },
+      { t: "L'informatique, poste le plus sensible", d: "Sur un parc technologique, l'essentiel de la valeur transportée est informatique. Chaque poste est photographié branché avant démontage, étiqueté, puis rebranché à l'identique. Les baies et serveurs voyagent calés, dans leur position de service quand le constructeur l'exige. Nous rappelons systématiquement de réaliser une sauvegarde complète et vérifiée avant le démontage, même quand cela ne relève pas de notre périmètre : c'est la seule protection réelle contre un incident de transport." },
+      { t: "Des mutations de cadres à répétition", d: "Une partie importante des déménagements de particuliers que nous réalisons ici accompagne une prise de poste sur le parc, souvent avec une prise en charge par l'employeur. Cela suppose un devis détaillé, avec numéro d'entreprise et attestation d'assurance, apte à entrer dans un dossier de remboursement. Nous éditons ce document systématiquement, dans le format attendu, ce qui évite de le refaire trois fois. Les délais de dépôt de ces dossiers sont courts et ne se rattrapent pas." },
+      { t: "Le calendrier scolaire, qui commande les familles", d: "Les familles qui s'installent à Sophia calent presque toujours leur déménagement sur la rentrée scolaire, ce qui concentre la demande sur quelques semaines d'août et de septembre. Ces créneaux se réservent tôt, et les samedis partent en premier. Nous vous le disons franchement au moment du devis : sur cette période, la date compte autant que le prix, et attendre pour décider revient souvent à choisir un mardi de septembre." }
+    ],
+    jour: [
+      { h: "18 h 00", t: "Démarrage hors heures ouvrées, après le départ des équipes, badges et accès validés en amont." },
+      { h: "19 h 00", t: "Démontage des postes, photographie et étiquetage individuel avant emballage." },
+      { h: "23 h 00", t: "Transport et déchargement selon le plan d'implantation validé avec vous." },
+      { h: "6 h 00", t: "Remontage et rebranchement terminés, postes prêts à l'arrivée des équipes." }
+    ],
+    erreurs: [
+      { t: "Déménager des bureaux en journée", d: "Chaque heure de plateau fermé coûte plus que la prestation elle-même. L'intervention se cale hors heures ouvrées, c'est le calcul de base." },
+      { t: "Démonter sans sauvegarde vérifiée", d: "Un incident de transport sur une machine non sauvegardée est irrattrapable. Cinq minutes de vérification évitent une perte définitive." },
+      { t: "Attendre pour réserver la rentrée", d: "Août et septembre concentrent la demande des familles. Les samedis partent d'abord, et une prise de poste ne se décale pas." }
+    ]
+  },
+
+  "theoule-sur-mer": {
+    titreContexte: ["La corniche d'or,", "des lacets au-dessus de la roche rouge."],
+    titreJour: ["Une journée à Théoule,", "où la route décide de tout."],
+    titreErreurs: ["Ce que la carte routière", "ne dit pas de la corniche."],
+    contexte: "Théoule-sur-Mer s'accroche au massif de l'Estérel, sur une corniche taillée dans la roche rouge. Les maisons s'étagent au-dessus de la mer, desservies par des routes en lacets où le croisement est souvent impossible et où l'aire de retournement se cherche. C'est une commune où le déménagement est d'abord un problème de route, et seulement ensuite un problème de mobilier.",
+    sections: [
+      { t: "Des lacets où le camion ne croise pas", d: "La desserte de Théoule se fait par des routes étroites en corniche, avec des virages en épingle et des portions où deux véhicules larges ne se croisent pas. Un porteur de vingt mètres cubes y monte parfois, jamais partout, et la question qui tranche reste toujours la même : où fera-t-il demi-tour. Nous parcourons l'itinéraire complet avant le chantier, montée et descente, et nous choisissons le véhicule en conséquence. Quand le gabarit ne passe pas, la navette en utilitaire est chiffrée dès le devis plutôt qu'ajoutée le jour même." },
+      { t: "Des accès privatifs souvent en escalier", d: "Beaucoup de maisons sont implantées en contrebas ou en surplomb de la route, et l'on y accède par un escalier privatif qui peut compter plusieurs dizaines de marches. Ce trajet entre le portail et la porte est une manutention à part entière, invisible sur une carte et absente de tous les devis établis à distance. Nous le relevons systématiquement, et nous dimensionnons l'équipe en fonction, parce que c'est lui qui fait la durée de la journée bien avant le volume." },
+      { t: "La météo, décisive sur une corniche", d: "Une route de corniche mouillée, un vent fort en bord de falaise ou un épisode de pluie d'automne changent complètement les conditions de sécurité, pour le portage comme pour la conduite d'un camion chargé en descente. Nous consultons les prévisions avant de confirmer une date sensible et nous préférons décaler d'une journée plutôt que d'engager un véhicule chargé sur une chaussée glissante en lacets. Ce n'est pas de la prudence excessive, c'est le calcul du risque réel." },
+      { t: "Beaucoup de résidences secondaires", d: "Une part importante du parc théoulien n'est pas occupée à l'année. Nous travaillons alors avec un mandataire, un voisin ou une agence, sur instructions écrites : qui ouvre, qui signe l'inventaire, qui reçoit les photos. Un état des lieux photographique complet est réalisé à l'entrée comme à la sortie et transmis au propriétaire le jour même. Cette organisation se cale avant le chantier, jamais devant un portail fermé." }
+    ],
+    jour: [
+      { h: "7 h 30", t: "Montée par la corniche avec le véhicule au gabarit relevé, aire de demi-tour confirmée." },
+      { h: "8 h 00", t: "Récupération des clés auprès du mandataire, état des lieux photographique d'entrée." },
+      { h: "11 h 30", t: "Portage sur l'escalier privatif, avec rotations et équipe dimensionnée en conséquence." },
+      { h: "15 h 00", t: "Descente à vide par l'itinéraire repéré, inventaire transmis au propriétaire." }
+    ],
+    erreurs: [
+      { t: "Engager un porteur sans avoir parcouru la route", d: "Certains lacets ne se prennent pas avec un véhicule long, et la marche arrière sur une corniche n'est pas une option. L'itinéraire se repère avant." },
+      { t: "Oublier l'escalier privatif", d: "Vingt à quarante marches entre le portail et la porte, c'est une manutention entière que les devis à distance ignorent tous." },
+      { t: "Maintenir une date par mauvais temps", d: "Une corniche mouillée avec un camion chargé, c'est un risque disproportionné pour une journée de gagnée." }
+    ]
+  },
+
   "beausoleil": {
     titreContexte: ["La ville qui loge Monte-Carlo,", "et qui monte de rue en rue."],
     titreJour: ["Une journée à Beausoleil,", "sur un immeuble à deux entrées."],
