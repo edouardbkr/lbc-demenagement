@@ -50,8 +50,7 @@ function Hero({
       l2: React.createElement(React.Fragment, null, React.createElement("em", {
         style: {
           opacity: "0.8",
-          fontFamily: "Newsreader",
-          fontSize: "clamp(32px, 7vw, 64px)"
+          fontFamily: "Newsreader"
         }
       }, "Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9.")),
       scribble: null

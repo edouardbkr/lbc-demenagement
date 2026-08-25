@@ -50,7 +50,11 @@ function Hero({ headlineVariant }) {
       /* Insécable entre « le » et « prix » : sans elle, la ligne se coupait en
          « Le prix annoncé est le » / « prix payé. » et laissait l'article orphelin,
          le même défaut que « Déménageur à / Nice » corrigé plus haut. */
-      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader", fontSize: "clamp(32px, 7vw, 64px)" }}>{"Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9."}</em></>,
+      /* Plus de taille en dur ici : elle etait exprimee en vw et ne suivait donc pas
+         le H1, qui a sa propre echelle par palier. Sur mobile le sous-titre finissait
+         a 50 px sous un titre a 33 px, soit une hierarchie inversee. La taille vit
+         desormais dans styles.css, en proportion du titre (voir .hero h1 .l2 em). */
+      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{"Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9."}</em></>,
       scribble: null
     }
   };
