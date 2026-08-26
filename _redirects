@@ -183,3 +183,9 @@
 # la requête : l'article sortait en position 19, la page de service en 38. On redirige vers
 # la page pour lui rendre le signal au lieu de le laisser se partager.
 /Article-demenager-nice	/Demenagement-Nice	301
+
+# L'article promettait une checklist longue distance generique et son contenu etait
+# entierement Nice-Paris : il concurrencait la page commerciale, qu'il devancait meme
+# en position 82 contre 91. Rendu generique le 26 aout, son slug ne doit plus cibler
+# Nice-Paris. L'ancienne adresse redirige, rien n'est perdu.
+/Article-demenagement-nice-paris-reussir	/Article-checklist-demenagement-longue-distance	301

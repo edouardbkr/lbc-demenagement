@@ -202,7 +202,7 @@ const ARTICLES = [
     )
   },
   {
-    slug: "demenagement-nice-paris-reussir",
+    slug: "checklist-demenagement-longue-distance",
     seoTitle: "Déménagement longue distance : la checklist 8 semaines · LBC",
     image: "assets/blog/demenagement-nice-paris-retroplanning-8-semaines.jpg",
     imageAlt: "Rétroplanning d'un déménagement longue distance en 8 semaines, du tri des affaires à la livraison",
@@ -214,22 +214,22 @@ const ARTICLES = [
     thumb: "Cartons étiquetés · départ vers le nord",
     body: () => (
       <React.Fragment>
-        <p className="lead-p">Quitter la douceur niçoise pour l'effervescence parisienne, c'est un grand changement de vie, et un déménagement de 930 km à orchestrer. Bien préparé, il se déroule sans accroc ; improvisé, il vire au cauchemar. Voici le <strong>guide pas-à-pas complet pour réussir votre déménagement Nice → Paris</strong> : rétroplanning, choix de la formule, tri, emballage, formalités, jour J des deux côtés et installation.</p>
+        <p className="lead-p">Quitter la douceur niçoise pour l'effervescence parisienne, c'est un grand changement de vie, et un déménagement de plusieurs centaines de kilomètres à orchestrer. Bien préparé, il se déroule sans accroc ; improvisé, il vire au cauchemar. Voici le <strong>guide pas-à-pas complet pour réussir votre déménagement longue distance</strong> : rétroplanning, choix de la formule, tri, emballage, formalités, jour J des deux côtés et installation.</p>
 
         <h2>Le rétroplanning, semaine par semaine</h2>
-        <p>Un Nice-Paris réussi se joue sur la préparation. Voici le calendrier idéal :</p>
+        <p>Un déménagement longue distance réussi se joue sur la préparation. Voici le calendrier idéal :</p>
         <ul>
           <li><strong>J-8 semaines</strong> — demandez vos devis et bloquez la date. Les bons créneaux partent vite, surtout entre juin et septembre.</li>
           <li><strong>J-6 semaines</strong> — triez, donnez, vendez. Chaque m³ en moins fait baisser la facture sur un long trajet.</li>
           <li><strong>J-5 semaines</strong> — commandez vos cartons et fournitures (adhésif, papier bulle, marqueurs), et commencez par les pièces que vous utilisez peu.</li>
           <li><strong>J-4 semaines</strong> — résiliez ou transférez vos contrats (énergie, internet, assurance) et lancez votre changement d'adresse.</li>
           <li><strong>J-3 semaines</strong> — emballez progressivement, pièce par pièce, en étiquetant au fur et à mesure.</li>
-          <li><strong>J-2 semaines</strong> — réservez l'autorisation de stationnement à Nice <em>et</em> à Paris, confirmez les accès avec le déménageur.</li>
+          <li><strong>J-2 semaines</strong> — réservez l'autorisation de stationnement <em>au départ comme à l'arrivée</em>, confirmez les accès avec le déménageur.</li>
           <li><strong>J-3 jours</strong> — finalisez les derniers cartons, préparez la boîte « première nuit », videz et dégivrez le réfrigérateur.</li>
           <li><strong>Jour J</strong> — gardez sur vous papiers, clés, chargeurs et le nécessaire de la première nuit.</li>
         </ul>
 
-        <h2>Choisir la bonne formule pour un Nice-Paris</h2>
+        <h2>Choisir la bonne formule pour un déménagement longue distance</h2>
         <p>Sur un trajet aussi long, le choix de la formule change tout, en confort comme en budget :</p>
         <ul>
           <li><strong>Standard</strong> — vous emballez vos cartons, on gère le muscle, le transport et le déchargement. Le plus économique, idéal pour les petits budgets et les studios.</li>
@@ -238,42 +238,42 @@ const ARTICLES = [
         </ul>
         <p>Le détail et le comparatif sont sur la page <a href="Formules">nos formules</a>.</p>
 
-        <h2>Trier et alléger avant 930 km</h2>
+        <h2>Trier et alléger avant plusieurs centaines de kilomètres</h2>
         <p>C'est l'étape la plus rentable. Sur un long trajet, transporter ce dont on ne se sert plus coûte cher pour rien. Triez par catégorie : ce que vous gardez, ce que vous vendez (meubles en bon état, électroménager), ce que vous donnez (associations, plateformes) et ce que vous jetez ou recyclez (déchèterie pour l'encombrant). Les meubles en kit fatigués supportent mal la route : il est souvent plus malin de les remplacer à l'arrivée que de les transporter.</p>
 
         <h2>L'art du carton : emballer pour durer</h2>
-        <p>Sur 930 km, le calage est crucial : un carton mal rempli s'écrase, un meuble mal protégé se raye. Quelques règles de pro :</p>
+        <p>Sur plusieurs centaines de kilomètres, le calage est crucial : un carton mal rempli s'écrase, un meuble mal protégé se raye. Quelques règles de pro :</p>
         <ul>
           <li><strong>Les livres et objets lourds</strong> dans de petits cartons, pour qu'ils restent portables.</li>
           <li><strong>La vaisselle</strong> emballée pièce par pièce dans du papier, à la verticale, calée serré.</li>
           <li><strong>Les vêtements</strong> en cartons-penderie ou en valises, pour gagner du temps.</li>
           <li><strong>Les écrans et l'électronique</strong> dans leur boîte d'origine si possible, sinon bien protégés et signalés « fragile ».</li>
-          <li><strong>Étiquetez chaque carton par pièce de destination</strong> et notez son contenu : le déchargement à Paris en sera transformé.</li>
+          <li><strong>Étiquetez chaque carton par pièce de destination</strong> et notez son contenu : le déchargement à l’arrivée en sera transformé.</li>
         </ul>
         <p>En formule <a href="Formules">Premium ou Luxe</a>, l'équipe s'occupe de tout l'emballage, avec un matériel professionnel.</p>
-        <blockquote>Sur un long trajet, la qualité du chargement compte autant que la conduite. Entre Nice et Paris, rien ne doit bouger dans le camion.</blockquote>
+        <blockquote>Sur un long trajet, la qualité du chargement compte autant que la conduite. Sur plusieurs centaines de kilomètres, rien ne doit bouger dans le camion.</blockquote>
 
         <h2>Démontage, remontage et protection des meubles</h2>
         <p>Les meubles volumineux voyagent mieux démontés : armoires, lits, grandes tables. Conservez la visserie dans des sachets étiquetés, scotchés au meuble correspondant. Chaque meuble est ensuite protégé de couvertures, de housses et de film, et calé dans le camion pour ne pas bouger sur l'autoroute. À l'arrivée, on remonte tout. En formule complète, ce démontage/remontage est inclus : vous n'avez ni tournevis ni notice à sortir.</p>
 
         <h2>Les formalités du changement de région</h2>
-        <p>Un Nice-Paris, c'est aussi un dossier administratif à ne pas négliger :</p>
+        <p>Un longue distance, c'est aussi un dossier administratif à ne pas négliger :</p>
         <ul>
           <li><strong>Énergie et internet</strong> — résiliez ou transférez, et souscrivez à l'arrivée pour avoir tout de suite courant et connexion.</li>
           <li><strong>Adresse</strong> — mettez à jour impôts, banque, assurances, employeur, sécurité sociale et mutuelle ; changez l'adresse de la carte grise dans le mois.</li>
           <li><strong>Courrier</strong> — souscrivez une réexpédition pour ne rien perdre pendant la transition.</li>
           <li><strong>Enfants</strong> — inscrivez-les dans leur nouvel établissement, en anticipant les délais.</li>
-          <li><strong>Stationnement</strong> — la fameuse autorisation de voirie, à Nice comme à Paris.</li>
+          <li><strong>Stationnement</strong> — la fameuse autorisation de voirie, au départ comme à l’arrivée.</li>
         </ul>
 
-        <h2>Le jour du départ à Nice</h2>
+        <h2>Le jour du départ</h2>
         <p>On charge tôt, pour éviter la chaleur estivale et la circulation du bord de mer. L'équipe protège les derniers meubles, sort les cartons selon l'accès (escalier, ascenseur, monte-meuble), et arrime tout dans le camion. Gardez avec vous une « valise de survie » et vos documents importants : ils ne partent pas dans le camion. Selon votre quartier, l'emplacement de stationnement a été réservé en amont (voyez notre guide <a href="Demenagement-Nice">déménager à Nice</a>).</p>
 
         <h2>Sur la route</h2>
         <p>Une journée de transport sépare les deux villes. En camion dédié, vos affaires ne s'arrêtent pas en entrepôt et ne sont pas transbordées : elles roulent en direct, sous la responsabilité de la même équipe, vers une fenêtre d'arrivée annoncée.</p>
 
-        <h2>Le jour de l'arrivée à Paris</h2>
-        <p>On décharge sur le créneau de stationnement réservé, on monte par l'escalier, l'ascenseur ou le monte-meuble selon l'immeuble, on remonte les meubles démontés et on installe pièce par pièce. Avec une <a href="Demenagement-Nice-Paris">équipe dédiée Nice-Paris</a>, ce sont les mêmes déménageurs du premier au dernier carton : aucun transbordement, aucune dilution de responsabilité.</p>
+        <h2>Le jour de l’arrivée</h2>
+        <p>À l’arrivée, on décharge sur le créneau de stationnement réservé, on monte par l'escalier, l'ascenseur ou le monte-meuble selon l'immeuble, on remonte les meubles démontés et on installe pièce par pièce. Avec une <a href="Demenagement-Nice-Paris">équipe dédiée du départ à l’arrivée</a>, ce sont les mêmes déménageurs du premier au dernier carton : aucun transbordement, aucune dilution de responsabilité.</p>
 
         <h2>L'installation et la boîte « première nuit »</h2>
         <p>Gardez une boîte « première nuit » accessible et clairement identifiée : draps, oreillers, trousse de toilette, chargeurs, cafetière, quelques couverts, papier toilette, une lampe. C'est le petit secret qui transforme une première soirée parisienne épuisante en simple emménagement. Déballez d'abord la cuisine et les chambres ; le salon et la déco peuvent attendre le week-end.</p>
@@ -295,7 +295,7 @@ const ARTICLES = [
         <h3>Puis-je laisser des affaires en garde-meuble ?</h3>
         <p>Oui, un garde-meuble relais est utile si vos dates ne coïncident pas ou si votre logement parisien est plus petit. On vous oriente vers un prestataire de confiance et on organise le transport dans les deux sens.</p>
 
-        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article-demenagement-nice-paris-prix-delais">Nice → Paris : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
+        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article-demenagement-nice-paris-prix-delais">longue distance : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
       </React.Fragment>
     )
   },
