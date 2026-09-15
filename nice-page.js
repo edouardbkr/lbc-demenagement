@@ -214,7 +214,7 @@ function NicePrix() {
       marginTop: 20
     }
   }, "La formule Luxe, qui comprend l'emballage de vos cartons et la mise en place \xE0 l'arriv\xE9e, se chiffre apr\xE8s une visite : le contenu des cartons de quelqu'un ne se devine pas de l'ext\xE9rieur. ", React.createElement("a", {
-    href: "Tarifs",
+    href: "Formules",
     style: {
       color: "var(--accent)",
       fontWeight: 600

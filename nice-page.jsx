@@ -128,7 +128,7 @@ function NicePrix() {
           </tbody>
         </table>
       </div>
-      <p className="lede" style={{ marginTop: 20 }}>La formule Luxe, qui comprend l'emballage de vos cartons et la mise en place à l'arrivée, se chiffre après une visite : le contenu des cartons de quelqu'un ne se devine pas de l'extérieur. <a href="Tarifs" style={{ color: "var(--accent)", fontWeight: 600 }}>Voir le détail des trois formules →</a></p>
+      <p className="lede" style={{ marginTop: 20 }}>La formule Luxe, qui comprend l'emballage de vos cartons et la mise en place à l'arrivée, se chiffre après une visite : le contenu des cartons de quelqu'un ne se devine pas de l'extérieur. <a href="Formules" style={{ color: "var(--accent)", fontWeight: 600 }}>Voir le détail des trois formules →</a></p>
 
       <h3 className="tarif-h3" style={{ marginTop: 40 }}>Ce qui fait varier le prix, dans l'ordre</h3>
       <div className="values-grid reveal-stagger">

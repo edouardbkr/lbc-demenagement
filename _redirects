@@ -197,3 +197,10 @@
 # le délai de réservation — a été repris dans Demenagement-Nice-Paris avant la bascule,
 # pour que l'intention de recherche ne se perde pas avec l'URL.
 /Article-demenagement-nice-paris-prix-delais	/Demenagement-Nice-Paris	301
+
+# La page Tarifs est supprimée le 15 septembre 2026, sur décision d'Edouard.
+# Elle répondait à « Combien coûte un déménagement à Nice ? » et faisait doublon
+# d'intention avec Formules, qui porte déjà les prix des trois formules.
+# Elle totalisait 4 impressions en position 29 sur les 90 derniers jours.
+# Son contenu reste dans l'historique git, rien n'est perdu.
+/Tarifs	/Formules	301

@@ -112,7 +112,11 @@ const CURRENT = document.body.getAttribute('data-page') || 'accueil';
 const NAV = [
 { key: 'accueil', label: t('Accueil'), href: '/' },
 { key: 'formules', label: t('Formules'), href: 'Formules' },
-{ key: 'tarifs', label: t('Tarifs'), href: 'Tarifs' },
+/* ⚠️ « TARIFS » A ÉTÉ RETIRÉ DU MENU ET LA PAGE SUPPRIMÉE le 15 septembre 2026,
+   sur décision d'Edouard. Elle répondait à « Combien coûte un déménagement à Nice ? »
+   et faisait doublon d'intention avec Formules, qui porte déjà les prix des trois
+   formules. /Tarifs redirige vers /Formules : ne pas recréer l'entrée sans retirer
+   d'abord la redirection, sinon le menu enverrait sur un renvoi. */
 { key: 'france', label: t('En France'), mega: 'france' },
 { key: 'international', label: t('International'), mega: 'intl' },
 { key: 'mutation', label: t('Mutation professionnelle'), dropdown: [
@@ -885,7 +889,7 @@ function Footer() {
                       Google ne les avait donc jamais crawlées. Ajoutées ici le 7 août 2026. */}
                   <li><a href="Entreprise">Déménagement d'entreprise</a></li>
                   <li><a href="Archivage">Archivage de documents</a></li>
-                  <li><a href="Tarifs">Prix et tarifs</a></li>
+                  <li><a href="Formules">Prix et formules</a></li>
                   <li><a href="Debarras-succession">Débarras & succession</a></li>
                   <li><a href="Demenagement-urgent">Déménagement urgent</a></li>
                   <li><a href="Mutations">Mutation professionnelle</a></li>
