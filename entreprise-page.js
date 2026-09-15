@@ -392,7 +392,7 @@ function EntFeats() {
     className: "asterisk"
   }, "*"), " Ce qui change avec nous")), React.createElement("h2", {
     className: "dim-em"
-  }, "Le s\xE9rieux d'un prestataire pro,", React.createElement("br", null), React.createElement("em", null, "la souplesse d'une \xE9quipe \xE0 taille humaine."))), React.createElement("div", {
+  }, "Les proc\xE9dures d'un grand prestataire,", React.createElement("br", null), React.createElement("em", null, "la souplesse d'une \xE9quipe \xE0 taille humaine."))), React.createElement("div", {
     className: "ap-values reveal-stagger"
   }, PRO_FEATS.map((f, i) => React.createElement("div", {
     className: "ap-value",

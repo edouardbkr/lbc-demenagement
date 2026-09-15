@@ -160,7 +160,7 @@ function ArcFeats() {
     className: "asterisk"
   }, "*"), " Nos garanties")), React.createElement("h2", {
     className: "dim-em"
-  }, "L'archivage s\xE9rieux,", React.createElement("br", null), React.createElement("em", null, "sans la paperasse de l'archivage."))), React.createElement("div", {
+  }, "Tout est trac\xE9,", React.createElement("br", null), React.createElement("em", null, "sans la paperasse de l'archivage."))), React.createElement("div", {
     className: "ap-values reveal-stagger"
   }, ARC_FEATS.map((f, i) => React.createElement("div", {
     className: "ap-value",

@@ -201,7 +201,7 @@ function UrgQuoi() {
     className: "asterisk"
   }, "*"), " Ce qu'on ne promet pas")), React.createElement("h2", {
     className: "dim-em"
-  }, "Un d\xE9m\xE9nageur honn\xEAte ", React.createElement("em", null, "dit aussi non."))), React.createElement("p", {
+  }, "Il y a des jours ", React.createElement("em", null, "o\xF9 la r\xE9ponse est non."))), React.createElement("p", {
     className: "lede"
   }, "Tout ne se fait pas en vingt-quatre heures, et pr\xE9tendre le contraire ne rend service \xE0 personne. Une longue distance vers Brest ou Lille demande au minimum deux \xE0 trois jours : il faut caler le camion sur l'aller comme sur le retour. Un volume de plus de quarante m\xE8tres cubes avec monte-meuble ne se monte pas du jour au lendemain. Et un d\xE9m\xE9nagement international ne se traite jamais dans l'urgence, \xE0 cause des formalit\xE9s douani\xE8res."), React.createElement("p", {
     className: "lede"

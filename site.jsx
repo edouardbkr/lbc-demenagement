@@ -31,6 +31,30 @@ const { useState, useEffect, useRef } = React;
   // Détermine le canal à partir des paramètres d'URL et du référent.
   function detecter() {
     const p = new URLSearchParams(window.location.search);
+
+    /* ⚠️ LE FRAGMENT PLUTÔT QUE LE PARAMÈTRE, POUR LA FICHE GOOGLE BUSINESS.
+       Mesuré le 15 septembre 2026 sur 90 jours : 70 % des impressions du site partaient
+       sur TROIS URLs paramétrées, indexées séparément de leurs pages propres.
+         /Devis?utm_source=gmb&utm_medium=maps&utm_campaign=post-etoile-nice  7 433 impr
+         /Devis                                                                  21 impr
+         /?utm_source=gmb&utm_medium=maps                                       780 impr
+         /                                                                      333 impr
+       La balise canonique est pourtant correcte et pointe bien sur la page propre :
+       Google la contourne parce que le lien de la fiche Business, qui est un signal
+       externe fort, désigne la version paramétrée.
+
+       Google ne traite PAS un fragment comme une URL distincte. En passant les liens de
+       la fiche de `?utm_source=gmb` à `#gmb`, l'adresse redevient unique pour Google et
+       l'attribution continue de fonctionner ici. On accepte les deux écritures :
+         #gmb                            → source gmb, canal google_maps
+         #utm_source=gmb&utm_medium=maps → forme complète, si besoin d'une campagne
+       Le paramètre d'URL reste prioritaire : les liens déjà en circulation continuent
+       de fonctionner sans rien casser. */
+    const frag = (window.location.hash || '').replace(/^#/, '').trim();
+    if (frag) {
+      const fp = new URLSearchParams(frag.indexOf('=') >= 0 ? frag : 'utm_source=' + frag + '&utm_medium=maps');
+      fp.forEach(function (v, k) { if (!p.has(k)) p.set(k, v); });
+    }
     const g = (k) => (p.get(k) || '').trim().toLowerCase();
     const src = g('utm_source'), med = g('utm_medium'), camp = p.get('utm_campaign') || '';
     const gclid = p.get('gclid') || p.get('gbraid') || p.get('wbraid') || '';

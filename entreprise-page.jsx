@@ -192,7 +192,7 @@ function EntFeats() {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Ce qui change avec nous</div></div>
-          <h2 className="dim-em">Le sérieux d'un prestataire pro,<br /><em>la souplesse d'une équipe à taille humaine.</em></h2>
+          <h2 className="dim-em">Les procédures d'un grand prestataire,<br /><em>la souplesse d'une équipe à taille humaine.</em></h2>
         </div>
         <div className="ap-values reveal-stagger">
           {PRO_FEATS.map((f, i) =>

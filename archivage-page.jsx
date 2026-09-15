@@ -71,7 +71,7 @@ function ArcFeats() {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Nos garanties</div></div>
-          <h2 className="dim-em">L'archivage sérieux,<br /><em>sans la paperasse de l'archivage.</em></h2>
+          <h2 className="dim-em">Tout est tracé,<br /><em>sans la paperasse de l'archivage.</em></h2>
         </div>
         <div className="ap-values reveal-stagger">
           {ARC_FEATS.map((f, i) =>

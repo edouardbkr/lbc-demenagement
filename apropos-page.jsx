@@ -3,7 +3,7 @@ const I = (props) =>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{props.children}</svg>;
 
 const AP_VALUES = [
-{ t: "L'honnêteté d'abord", d: "Le prix annoncé est le prix payé. Aucun supplément le jour J, aucune « surprise » à la facture.", icon:
+{ t: "Un seul prix, du devis à la facture", d: "Le prix annoncé est le prix payé. Aucun supplément le jour J, aucune « surprise » à la facture.", icon:
   <I><path d="M12 21c-5-2.5-8-6-8-11V5l8-3 8 3v5c0 5-3 8.5-8 11z" /><path d="M9 11.5l2 2 4-4.5" /></I> },
 { t: "Le geste juste", d: "Des déménageurs expérimentés, encadrés par les fondateurs eux-mêmes, qui savent porter un piano comme une boîte à souvenirs.", icon:
   <I><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3L2.5 16a2 2 0 0 1 2.8-2.8L7 15" /><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V7a2 2 0 0 0-4 0v8" /></I> },

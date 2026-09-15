@@ -220,7 +220,7 @@ const CITIES = {
   "saint-paul-de-vence": {
     name: "Saint-Paul-de-Vence",
     file: "Demenagement-Saint-Paul-de-Vence",
-    titre: "Entreprise de déménagement à Saint-Paul-de-Vence · village classé",
+    titre: "Déménagement à Saint-Paul-de-Vence · village classé",
     cp: "06570",
     dept: "Alpes-Maritimes (06)",
     region: "cote",
@@ -328,7 +328,7 @@ const CITIES = {
     name: "Cap d'Antibes",
     file: "Demenagement-Cap-d-Antibes",
     avecPrep: "au Cap d'Antibes",
-    titre: "Entreprise de déménagement au Cap d'Antibes · propriétés gardées",
+    titre: "Déménagement au Cap d'Antibes · propriétés gardées",
     cp: "06160",
     dept: "Alpes-Maritimes (06)",
     region: "cote",

@@ -114,7 +114,7 @@ function UrgQuoi() {
     <section className="sec"><div className="wrap">
       <div className="sec-head reveal">
         <div><div className="sec-num"><span className="asterisk">*</span> Ce qu'on ne promet pas</div></div>
-        <h2 className="dim-em">Un déménageur honnête <em>dit aussi non.</em></h2>
+        <h2 className="dim-em">Il y a des jours <em>où la réponse est non.</em></h2>
       </div>
       <p className="lede">Tout ne se fait pas en vingt-quatre heures, et prétendre le contraire ne rend service à personne. Une longue distance vers Brest ou Lille demande au minimum deux à trois jours : il faut caler le camion sur l'aller comme sur le retour. Un volume de plus de quarante mètres cubes avec monte-meuble ne se monte pas du jour au lendemain. Et un déménagement international ne se traite jamais dans l'urgence, à cause des formalités douanières.</p>
       <p className="lede">Dans ces cas-là, on vous le dit à l'appel. Vous perdez dix minutes au lieu de deux jours, et vous gardez le temps d'appeler quelqu'un d'autre. C'est aussi pour ça qu'on refuse de majorer un tarif « parce que c'est urgent » : si on prend le chantier, c'est qu'on peut le faire correctement.</p>

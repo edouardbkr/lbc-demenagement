@@ -9,7 +9,7 @@ const I = props => React.createElement("svg", {
   strokeLinejoin: "round"
 }, props.children);
 const AP_VALUES = [{
-  t: "L'honnêteté d'abord",
+  t: "Un seul prix, du devis à la facture",
   d: "Le prix annoncé est le prix payé. Aucun supplément le jour J, aucune « surprise » à la facture.",
   icon: React.createElement(I, null, React.createElement("path", {
     d: "M12 21c-5-2.5-8-6-8-11V5l8-3 8 3v5c0 5-3 8.5-8 11z"

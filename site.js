@@ -17,6 +17,13 @@ const {
   }
   function detecter() {
     const p = new URLSearchParams(window.location.search);
+    const frag = (window.location.hash || '').replace(/^#/, '').trim();
+    if (frag) {
+      const fp = new URLSearchParams(frag.indexOf('=') >= 0 ? frag : 'utm_source=' + frag + '&utm_medium=maps');
+      fp.forEach(function (v, k) {
+        if (!p.has(k)) p.set(k, v);
+      });
+    }
     const g = k => (p.get(k) || '').trim().toLowerCase();
     const src = g('utm_source'),
       med = g('utm_medium'),
