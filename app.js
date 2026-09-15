@@ -40,7 +40,7 @@ function App() {
     }
   }, React.createElement(Nav, null), React.createElement("main", null, React.createElement(Hero, {
     headlineVariant: t.headline
-  }), React.createElement(MascotStamp, null), React.createElement(About, null), React.createElement(Formules, {
+  }), React.createElement(About, null), React.createElement(Formules, {
     recommendedTier: t.recommended
   }), React.createElement(RoadDivider, null), React.createElement(Gallery, null), React.createElement(Values, null), React.createElement(Testimonials, null), React.createElement(HomeFaq, null), React.createElement(CTA, null)), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
     label: "Couleur & rythme"

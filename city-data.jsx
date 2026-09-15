@@ -399,6 +399,10 @@ const CITIES = {
   },
   "nice": {
     name: "Nice", file: "Demenagement-Nice", cp: "06000 – 06300", dept: "Alpes-Maritimes (06)", region: "cote",
+    /* ⚠️ CE h1 N'EST PAS CELUI QUI S'AFFICHE. La page /Demenagement-Nice est rendue par
+       nice-page.jsx, pas par ville-page.jsx : son titre, son chapô et son contenu y sont
+       écrits en dur. Corriger ici ne change rien en ligne, l'erreur a été faite le
+       15 septembre 2026. Aller dans nice-page.jsx. */
     h1: <>Déménager <em>quartier par quartier</em> à Nice</>,
     eyebrow: "Les 10 quartiers de Nice",
     lede: "Déménager dans les quartiers de Nice : Vieux-Nice piéton, Mont Boron en lacets, Cimiez et ses immeubles anciens. Accès repérés avant le devis, prix ferme.",
@@ -635,7 +639,7 @@ const CITIES = {
     ],
     faq: [
       { q: "Êtes-vous rapides à Saint-Laurent-du-Var ?", a: "Très : on est basés juste à côté, à Nice. Idéal pour un déménagement local bouclé en quelques heures et à un coût de déplacement réduit." },
-      { q: "Déménagez-vous les commerces et bureaux de Cap 3000 ?", a: "Oui, en horaires décalés pour ne pas perturber l'activité, avec un interlocuteur unique, un devis pro et une facture en règle." },
+      { q: "Déménagez-vous les commerces et bureaux de Cap 3000 ?", a: "Oui, en horaires décalés pour ne pas perturber l'activité, avec un interlocuteur unique, un devis détaillé et une facture en règle." },
       { q: "Gérez-vous le stationnement et les résidences du bord de mer ?", a: "Oui : réservation d'emplacement, coordination avec les copropriétés, réservation d'ascenseur et protection des parties communes, même en saison." },
       { q: "Faites-vous les petits volumes et les studios ?", a: "Bien sûr. La proximité de notre base rend les petites surfaces particulièrement rapides et économiques à déménager." },
       { q: "Un déménagement Saint-Laurent vers une autre ville, possible ?", a: "Oui : local sur toute la métropole, et longue distance partout en France ou à l'international, avec la même équipe du départ à l'arrivée." },

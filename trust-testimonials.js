@@ -87,7 +87,7 @@ function Values() {
   const values = [{
     num: "①",
     icon: "team",
-    title: "Des pros qui prennent soin de tout",
+    title: "Des professionnels qui prennent soin de tout",
     body: "Une équipe expérimentée, encadrée par les fondateurs Edouard et Anthony : impliquée du premier au dernier carton. Vos affaires sont entre de bonnes mains."
   }, {
     num: "②",
@@ -123,7 +123,7 @@ function Values() {
     className: "asterisk"
   }, "*"), " 03 / Pourquoi nous choisir")), React.createElement("h2", {
     className: "dim-em"
-  }, "Cinq raisons pr\xE9cises.", React.createElement("br", null), React.createElement("em", null, "Pas de baratin."))), React.createElement("div", {
+  }, "Cinq raisons pr\xE9cises.", React.createElement("br", null), React.createElement("em", null, "Rien de plus."))), React.createElement("div", {
     className: "values-grid reveal-stagger"
   }, values.map((v, i) => React.createElement("div", {
     className: "value",
@@ -144,27 +144,27 @@ function Testimonials() {
   const quotes = [{
     text: "Tous simplement génial un déménagement c’est toujours stressant. Mais la C’était hyper bien organisé orchestré ponctuelle, arrangeant je recommande fortement il seront sûrement prévu pour mon futur déménagement. Un grand merci",
     name: "Jonathan D.",
-    city: "Avis Google · il y a 3 semaines",
+    city: "Avis Google · il y a 5 semaines",
     id: "g0"
   }, {
     text: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!",
     name: "Karine S.",
-    city: "Avis Google · il y a 3 semaines",
+    city: "Avis Google · il y a 5 semaines",
     id: "g1"
   }, {
     text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante. Un grand merci pour votre sérieux et votre efficacité. Je recommande cette entreprise sans hésitation !",
     name: "Mari M.",
-    city: "Avis Google · il y a 6 semaines",
+    city: "Avis Google · il y a 8 semaines",
     id: "g2"
   }, {
     text: "Excellente prestation lors de mon déménagement l'an passé, merci pour votre professionnalisme et votre engagement !!!",
     name: "Nathalie P.",
-    city: "Avis Google · il y a 3 semaines",
+    city: "Avis Google · il y a 6 semaines",
     id: "g3"
   }, {
     text: "Une force titanesque et un professionnalisme d'exception. Très bonne adaptation même avec grosses contraintes : chemin sans route, grosse pente, gros escalier... Merci à vous 🙏",
     name: "Jannick F.",
-    city: "Avis Google · il y a 3 semaines",
+    city: "Avis Google · il y a 6 semaines",
     id: "g4"
   }];
   const pinRef = React.useRef(null);
@@ -269,7 +269,7 @@ function HomeFaq() {
     cat: "Tarifs",
     items: [{
       q: "Le prix annoncé peut-il changer le jour J ?",
-      a: "Non. Le prix du devis est le prix payé. On chiffre précisément à partir du volume et des accès — pas de supplément surprise sur la facture."
+      a: "Non. Le prix annoncé est le prix payé. On chiffre précisément à partir du volume et des accès — pas de supplément surprise sur la facture."
     }, {
       q: "Faut-il verser un acompte ?",
       a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis."

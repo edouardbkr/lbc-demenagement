@@ -318,8 +318,8 @@ function TarifFerme() {
     className: "wrap"
   }, React.createElement(TarifSecHead, {
     num: "04 / Ce qui ne varie jamais",
-    titre: "Le prix du devis",
-    em: "est le prix final."
+    titre: "Le prix annonc\xE9",
+    em: "est le prix pay\xE9."
   }), React.createElement("p", {
     className: "lede"
   }, "Une fois le devis \xE9tabli, le montant ne bouge plus. Si nous avons sous-estim\xE9 le volume, le nombre d'\xE9tages ou la difficult\xE9 d'acc\xE8s, c'est notre erreur, pas votre facture. Aucun suppl\xE9ment le jour du d\xE9m\xE9nagement."), React.createElement("p", {

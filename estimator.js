@@ -117,6 +117,13 @@ function Estimator() {
   }, React.createElement("div", {
     className: "est-card reveal"
   }, React.createElement("div", {
+    className: "est-watermark",
+    "aria-hidden": "true"
+  }, React.createElement(AsterisqueLBC, {
+    em: 9,
+    decalage: "0",
+    couleur: "var(--accent)"
+  })), React.createElement("div", {
     className: "est-head"
   }, React.createElement("div", {
     className: "sec-num"

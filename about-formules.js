@@ -28,7 +28,7 @@ function About() {
     className: "sec about",
     id: "about",
     style: {
-      padding: "1px 0px 140px"
+      padding: "clamp(80px, 10vw, 140px) 0px 140px"
     }
   }, React.createElement("div", {
     className: "wrap"
@@ -43,25 +43,25 @@ function About() {
     className: "asterisk"
   }, "*"), " 01 / Qui sommes-nous")), React.createElement("h2", {
     className: "dim-em"
-  }, "Vos meubles, vos souvenirs,", React.createElement("br", null), React.createElement("em", null, "trait\xE9s comme les n\xF4tres."))), React.createElement("div", {
+  }, "Le savoir-faire vient du p\xE8re.", React.createElement("br", null), React.createElement("em", null, "La m\xE9thode, de nous deux."))), React.createElement("div", {
     className: "about-grid"
   }, React.createElement("div", {
     className: "about-copy reveal"
   }, React.createElement("p", {
     className: "lead"
-  }, "Tout commence par un ", React.createElement("strong", {
+  }, React.createElement("strong", {
     style: {
       color: 'var(--ink)'
     }
-  }, "d\xE9m\xE9nagement rat\xE9"), ". Le n\xF4tre. Meubles ab\xEEm\xE9s, facture qui double le jour m\xEAme, personne \xE0 qui parler. De cette exp\xE9rience est n\xE9e une exigence\xA0: ", React.createElement("em", null, "plus jamais \xE7a.")), React.createElement("p", null, "Fond\xE9e \xE0 Nice par ", React.createElement("strong", {
+  }, "Anthony a appris le m\xE9tier aupr\xE8s de son p\xE8re, d\xE9m\xE9nageur."), " Prot\xE9ger un meuble ancien, lire un acc\xE8s avant d\u2019engager le camion, charger dans l\u2019ordre o\xF9 l\u2019on d\xE9chargera : \xE7a ne s\u2019improvise pas en une saison. \xC7a se transmet."), React.createElement("p", null, React.createElement("strong", {
     style: {
       color: 'var(--ink)'
     }
-  }, "Edouard et Anthony"), ", LBC* traite vos affaires comme les siennes. Un devis ferme, du mat\xE9riel pro, et des gens qui savent ce que \xAB\xA0fragile\xA0\xBB veut dire."), React.createElement("p", {
+  }, "Edouard vient du digital."), " Il apporte ce qui manque presque partout dans le m\xE9tier : un devis chiffr\xE9 ligne par ligne \xE0 partir de votre inventaire, un cr\xE9neau d\u2019arriv\xE9e annonc\xE9 \xE0 l\u2019heure pr\xE8s, et tout ce qui vous engage \xE9crit avant qu\u2019un carton ne bouge."), React.createElement("p", {
     style: {
       color: 'var(--ink)'
     }
-  }, "Aujourd'hui, ce sont toujours eux qui forment les \xE9quipes, et toujours la m\xEAme r\xE8gle : le prix annonc\xE9 est le prix pay\xE9. ", React.createElement("a", {
+  }, "LBC*, c\u2019est la rencontre des deux : un m\xE9tier de d\xE9m\xE9nageur, conduit avec une exigence qui se v\xE9rifie. Les fondateurs forment et encadrent chaque \xE9quipe. ", React.createElement("a", {
     href: "Apropos",
     style: {
       color: 'var(--accent)',

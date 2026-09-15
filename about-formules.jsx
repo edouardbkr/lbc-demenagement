@@ -29,8 +29,10 @@ function About() {
     const v = aboutVidRef.current;
     if (v) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); }
   }, [source]);
+  /* Le padding haut était à 1px : le titre venait se coller au bloc sombre juste au-dessus.
+     Il reprend la respiration standard des sections du site, clamp(80px, 10vw, 140px). */
   return (
-    <section className="sec about" id="about" style={{ padding: "1px 0px 140px" }}>
+    <section className="sec about" id="about" style={{ padding: "clamp(80px, 10vw, 140px) 0px 140px" }}>
       <div className="wrap">
         <div className="sec-head reveal">
           <div>
@@ -40,22 +42,27 @@ function About() {
               Le 24 août, seule la première a été réécrite et le titre est devenu
               « Une exigence née / un travail qui fait dormir tranquille » — une phrase
               sans verbe et sans sens, restée en ligne sur la page d'accueil. */}
+          {/* Réécrit le 27 août 2026. L'ancien récit reposait sur « notre propre déménagement
+              raté » : c'est le poncif du secteur, tous les sites le racontent, et il positionne
+              l'entreprise comme deux victimes en colère plutôt que comme des professionnels.
+              Le vrai actif n'était écrit nulle part : le père d'Anthony est déménageur, le
+              métier lui a été transmis, et Edouard y apporte la méthode du digital. */}
           <h2 className="dim-em">
-            Vos meubles, vos souvenirs,<br />
-            <em>traités comme les nôtres.</em>
+            Le savoir-faire vient du père.<br />
+            <em>La méthode, de nous deux.</em>
           </h2>
         </div>
 
         <div className="about-grid">
           <div className="about-copy reveal">
             <p className="lead">
-              Tout commence par un <strong style={{ color: 'var(--ink)' }}>déménagement raté</strong>. Le nôtre. Meubles abîmés, facture qui double le jour même, personne à qui parler. De cette expérience est née une exigence&nbsp;: <em>plus jamais ça.</em>
+              <strong style={{ color: 'var(--ink)' }}>Anthony a appris le métier auprès de son père, déménageur.</strong> Protéger un meuble ancien, lire un accès avant d’engager le camion, charger dans l’ordre où l’on déchargera : ça ne s’improvise pas en une saison. Ça se transmet.
             </p>
             <p>
-              Fondée à Nice par <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong>, LBC* traite vos affaires comme les siennes. Un devis ferme, du matériel pro, et des gens qui savent ce que «&nbsp;fragile&nbsp;» veut dire.
+              <strong style={{ color: 'var(--ink)' }}>Edouard vient du digital.</strong> Il apporte ce qui manque presque partout dans le métier : un devis chiffré ligne par ligne à partir de votre inventaire, un créneau d’arrivée annoncé à l’heure près, et tout ce qui vous engage écrit avant qu’un carton ne bouge.
             </p>
             <p style={{ color: 'var(--ink)' }}>
-              Aujourd'hui, ce sont toujours eux qui forment les équipes, et toujours la même règle : le prix annoncé est le prix payé. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
+              LBC*, c’est la rencontre des deux : un métier de déménageur, conduit avec une exigence qui se vérifie. Les fondateurs forment et encadrent chaque équipe. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
             </p>
 
             <ul className="about-trust reveal-stagger">

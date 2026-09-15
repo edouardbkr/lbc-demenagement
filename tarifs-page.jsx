@@ -199,7 +199,7 @@ function TarifFacteurs() {
 function TarifFerme() {
   return (
     <section className="sec"><div className="wrap">
-      <TarifSecHead num="04 / Ce qui ne varie jamais" titre="Le prix du devis" em="est le prix final." />
+      <TarifSecHead num="04 / Ce qui ne varie jamais" titre="Le prix annoncé" em="est le prix payé." />
       <p className="lede">Une fois le devis établi, le montant ne bouge plus. Si nous avons sous-estimé le volume, le nombre d'étages ou la difficulté d'accès, c'est notre erreur, pas votre facture. Aucun supplément le jour du déménagement.</p>
       <p className="lede">C'est la seule ligne de cette page qui n'a pas de fourchette, et c'est celle qui compte le plus.</p>
     </div></section>);

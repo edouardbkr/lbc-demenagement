@@ -202,7 +202,7 @@ function construireConfirmation(p) {
       ? par("Votre estimation" + (dateEnToutesLettres(p.dateSouhaitee) ? " pour le " + esc(dateEnToutesLettres(p.dateSouhaitee)) : "") +
             (trajet ? ", " + esc(trajet) : "") + " : entre <strong>" + esc(fourchette) + "</strong> selon la formule.")
       : par("J'ai bien reçu votre demande" + (trajet ? " pour votre déménagement " + esc(trajet) : "") + ".")) +
-    par("Je vous appelle <strong>" + esc(quand) + "</strong>, comme vous l'avez demandé. Cinq minutes suffisent : on confirme l'étage, l'ascenseur et l'accès camion, et je vous donne le <strong>prix ferme</strong>, celui qui ne bouge plus le jour J.") +
+    par("Je vous appelle <strong>" + esc(quand) + "</strong>, comme vous l'avez demandé. Cinq minutes suffisent : on confirme l'étage, l'ascenseur et l'accès camion, et je vous donne votre prix : <strong>le prix annoncé est le prix payé</strong>, sans supplément le jour J.") +
     par("Un empêchement ? Répondez à ce message, on décale sans problème.") +
     '<p style="margin:24px 0 0;color:#6B7785">Bien à vous,<br>Edouard</p>';
 

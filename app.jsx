@@ -53,7 +53,8 @@ function App() {
       <Nav />
       <main>
         <Hero headlineVariant={t.headline} />
-        <MascotStamp />
+        {/* <MascotStamp /> retiré de l'accueil le 27 août à la demande d'Edouard.
+            Le composant reste défini dans site.jsx, il suffit de décommenter pour le remettre. */}
         <About />
         <Formules recommendedTier={t.recommended} />
         <RoadDivider />

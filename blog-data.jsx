@@ -37,7 +37,7 @@ const ARTICLES = [
           <li><strong>Trois-pièces</strong> — 22 à 35 m³.</li>
           <li><strong>Maison familiale</strong> — 35 à 60 m³ et plus.</li>
         </ul>
-        <blockquote>Un déménageur expérimenté « voit » le volume d'une pièce en quelques secondes. C'est tout l'intérêt d'une visite : transformer une intuition de pro en chiffre fiable.</blockquote>
+        <blockquote>Un déménageur expérimenté « voit » le volume d'une pièce en quelques secondes. C'est tout l'intérêt d'une visite : transformer une intuition de métier en chiffre fiable.</blockquote>
 
         <h2>Les erreurs qui faussent tout</h2>
         <ul>
@@ -65,7 +65,7 @@ const ARTICLES = [
     title: "Choisir sa société de déménagement : 7 signaux qui ne trompent pas",
     date: "21 mars 2026",
     read: "8 min",
-    excerpt: "Devis flou, acompte trop élevé, pas d'assurance affichée, avis bidon : les drapeaux rouges à repérer et les bonnes questions à poser avant de signer avec un déménageur.",
+    excerpt: "Devis flou, acompte trop élevé, pas d'assurance affichée, faux avis : les drapeaux rouges à repérer et les bonnes questions à poser avant de signer avec un déménageur.",
     thumb: "Poignée de main · contrat",
     body: () => (
       <React.Fragment>
@@ -104,100 +104,6 @@ const ARTICLES = [
           <li>L'autorisation de stationnement est-elle prise en charge ?</li>
         </ul>
         <p>Un professionnel répond sans hésiter, et le met par écrit. C'est exactement l'esprit de nos <a href="Formules">formules</a> : un devis clair, une assurance incluse et des déménageurs déclarés. Pour aller plus loin, notre <a href="FAQ">FAQ</a> répond aux questions les plus fréquentes, et vous pouvez demander un <a href="Devis">devis gratuit sous 24h</a> pour comparer en toute connaissance de cause.</p>
-      </React.Fragment>
-    )
-  },
-  {
-    slug: "demenagement-nice-paris-prix-delais",
-    seoTitle: "Combien coûte un déménagement Nice-Paris ? Prix 2026 · LBC",
-    image: "assets/blog/demenagement-nice-paris-930-km-trajet.jpg",
-    imageAlt: "Trajet de déménagement Nice-Paris : 930 km par les autoroutes A8, A7 et A6, environ 9 heures de route",
-    cat: "Longue distance",
-    title: "Combien coûte un déménagement de Nice vers Paris ?",
-    date: "26 mai 2026",
-    read: "13 min",
-    excerpt: "Ce qui fait le prix sur 930 km : le volume, le nombre de jours de camion, la période. Les fourchettes réelles et ce qui les fait bouger.",
-    thumb: "Carte Nice–Paris · ruban d'autoroute",
-    body: () => (
-      <React.Fragment>
-        <p className="lead-p">Le <strong>déménagement Nice → Paris</strong> est l'un des trajets longue distance les plus demandés de France : environ 930 kilomètres, près de 9 heures de route, et une logistique qui ne s'improvise pas. Combien de temps faut-il vraiment ? Quand réserver ? Qu'est-ce qui fait varier le prix ? Et pourquoi l'arrivée à Paris est-elle plus délicate que la route elle-même ? Ce guide complet répond à tout, étape par étape, pour réussir votre Nice-Paris sans mauvaise surprise.</p>
-
-        <blockquote>Le bon réflexe : un seul camion, une seule équipe du chargement niçois au déchargement parisien. Pas de groupage hasardeux, pas de transbordement en entrepôt qui rallonge les délais et abîme le mobilier.</blockquote>
-
-        <h2>Le trajet Nice-Paris en chiffres</h2>
-        <p>De la Côte d'Azur à la capitale, comptez environ <strong>930 km</strong> et <strong>9 heures de route</strong> hors pauses, en remontant la vallée du Rhône par l'A8 puis l'A7 et l'A6, l'« autoroute du Soleil » dans le sens inverse des vacanciers. C'est une distance qui impose des temps de conduite réglementaires pour le chauffeur, un véhicule bien entretenu et un mobilier soigneusement arrimé. Sur un tel trajet, rien ne doit bouger entre le départ et l'arrivée : la qualité du chargement compte autant que celle de la conduite.</p>
-
-        <h2>Combien de temps dure un déménagement Nice-Paris ?</h2>
-        <p>La question revient sans cesse, et la réponse dépend de la formule. Décomposons le déménagement en phases :</p>
-        <ul>
-          <li><strong>La préparation</strong> (cartons, tri, démontage) : de quelques jours à deux semaines selon que vous la faites vous-même ou qu'on s'en charge.</li>
-          <li><strong>Le chargement à Nice</strong> : une demi-journée à une journée selon le volume et les accès.</li>
-          <li><strong>La route</strong> : une journée de transport.</li>
-          <li><strong>La livraison et l'installation à Paris</strong> : une demi-journée à une journée (déchargement, remontage, mise en place).</li>
-        </ul>
-        <h3>Les scénarios selon la formule</h3>
-        <p>En formule <a href="Formules">Standard</a>, où vous gérez vos cartons, le déménagement se concentre souvent sur <strong>2 jours</strong> : chargement le jour 1, route et livraison le lendemain. En <strong>Premium</strong> ou <strong>Luxe</strong>, où l'on emballe et déballe, comptez plutôt <strong>2 à 3 jours</strong> au total, emballage et installation compris. En <a href="Demenagement-Nice-Paris">déménagement Nice → Paris dédié</a>, on charge un jour et on livre selon une fenêtre d'arrivée annoncée, sans attente intermédiaire.</p>
-
-        <h2>Camion dédié ou groupage : la différence qui change tout</h2>
-        <p>C'est le point que beaucoup découvrent trop tard. Deux modèles s'opposent :</p>
-        <ul>
-          <li><strong>Le groupage</strong> : vos affaires partagent le camion avec d'autres déménagements. Elles attendent en entrepôt qu'un véhicule se remplisse dans votre direction, puis sont transbordées. Résultat : un coût souvent plus bas, mais des délais flous (parfois une à deux semaines), et un risque de casse à chaque manipulation.</li>
-          <li><strong>Le camion dédié</strong> : un véhicule réservé à votre seul chargement, plombé au départ de Nice, livré en une traite par la même équipe. Délai fiable, une seule manipulation au départ et à l'arrivée, aucun mélange avec les affaires d'un autre.</li>
-        </ul>
-        <p>Sur un Nice-Paris, nous privilégions le camion dédié : c'est la garantie d'une date d'arrivée tenue et d'un mobilier qui voyage en sécurité.</p>
-
-        <h2>Quand réserver son déménagement Nice-Paris ?</h2>
-        <p>Anticipez. Pour un trajet longue distance, réservez idéalement <strong>3 à 4 semaines à l'avance</strong>, et davantage en haute saison. Les périodes les plus tendues sont l'été (juin à septembre), les fins de mois et les week-ends, quand les baux tournent et que tout le monde déménage en même temps. Un déménagement en milieu de mois, un jour de semaine et hors été est plus facile à caler, plus fluide, et souvent plus avantageux. Cela dit, on sait aussi gérer les départs serrés quand un compromis se signe vite.</p>
-
-        <h2>Ce qui fait varier le coût d'un Nice-Paris</h2>
-        <p>Plutôt qu'un prix unique, retenez les leviers qui font monter ou baisser la facture. C'est exactement ce que chiffre votre devis :</p>
-        <ul>
-          <li><strong>Le volume</strong> en m³ : c'est le premier facteur. Trier et alléger avant de partir fait mécaniquement baisser le coût.</li>
-          <li><strong>La formule</strong> : du simple transport (Standard) au clé en main avec emballage et déballage complets (Luxe).</li>
-          <li><strong>Les accès</strong> aux deux adresses : étage, présence et taille de l'ascenseur, distance de portage, monte-meuble éventuel.</li>
-          <li><strong>La saison et la date</strong> : juin à septembre, fins de mois et week-ends sont plus demandés, donc plus tendus.</li>
-          <li><strong>Les options</strong> : garde-meuble relais, démontage/remontage, emballage des fragiles, assurance en valeur déclarée.</li>
-        </ul>
-        <p>Pour un chiffrage personnalisé et <strong>ferme</strong> (le prix annoncé est le prix payé), le plus fiable reste le <a href="Devis">devis gratuit</a>, affiné si besoin par une courte visite vidéo. Pour comprendre comment bien estimer votre volume, lisez aussi notre article <a href="Article-estimer-volume">estimer le volume de votre déménagement</a>.</p>
-
-        <h2>Au départ de Nice : les contraintes à anticiper</h2>
-        <p>Avant même la route, le chargement niçois a ses règles. Selon votre quartier (ruelles du Vieux-Nice, immeubles du Carré d'Or, hauteurs de Cimiez), il faut réserver un emplacement de stationnement auprès de la Ville de Nice, prévoir le portage ou le monte-meuble, et charger de préférence tôt le matin pour éviter la chaleur estivale et la circulation du bord de mer. On détaille tout cela dans notre guide <a href="Demenagement-Nice">déménager à Nice</a>.</p>
-
-        <h2>À l'arrivée à Paris : le vrai défi</h2>
-        <p>Sur un Nice-Paris, le défi n'est pas la route, c'est l'arrivée. Paris impose ses règles, et les ignorer coûte cher en temps et en amendes :</p>
-        <h3>L'autorisation de stationnement, par arrondissement</h3>
-        <p>Pour réserver l'emplacement du camion devant l'immeuble, il faut une autorisation d'occupation de voirie, à demander à la mairie d'arrondissement concernée, plusieurs jours à l'avance. Sans elle, impossible de garantir une place : on tourne, on se gare loin, on porte sur des dizaines de mètres, ou on bloque la rue. On s'en charge pour vous.</p>
-        <h3>Les immeubles haussmanniens et le monte-meuble</h3>
-        <p>Beaucoup d'immeubles parisiens ont des escaliers en colimaçon, des cages exiguës, des derniers étages sans ascenseur ou un ascenseur minuscule. Pour les meubles volumineux, le <strong>monte-meuble par la façade</strong> devient indispensable. Il se repère et se chiffre dès le devis, jamais en surprise le jour J.</p>
-        <h3>Les créneaux et la circulation</h3>
-        <p>Intra-muros, le stationnement est minuté, certaines rues sont étroites ou à sens unique, et un gros porteur n'accède pas partout : on transborde parfois avec un véhicule plus maniable. En proche couronne, plus de place mais des trajets de portage parfois longs. On adapte le véhicule et la méthode à votre adresse exacte.</p>
-
-        <h2>L'organisation du jour J, des deux côtés</h2>
-        <p>Au départ de Nice, on charge tôt, on protège et on cale pour la longue route. Sur place à Paris, on décharge sur le créneau réservé, on remonte les meubles démontés et on installe. Avec une équipe dédiée, ce sont les <strong>mêmes déménageurs du premier au dernier carton</strong> : aucune dilution de responsabilité, aucun transbordement. Pour un déroulé pas-à-pas complet, voyez notre <a href="Article-demenagement-nice-paris-reussir">guide pour réussir son Nice-Paris</a>.</p>
-
-        <h2>Le garde-meuble relais entre les deux</h2>
-        <p>Les dates de départ et d'arrivée coïncident rarement à la perfection : un bail qui se termine avant que l'autre commence, des travaux, une vente qui traîne. Le garde-meuble en box sécurisé fait le pont, à Nice avant le départ ou à l'arrivée, le temps qu'il faut, vos affaires protégées et assurées.</p>
-
-        <h2>Les erreurs les plus fréquentes</h2>
-        <ul>
-          <li><strong>Réserver trop tard</strong> : les bons créneaux d'été partent des semaines à l'avance.</li>
-          <li><strong>Sous-estimer son volume</strong> : un camion trop petit le jour J, c'est un deuxième voyage et des frais.</li>
-          <li><strong>Oublier l'autorisation de stationnement</strong> à Paris : amende et portage à rallonge.</li>
-          <li><strong>Comparer des devis qui ne décrivent pas le même service</strong> : on croit économiser, on paie le jour J.</li>
-          <li><strong>Choisir le groupage sans le savoir</strong> : délais flous et manipulations multiples.</li>
-        </ul>
-
-        <h2>Questions fréquentes sur le Nice-Paris</h2>
-        <h3>Peut-on livrer le lendemain du chargement ?</h3>
-        <p>Oui, en camion dédié : on charge un jour à Nice et on livre le lendemain à Paris, selon une fenêtre d'arrivée annoncée. C'est l'avantage du trajet direct, sans attente en entrepôt.</p>
-        <h3>Faut-il être présent au départ et à l'arrivée ?</h3>
-        <p>Idéalement oui, ou une personne de confiance, pour ouvrir, indiquer la mise en place et signer. Si ce n'est pas possible, on s'organise avec vous en amont.</p>
-        <h3>Mes affaires sont-elles assurées sur les 930 km ?</h3>
-        <p>Oui, une assurance est incluse dans chaque formule, du chargement à la livraison. Pour les objets de valeur, on propose une couverture en valeur déclarée.</p>
-        <h3>Et si je déménage juste un studio ?</h3>
-        <p>Le trajet reste possible et chiffré au plus juste selon votre petit volume. La formule Standard est souvent la plus adaptée pour un studio.</p>
-
-        <p>Pour passer à l'action, consultez la page <a href="Demenagement-Nice-Paris">déménagement Nice → Paris</a>, lisez notre <a href="Article-demenagement-nice-paris-reussir">guide complet pour réussir son Nice-Paris</a>, et demandez votre <a href="Devis">devis gratuit sous 24h</a> : on s'occupe de tout, du premier carton niçois à la dernière étagère parisienne.</p>
       </React.Fragment>
     )
   },
@@ -242,7 +148,7 @@ const ARTICLES = [
         <p>C'est l'étape la plus rentable. Sur un long trajet, transporter ce dont on ne se sert plus coûte cher pour rien. Triez par catégorie : ce que vous gardez, ce que vous vendez (meubles en bon état, électroménager), ce que vous donnez (associations, plateformes) et ce que vous jetez ou recyclez (déchèterie pour l'encombrant). Les meubles en kit fatigués supportent mal la route : il est souvent plus malin de les remplacer à l'arrivée que de les transporter.</p>
 
         <h2>L'art du carton : emballer pour durer</h2>
-        <p>Sur plusieurs centaines de kilomètres, le calage est crucial : un carton mal rempli s'écrase, un meuble mal protégé se raye. Quelques règles de pro :</p>
+        <p>Sur plusieurs centaines de kilomètres, le calage est crucial : un carton mal rempli s'écrase, un meuble mal protégé se raye. Quelques règles de métier :</p>
         <ul>
           <li><strong>Les livres et objets lourds</strong> dans de petits cartons, pour qu'ils restent portables.</li>
           <li><strong>La vaisselle</strong> emballée pièce par pièce dans du papier, à la verticale, calée serré.</li>
@@ -295,7 +201,7 @@ const ARTICLES = [
         <h3>Puis-je laisser des affaires en garde-meuble ?</h3>
         <p>Oui, un garde-meuble relais est utile si vos dates ne coïncident pas ou si votre logement parisien est plus petit. On vous oriente vers un prestataire de confiance et on organise le transport dans les deux sens.</p>
 
-        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre article <a href="Article-demenagement-nice-paris-prix-delais">longue distance : délais et organisation</a>. Et quand vous êtes prêt, demandez votre <a href="Devis">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
+        <p>Pour la partie chiffres, délais et organisation logistique, lisez notre page <a href="Demenagement-Nice-Paris">déménagement Nice → Paris</a>. Et quand vous êtes prêt, demandez votre <a href="Devis">devis gratuit sous 24h</a> : on vous accompagne du premier carton à la dernière étagère.</p>
       </React.Fragment>
     )
   },
@@ -408,7 +314,7 @@ const ARTICLES = [
 
         <h2>Garde-meuble entre deux années</h2>
         <p>Vous rentrez chez vos parents l'été mais gardez le logement l'an prochain ? Un garde-meuble en box sécurisé évite de tout trimballer deux fois et de payer un déménagement aller-retour. C'est souvent plus malin, et moins cher, qu'un loyer de vide pendant deux mois.</p>
-        <p>Bref, même un petit déménagement mérite un vrai pro : c'est rapide, sécurisé et étonnamment abordable. Demandez un <a href="Devis">devis gratuit sous 24h</a> et gardez votre énergie pour vos partiels.</p>
+        <p>Même un petit déménagement mérite un professionnel : c'est rapide, sécurisé et moins coûteux qu'on ne l'imagine. Demandez un <a href="Devis">devis gratuit sous 24h</a> et gardez votre énergie pour vos partiels.</p>
       </React.Fragment>
     )
   }

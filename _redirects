@@ -189,3 +189,11 @@
 # en position 82 contre 91. Rendu generique le 26 aout, son slug ne doit plus cibler
 # Nice-Paris. L'ancienne adresse redirige, rien n'est perdu.
 /Article-demenagement-nice-paris-reussir	/Article-checklist-demenagement-longue-distance	301
+
+# L'article « Combien coûte un déménagement Nice-Paris » disputait la requête
+# « déménagement paris nice » à la page commerciale : 183 impressions par mois réparties
+# sur trois URLs, positions 81, 90 et 92, et ZÉRO clic. Aucune des deux ne ressortait.
+# Mesuré le 15 septembre 2026. Ce que l'article disait de plus — les leviers de prix et
+# le délai de réservation — a été repris dans Demenagement-Nice-Paris avant la bascule,
+# pour que l'intention de recherche ne se perde pas avec l'URL.
+/Article-demenagement-nice-paris-prix-delais	/Demenagement-Nice-Paris	301

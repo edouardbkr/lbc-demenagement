@@ -15,7 +15,7 @@ const FAQS = [{
 }, {
   cat: "Devis & prix",
   q: "Le prix annoncé peut-il changer le jour J ?",
-  a: "Non. Le prix du devis est le prix payé, point. La seule exception : si le volume réel diffère nettement de ce qui a été décrit (deux fois plus de cartons que prévu, un meuble « oublié » de 200 kg). C'est tout l'intérêt de bien décrire votre inventaire en amont."
+  a: "Non. Le prix annoncé est le prix payé, point. La seule exception : si le volume réel diffère nettement de ce qui a été décrit (deux fois plus de cartons que prévu, un meuble « oublié » de 200 kg). C'est tout l'intérêt de bien décrire votre inventaire en amont."
 }, {
   cat: "Devis & prix",
   q: "Faut-il une visite à domicile ?",

@@ -4,7 +4,7 @@
    le 24 août 2026 via l'API Places. À vérifier de temps en temps : une note affichée qui
    ne correspond plus à la fiche se retourne contre nous, c'est le contraire de l'effet
    recherché. Un seul endroit à modifier, ici. */
-const AVIS_GOOGLE = { note: "5,0", nombre: 26, lien: "https://maps.google.com/?cid=16541024533175288818" };
+const AVIS_GOOGLE = { note: "5,0", nombre: 31, lien: "https://maps.google.com/?cid=16541024533175288818" };
 
 function Hero({ headlineVariant }) {
   const headlines = {
@@ -46,7 +46,7 @@ function Hero({ headlineVariant }) {
       /* Espace insécable entre « à » et « Nice » : sans elle, le titre se coupe en
          « Déménageur à » / « Nice. » et laisse la préposition orpheline en fin de ligne.
          Elle passe désormais à la ligne avec le nom de la ville. */
-      l1: "Entreprise de déménagement\u00A0à\u00A0Nice.",
+      l1: "Déménagement à\u00A0Nice et sur la Côte\u00A0d'Azur.",
       /* Insécable entre « le » et « prix » : sans elle, la ligne se coupait en
          « Le prix annoncé est le » / « prix payé. » et laissait l'article orphelin,
          le même défaut que « Déménageur à / Nice » corrigé plus haut. */
@@ -54,7 +54,25 @@ function Hero({ headlineVariant }) {
          le H1, qui a sa propre echelle par palier. Sur mobile le sous-titre finissait
          a 50 px sous un titre a 33 px, soit une hierarchie inversee. La taille vit
          desormais dans styles.css, en proportion du titre (voir .hero h1 .l2 em). */
-      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader" }}>{"Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9."}</em></>,
+      /* LA SIGNATURE DE MARQUE, arrêtée le 27 août 2026. Elle remplace « Le prix annoncé
+         est le prix payé », qui disait déjà mot pour mot ce que dit la puce 2 juste en
+         dessous : la promesse était écrite deux fois dans le même écran.
+         Le sous-titre porte donc la marque, la puce garde la promesse commerciale.
+
+         L'ASTÉRISQUE FAIT PARTIE DE LA SIGNATURE, il n'est pas décoratif et il ne se
+         retire pas. Edouard l'a tranché le 27 août.
+
+         ⚠️ LES ESPACES INSÉCABLES ONT ÉTÉ RETIRÉES. Toute la phrase en insécables en
+         faisait un seul bloc infrangible : dès que la colonne était plus étroite que ce
+         bloc, la coupure tombait au seul endroit possible, juste après l'astérisque, qui
+         se retrouvait SEUL sur sa ligne. Seul « *L'exigence » est désormais soudé, le
+         reste coupe normalement.
+
+         ⚠️ C'est <AsterisqueLBC /> (défini dans site.jsx), PAS un « * » de texte. Le
+         caractère des polices du site est un astérisque fin à cinq branches, sans rapport
+         avec celui du logotype qui en a six et des barres épaisses. Et il n'est plus
+         suspendu dans la marge : la version à width:0 était invisible sur mobile. */
+      l2: <><em style={{ opacity: "0.8", fontFamily: "Newsreader" }}><span style={{ whiteSpace: "nowrap" }}><AsterisqueLBC em={0.46} decalage="0.30em" />{"L’exigence"}</span>{" du moindre d\u00E9tail."}</em></>,
       scribble: null
     }
   };
@@ -115,7 +133,7 @@ function Hero({ headlineVariant }) {
               cohérentes : promettre ici ce qu'on nuance là-bas, c'est se faire prendre en
               défaut par le premier visiteur qui lit les deux pages. */}
           <span className="pill pill-live"><span className="dot"></span>Devis en 24 h</span>
-          <span className="pill"><svg className="pill-ic" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>PACA · Toute la France</span>
+          <span className="pill"><svg className="pill-ic" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>France · International</span>
         </div>
 
         <div className="hero-grid">
@@ -159,9 +177,9 @@ function Hero({ headlineVariant }) {
                     interpréter ni un terme d'assureur. La promesse se dit en clair ici, et le
                     montant reste écrit là où il engage vraiment — le devis, et le bloc
                     « Nos engagements » des pages villes, où Edouard l'a explicitement voulu. */}
-                <li>Vos meubles assurés du chargement à la livraison, dans les trois formules</li>
-                <li>Le prix du devis est le prix final. Aucun supplément le jour J</li>
-                <li>Un créneau d'arrivée à l'heure près, pas une demi-journée</li>
+                <li>Assurance Premium de vos biens</li>
+                <li>Le prix annoncé est le prix payé.</li>
+                <li>Un créneau d'arrivée à l'heure près.</li>
               </ul>
             </div>
 

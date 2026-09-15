@@ -116,11 +116,13 @@ function NiceHero() {
     href: "/"
   }, "Accueil"), " ", React.createElement("span", null, "\u203A"), " ", React.createElement("a", {
     href: "Zones"
-  }, "Zones desservies"), " ", React.createElement("span", null, "\u203A"), " ", React.createElement("span", null, "Nice")), React.createElement("h1", null, "D\xE9m\xE9nager ", React.createElement("em", {
+  }, "Zones desservies"), " ", React.createElement("span", null, "\u203A"), " ", React.createElement("span", null, "Nice")), React.createElement("h1", null, React.createElement("em", {
     className: "dim-em"
-  }, "quartier par quartier"), " \xE0 Nice"), React.createElement("p", {
+  }, "D\xE9m\xE9nagement \xE0 Nice"), ", quartier par quartier"), React.createElement("p", {
     className: "lede"
-  }, "Nice n'est pas une ville, c'est dix quartiers qui n'ont rien \xE0 voir. Le Vieux-Nice ne se d\xE9m\xE9nage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que \xE7a co\xFBte r\xE9ellement, et quelles d\xE9marches sont \xE0 faire avant le jour J."), React.createElement("div", {
+  }, "Nice n'est pas une ville, c'est dix quartiers qui n'ont rien \xE0 voir. Le Vieux-Nice ne se d\xE9m\xE9nage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que \xE7a co\xFBte r\xE9ellement, et quelles d\xE9marches sont \xE0 faire avant le jour J. Pour un ", React.createElement("a", {
+    href: "Entreprise"
+  }, "d\xE9m\xE9nagement de bureaux \xE0 Nice"), ", tout se passe sur la page d\xE9di\xE9e."), React.createElement("div", {
     style: {
       display: "flex",
       gap: 10,

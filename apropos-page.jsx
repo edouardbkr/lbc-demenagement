@@ -3,7 +3,7 @@ const I = (props) =>
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{props.children}</svg>;
 
 const AP_VALUES = [
-{ t: "L'honnêteté d'abord", d: "Le prix du devis est le prix payé. Pas d'astérisque en bas de page, pas de « surprise » le jour J.", icon:
+{ t: "L'honnêteté d'abord", d: "Le prix annoncé est le prix payé. Aucun supplément le jour J, aucune « surprise » à la facture.", icon:
   <I><path d="M12 21c-5-2.5-8-6-8-11V5l8-3 8 3v5c0 5-3 8.5-8 11z" /><path d="M9 11.5l2 2 4-4.5" /></I> },
 { t: "Le geste juste", d: "Des déménageurs expérimentés, encadrés par les fondateurs eux-mêmes, qui savent porter un piano comme une boîte à souvenirs.", icon:
   <I><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3L2.5 16a2 2 0 0 1 2.8-2.8L7 15" /><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V7a2 2 0 0 0-4 0v8" /></I> },
@@ -12,11 +12,15 @@ const AP_VALUES = [
 { t: "À l'heure, toujours", d: "Une fenêtre d'arrivée de 15 minutes. Votre journée démarre quand on l'a dit, pas deux heures plus tard.", icon:
   <I><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3.5 2" /></I> }];
 
+/* Parcours réécrit le 27 août 2026. L'ancienne version racontait « un déménagement raté,
+   deux amis en colère » : c'est le récit que tout le secteur écrit, il ne dit rien de ce
+   qu'on sait faire et il place les fondateurs en victimes. Le vrai actif est la
+   transmission du métier, et la méthode qu'on lui ajoute. */
 const AP_TIMELINE = [
-{ y: "01", t: "Le déclic", d: "Après un déménagement catastrophique — cartons écrasés, équipe fantôme à 8h — deux amis niçois en ont assez. Un constat simple : on peut tellement mieux faire." },
-{ y: "02", t: "La promesse", d: "On fonde LBC* avec une règle non négociable : traiter les affaires des gens comme les nôtres. Un prix annoncé qu'on respecte, du matériel adapté, et jamais d'inconnu recruté la veille pour porter vos meubles." },
-{ y: "03", t: "Plus loin que Nice", d: "Déménagements locaux, longues distances, entreprises : de Monaco à Paris, on s'organise pour tenir chaque délai et chaque promesse." },
-{ y: "04", t: "Aujourd'hui", d: "Des centaines de déménagements menés avec soin, des équipes formées par les fondateurs, et des clients qui nous recommandent. Une note de 5,0 sur Google, et l'exigence du premier jour." }];
+{ y: "01", t: "La transmission", d: "Anthony apprend le métier auprès de son père, déménageur. Le calage, la protection du mobilier ancien, la lecture d'un accès avant d'engager le camion. Un savoir-faire qui vient des chantiers, pas d'un manuel." },
+{ y: "02", t: "Le constat", d: "Le métier a gardé le geste et perdu la rigueur. Devis approximatifs, créneaux à la demi-journée, suppléments annoncés le jour même. Le client subit une organisation qu'il ne peut ni vérifier ni contester." },
+{ y: "03", t: "La méthode", d: "Edouard, venu du digital, construit ce qui manquait : chiffrage ligne par ligne sur l'inventaire réel, créneau d'arrivée à l'heure près, conditions écrites avant le chargement. Le geste ne change pas, ce qui l'entoure change entièrement." },
+{ y: "04", t: "Aujourd'hui", d: "Des équipes formées et encadrées par les fondateurs, un prix ferme sur chaque devis, et une note de 5,0 sur Google. L'exigence n'est pas un mot d'accueil : elle se lit sur le devis." }];
 
 
 function AproposHero() {
@@ -28,9 +32,9 @@ function AproposHero() {
           <span className="sep">/</span>
           <span>Qui sommes-nous</span>
         </div>
-        <h1>Deux amis, un camion, <em>et une vieille rancune contre les déménagements ratés.</em></h1>
+        <h1>Un métier qui se transmet, <em>une exigence qui se mesure.</em></h1>
         <p className="lede">
-          Deux fondateurs qui déménagent encore eux-mêmes, des équipes qu'ils forment, et une règle qui n'a jamais bougé : le prix annoncé est le prix payé. <span className="ast">*</span>Voici l'histoire.
+          Anthony a appris le métier auprès de son père, déménageur. Edouard vient du digital et de la méthode. LBC* est né de ce que les deux savent faire. <span className="ast">*</span>Voici l’histoire.
         </p>
       </div>
     </section>);
@@ -45,16 +49,19 @@ function AproposStory() {
           <div className="about-copy reveal">
             <div className="sec-num" style={{ marginBottom: 22 }}><span className="asterisk">*</span> Notre histoire</div>
             <p className="lead">
-              Un samedi, <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony</strong> déménagent un appartement niçois avec une société trouvée en ligne. Résultat : <strong style={{ color: 'var(--ink)' }}>deux heures de retard, un buffet de famille rayé, et zéro excuse.</strong>
+              Le déménagement est un métier, et <strong style={{ color: 'var(--ink)' }}>Anthony l’a appris auprès de son père, déménageur.</strong> Sangler une armoire ancienne sans marquer le placage, juger d’un escalier avant d’y engager une équipe, charger un camion dans l’ordre exact où on le déchargera. Ce sont des gestes qui ne s’apprennent pas en une saison. Ils se transmettent.
             </p>
             <p>
-              Ce jour-là, ils se regardent et se disent la même chose : <em>« On peut faire tellement mieux. »</em> Pas avec des promesses marketing, mais avec du bon sens — des équipes expérimentées, du matériel entretenu, un prix annoncé qu'on respecte, et le soin qu'on mettrait à transporter nos propres souvenirs.
+              Ce savoir-faire existe encore dans le métier. Ce qui manque, c’est la rigueur autour. <strong style={{ color: 'var(--ink)' }}>Des devis approximatifs, des créneaux à la demi-journée, des suppléments annoncés le matin même</strong>, quand le camion est déjà là et qu’il est trop tard pour dire non. Ce n’est pas un défaut de compétence, c’est un défaut de méthode.
             </p>
             <p>
-              Aujourd'hui, LBC* a grandi — mais l'exigence n'a pas bougé. <strong style={{ color: 'var(--ink)' }}>Edouard et Anthony forment et encadrent chaque équipe</strong>, pour qu'on vous traite toujours comme leur tout premier client : <strong style={{ color: 'var(--ink)' }}>que votre déménagement arrête d'être votre problème.</strong>
+              <strong style={{ color: 'var(--ink)' }}>Edouard vient du digital.</strong> Il a construit l’outil qui manquait : un chiffrage ligne par ligne à partir de l’inventaire réel, un créneau d’arrivée annoncé à l’heure près, des conditions écrites et lisibles avant qu’un seul carton ne bouge. Rien qui remplace le geste, tout ce qui l’entoure.
+            </p>
+            <p>
+              LBC*, c’est cette rencontre. <strong style={{ color: 'var(--ink)' }}>Un métier hérité, une méthode ajoutée</strong>, et une exigence que le client peut vérifier au lieu d’avoir à la croire.
             </p>
             <p className="ap-quote">
-              « On voulait bâtir l'entreprise qu'on aurait voulu trouver le jour de notre propre déménagement. »
+              « Le geste, on l’a appris. Ce qu’on a changé, c’est tout ce qu’il y a autour : ce qu’on écrit, ce qu’on annonce, et ce qu’on tient. »
               <span className="ap-quote-by">— Edouard & Anthony, fondateurs de LBC*</span>
             </p>
           </div>
@@ -92,7 +99,7 @@ function AproposTimeline() {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> Notre parcours</div></div>
-          <h2 className="dim-em">D'un déménagement raté<br /><em>à une méthode qui ne l'est pas.</em></h2>
+          <h2 className="dim-em">D’un métier appris<br /><em>à une méthode construite.</em></h2>
         </div>
         <div className="ap-timeline reveal-stagger">
           {AP_TIMELINE.map((m, i) =>

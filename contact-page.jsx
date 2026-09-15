@@ -61,7 +61,7 @@ function ContactInfo() {
   { k: "Téléphone", v: "06 15 97 65 77", href: "tel:+33615976577" },
   { k: "Email", v: "contact@lbcdemenagement.com", href: "mailto:contact@lbcdemenagement.com" },
   { k: "Adresse", v: "12 rue d'Italie, 06000 Nice" },
-  { k: "Horaires", v: "Lun–Sam · 8h–19h" },
+  { k: "Horaires", v: "Lun–Sam · 7h–21h" },
   { k: "Zone", v: "Nice · PACA · Toute la France" }];
 
   return (

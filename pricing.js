@@ -510,11 +510,17 @@
     const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLon / 2) ** 2;
     return 2 * R * Math.asin(Math.sqrt(h));
   }
-  function distanceKm(depart, arrivee) {
+  function distanceVolOiseau(depart, arrivee) {
     return Promise.all([coordsDe(depart), coordsDe(arrivee)]).then(([a, b]) => {
       if (!a || !b) return null;
       return Math.round(haversine(a, b) * CFG.coefRoute);
     }).catch(() => null);
+  }
+  function distanceKm(depart, arrivee) {
+    const d = String(depart || '').trim(),
+      a2 = String(arrivee || '').trim();
+    if (!d || !a2) return Promise.resolve(null);
+    return fetch('/api/distance?from=' + encodeURIComponent(d) + '&to=' + encodeURIComponent(a2)).then(r => r.ok ? r.json() : null).then(j => j && j.km ? j.km : distanceVolOiseau(depart, arrivee)).catch(() => distanceVolOiseau(depart, arrivee));
   }
   function distanceBase(depart, arrivee) {
     const base = {
@@ -529,6 +535,7 @@
   window.LBC_PRICING = {
     estimer,
     distanceKm,
+    distanceVolOiseau,
     distanceBase,
     CFG
   };

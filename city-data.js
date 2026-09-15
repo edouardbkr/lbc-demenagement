@@ -1155,7 +1155,7 @@ const CITIES = {
       a: "Très : on est basés juste à côté, à Nice. Idéal pour un déménagement local bouclé en quelques heures et à un coût de déplacement réduit."
     }, {
       q: "Déménagez-vous les commerces et bureaux de Cap 3000 ?",
-      a: "Oui, en horaires décalés pour ne pas perturber l'activité, avec un interlocuteur unique, un devis pro et une facture en règle."
+      a: "Oui, en horaires décalés pour ne pas perturber l'activité, avec un interlocuteur unique, un devis détaillé et une facture en règle."
     }, {
       q: "Gérez-vous le stationnement et les résidences du bord de mer ?",
       a: "Oui : réservation d'emplacement, coordination avec les copropriétés, réservation d'ascenseur et protection des parties communes, même en saison."

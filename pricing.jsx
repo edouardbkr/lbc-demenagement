@@ -937,12 +937,37 @@
     return 2 * R * Math.asin(Math.sqrt(h));
   }
 
-  // Distance routière estimée entre deux adresses, en km. null si indéterminable.
-  function distanceKm(depart, arrivee) {
+  /* Le repli : distance à vol d'oiseau × coefRoute. C'était LE calcul du site jusqu'au
+     29 août 2026, il ne sert plus que si /api/distance ne répond pas. */
+  function distanceVolOiseau(depart, arrivee) {
     return Promise.all([coordsDe(depart), coordsDe(arrivee)]).then(([a, b]) => {
       if (!a || !b) return null;
       return Math.round(haversine(a, b) * CFG.coefRoute);
     }).catch(() => null);
+  }
+
+  /* Distance routière entre deux adresses, en km. null si indéterminable.
+
+     ⚠️ ON DEMANDE MAINTENANT LA VRAIE ROUTE, PLUS UNE LIGNE DROITE CORRIGÉE.
+     Le coefficient unique de 1,25 suppose la même sinuosité dans toutes les directions.
+     Mesuré sur 17 trajets au départ de Nice : juste vers l'ouest où l'A8 file droit
+     (Marseille +0 %, Toulouse −4 %), FAUX de moitié vers le nord où il faut contourner
+     les Alpes — Bonneville 340 km annoncés contre 508 réels, Genève 364 contre 534,
+     Lyon 373 contre 471. Et +16 à +24 % en local dans les collines (Monaco, Grasse,
+     Menton), parce qu'une corniche ne se voit pas à vol d'oiseau.
+     Le dossier WEB-3664 a coûté un mail d'explication à la cliente pour cette raison.
+
+     ⚠️ LE REPLI EST OBLIGATOIRE ET SILENCIEUX. Si la fonction serveur ne répond pas,
+     on reprend l'ancien calcul. Un estimateur qui donne une fourchette approximative
+     vaut infiniment mieux qu'un estimateur qui ne donne rien : la page ne doit jamais
+     rester sans prix parce qu'un service tiers a hoqueté. */
+  function distanceKm(depart, arrivee) {
+    const d = String(depart || '').trim(), a2 = String(arrivee || '').trim();
+    if (!d || !a2) return Promise.resolve(null);
+    return fetch('/api/distance?from=' + encodeURIComponent(d) + '&to=' + encodeURIComponent(a2))
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => (j && j.km ? j.km : distanceVolOiseau(depart, arrivee)))
+      .catch(() => distanceVolOiseau(depart, arrivee));
   }
 
   // Distance d'approche facturable : la base de Nice jusqu'à l'extrémité du chantier LA
@@ -967,5 +992,5 @@
     }).catch(() => 0);
   }
 
-  window.LBC_PRICING = { estimer, distanceKm, distanceBase, CFG };
+  window.LBC_PRICING = { estimer, distanceKm, distanceVolOiseau, distanceBase, CFG };
 })();

@@ -70,7 +70,7 @@ function ContactInfo() {
     v: "12 rue d'Italie, 06000 Nice"
   }, {
     k: "Horaires",
-    v: "Lun–Sam · 8h–19h"
+    v: "Lun–Sam · 7h–21h"
   }, {
     k: "Zone",
     v: "Nice · PACA · Toute la France"

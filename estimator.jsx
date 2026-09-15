@@ -82,6 +82,10 @@ function Estimator() {
     <section className="sec est" id="estimateur">
       <div className="wrap">
         <div className="est-card reveal">
+          {/* Filigrane : le signe de la marque, plus le « * » de la police.
+              Il était en ::after avec content:"*", donc l'astérisque fin à cinq branches,
+              sans rapport avec le logotype. Voir AsterisqueLBC dans site.jsx. */}
+          <div className="est-watermark" aria-hidden="true"><AsterisqueLBC em={9} decalage="0" couleur="var(--accent)" /></div>
           <div className="est-head">
             <div className="sec-num"><span className="asterisk">*</span> Estimation express</div>
             <h2>Votre déménagement<br /><em>en 10 secondes.</em></h2>

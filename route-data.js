@@ -32,6 +32,12 @@ const ROUTES = {
     }, {
       t: "Le relais entre les deux dates",
       p: "Sur un grand déménagement, les dates de départ et d'arrivée ne coïncident pas toujours : un bail qui se termine avant que l'autre commence, des travaux en cours, une vente qui traîne. On propose un garde-meuble en box sécurisé pour faire le relais, à Nice avant le départ ou à l'arrivée, sans vous obliger à improviser. Vos affaires restent protégées et assurées le temps qu'il faut."
+    }, {
+      t: "Ce qui fait le prix d'un Nice–Paris",
+      p: "Il n'existe pas de tarif unique sur 930 km, mais cinq leviers qui font monter ou baisser la facture, et ce sont exactement ceux que chiffre le devis. Le volume en mètres cubes vient en premier : trier et alléger avant de partir fait mécaniquement baisser le coût. Vient ensuite la formule, du simple transport au clé en main avec emballage et déballage. Puis les accès aux deux adresses : étage, ascenseur et sa taille, distance de portage, monte-meuble éventuel. La saison compte aussi, de juin à septembre, en fin de mois et le week-end, tout le monde déménage en même temps. Enfin les options : garde-meuble relais, démontage et remontage, emballage des fragiles, assurance en valeur déclarée. Le prix annoncé reste le prix payé."
+    }, {
+      t: "Quand réserver son Nice–Paris",
+      p: "Comptez trois à quatre semaines d'avance, davantage en haute saison. Les périodes tendues sont l'été, les fins de mois et les week-ends, quand les baux tournent. Un départ en milieu de mois, un jour de semaine et hors été se cale plus facilement et coûte souvent moins cher. Cela dit, un compromis qui se signe vite impose parfois un départ serré : on sait aussi les gérer, il suffit d'appeler."
     }],
     faq: [{
       q: "Combien de temps dure un déménagement Nice–Paris ?",
@@ -48,6 +54,12 @@ const ROUTES = {
     }, {
       q: "Puis-je stocker mes affaires entre le départ et l'arrivée ?",
       a: "Nous ne gérons pas de garde-meuble en propre. On vous aide à trouver un box adapté près de chez vous, et on se charge du transport dans les deux sens, à l'aller comme au retour."
+    }, {
+      q: "Combien coûte un déménagement Nice–Paris ?",
+      a: "Le prix dépend du volume, de la formule, des accès aux deux adresses, de la saison et des options. Ces cinq éléments sont chiffrés dans le devis, qui est ferme : le prix annoncé est le prix payé, sans supplément le jour J."
+    }, {
+      q: "Quand faut-il réserver ?",
+      a: "Trois à quatre semaines à l'avance, et davantage entre juin et septembre. Un départ en milieu de mois, en semaine et hors été se cale plus facilement. Les départs serrés restent possibles, il suffit d'appeler."
     }]
   },
   "nice-lyon": {

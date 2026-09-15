@@ -151,7 +151,7 @@ const SERVICE_FOND = {
       d: "Piano, coffre, œuvres : chacun est une prestation dédiée. Non annoncés, ils décalent la journée entière."
     }, {
       t: "Comparer deux devis sur le seul total",
-      d: "Le périmètre change tout : équipiers, démontage, fournitures, plafond d'assurance. Le détail ligne à ligne est le seul comparateur valable."
+      d: "Le périmètre change tout : équipiers, démontage, fournitures, plafond d'assurance. Le détail ligne par ligne est le seul comparateur valable."
     }]
   }
 };

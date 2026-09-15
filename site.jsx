@@ -345,7 +345,6 @@ function RoadDivider() {
     <div className="road-divider" aria-hidden="true">
       <div className="road-line"></div>
       <div className="road-truck">
-        <img className="road-logo" src="assets/lbc-wordmark-sm.png" alt="LBC Déménagement" />
         <svg viewBox="0 0 380 150" width="300" fill="none" stroke="var(--ink)" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">
           <g className="road-speed" stroke="var(--accent)" strokeWidth="3.5">
             <path d="M52 56 H12" />
@@ -355,6 +354,37 @@ function RoadDivider() {
 
           {/* Caisse de chargement (crème) */}
           <rect x="14" y="18" width="200" height="88" rx="6" fill="var(--paper)" />
+
+          {/* LA SIGNATURE, PEINTE SUR LA CAISSE (27 août 2026). Le flanc portait le
+              logotype ; le nom vit déjà dans la barre de navigation et le pied de page,
+              et c'est la surface qui se lit de loin, donc elle porte la phrase de marque.
+
+              ⚠️ ELLE EST DANS LE SVG, PAS EN CSS PAR-DESSUS. Première version faite en
+              <div> positionné en pixels absolus : la requête média de la ligne 3109 réduit
+              le camion de 300 à 200 px sur mobile, le texte gardait sa taille et débordait
+              sur la cabine. Dans le viewBox, il se met à l'échelle avec le dessin, à
+              n'importe quelle largeur d'écran, et ne peut plus déborder.
+
+              L'astérisque est en TÊTE DE LIGNE, comme dans la signature. Les positions ne
+              sont donc pas devinées : les deux lignes ont été mesurées au navigateur en
+              Newsreader italique 500, corps 20 → « L’exigence du » fait 102,66 et
+              « moindre détail. » 119,53. Le bloc complet, astérisque compris, fait donc
+              138,5 de large, centré dans un panneau de 200 → il commence à x = 44,7 et le
+              texte à x = 63,7, ce qui laisse 30,7 de marge de chaque côté.
+              Si le corps ou la phrase changent, REMESURER : sans ça le bloc se décentre. */}
+          <g stroke="none">
+            <g transform="translate(44.7,40) scale(0.364)" fill="#CE2D10">
+              <rect x="18" y="0" width="8" height="45" />
+              <rect x="18" y="0" width="8" height="45" transform="rotate(60 22 22.5)" />
+              <rect x="18" y="0" width="8" height="45" transform="rotate(120 22 22.5)" />
+            </g>
+            <text x="63.7" y="55" fill="var(--ink)"
+                  fontFamily="Newsreader, Georgia, serif" fontStyle="italic"
+                  fontWeight="500" fontSize="20">L&#8217;exigence du</text>
+            <text x="63.7" y="78" fill="var(--ink)"
+                  fontFamily="Newsreader, Georgia, serif" fontStyle="italic"
+                  fontWeight="500" fontSize="20">moindre détail.</text>
+          </g>
 
           {/* Cabine (rouge) */}
           <path d="M214 106 V70 Q214 64 220 64 H268 L298 92 H304 Q310 92 310 98 V106 Z" fill="var(--accent)" />
@@ -670,7 +700,7 @@ const FRANCE = [];
 
 const CONSEILS = [
 { label: "Estimer le volume de votre déménagement", href: "Article-estimer-volume" },
-{ label: "Déménagement Nice → Paris : délais & organisation", href: "Article-demenagement-nice-paris-prix-delais" },
+{ label: "Déménagement Nice → Paris : prix, délais, organisation", href: "Demenagement-Nice-Paris" },
 { label: "Réussir son déménagement Nice-Paris", href: "Article-demenagement-nice-paris-reussir" },
 { label: "Déménagement international depuis Nice", href: "Article-demenagement-international-depuis-nice" },
 { label: "Villes aux démarches spéciales", href: "Article-villes-demarches-speciales-demenagement" },
@@ -832,6 +862,16 @@ function Footer() {
           <div className="footer-top">
             <div className="footer-brand">
               <img src="assets/lbc-wordmark-sm.png" alt="LBC Déménagement — déménageur à Nice" loading="lazy" decoding="async" width="432" height="240" />
+              {/* LA SIGNATURE DE MARQUE. Elle est la note de bas de page de l'astérisque du
+                  logotype, et c'est tout : pas de lien, pas de destination. Une signature
+                  qu'on clique redevient un lien.
+
+                  ⚠️ NE PAS LA GROSSIR. L'astérisque est le plus petit signe de la
+                  typographie, celui qu'on saute, celui où le métier planque ce qu'il ne
+                  veut pas dire. Sa petitesse EST l'argument : le plus petit texte de la
+                  page, composé avec le même soin que le titre. Mise en gras ou agrandie,
+                  ce n'est plus le moindre détail et la phrase se contredit elle-même. */}
+              <p className="footer-signature"><AsterisqueLBC em={0.72} decalage="-0.02em" />{" L’exigence du moindre d\u00E9tail."}</p>
               <p className="footer-tagline">
                 Déménageurs professionnels basés à Nice. Particuliers et entreprises, PACA et toute la France.
               </p>
@@ -872,7 +912,7 @@ function Footer() {
                       seule Partenaires y renvoyait, et Partenaires n'est pas indexée. */}
                   <li><a href="Contact">Nous écrire</a></li>
                   <li>12 rue d'Italie<br />06000 Nice</li>
-                  <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 8h–19h</li>
+                  <li style={{ marginTop: 6, color: 'var(--muted)' }}>Lun–Sam · 7h–21h</li>
                 </ul>
               </div>
               <div className="footer-col">
@@ -896,6 +936,33 @@ function Footer() {
 }
 
 // Scroll reveal — robust (immediate promote + observer + safety net)
+/* L'ASTÉRISQUE DE LA MARQUE, redessiné d'après le logotype.
+
+   Le caractère « * » des polices du site (Newsreader, DM Sans) est un astérisque
+   typographique fin à cinq branches : il ne ressemble pas du tout à celui du logotype,
+   qui est un astérisque géométrique à SIX branches, trois barres épaisses à bouts francs.
+   Posé à côté du wordmark, l'écart se voyait immédiatement.
+
+   Géométrie relevée au pixel sur assets/lbc-wordmark-sm.png : boîte 44 × 45, trois barres
+   à 0°, 60° et 120°, affinées à 8 d'épaisseur (10 sur le logo) à la demande d'Edouard, couleur #CE2D10 — plus saturée que le --accent du
+   site (#D75B3D), et c'est voulu, c'est la couleur du logo.
+
+   ⚠️ Ne pas le remplacer par un « * » de texte. Et ne pas le suspendre dans la marge avec
+   width:0 : c'est ce qui le rendait invisible sur mobile le 27 août. */
+function AsterisqueLBC({ em = 0.62, decalage = '0.34em', couleur = '#CE2D10' }) {
+  return (
+    <svg viewBox="0 0 44 45" role="presentation" aria-hidden="true" focusable="false"
+         style={{ width: em + 'em', height: em + 'em', verticalAlign: decalage,
+                  marginRight: '0.14em', flexShrink: 0, display: 'inline-block' }}>
+      <g fill={couleur}>
+        <rect x="18" y="0" width="8" height="45" />
+        <rect x="18" y="0" width="8" height="45" transform="rotate(60 22 22.5)" />
+        <rect x="18" y="0" width="8" height="45" transform="rotate(120 22 22.5)" />
+      </g>
+    </svg>
+  );
+}
+
 function useScrollReveal() {
   useEffect(() => {
     let io, safety;
@@ -937,7 +1004,7 @@ function useScrollReveal() {
    chargent : les pages villes ne chargent ni nav-hero.js ni trust-testimonials.js, donc
    AVIS_GOOGLE et Testimonials ne leur sont pas accessibles. ⚠️ Chaque fichier est isolé
    au build : ce qui n'est pas passé à Object.assign(window, …) en bas n'existe pas ailleurs. */
-const AVIS_VILLE = { note: "5,0", nombre: 26, lien: "https://maps.google.com/?cid=16541024533175288818" };
+const AVIS_VILLE = { note: "5,0", nombre: 31, lien: "https://maps.google.com/?cid=16541024533175288818" };
 
 /* Extraits des avis Google réels relevés le 24 août 2026. Texte du client, non réécrit :
    un visiteur qui va vérifier sur la fiche doit retrouver les mêmes mots. La version
@@ -961,7 +1028,7 @@ function PreuveVille({ ville }) {
           <p className="ap-value-d">Jusqu'à 8 000 € par objet, dans les trois formules. Le détail figure sur votre devis.</p>
         </div>
         <div className="ap-value">
-          <h3 className="ap-value-t">Le prix du devis est le prix final</h3>
+          <h3 className="ap-value-t">Le prix annoncé est le prix payé</h3>
           <p className="ap-value-d">Aucun supplément le jour J. Ni pour l'étage, ni pour la distance de portage, ni pour un carton de plus. Ce qui est chiffré est ce qui est facturé.</p>
         </div>
         <div className="ap-value">

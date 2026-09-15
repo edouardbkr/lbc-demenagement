@@ -2,7 +2,7 @@
 (function () {
 const AVIS_GOOGLE = {
   note: "5,0",
-  nombre: 26,
+  nombre: 31,
   lien: "https://maps.google.com/?cid=16541024533175288818"
 };
 function Hero({
@@ -46,13 +46,20 @@ function Hero({
     c: {
       accroche: null,
       sousTitre: null,
-      l1: "Entreprise de déménagement\u00A0à\u00A0Nice.",
+      l1: "Déménagement à\u00A0Nice et sur la Côte\u00A0d'Azur.",
       l2: React.createElement(React.Fragment, null, React.createElement("em", {
         style: {
           opacity: "0.8",
           fontFamily: "Newsreader"
         }
-      }, "Le prix annonc\u00E9 est\u00A0le\u00A0prix\u00A0pay\u00E9.")),
+      }, React.createElement("span", {
+        style: {
+          whiteSpace: "nowrap"
+        }
+      }, React.createElement(AsterisqueLBC, {
+        em: 0.46,
+        decalage: "0.30em"
+      }), "L’exigence"), " du moindre d\u00E9tail.")),
       scribble: null
     }
   };
@@ -115,7 +122,7 @@ function Hero({
     cx: "12",
     cy: "10",
     r: "3"
-  })), "PACA \xB7 Toute la France")), React.createElement("div", {
+  })), "France \xB7 International")), React.createElement("div", {
     className: "hero-grid"
   }, React.createElement("div", {
     className: "reveal"
@@ -148,7 +155,7 @@ function Hero({
     "aria-hidden": "true"
   }, "\u2605\u2605\u2605\u2605\u2605"), React.createElement("span", null, React.createElement("b", null, AVIS_GOOGLE.note), " sur Google \xB7 ", AVIS_GOOGLE.nombre, " avis")), React.createElement("ul", {
     className: "hero-faits"
-  }, React.createElement("li", null, "Vos meubles assur\xE9s du chargement \xE0 la livraison, dans les trois formules"), React.createElement("li", null, "Le prix du devis est le prix final. Aucun suppl\xE9ment le jour J"), React.createElement("li", null, "Un cr\xE9neau d'arriv\xE9e \xE0 l'heure pr\xE8s, pas une demi-journ\xE9e"))), React.createElement("div", {
+  }, React.createElement("li", null, "Assurance Premium de vos biens"), React.createElement("li", null, "Le prix annonc\xE9 est le prix pay\xE9."), React.createElement("li", null, "Un cr\xE9neau d'arriv\xE9e \xE0 l'heure pr\xE8s."))), React.createElement("div", {
     className: "hero-ctas"
   }, React.createElement("a", {
     href: "Formules",

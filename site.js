@@ -393,11 +393,7 @@ function RoadDivider() {
     className: "road-line"
   }), React.createElement("div", {
     className: "road-truck"
-  }, React.createElement("img", {
-    className: "road-logo",
-    src: "assets/lbc-wordmark-sm.png",
-    alt: "LBC D\xE9m\xE9nagement"
-  }), React.createElement("svg", {
+  }, React.createElement("svg", {
     viewBox: "0 0 380 150",
     width: "300",
     fill: "none",
@@ -422,7 +418,45 @@ function RoadDivider() {
     height: "88",
     rx: "6",
     fill: "var(--paper)"
-  }), React.createElement("path", {
+  }), React.createElement("g", {
+    stroke: "none"
+  }, React.createElement("g", {
+    transform: "translate(44.7,40) scale(0.364)",
+    fill: "#CE2D10"
+  }, React.createElement("rect", {
+    x: "18",
+    y: "0",
+    width: "8",
+    height: "45"
+  }), React.createElement("rect", {
+    x: "18",
+    y: "0",
+    width: "8",
+    height: "45",
+    transform: "rotate(60 22 22.5)"
+  }), React.createElement("rect", {
+    x: "18",
+    y: "0",
+    width: "8",
+    height: "45",
+    transform: "rotate(120 22 22.5)"
+  })), React.createElement("text", {
+    x: "63.7",
+    y: "55",
+    fill: "var(--ink)",
+    fontFamily: "Newsreader, Georgia, serif",
+    fontStyle: "italic",
+    fontWeight: "500",
+    fontSize: "20"
+  }, "L\u2019exigence du"), React.createElement("text", {
+    x: "63.7",
+    y: "78",
+    fill: "var(--ink)",
+    fontFamily: "Newsreader, Georgia, serif",
+    fontStyle: "italic",
+    fontWeight: "500",
+    fontSize: "20"
+  }, "moindre d\xE9tail.")), React.createElement("path", {
     d: "M214 106 V70 Q214 64 220 64 H268 L298 92 H304 Q310 92 310 98 V106 Z",
     fill: "var(--accent)"
   }), React.createElement("path", {
@@ -782,8 +816,8 @@ const CONSEILS = [{
   label: "Estimer le volume de votre déménagement",
   href: "Article-estimer-volume"
 }, {
-  label: "Déménagement Nice → Paris : délais & organisation",
-  href: "Article-demenagement-nice-paris-prix-delais"
+  label: "Déménagement Nice → Paris : prix, délais, organisation",
+  href: "Demenagement-Nice-Paris"
 }, {
   label: "Réussir son déménagement Nice-Paris",
   href: "Article-demenagement-nice-paris-reussir"
@@ -984,6 +1018,11 @@ function Footer() {
     width: "432",
     height: "240"
   }), React.createElement("p", {
+    className: "footer-signature"
+  }, React.createElement(AsterisqueLBC, {
+    em: 0.72,
+    decalage: "-0.02em"
+  }), " L’exigence du moindre d\u00E9tail."), React.createElement("p", {
     className: "footer-tagline"
   }, "D\xE9m\xE9nageurs professionnels bas\xE9s \xE0 Nice. Particuliers et entreprises, PACA et toute la France.")), React.createElement("div", {
     className: "footer-cols"
@@ -1033,7 +1072,7 @@ function Footer() {
       marginTop: 6,
       color: 'var(--muted)'
     }
-  }, "Lun\u2013Sam \xB7 8h\u201319h"))), React.createElement("div", {
+  }, "Lun\u2013Sam \xB7 7h\u201321h"))), React.createElement("div", {
     className: "footer-col"
   }, React.createElement("h4", null, "L\xE9gal"), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
     href: "Mentions-legales"
@@ -1046,6 +1085,45 @@ function Footer() {
   }, React.createElement("div", null, "\xA9 2026 LBC D\xE9m\xE9nagement \u2014 SAS au capital de 3 000\u20AC \xB7 12 rue d'Italie, 06000 Nice"), React.createElement("div", {
     className: "footer-made"
   }, "LBC D\xE9m\xE9nagement \xB7 12 rue d'Italie, 06000 Nice \xB7 D\xE9m\xE9nageurs professionnels depuis Nice.")))));
+}
+function AsterisqueLBC({
+  em = 0.62,
+  decalage = '0.34em',
+  couleur = '#CE2D10'
+}) {
+  return React.createElement("svg", {
+    viewBox: "0 0 44 45",
+    role: "presentation",
+    "aria-hidden": "true",
+    focusable: "false",
+    style: {
+      width: em + 'em',
+      height: em + 'em',
+      verticalAlign: decalage,
+      marginRight: '0.14em',
+      flexShrink: 0,
+      display: 'inline-block'
+    }
+  }, React.createElement("g", {
+    fill: couleur
+  }, React.createElement("rect", {
+    x: "18",
+    y: "0",
+    width: "8",
+    height: "45"
+  }), React.createElement("rect", {
+    x: "18",
+    y: "0",
+    width: "8",
+    height: "45",
+    transform: "rotate(60 22 22.5)"
+  }), React.createElement("rect", {
+    x: "18",
+    y: "0",
+    width: "8",
+    height: "45",
+    transform: "rotate(120 22 22.5)"
+  })));
 }
 function useScrollReveal() {
   useEffect(() => {
@@ -1087,7 +1165,7 @@ function useScrollReveal() {
 }
 const AVIS_VILLE = {
   note: "5,0",
-  nombre: 26,
+  nombre: 31,
   lien: "https://maps.google.com/?cid=16541024533175288818"
 };
 const AVIS_EXTRAITS = [{
@@ -1130,7 +1208,7 @@ function PreuveVille({
     className: "ap-value"
   }, React.createElement("h3", {
     className: "ap-value-t"
-  }, "Le prix du devis est le prix final"), React.createElement("p", {
+  }, "Le prix annonc\xE9 est le prix pay\xE9"), React.createElement("p", {
     className: "ap-value-d"
   }, "Aucun suppl\xE9ment le jour J. Ni pour l'\xE9tage, ni pour la distance de portage, ni pour un carton de plus. Ce qui est chiffr\xE9 est ce qui est factur\xE9.")), React.createElement("div", {
     className: "ap-value"
@@ -1216,5 +1294,5 @@ Object.assign(window, {
   Footer,
   useScrollReveal
 });
-  try { Object.assign(window, { Logo, MegaPanel, Nav, MarqueeBar, RoadDivider, MascotStamp, qqSendToCockpit, AddressField, QuickQuote, FooterSEO, FloatWhatsApp, useLiveliness, Footer, useScrollReveal, PreuveVille }); } catch (e) {}
+  try { Object.assign(window, { Logo, MegaPanel, Nav, MarqueeBar, RoadDivider, MascotStamp, qqSendToCockpit, AddressField, QuickQuote, FooterSEO, FloatWhatsApp, useLiveliness, Footer, AsterisqueLBC, useScrollReveal, PreuveVille }); } catch (e) {}
 })();
