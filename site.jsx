@@ -729,7 +729,7 @@ const FRANCE = [];
 const CONSEILS = [
 { label: "Estimer le volume de votre déménagement", href: "Article-estimer-volume" },
 { label: "Déménagement Nice → Paris : prix, délais, organisation", href: "Demenagement-Nice-Paris" },
-{ label: "Réussir son déménagement Nice-Paris", href: "Article-demenagement-nice-paris-reussir" },
+{ label: "Checklist déménagement longue distance", href: "Article-checklist-demenagement-longue-distance" },
 { label: "Déménagement international depuis Nice", href: "Article-demenagement-international-depuis-nice" },
 { label: "Villes aux démarches spéciales", href: "Article-villes-demarches-speciales-demenagement" },
 { label: "Déménagement étudiant à Nice", href: "Article-demenagement-etudiant-nice" },

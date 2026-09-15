@@ -822,8 +822,8 @@ const CONSEILS = [{
   label: "Déménagement Nice → Paris : prix, délais, organisation",
   href: "Demenagement-Nice-Paris"
 }, {
-  label: "Réussir son déménagement Nice-Paris",
-  href: "Article-demenagement-nice-paris-reussir"
+  label: "Checklist déménagement longue distance",
+  href: "Article-checklist-demenagement-longue-distance"
 }, {
   label: "Déménagement international depuis Nice",
   href: "Article-demenagement-international-depuis-nice"
