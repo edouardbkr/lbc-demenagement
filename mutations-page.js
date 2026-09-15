@@ -480,7 +480,7 @@ const MUT_CALENDRIER = [{
 }, {
   j: "Semaine 2",
   t: "Faire établir le devis",
-  d: "Un devis détaillé, avec SIRET et attestation d'assurance. Il sert au dossier d'aide et à la négociation avec l'employeur. Nous nous déplaçons pour le chiffrer, ce qui le rend opposable."
+  d: "Un devis détaillé, avec SIRET et attestation d'assurance. Il sert au dossier d'aide et à la négociation avec l'employeur. Il est ferme et chiffre chaque poste, ce qui le rend opposable."
 }, {
   j: "Semaine 3",
   t: "Déposer les demandes",

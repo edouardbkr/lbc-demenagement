@@ -488,10 +488,10 @@ const QUARTIER_DETAIL = {
       t: "Sous-estimer le volume",
       d: "Les maisons de Mont Boron dépassent souvent trente mètres cubes, garage et extérieur compris. Une estimation par téléphone se trompe presque toujours à la baisse."
     }],
-    cout: "Le prix à Mont Boron se construit sur trois éléments : le volume réel, le gabarit de véhicule que la voirie autorise, et la distance de portage entre le point d'arrêt et la porte. Ces trois éléments ne se devinent pas, ils se mesurent. C'est pourquoi nous nous déplaçons systématiquement avant de chiffrer, et pourquoi le prix annoncé après visite ne bouge plus.",
+    cout: "Le prix à Mont Boron se construit sur trois éléments : le volume réel, le gabarit de véhicule que la voirie autorise, et la distance de portage entre le point d'arrêt et la porte. Ces trois éléments ne se devinent pas, ils se déclarent. C'est pourquoi le devis les demande un par un, et pourquoi le prix annoncé ensuite ne bouge plus.",
     faqPlus: [{
       q: "Un camion peut-il vraiment monter chez moi ?",
-      a: "Cela dépend de la voie et de la possibilité de faire demi-tour. Nous faisons la reconnaissance avant le devis. Quand le porteur ne passe pas, la navette en utilitaire est la solution, et son coût est annoncé à l'avance."
+      a: "Cela dépend de la voie et de la possibilité de faire demi-tour. Nous le vérifions avec vous avant le devis, en visio si besoin. Quand le porteur ne passe pas, la navette en utilitaire est la solution, et son coût est annoncé à l'avance."
     }, {
       q: "J'ai un piano, est-ce un problème ?",
       a: "C'est une prestation spécifique, avec un matériel et un nombre d'équipiers adaptés. Elle se prépare et se chiffre séparément. Ce qu'il ne faut pas faire, c'est l'annoncer le matin même."

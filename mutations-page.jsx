@@ -265,7 +265,7 @@ const MUT_STATUTS = [
 const MUT_CALENDRIER = [
   { j: "L'annonce", t: "Réclamer l'attestation", d: "Dès que la mutation est actée, demandez l'attestation ou l'arrêté. C'est la pièce qui débloque tout le reste et celle qui arrive le plus lentement." },
   { j: "Semaine 1", t: "Lire l'accord applicable", d: "Convention collective, accord d'entreprise, statut. Vous saurez alors ce à quoi vous avez droit sans négocier, et où commence la négociation." },
-  { j: "Semaine 2", t: "Faire établir le devis", d: "Un devis détaillé, avec SIRET et attestation d'assurance. Il sert au dossier d'aide et à la négociation avec l'employeur. Nous nous déplaçons pour le chiffrer, ce qui le rend opposable." },
+  { j: "Semaine 2", t: "Faire établir le devis", d: "Un devis détaillé, avec SIRET et attestation d'assurance. Il sert au dossier d'aide et à la négociation avec l'employeur. Il est ferme et chiffre chaque poste, ce qui le rend opposable." },
   { j: "Semaine 3", t: "Déposer les demandes", d: "Dispositifs d'aide et demande de prise en charge employeur, en parallèle et pas l'un après l'autre. Les fenêtres de dépôt sont courtes et ne se rattrapent pas." },
   { j: "Semaine 4", t: "Verrouiller la date", d: "Une fois le financement cadré, la date se réserve. Les fins de mois et les samedis partent en premier, et une mutation ne se décale pas." },
   { j: "Après", t: "Envoyer la facture acquittée", d: "Facture et preuve de paiement ensemble. C'est ce couple de documents qui déclenche le versement." }
