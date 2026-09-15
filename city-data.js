@@ -1035,7 +1035,7 @@ const CITIES = {
       p: "Peu de communes offrent autant de visages que Cagnes. Le Haut-de-Cagnes, village d'artistes perché aux ruelles pavées et pentues, impose un déménagement à la main, en partie au portage, avec un véhicule relais. Le Cros-de-Cagnes, c'est le bord de mer, ses immeubles et son stationnement saturé l'été. Le Béal et les Vespins, ce sont des résidences modernes plus simples d'accès. On adapte la méthode quartier par quartier."
     }, {
       t: "La commune idéale pour un déménagement local",
-      p: "Voisine immédiate de Nice et de Saint-Laurent-du-Var, Cagnes est parfaite pour un déménagement courte distance : on est sur place en quelques minutes depuis notre base. Studio étudiant, appartement familial ou villa, petit volume ou gros chargement, on intervient vite et souvent dans la journée. La proximité, c'est aussi un coût de déplacement réduit, qu'on répercute sur un devis honnête."
+      p: "Voisine immédiate de Nice et de Saint-Laurent-du-Var, Cagnes est parfaite pour un déménagement courte distance : on est sur place en quelques minutes depuis notre base. Studio étudiant, appartement familial ou villa, petit volume ou gros chargement, on intervient vite et souvent dans la journée. La proximité, c'est aussi un coût de déplacement réduit, qu'on déduit du devis."
     }, {
       t: "Le Haut-de-Cagnes, un déménagement d'orfèvre",
       p: "Le vieux village est classé, ses ruelles sont pavées, étroites et en pente, et le Château Grimaldi domine le tout. Aucun camion n'y monte facilement. On stationne au plus près, on porte avec précaution sur les pavés, et on transborde avec un utilitaire maniable pour les derniers mètres. Le mobilier des maisons d'artistes y est souvent ancien : on l'emballe et le protège avec le soin qu'il mérite."
@@ -1095,7 +1095,7 @@ const CITIES = {
       p: "Rocheville en est le quartier vivant : commerces, marché, vie de quartier, immeubles résidentiels. C'est là qu'on déménage le plus de familles et de retraités, souvent en copropriété. On coordonne avec les syndics, on réserve l'ascenseur, on protège les parties communes et on gère le stationnement sur des rues parfois passantes. Du déménagement urbain classique, qu'on connaît par cœur."
     }, {
       t: "Vers Cannes, le déménagement de proximité",
-      p: "La plupart des déménagements d'ici restent locaux, vers Cannes ou les communes voisines, à quelques minutes seulement. Résultat : des interventions rapides, souvent bouclées dans la demi-journée, et un coût de déplacement contenu. Pour un studio comme pour une villa, la proximité joue en votre faveur, et on la répercute sur un devis honnête, sans gonfler le kilométrage."
+      p: "La plupart des déménagements d'ici restent locaux, vers Cannes ou les communes voisines, à quelques minutes seulement. Résultat : des interventions rapides, souvent bouclées dans la demi-journée, et un coût de déplacement contenu. Pour un studio comme pour une villa, la proximité joue en votre faveur, et on la déduit du devis, sans gonfler le kilométrage."
     }],
     faq: [{
       q: "Les rues en pente posent-elles problème ?",
@@ -1148,7 +1148,7 @@ const CITIES = {
       p: "Avec Cap 3000, l'un des plus grands centres commerciaux de la région, et la zone du port, Saint-Laurent est une ville d'activité. On y déménage régulièrement des bureaux, des locaux et des commerces. Pour ces interventions, on travaille en horaires décalés, le soir ou tôt le matin, on coordonne avec un interlocuteur unique et on minimise l'interruption d'activité. Devis pro, facture en règle, planning serré tenu."
     }, {
       t: "Le déménagement express, c'est ici",
-      p: "Parce qu'on est à dix minutes, Saint-Laurent est la commune où nos déménagements sont les plus rapides. Un studio peut être bouclé en quelques heures, un appartement dans la journée. Le faible coût de déplacement rend même les petits volumes intéressants, ce que les grosses enseignes nationales ne savent pas faire à un prix correct. On répercute cette proximité sur un devis honnête."
+      p: "Parce qu'on est à dix minutes, Saint-Laurent est la commune où nos déménagements sont les plus rapides. Un studio peut être bouclé en quelques heures, un appartement dans la journée. Le faible coût de déplacement rend même les petits volumes intéressants, ce que les grosses enseignes nationales ne savent pas faire à un prix correct. On déduit cette proximité du devis."
     }],
     faq: [{
       q: "Êtes-vous rapides à Saint-Laurent-du-Var ?",
@@ -1304,7 +1304,7 @@ const CITIES = {
       p: "Autour de la Darse, l'ancien arsenal reconverti, le bâti est plus récent et les accès meilleurs. Le vrai sujet devient le stationnement : les quais sont saturés du printemps à l'automne. On demande l'arrêté de stationnement à la mairie une dizaine de jours avant, ce qui garantit l'emplacement le matin du déménagement au lieu de tourner une heure avec un vingt mètres cubes."
     }, {
       t: "Villefranche vers Nice, la porte à côté",
-      p: "Beaucoup de déménagements villefranchois se font vers Nice, à sept kilomètres par la Basse Corniche. La distance ne coûte rien, mais le temps de portage, lui, compte. C'est pourquoi un devis honnête sur cette commune se joue sur l'accès et pas sur le kilométrage. On le dit clairement plutôt que de gonfler une ligne de transport qui n'a pas lieu d'être."
+      p: "Beaucoup de déménagements villefranchois se font vers Nice, à sept kilomètres par la Basse Corniche. La distance ne coûte rien, mais le temps de portage, lui, compte. C'est pourquoi le devis sur cette commune se joue sur l'accès et pas sur le kilométrage. On le dit clairement plutôt que de gonfler une ligne de transport qui n'a pas lieu d'être."
     }],
     faq: [{
       q: "Le camion peut-il monter dans la vieille ville ?",
@@ -1320,7 +1320,7 @@ const CITIES = {
       a: "Quand la façade est accessible et dégagée, oui : c'est plus rapide et plus sûr qu'un portage de cent mètres. Sinon on porte, et c'est chiffré."
     }, {
       q: "Un Villefranche–Nice coûte-t-il cher ?",
-      a: "Sept kilomètres, le transport ne pèse presque rien. Ce qui compte sur cette commune, c'est le temps d'accès, et on le chiffre honnêtement."
+      a: "Sept kilomètres, le transport ne pèse presque rien. Ce qui compte sur cette commune, c'est le temps d'accès, et c'est lui qu'on chiffre."
     }, {
       q: "Le devis bouge-t-il si l'accès est plus dur que prévu ?",
       a: "Non. On repère l'accès avant de chiffrer, précisément pour que le prix annoncé soit le prix payé."
