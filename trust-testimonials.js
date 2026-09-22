@@ -310,7 +310,7 @@ function HomeFaq() {
       a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille."
     }, {
       q: "Êtes-vous une entreprise sérieuse et déclarée ?",
-      a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, attestation de capacité de transport, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après."
+      a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après."
     }]
   }, {
     cat: "Pratique",

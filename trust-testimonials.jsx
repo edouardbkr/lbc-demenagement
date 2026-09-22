@@ -251,7 +251,7 @@ function HomeFaq() {
       items: [
         { q: "Comment choisir un déménageur à Nice ?", a: "Regardez ce que nous écrivons avant que vous ne signiez : un devis qui détaille le volume, l'accès et le stationnement, l'assurance et ses plafonds dans nos conditions générales, et nos avis Google, publics et récents. Nous vous demandons l'étage, l'ascenseur et la rue avant d'annoncer un chiffre, parce qu'à Nice c'est l'accès qui fait le prix." },
         { q: "Qui vient réellement faire le déménagement ?", a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille." },
-        { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, attestation de capacité de transport, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
+        { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
       ]
     },
     {
