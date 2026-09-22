@@ -347,7 +347,9 @@ function HomeFaq() {
   }, c.cat)))), cats.map((c, ci) => React.createElement("div", {
     className: "home-faq-list reveal",
     key: ci,
-    hidden: ci !== catIdx
+    style: {
+      display: ci === catIdx ? undefined : "none"
+    }
   }, c.items.map((it, i) => React.createElement("div", {
     className: "faq-item" + (ci === catIdx && open === i ? " open" : ""),
     key: ci + "-" + i
@@ -359,7 +361,10 @@ function HomeFaq() {
     }
   }, React.createElement("button", {
     className: "faq-q",
-    onClick: () => setOpen(open === i ? -1 : i)
+    onClick: () => {
+      setCatIdx(ci);
+      setOpen(ci === catIdx && open === i ? -1 : i);
+    }
   }, React.createElement("span", null, it.q), React.createElement("span", {
     className: "ico"
   }, "+"))), React.createElement("div", {

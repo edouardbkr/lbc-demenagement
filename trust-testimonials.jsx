@@ -285,14 +285,19 @@ function HomeFaq() {
             seule la première était rendue : Google ne lisait que deux questions sur seize,
             et jamais celles sur Nice. Le pré-rendu écrit ce que React rend, pas ce que
             l'onglet montre. */}
+        {/* ⚠️ `hidden` NE SUFFISAIT PAS : `.home-faq-list { display:flex }` l'emportait sur
+            l'attribut, les cinq catégories s'affichaient à la suite et les questions des
+            catégories inactives ne s'ouvraient pas (Edouard : « plein d'onglets ne
+            s'ouvrent pas »). Le style en ligne gagne toujours, et un clic dans n'importe
+            quelle liste active sa catégorie. */}
         {cats.map((c, ci) => (
-        <div className="home-faq-list reveal" key={ci} hidden={ci !== catIdx}>
+        <div className="home-faq-list reveal" key={ci} style={{ display: ci === catIdx ? undefined : "none" }}>
           {c.items.map((it, i) => (
             <div className={"faq-item" + (ci === catIdx && open === i ? " open" : "")} key={ci + "-" + i}>
               {/* La question est un titre : Google lit la structure, pas seulement le texte. Le
                   bouton reste à l'intérieur, c'est lui qui ouvre la réponse. */}
               <h3 style={{ margin: 0, fontSize: "inherit", fontWeight: "inherit" }}>
-                <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}>
+                <button className="faq-q" onClick={() => { setCatIdx(ci); setOpen(ci === catIdx && open === i ? -1 : i); }}>
                   <span>{it.q}</span>
                   <span className="ico">+</span>
                 </button>
