@@ -61,6 +61,8 @@ function App() {
         <Gallery />
         <Values />
         <QuartiersNice />
+        <ServicesNice />
+        <PrixNice />
         <Testimonials />
         <HomeFaq />
         <CTA />

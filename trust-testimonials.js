@@ -280,6 +280,21 @@ function HomeFaq() {
       a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis."
     }]
   }, {
+    cat: "Déménager à Nice",
+    items: [{
+      q: "Combien coûte un déménagement à Nice ?",
+      a: prixNiceFaq()
+    }, {
+      q: "Faut-il une autorisation de stationnement pour déménager à Nice ?",
+      a: "Oui, dès que le camion occupe la voie publique, c'est-à-dire presque partout dans Nice. Nous faisons la demande en mairie pour vous, à l'adresse de départ comme à l'arrivée, en tenant compte des délais réels de chaque service. C'est compris dans le devis."
+    }, {
+      q: "Proposez-vous un garde-meuble à Nice ?",
+      a: "Oui. Quand la date de sortie ne colle pas avec la date d'entrée, nous stockons vos affaires dans un box sécurisé, à la semaine ou au mois, et nous les livrons le jour venu. Le stockage est chiffré dans le même devis que le déménagement."
+    }, {
+      q: "Déménagez-vous aussi en dehors de Nice ?",
+      a: "Oui. Nous sommes une entreprise de déménagement niçoise, et nous intervenons dans toutes les Alpes-Maritimes, à Monaco et dans le Var, ainsi que sur la longue distance en France et à l'international au départ de Nice, avec la même équipe et le même devis ferme."
+    }]
+  }, {
     cat: "Assurance & sécurité",
     items: [{
       q: "Et si un meuble est abîmé ou cassé ?",
@@ -338,14 +353,36 @@ function HomeFaq() {
   }, list.map((it, i) => React.createElement("div", {
     className: "faq-item" + (open === i ? " open" : ""),
     key: catIdx + "-" + i
+  }, React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontSize: "inherit",
+      fontWeight: "inherit"
+    }
   }, React.createElement("button", {
     className: "faq-q",
     onClick: () => setOpen(open === i ? -1 : i)
   }, React.createElement("span", null, it.q), React.createElement("span", {
     className: "ico"
-  }, "+")), React.createElement("div", {
+  }, "+"))), React.createElement("div", {
     className: "faq-a"
-  }, React.createElement("p", null, it.a))))), React.createElement("div", {
+  }, React.createElement("p", null, it.a))))), React.createElement("script", {
+    type: "application/ld+json",
+    dangerouslySetInnerHTML: {
+      __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": cats.flatMap(c => c.items.map(it => ({
+          "@type": "Question",
+          "name": it.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": it.a
+          }
+        })))
+      })
+    }
+  }), React.createElement("div", {
     className: "home-faq-foot reveal"
   }, React.createElement("span", null, "Une question qui n'est pas l\xE0\xA0?"), React.createElement("a", {
     href: "tel:+33615976577",
@@ -406,11 +443,168 @@ function QuartiersNice() {
     className: "arrow"
   }, "\u2192")))));
 }
+function prixNiceFaq() {
+  const P = window.LBC_PRICING;
+  const n = x => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  const e = P && P.estimer ? P.estimer({
+    surface: "t2",
+    formule: "standard",
+    km: 8
+  }) : null;
+  const four = e ? "Entre " + n(e.bas) + " et " + n(e.haut) + " € pour un 2 pièces en formule Standard, avec un accès simple. " : "";
+  return four + "À Nice, c'est l'accès qui fait le prix, bien plus que la distance : l'étage sans ascenseur, la rue piétonne, le stationnement à réserver. Le prix exact tient dans un devis ferme sous 24 h, et le prix annoncé est le prix payé.";
+}
+function PrixNice() {
+  const f = (s, fo) => {
+    const P = window.LBC_PRICING;
+    if (!P || !P.estimer) return "sur devis";
+    const e = P.estimer({
+      surface: s,
+      formule: fo,
+      km: 8
+    });
+    const n = x => String(x).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    return e ? n(e.bas) + " – " + n(e.haut) + " €" : "sur devis";
+  };
+  const L = [["studio", "Studio", "moins de 30 m²"], ["t2", "2 pièces", "30 à 50 m²"], ["t3", "3 pièces", "50 à 80 m²"], ["t4", "4 pièces", "80 à 100 m²"], ["maison", "Maison", "plus de 90 m²"]];
+  return React.createElement("section", {
+    className: "sec",
+    id: "prix-nice"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 05 / Les prix")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Combien co\xFBte un d\xE9m\xE9nageur \xE0 Nice.", React.createElement("br", null), React.createElement("em", null, "Des fourchettes r\xE9elles, pas une promesse."))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 14
+    }
+  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que nous avons r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. \xC0 Nice, c'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
+    className: "tarif-tw reveal",
+    style: {
+      marginTop: 26
+    }
+  }, React.createElement("table", {
+    className: "tarif-table"
+  }, React.createElement("thead", null, React.createElement("tr", null, React.createElement("th", null, "Logement"), React.createElement("th", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Standard"), React.createElement("th", {
+    style: {
+      textAlign: "right"
+    }
+  }, "Premium"))), React.createElement("tbody", null, L.map(([k, nom, sub]) => React.createElement("tr", {
+    key: k
+  }, React.createElement("td", null, React.createElement("strong", null, nom), " ", React.createElement("span", {
+    className: "tarif-sub"
+  }, sub)), React.createElement("td", {
+    style: {
+      textAlign: "right"
+    },
+    className: "tarif-prix"
+  }, f(k, "standard")), React.createElement("td", {
+    style: {
+      textAlign: "right"
+    },
+    className: "tarif-prix"
+  }, f(k, "premium"))))))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 20
+    }
+  }, "La formule Luxe, avec l'emballage de tous vos cartons au d\xE9part et la mise en place \xE0 l'arriv\xE9e, se chiffre apr\xE8s une visio de dix minutes : le contenu des placards de quelqu'un ne se devine pas de l'ext\xE9rieur. Le stationnement, le monte-meuble et le portage sont \xE9crits sur le devis, jamais ajout\xE9s le jour J."), React.createElement("p", {
+    className: "reveal",
+    style: {
+      marginTop: 16,
+      display: "flex",
+      gap: 10,
+      flexWrap: "wrap"
+    }
+  }, React.createElement("a", {
+    href: "Devis",
+    className: "btn btn-primary"
+  }, "Mon prix pour Nice, sous 24 h", React.createElement("span", {
+    className: "arrow"
+  }, "\u2192")), React.createElement("a", {
+    href: "Demenagement-Nice",
+    className: "btn btn-ghost"
+  }, "Prix, stationnement et d\xE9marches, quartier par quartier", React.createElement("span", {
+    className: "arrow"
+  }, "\u2192")))));
+}
+function ServicesNice() {
+  const S = [["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"], ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"], ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"], ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis : un monte-meuble ne se trouve pas le matin même.", "Devis"], ["Stockage entre deux logements", "Un box sécurisé, à la semaine ou au mois, quand la date de sortie ne colle pas avec la date d'entrée. Livré le jour venu, chiffré dans le même devis.", "Devis"], ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"], ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
+  const V = [["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Antibes", "Demenagement-Antibes"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Monaco", "Demenagement-Monaco"]];
+  return React.createElement("section", {
+    className: "sec",
+    id: "prestations-nice"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 06 / Nos prestations")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Une entreprise de d\xE9m\xE9nagement \xE0 Nice,", React.createElement("br", null), React.createElement("em", null, "pour tout ce qui doit bouger."))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 14
+    }
+  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs form\xE9e par les fondateurs, et le m\xEAme devis ferme."), React.createElement("div", {
+    className: "values-grid reveal-stagger",
+    style: {
+      marginTop: 26
+    }
+  }, S.map(([t, d, href], i) => React.createElement("a", {
+    className: "value",
+    href: href,
+    key: i,
+    style: {
+      textDecoration: "none",
+      color: "inherit"
+    }
+  }, React.createElement("div", {
+    className: "value-title"
+  }, t), React.createElement("div", {
+    className: "value-body"
+  }, d)))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 26
+    }
+  }, "D\xE9m\xE9nageur \xE0 Nice, et tout autour : ", V.map(([nom, href], i) => React.createElement(React.Fragment, {
+    key: href
+  }, i > 0 ? i === V.length - 1 ? " et " : ", " : "", React.createElement("a", {
+    href: href,
+    style: {
+      color: "var(--accent)",
+      fontWeight: 600
+    }
+  }, nom))), ". Chaque commune a sa page, avec ses acc\xE8s et ses r\xE8gles de stationnement. ", React.createElement("a", {
+    href: "Zones",
+    style: {
+      color: "var(--accent)",
+      fontWeight: 600
+    }
+  }, "Toutes les communes des Alpes-Maritimes \u2192"))));
+}
 Object.assign(window, {
   Values,
   Testimonials,
   HomeFaq,
-  QuartiersNice
+  QuartiersNice,
+  PrixNice,
+  ServicesNice
 });
-  try { Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice }); } catch (e) {}
+  try { Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice, prixNiceFaq, PrixNice, ServicesNice }); } catch (e) {}
 })();
