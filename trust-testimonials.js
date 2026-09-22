@@ -310,7 +310,7 @@ function HomeFaq() {
       a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille."
     }, {
       q: "Êtes-vous une entreprise sérieuse et déclarée ?",
-      a: "Oui : LBC* est une société immatriculée, avec SIRET, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après."
+      a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, attestation de capacité de transport, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après."
     }]
   }, {
     cat: "Pratique",
@@ -405,7 +405,7 @@ function QuartiersNice() {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " 04 / Nice, quartier par quartier")), React.createElement("h2", {
+  }, "*"), " 05 / Nice, quartier par quartier")), React.createElement("h2", {
     className: "dim-em"
   }, "D\xE9m\xE9nageur \xE0 Nice,", React.createElement("br", null), React.createElement("em", null, "quartier par quartier."))), React.createElement("p", {
     className: "lede reveal",
@@ -476,14 +476,14 @@ function PrixNice() {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " 05 / Les prix")), React.createElement("h2", {
+  }, "*"), " 07 / Les prix")), React.createElement("h2", {
     className: "dim-em"
   }, "Combien co\xFBte un d\xE9m\xE9nageur \xE0 Nice.", React.createElement("br", null), React.createElement("em", null, "Des fourchettes r\xE9elles, pas une promesse."))), React.createElement("p", {
     className: "lede reveal",
     style: {
       marginTop: 14
     }
-  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que nous avons r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. \xC0 Nice, c'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement \xE0 Nice, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
+  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que notre entreprise de d\xE9m\xE9nagement a r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. \xC0 Nice, c'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement \xE0 Nice, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
     className: "tarif-tw reveal",
     style: {
       marginTop: 26
@@ -596,13 +596,63 @@ function ServicesNice() {
     }
   }, "Toutes les communes des Alpes-Maritimes \u2192"))));
 }
+function EntrepriseNice() {
+  const G = [["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"], ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"], ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"], ["Une lettre de voiture le jour J", "C'est une obligation légale pour toute entreprise de déménagement : le document qui dit ce qui part, d'où, pour où, et qui engage le transporteur. Nous vous la remettons en deux exemplaires, signée, avant que le camion ne démarre.", "Formules", "Ce que comprend chaque formule"], ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"], ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
+  return React.createElement("section", {
+    className: "sec",
+    id: "entreprise-nice"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 04 / Ce qu'on vous doit")), React.createElement("h2", {
+    className: "dim-em"
+  }, "Ce qu'une entreprise de d\xE9m\xE9nagement \xE0 Nice vous doit.", React.createElement("br", null), React.createElement("em", null, "Et ce que LBC signe, noir sur blanc."))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 14
+    }
+  }, "Beaucoup de soci\xE9t\xE9s de d\xE9m\xE9nagement promettent, peu \xE9crivent. Voil\xE0 les six choses qu'une entreprise de d\xE9m\xE9nagement s\xE9rieuse \xE0 Nice vous doit avant m\xEAme de charger un carton, et o\xF9 les v\xE9rifier chez nous."), React.createElement("div", {
+    className: "values-grid reveal-stagger",
+    style: {
+      marginTop: 26
+    }
+  }, G.map(([t, d, href, lien], i) => React.createElement("div", {
+    className: "value",
+    key: i
+  }, React.createElement("div", {
+    className: "value-num"
+  }, String(i + 1).padStart(2, "0"), " / 06"), React.createElement("div", {
+    className: "value-title"
+  }, t), React.createElement("div", {
+    className: "value-body"
+  }, d, " ", React.createElement("a", {
+    href: href,
+    style: {
+      color: "var(--accent)",
+      fontWeight: 600
+    },
+    target: href.indexOf("http") === 0 ? "_blank" : undefined,
+    rel: href.indexOf("http") === 0 ? "noopener noreferrer" : undefined
+  }, lien, " \u2192"))))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 22
+    }
+  }, "Voil\xE0 ce qui fait, \xE0 nos yeux, une entreprise de d\xE9m\xE9nagement \xE0 Nice : pas des promesses, des pi\xE8ces qu'on peut v\xE9rifier.")));
+}
 Object.assign(window, {
   Values,
   Testimonials,
   HomeFaq,
   QuartiersNice,
   PrixNice,
-  ServicesNice
+  ServicesNice,
+  EntrepriseNice
 });
-  try { Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice, prixNiceFaq, PrixNice, ServicesNice }); } catch (e) {}
+  try { Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice, prixNiceFaq, PrixNice, ServicesNice, EntrepriseNice }); } catch (e) {}
 })();

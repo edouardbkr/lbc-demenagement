@@ -61,7 +61,7 @@ function About() {
     style: {
       color: 'var(--ink)'
     }
-  }, "LBC*, c\u2019est la rencontre des deux : un m\xE9tier de d\xE9m\xE9nageur, conduit avec une exigence qui se v\xE9rifie. Les fondateurs forment et encadrent chaque \xE9quipe. ", React.createElement("a", {
+  }, "LBC*, c\u2019est la rencontre des deux : une entreprise de d\xE9m\xE9nagement ni\xE7oise qui fait le m\xE9tier de d\xE9m\xE9nageur avec une exigence qui se v\xE9rifie. Les fondateurs forment et encadrent chaque \xE9quipe. ", React.createElement("a", {
     href: "Apropos",
     style: {
       color: 'var(--accent)',

@@ -251,7 +251,7 @@ function HomeFaq() {
       items: [
         { q: "Comment choisir un déménageur à Nice ?", a: "Regardez trois choses. Un devis écrit qui détaille le volume, l'accès et le stationnement, parce qu'à Nice c'est l'accès qui fait le prix, pas les kilomètres. Une assurance nommée au contrat, avec ses plafonds. Et des avis Google récents, que vous pouvez lire vous-même. Un déménageur niçois sérieux vous demandera l'étage, l'ascenseur et la rue avant d'annoncer un chiffre." },
         { q: "Qui vient réellement faire le déménagement ?", a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille." },
-        { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une société immatriculée, avec SIRET, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
+        { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, attestation de capacité de transport, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
       ]
     },
     {
@@ -338,7 +338,7 @@ function QuartiersNice() {
     <section className="sec" id="quartiers-nice">
       <div className="wrap">
         <div className="sec-head reveal">
-          <div><div className="sec-num"><span className="asterisk">*</span> 04 / Nice, quartier par quartier</div></div>
+          <div><div className="sec-num"><span className="asterisk">*</span> 05 / Nice, quartier par quartier</div></div>
           <h2 className="dim-em">Déménageur à Nice,<br/><em>quartier par quartier.</em></h2>
         </div>
         <p className="lede reveal" style={{ marginTop: 14 }}>Un déménagement à Nice ne se passe pas de la même façon dans le Vieux-Nice, où le camion reste aux bornes, et au Mont Boron, où le monte-meuble est presque systématique. C'est ce qui fait un déménageur à Nice : connaître la rue avant d'y engager le camion. Nous connaissons chaque quartier, ses accès et ses règles de stationnement : c'est ce qui fait un devis juste et une journée sans surprise.</p>
@@ -383,10 +383,10 @@ function PrixNice() {
     <section className="sec" id="prix-nice">
       <div className="wrap">
         <div className="sec-head reveal">
-          <div><div className="sec-num"><span className="asterisk">*</span> 05 / Les prix</div></div>
+          <div><div className="sec-num"><span className="asterisk">*</span> 07 / Les prix</div></div>
           <h2 className="dim-em">Combien coûte un déménageur à Nice.<br/><em>Des fourchettes réelles, pas une promesse.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Ces prix viennent de notre estimateur, calé sur les devis que nous avons réellement émis à Nice et dans les Alpes-Maritimes. Ils supposent un accès neutre : rez-de-chaussée ou ascenseur, camion devant la porte. À Nice, c'est l'accès qui fait varier le prix d'un déménagement à Nice, bien plus que les kilomètres : l'étage sans ascenseur, la rue piétonne du Vieux-Nice, le stationnement à réserver en mairie.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Ces prix viennent de notre estimateur, calé sur les devis que notre entreprise de déménagement a réellement émis à Nice et dans les Alpes-Maritimes. Ils supposent un accès neutre : rez-de-chaussée ou ascenseur, camion devant la porte. À Nice, c'est l'accès qui fait varier le prix d'un déménagement à Nice, bien plus que les kilomètres : l'étage sans ascenseur, la rue piétonne du Vieux-Nice, le stationnement à réserver en mairie.</p>
         <div className="tarif-tw reveal" style={{ marginTop: 26 }}>
           <table className="tarif-table">
             <thead><tr><th>Logement</th><th style={{ textAlign: "right" }}>Standard</th><th style={{ textAlign: "right" }}>Premium</th></tr></thead>
@@ -447,4 +447,41 @@ function ServicesNice() {
     </section>);
 }
 
-Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice, PrixNice, ServicesNice });
+
+/* ── CE QU'UNE ENTREPRISE DE DÉMÉNAGEMENT À NICE VOUS DOIT ─────────────────────────
+   Le premier sur « déménagement nice » écrit « entreprise/société de déménagement » 9 fois,
+   l'accueil 4 (mesuré le 22 septembre 2026). Edouard : « augmente ça avec du contenu de
+   meilleure qualité que mes concurrents », pas en répétant. D'où six pièces à vérifier
+   chez n'importe quel déménageur, avec nos numéros en face. ⚠️ Rien ici n'est une
+   promesse : l'attestation et l'assureur sont dans les CGV, la lettre de voiture est
+   remise à chaque chantier, l'encadrement par les fondateurs est sur la page À propos. */
+function EntrepriseNice() {
+  const G = [
+    ["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"],
+    ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"],
+    ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"],
+    ["Une lettre de voiture le jour J", "C'est une obligation légale pour toute entreprise de déménagement : le document qui dit ce qui part, d'où, pour où, et qui engage le transporteur. Nous vous la remettons en deux exemplaires, signée, avant que le camion ne démarre.", "Formules", "Ce que comprend chaque formule"],
+    ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"],
+    ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
+  return (
+    <section className="sec" id="entreprise-nice">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num"><span className="asterisk">*</span> 04 / Ce qu'on vous doit</div></div>
+          <h2 className="dim-em">Ce qu'une entreprise de déménagement à Nice vous doit.<br/><em>Et ce que LBC signe, noir sur blanc.</em></h2>
+        </div>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Beaucoup de sociétés de déménagement promettent, peu écrivent. Voilà les six choses qu'une entreprise de déménagement sérieuse à Nice vous doit avant même de charger un carton, et où les vérifier chez nous.</p>
+        <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
+          {G.map(([t, d, href, lien], i) => (
+            <div className="value" key={i}>
+              <div className="value-num">{String(i + 1).padStart(2, "0")} / 06</div>
+              <div className="value-title">{t}</div>
+              <div className="value-body">{d} <a href={href} style={{ color: "var(--accent)", fontWeight: 600 }} target={href.indexOf("http") === 0 ? "_blank" : undefined} rel={href.indexOf("http") === 0 ? "noopener noreferrer" : undefined}>{lien} →</a></div>
+            </div>))}
+        </div>
+        <p className="lede reveal" style={{ marginTop: 22 }}>Voilà ce qui fait, à nos yeux, une entreprise de déménagement à Nice : pas des promesses, des pièces qu'on peut vérifier.</p>
+      </div>
+    </section>);
+}
+
+Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice, PrixNice, ServicesNice, EntrepriseNice });

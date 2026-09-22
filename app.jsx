@@ -60,6 +60,7 @@ function App() {
         <RoadDivider />
         <Gallery />
         <Values />
+        <EntrepriseNice />
         <QuartiersNice />
         <ServicesNice />
         <PrixNice />

@@ -42,7 +42,7 @@ function App() {
     headlineVariant: t.headline
   }), React.createElement(About, null), React.createElement(Formules, {
     recommendedTier: t.recommended
-  }), React.createElement(RoadDivider, null), React.createElement(Gallery, null), React.createElement(Values, null), React.createElement(QuartiersNice, null), React.createElement(ServicesNice, null), React.createElement(PrixNice, null), React.createElement(Testimonials, null), React.createElement(HomeFaq, null), React.createElement(CTA, null)), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
+  }), React.createElement(RoadDivider, null), React.createElement(Gallery, null), React.createElement(Values, null), React.createElement(EntrepriseNice, null), React.createElement(QuartiersNice, null), React.createElement(ServicesNice, null), React.createElement(PrixNice, null), React.createElement(Testimonials, null), React.createElement(HomeFaq, null), React.createElement(CTA, null)), React.createElement(Footer, null), React.createElement(TweaksPanel, null, React.createElement(TweakSection, {
     label: "Couleur & rythme"
   }), React.createElement(TweakColor, {
     label: "Accent",

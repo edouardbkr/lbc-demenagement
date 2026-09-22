@@ -62,7 +62,7 @@ function About() {
               <strong style={{ color: 'var(--ink)' }}>Edouard vient du digital.</strong> Il apporte ce qui manque presque partout dans le métier : un devis chiffré ligne par ligne à partir de votre inventaire, un créneau d’arrivée annoncé à l’heure près, et tout ce qui vous engage écrit avant qu’un carton ne bouge.
             </p>
             <p style={{ color: 'var(--ink)' }}>
-              LBC*, c’est la rencontre des deux : un métier de déménageur, conduit avec une exigence qui se vérifie. Les fondateurs forment et encadrent chaque équipe. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
+              LBC*, c’est la rencontre des deux : une entreprise de déménagement niçoise qui fait le métier de déménageur avec une exigence qui se vérifie. Les fondateurs forment et encadrent chaque équipe. <a href="Apropos" style={{ color: 'var(--accent)', fontWeight: 600 }}>Lire notre histoire →</a>
             </p>
 
             <ul className="about-trust reveal-stagger">
