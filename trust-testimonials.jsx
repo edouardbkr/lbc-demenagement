@@ -221,13 +221,6 @@ function Testimonials() {
 function HomeFaq() {
   const cats = [
     {
-      cat: "Tarifs",
-      items: [
-        { q: "Le prix annoncé peut-il changer le jour J ?", a: "Non. Le prix annoncé est le prix payé. On chiffre précisément à partir du volume et des accès — pas de supplément surprise sur la facture." },
-        { q: "Faut-il verser un acompte ?", a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis." }
-      ]
-    },
-    {
       /* Mesuré le 22 septembre 2026 face aux pages qui sortent en tête sur « déménagement
          nice » : la première a 11 questions visibles et un balisage FAQPage, l'accueil
          n'avait ni l'un ni l'autre. Les réponses ci-dessous sont celles du site, pas des
@@ -235,9 +228,16 @@ function HomeFaq() {
       cat: "Déménager à Nice",
       items: [
         { q: "Combien coûte un déménagement à Nice ?", a: prixNiceFaq() },
-        { q: "Faut-il une autorisation de stationnement pour déménager à Nice ?", a: "Oui, dès que le camion occupe la voie publique, c'est-à-dire presque partout dans Nice. Nous faisons la demande en mairie pour vous, à l'adresse de départ comme à l'arrivée, en tenant compte des délais réels de chaque service. C'est compris dans le devis." },
+        { q: "Faut-il une autorisation de stationnement pour déménager à Nice ?", a: "Oui, dès que le camion occupe la voie publique, c'est-à-dire presque partout dans Nice. Pour un déménagement à Nice, nous faisons la demande en mairie pour vous, à l'adresse de départ comme à l'arrivée, en tenant compte des délais réels de chaque service. C'est compris dans le devis." },
         { q: "Proposez-vous un garde-meuble à Nice ?", a: "Oui. Quand la date de sortie ne colle pas avec la date d'entrée, nous stockons vos affaires dans un box sécurisé, à la semaine ou au mois, et nous les livrons le jour venu. Le stockage est chiffré dans le même devis que le déménagement." },
         { q: "Déménagez-vous aussi en dehors de Nice ?", a: "Oui. Nous sommes une entreprise de déménagement niçoise, et nous intervenons dans toutes les Alpes-Maritimes, à Monaco et dans le Var, ainsi que sur la longue distance en France et à l'international au départ de Nice, avec la même équipe et le même devis ferme." }
+      ]
+    },
+    {
+      cat: "Tarifs",
+      items: [
+        { q: "Le prix annoncé peut-il changer le jour J ?", a: "Non. Le prix annoncé est le prix payé. On chiffre précisément à partir du volume et des accès — pas de supplément surprise sur la facture." },
+        { q: "Faut-il verser un acompte ?", a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis." }
       ]
     },
     {
@@ -266,7 +266,6 @@ function HomeFaq() {
 
   const [catIdx, setCatIdx] = React.useState(0);
   const [open, setOpen] = React.useState(0);
-  const list = cats[catIdx].items;
 
   return (
     <section className="sec home-faq" id="faq">
@@ -283,9 +282,14 @@ function HomeFaq() {
           </div>
         </div>
 
-        <div className="home-faq-list reveal">
-          {list.map((it, i) => (
-            <div className={"faq-item" + (open === i ? " open" : "")} key={catIdx + "-" + i}>
+        {/* ⚠️ TOUTES LES CATÉGORIES SONT DANS LE HTML, seule l'active est visible. Avant,
+            seule la première était rendue : Google ne lisait que deux questions sur seize,
+            et jamais celles sur Nice. Le pré-rendu écrit ce que React rend, pas ce que
+            l'onglet montre. */}
+        {cats.map((c, ci) => (
+        <div className="home-faq-list reveal" key={ci} hidden={ci !== catIdx}>
+          {c.items.map((it, i) => (
+            <div className={"faq-item" + (ci === catIdx && open === i ? " open" : "")} key={ci + "-" + i}>
               {/* La question est un titre : Google lit la structure, pas seulement le texte. Le
                   bouton reste à l'intérieur, c'est lui qui ouvre la réponse. */}
               <h3 style={{ margin: 0, fontSize: "inherit", fontWeight: "inherit" }}>
@@ -298,6 +302,7 @@ function HomeFaq() {
             </div>
           ))}
         </div>
+        ))}
 
         {/* Toutes les questions de toutes les catégories, pour Google, même celles que
             l'onglet n'affiche pas. Les réponses sont exactement celles qu'un visiteur lit. */}
@@ -337,7 +342,7 @@ function QuartiersNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 04 / Nice, quartier par quartier</div></div>
           <h2 className="dim-em">Déménageur à Nice,<br/><em>quartier par quartier.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Un déménageur à Nice ne travaille pas de la même façon dans le Vieux-Nice, où le camion reste aux bornes, et au Mont Boron, où le monte-meuble est presque systématique. Nous connaissons chaque quartier, ses accès et ses règles de stationnement : c'est ce qui fait un devis juste et une journée sans surprise.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Un déménagement à Nice ne se passe pas de la même façon dans le Vieux-Nice, où le camion reste aux bornes, et au Mont Boron, où le monte-meuble est presque systématique. C'est ce qui fait un déménageur à Nice : connaître la rue avant d'y engager le camion. Nous connaissons chaque quartier, ses accès et ses règles de stationnement : c'est ce qui fait un devis juste et une journée sans surprise.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {Q.map(([nom, href, sub], i) => (
             <a className="value" href={href} key={i} style={{ textDecoration: "none", color: "inherit" }}>
@@ -382,7 +387,7 @@ function PrixNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 05 / Les prix</div></div>
           <h2 className="dim-em">Combien coûte un déménageur à Nice.<br/><em>Des fourchettes réelles, pas une promesse.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Ces prix viennent de notre estimateur, calé sur les devis que nous avons réellement émis à Nice et dans les Alpes-Maritimes. Ils supposent un accès neutre : rez-de-chaussée ou ascenseur, camion devant la porte. À Nice, c'est l'accès qui fait varier le prix d'un déménagement, bien plus que les kilomètres : l'étage sans ascenseur, la rue piétonne du Vieux-Nice, le stationnement à réserver en mairie.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Ces prix viennent de notre estimateur, calé sur les devis que nous avons réellement émis à Nice et dans les Alpes-Maritimes. Ils supposent un accès neutre : rez-de-chaussée ou ascenseur, camion devant la porte. À Nice, c'est l'accès qui fait varier le prix d'un déménagement à Nice, bien plus que les kilomètres : l'étage sans ascenseur, la rue piétonne du Vieux-Nice, le stationnement à réserver en mairie.</p>
         <div className="tarif-tw reveal" style={{ marginTop: 26 }}>
           <table className="tarif-table">
             <thead><tr><th>Logement</th><th style={{ textAlign: "right" }}>Standard</th><th style={{ textAlign: "right" }}>Premium</th></tr></thead>
@@ -395,7 +400,7 @@ function PrixNice() {
             </tbody>
           </table>
         </div>
-        <p className="lede reveal" style={{ marginTop: 20 }}>La formule Luxe, avec l'emballage de tous vos cartons au départ et la mise en place à l'arrivée, se chiffre après une visio de dix minutes : le contenu des placards de quelqu'un ne se devine pas de l'extérieur. Le stationnement, le monte-meuble et le portage sont écrits sur le devis, jamais ajoutés le jour J.</p>
+        <p className="lede reveal" style={{ marginTop: 20 }}>La formule Luxe, avec l'emballage de tous vos cartons au départ et la mise en place à l'arrivée, se chiffre après une visio de dix minutes : le contenu des placards de quelqu'un ne se devine pas de l'extérieur. Le stationnement, le monte-meuble et le portage sont écrits sur le devis d'un déménagement à Nice, jamais ajoutés le jour J.</p>
         <p className="reveal" style={{ marginTop: 16, display: "flex", gap: 10, flexWrap: "wrap" }}>
           <a href="Devis" className="btn btn-primary">Mon prix pour Nice, sous 24 h<span className="arrow">→</span></a>
           <a href="Demenagement-Nice" className="btn btn-ghost">Prix, stationnement et démarches, quartier par quartier<span className="arrow">→</span></a>
@@ -411,11 +416,11 @@ function PrixNice() {
    un module du cockpit, le stationnement est demandé par LBC, l'international a ses pages. */
 function ServicesNice() {
   const S = [
-    ["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"],
+    ["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Un déménagement à Nice en appartement, c'est d'abord une cage d'escalier : protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"],
     ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"],
     ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"],
-    ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis : un monte-meuble ne se trouve pas le matin même.", "Devis"],
-    ["Stockage entre deux logements", "Un box sécurisé, à la semaine ou au mois, quand la date de sortie ne colle pas avec la date d'entrée. Livré le jour venu, chiffré dans le même devis.", "Devis"],
+    ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis, par nos déménageurs professionnels : un monte-meuble ne se trouve pas le matin même.", "Devis"],
+    ["Stockage entre deux logements", "Un garde-meuble sécurisé à Nice, à la semaine ou au mois, quand la date de sortie ne colle pas avec la date d'entrée. Livré le jour venu par la même équipe, chiffré dans le même devis.", "Devis"],
     ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"],
     ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
   const V = [["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Antibes", "Demenagement-Antibes"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Monaco", "Demenagement-Monaco"]];
@@ -426,7 +431,7 @@ function ServicesNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 06 / Nos prestations</div></div>
           <h2 className="dim-em">Une entreprise de déménagement à Nice,<br/><em>pour tout ce qui doit bouger.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Société de déménagement installée rue d'Italie, au cœur de Nice, LBC déménage les particuliers et les entreprises dans toutes les Alpes-Maritimes et à Monaco, avec la même équipe de déménageurs formée par les fondateurs, et le même devis ferme.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Société de déménagement installée rue d'Italie, au cœur de Nice, LBC déménage les particuliers et les entreprises dans toutes les Alpes-Maritimes et à Monaco, avec la même équipe de déménageurs professionnels formée par les fondateurs, et le même devis ferme. Un déménagement à Nice commence toujours par une question : par où passe le camion.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {S.map(([t, d, href], i) => (
             <a className="value" href={href} key={i} style={{ textDecoration: "none", color: "inherit" }}>
@@ -435,9 +440,9 @@ function ServicesNice() {
             </a>))}
         </div>
         <p className="lede reveal" style={{ marginTop: 26 }}>
-          Déménageur à Nice, et tout autour : {V.map(([nom, href], i) => (
+          Déménageur à Nice, et tout autour de Nice : {V.map(([nom, href], i) => (
             <React.Fragment key={href}>{i > 0 ? (i === V.length - 1 ? " et " : ", ") : ""}<a href={href} style={{ color: "var(--accent)", fontWeight: 600 }}>{nom}</a></React.Fragment>))}.
-          Chaque commune a sa page, avec ses accès et ses règles de stationnement. <a href="Zones" style={{ color: "var(--accent)", fontWeight: 600 }}>Toutes les communes des Alpes-Maritimes →</a>
+          Chaque commune a sa page, avec ses accès et ses règles de stationnement, écrite par des déménageurs qui y travaillent chaque semaine. <a href="Zones" style={{ color: "var(--accent)", fontWeight: 600 }}>Toutes les communes des Alpes-Maritimes →</a>
         </p>
       </div>
     </section>);

@@ -271,6 +271,21 @@ function Testimonials() {
 }
 function HomeFaq() {
   const cats = [{
+    cat: "Déménager à Nice",
+    items: [{
+      q: "Combien coûte un déménagement à Nice ?",
+      a: prixNiceFaq()
+    }, {
+      q: "Faut-il une autorisation de stationnement pour déménager à Nice ?",
+      a: "Oui, dès que le camion occupe la voie publique, c'est-à-dire presque partout dans Nice. Pour un déménagement à Nice, nous faisons la demande en mairie pour vous, à l'adresse de départ comme à l'arrivée, en tenant compte des délais réels de chaque service. C'est compris dans le devis."
+    }, {
+      q: "Proposez-vous un garde-meuble à Nice ?",
+      a: "Oui. Quand la date de sortie ne colle pas avec la date d'entrée, nous stockons vos affaires dans un box sécurisé, à la semaine ou au mois, et nous les livrons le jour venu. Le stockage est chiffré dans le même devis que le déménagement."
+    }, {
+      q: "Déménagez-vous aussi en dehors de Nice ?",
+      a: "Oui. Nous sommes une entreprise de déménagement niçoise, et nous intervenons dans toutes les Alpes-Maritimes, à Monaco et dans le Var, ainsi que sur la longue distance en France et à l'international au départ de Nice, avec la même équipe et le même devis ferme."
+    }]
+  }, {
     cat: "Tarifs",
     items: [{
       q: "Le prix annoncé peut-il changer le jour J ?",
@@ -278,21 +293,6 @@ function HomeFaq() {
     }, {
       q: "Faut-il verser un acompte ?",
       a: "Un acompte raisonnable peut être demandé pour bloquer la date — jamais la totalité d'avance. Le solde est réglé le jour de la prestation. Tout est écrit sur votre devis."
-    }]
-  }, {
-    cat: "Déménager à Nice",
-    items: [{
-      q: "Combien coûte un déménagement à Nice ?",
-      a: prixNiceFaq()
-    }, {
-      q: "Faut-il une autorisation de stationnement pour déménager à Nice ?",
-      a: "Oui, dès que le camion occupe la voie publique, c'est-à-dire presque partout dans Nice. Nous faisons la demande en mairie pour vous, à l'adresse de départ comme à l'arrivée, en tenant compte des délais réels de chaque service. C'est compris dans le devis."
-    }, {
-      q: "Proposez-vous un garde-meuble à Nice ?",
-      a: "Oui. Quand la date de sortie ne colle pas avec la date d'entrée, nous stockons vos affaires dans un box sécurisé, à la semaine ou au mois, et nous les livrons le jour venu. Le stockage est chiffré dans le même devis que le déménagement."
-    }, {
-      q: "Déménagez-vous aussi en dehors de Nice ?",
-      a: "Oui. Nous sommes une entreprise de déménagement niçoise, et nous intervenons dans toutes les Alpes-Maritimes, à Monaco et dans le Var, ainsi que sur la longue distance en France et à l'international au départ de Nice, avec la même équipe et le même devis ferme."
     }]
   }, {
     cat: "Assurance & sécurité",
@@ -327,7 +327,6 @@ function HomeFaq() {
   }];
   const [catIdx, setCatIdx] = React.useState(0);
   const [open, setOpen] = React.useState(0);
-  const list = cats[catIdx].items;
   return React.createElement("section", {
     className: "sec home-faq",
     id: "faq"
@@ -348,11 +347,13 @@ function HomeFaq() {
       setCatIdx(i);
       setOpen(0);
     }
-  }, c.cat)))), React.createElement("div", {
-    className: "home-faq-list reveal"
-  }, list.map((it, i) => React.createElement("div", {
-    className: "faq-item" + (open === i ? " open" : ""),
-    key: catIdx + "-" + i
+  }, c.cat)))), cats.map((c, ci) => React.createElement("div", {
+    className: "home-faq-list reveal",
+    key: ci,
+    hidden: ci !== catIdx
+  }, c.items.map((it, i) => React.createElement("div", {
+    className: "faq-item" + (ci === catIdx && open === i ? " open" : ""),
+    key: ci + "-" + i
   }, React.createElement("h3", {
     style: {
       margin: 0,
@@ -366,7 +367,7 @@ function HomeFaq() {
     className: "ico"
   }, "+"))), React.createElement("div", {
     className: "faq-a"
-  }, React.createElement("p", null, it.a))))), React.createElement("script", {
+  }, React.createElement("p", null, it.a)))))), React.createElement("script", {
     type: "application/ld+json",
     dangerouslySetInnerHTML: {
       __html: JSON.stringify({
@@ -414,7 +415,7 @@ function QuartiersNice() {
     style: {
       marginTop: 14
     }
-  }, "Un d\xE9m\xE9nageur \xE0 Nice ne travaille pas de la m\xEAme fa\xE7on dans le Vieux-Nice, o\xF9 le camion reste aux bornes, et au Mont Boron, o\xF9 le monte-meuble est presque syst\xE9matique. Nous connaissons chaque quartier, ses acc\xE8s et ses r\xE8gles de stationnement : c'est ce qui fait un devis juste et une journ\xE9e sans surprise."), React.createElement("div", {
+  }, "Un d\xE9m\xE9nagement \xE0 Nice ne se passe pas de la m\xEAme fa\xE7on dans le Vieux-Nice, o\xF9 le camion reste aux bornes, et au Mont Boron, o\xF9 le monte-meuble est presque syst\xE9matique. C'est ce qui fait un d\xE9m\xE9nageur \xE0 Nice : conna\xEEtre la rue avant d'y engager le camion. Nous connaissons chaque quartier, ses acc\xE8s et ses r\xE8gles de stationnement : c'est ce qui fait un devis juste et une journ\xE9e sans surprise."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -485,7 +486,7 @@ function PrixNice() {
     style: {
       marginTop: 14
     }
-  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que nous avons r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. \xC0 Nice, c'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
+  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que nous avons r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. \xC0 Nice, c'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement \xE0 Nice, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
     className: "tarif-tw reveal",
     style: {
       marginTop: 26
@@ -519,7 +520,7 @@ function PrixNice() {
     style: {
       marginTop: 20
     }
-  }, "La formule Luxe, avec l'emballage de tous vos cartons au d\xE9part et la mise en place \xE0 l'arriv\xE9e, se chiffre apr\xE8s une visio de dix minutes : le contenu des placards de quelqu'un ne se devine pas de l'ext\xE9rieur. Le stationnement, le monte-meuble et le portage sont \xE9crits sur le devis, jamais ajout\xE9s le jour J."), React.createElement("p", {
+  }, "La formule Luxe, avec l'emballage de tous vos cartons au d\xE9part et la mise en place \xE0 l'arriv\xE9e, se chiffre apr\xE8s une visio de dix minutes : le contenu des placards de quelqu'un ne se devine pas de l'ext\xE9rieur. Le stationnement, le monte-meuble et le portage sont \xE9crits sur le devis d'un d\xE9m\xE9nagement \xE0 Nice, jamais ajout\xE9s le jour J."), React.createElement("p", {
     className: "reveal",
     style: {
       marginTop: 16,
@@ -540,7 +541,7 @@ function PrixNice() {
   }, "\u2192")))));
 }
 function ServicesNice() {
-  const S = [["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"], ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"], ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"], ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis : un monte-meuble ne se trouve pas le matin même.", "Devis"], ["Stockage entre deux logements", "Un box sécurisé, à la semaine ou au mois, quand la date de sortie ne colle pas avec la date d'entrée. Livré le jour venu, chiffré dans le même devis.", "Devis"], ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"], ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
+  const S = [["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Un déménagement à Nice en appartement, c'est d'abord une cage d'escalier : protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"], ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"], ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"], ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis, par nos déménageurs professionnels : un monte-meuble ne se trouve pas le matin même.", "Devis"], ["Stockage entre deux logements", "Un garde-meuble sécurisé à Nice, à la semaine ou au mois, quand la date de sortie ne colle pas avec la date d'entrée. Livré le jour venu par la même équipe, chiffré dans le même devis.", "Devis"], ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"], ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
   const V = [["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Antibes", "Demenagement-Antibes"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Monaco", "Demenagement-Monaco"]];
   return React.createElement("section", {
     className: "sec",
@@ -560,7 +561,7 @@ function ServicesNice() {
     style: {
       marginTop: 14
     }
-  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs form\xE9e par les fondateurs, et le m\xEAme devis ferme."), React.createElement("div", {
+  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs professionnels form\xE9e par les fondateurs, et le m\xEAme devis ferme. Un d\xE9m\xE9nagement \xE0 Nice commence toujours par une question : par o\xF9 passe le camion."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -582,7 +583,7 @@ function ServicesNice() {
     style: {
       marginTop: 26
     }
-  }, "D\xE9m\xE9nageur \xE0 Nice, et tout autour : ", V.map(([nom, href], i) => React.createElement(React.Fragment, {
+  }, "D\xE9m\xE9nageur \xE0 Nice, et tout autour de Nice : ", V.map(([nom, href], i) => React.createElement(React.Fragment, {
     key: href
   }, i > 0 ? i === V.length - 1 ? " et " : ", " : "", React.createElement("a", {
     href: href,
@@ -590,7 +591,7 @@ function ServicesNice() {
       color: "var(--accent)",
       fontWeight: 600
     }
-  }, nom))), ". Chaque commune a sa page, avec ses acc\xE8s et ses r\xE8gles de stationnement. ", React.createElement("a", {
+  }, nom))), ". Chaque commune a sa page, avec ses acc\xE8s et ses r\xE8gles de stationnement, \xE9crite par des d\xE9m\xE9nageurs qui y travaillent chaque semaine. ", React.createElement("a", {
     href: "Zones",
     style: {
       color: "var(--accent)",
