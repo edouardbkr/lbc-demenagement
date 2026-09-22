@@ -122,7 +122,7 @@ function NiceHero() {
     className: "lede"
   }, "Nice n'est pas une ville, c'est dix quartiers qui n'ont rien \xE0 voir. Le Vieux-Nice ne se d\xE9m\xE9nage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que \xE7a co\xFBte r\xE9ellement, et quelles d\xE9marches sont \xE0 faire avant le jour J. Pour vos locaux professionnels, tout se passe sur ", React.createElement("a", {
     href: "Entreprise"
-  }, "la page d\xE9di\xE9e aux entreprises"), "."), React.createElement("div", {
+  }, "la page d\xE9di\xE9e aux entreprises"), ". C'est le m\xE9tier d'un d\xE9m\xE9nageur ni\xE7ois : conna\xEEtre chaque quartier avant d'y engager un camion."), React.createElement("div", {
     style: {
       display: "flex",
       gap: 10,
@@ -140,6 +140,21 @@ function NiceHero() {
   }, React.createElement(QuickQuote, {
     variant: "dark"
   }))));
+}
+function NiceCTA({
+  texte
+}) {
+  return React.createElement("div", {
+    className: "reveal",
+    style: {
+      marginTop: 28
+    }
+  }, React.createElement("a", {
+    href: "Devis",
+    className: "btn btn-primary"
+  }, texte || "Obtenir mon devis pour Nice", React.createElement("span", {
+    className: "arrow"
+  }, "\u2192")));
 }
 function NiceSecHead({
   num,
@@ -235,7 +250,9 @@ function NicePrix() {
     className: "value-body"
   }, React.createElement("div", {
     className: "value-title"
-  }, x.t), React.createElement("p", null, x.d)))))));
+  }, x.t), React.createElement("p", null, x.d))))), React.createElement(NiceCTA, {
+    texte: "Chiffrer mon d\xE9m\xE9nagement \xE0 Nice"
+  })));
 }
 function NiceCas() {
   return React.createElement("section", {
@@ -307,7 +324,7 @@ function NiceStationnement() {
     em: "et les d\xE9lais r\xE9els."
   }), React.createElement("p", {
     className: "lede"
-  }, "C'est le vrai casse-t\xEAte ni\xE7ois, et la premi\xE8re cause de journ\xE9e perdue. D\xE8s que le camion occupe le domaine public \u2014 c'est-\xE0-dire presque partout dans Nice \u2014 il faut une autorisation. Trois r\xE9gimes existent, avec des d\xE9lais et des services diff\xE9rents."), React.createElement("div", {
+  }, "C'est le vrai casse-t\xEAte ni\xE7ois, et la premi\xE8re cause de journ\xE9e perdue. D\xE8s que le camion occupe le domaine public \u2014 c'est-\xE0-dire presque partout dans Nice \u2014 il faut une autorisation. Trois r\xE9gimes existent, avec des d\xE9lais et des services diff\xE9rents. Un d\xE9m\xE9nageur install\xE9 \xE0 Nice fait ces demandes pour vous, et conna\xEEt les d\xE9lais r\xE9els de chaque service."), React.createElement("div", {
     className: "tarif-tw",
     style: {
       marginTop: 26
@@ -347,7 +364,9 @@ function NiceStationnement() {
     className: "tarif-h3"
   }, "Qui s'en occupe"), React.createElement("p", {
     className: "tarif-intro"
-  }, "Nous, syst\xE9matiquement, d\xE8s que la date est bloqu\xE9e. C'est inclus dans les trois formules et cela ne se facture pas \xE0 part. Vous n'avez ni dossier \xE0 monter ni service \xE0 appeler.")))));
+  }, "Nous, syst\xE9matiquement, d\xE8s que la date est bloqu\xE9e. C'est inclus dans les trois formules et cela ne se facture pas \xE0 part. Vous n'avez ni dossier \xE0 monter ni service \xE0 appeler."))), React.createElement(NiceCTA, {
+    texte: "Un devis, stationnement compris"
+  })));
 }
 function NiceQuartiers() {
   return React.createElement("section", {
@@ -587,7 +606,9 @@ function NiceAides() {
     style: {
       marginTop: 22
     }
-  }, "Nous ne montons pas ces dossiers \xE0 votre place, mais nous fournissons toujours un devis d\xE9taill\xE9 et une facture nominative \u2014 c'est la pi\xE8ce que tous ces organismes r\xE9clament, et celle qui manque le plus souvent. Renseignez-vous aupr\xE8s de votre CAF, de votre employeur ou du D\xE9partement : les conditions changent r\xE9guli\xE8rement.")));
+  }, "Nous ne montons pas ces dossiers \xE0 votre place, mais nous fournissons toujours un devis d\xE9taill\xE9 et une facture nominative \u2014 c'est la pi\xE8ce que tous ces organismes r\xE9clament, et celle qui manque le plus souvent. Renseignez-vous aupr\xE8s de votre CAF, de votre employeur ou du D\xE9partement : les conditions changent r\xE9guli\xE8rement."), React.createElement(NiceCTA, {
+    texte: "Obtenir mon devis pour Nice"
+  })));
 }
 function NicePreparer() {
   const P = [{
@@ -613,7 +634,7 @@ function NicePreparer() {
     em: "\xE0 pr\xE9parer."
   }), React.createElement("p", {
     className: "lede"
-  }, "Elles ne prennent pas dix minutes chacune, et ce sont pourtant elles qui font qu'une journ\xE9e se d\xE9roule comme pr\xE9vu ou qu'elle d\xE9marre avec une heure de retard."), React.createElement("div", {
+  }, "Elles ne prennent pas dix minutes chacune, et ce sont pourtant elles qui font qu'une journ\xE9e se d\xE9roule comme pr\xE9vu ou qu'elle d\xE9marre avec une heure de retard. Votre d\xE9m\xE9nageur vous les rappelle au moment du devis."), React.createElement("div", {
     className: "ap-values reveal-stagger",
     style: {
       marginTop: 26
@@ -770,7 +791,9 @@ function NiceFAQ() {
     item: f,
     open: ouvert === i,
     onToggle: () => setOuvert(ouvert === i ? -1 : i)
-  })))));
+  }))), React.createElement(NiceCTA, {
+    texte: "Poser ma question dans le devis"
+  })));
 }
 function App() {
   return React.createElement(React.Fragment, null, React.createElement(Nav, null), React.createElement("main", {
@@ -780,5 +803,5 @@ function App() {
   }), React.createElement(NicePreparer, null), React.createElement(NiceLimitrophes, null), React.createElement(NiceDepuisNice, null), React.createElement(NiceQuand, null), React.createElement(NiceFAQ, null)), React.createElement(Footer, null));
 }
 ReactDOM.createRoot(document.getElementById('root')).render(React.createElement(App, null));
-  try { Object.assign(window, { NiceHero, NiceSecHead, NicePrix, NiceCas, NiceStationnement, NiceQuartiers, NiceQuand, NiceEncombrants, NiceCartons, NiceAides, NicePreparer, NiceLimitrophes, NiceDepuisNice, NiceFaqItem, NiceFAQ, App }); } catch (e) {}
+  try { Object.assign(window, { NiceHero, NiceCTA, NiceSecHead, NicePrix, NiceCas, NiceStationnement, NiceQuartiers, NiceQuand, NiceEncombrants, NiceCartons, NiceAides, NicePreparer, NiceLimitrophes, NiceDepuisNice, NiceFaqItem, NiceFAQ, App }); } catch (e) {}
 })();

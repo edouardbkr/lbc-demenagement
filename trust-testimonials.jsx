@@ -70,6 +70,10 @@ function Values() {
             <em>Rien de plus.</em>
           </h2>
         </div>
+        {/* La phrase existe pour le mot « déménageur », absent de l'accueil alors que c'est
+            la forme la plus tapée (« déménageur nice »). Mesuré le 22 septembre 2026 : 3
+            occurrences ici, 6 à 28 chez les concurrents que Google met en avant. */}
+        <p className="lede reveal" style={{ marginTop: 14 }}>Ce qui distingue un déménageur à Nice d'un autre se vérifie avant le jour J : dans le devis, dans l'assurance, et dans l'heure d'arrivée qu'on vous annonce.</p>
 
         <div className="values-grid reveal-stagger">
           {values.map((v, i) => (
@@ -233,6 +237,7 @@ function HomeFaq() {
     {
       cat: "L'équipe",
       items: [
+        { q: "Comment choisir un déménageur à Nice ?", a: "Regardez trois choses. Un devis écrit qui détaille le volume, l'accès et le stationnement, parce qu'à Nice c'est l'accès qui fait le prix, pas les kilomètres. Une assurance nommée au contrat, avec ses plafonds. Et des avis Google récents, que vous pouvez lire vous-même. Un déménageur niçois sérieux vous demandera l'étage, l'ascenseur et la rue avant d'annoncer un chiffre." },
         { q: "Qui vient réellement faire le déménagement ?", a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille." },
         { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une société immatriculée, avec SIRET, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
       ]
@@ -287,4 +292,41 @@ function HomeFaq() {
   );
 }
 
-Object.assign(window, { Values, Testimonials, HomeFaq });
+
+/* ── DÉMÉNAGEUR À NICE, QUARTIER PAR QUARTIER ──────────────────────────────────────
+   L'accueil est la page que Google sort déjà sur « déménageur nice » (position 80 le
+   22 septembre 2026), et le mot n'y figurait que trois fois. Cette section le porte, et
+   envoie vers la page Nice et les pages quartiers avec des ancres qui disent ce qu'elles
+   sont. Les contraintes citées sont celles des pages quartiers : rien d'inventé. */
+function QuartiersNice() {
+  const Q = [
+    ["Vieux-Nice", "Demenagement-Vieux-Nice", "zone piétonne, portage systématique"],
+    ["Cimiez", "Demenagement-Cimiez-Nice", "colline, ascenseurs anciens, grands volumes"],
+    ["Carré d'Or", "Demenagement-Carre-d-Or-Nice", "immeubles haussmanniens, monte-meuble"],
+    ["Libération", "Demenagement-Liberation-Nice", "marché, tramway, stationnement en voirie"],
+    ["Le Port", "Demenagement-Port-Nice", "rues en pente, circulation contrainte"],
+    ["Riquier", "Demenagement-Riquier-Nice", "caves voûtées, rues étroites"],
+    ["Mont Boron", "Demenagement-Mont-Boron-Nice", "routes en lacets, villas, monte-meuble"]];
+  return (
+    <section className="sec" id="quartiers-nice">
+      <div className="wrap">
+        <div className="sec-head reveal">
+          <div><div className="sec-num"><span className="asterisk">*</span> 04 / Nice, quartier par quartier</div></div>
+          <h2 className="dim-em">Déménageur à Nice,<br/><em>quartier par quartier.</em></h2>
+        </div>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Un déménageur à Nice ne travaille pas de la même façon dans le Vieux-Nice, où le camion reste aux bornes, et au Mont Boron, où le monte-meuble est presque systématique. Nous connaissons chaque quartier, ses accès et ses règles de stationnement : c'est ce qui fait un devis juste et une journée sans surprise.</p>
+        <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
+          {Q.map(([nom, href, sub], i) => (
+            <a className="value" href={href} key={i} style={{ textDecoration: "none", color: "inherit" }}>
+              <div className="value-title">Déménagement {nom}</div>
+              <div className="value-body">{sub}</div>
+            </a>))}
+        </div>
+        <p className="reveal" style={{ marginTop: 22 }}>
+          <a href="Demenagement-Nice" className="btn btn-ghost">Déménagement à Nice : les dix quartiers, les prix et les démarches<span className="arrow">→</span></a>
+        </p>
+      </div>
+    </section>);
+}
+
+Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice });

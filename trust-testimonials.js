@@ -123,7 +123,12 @@ function Values() {
     className: "asterisk"
   }, "*"), " 03 / Pourquoi nous choisir")), React.createElement("h2", {
     className: "dim-em"
-  }, "Cinq raisons pr\xE9cises.", React.createElement("br", null), React.createElement("em", null, "Rien de plus."))), React.createElement("div", {
+  }, "Cinq raisons pr\xE9cises.", React.createElement("br", null), React.createElement("em", null, "Rien de plus."))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 14
+    }
+  }, "Ce qui distingue un d\xE9m\xE9nageur \xE0 Nice d'un autre se v\xE9rifie avant le jour J : dans le devis, dans l'assurance, et dans l'heure d'arriv\xE9e qu'on vous annonce."), React.createElement("div", {
     className: "values-grid reveal-stagger"
   }, values.map((v, i) => React.createElement("div", {
     className: "value",
@@ -286,6 +291,9 @@ function HomeFaq() {
   }, {
     cat: "L'équipe",
     items: [{
+      q: "Comment choisir un déménageur à Nice ?",
+      a: "Regardez trois choses. Un devis écrit qui détaille le volume, l'accès et le stationnement, parce qu'à Nice c'est l'accès qui fait le prix, pas les kilomètres. Une assurance nommée au contrat, avec ses plafonds. Et des avis Google récents, que vous pouvez lire vous-même. Un déménageur niçois sérieux vous demandera l'étage, l'ascenseur et la rue avant d'annoncer un chiffre."
+    }, {
       q: "Qui vient réellement faire le déménagement ?",
       a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille."
     }, {
@@ -349,10 +357,60 @@ function HomeFaq() {
     className: "arrow"
   }, "\u2192")))));
 }
+function QuartiersNice() {
+  const Q = [["Vieux-Nice", "Demenagement-Vieux-Nice", "zone piétonne, portage systématique"], ["Cimiez", "Demenagement-Cimiez-Nice", "colline, ascenseurs anciens, grands volumes"], ["Carré d'Or", "Demenagement-Carre-d-Or-Nice", "immeubles haussmanniens, monte-meuble"], ["Libération", "Demenagement-Liberation-Nice", "marché, tramway, stationnement en voirie"], ["Le Port", "Demenagement-Port-Nice", "rues en pente, circulation contrainte"], ["Riquier", "Demenagement-Riquier-Nice", "caves voûtées, rues étroites"], ["Mont Boron", "Demenagement-Mont-Boron-Nice", "routes en lacets, villas, monte-meuble"]];
+  return React.createElement("section", {
+    className: "sec",
+    id: "quartiers-nice"
+  }, React.createElement("div", {
+    className: "wrap"
+  }, React.createElement("div", {
+    className: "sec-head reveal"
+  }, React.createElement("div", null, React.createElement("div", {
+    className: "sec-num"
+  }, React.createElement("span", {
+    className: "asterisk"
+  }, "*"), " 04 / Nice, quartier par quartier")), React.createElement("h2", {
+    className: "dim-em"
+  }, "D\xE9m\xE9nageur \xE0 Nice,", React.createElement("br", null), React.createElement("em", null, "quartier par quartier."))), React.createElement("p", {
+    className: "lede reveal",
+    style: {
+      marginTop: 14
+    }
+  }, "Un d\xE9m\xE9nageur \xE0 Nice ne travaille pas de la m\xEAme fa\xE7on dans le Vieux-Nice, o\xF9 le camion reste aux bornes, et au Mont Boron, o\xF9 le monte-meuble est presque syst\xE9matique. Nous connaissons chaque quartier, ses acc\xE8s et ses r\xE8gles de stationnement : c'est ce qui fait un devis juste et une journ\xE9e sans surprise."), React.createElement("div", {
+    className: "values-grid reveal-stagger",
+    style: {
+      marginTop: 26
+    }
+  }, Q.map(([nom, href, sub], i) => React.createElement("a", {
+    className: "value",
+    href: href,
+    key: i,
+    style: {
+      textDecoration: "none",
+      color: "inherit"
+    }
+  }, React.createElement("div", {
+    className: "value-title"
+  }, "D\xE9m\xE9nagement ", nom), React.createElement("div", {
+    className: "value-body"
+  }, sub)))), React.createElement("p", {
+    className: "reveal",
+    style: {
+      marginTop: 22
+    }
+  }, React.createElement("a", {
+    href: "Demenagement-Nice",
+    className: "btn btn-ghost"
+  }, "D\xE9m\xE9nagement \xE0 Nice : les dix quartiers, les prix et les d\xE9marches", React.createElement("span", {
+    className: "arrow"
+  }, "\u2192")))));
+}
 Object.assign(window, {
   Values,
   Testimonials,
-  HomeFaq
+  HomeFaq,
+  QuartiersNice
 });
-  try { Object.assign(window, { Values, Testimonials, HomeFaq }); } catch (e) {}
+  try { Object.assign(window, { Values, Testimonials, HomeFaq, QuartiersNice }); } catch (e) {}
 })();

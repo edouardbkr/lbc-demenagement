@@ -87,13 +87,23 @@ function NiceHero() {
             L'angle quartier reste : il distingue la page de l'accueil, qui occupe déjà
             « entreprise de déménagement à Nice ». Mais il passe après la requête. */}
         <h1><em className="dim-em">Déménagement à Nice</em>, quartier par quartier</h1>
-        <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J. Pour vos locaux professionnels, tout se passe sur <a href="Entreprise">la page dédiée aux entreprises</a>.</p>
+        <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J. Pour vos locaux professionnels, tout se passe sur <a href="Entreprise">la page dédiée aux entreprises</a>. C'est le métier d'un déménageur niçois : connaître chaque quartier avant d'y engager un camion.</p>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
           <a href="tel:+33615976577" className="btn btn-ghost">06 15 97 65 77</a>
         </div>
         <div className="devis-hero-form" style={{ marginTop: 22 }}><QuickQuote variant="dark" /></div>
       </div>
     </section>);
+}
+
+
+/* Un seul lien vers le devis dans 3 400 mots : le lecteur qui a fini de lire les prix ou
+   le stationnement n'avait rien à cliquer. Mesuré le 22 septembre 2026 (accueil : 6). */
+function NiceCTA({ texte }) {
+  return (
+    <div className="reveal" style={{ marginTop: 28 }}>
+      <a href="Devis" className="btn btn-primary">{texte || "Obtenir mon devis pour Nice"}<span className="arrow">→</span></a>
+    </div>);
 }
 
 function NiceSecHead({ num, titre, em }) {
@@ -138,7 +148,7 @@ function NicePrix() {
             <div className="value-body"><div className="value-title">{x.t}</div><p>{x.d}</p></div>
           </div>)}
       </div>
-    </div></section>);
+    <NiceCTA texte="Chiffrer mon déménagement à Nice" /></div></section>);
 }
 
 function NiceCas() {
@@ -178,7 +188,7 @@ function NiceStationnement() {
   return (
     <section className="sec"><div className="wrap">
       <NiceSecHead num="03 / Le stationnement" titre="L'autorisation, la démarche" em="et les délais réels." />
-      <p className="lede">C'est le vrai casse-tête niçois, et la première cause de journée perdue. Dès que le camion occupe le domaine public — c'est-à-dire presque partout dans Nice — il faut une autorisation. Trois régimes existent, avec des délais et des services différents.</p>
+      <p className="lede">C'est le vrai casse-tête niçois, et la première cause de journée perdue. Dès que le camion occupe le domaine public — c'est-à-dire presque partout dans Nice — il faut une autorisation. Trois régimes existent, avec des délais et des services différents. Un déménageur installé à Nice fait ces demandes pour vous, et connaît les délais réels de chaque service.</p>
       <div className="tarif-tw" style={{ marginTop: 26 }}>
         <table className="tarif-table">
           <thead><tr><th>Ce que vous occupez</th><th>Délai minimum</th><th>Service à contacter</th></tr></thead>
@@ -205,7 +215,7 @@ function NiceStationnement() {
           <p className="tarif-intro">Nous, systématiquement, dès que la date est bloquée. C'est inclus dans les trois formules et cela ne se facture pas à part. Vous n'avez ni dossier à monter ni service à appeler.</p>
         </div>
       </div>
-    </div></section>);
+    <NiceCTA texte="Un devis, stationnement compris" /></div></section>);
 }
 
 function NiceQuartiers() {
@@ -344,7 +354,7 @@ function NiceAides() {
         </div>
       </div>
       <p className="lede" style={{ marginTop: 22 }}>Nous ne montons pas ces dossiers à votre place, mais nous fournissons toujours un devis détaillé et une facture nominative — c'est la pièce que tous ces organismes réclament, et celle qui manque le plus souvent. Renseignez-vous auprès de votre CAF, de votre employeur ou du Département : les conditions changent régulièrement.</p>
-    </div></section>);
+    <NiceCTA texte="Obtenir mon devis pour Nice" /></div></section>);
 }
 
 function NicePreparer() {
@@ -356,7 +366,7 @@ function NicePreparer() {
   return (
     <section className="sec"><div className="wrap">
       <NiceSecHead num="09 / Avant le jour J" titre="Les quatre choses" em="à préparer." />
-      <p className="lede">Elles ne prennent pas dix minutes chacune, et ce sont pourtant elles qui font qu'une journée se déroule comme prévu ou qu'elle démarre avec une heure de retard.</p>
+      <p className="lede">Elles ne prennent pas dix minutes chacune, et ce sont pourtant elles qui font qu'une journée se déroule comme prévu ou qu'elle démarre avec une heure de retard. Votre déménageur vous les rappelle au moment du devis.</p>
       <div className="ap-values reveal-stagger" style={{ marginTop: 26 }}>
         {P.map((x, i) =>
           <div className="ap-value" key={i}>
@@ -430,7 +440,7 @@ function NiceFAQ() {
         {NICE_FAQ.map((f, i) =>
           <NiceFaqItem key={i} item={f} open={ouvert === i} onToggle={() => setOuvert(ouvert === i ? -1 : i)} />)}
       </div>
-    </div></section>);
+    <NiceCTA texte="Poser ma question dans le devis" /></div></section>);
 }
 
 function App() {

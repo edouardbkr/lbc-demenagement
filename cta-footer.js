@@ -103,7 +103,7 @@ function CTA() {
     className: "scribble"
   }, "toujours."))), React.createElement("p", {
     className: "cta-side"
-  }, "Commencez ici : ces cinq informations suffisent pour d\xE9marrer. On encha\xEEne ensuite sur les adresses et votre inventaire, et vous obtenez une fourchette de prix imm\xE9diate. Deux minutes en tout, sans engagement."), React.createElement("p", {
+  }, "Commencez ici : ces cinq informations suffisent pour d\xE9marrer, et c'est un d\xE9m\xE9nageur qui vous rappelle, pas un centre d'appels. On encha\xEEne ensuite sur les adresses et votre inventaire, et vous obtenez une fourchette de prix imm\xE9diate. Deux minutes en tout, sans engagement."), React.createElement("p", {
     className: "cta-side",
     style: {
       marginTop: 16

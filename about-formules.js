@@ -53,7 +53,7 @@ function About() {
     style: {
       color: 'var(--ink)'
     }
-  }, "Anthony a appris le m\xE9tier aupr\xE8s de son p\xE8re, d\xE9m\xE9nageur."), " Prot\xE9ger un meuble ancien, lire un acc\xE8s avant d\u2019engager le camion, charger dans l\u2019ordre o\xF9 l\u2019on d\xE9chargera : \xE7a ne s\u2019improvise pas en une saison. \xC7a se transmet."), React.createElement("p", null, React.createElement("strong", {
+  }, "Anthony a appris le m\xE9tier aupr\xE8s de son p\xE8re, d\xE9m\xE9nageur \xE0 Nice."), " Prot\xE9ger un meuble ancien, lire un acc\xE8s avant d\u2019engager le camion, charger dans l\u2019ordre o\xF9 l\u2019on d\xE9chargera : \xE7a ne s\u2019improvise pas en une saison. \xC7a se transmet."), React.createElement("p", null, React.createElement("strong", {
     style: {
       color: 'var(--ink)'
     }

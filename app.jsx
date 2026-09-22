@@ -60,6 +60,7 @@ function App() {
         <RoadDivider />
         <Gallery />
         <Values />
+        <QuartiersNice />
         <Testimonials />
         <HomeFaq />
         <CTA />

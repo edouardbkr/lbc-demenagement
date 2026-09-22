@@ -56,7 +56,7 @@ function About() {
         <div className="about-grid">
           <div className="about-copy reveal">
             <p className="lead">
-              <strong style={{ color: 'var(--ink)' }}>Anthony a appris le métier auprès de son père, déménageur.</strong> Protéger un meuble ancien, lire un accès avant d’engager le camion, charger dans l’ordre où l’on déchargera : ça ne s’improvise pas en une saison. Ça se transmet.
+              <strong style={{ color: 'var(--ink)' }}>Anthony a appris le métier auprès de son père, déménageur à Nice.</strong> Protéger un meuble ancien, lire un accès avant d’engager le camion, charger dans l’ordre où l’on déchargera : ça ne s’improvise pas en une saison. Ça se transmet.
             </p>
             <p>
               <strong style={{ color: 'var(--ink)' }}>Edouard vient du digital.</strong> Il apporte ce qui manque presque partout dans le métier : un devis chiffré ligne par ligne à partir de votre inventaire, un créneau d’arrivée annoncé à l’heure près, et tout ce qui vous engage écrit avant qu’un carton ne bouge.
