@@ -224,12 +224,11 @@ function HomeFaq() {
       /* Mesuré le 22 septembre 2026 face aux pages qui sortent en tête sur « déménagement
          nice » : la première a 11 questions visibles et un balisage FAQPage, l'accueil
          n'avait ni l'un ni l'autre. Les réponses ci-dessous sont celles du site, pas des
-         promesses : le stationnement est demandé par LBC, le stockage existe. */
+         promesses : le stationnement est demandé par LBC. ⚠️ Pas de stockage, LBC n'en propose pas. */
       cat: "Déménager à Nice",
       items: [
         { q: "Combien coûte un déménagement à Nice ?", a: prixNiceFaq() },
         { q: "Faut-il une autorisation de stationnement pour déménager à Nice ?", a: "Oui, dès que le camion occupe la voie publique, c'est-à-dire presque partout dans Nice. Pour un déménagement à Nice, nous faisons la demande en mairie pour vous, à l'adresse de départ comme à l'arrivée, en tenant compte des délais réels de chaque service. C'est compris dans le devis." },
-        { q: "Proposez-vous un garde-meuble à Nice ?", a: "Oui. Quand la date de sortie ne colle pas avec la date d'entrée, nous stockons vos affaires dans un box sécurisé, à la semaine ou au mois, et nous les livrons le jour venu. Le stockage est chiffré dans le même devis que le déménagement." },
         { q: "Déménagez-vous aussi en dehors de Nice ?", a: "Oui. Nous sommes une entreprise de déménagement niçoise, et nous intervenons dans toutes les Alpes-Maritimes, à Monaco et dans le Var, ainsi que sur la longue distance en France et à l'international au départ de Nice, avec la même équipe et le même devis ferme." }
       ]
     },
@@ -412,15 +411,15 @@ function PrixNice() {
 /* ── UNE ENTREPRISE DE DÉMÉNAGEMENT À NICE, POUR TOUT CE QUI DOIT BOUGER ───────────
    Les concurrents en tête nomment leurs prestations : garde-meuble, monte-meuble,
    bureaux, longue distance (mesuré le 22 septembre 2026 : « garde-meuble/stockage » 9 à
-   14 fois chez eux, 0 sur l'accueil). Tout ce qui est écrit ici existe : le stockage est
-   un module du cockpit, le stationnement est demandé par LBC, l'international a ses pages. */
+   14 fois chez eux, 0 sur l'accueil). ⚠️ LBC NE PROPOSE PAS DE STOCKAGE NI DE GARDE-MEUBLE :
+   une carte « Stockage entre deux logements » a été écrite ici le 22 septembre 2026 par
+   déduction du module Stockage du cockpit, et retirée le soir même. Ne jamais l'écrire. */
 function ServicesNice() {
   const S = [
     ["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Un déménagement à Nice en appartement, c'est d'abord une cage d'escalier : protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"],
     ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"],
     ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"],
     ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis, par nos déménageurs professionnels : un monte-meuble ne se trouve pas le matin même.", "Devis"],
-    ["Stockage entre deux logements", "Un garde-meuble sécurisé à Nice, à la semaine ou au mois, quand la date de sortie ne colle pas avec la date d'entrée. Livré le jour venu par la même équipe, chiffré dans le même devis.", "Devis"],
     ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"],
     ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
   const V = [["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Antibes", "Demenagement-Antibes"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Monaco", "Demenagement-Monaco"]];
