@@ -135,7 +135,7 @@ function About() {
     }
   }) : React.createElement("img", {
     src: "assets/about-poster.jpg",
-    alt: "D\xE9m\xE9nageurs LBC prot\xE9geant le mobilier",
+    alt: "D\xE9m\xE9nageurs LBC D\xE9m\xE9nagement prot\xE9geant le mobilier",
     loading: "lazy",
     style: {
       position: 'absolute',
@@ -167,7 +167,7 @@ function About() {
     className: "about-photo detail"
   }, React.createElement("img", {
     src: "assets/gallery-chargement.jpg",
-    alt: "Camion LBC en chargement \xE0 Nice",
+    alt: "Camion LBC D\xE9m\xE9nagement en chargement \xE0 Nice",
     loading: "lazy",
     style: {
       position: 'absolute',
@@ -179,7 +179,7 @@ function About() {
     }
   }), React.createElement("div", {
     className: "caption"
-  }, "Camion LBC \xB7 Nice"))))));
+  }, "Camion LBC* \xB7 Nice"))))));
 }
 const IconBox = () => React.createElement("svg", {
   viewBox: "0 0 24 24",

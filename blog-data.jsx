@@ -3,9 +3,9 @@
 const ARTICLES = [
   {
     slug: "estimer-volume",
-    seoTitle: "Estimer le volume d'un déménagement en m³ · LBC",
+    seoTitle: "Estimer le volume d'un déménagement en m³ · LBC Déménagement",
     image: "assets/blog/estimer-volume-demenagement-camion-20m3.jpg",
-    imageAlt: "Camion de déménagement LBC de 20 m³ et ses dimensions : 4,50 × 2,10 × 2,10 mètres",
+    imageAlt: "Camion de déménagement LBC Déménagement de 20 m³ et ses dimensions : 4,50 × 2,10 × 2,10 mètres",
     cat: "Méthode",
     title: "Estimer le volume de votre déménagement en m³, sans se tromper",
     date: "28 avril 2026",
@@ -58,7 +58,7 @@ const ARTICLES = [
   
   {
     slug: "choisir-demenageur",
-    seoTitle: "Choisir son déménageur : 7 signaux à vérifier · LBC",
+    seoTitle: "Choisir son déménageur : 7 signaux à vérifier · LBC Déménagement",
     image: "assets/blog/choisir-demenageur-devis-7-signaux.jpg",
     imageAlt: "Devis de déménagement et les 7 signaux à vérifier avant de signer : prix ferme, assurance, acompte, SIRET",
     cat: "Conseils",
@@ -109,7 +109,7 @@ const ARTICLES = [
   },
   {
     slug: "checklist-demenagement-longue-distance",
-    seoTitle: "Déménagement longue distance : la checklist 8 semaines · LBC",
+    seoTitle: "Déménagement longue distance : la checklist 8 semaines · LBC Déménagement",
     image: "assets/blog/demenagement-nice-paris-retroplanning-8-semaines.jpg",
     imageAlt: "Rétroplanning d'un déménagement longue distance en 8 semaines, du tri des affaires à la livraison",
     cat: "Longue distance",
@@ -207,7 +207,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-international-depuis-nice",
-    seoTitle: "Déménagement international depuis Nice · LBC",
+    seoTitle: "Déménagement international depuis Nice · LBC Déménagement",
     image: "assets/blog/demenagement-international-depuis-nice-douane.jpg",
     imageAlt: "Déménagement international depuis Nice vers Genève, Milan, Barcelone, Luxembourg et Bruxelles, avec passage en douane",
     cat: "International",
@@ -244,7 +244,7 @@ const ARTICLES = [
   },
   {
     slug: "villes-demarches-speciales-demenagement",
-    seoTitle: "Déménager à une adresse réglementée · LBC",
+    seoTitle: "Déménager à une adresse réglementée · LBC Déménagement",
     image: "assets/blog/demenagement-adresses-reglementees-monte-meuble.jpg",
     imageAlt: "Monte-meuble déployé sur une façade pour un déménagement en zone réglementée",
     cat: "Conseils",
@@ -279,7 +279,7 @@ const ARTICLES = [
   },
   {
     slug: "demenagement-etudiant-nice",
-    seoTitle: "Déménagement étudiant à Nice, petit budget · LBC",
+    seoTitle: "Déménagement étudiant à Nice, petit budget · LBC Déménagement",
     image: "assets/blog/demenagement-etudiant-nice-studio-6m3.jpg",
     imageAlt: "Déménagement étudiant à Nice : un studio de 6 m³, une matinée, deux amis et un vélo",
     cat: "Côte d'Azur",

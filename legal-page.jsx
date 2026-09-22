@@ -121,7 +121,7 @@ function CGV() {
   return (
     <React.Fragment>
       <LBlock n="1" title="Objet et champ d'application">
-        <p>Les présentes conditions générales de vente (CGV) régissent les prestations de déménagement et les services associés fournis par <strong>LBC DÉMÉNAGEMENT</strong>, SAS au capital de 3&nbsp;000&nbsp;€, dont le siège est 12 rue d'Italie, 06000 Nice, SIRET 106&nbsp;789&nbsp;860&nbsp;00017, RCS Nice, code APE 4942Z, à ses clients particuliers et professionnels.</p>
+        <p>Les présentes conditions générales de vente (CGV) régissent les prestations de déménagement et les services associés fournis par <strong>LBC Déménagement DÉMÉNAGEMENT</strong>, SAS au capital de 3&nbsp;000&nbsp;€, dont le siège est 12 rue d'Italie, 06000 Nice, SIRET 106&nbsp;789&nbsp;860&nbsp;00017, RCS Nice, code APE 4942Z, à ses clients particuliers et professionnels.</p>
         <p>LBC Déménagement exerce sous l'attestation de capacité professionnelle en transport routier léger de marchandises n°&nbsp;JME932603100.</p>
         <p>Toute commande implique l'acceptation pleine et entière des présentes CGV. Elles sont remises au client avec le devis et sont consultables à tout moment sur <a href="CGV">lbcdemenagement.com</a>.</p>
       </LBlock>

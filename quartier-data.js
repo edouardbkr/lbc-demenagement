@@ -21,7 +21,7 @@ const QUARTIERS = {
   "vieux-nice": {
     nom: "Vieux-Nice",
     url: "Demenagement-Vieux-Nice",
-    titre: "Déménagement Vieux-Nice : zone piétonne · LBC",
+    titre: "Déménagement Vieux-Nice : zone piétonne · LBC Déménagement",
     description: "Déménagement dans le Vieux-Nice : zone piétonne à bornes escamotables, ruelles sans accès camion, portage systématique. Devis ferme sous 24 h.",
     accroche: "Le quartier le plus contraignant de Nice, et celui où l'improvisation coûte le plus cher.",
     intro: "Déménager dans le Vieux-Nice ne ressemble à aucun autre déménagement niçois. Le quartier est en zone piétonne, l'accès des véhicules est filtré par des bornes escamotables, et une bonne partie des ruelles ne laisse tout simplement pas passer un camion de déménagement. Ajoutez des immeubles anciens, souvent sans ascenseur, avec des cages d'escalier en colimaçon dans lesquelles une armoire ne tourne pas, et vous comprenez pourquoi un déménagement mal préparé ici se termine en journée perdue.",
@@ -55,7 +55,7 @@ const QUARTIERS = {
   "cimiez": {
     nom: "Cimiez",
     url: "Demenagement-Cimiez-Nice",
-    titre: "Déménagement Cimiez : colline et grands volumes · LBC",
+    titre: "Déménagement Cimiez : colline et grands volumes · LBC Déménagement",
     description: "Déménagement à Cimiez : immeubles bourgeois, ascenseurs anciens et étroits, villas des hauteurs. Démontage prévu au devis. Prix ferme sous 24 h.",
     accroche: "De grands volumes, de belles pièces, et une colline qui complique tout.",
     intro: "Cimiez, c'est la colline bourgeoise de Nice : anciens palaces Belle Époque reconvertis en appartements, villas sous les oliviers, grands appartements aux plafonds hauts. Sur le papier, tout est plus confortable qu'en centre-ville. Dans les faits, un déménagement à Cimiez pose trois problèmes différents : les volumes sont importants, le mobilier a souvent de la valeur, et l'accès se fait par des routes en lacets où un semi-remorque n'a rien à faire.",
@@ -89,7 +89,7 @@ const QUARTIERS = {
   "carre-d-or": {
     nom: "Le Carré d'Or",
     url: "Demenagement-Carre-d-Or-Nice",
-    titre: "Déménagement Carré d'Or Nice : monte-meuble · LBC",
+    titre: "Déménagement Carré d'Or Nice : monte-meuble · LBC Déménagement",
     description: "Déménager dans le Carré d'Or à Nice : immeubles haussmanniens, ascenseurs anciens trop étroits, stationnement payant. La méthode et la démarche mairie.",
     accroche: "De beaux immeubles, de petits ascenseurs, et une circulation dense.",
     intro: "Le Carré d'Or, entre la place Masséna, la rue de France et la Promenade des Anglais, concentre les immeubles bourgeois les plus recherchés de Nice. Plafonds hauts, grandes pièces, parquets d'époque. Et, presque systématiquement, un ascenseur d'origine dans lequel une armoire ne rentre pas. C'est le quartier où le monte-meuble se justifie le plus souvent, et où le stationnement se prépare le plus sérieusement.",
@@ -123,7 +123,7 @@ const QUARTIERS = {
   "liberation": {
     nom: "Libération",
     url: "Demenagement-Liberation-Nice",
-    titre: "Déménagement Libération Nice : marché et tram · LBC",
+    titre: "Déménagement Libération Nice : marché et tram · LBC Déménagement",
     description: "Déménager quartier Libération à Nice : contraintes du marché, passage du tramway et stationnement en voirie. La bonne démarche selon votre rue.",
     accroche: "Un quartier vivant, donc un quartier où l'horaire fait tout.",
     intro: "Libération est l'un des quartiers les plus animés de Nice, organisé autour de son marché et traversé par le tramway. C'est un excellent endroit où vivre et un endroit où un déménagement mal calé dans la journée peut devenir compliqué : le matin, l'activité du marché et les livraisons occupent la voirie ; la ligne de tramway impose de ne pas empiéter sur sa plateforme ; et le stationnement est disputé toute la journée.",
@@ -157,7 +157,7 @@ const QUARTIERS = {
   "mont-boron": {
     nom: "Mont Boron",
     url: "Demenagement-Mont-Boron-Nice",
-    titre: "Déménagement Mont Boron Nice : pentes et monte-meuble · LBC",
+    titre: "Déménagement Mont Boron Nice : pentes et monte-meuble · LBC Déménagement",
     description: "Déménager au Mont Boron : routes en lacets, villas en surplomb, monte-meuble presque systématique. La méthode adaptée à chaque accès.",
     accroche: "Le quartier où le monte-meuble n'est pas une option, c'est la méthode.",
     intro: "Le Mont Boron domine la rade de Villefranche et le port de Nice depuis ses lacets. On y trouve des villas en surplomb, des résidences accrochées à la pente et quelques immeubles anciens dont la cage d'escalier n'a jamais été pensée pour un canapé d'angle. C'est le quartier niçois où la question de l'accès prime sur toutes les autres : la distance jusqu'au centre-ville est dérisoire, mais les dix derniers mètres décident de la journée. On y travaille régulièrement et on y arrive équipé, plutôt que d'improviser au pied de la façade.",
@@ -194,7 +194,7 @@ const QUARTIERS = {
   "riquier": {
     nom: "Riquier",
     url: "Demenagement-Riquier-Nice",
-    titre: "Déménagement Riquier Nice : caves et rues étroites · LBC",
+    titre: "Déménagement Riquier Nice : caves et rues étroites · LBC Déménagement",
     description: "Déménager à Riquier : ateliers d'artisans, caves voûtées, immeubles ouvriers sans ascenseur. Les contraintes réelles de l'est niçois.",
     accroche: "Le quartier où l'on déménage autant d'ateliers que d'appartements.",
     intro: "Riquier s'est construit autour du port de commerce et de la gare de marchandises, et cela se voit encore dans ce qu'on y déménage. À côté des appartements du bâti ouvrier, on y charge des ateliers d'artisans, des établis, des machines-outils, des stocks de matériaux. C'est le quartier de Nice où un déménagement pèse le plus lourd au mètre cube, et où la question n'est presque jamais le volume mais le poids et la forme des objets. Les caves voûtées du quartier, elles, réservent souvent la vraie surprise du chantier.",
@@ -234,7 +234,7 @@ const QUARTIERS = {
   "le-port": {
     nom: "Le Port",
     url: "Demenagement-Port-Nice",
-    titre: "Déménagement quartier du Port à Nice · LBC",
+    titre: "Déménagement quartier du Port à Nice · LBC Déménagement",
     description: "Déménager au Port de Nice : rues en pente, immeubles anciens, circulation contrainte autour du bassin. Contraintes concrètes et démarche mairie.",
     accroche: "Entre le bassin et la colline, un quartier magnifique et un accès à préparer.",
     intro: "Le quartier du Port a changé de visage : rénové, recherché, avec ses façades colorées autour du bassin Lympia. C'est aussi un secteur où la circulation est contrainte, où les rues montent vite dès qu'on s'écarte du quai, et où les immeubles anciens n'ont pas tous d'ascenseur. Un déménagement y demande surtout de choisir le bon point de stationnement, ce qui n'est jamais celui qu'on imagine depuis une carte.",

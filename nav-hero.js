@@ -188,7 +188,7 @@ function Hero({
   }) : React.createElement("img", {
     className: "hero-video",
     src: "assets/hero-poster.jpg",
-    alt: "D\xE9m\xE9nageurs LBC prot\xE9geant un canap\xE9 avant transport",
+    alt: "D\xE9m\xE9nageurs LBC D\xE9m\xE9nagement prot\xE9geant un canap\xE9 avant transport",
     width: "960",
     height: "540",
     style: {

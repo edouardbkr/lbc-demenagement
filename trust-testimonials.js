@@ -558,7 +558,7 @@ function ServicesNice() {
     style: {
       marginTop: 14
     }
-  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs professionnels form\xE9e par les fondateurs, et le m\xEAme devis ferme. Un d\xE9m\xE9nagement \xE0 Nice commence toujours par une question : par o\xF9 passe le camion."), React.createElement("div", {
+  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC* d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs professionnels form\xE9e par les fondateurs, et le m\xEAme devis ferme. Un d\xE9m\xE9nagement \xE0 Nice commence toujours par une question : par o\xF9 passe le camion."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -597,7 +597,7 @@ function ServicesNice() {
   }, "Toutes les communes des Alpes-Maritimes \u2192"))));
 }
 function EntrepriseNice() {
-  const G = [["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"], ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"], ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"], ["Une lettre de voiture le jour J", "C'est une obligation légale pour toute entreprise de déménagement : le document qui dit ce qui part, d'où, pour où, et qui engage le transporteur. Nous vous la remettons en deux exemplaires, signée, avant que le camion ne démarre.", "Formules", "Ce que comprend chaque formule"], ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"], ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
+  const G = [["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"], ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"], ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"], ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"], ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
   return React.createElement("section", {
     className: "sec",
     id: "entreprise-nice"
@@ -611,12 +611,12 @@ function EntrepriseNice() {
     className: "asterisk"
   }, "*"), " 04 / Ce qu'on vous doit")), React.createElement("h2", {
     className: "dim-em"
-  }, "Ce qu'une entreprise de d\xE9m\xE9nagement \xE0 Nice vous doit.", React.createElement("br", null), React.createElement("em", null, "Et ce que LBC signe, noir sur blanc."))), React.createElement("p", {
+  }, "Ce qu'une entreprise de d\xE9m\xE9nagement \xE0 Nice vous doit.", React.createElement("br", null), React.createElement("em", null, "Et ce que LBC* signe, noir sur blanc."))), React.createElement("p", {
     className: "lede reveal",
     style: {
       marginTop: 14
     }
-  }, "Beaucoup de soci\xE9t\xE9s de d\xE9m\xE9nagement promettent, peu \xE9crivent. Voil\xE0 les six choses qu'une entreprise de d\xE9m\xE9nagement s\xE9rieuse \xE0 Nice vous doit avant m\xEAme de charger un carton, et o\xF9 les v\xE9rifier chez nous."), React.createElement("div", {
+  }, "Beaucoup de soci\xE9t\xE9s de d\xE9m\xE9nagement promettent, peu \xE9crivent. Voil\xE0 les cinq choses qu'une entreprise de d\xE9m\xE9nagement s\xE9rieuse \xE0 Nice vous doit avant m\xEAme de charger un carton, et o\xF9 les v\xE9rifier chez nous."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -626,7 +626,7 @@ function EntrepriseNice() {
     key: i
   }, React.createElement("div", {
     className: "value-num"
-  }, String(i + 1).padStart(2, "0"), " / 06"), React.createElement("div", {
+  }, String(i + 1).padStart(2, "0"), " / 05"), React.createElement("div", {
     className: "value-title"
   }, t), React.createElement("div", {
     className: "value-body"

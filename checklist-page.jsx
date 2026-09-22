@@ -26,7 +26,7 @@ const CK_GROUPS = [
   "Préparer une boîte « première nuit » (draps, trousse, chargeurs)",
   "Démonter ce qui peut l'être (sauf formule avec démontage)",
   "Charger vos appareils et faire le plein de liquidités",
-  "Confirmer l'heure d'arrivée de l'équipe LBC"] },
+  "Confirmer l'heure d'arrivée de l'équipe LBC*"] },
 
 { t: "Le jour J", k: "jj", items: [
   "Faire un dernier tour de chaque pièce et placard",

@@ -193,7 +193,7 @@ function Hero({ headlineVariant }) {
             <div className="hero-photo-frame">
               {source ?
               <video ref={heroVideoRef} className="hero-video" src={source} poster="assets/hero-poster.jpg" autoPlay muted loop playsInline preload="none" aria-label="LBC Déménagement en intervention" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /> :
-              <img className="hero-video" src="assets/hero-poster.jpg" alt="Déménageurs LBC protégeant un canapé avant transport" width="960" height="540" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />}
+              <img className="hero-video" src="assets/hero-poster.jpg" alt="Déménageurs LBC Déménagement protégeant un canapé avant transport" width="960" height="540" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />}
             </div>
           </div>
         </div>

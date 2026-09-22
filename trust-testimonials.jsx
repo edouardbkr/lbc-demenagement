@@ -430,7 +430,7 @@ function ServicesNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 06 / Nos prestations</div></div>
           <h2 className="dim-em">Une entreprise de déménagement à Nice,<br/><em>pour tout ce qui doit bouger.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Société de déménagement installée rue d'Italie, au cœur de Nice, LBC déménage les particuliers et les entreprises dans toutes les Alpes-Maritimes et à Monaco, avec la même équipe de déménageurs professionnels formée par les fondateurs, et le même devis ferme. Un déménagement à Nice commence toujours par une question : par où passe le camion.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Société de déménagement installée rue d'Italie, au cœur de Nice, LBC* déménage les particuliers et les entreprises dans toutes les Alpes-Maritimes et à Monaco, avec la même équipe de déménageurs professionnels formée par les fondateurs, et le même devis ferme. Un déménagement à Nice commence toujours par une question : par où passe le camion.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {S.map(([t, d, href], i) => (
             <a className="value" href={href} key={i} style={{ textDecoration: "none", color: "inherit" }}>
@@ -460,7 +460,6 @@ function EntrepriseNice() {
     ["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"],
     ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"],
     ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"],
-    ["Une lettre de voiture le jour J", "C'est une obligation légale pour toute entreprise de déménagement : le document qui dit ce qui part, d'où, pour où, et qui engage le transporteur. Nous vous la remettons en deux exemplaires, signée, avant que le camion ne démarre.", "Formules", "Ce que comprend chaque formule"],
     ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"],
     ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
   return (
@@ -468,13 +467,13 @@ function EntrepriseNice() {
       <div className="wrap">
         <div className="sec-head reveal">
           <div><div className="sec-num"><span className="asterisk">*</span> 04 / Ce qu'on vous doit</div></div>
-          <h2 className="dim-em">Ce qu'une entreprise de déménagement à Nice vous doit.<br/><em>Et ce que LBC signe, noir sur blanc.</em></h2>
+          <h2 className="dim-em">Ce qu'une entreprise de déménagement à Nice vous doit.<br/><em>Et ce que LBC* signe, noir sur blanc.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Beaucoup de sociétés de déménagement promettent, peu écrivent. Voilà les six choses qu'une entreprise de déménagement sérieuse à Nice vous doit avant même de charger un carton, et où les vérifier chez nous.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Beaucoup de sociétés de déménagement promettent, peu écrivent. Voilà les cinq choses qu'une entreprise de déménagement sérieuse à Nice vous doit avant même de charger un carton, et où les vérifier chez nous.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {G.map(([t, d, href, lien], i) => (
             <div className="value" key={i}>
-              <div className="value-num">{String(i + 1).padStart(2, "0")} / 06</div>
+              <div className="value-num">{String(i + 1).padStart(2, "0")} / 05</div>
               <div className="value-title">{t}</div>
               <div className="value-body">{d} <a href={href} style={{ color: "var(--accent)", fontWeight: 600 }} target={href.indexOf("http") === 0 ? "_blank" : undefined} rel={href.indexOf("http") === 0 ? "noopener noreferrer" : undefined}>{lien} →</a></div>
             </div>))}

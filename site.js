@@ -899,7 +899,7 @@ function FooterSEO() {
 }
 function FloatWhatsApp() {
   const phone = "33615976577";
-  const msg = encodeURIComponent("Bonjour LBC ! Je souhaite un devis pour mon déménagement.");
+  const msg = encodeURIComponent("Bonjour LBC Déménagement ! Je souhaite un devis pour mon déménagement.");
   return React.createElement("a", {
     className: "wa-float",
     href: "https://wa.me/" + phone + "?text=" + msg,

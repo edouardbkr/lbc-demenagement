@@ -794,7 +794,7 @@ function FooterSEO() {
 
 function FloatWhatsApp() {
   const phone = "33615976577";
-  const msg = encodeURIComponent("Bonjour LBC ! Je souhaite un devis pour mon déménagement.");
+  const msg = encodeURIComponent("Bonjour LBC Déménagement ! Je souhaite un devis pour mon déménagement.");
   return (
     <a className="wa-float" href={"https://wa.me/" + phone + "?text=" + msg} target="_blank" rel="noopener" aria-label="Devis rapide par WhatsApp">
       <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true">

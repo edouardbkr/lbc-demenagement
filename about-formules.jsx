@@ -85,7 +85,7 @@ function About() {
             <div className="about-photo portrait">
               {source ?
               <video ref={aboutVidRef} src={source} poster="assets/about-poster.jpg" autoPlay muted loop playsInline preload="none" aria-label="Déménageurs LBC protégeant le mobilier" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /> :
-              <img src="assets/about-poster.jpg" alt="Déménageurs LBC protégeant le mobilier" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />}
+              <img src="assets/about-poster.jpg" alt="Déménageurs LBC Déménagement protégeant le mobilier" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />}
               <div className="caption">Protection soignée · Nice</div>
             </div>
             <div className="about-photo truck">
@@ -93,8 +93,8 @@ function About() {
               <div className="caption">Emballage soigné</div>
             </div>
             <div className="about-photo detail">
-              <img src="assets/gallery-chargement.jpg" alt="Camion LBC en chargement à Nice" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-              <div className="caption">Camion LBC · Nice</div>
+              <img src="assets/gallery-chargement.jpg" alt="Camion LBC Déménagement en chargement à Nice" loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <div className="caption">Camion LBC* · Nice</div>
             </div>
           </div>
         </div>
