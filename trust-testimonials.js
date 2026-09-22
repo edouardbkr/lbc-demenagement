@@ -402,7 +402,7 @@ function QuartiersNice() {
   }, React.createElement("a", {
     href: "Demenagement-Nice",
     className: "btn btn-ghost"
-  }, "D\xE9m\xE9nagement \xE0 Nice : les dix quartiers, les prix et les d\xE9marches", React.createElement("span", {
+  }, "Les dix quartiers de Nice : prix, acc\xE8s et d\xE9marches", React.createElement("span", {
     className: "arrow"
   }, "\u2192")))));
 }

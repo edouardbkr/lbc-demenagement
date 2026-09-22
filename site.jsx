@@ -751,7 +751,7 @@ function FooterSEO() {
             <h3>Déménager à Nice et autour, avec l'exigence du <span className="ast">*</span>moindre détail</h3>
             <div className="seo-sub first">Nice et les communes voisines</div>
             <div className="seo-cities">
-              <a href="Demenagement-Nice">Déménageur à Nice, quartier par quartier</a>
+              <a href="Demenagement-Nice">Les quartiers de Nice : prix, accès et démarches</a>
               <a href="Demenagement-Saint-Laurent-du-Var">Déménagement Saint-Laurent-du-Var</a>
               <a href="Demenagement-Cagnes-sur-Mer">Déménagement Cagnes-sur-Mer</a>
               <a href="Demenagement-Antibes">Déménagement Antibes</a>

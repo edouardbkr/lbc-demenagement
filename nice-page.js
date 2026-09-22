@@ -118,11 +118,17 @@ function NiceHero() {
     href: "Zones"
   }, "Zones desservies"), " ", React.createElement("span", null, "\u203A"), " ", React.createElement("span", null, "Nice")), React.createElement("h1", null, React.createElement("em", {
     className: "dim-em"
-  }, "D\xE9m\xE9nagement \xE0 Nice"), ", quartier par quartier"), React.createElement("p", {
+  }, "D\xE9m\xE9nagement quartier par quartier"), " \xE0 Nice"), React.createElement("p", {
     className: "lede"
   }, "Nice n'est pas une ville, c'est dix quartiers qui n'ont rien \xE0 voir. Le Vieux-Nice ne se d\xE9m\xE9nage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que \xE7a co\xFBte r\xE9ellement, et quelles d\xE9marches sont \xE0 faire avant le jour J. Pour vos locaux professionnels, tout se passe sur ", React.createElement("a", {
     href: "Entreprise"
-  }, "la page d\xE9di\xE9e aux entreprises"), ". C'est le m\xE9tier d'un d\xE9m\xE9nageur ni\xE7ois : conna\xEEtre chaque quartier avant d'y engager un camion."), React.createElement("div", {
+  }, "la page d\xE9di\xE9e aux entreprises"), ". C'est le m\xE9tier d'un ", React.createElement("a", {
+    href: "/",
+    style: {
+      color: "inherit",
+      textDecoration: "underline"
+    }
+  }, "d\xE9m\xE9nageur \xE0 Nice"), " : conna\xEEtre chaque quartier avant d'y engager un camion."), React.createElement("div", {
     style: {
       display: "flex",
       gap: 10,

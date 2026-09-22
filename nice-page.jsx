@@ -86,8 +86,13 @@ function NiceHero() {
             pour ce mot-là. Le titre disait autre chose que ce que tout le site affirmait.
             L'angle quartier reste : il distingue la page de l'accueil, qui occupe déjà
             « entreprise de déménagement à Nice ». Mais il passe après la requête. */}
-        <h1><em className="dim-em">Déménagement à Nice</em>, quartier par quartier</h1>
-        <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J. Pour vos locaux professionnels, tout se passe sur <a href="Entreprise">la page dédiée aux entreprises</a>. C'est le métier d'un déménageur niçois : connaître chaque quartier avant d'y engager un camion.</p>
+        {/* ⚠️ PLUS « DÉMÉNAGEMENT À NICE » EN TÊTE : c'est la phrase de l'accueil, qui porte
+            « déménageur à Nice » depuis le 22 septembre 2026. Deux pages sur la même phrase,
+            Google en choisit une, souvent la mauvaise, et les liens se partagent : l'accueil
+            sortait à 80, cette page à 82-96, aucune ne montait. Cette page vise les
+            quartiers, les prix et le stationnement ; l'accueil vise le mot de tête. */}
+        <h1><em className="dim-em">Déménagement quartier par quartier</em> à Nice</h1>
+        <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J. Pour vos locaux professionnels, tout se passe sur <a href="Entreprise">la page dédiée aux entreprises</a>. C'est le métier d'un <a href="/" style={{ color: "inherit", textDecoration: "underline" }}>déménageur à Nice</a> : connaître chaque quartier avant d'y engager un camion.</p>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
           <a href="tel:+33615976577" className="btn btn-ghost">06 15 97 65 77</a>
         </div>

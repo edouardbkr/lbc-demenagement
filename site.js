@@ -840,7 +840,7 @@ function FooterSEO() {
     className: "seo-cities"
   }, React.createElement("a", {
     href: "Demenagement-Nice"
-  }, "D\xE9m\xE9nageur \xE0 Nice, quartier par quartier"), React.createElement("a", {
+  }, "Les quartiers de Nice : prix, acc\xE8s et d\xE9marches"), React.createElement("a", {
     href: "Demenagement-Saint-Laurent-du-Var"
   }, "D\xE9m\xE9nagement Saint-Laurent-du-Var"), React.createElement("a", {
     href: "Demenagement-Cagnes-sur-Mer"

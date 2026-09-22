@@ -273,7 +273,7 @@ const ARTICLES = [
         </ul>
 
         <h2>Notre rôle : tout anticiper dès le devis</h2>
-        <p>On repère les contraintes à la visite ou via les informations d'accès du <a href="Devis">formulaire de devis</a>, on commande le bon matériel (monte-meuble, protections, véhicule adapté) et on effectue les démarches administratives. Vous n'avez ni autorisation à courir, ni mauvaise surprise le jour J. Pour les adresses d'exception, voyez aussi notre page <a href="Quartiers">Quartiers d'exception</a> et nos <a href="Zones">zones desservies</a>.</p>
+        <p>On repère les contraintes à la visite ou via les informations d'accès du <a href="Devis">formulaire de devis</a>, on commande le bon matériel (monte-meuble, protections, véhicule adapté) et on effectue les démarches administratives. Vous n'avez ni autorisation à courir, ni mauvaise surprise le jour J. Pour les adresses d'exception, voyez aussi notre page <a href="Demenagement-Nice">Quartiers d'exception</a> et nos <a href="Zones">zones desservies</a>.</p>
       </React.Fragment>
     )
   },

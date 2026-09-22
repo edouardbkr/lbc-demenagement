@@ -323,7 +323,7 @@ function QuartiersNice() {
             </a>))}
         </div>
         <p className="reveal" style={{ marginTop: 22 }}>
-          <a href="Demenagement-Nice" className="btn btn-ghost">Déménagement à Nice : les dix quartiers, les prix et les démarches<span className="arrow">→</span></a>
+          <a href="Demenagement-Nice" className="btn btn-ghost">Les dix quartiers de Nice : prix, accès et démarches<span className="arrow">→</span></a>
         </p>
       </div>
     </section>);
