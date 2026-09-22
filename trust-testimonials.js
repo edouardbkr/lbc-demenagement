@@ -144,27 +144,27 @@ function Testimonials() {
   const quotes = [{
     text: "Tous simplement génial un déménagement c’est toujours stressant. Mais la C’était hyper bien organisé orchestré ponctuelle, arrangeant je recommande fortement il seront sûrement prévu pour mon futur déménagement. Un grand merci",
     name: "Jonathan D.",
-    city: "Avis Google · il y a 5 semaines",
+    city: "Avis Google · il y a 7 semaines",
     id: "g0"
-  }, {
-    text: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!",
-    name: "Karine S.",
-    city: "Avis Google · il y a 5 semaines",
-    id: "g1"
   }, {
     text: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et manipulés avec beaucoup de soin. Le déménagement s'est déroulé rapidement, dans une excellente ambiance, ce qui a rendu cette journée beaucoup moins stressante. Un grand merci pour votre sérieux et votre efficacité. Je recommande cette entreprise sans hésitation !",
     name: "Mari M.",
-    city: "Avis Google · il y a 8 semaines",
+    city: "Avis Google · il y a 2 mois",
+    id: "g1"
+  }, {
+    text: "Je suis très satisfait par le déménagement de mon appartement orchestré par LBC Déménagement, travail sérieux, efficace et soigné et répondant à mes attentes ! je les recommande !",
+    name: "Damien D.",
+    city: "Avis Google · il y a 4 semaines",
     id: "g2"
   }, {
     text: "Excellente prestation lors de mon déménagement l'an passé, merci pour votre professionnalisme et votre engagement !!!",
     name: "Nathalie P.",
-    city: "Avis Google · il y a 6 semaines",
+    city: "Avis Google · il y a 7 semaines",
     id: "g3"
   }, {
-    text: "Une force titanesque et un professionnalisme d'exception. Très bonne adaptation même avec grosses contraintes : chemin sans route, grosse pente, gros escalier... Merci à vous 🙏",
-    name: "Jannick F.",
-    city: "Avis Google · il y a 6 semaines",
+    text: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!",
+    name: "Karine S.",
+    city: "Avis Google · il y a 7 semaines",
     id: "g4"
   }];
   const pinRef = React.useRef(null);

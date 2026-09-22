@@ -819,23 +819,11 @@ const CONSEILS = [{
   label: "Estimer le volume de votre déménagement",
   href: "Article-estimer-volume"
 }, {
-  label: "Déménagement Nice → Paris : prix, délais, organisation",
-  href: "Demenagement-Nice-Paris"
+  label: "Bien choisir sa société de déménagement",
+  href: "Article-choisir-demenageur"
 }, {
   label: "Checklist déménagement longue distance",
   href: "Article-checklist-demenagement-longue-distance"
-}, {
-  label: "Déménagement international depuis Nice",
-  href: "Article-demenagement-international-depuis-nice"
-}, {
-  label: "Villes aux démarches spéciales",
-  href: "Article-villes-demarches-speciales-demenagement"
-}, {
-  label: "Déménagement étudiant à Nice",
-  href: "Article-demenagement-etudiant-nice"
-}, {
-  label: "Bien choisir sa société de déménagement",
-  href: "Article-choisir-demenageur"
 }];
 function FooterSEO() {
   return React.createElement("section", {
@@ -844,16 +832,29 @@ function FooterSEO() {
     className: "wrap"
   }, React.createElement("div", {
     className: "footer-seo-grid"
-  }, React.createElement("div", null, React.createElement("h3", null, "D\xE9m\xE9nager partout sur la ", React.createElement("span", {
+  }, React.createElement("div", null, React.createElement("h3", null, "D\xE9m\xE9nager \xE0 Nice et autour, avec l'exigence du ", React.createElement("span", {
     className: "ast"
-  }, "*"), "C\xF4te d'Azur"), React.createElement("div", {
+  }, "*"), "moindre d\xE9tail"), React.createElement("div", {
     className: "seo-sub first"
-  }, "PACA \xB7 R\xE9gion ni\xE7oise"), React.createElement("div", {
+  }, "Nice et les communes voisines"), React.createElement("div", {
     className: "seo-cities"
-  }, COTE_AZUR.map((c, i) => React.createElement("a", {
-    key: i,
-    href: c[1]
-  }, c[0]))), React.createElement("div", {
+  }, React.createElement("a", {
+    href: "Demenagement-Nice"
+  }, "D\xE9m\xE9nageur \xE0 Nice, quartier par quartier"), React.createElement("a", {
+    href: "Demenagement-Saint-Laurent-du-Var"
+  }, "D\xE9m\xE9nagement Saint-Laurent-du-Var"), React.createElement("a", {
+    href: "Demenagement-Cagnes-sur-Mer"
+  }, "D\xE9m\xE9nagement Cagnes-sur-Mer"), React.createElement("a", {
+    href: "Demenagement-Antibes"
+  }, "D\xE9m\xE9nagement Antibes"), React.createElement("a", {
+    href: "Demenagement-Monaco"
+  }, "D\xE9m\xE9nagement Monaco"), React.createElement("a", {
+    href: "Demenagement-Saint-Jean-Cap-Ferrat"
+  }, "D\xE9m\xE9nagement Saint-Jean-Cap-Ferrat"), React.createElement("a", {
+    href: "Demenagement-Villefranche-sur-Mer"
+  }, "D\xE9m\xE9nagement Villefranche-sur-Mer"), React.createElement("a", {
+    href: "Zones"
+  }, "Toutes les communes desservies \u2192")), React.createElement("div", {
     className: "seo-sub"
   }, "Quartiers de Nice"), React.createElement("div", {
     className: "seo-cities"
@@ -870,42 +871,16 @@ function FooterSEO() {
   }, "D\xE9m\xE9nagement Port de Nice"), React.createElement("a", {
     href: "Demenagement-Riquier-Nice"
   }, "D\xE9m\xE9nagement Riquier"), React.createElement("a", {
-    href: "Quartiers"
-  }, "Tous les quartiers")), React.createElement("div", {
+    href: "Demenagement-Mont-Boron-Nice"
+  }, "D\xE9m\xE9nagement Mont Boron")), React.createElement("div", {
     className: "seo-sub"
-  }, "Longue distance \xB7 France"), React.createElement("div", {
+  }, "Plus loin"), React.createElement("div", {
     className: "seo-cities"
   }, React.createElement("a", {
     href: "Demenagement-Nice-Paris"
   }, "D\xE9m\xE9nagement Nice \u2192 Paris"), React.createElement("a", {
-    href: "Demenagement-Nice-Lyon"
-  }, "D\xE9m\xE9nagement Nice \u2192 Lyon"), React.createElement("a", {
-    href: "Demenagement-Nice-Marseille"
-  }, "D\xE9m\xE9nagement Nice \u2192 Marseille"), React.createElement("a", {
-    href: "Demenagement-Nice-Toulouse"
-  }, "D\xE9m\xE9nagement Nice \u2192 Toulouse"), React.createElement("a", {
-    href: "Demenagement-Nice-Bordeaux"
-  }, "D\xE9m\xE9nagement Nice \u2192 Bordeaux")), React.createElement("div", {
-    className: "seo-sub"
-  }, "D\xE9m\xE9nagement international"), React.createElement("div", {
-    className: "seo-cities"
-  }, React.createElement("a", {
-    href: "Demenagement-Nice-Geneve"
-  }, "Nice \u2192 Gen\xE8ve"), React.createElement("a", {
-    href: "Demenagement-Nice-Lausanne"
-  }, "Nice \u2192 Lausanne"), React.createElement("a", {
-    href: "Demenagement-Nice-Bruxelles"
-  }, "Nice \u2192 Bruxelles"), React.createElement("a", {
-    href: "Demenagement-Nice-Luxembourg"
-  }, "Nice \u2192 Luxembourg"), React.createElement("a", {
-    href: "Demenagement-Nice-Barcelone"
-  }, "Nice \u2192 Barcelone"), React.createElement("a", {
-    href: "Demenagement-Nice-Madrid"
-  }, "Nice \u2192 Madrid"), React.createElement("a", {
-    href: "Demenagement-Nice-Milan"
-  }, "Nice \u2192 Milan"), React.createElement("a", {
-    href: "Demenagement-Nice-Turin"
-  }, "Nice \u2192 Turin"))), React.createElement("div", null, React.createElement("h3", null, "Nos conseils d\xE9m\xE9nagement"), React.createElement("div", {
+    href: "Zones"
+  }, "Longue distance et international \u2192"))), React.createElement("div", null, React.createElement("h3", null, "Nos conseils d\xE9m\xE9nagement"), React.createElement("div", {
     className: "seo-conseils"
   }, CONSEILS.map((c, i) => React.createElement("a", {
     key: i,
@@ -1168,18 +1143,18 @@ function useScrollReveal() {
 }
 const AVIS_VILLE = {
   note: "5,0",
-  nombre: 31,
+  nombre: 32,
   lien: "https://maps.google.com/?cid=16541024533175288818"
 };
 const AVIS_EXTRAITS = [{
   t: "Tous simplement génial un déménagement c’est toujours stressant. Mais la C’était hyper bien organisé orchestré ponctuelle, arrangeant je recommande fortement il…",
   n: "Jonathan D."
 }, {
-  t: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!",
-  n: "Karine S."
-}, {
   t: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et…",
   n: "Mari M."
+}, {
+  t: "Je suis très satisfait par le déménagement de mon appartement orchestré par LBC Déménagement, travail sérieux, efficace et soigné et répondant à mes attentes !…",
+  n: "Damien D."
 }];
 function PreuveVille({
   ville

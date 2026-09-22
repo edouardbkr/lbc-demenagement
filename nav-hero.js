@@ -2,7 +2,7 @@
 (function () {
 const AVIS_GOOGLE = {
   note: "5,0",
-  nombre: 31,
+  nombre: 32,
   lien: "https://maps.google.com/?cid=16541024533175288818"
 };
 function Hero({

@@ -712,6 +712,8 @@ function QuickQuote({ variant = "light" }) {
 }
 
 // ---- SEO footer (cities + conseils) ----
+// ⚠️ COTE_AZUR n'est plus rendue par FooterSEO (voir le commentaire de la fonction). Gardée
+// tant qu'un autre écran peut la lire.
 const COTE_AZUR = [
 ["Déménagement Nice", "Demenagement-Nice"], ["Déménagement Cannes", "Demenagement-Cannes"], ["Déménagement Antibes", "Demenagement-Antibes"], ["Déménagement Monaco", "Demenagement-Monaco"],
 ["Déménagement Menton", "Demenagement-Menton"], ["Déménagement Grasse", "Demenagement-Grasse"], ["Déménagement Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Déménagement Le Cannet", "Demenagement-Le-Cannet"],
@@ -728,29 +730,36 @@ const FRANCE = [];
 
 const CONSEILS = [
 { label: "Estimer le volume de votre déménagement", href: "Article-estimer-volume" },
-{ label: "Déménagement Nice → Paris : prix, délais, organisation", href: "Demenagement-Nice-Paris" },
-{ label: "Checklist déménagement longue distance", href: "Article-checklist-demenagement-longue-distance" },
-{ label: "Déménagement international depuis Nice", href: "Article-demenagement-international-depuis-nice" },
-{ label: "Villes aux démarches spéciales", href: "Article-villes-demarches-speciales-demenagement" },
-{ label: "Déménagement étudiant à Nice", href: "Article-demenagement-etudiant-nice" },
-
-{ label: "Bien choisir sa société de déménagement", href: "Article-choisir-demenageur" }];
+{ label: "Bien choisir sa société de déménagement", href: "Article-choisir-demenageur" },
+{ label: "Checklist déménagement longue distance", href: "Article-checklist-demenagement-longue-distance" }];
 
 
 function FooterSEO() {
+  /* ⚠️ UNE HIÉRARCHIE, PAS UN ANNUAIRE. Ce bloc envoyait 60 à 84 liens depuis le corps de
+     CHAQUE page vers toutes les communes et tous les trajets : Théoule-sur-Mer et Nice
+     recevaient exactement le même poids depuis exactement les mêmes 75 pages. Google ne
+     pouvait rien en déduire sur ce qui compte. Mesuré le 22 septembre 2026 : la page Nice
+     à la position 65, les pages quartiers à 0 impression, aucune commune en première page.
+     Désormais : le siège et les six communes prioritaires, les quartiers de Nice, un seul
+     trajet, trois conseils. La liste complète vit sur la page Zones, qui est faite pour ça,
+     et chaque page ville lie déjà ses voisines dans son corps. */
   return (
     <section className="footer-seo">
       <div className="wrap">
         <div className="footer-seo-grid">
           <div>
-            <h3>Déménager partout sur la <span className="ast">*</span>Côte d'Azur</h3>
-            <div className="seo-sub first">PACA · Région niçoise</div>
+            <h3>Déménager à Nice et autour, avec l'exigence du <span className="ast">*</span>moindre détail</h3>
+            <div className="seo-sub first">Nice et les communes voisines</div>
             <div className="seo-cities">
-              {COTE_AZUR.map((c, i) => <a key={i} href={c[1]}>{c[0]}</a>)}
+              <a href="Demenagement-Nice">Déménageur à Nice, quartier par quartier</a>
+              <a href="Demenagement-Saint-Laurent-du-Var">Déménagement Saint-Laurent-du-Var</a>
+              <a href="Demenagement-Cagnes-sur-Mer">Déménagement Cagnes-sur-Mer</a>
+              <a href="Demenagement-Antibes">Déménagement Antibes</a>
+              <a href="Demenagement-Monaco">Déménagement Monaco</a>
+              <a href="Demenagement-Saint-Jean-Cap-Ferrat">Déménagement Saint-Jean-Cap-Ferrat</a>
+              <a href="Demenagement-Villefranche-sur-Mer">Déménagement Villefranche-sur-Mer</a>
+              <a href="Zones">Toutes les communes desservies →</a>
             </div>
-            {/* Les 6 pages quartier ne recevaient que 1 à 4 liens, tous depuis la page
-                Quartiers que Google n'a jamais crawlée : elles étaient donc hors d'atteinte.
-                Elles sont listées ici, en clair, comme les villes. */}
             <div className="seo-sub">Quartiers de Nice</div>
             <div className="seo-cities">
               <a href="Demenagement-Vieux-Nice">Déménagement Vieux-Nice</a>
@@ -759,26 +768,12 @@ function FooterSEO() {
               <a href="Demenagement-Liberation-Nice">Déménagement Libération</a>
               <a href="Demenagement-Port-Nice">Déménagement Port de Nice</a>
               <a href="Demenagement-Riquier-Nice">Déménagement Riquier</a>
-              <a href="Quartiers">Tous les quartiers</a>
+              <a href="Demenagement-Mont-Boron-Nice">Déménagement Mont Boron</a>
             </div>
-            <div className="seo-sub">Longue distance · France</div>
+            <div className="seo-sub">Plus loin</div>
             <div className="seo-cities">
               <a href="Demenagement-Nice-Paris">Déménagement Nice → Paris</a>
-              <a href="Demenagement-Nice-Lyon">Déménagement Nice → Lyon</a>
-              <a href="Demenagement-Nice-Marseille">Déménagement Nice → Marseille</a>
-              <a href="Demenagement-Nice-Toulouse">Déménagement Nice → Toulouse</a>
-              <a href="Demenagement-Nice-Bordeaux">Déménagement Nice → Bordeaux</a>
-            </div>
-            <div className="seo-sub">Déménagement international</div>
-            <div className="seo-cities">
-              <a href="Demenagement-Nice-Geneve">Nice → Genève</a>
-              <a href="Demenagement-Nice-Lausanne">Nice → Lausanne</a>
-              <a href="Demenagement-Nice-Bruxelles">Nice → Bruxelles</a>
-              <a href="Demenagement-Nice-Luxembourg">Nice → Luxembourg</a>
-              <a href="Demenagement-Nice-Barcelone">Nice → Barcelone</a>
-              <a href="Demenagement-Nice-Madrid">Nice → Madrid</a>
-              <a href="Demenagement-Nice-Milan">Nice → Milan</a>
-              <a href="Demenagement-Nice-Turin">Nice → Turin</a>
+              <a href="Zones">Longue distance et international →</a>
             </div>
           </div>
           <div>
@@ -1032,15 +1027,15 @@ function useScrollReveal() {
    chargent : les pages villes ne chargent ni nav-hero.js ni trust-testimonials.js, donc
    AVIS_GOOGLE et Testimonials ne leur sont pas accessibles. ⚠️ Chaque fichier est isolé
    au build : ce qui n'est pas passé à Object.assign(window, …) en bas n'existe pas ailleurs. */
-const AVIS_VILLE = { note: "5,0", nombre: 31, lien: "https://maps.google.com/?cid=16541024533175288818" };
+const AVIS_VILLE = { note: "5,0", nombre: 32, lien: "https://maps.google.com/?cid=16541024533175288818" };
 
 /* Extraits des avis Google réels relevés le 24 août 2026. Texte du client, non réécrit :
    un visiteur qui va vérifier sur la fiche doit retrouver les mêmes mots. La version
    longue de ces avis est dans trust-testimonials.jsx, pour l'accueil. */
 const AVIS_EXTRAITS = [
   { t: "Tous simplement génial un déménagement c’est toujours stressant. Mais la C’était hyper bien organisé orchestré ponctuelle, arrangeant je recommande fortement il…", n: "Jonathan D." },
-  { t: "Je recommande vivement !!! Travail soigné , efficacité, qualité et gentillesse , ce qui est appréciable aujourd’hui. Très professionnel !!!", n: "Karine S." },
-  { t: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et…", n: "Mari M." }];
+  { t: "Très bonne expérience du début à la fin. L'équipe a été ponctuelle, organisée et très professionnelle. Tous nos meubles ont été parfaitement protégés et…", n: "Mari M." },
+  { t: "Je suis très satisfait par le déménagement de mon appartement orchestré par LBC Déménagement, travail sérieux, efficace et soigné et répondant à mes attentes !…", n: "Damien D." }];
 
 function PreuveVille({ ville }) {
   return (

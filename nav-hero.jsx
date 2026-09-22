@@ -4,7 +4,7 @@
    le 24 août 2026 via l'API Places. À vérifier de temps en temps : une note affichée qui
    ne correspond plus à la fiche se retourne contre nous, c'est le contraire de l'effet
    recherché. Un seul endroit à modifier, ici. */
-const AVIS_GOOGLE = { note: "5,0", nombre: 31, lien: "https://maps.google.com/?cid=16541024533175288818" };
+const AVIS_GOOGLE = { note: "5,0", nombre: 32, lien: "https://maps.google.com/?cid=16541024533175288818" };
 
 function Hero({ headlineVariant }) {
   const headlines = {

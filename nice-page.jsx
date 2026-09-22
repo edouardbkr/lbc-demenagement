@@ -87,7 +87,7 @@ function NiceHero() {
             L'angle quartier reste : il distingue la page de l'accueil, qui occupe déjà
             « entreprise de déménagement à Nice ». Mais il passe après la requête. */}
         <h1><em className="dim-em">Déménagement à Nice</em>, quartier par quartier</h1>
-        <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J. Pour un <a href="Entreprise">déménagement de bureaux à Nice</a>, tout se passe sur la page dédiée.</p>
+        <p className="lede">Nice n'est pas une ville, c'est dix quartiers qui n'ont rien à voir. Le Vieux-Nice ne se déménage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que ça coûte réellement, et quelles démarches sont à faire avant le jour J. Pour vos locaux professionnels, tout se passe sur <a href="Entreprise">la page dédiée aux entreprises</a>.</p>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
           <a href="tel:+33615976577" className="btn btn-ghost">06 15 97 65 77</a>
         </div>

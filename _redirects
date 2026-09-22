@@ -204,3 +204,7 @@
 # Elle totalisait 4 impressions en position 29 sur les 90 derniers jours.
 # Son contenu reste dans l'historique git, rien n'est perdu.
 /Tarifs	/Formules	301
+
+# /en/ n'a jamais existé sur ce site : 16 impressions Google et un 404. Vers l'accueil.
+/en	/	301
+/en/*	/	301

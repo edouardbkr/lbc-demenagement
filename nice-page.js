@@ -120,9 +120,9 @@ function NiceHero() {
     className: "dim-em"
   }, "D\xE9m\xE9nagement \xE0 Nice"), ", quartier par quartier"), React.createElement("p", {
     className: "lede"
-  }, "Nice n'est pas une ville, c'est dix quartiers qui n'ont rien \xE0 voir. Le Vieux-Nice ne se d\xE9m\xE9nage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que \xE7a co\xFBte r\xE9ellement, et quelles d\xE9marches sont \xE0 faire avant le jour J. Pour un ", React.createElement("a", {
+  }, "Nice n'est pas une ville, c'est dix quartiers qui n'ont rien \xE0 voir. Le Vieux-Nice ne se d\xE9m\xE9nage pas comme Fabron, et le Mont Boron encore moins. Cette page dit ce que chacun impose, ce que \xE7a co\xFBte r\xE9ellement, et quelles d\xE9marches sont \xE0 faire avant le jour J. Pour vos locaux professionnels, tout se passe sur ", React.createElement("a", {
     href: "Entreprise"
-  }, "d\xE9m\xE9nagement de bureaux \xE0 Nice"), ", tout se passe sur la page d\xE9di\xE9e."), React.createElement("div", {
+  }, "la page d\xE9di\xE9e aux entreprises"), "."), React.createElement("div", {
     style: {
       display: "flex",
       gap: 10,
