@@ -193,7 +193,7 @@ function NiceStationnement() {
   return (
     <section className="sec"><div className="wrap">
       <NiceSecHead num="03 / Le stationnement" titre="L'autorisation, la démarche" em="et les délais réels." />
-      <p className="lede">C'est le vrai casse-tête niçois, et la première cause de journée perdue. Dès que le camion occupe le domaine public — c'est-à-dire presque partout dans Nice — il faut une autorisation. Trois régimes existent, avec des délais et des services différents. Un déménageur installé à Nice fait ces demandes pour vous, et connaît les délais réels de chaque service.</p>
+      <p className="lede">C'est le vrai casse-tête niçois, et la première cause de journée perdue. Dès que le camion occupe le domaine public — c'est-à-dire presque partout dans Nice — il faut une autorisation. Trois régimes existent, avec des délais et des services différents. Nous faisons ces demandes pour vous, à l'adresse de départ comme à l'arrivée, et nous connaissons les délais réels de chaque service.</p>
       <div className="tarif-tw" style={{ marginTop: 26 }}>
         <table className="tarif-table">
           <thead><tr><th>Ce que vous occupez</th><th>Délai minimum</th><th>Service à contacter</th></tr></thead>

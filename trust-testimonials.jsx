@@ -73,7 +73,7 @@ function Values() {
         {/* La phrase existe pour le mot « déménageur », absent de l'accueil alors que c'est
             la forme la plus tapée (« déménageur nice »). Mesuré le 22 septembre 2026 : 3
             occurrences ici, 6 à 28 chez les concurrents que Google met en avant. */}
-        <p className="lede reveal" style={{ marginTop: 14 }}>Ce qui distingue un déménageur à Nice d'un autre se vérifie avant le jour J : dans le devis, dans l'assurance, et dans l'heure d'arrivée qu'on vous annonce.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Votre déménageur à Nice vous écrit tout avant le jour J : le prix, l'assurance, l'heure d'arrivée. Voilà ce que nous tenons.</p>
 
         <div className="values-grid reveal-stagger">
           {values.map((v, i) => (
@@ -249,7 +249,7 @@ function HomeFaq() {
     {
       cat: "L'équipe",
       items: [
-        { q: "Comment choisir un déménageur à Nice ?", a: "Regardez trois choses. Un devis écrit qui détaille le volume, l'accès et le stationnement, parce qu'à Nice c'est l'accès qui fait le prix, pas les kilomètres. Une assurance nommée au contrat, avec ses plafonds. Et des avis Google récents, que vous pouvez lire vous-même. Un déménageur niçois sérieux vous demandera l'étage, l'ascenseur et la rue avant d'annoncer un chiffre." },
+        { q: "Comment choisir un déménageur à Nice ?", a: "Regardez ce que nous écrivons avant que vous ne signiez : un devis qui détaille le volume, l'accès et le stationnement, l'assurance et ses plafonds dans nos conditions générales, et nos avis Google, publics et récents. Nous vous demandons l'étage, l'ascenseur et la rue avant d'annoncer un chiffre, parce qu'à Nice c'est l'accès qui fait le prix." },
         { q: "Qui vient réellement faire le déménagement ?", a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille." },
         { q: "Êtes-vous une entreprise sérieuse et déclarée ?", a: "Oui : LBC* est une entreprise de déménagement immatriculée, avec SIRET, attestation de capacité de transport, assurance et adresse physique à Nice. Devis écrit, facture en règle, interlocuteur joignable avant, pendant et après." }
       ]
@@ -341,7 +341,7 @@ function QuartiersNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 05 / Nice, quartier par quartier</div></div>
           <h2 className="dim-em">Déménageur à Nice,<br/><em>quartier par quartier.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Un déménagement à Nice ne se passe pas de la même façon dans le Vieux-Nice, où le camion reste aux bornes, et au Mont Boron, où le monte-meuble est presque systématique. C'est ce qui fait un déménageur à Nice : connaître la rue avant d'y engager le camion. Nous connaissons chaque quartier, ses accès et ses règles de stationnement : c'est ce qui fait un devis juste et une journée sans surprise.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Un déménagement à Nice ne se passe pas de la même façon dans le Vieux-Nice, où le camion reste aux bornes, et au Mont Boron, où le monte-meuble est presque systématique. Nous connaissons chaque quartier, ses accès et ses règles de stationnement. C'est ce qui fait un devis juste et une journée sans surprise.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {Q.map(([nom, href, sub], i) => (
             <a className="value" href={href} key={i} style={{ textDecoration: "none", color: "inherit" }}>
@@ -386,7 +386,7 @@ function PrixNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 07 / Les prix</div></div>
           <h2 className="dim-em">Combien coûte un déménageur à Nice.<br/><em>Des fourchettes réelles, pas une promesse.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Ces prix viennent de notre estimateur, calé sur les devis que notre entreprise de déménagement a réellement émis à Nice et dans les Alpes-Maritimes. Ils supposent un accès neutre : rez-de-chaussée ou ascenseur, camion devant la porte. À Nice, c'est l'accès qui fait varier le prix d'un déménagement à Nice, bien plus que les kilomètres : l'étage sans ascenseur, la rue piétonne du Vieux-Nice, le stationnement à réserver en mairie.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Ces prix viennent de notre estimateur, calé sur les devis que notre entreprise de déménagement a réellement émis à Nice et dans les Alpes-Maritimes. Ils supposent un accès neutre : rez-de-chaussée ou ascenseur, camion devant la porte. C'est l'accès qui fait varier le prix d'un déménagement à Nice, bien plus que les kilomètres : l'étage sans ascenseur, la rue piétonne du Vieux-Nice, le stationnement à réserver en mairie.</p>
         <div className="tarif-tw reveal" style={{ marginTop: 26 }}>
           <table className="tarif-table">
             <thead><tr><th>Logement</th><th style={{ textAlign: "right" }}>Standard</th><th style={{ textAlign: "right" }}>Premium</th></tr></thead>
@@ -419,7 +419,7 @@ function ServicesNice() {
     ["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Un déménagement à Nice en appartement, c'est d'abord une cage d'escalier : protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"],
     ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"],
     ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"],
-    ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis, par nos déménageurs professionnels : un monte-meuble ne se trouve pas le matin même.", "Devis"],
+    ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Nous le réservons au moment du devis : un monte-meuble ne se trouve pas le matin même.", "Devis"],
     ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"],
     ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
   const V = [["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Antibes", "Demenagement-Antibes"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Monaco", "Demenagement-Monaco"]];
@@ -430,7 +430,7 @@ function ServicesNice() {
           <div><div className="sec-num"><span className="asterisk">*</span> 06 / Nos prestations</div></div>
           <h2 className="dim-em">Une entreprise de déménagement à Nice,<br/><em>pour tout ce qui doit bouger.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Société de déménagement installée rue d'Italie, au cœur de Nice, LBC* déménage les particuliers et les entreprises dans toutes les Alpes-Maritimes et à Monaco, avec la même équipe de déménageurs professionnels formée par les fondateurs, et le même devis ferme. Un déménagement à Nice commence toujours par une question : par où passe le camion.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Société de déménagement installée rue d'Italie, au cœur de Nice, LBC* déménage les particuliers et les entreprises dans toutes les Alpes-Maritimes et à Monaco, avec la même équipe de déménageurs professionnels formée par les fondateurs, et le même devis ferme. Chaque déménagement à Nice commence pour nous par une question : par où passe le camion.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {S.map(([t, d, href], i) => (
             <a className="value" href={href} key={i} style={{ textDecoration: "none", color: "inherit" }}>
@@ -456,29 +456,35 @@ function ServicesNice() {
    promesse : l'attestation et l'assureur sont dans les CGV, la lettre de voiture est
    remise à chaque chantier, l'encadrement par les fondateurs est sur la page À propos. */
 function EntrepriseNice() {
+  /* ⚠️ ON NE PARLE QUE DE NOUS. La première version de cette section comparait : ce que
+     « les autres » promettent, ce qu'une entreprise « doit », l'attestation de transport.
+     Edouard : « c'est du contenu de merde, ne parle pas des autres sociétés, parle
+     uniquement de nous et de ce qu'on fait de bien ». Chaque carte dit ce que LBC* fait,
+     concrètement, à chaque chantier. Tout est vrai : ce sont les inclusions des formules. */
   const G = [
-    ["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"],
-    ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"],
-    ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"],
-    ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"],
-    ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
+    ["Vos meubles protégés, pièce par pièce", "Couvertures matelassées, housses, film étirable, cartons renforcés pour le fragile. Chaque meuble est protégé avant de quitter la pièce. La vaisselle, les miroirs et les objets précieux voyagent à part, calés et étiquetés.", "Formules", "Ce que comprend chaque formule"],
+    ["Le bon matériel, pour chaque accès", "Diables, sangles, protections d'angles, monte-meuble quand l'escalier ne passe pas, camion adapté à la rue. L'accès est repéré avant le devis, et nous arrivons équipés pour lui, pas pour un immeuble en général.", "Demenagement-Nice", "Les accès, quartier par quartier"],
+    ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort recruté la veille.", "Apropos", "Qui nous sommes"],
+    ["Un prix ferme, écrit ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J. Le prix annoncé est le prix payé, rien ne s'ajoute au moment de charger.", "Devis", "Demander mon devis"],
+    ["Démontage, remontage, mise en place", "Lit, armoire, bureau, bibliothèque : démontés au départ, remontés à l'arrivée, à leur place. Dès la formule Premium, et jusqu'au déballage complet en formule Luxe.", "Formules", "Comparer les formules"],
+    ["L'assurance comprise, et un créneau tenu", "L'assurance multirisque est comprise dans chaque formule. Et l'heure d'arrivée est annoncée à l'heure près, pas « dans la matinée » : vous savez quand nous sonnons.", "FAQ", "Assurance et garanties"]];
   return (
     <section className="sec" id="entreprise-nice">
       <div className="wrap">
         <div className="sec-head reveal">
-          <div><div className="sec-num"><span className="asterisk">*</span> 04 / Ce qu'on vous doit</div></div>
-          <h2 className="dim-em">Ce qu'une entreprise de déménagement à Nice vous doit.<br/><em>Et ce que LBC* signe, noir sur blanc.</em></h2>
+          <div><div className="sec-num"><span className="asterisk">*</span> 04 / Comment nous travaillons</div></div>
+          <h2 className="dim-em">Une entreprise de déménagement à Nice<br/><em>qui soigne chaque détail.</em></h2>
         </div>
-        <p className="lede reveal" style={{ marginTop: 14 }}>Beaucoup de sociétés de déménagement promettent, peu écrivent. Voilà les cinq choses qu'une entreprise de déménagement sérieuse à Nice vous doit avant même de charger un carton, et où les vérifier chez nous.</p>
+        <p className="lede reveal" style={{ marginTop: 14 }}>Chez LBC*, un déménagement à Nice se prépare avant le jour J et se termine quand tout est en place chez vous. Voilà ce que nous faisons, à chaque chantier.</p>
         <div className="values-grid reveal-stagger" style={{ marginTop: 26 }}>
           {G.map(([t, d, href, lien], i) => (
             <div className="value" key={i}>
-              <div className="value-num">{String(i + 1).padStart(2, "0")} / 05</div>
+              <div className="value-num">{String(i + 1).padStart(2, "0")} / 06</div>
               <div className="value-title">{t}</div>
-              <div className="value-body">{d} <a href={href} style={{ color: "var(--accent)", fontWeight: 600 }} target={href.indexOf("http") === 0 ? "_blank" : undefined} rel={href.indexOf("http") === 0 ? "noopener noreferrer" : undefined}>{lien} →</a></div>
+              <div className="value-body">{d} <a href={href} style={{ color: "var(--accent)", fontWeight: 600 }}>{lien} →</a></div>
             </div>))}
         </div>
-        <p className="lede reveal" style={{ marginTop: 22 }}>Voilà ce qui fait, à nos yeux, une entreprise de déménagement à Nice : pas des promesses, des pièces qu'on peut vérifier.</p>
+        <p className="lede reveal" style={{ marginTop: 22 }}>C'est ça, l'exigence du moindre détail : pas une formule, une méthode, appliquée à chaque déménagement à Nice.</p>
       </div>
     </section>);
 }

@@ -330,7 +330,7 @@ function NiceStationnement() {
     em: "et les d\xE9lais r\xE9els."
   }), React.createElement("p", {
     className: "lede"
-  }, "C'est le vrai casse-t\xEAte ni\xE7ois, et la premi\xE8re cause de journ\xE9e perdue. D\xE8s que le camion occupe le domaine public \u2014 c'est-\xE0-dire presque partout dans Nice \u2014 il faut une autorisation. Trois r\xE9gimes existent, avec des d\xE9lais et des services diff\xE9rents. Un d\xE9m\xE9nageur install\xE9 \xE0 Nice fait ces demandes pour vous, et conna\xEEt les d\xE9lais r\xE9els de chaque service."), React.createElement("div", {
+  }, "C'est le vrai casse-t\xEAte ni\xE7ois, et la premi\xE8re cause de journ\xE9e perdue. D\xE8s que le camion occupe le domaine public \u2014 c'est-\xE0-dire presque partout dans Nice \u2014 il faut une autorisation. Trois r\xE9gimes existent, avec des d\xE9lais et des services diff\xE9rents. Nous faisons ces demandes pour vous, \xE0 l'adresse de d\xE9part comme \xE0 l'arriv\xE9e, et nous connaissons les d\xE9lais r\xE9els de chaque service."), React.createElement("div", {
     className: "tarif-tw",
     style: {
       marginTop: 26

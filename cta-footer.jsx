@@ -119,7 +119,7 @@ function CTA() {
               <em>Nous, on l'est <span className="scribble">toujours.</span></em>
             </h2>
             <p className="cta-side">
-              Commencez ici : ces cinq informations suffisent pour démarrer, et c'est un déménageur qui vous rappelle, pas un centre d'appels. On enchaîne ensuite sur les adresses et votre inventaire, et vous obtenez une fourchette de prix immédiate. Deux minutes en tout, sans engagement.
+              Commencez ici : ces cinq informations suffisent pour démarrer, et c'est un déménageur qui vous rappelle. On enchaîne ensuite sur les adresses et votre inventaire, et vous obtenez une fourchette de prix immédiate. Deux minutes en tout, sans engagement.
             </p>
             <p className="cta-side" style={{ marginTop: 16 }}>
               Préférez de vive voix ? <a href="tel:+33615976577">06 15 97 65 77</a><br />

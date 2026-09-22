@@ -733,7 +733,7 @@ const CITIES = {
     }],
     faq: [{
       q: "Comment choisir un déménageur à Nice ?",
-      a: "Un devis écrit qui détaille le volume, l'accès et le stationnement, parce qu'à Nice c'est l'accès qui fait le prix. Une assurance nommée au contrat. Des avis Google récents, lisibles par vous-même. Et un déménageur qui vous demande l'étage, l'ascenseur et la rue avant d'annoncer un chiffre : celui qui ne les demande pas les découvrira le jour J, à vos frais."
+      a: "Regardez ce que nous écrivons avant que vous ne signiez : un devis qui détaille le volume, l'accès et le stationnement, l'assurance et ses plafonds dans nos conditions générales, et nos avis Google, publics et récents. Nous vous demandons l'étage, l'ascenseur et la rue avant d'annoncer un chiffre, parce qu'à Nice c'est l'accès qui fait le prix."
     }, {
       q: "Quel est le prix d'un déménagement à Nice ?",
       a: "Cela dépend d'abord de la formule. Pour un studio en local, comptez 640 à 850 € en Standard et 850 à 1 150 € en Premium. Pour un trois-pièces, 930 à 1 240 € en Standard et 1 240 à 1 860 € en Premium. Pour une maison, 1 930 à 2 750 € et 2 750 à 3 850 €. Ces montants supposent un accès neutre. Un troisième étage sans ascenseur dans le Vieux-Nice et un rez-de-chaussée à Fabron, à volume identique, n'ont pas le même prix — et c'est l'étage, pas le quartier, qui fait la différence."

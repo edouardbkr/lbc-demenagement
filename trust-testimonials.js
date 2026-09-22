@@ -128,7 +128,7 @@ function Values() {
     style: {
       marginTop: 14
     }
-  }, "Ce qui distingue un d\xE9m\xE9nageur \xE0 Nice d'un autre se v\xE9rifie avant le jour J : dans le devis, dans l'assurance, et dans l'heure d'arriv\xE9e qu'on vous annonce."), React.createElement("div", {
+  }, "Votre d\xE9m\xE9nageur \xE0 Nice vous \xE9crit tout avant le jour J : le prix, l'assurance, l'heure d'arriv\xE9e. Voil\xE0 ce que nous tenons."), React.createElement("div", {
     className: "values-grid reveal-stagger"
   }, values.map((v, i) => React.createElement("div", {
     className: "value",
@@ -304,7 +304,7 @@ function HomeFaq() {
     cat: "L'équipe",
     items: [{
       q: "Comment choisir un déménageur à Nice ?",
-      a: "Regardez trois choses. Un devis écrit qui détaille le volume, l'accès et le stationnement, parce qu'à Nice c'est l'accès qui fait le prix, pas les kilomètres. Une assurance nommée au contrat, avec ses plafonds. Et des avis Google récents, que vous pouvez lire vous-même. Un déménageur niçois sérieux vous demandera l'étage, l'ascenseur et la rue avant d'annoncer un chiffre."
+      a: "Regardez ce que nous écrivons avant que vous ne signiez : un devis qui détaille le volume, l'accès et le stationnement, l'assurance et ses plafonds dans nos conditions générales, et nos avis Google, publics et récents. Nous vous demandons l'étage, l'ascenseur et la rue avant d'annoncer un chiffre, parce qu'à Nice c'est l'accès qui fait le prix."
     }, {
       q: "Qui vient réellement faire le déménagement ?",
       a: "Nos équipes, formées et encadrées par les fondateurs Edouard et Anthony. Des professionnels présents du premier au dernier carton — jamais d'inconnu recruté la veille."
@@ -412,7 +412,7 @@ function QuartiersNice() {
     style: {
       marginTop: 14
     }
-  }, "Un d\xE9m\xE9nagement \xE0 Nice ne se passe pas de la m\xEAme fa\xE7on dans le Vieux-Nice, o\xF9 le camion reste aux bornes, et au Mont Boron, o\xF9 le monte-meuble est presque syst\xE9matique. C'est ce qui fait un d\xE9m\xE9nageur \xE0 Nice : conna\xEEtre la rue avant d'y engager le camion. Nous connaissons chaque quartier, ses acc\xE8s et ses r\xE8gles de stationnement : c'est ce qui fait un devis juste et une journ\xE9e sans surprise."), React.createElement("div", {
+  }, "Un d\xE9m\xE9nagement \xE0 Nice ne se passe pas de la m\xEAme fa\xE7on dans le Vieux-Nice, o\xF9 le camion reste aux bornes, et au Mont Boron, o\xF9 le monte-meuble est presque syst\xE9matique. Nous connaissons chaque quartier, ses acc\xE8s et ses r\xE8gles de stationnement. C'est ce qui fait un devis juste et une journ\xE9e sans surprise."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -483,7 +483,7 @@ function PrixNice() {
     style: {
       marginTop: 14
     }
-  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que notre entreprise de d\xE9m\xE9nagement a r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. \xC0 Nice, c'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement \xE0 Nice, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
+  }, "Ces prix viennent de notre estimateur, cal\xE9 sur les devis que notre entreprise de d\xE9m\xE9nagement a r\xE9ellement \xE9mis \xE0 Nice et dans les Alpes-Maritimes. Ils supposent un acc\xE8s neutre : rez-de-chauss\xE9e ou ascenseur, camion devant la porte. C'est l'acc\xE8s qui fait varier le prix d'un d\xE9m\xE9nagement \xE0 Nice, bien plus que les kilom\xE8tres : l'\xE9tage sans ascenseur, la rue pi\xE9tonne du Vieux-Nice, le stationnement \xE0 r\xE9server en mairie."), React.createElement("div", {
     className: "tarif-tw reveal",
     style: {
       marginTop: 26
@@ -538,7 +538,7 @@ function PrixNice() {
   }, "\u2192")))));
 }
 function ServicesNice() {
-  const S = [["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Un déménagement à Nice en appartement, c'est d'abord une cage d'escalier : protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"], ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"], ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"], ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Il se réserve au devis, par nos déménageurs professionnels : un monte-meuble ne se trouve pas le matin même.", "Devis"], ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"], ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
+  const S = [["Déménagement d'appartement à Nice", "Du studio au cinq pièces, avec ou sans ascenseur. Un déménagement à Nice en appartement, c'est d'abord une cage d'escalier : protection du mobilier, démontage et remontage compris dès la formule Premium.", "Formules"], ["Déménagement de maison et de villa", "Cimiez, Mont Boron, les collines niçoises : monte-meuble, allées privées et gros volumes, chiffrés au devis, pas découverts le jour J.", "Demenagement-Nice"], ["Déménagement d'entreprise et de bureaux", "Plan d'implantation, informatique étiquetée poste par poste, travail le week-end ou en soirée pour ne pas arrêter l'activité.", "Entreprise"], ["Monte-meuble à Nice", "Pour les étages sans ascenseur et les fenêtres étroites du centre. Nous le réservons au moment du devis : un monte-meuble ne se trouve pas le matin même.", "Devis"], ["Emballage et cartons", "Le matériel de protection est fourni dans toutes les formules. En formule Luxe, nos déménageurs emballent tout au départ et déballent tout à l'arrivée.", "Formules"], ["Longue distance et international depuis Nice", "Paris, Lyon, Genève, Milan, Barcelone : un seul interlocuteur du chargement à la livraison, et un créneau d'arrivée annoncé.", "Zones"]];
   const V = [["Saint-Laurent-du-Var", "Demenagement-Saint-Laurent-du-Var"], ["Cagnes-sur-Mer", "Demenagement-Cagnes-sur-Mer"], ["Antibes", "Demenagement-Antibes"], ["Villefranche-sur-Mer", "Demenagement-Villefranche-sur-Mer"], ["Saint-Jean-Cap-Ferrat", "Demenagement-Saint-Jean-Cap-Ferrat"], ["Monaco", "Demenagement-Monaco"]];
   return React.createElement("section", {
     className: "sec",
@@ -558,7 +558,7 @@ function ServicesNice() {
     style: {
       marginTop: 14
     }
-  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC* d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs professionnels form\xE9e par les fondateurs, et le m\xEAme devis ferme. Un d\xE9m\xE9nagement \xE0 Nice commence toujours par une question : par o\xF9 passe le camion."), React.createElement("div", {
+  }, "Soci\xE9t\xE9 de d\xE9m\xE9nagement install\xE9e rue d'Italie, au c\u0153ur de Nice, LBC* d\xE9m\xE9nage les particuliers et les entreprises dans toutes les Alpes-Maritimes et \xE0 Monaco, avec la m\xEAme \xE9quipe de d\xE9m\xE9nageurs professionnels form\xE9e par les fondateurs, et le m\xEAme devis ferme. Chaque d\xE9m\xE9nagement \xE0 Nice commence pour nous par une question : par o\xF9 passe le camion."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -597,7 +597,7 @@ function ServicesNice() {
   }, "Toutes les communes des Alpes-Maritimes \u2192"))));
 }
 function EntrepriseNice() {
-  const G = [["Une attestation de capacité de transport", "Sans elle, une entreprise de déménagement transporte vos affaires hors la loi, et son assurance ne vous couvre pas. La nôtre porte le numéro JME932603100 : elle figure sur chaque devis et dans nos conditions générales.", "CGV", "Lire nos conditions générales"], ["Un devis écrit, ferme, ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J, et le prix annoncé est le prix payé. Une société de déménagement qui chiffre au téléphone découvre l'escalier le jour J, à vos frais.", "Devis", "Demander mon devis"], ["Une assurance nommée, avec ses plafonds", "L'assurance multirisque est comprise dans chaque formule ; l'assureur et les plafonds sont écrits dans nos conditions générales, jointes au devis. « On est assurés », sans contrat nommé, ne vous dit rien.", "CGV", "Voir l'assurance"], ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort inconnu recruté la veille.", "Apropos", "Qui nous sommes"], ["Des avis publics, lisibles avant de signer", "Nos avis Google sont publiés par nos clients, sous leur nom, et vous pouvez les lire avant de nous appeler. Une entreprise de déménagement à Nice se juge sur ce qu'en disent ceux qu'elle a déménagés.", "https://maps.google.com/?cid=16541024533175288818", "Lire les avis sur Google"]];
+  const G = [["Vos meubles protégés, pièce par pièce", "Couvertures matelassées, housses, film étirable, cartons renforcés pour le fragile. Chaque meuble est protégé avant de quitter la pièce. La vaisselle, les miroirs et les objets précieux voyagent à part, calés et étiquetés.", "Formules", "Ce que comprend chaque formule"], ["Le bon matériel, pour chaque accès", "Diables, sangles, protections d'angles, monte-meuble quand l'escalier ne passe pas, camion adapté à la rue. L'accès est repéré avant le devis, et nous arrivons équipés pour lui, pas pour un immeuble en général.", "Demenagement-Nice", "Les accès, quartier par quartier"], ["Une équipe formée, encadrée, présente", "Nos déménageurs sont formés et encadrés par les fondateurs, Edouard et Anthony, présents du premier au dernier carton. Pas de renfort recruté la veille.", "Apropos", "Qui nous sommes"], ["Un prix ferme, écrit ligne par ligne", "Volume, étage, accès, stationnement, monte-meuble : tout est chiffré avant le jour J. Le prix annoncé est le prix payé, rien ne s'ajoute au moment de charger.", "Devis", "Demander mon devis"], ["Démontage, remontage, mise en place", "Lit, armoire, bureau, bibliothèque : démontés au départ, remontés à l'arrivée, à leur place. Dès la formule Premium, et jusqu'au déballage complet en formule Luxe.", "Formules", "Comparer les formules"], ["L'assurance comprise, et un créneau tenu", "L'assurance multirisque est comprise dans chaque formule. Et l'heure d'arrivée est annoncée à l'heure près, pas « dans la matinée » : vous savez quand nous sonnons.", "FAQ", "Assurance et garanties"]];
   return React.createElement("section", {
     className: "sec",
     id: "entreprise-nice"
@@ -609,14 +609,14 @@ function EntrepriseNice() {
     className: "sec-num"
   }, React.createElement("span", {
     className: "asterisk"
-  }, "*"), " 04 / Ce qu'on vous doit")), React.createElement("h2", {
+  }, "*"), " 04 / Comment nous travaillons")), React.createElement("h2", {
     className: "dim-em"
-  }, "Ce qu'une entreprise de d\xE9m\xE9nagement \xE0 Nice vous doit.", React.createElement("br", null), React.createElement("em", null, "Et ce que LBC* signe, noir sur blanc."))), React.createElement("p", {
+  }, "Une entreprise de d\xE9m\xE9nagement \xE0 Nice", React.createElement("br", null), React.createElement("em", null, "qui soigne chaque d\xE9tail."))), React.createElement("p", {
     className: "lede reveal",
     style: {
       marginTop: 14
     }
-  }, "Beaucoup de soci\xE9t\xE9s de d\xE9m\xE9nagement promettent, peu \xE9crivent. Voil\xE0 les cinq choses qu'une entreprise de d\xE9m\xE9nagement s\xE9rieuse \xE0 Nice vous doit avant m\xEAme de charger un carton, et o\xF9 les v\xE9rifier chez nous."), React.createElement("div", {
+  }, "Chez LBC*, un d\xE9m\xE9nagement \xE0 Nice se pr\xE9pare avant le jour J et se termine quand tout est en place chez vous. Voil\xE0 ce que nous faisons, \xE0 chaque chantier."), React.createElement("div", {
     className: "values-grid reveal-stagger",
     style: {
       marginTop: 26
@@ -626,7 +626,7 @@ function EntrepriseNice() {
     key: i
   }, React.createElement("div", {
     className: "value-num"
-  }, String(i + 1).padStart(2, "0"), " / 05"), React.createElement("div", {
+  }, String(i + 1).padStart(2, "0"), " / 06"), React.createElement("div", {
     className: "value-title"
   }, t), React.createElement("div", {
     className: "value-body"
@@ -635,15 +635,13 @@ function EntrepriseNice() {
     style: {
       color: "var(--accent)",
       fontWeight: 600
-    },
-    target: href.indexOf("http") === 0 ? "_blank" : undefined,
-    rel: href.indexOf("http") === 0 ? "noopener noreferrer" : undefined
+    }
   }, lien, " \u2192"))))), React.createElement("p", {
     className: "lede reveal",
     style: {
       marginTop: 22
     }
-  }, "Voil\xE0 ce qui fait, \xE0 nos yeux, une entreprise de d\xE9m\xE9nagement \xE0 Nice : pas des promesses, des pi\xE8ces qu'on peut v\xE9rifier.")));
+  }, "C'est \xE7a, l'exigence du moindre d\xE9tail : pas une formule, une m\xE9thode, appliqu\xE9e \xE0 chaque d\xE9m\xE9nagement \xE0 Nice.")));
 }
 Object.assign(window, {
   Values,
